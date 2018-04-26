@@ -9,20 +9,33 @@ using System.Windows.Forms;
 
 namespace KryptonToolkitUpdater.Classes
 {
+    /// <summary>
+    /// Various methods that are not attached to anything.
+    /// </summary>
     public class Utilities
     {
         #region Variables
         UpdaterSettingsHelper updaterSettingsHelper = new UpdaterSettingsHelper();
+
+        ThemeSettingsHelper themeSettingsHelper = new ThemeSettingsHelper();
         #endregion
 
-        #region Constructor
+        #region Constructor        
+        /// <summary>
+        /// Initialises a new instance of the <see cref="Utilities"/> class.
+        /// </summary>
         public Utilities()
         {
 
         }
         #endregion
 
-        #region Methods
+        #region Methods        
+        /// <summary>
+        /// Explores the file.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
+        /// <returns></returns>
         public bool ExploreFile(string filePath)
         {
             if (!File.Exists(filePath))
@@ -94,6 +107,10 @@ namespace KryptonToolkitUpdater.Classes
             }
         }
 
+        /// <summary>
+        /// Sets the state of the internet connection.
+        /// </summary>
+        /// <param name="state">The state.</param>
         public void SetInternetConnectionState(InternetConnectionState state)
         {
             switch (state)
@@ -104,19 +121,38 @@ namespace KryptonToolkitUpdater.Classes
                 case InternetConnectionState.NOTCONNECTED:
                     updaterSettingsHelper.SetIsConnectedToTheInternet(false);
                     break;
-                case InternetConnectionState.LIMITEDCONNECIVITY:
+                case InternetConnectionState.LIMITEDCONNECTIVITY:
                     break;
             }
 
             updaterSettingsHelper.SaveUpdaterSettings();
         }
 
+        /// <summary>
+        /// Gets the internet protocol address.
+        /// </summary>
+        /// <param name="pingURL">The ping URL.</param>
+        /// <returns></returns>
         public string GetInternetProtocolAddress(string pingURL)
         {
             IPAddress[] addresses = Dns.GetHostAddresses(pingURL);
 
             return addresses.ToString();
         }
+
+        //public KryptonTheme GetCurrentKryptonTheme()
+        //{
+        //    KryptonTheme currentTheme, tempTheme;
+
+        //    if (themeSettingsHelper.GetUseCustomTheme())
+        //    {
+        //        tempTheme = KryptonTheme.CUSTOM;
+        //    }
+
+        //    currentTheme = tempTheme;
+
+        //    return currentTheme;
+        //}
         #endregion
     }
 }

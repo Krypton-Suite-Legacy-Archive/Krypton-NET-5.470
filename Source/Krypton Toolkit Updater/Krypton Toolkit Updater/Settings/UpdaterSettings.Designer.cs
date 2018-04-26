@@ -142,5 +142,16 @@ namespace KryptonToolkitUpdater.Settings {
                 this["PingAddress"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime DateOfLastCheck {
+            get {
+                return ((global::System.DateTime)(this["DateOfLastCheck"]));
+            }
+            set {
+                this["DateOfLastCheck"] = value;
+            }
+        }
     }
 }

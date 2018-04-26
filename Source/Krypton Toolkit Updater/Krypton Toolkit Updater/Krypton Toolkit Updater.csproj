@@ -76,9 +76,11 @@
     <Compile Include="Classes\ControlController.cs" />
     <Compile Include="Classes\ThemeSettingsHelper.cs" />
     <Compile Include="Classes\ThemingManager.cs" />
+    <Compile Include="Classes\UpdaterLogic.cs" />
     <Compile Include="Classes\UpdaterSettingsHelper.cs" />
     <Compile Include="Classes\Utilities.cs" />
     <Compile Include="Enumerations\Enumerations.cs" />
+    <Compile Include="Classes\GlobalSuppressions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\ThemeSettings.Designer.cs">
@@ -102,11 +104,23 @@
     <Compile Include="UI\DownloadUpdateForm.Designer.cs">
       <DependentUpon>DownloadUpdateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\RemindMeLaterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RemindMeLaterForm.Designer.cs">
+      <DependentUpon>RemindMeLaterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\UpdateDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\UpdateDetailsForm.Designer.cs">
       <DependentUpon>UpdateDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UpdatePackageDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UpdatePackageDetails.Designer.cs">
+      <DependentUpon>UpdatePackageDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\UpdaterMainForm.cs">
       <SubType>Form</SubType>
@@ -133,8 +147,14 @@
     <EmbeddedResource Include="UI\DownloadUpdateForm.resx">
       <DependentUpon>DownloadUpdateForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\RemindMeLaterForm.resx">
+      <DependentUpon>RemindMeLaterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\UpdateDetailsForm.resx">
       <DependentUpon>UpdateDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UpdatePackageDetails.resx">
+      <DependentUpon>UpdatePackageDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\UpdaterMainForm.resx">
       <DependentUpon>UpdaterMainForm.cs</DependentUpon>
@@ -194,6 +214,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\settings.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clock.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

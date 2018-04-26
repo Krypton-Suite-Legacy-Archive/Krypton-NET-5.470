@@ -15,5 +15,12 @@ namespace KryptonToolkitUpdater.UI
         {
             InitializeComponent();
         }
+
+        private void kbtnRemindMeLater_Click(object sender, System.EventArgs e)
+        {
+            RemindMeLaterForm remindMeLater = new RemindMeLaterForm();
+
+            remindMeLater.Show();
+        }
     }
 }

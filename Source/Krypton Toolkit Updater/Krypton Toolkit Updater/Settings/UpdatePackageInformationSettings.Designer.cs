@@ -22,5 +22,185 @@ namespace KryptonToolkitUpdater.Settings {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ChangelogURL {
+            get {
+                return ((string)(this["ChangelogURL"]));
+            }
+            set {
+                this["ChangelogURL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CurrentVersion {
+            get {
+                return ((string)(this["CurrentVersion"]));
+            }
+            set {
+                this["CurrentVersion"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DownloadURL {
+            get {
+                return ((string)(this["DownloadURL"]));
+            }
+            set {
+                this["DownloadURL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ServerVersion {
+            get {
+                return ((string)(this["ServerVersion"]));
+            }
+            set {
+                this["ServerVersion"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string FileName {
+            get {
+                return ((string)(this["FileName"]));
+            }
+            set {
+                this["FileName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string FileSize {
+            get {
+                return ((string)(this["FileSize"]));
+            }
+            set {
+                this["FileSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string XMLUpdatePath {
+            get {
+                return ((string)(this["XMLUpdatePath"]));
+            }
+            set {
+                this["XMLUpdatePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MD5CheckSum {
+            get {
+                return ((string)(this["MD5CheckSum"]));
+            }
+            set {
+                this["MD5CheckSum"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SHA1CheckSum {
+            get {
+                return ((string)(this["SHA1CheckSum"]));
+            }
+            set {
+                this["SHA1CheckSum"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SHA256CheckSum {
+            get {
+                return ((string)(this["SHA256CheckSum"]));
+            }
+            set {
+                this["SHA256CheckSum"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SHA384CheckSum {
+            get {
+                return ((string)(this["SHA384CheckSum"]));
+            }
+            set {
+                this["SHA384CheckSum"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SHA512CheckSum {
+            get {
+                return ((string)(this["SHA512CheckSum"]));
+            }
+            set {
+                this["SHA512CheckSum"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string RIPEMD160CheckSum {
+            get {
+                return ((string)(this["RIPEMD160CheckSum"]));
+            }
+            set {
+                this["RIPEMD160CheckSum"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string VirusTotalURL {
+            get {
+                return ((string)(this["VirusTotalURL"]));
+            }
+            set {
+                this["VirusTotalURL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool BetaFlag {
+            get {
+                return ((bool)(this["BetaFlag"]));
+            }
+            set {
+                this["BetaFlag"] = value;
+            }
+        }
     }
 }

@@ -7,7 +7,11 @@ using System.Windows.Forms;
 
 namespace KryptonToolkitUpdater.UI
 {
-    public partial class UpdaterOptionsForm : KryptonForm
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="ComponentFactory.Krypton.Toolkit.KryptonForm" />
+    internal partial class UpdaterOptionsForm : KryptonForm
     {
         #region Variables
         bool _settingsChanged;

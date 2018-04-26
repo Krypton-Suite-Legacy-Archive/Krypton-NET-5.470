@@ -99,8 +99,44 @@
     /// </summary>
     public enum InternetConnectionState
     {
+        /// <summary>
+        /// The connected state.
+        /// </summary>
         CONNECTED = 20,
+        /// <summary>
+        /// The not connected state.
+        /// </summary>
         NOTCONNECTED = 21,
-        LIMITEDCONNECIVITY = 22
+        /// <summary>
+        /// The limited connectivity state.
+        /// </summary>
+        LIMITEDCONNECTIVITY = 22
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public enum RemindLaterFormat
+    {
+        /// <summary>
+        /// The minutes time span.
+        /// </summary>
+        MINUTES = 23,
+        /// <summary>
+        /// The hours time span.
+        /// </summary>
+        HOURS = 24,
+        /// <summary>
+        /// The days time span.
+        /// </summary>
+        DAYS = 25,
+        /// <summary>
+        /// The weeks time span.
+        /// </summary>
+        WEEKS = 26,
+        /// <summary>
+        /// The months time span.
+        /// </summary>
+        MONTHS = 27
     }
 }

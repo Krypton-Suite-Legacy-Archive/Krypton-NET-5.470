@@ -31,24 +31,22 @@
             this.components = new System.ComponentModel.Container();
             this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kpnlBackground = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.klblVersionInformation = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.klblPackageInformation = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.wbChangelog = new System.Windows.Forms.WebBrowser();
-            this.kbtnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kbtnDownloadUpdate = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kbtnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.wbChangelog = new System.Windows.Forms.WebBrowser();
+            this.klblPackageInformation = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.klblVersionInformation = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.kbtnRemindMeLater = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kpnlBackground)).BeginInit();
             this.kpnlBackground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // kryptonManager1
-            // 
-            this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Blue;
-            // 
             // kpnlBackground
             // 
+            this.kpnlBackground.Controls.Add(this.kbtnRemindMeLater);
             this.kpnlBackground.Controls.Add(this.kbtnDownloadUpdate);
             this.kpnlBackground.Controls.Add(this.kbtnCancel);
             this.kpnlBackground.Controls.Add(this.wbChangelog);
@@ -62,6 +60,59 @@
             this.kpnlBackground.Size = new System.Drawing.Size(869, 741);
             this.kpnlBackground.TabIndex = 0;
             // 
+            // kbtnDownloadUpdate
+            // 
+            this.kbtnDownloadUpdate.Location = new System.Drawing.Point(594, 704);
+            this.kbtnDownloadUpdate.Name = "kbtnDownloadUpdate";
+            this.kbtnDownloadUpdate.Size = new System.Drawing.Size(167, 25);
+            this.kbtnDownloadUpdate.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kbtnDownloadUpdate.TabIndex = 7;
+            this.kbtnDownloadUpdate.Values.Text = "&Download Update";
+            // 
+            // kbtnCancel
+            // 
+            this.kbtnCancel.Location = new System.Drawing.Point(767, 704);
+            this.kbtnCancel.Name = "kbtnCancel";
+            this.kbtnCancel.Size = new System.Drawing.Size(90, 25);
+            this.kbtnCancel.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kbtnCancel.TabIndex = 6;
+            this.kbtnCancel.Values.Text = "&Cancel";
+            // 
+            // wbChangelog
+            // 
+            this.wbChangelog.Location = new System.Drawing.Point(275, 218);
+            this.wbChangelog.MinimumSize = new System.Drawing.Size(20, 20);
+            this.wbChangelog.Name = "wbChangelog";
+            this.wbChangelog.Size = new System.Drawing.Size(582, 480);
+            this.wbChangelog.TabIndex = 5;
+            // 
+            // klblPackageInformation
+            // 
+            this.klblPackageInformation.Location = new System.Drawing.Point(275, 168);
+            this.klblPackageInformation.Name = "klblPackageInformation";
+            this.klblPackageInformation.Size = new System.Drawing.Size(272, 26);
+            this.klblPackageInformation.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.klblPackageInformation.TabIndex = 4;
+            this.klblPackageInformation.Values.Text = "Package size: {0} Release date: {1}";
+            // 
+            // klblVersionInformation
+            // 
+            this.klblVersionInformation.Location = new System.Drawing.Point(275, 100);
+            this.klblVersionInformation.Name = "klblVersionInformation";
+            this.klblVersionInformation.Size = new System.Drawing.Size(285, 26);
+            this.klblVersionInformation.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.klblVersionInformation.TabIndex = 3;
+            this.klblVersionInformation.Values.Text = "Your version: {0} Server version: {1}";
+            // 
+            // kryptonLabel1
+            // 
+            this.kryptonLabel1.Location = new System.Drawing.Point(275, 13);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(527, 55);
+            this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel1.TabIndex = 2;
+            this.kryptonLabel1.Values.Text = "A new Krypton Toolkit update package is now available. \r\nDownload now?";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -73,68 +124,15 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // kryptonLabel1
+            // kbtnRemindMeLater
             // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(275, 13);
-            this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(527, 55);
-            this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel1.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.kryptonLabel1.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
-            this.kryptonLabel1.TabIndex = 2;
-            this.kryptonLabel1.Values.Text = "A new Krypton Toolkit update package is now available. \r\nDownload now?";
-            // 
-            // klblVersionInformation
-            // 
-            this.klblVersionInformation.Location = new System.Drawing.Point(275, 100);
-            this.klblVersionInformation.Name = "klblVersionInformation";
-            this.klblVersionInformation.Size = new System.Drawing.Size(285, 26);
-            this.klblVersionInformation.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.klblVersionInformation.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.klblVersionInformation.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
-            this.klblVersionInformation.TabIndex = 3;
-            this.klblVersionInformation.Values.Text = "Your version: {0} Server version: {1}";
-            // 
-            // klblPackageInformation
-            // 
-            this.klblPackageInformation.Location = new System.Drawing.Point(275, 168);
-            this.klblPackageInformation.Name = "klblPackageInformation";
-            this.klblPackageInformation.Size = new System.Drawing.Size(272, 26);
-            this.klblPackageInformation.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.klblPackageInformation.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.klblPackageInformation.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
-            this.klblPackageInformation.TabIndex = 4;
-            this.klblPackageInformation.Values.Text = "Package size: {0} Release date: {1}";
-            // 
-            // wbChangelog
-            // 
-            this.wbChangelog.Location = new System.Drawing.Point(275, 218);
-            this.wbChangelog.MinimumSize = new System.Drawing.Size(20, 20);
-            this.wbChangelog.Name = "wbChangelog";
-            this.wbChangelog.Size = new System.Drawing.Size(582, 480);
-            this.wbChangelog.TabIndex = 5;
-            // 
-            // kbtnCancel
-            // 
-            this.kbtnCancel.Location = new System.Drawing.Point(767, 704);
-            this.kbtnCancel.Name = "kbtnCancel";
-            this.kbtnCancel.Size = new System.Drawing.Size(90, 25);
-            this.kbtnCancel.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kbtnCancel.StateCommon.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.kbtnCancel.StateCommon.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
-            this.kbtnCancel.TabIndex = 6;
-            this.kbtnCancel.Values.Text = "&Cancel";
-            // 
-            // kbtnDownloadUpdate
-            // 
-            this.kbtnDownloadUpdate.Location = new System.Drawing.Point(594, 704);
-            this.kbtnDownloadUpdate.Name = "kbtnDownloadUpdate";
-            this.kbtnDownloadUpdate.Size = new System.Drawing.Size(167, 25);
-            this.kbtnDownloadUpdate.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kbtnDownloadUpdate.StateCommon.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.kbtnDownloadUpdate.StateCommon.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
-            this.kbtnDownloadUpdate.TabIndex = 7;
-            this.kbtnDownloadUpdate.Values.Text = "&Download Update";
+            this.kbtnRemindMeLater.Location = new System.Drawing.Point(12, 704);
+            this.kbtnRemindMeLater.Name = "kbtnRemindMeLater";
+            this.kbtnRemindMeLater.Size = new System.Drawing.Size(144, 25);
+            this.kbtnRemindMeLater.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kbtnRemindMeLater.TabIndex = 16;
+            this.kbtnRemindMeLater.Values.Text = "&Remind Me Later";
+            this.kbtnRemindMeLater.Click += new System.EventHandler(this.kbtnRemindMeLater_Click);
             // 
             // UpdateDetailsForm
             // 
@@ -166,5 +164,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnDownloadUpdate;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnCancel;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnRemindMeLater;
     }
 }

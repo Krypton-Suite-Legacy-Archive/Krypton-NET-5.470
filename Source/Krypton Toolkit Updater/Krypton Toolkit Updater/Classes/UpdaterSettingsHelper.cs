@@ -211,6 +211,26 @@ namespace KryptonToolkitUpdater.Classes
         }
         #endregion
 
+        #region Date & Time
+        /// <summary>
+        /// Sets the DateOfLastCheck to the value of value.
+        /// </summary>
+        /// <param name="value">The desired value of DateOfLastCheck.</param>
+        public void SetDateOfLastCheck(DateTime value)
+        {
+            updaterSettings.DateOfLastCheck = value;
+        }
+
+        /// <summary>
+        /// Returns the value of the DateOfLastCheck.
+        /// </summary>
+        /// <returns>The value of the DateOfLastCheck.</returns>
+        public DateTime GetDateOfLastCheck()
+        {
+            return updaterSettings.DateOfLastCheck;
+        }
+        #endregion
+
         #endregion
 
         #region Methods
@@ -273,6 +293,8 @@ namespace KryptonToolkitUpdater.Classes
                     SetPingAddress(string.Empty);
 
                     SaveUpdaterSettings(false);
+
+                    SetDateOfLastCheck(DateTime.Now);
                 }
             }
             else
@@ -303,6 +325,8 @@ namespace KryptonToolkitUpdater.Classes
                 SetPingAddress(string.Empty);
 
                 SaveUpdaterSettings(false);
+
+                SetDateOfLastCheck(DateTime.Now);
             }
         }
         #endregion
