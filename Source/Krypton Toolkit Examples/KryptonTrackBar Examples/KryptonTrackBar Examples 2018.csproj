@@ -10,7 +10,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>KryptonTrackBarExamples</RootNamespace>
-    <AssemblyName>KryptonTrackBarExamples</AssemblyName>
+    <AssemblyName>Krypton TrackBar Examples</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ApplicationIcon>Krypton.ico</ApplicationIcon>
@@ -41,7 +41,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\Bin\Versions\4.7\Any CPU\Krypton Toolkit Examples</OutputPath>
+    <OutputPath>..\..\..\Binaries\Versions\4.70\Krypton Toolkit Examples</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -51,7 +51,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\..\..\Bin\Versions\4.7\Any CPU\Krypton Toolkit Examples</OutputPath>
+    <OutputPath>..\..\..\Binaries\Versions\4.70\Krypton Toolkit Examples</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -60,10 +60,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ComponentFactory.Krypton.Design">
-      <HintPath>..\..\..\..\..\Bin\Versions\4.7\Any CPU\Krypton Core Components\ComponentFactory.Krypton.Design.dll</HintPath>
+      <HintPath>..\..\..\Binaries\Versions\4.70\Krypton Core Components\Krypton Design.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Toolkit">
-      <HintPath>..\..\..\..\..\Bin\Versions\4.7\Any CPU\Krypton Core Components\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+      <HintPath>..\..\..\Binaries\Versions\4.70\Krypton Core Components\Krypton Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
