@@ -17,11 +17,12 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\Binaries\Versions\4.70\Palette Upgrade Tool\</OutputPath>
+    <OutputPath>build\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\..\Binaries\Versions\4.70\Palette Upgrade Tool\Palette Upgrade Tool.xml</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,22 +38,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Krypton Design">
-      <HintPath>..\..\..\Binaries\Versions\4.70\Krypton Core Components\Krypton Design.dll</HintPath>
+      <HintPath>..\..\..\Bin\Krypton Design.dll</HintPath>
     </Reference>
     <Reference Include="Krypton Docking">
-      <HintPath>..\..\..\Binaries\Versions\4.70\Krypton Core Components\Krypton Docking.dll</HintPath>
+      <HintPath>..\..\..\Bin\Krypton Docking.dll</HintPath>
     </Reference>
     <Reference Include="Krypton Navigator">
-      <HintPath>..\..\..\Binaries\Versions\4.70\Krypton Core Components\Krypton Navigator.dll</HintPath>
+      <HintPath>..\..\..\Bin\Krypton Navigator.dll</HintPath>
     </Reference>
     <Reference Include="Krypton Ribbon">
-      <HintPath>..\..\..\Binaries\Versions\4.70\Krypton Core Components\Krypton Ribbon.dll</HintPath>
+      <HintPath>..\..\..\Bin\Krypton Ribbon.dll</HintPath>
     </Reference>
     <Reference Include="Krypton Toolkit">
-      <HintPath>..\..\..\Binaries\Versions\4.70\Krypton Core Components\Krypton Toolkit.dll</HintPath>
+      <HintPath>..\..\..\Bin\Krypton Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="Krypton Workspace">
-      <HintPath>..\..\..\Binaries\Versions\4.70\Krypton Core Components\Krypton Workspace.dll</HintPath>
+      <HintPath>..\..\..\Bin\Krypton Workspace.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -105,4 +106,7 @@
     <None Include="Resources\Krypton.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(TargetDir)*.*" "$(ProjectDir)..\..\..\Binaries\" /D /R /Y /S</PostBuildEvent>
+  </PropertyGroup>
 </Project>

@@ -38,25 +38,26 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Binaries\Versions\4.70\Krypton Palette Designer\</OutputPath>
+    <OutputPath>build\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>true</UseVSHostingProcess>
     <Prefer32Bit>false</Prefer32Bit>
-    <DocumentationFile>..\..\Binaries\Versions\4.70\Krypton Palette Designer\Palette Designer.xml</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\Bin\</OutputPath>
+    <OutputPath>build\$(Configuration)</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'ReleaseCS|AnyCPU' ">
-    <OutputPath>..\..\..\Bin\</OutputPath>
+    <OutputPath>build\$(Configuration)</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
@@ -66,16 +67,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Krypton Design">
-      <HintPath>..\..\Binaries\Versions\4.70\Krypton Core Components\Krypton Design.dll</HintPath>
+      <HintPath>..\..\Bin\Krypton Design.dll</HintPath>
     </Reference>
     <Reference Include="Krypton Navigator">
-      <HintPath>..\..\Binaries\Versions\4.70\Krypton Core Components\Krypton Navigator.dll</HintPath>
+      <HintPath>..\..\Bin\Krypton Navigator.dll</HintPath>
     </Reference>
     <Reference Include="Krypton Ribbon">
-      <HintPath>..\..\Binaries\Versions\4.70\Krypton Core Components\Krypton Ribbon.dll</HintPath>
+      <HintPath>..\..\Bin\Krypton Ribbon.dll</HintPath>
     </Reference>
     <Reference Include="Krypton Toolkit">
-      <HintPath>..\..\Binaries\Versions\4.70\Krypton Core Components\Krypton Toolkit.dll</HintPath>
+      <HintPath>..\..\Bin\Krypton Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -183,6 +184,9 @@
     <None Include="Resources\environment.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(TargetDir)*.*" "$(ProjectDir)..\..\Binaries\" /D /R /Y /S</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
