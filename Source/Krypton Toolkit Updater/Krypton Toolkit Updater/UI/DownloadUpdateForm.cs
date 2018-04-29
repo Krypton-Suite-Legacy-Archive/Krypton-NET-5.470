@@ -1,5 +1,7 @@
 ﻿using ComponentFactory.Krypton.Toolkit;
+using KryptonToolkitUpdater.Classes;
 using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Net;
 using System.Windows.Forms;
@@ -9,14 +11,37 @@ namespace KryptonToolkitUpdater.UI
     public partial class DownloadUpdateForm : KryptonForm
     {
         #region Variables
+        bool downloadCompleted;
+
         string downloadURL, downloadLocation;
 
         WebClient _downloadClient;
 
         Stopwatch _stopwatch = new Stopwatch();
+
+        Utilities _utilities = new Utilities();
         #endregion
 
-        #region Properties
+        #region Properties        
+        /// <summary>
+        /// Gets or sets a value indicating whether [download completed].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [download completed]; otherwise, <c>false</c>.
+        /// </value>
+        private bool DownloadCompleted
+        {
+            get
+            {
+                return downloadCompleted;
+            }
+
+            set
+            {
+                downloadCompleted = value;
+            }
+        }
+
         /// <summary>
         /// Gets or sets the download URL.
         /// </summary>
@@ -70,22 +95,27 @@ namespace KryptonToolkitUpdater.UI
             DownloadLocation = downloadLocation;
         }
 
-        private void DownloadUpdateForm_Load(object sender, System.EventArgs e)
+        private void DownloadUpdateForm_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void kbtnCancel_Click(object sender, System.EventArgs e)
+        private void kbtnCancel_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void kbtnInstallUpdate_Click(object sender, System.EventArgs e)
+        private void kbtnInstallUpdate_Click(object sender, EventArgs e)
         {
+            if (GetDownloadCompleted())
+            {
+                Process.Start(DownloadLocation);
 
+                Application.Exit();
+            }
         }
 
-        private void kbtnStop_Click(object sender, System.EventArgs e)
+        private void kbtnStop_Click(object sender, EventArgs e)
         {
 
         }
@@ -124,6 +154,11 @@ namespace KryptonToolkitUpdater.UI
             }
         }
 
+        /// <summary>
+        /// Progress changed.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="DownloadProgressChangedEventArgs"/> instance containing the event data.</param>
         private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             // Calculate download speed and output it to klblCurrentSpeed.
@@ -139,7 +174,22 @@ namespace KryptonToolkitUpdater.UI
             klblTotalAmountDownloaded.Text = $"Amount downloaded: { (e.BytesReceived / 1024d / 1024d).ToString("0.00") } MB's of { (e.TotalBytesToReceive / 1024d / 1024d).ToString("0.00") } MB's";
         }
 
-        private void Completed(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+        /// <summary>
+        /// Handles the LinkClicked event of the kllDownloadingTo control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void kllDownloadingTo_LinkClicked(object sender, EventArgs e)
+        {
+            _utilities.ExploreFile(kllDownloadingTo.Text);
+        }
+
+        /// <summary>
+        /// Fires upon download completion.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="AsyncCompletedEventArgs"/> instance containing the event data.</param>
+        private void Completed(object sender, AsyncCompletedEventArgs e)
         {
             _stopwatch.Reset();
 
@@ -152,7 +202,29 @@ namespace KryptonToolkitUpdater.UI
             else
             {
                 KryptonMessageBox.Show("Download completed!");
+
+                SetDownloadCompleted(true);
             }
+        }
+        #endregion
+
+        #region Setters & Getters
+        /// <summary>
+        /// Sets the DownloadCompleted to the value of value.
+        /// </summary>
+        /// <param name="value">The desired value of DownloadCompleted.</param>
+        private void SetDownloadCompleted(bool value)
+        {
+            DownloadCompleted = value;
+        }
+
+        /// <summary>
+        /// Returns the value of the DownloadCompleted.
+        /// </summary>
+        /// <returns>The value of the DownloadCompleted.</returns>
+        private bool GetDownloadCompleted()
+        {
+            return DownloadCompleted;
         }
         #endregion
     }

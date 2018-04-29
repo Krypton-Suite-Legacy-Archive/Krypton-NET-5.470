@@ -1,3 +1,16 @@
+## 2018-04-29 Build 572
+* Build 572 (build date Sunday 29th April 2018) is now obtainable through the `releases` tab.
+
+=======
+
+## 2018-04-28 Fix build path output, and Demo Apps Ref path import and Output
+* Remove hard-coded directory offsets for Component outputs
+* Use offset location for components in Demo Apps 
+* Remove Release GAC'ing
+* Fix explorer for the copied target names
+
+=======
+
 ## 2018-04-22 Version 569, build path output changes, repo rename & re-structuring changes
 * Build 569 (build date Sunday 22nd April 2018) is now available. It is reccommended that you uninstall/remove previous versions first before using this version.
 * DLL assembly names have been renamed to `Krypton Design`, `Krypton Docking`, `Krypton Navigator`, `Krypton Ribbon`, `Krypton Toolkit` and `Krypton Workspace`, these changes do also apply to other binaries in this repo. However these changes does **NOT** affect the namespace names of `ComponentFactory.Krypton.xx`.

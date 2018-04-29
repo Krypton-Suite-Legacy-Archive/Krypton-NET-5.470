@@ -8,6 +8,11 @@
 
 =======
 
+## 2018-04-29 Build 572
+* Build 572 (build date Sunday 29th April 2018) is now obtainable through the `releases` tab.
+
+=======
+
 ## 2018-04-28 Fix build path output, and Demo Apps Ref path import and Output
 * Remove hard-coded directory offsets for Component outputs
 * Use offset location for components in Demo Apps 
