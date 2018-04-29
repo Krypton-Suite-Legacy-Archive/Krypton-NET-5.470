@@ -38,17 +38,16 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\Binaries\Versions\4.70\Krypton Ribbon Examples\</OutputPath>
+    <OutputPath>build\$(Configuration)</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
-    <DocumentationFile>..\..\..\..\..\Binaries\Versions\4.70\Krypton Ribbon Examples\Ribbon Gallery.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\Bin\</OutputPath>
+    <OutputPath>build\$(Configuration)</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -57,15 +56,15 @@
   <ItemGroup>
     <Reference Include="Krypton Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Binaries\Versions\4.70\Krypton Core Components\Krypton Design.dll</HintPath>
+      <HintPath>..\..\..\Bin\Krypton Design.dll</HintPath>
     </Reference>
     <Reference Include="Krypton Ribbon, Version=4.70.552.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Binaries\Versions\4.70\Krypton Core Components\Krypton Ribbon.dll</HintPath>
+      <HintPath>..\..\..\Bin\Krypton Ribbon.dll</HintPath>
     </Reference>
     <Reference Include="Krypton Toolkit, Version=4.70.569.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Binaries\Versions\4.70\Krypton Core Components\Krypton Toolkit.dll</HintPath>
+      <HintPath>..\..\..\Bin\Krypton Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
@@ -109,6 +108,9 @@
     <Content Include="Krypton.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(TargetDir)*.*" "$(ProjectDir)..\..\..\Binaries\" /D /R /Y /S</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

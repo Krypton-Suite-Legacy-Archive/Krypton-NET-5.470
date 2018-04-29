@@ -1,4 +1,4 @@
-# ![Krypton](/help/logo.png)-NET-4.70
+# <img src="https://rawgit.com/Wagnerp/Krypton-NET-4.7/master/Help/Output/Logo.PNG">-NET-4.70
 
 =======
 
@@ -8,22 +8,30 @@
 
 =======
 
+## 2018-04-28 Fix build path output, and Demo Apps Ref path import and Output
+* Remove hard-coded directory offsets for Component outputs
+* Use offset location for components in Demo Apps 
+* Remove Release GAC'ing
+* Fix explorer for the copied target names
+
+=======
+
 ## 2018-04-22 Version 569, build path output changes, repo rename & re-structuring changes
-* Build 569 (build date Sunday 22nd April 2018) is now available. It is reccommended that you uninstall/remove previous versions first before using this version.
+* Build 569 (build date Sunday 22nd April 2018) is now available. It is recommended that you uninstall/remove previous versions first before using this version.
 * DLL assembly names have been renamed to `Krypton Design`, `Krypton Docking`, `Krypton Navigator`, `Krypton Ribbon`, `Krypton Toolkit` and `Krypton Workspace`,  these changes do also apply to other binaries in this repo. However these changes does **NOT** affect the namespace names of `ComponentFactory.Krypton.xx`.
-* Build output paths have been changed for easier installer authouring and syncronisation.
+* Build output paths have been changed for easier installer authoring and synchronisation.
 * Renamed repo title to `Krypton-NET-4.70` to better reflect versioning.
 * Removed different architectures folder for easier navigation.
 
 =======
 
 ## 2018-04-16 New distribution method, version 568
-* All binaries, applications, tools etc in this project will now be installed by one installer, powered by Advanced Installer. This is to allow easier distribution, and easier end-user updating.
+* All binaries, applications, tools etc. in this project will now be installed by one installer, powered by Advanced Installer. This is to allow easier distribution, and easier end-user updating.
 * New folder `Updates` to contain files needed for the new update distribution.
 
 =======
 
-## 2018-04-11 ** Adjust Ctrl+C display in MessageBox's
+## 2018-04-11 Adjust Ctrl+C display in MessageBox's
 * Don't forget to add the TextExtra into the title width calculation
 * Only Display "Ctrl+C..." for Error and Exclamation icon's
 * Created #39
@@ -35,7 +43,7 @@
 
 =======
 
-## 2018-04-09 ** Use All `C#` features
+## 2018-04-09 Use All `C#` features
 * Change the projects to at least recognise C#7.2 features and enhancements - _to be applied in the future_
 * Some tinkering with spelling corrections - _to be applied in the future_
 
@@ -94,7 +102,7 @@
 =======
 
 ## 2018-02-20 Toolkit changes
-* Renamed everything labeled `2015` to `2018`
+* Renamed everything labelled `2015` to `2018`
 * Each solution now has its own binary folder
 * Groundwork for supporting AMD64/x64, x86 and 'Any CPU' architectures
 
@@ -124,7 +132,7 @@
 
 ## 2018-01-27am Help file migration/update
 * Decompiled `chm` file ready for migration/updates
-* New 7z file/directory in `Help` labeled `Help File Data` containing the contents of the `chm` file
+* New 7z file/directory in `Help` labelled `Help File Data` containing the contents of the `chm` file
 * Remove duplicate information in `README.md`
 
 =======
@@ -284,7 +292,7 @@
 =======
 
 ## 2017-11-12 Toolkit solution changes:
-* Change Get Set functions to be inlined
+* Change Get Set functions to be `inlined`
 * Merge Sequential Checks
 * Clarify precedence with brackets
 
@@ -301,12 +309,12 @@
 * Object initialization can be simplified
 * Delegate invocation can be simplified.
 * Use pattern matching 
-  - Adjust some logic to test bool before cast
+  - Adjust some logic to test `bool` before cast
   - Use of switch if necessary
-* Variable declaration can be inlined
+* Variable declaration can be `inlined`
 * Null check can be simplified
   - null-propagating code
-* Local Variable can be const (And rename to upper case to follow the rest of the codebase.)
+* Local Variable can be `const` (And rename to upper case to follow the rest of the codebase.)
 * ﻿Join declaration and assignment
 
 =======
@@ -333,6 +341,6 @@
 =======
  
 ## 2017-11-12 am Toolkit solution changes:
-* Change Get Set functions to be inlined
+* Change Get Set functions to be `inlined`
 * Merge Sequential Checks
 * Clarify precedence with brackets
