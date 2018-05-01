@@ -8,7 +8,7 @@
 
 =======
 
-## NOTE: With the advent of Windows 10 1803 being released to the general public, I am pleased to announce the availability of a 4.72 release that will support the .NET 4.7.2 framework. You can follow the project [here](https://github.com/Wagnerp/Krypton-NET-4.72). Please note that this will only support 1803 and higher, unless stated otherwise.
+## NOTE: With the advent of Windows 10 1803 being released to the general public, I am pleased to announce the availability of a 4.72 release that will support the .NET 4.7.2 framework. You can follow the project [here](https://github.com/Wagnerp/Krypton-NET-4.72).
 
 =======
 
