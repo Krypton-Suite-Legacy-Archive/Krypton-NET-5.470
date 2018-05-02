@@ -146,6 +146,7 @@
             this.Name = "UpdateDetailsForm";
             this.Text = "Update Details";
             this.TextExtra = "(Beta)";
+            this.Load += new System.EventHandler(this.UpdateDetailsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kpnlBackground)).EndInit();
             this.kpnlBackground.ResumeLayout(false);
             this.kpnlBackground.PerformLayout();

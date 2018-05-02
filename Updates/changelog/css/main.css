@@ -1,0 +1,21 @@
+.body {
+	color: #1E3976;
+	background-color: #BBCEE6;
+	font-size: 12pt;
+    font-family: 'Segoe UI', Tahoma, Arial, Helvetica, sans-serif;
+}
+
+#current-version {
+    background-color: #2A7E2B;
+    color: #FFFFFF;
+    font-size: 14pt;
+    font-family: 'Segoe UI', Tahoma, Arial, Helvetica, sans-serif;
+}
+
+#old-version {
+    background-color: #E4532F;
+    color: #FFFFFF;
+    font-size: 14pt;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Arial, Helvetica, sans-serif;
+}

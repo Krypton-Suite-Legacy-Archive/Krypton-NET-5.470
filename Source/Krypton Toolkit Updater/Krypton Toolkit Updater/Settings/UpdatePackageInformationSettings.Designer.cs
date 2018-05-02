@@ -38,12 +38,12 @@ namespace KryptonToolkitUpdater.Settings {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string CurrentVersion {
+        public string CurrentInstalledVersion {
             get {
-                return ((string)(this["CurrentVersion"]));
+                return ((string)(this["CurrentInstalledVersion"]));
             }
             set {
-                this["CurrentVersion"] = value;
+                this["CurrentInstalledVersion"] = value;
             }
         }
         
@@ -80,30 +80,6 @@ namespace KryptonToolkitUpdater.Settings {
             }
             set {
                 this["FileName"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string FileSize {
-            get {
-                return ((string)(this["FileSize"]));
-            }
-            set {
-                this["FileSize"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string XMLUpdatePath {
-            get {
-                return ((string)(this["XMLUpdatePath"]));
-            }
-            set {
-                this["XMLUpdatePath"] = value;
             }
         }
         
@@ -200,6 +176,64 @@ namespace KryptonToolkitUpdater.Settings {
             }
             set {
                 this["BetaFlag"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int UpdatePackageFileSize {
+            get {
+                return ((int)(this["UpdatePackageFileSize"]));
+            }
+            set {
+                this["UpdatePackageFileSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime UpdatePackageBuildDate {
+            get {
+                return ((global::System.DateTime)(this["UpdatePackageBuildDate"]));
+            }
+            set {
+                this["UpdatePackageBuildDate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime UpdatePackageReleaseDate {
+            get {
+                return ((global::System.DateTime)(this["UpdatePackageReleaseDate"]));
+            }
+            set {
+                this["UpdatePackageReleaseDate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool StartUpdateInstallationUponDownloadCompletion {
+            get {
+                return ((bool)(this["StartUpdateInstallationUponDownloadCompletion"]));
+            }
+            set {
+                this["StartUpdateInstallationUponDownloadCompletion"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string XMLUpdatePathURL {
+            get {
+                return ((string)(this["XMLUpdatePathURL"]));
+            }
+            set {
+                this["XMLUpdatePathURL"] = value;
             }
         }
     }

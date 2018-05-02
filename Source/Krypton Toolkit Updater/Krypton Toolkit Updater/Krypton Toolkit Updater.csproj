@@ -17,8 +17,8 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>build\$(Configuration)</OutputPath> 
-   <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <OutputPath>build\$(Configuration)</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -75,11 +75,14 @@
     <Compile Include="Classes\ControlController.cs" />
     <Compile Include="Classes\ThemeSettingsHelper.cs" />
     <Compile Include="Classes\ThemingManager.cs" />
+    <Compile Include="Classes\UpdatePackageInformationSettingsHelper.cs" />
     <Compile Include="Classes\UpdaterLogic.cs" />
     <Compile Include="Classes\UpdaterSettingsHelper.cs" />
     <Compile Include="Classes\Utilities.cs" />
+    <Compile Include="Classes\XMLParser.cs" />
     <Compile Include="Enumerations\Enumerations.cs" />
     <Compile Include="Classes\GlobalSuppressions.cs" />
+    <Compile Include="Interfaces\IUpdatePackageInformationSettings.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\ThemeSettings.Designer.cs">
