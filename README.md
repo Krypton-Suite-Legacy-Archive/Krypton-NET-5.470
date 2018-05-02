@@ -8,6 +8,10 @@
 
 =======
 
+## NOTE: With the advent of Windows 10 1803 being released to the general public, I am pleased to announce the availability of a 4.72 release that will support the .NET 4.7.2 framework. You can follow the project [here](https://github.com/Wagnerp/Krypton-NET-4.72).
+
+=======
+
 ## 2018-04-29 Build 572
 * Build 572 (build date Sunday 29th April 2018) is now obtainable through the `releases` tab.
 
