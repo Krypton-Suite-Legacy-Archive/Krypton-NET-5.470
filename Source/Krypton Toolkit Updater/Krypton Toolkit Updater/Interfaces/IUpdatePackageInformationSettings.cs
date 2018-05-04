@@ -37,12 +37,12 @@ namespace KryptonToolkitUpdater.Interfaces
         DateTime UpdatePackageReleaseDate { get; set; }
 
         /// <summary>
-        /// Gets or sets the changnelog URL.
+        /// Gets or sets the changelog URL.
         /// </summary>
         /// <value>
-        /// The changnelog URL.
+        /// The changelog URL.
         /// </value>
-        string ChangnelogURL { get; set; }
+        string ChangelogURL { get; set; }
 
         /// <summary>
         /// Gets or sets the current installed version.

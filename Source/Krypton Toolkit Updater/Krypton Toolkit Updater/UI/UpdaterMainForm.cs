@@ -71,7 +71,7 @@ namespace KryptonToolkitUpdater.UI
                 {
                     if (utilities.ExistsOnServer(new Uri(updateXMLPath)))
                     {
-                        XMLParser.ParseUpdateFile(new Uri(updateXMLPath), "KryptonNET470");
+                        XMLParser.ParseUpdateXMLFile(updateXMLPath);
 
                         if (utilities.IsNewerThan(Version.Parse(updatePackageInformation.GetCurrentInstalledVersion())))
                         {

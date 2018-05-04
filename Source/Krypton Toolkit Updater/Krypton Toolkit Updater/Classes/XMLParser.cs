@@ -174,6 +174,83 @@ namespace KryptonToolkitUpdater.Classes
             }
         }
 
+        public static XMLParser ParseUpdateXMLFile(string updateXMLURL)
+        {
+            #region Internal Variables
+            bool _betaFlag = false, _startUpdateInstallationUponDownloadCompletion = false;
+
+            DateTime _updatePackageBuildDate = DateTime.Now, _updatePackageReleaseDate = DateTime.Now;
+
+            string _changelogURL = string.Empty, _currentInstalledVersion = string.Empty, _serverVersion = string.Empty, _downloadURL = string.Empty, _fileName = string.Empty, _md5CheckSum = string.Empty, _sha1CheckSum = string.Empty, _sha256CheckSum = null, _sha384CheckSum = string.Empty, _sha512CheckSum = string.Empty, _ripemd160CheckSum = string.Empty, _virusTotalScanURL = string.Empty, _projectIdentification = string.Empty;
+
+            int _updatePackageFileSize = 0;
+
+            Utilities utilities = new Utilities();
+
+            #endregion
+
+            try
+            {
+                if (utilities.ExistsOnServer(new Uri(updateXMLURL)))
+                {
+                    XmlReader reader = XmlReader.Create(updateXMLURL);
+
+                    while (reader.Read())
+                    {
+                        if ((reader.NodeType == XmlNodeType.Element) && (reader.Name == "Update"))
+                        {
+                            if (reader.HasAttributes)
+                            {
+                                _projectIdentification = reader.GetAttribute("projectIdentification");
+
+                                _currentInstalledVersion = reader.GetAttribute("currentInstalledVersion");
+
+                                _serverVersion = reader.GetAttribute("serverVersion");
+
+                                _fileName = reader.GetAttribute("fileName");
+
+                                _downloadURL = reader.GetAttribute("updatePackageServerURLDownloadLocation");
+
+                                _changelogURL = reader.GetAttribute("changelogURLLocation");
+
+                                _md5CheckSum = reader.GetAttribute("md5CheckSum");
+
+                                _sha1CheckSum = reader.GetAttribute("sha1CheckSum");
+
+                                _sha256CheckSum = reader.GetAttribute("sha256CheckSum");
+
+                                _sha384CheckSum = reader.GetAttribute("sha384CheckSum");
+
+                                _sha512CheckSum = reader.GetAttribute("sha512CheckSum");
+
+                                _ripemd160CheckSum = reader.GetAttribute("ripemd160CheckSum");
+
+                                _updatePackageFileSize = int.Parse(reader.GetAttribute("updatePackageFileSize"));
+
+                                _updatePackageBuildDate = DateTime.Parse(reader.GetAttribute("updatePackageBuildDate"));
+
+                                _updatePackageReleaseDate = DateTime.Parse(reader.GetAttribute("updatePackageReleaseDate"));
+
+                                _betaFlag = bool.Parse(reader.GetAttribute("betaFlag"));
+
+                                _startUpdateInstallationUponDownloadCompletion = bool.Parse(reader.GetAttribute("startUpdateInstallationUponDownloadCompletion"));
+
+                                _virusTotalScanURL = reader.GetAttribute("virusTotalScanURL");
+                            }
+                        }
+                    }
+                }
+
+                return new XMLParser(_betaFlag, _startUpdateInstallationUponDownloadCompletion, _updatePackageBuildDate, _updatePackageReleaseDate, _changelogURL, _currentInstalledVersion, _serverVersion, _downloadURL, _fileName, _md5CheckSum, _sha1CheckSum, _sha256CheckSum, _sha384CheckSum, _sha512CheckSum, _ripemd160CheckSum, _virusTotalScanURL, updateXMLURL.ToString(), _updatePackageFileSize);
+            }
+            catch (Exception exc)
+            {
+                KryptonMessageBox.Show($"An error has occurred: { exc.Message }", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return null;
+            }
+        }
+
         /// <summary>
         /// Stores the data.
         /// </summary>

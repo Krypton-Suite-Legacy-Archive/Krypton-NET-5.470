@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<update projectIdentification="KryptonNET470">
-	<!--<projectName>Krypton .NET 4.70</projectName>-->
+<update>
+	<projectIdentification>KryptonNET470</projectIdentification>
 	<currentInstalledVersion>4.70.572.0</currentInstalledVersion>
 	<serverVersion>4.70.573.0</serverVersion>
 	<fileName>Krypton Toolkit 470 Setup.exe</fileName>
