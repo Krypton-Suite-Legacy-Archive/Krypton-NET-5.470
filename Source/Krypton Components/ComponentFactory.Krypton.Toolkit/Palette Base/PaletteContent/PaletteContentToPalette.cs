@@ -12,7 +12,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Redirect all content requests directly to the palette instance.

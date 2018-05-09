@@ -5,16 +5,12 @@
 //  proprietary information of Component Factory Pty Ltd, PO Box 1504, 
 //  Glen Waverley, Vic 3150, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.5.0.0 	www.ComponentFactory.com
+//  Version 4.70.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
 namespace KryptonInputBoxExamples
 {

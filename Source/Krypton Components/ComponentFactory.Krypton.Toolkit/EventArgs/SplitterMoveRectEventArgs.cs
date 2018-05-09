@@ -12,7 +12,7 @@
 using System;
 using System.Drawing;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Provides a movement rectangle that will be used to limit separator movement.

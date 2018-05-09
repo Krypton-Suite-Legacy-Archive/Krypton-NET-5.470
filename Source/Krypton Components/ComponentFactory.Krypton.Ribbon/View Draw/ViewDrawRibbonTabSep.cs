@@ -12,9 +12,9 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a separator between ribbon tabs.

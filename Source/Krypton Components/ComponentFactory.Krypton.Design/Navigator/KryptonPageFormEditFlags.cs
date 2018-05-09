@@ -12,7 +12,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
     internal partial class KryptonPageFormEditFlags : Form
     {

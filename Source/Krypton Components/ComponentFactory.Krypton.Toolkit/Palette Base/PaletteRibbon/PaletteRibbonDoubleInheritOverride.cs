@@ -12,7 +12,7 @@
 using System.Drawing;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Inherit properties from primary source in preference to the backup source.

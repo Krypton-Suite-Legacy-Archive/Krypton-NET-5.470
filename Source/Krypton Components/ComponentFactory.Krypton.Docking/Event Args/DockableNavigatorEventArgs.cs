@@ -11,7 +11,7 @@
 
 using System;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
 	/// <summary>
     /// Event arguments for a DockableNavigatorEventArgs event.
@@ -29,7 +29,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="navigator">Reference to dockable navigator control instance.</param>
         /// <param name="element">Reference to docking navigator element that is managing the dockable workspace control.</param>
         public DockableNavigatorEventArgs(KryptonDockableNavigator navigator,
-                                          KryptonDockingNavigator element)
+                                          Krypton.DockingNavigator element)
 		{
             DockableNavigatorControl = navigator;
             DockingNavigatorElement = element;
@@ -43,9 +43,9 @@ namespace ComponentFactory.Krypton.Docking
         public KryptonDockableNavigator DockableNavigatorControl { get; }
 
 	    /// <summary>
-        /// Gets a reference to the KryptonDockingNavigator that is managing the dockable workspace control.
+        /// Gets a reference to the Krypton.DockingNavigator that is managing the dockable workspace control.
         /// </summary>
-        public KryptonDockingNavigator DockingNavigatorElement { get; }
+        public Krypton.DockingNavigator DockingNavigatorElement { get; }
 
 	    #endregion
 	}

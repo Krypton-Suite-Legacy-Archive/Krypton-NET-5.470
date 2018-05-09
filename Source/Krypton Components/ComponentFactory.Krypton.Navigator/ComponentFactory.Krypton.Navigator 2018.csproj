@@ -9,8 +9,8 @@
     <ProjectGuid>{DC0DD714-4D19-4F31-A6D0-EA209D4F0EA8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ComponentFactory.Krypton.Navigator</RootNamespace>
-    <AssemblyName>ComponentFactory.Krypton.Navigator</AssemblyName>
+    <RootNamespace>Krypton.Navigator</RootNamespace>
+    <AssemblyName>Krypton Navigator</AssemblyName>
     <ApplicationIcon>Krypton.ico</ApplicationIcon>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>StrongKrypton.snk</AssemblyOriginatorKeyFile>
@@ -36,7 +36,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
     <TargetFrameworkProfile />
     <ShouldCreateLogs>True</ShouldCreateLogs>
     <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
@@ -51,24 +50,24 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\Bin\Versions\4.7\</OutputPath>
+    <OutputPath>build\$(Configuration)</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\..\Bin\Versions\4.7\ComponentFactory.Krypton.Navigator.XML</DocumentationFile>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Debug\Krypton Navigator.xml</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\Bin\</OutputPath>
+    <OutputPath>build\$(Configuration)</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\..\Bin\ComponentFactory.Krypton.Navigator.XML</DocumentationFile>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Release\Krypton Navigator.xml</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -217,8 +216,8 @@
     <Compile Include="View Builder\ViewBuilderGroup.cs" />
     <Compile Include="View Builder\ViewBuilderPanel.cs" />
     <Compile Include="General\Definitions.cs" />
-    <Compile Include="Controls Navigator\KryptonNavigator.cs" />
-    <Compile Include="Controls Navigator\KryptonNavigatorControlCollection.cs">
+    <Compile Include="Controls Navigator\Krypton.Navigator.cs" />
+    <Compile Include="Controls Navigator\Krypton.NavigatorControlCollection.cs">
     </Compile>
     <Compile Include="View Builder\ViewBuilderBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -242,7 +241,7 @@
     <Compile Include="View Layout\ViewLayoutOutlookFull.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ToolboxBitmaps\KryptonNavigator.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\Krypton.Navigator.bmp" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
@@ -267,14 +266,14 @@
     <None Include="StrongKrypton.snk" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ComponentFactory.Krypton.Toolkit\ComponentFactory.Krypton.Toolkit 2018.csproj">
+    <ProjectReference Include="..\Krypton.Toolkit\Krypton.Toolkit 2018.csproj">
       <Project>{96ecaecc-54f8-4aa5-8591-b443c2d9565f}</Project>
-      <Name>ComponentFactory.Krypton.Toolkit 2018</Name>
+      <Name>Krypton.Toolkit 2018</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release "$(ProjectDir)..\GacUtil.exe" -i "$(TargetPath)" /f</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(TargetDir)*.*" "$(ProjectDir)..\..\..\Bin\" /D /R /Y /S</PostBuildEvent>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

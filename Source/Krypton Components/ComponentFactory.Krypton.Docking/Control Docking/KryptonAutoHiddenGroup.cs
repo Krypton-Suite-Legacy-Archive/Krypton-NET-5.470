@@ -13,18 +13,18 @@ using System;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
-using ComponentFactory.Krypton.Navigator;
+using Krypton.Toolkit;
+using Krypton.Navigator;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
     /// <summary>
-    /// Extends the KryptonNavigator to work as a docking auto hidden group control.
+    /// Extends the Krypton.Navigator to work as a docking auto hidden group control.
     /// </summary>
     [ToolboxItem(false)]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
-    public class KryptonAutoHiddenGroup : KryptonNavigator
+    public class KryptonAutoHiddenGroup : Krypton.Navigator
     {
         #region Events
         /// <summary>

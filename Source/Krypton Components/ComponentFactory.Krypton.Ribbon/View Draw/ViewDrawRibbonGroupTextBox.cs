@@ -14,9 +14,9 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a ribbon group textbox.
@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private ViewDrawRibbonGroup _activeGroup;
         private readonly TextBoxController _controller;
         private readonly NeedPaintHandler _needPaint;
@@ -45,8 +45,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonTextBox">Reference to source textbox.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonGroupTextBox(KryptonRibbon ribbon,
-                                          KryptonRibbonGroupTextBox ribbonTextBox,
+        public ViewDrawRibbonGroupTextBox(Krypton.Ribbon ribbon,
+                                          Krypton.RibbonGroupTextBox ribbonTextBox,
                                           NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);
@@ -135,7 +135,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the owning group textbox instance.
         /// </summary>
-        public KryptonRibbonGroupTextBox GroupTextBox { get; private set; }
+        public Krypton.RibbonGroupTextBox GroupTextBox { get; private set; }
 
         #endregion
 
@@ -573,7 +573,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         {
                             // Check that the group is not collapsed
                             if ((GroupTextBox.RibbonContainer.RibbonGroup.IsCollapsed) &&
-                                ((_ribbon.GetControllerControl(GroupTextBox.TextBox) is KryptonRibbon) ||
+                                ((_ribbon.GetControllerControl(GroupTextBox.TextBox) is Krypton.Ribbon) ||
                                  (_ribbon.GetControllerControl(GroupTextBox.TextBox) is VisualPopupMinimized))
                                 )
                             {
@@ -582,7 +582,7 @@ namespace ComponentFactory.Krypton.Ribbon
                             else
                             {
                                 // Check that the hierarchy of containers are all visible
-                                KryptonRibbonGroupContainer container = GroupTextBox.RibbonContainer;
+                                Krypton.RibbonGroupContainer container = GroupTextBox.RibbonContainer;
 
                                 // Keep going until we have searched the entire parent chain of containers
                                 while (container != null)

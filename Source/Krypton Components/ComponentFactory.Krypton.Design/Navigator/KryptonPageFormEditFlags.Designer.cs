@@ -1,4 +1,4 @@
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
     partial class KryptonPageFormEditFlags
     {

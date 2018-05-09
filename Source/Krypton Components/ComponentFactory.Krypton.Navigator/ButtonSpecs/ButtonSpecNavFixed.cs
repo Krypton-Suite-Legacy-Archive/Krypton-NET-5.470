@@ -11,9 +11,9 @@
 
 using System.ComponentModel;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
     /// <summary>
     /// Implementation for the fixed navigator buttons.
@@ -32,7 +32,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         /// <param name="navigator">Reference to owning navigator instance.</param>
         /// <param name="fixedStyle">Fixed style to use.</param>
-        public ButtonSpecNavFixed(KryptonNavigator navigator,
+        public ButtonSpecNavFixed(Krypton.Navigator navigator,
                                   PaletteButtonSpecStyle fixedStyle)
         {
             Debug.Assert(navigator != null);
@@ -117,7 +117,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets access to the owning navigator control.
         /// </summary>
-        protected KryptonNavigator Navigator { get; }
+        protected Krypton.Navigator Navigator { get; }
 
         #endregion
     }

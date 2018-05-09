@@ -12,7 +12,7 @@
 using System.Drawing;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Redirect back/border ribbon values based on the incoming state of the request.

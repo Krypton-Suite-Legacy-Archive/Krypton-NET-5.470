@@ -12,7 +12,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Specialized version of the visual context menu that knows about the KryptonDateTimePicker drop down button.

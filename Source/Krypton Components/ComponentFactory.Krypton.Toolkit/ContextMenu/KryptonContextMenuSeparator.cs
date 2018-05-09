@@ -13,7 +13,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Provide a context menu separator.

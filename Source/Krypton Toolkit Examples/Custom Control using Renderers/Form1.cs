@@ -5,17 +5,13 @@
 //  proprietary information of Component Factory Pty Ltd, PO Box 1504, 
 //  Glen Waverley, Vic 3150, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.5.0.0 	www.ComponentFactory.com
+//  Version 4.70.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Drawing;
 using System.Windows.Forms;
-using System.ComponentModel;
-using System.Collections.Generic;
-using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+
+using Krypton.Toolkit;
 
 namespace CustomControlUsingRenderers
 {
@@ -53,13 +49,21 @@ namespace CustomControlUsingRenderers
         {
             // Update orientation of the MyUserControl to match radio buttons
             if (radioTop.Checked)
+            {
                 myUserControl1.Orientation = VisualOrientation.Top;
+            }
             else if (radioBottom.Checked)
+            {
                 myUserControl1.Orientation = VisualOrientation.Bottom;
+            }
             else if (radioLeft.Checked)
+            {
                 myUserControl1.Orientation = VisualOrientation.Left;
+            }
             else if (radioRight.Checked)
+            {
                 myUserControl1.Orientation = VisualOrientation.Right;
+            }
         }
 
         private void checkBoxEnabled_CheckedChanged(object sender, EventArgs e)

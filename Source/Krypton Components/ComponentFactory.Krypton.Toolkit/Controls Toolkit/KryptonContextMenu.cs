@@ -16,7 +16,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Represents a shortcut menu with Krypton palette styling.
@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [DefaultEvent("Opening")]
     [DefaultProperty("PaletteMode")]
     [DesignerCategory("code")]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonContextMenuDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer("Krypton.Toolkit.KryptonContextMenuDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [Description("Displays a shortcut menu in popup window.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]

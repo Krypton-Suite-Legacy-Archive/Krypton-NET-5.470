@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using Krypton.Toolkit;
 
 namespace Test_MessageBox_Clipping
 {
@@ -15,6 +15,8 @@ namespace Test_MessageBox_Clipping
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            KryptonMessageBox.Show("Test without an owner,\nand before KyptonManager has Loaded", null);
+            KryptonMessageBox.Show((string)null, "Test without no Text");
             Application.Run(new Form1());
         }
     }

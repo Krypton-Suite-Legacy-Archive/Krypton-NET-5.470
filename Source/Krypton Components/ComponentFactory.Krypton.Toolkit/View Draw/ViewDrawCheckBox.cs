@@ -14,7 +14,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Draws a check box using the provided renderer.

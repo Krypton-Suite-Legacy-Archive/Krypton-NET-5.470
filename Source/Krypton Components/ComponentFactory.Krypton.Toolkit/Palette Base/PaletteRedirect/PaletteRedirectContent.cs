@@ -13,7 +13,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Redirect content based on the incoming state of the request.

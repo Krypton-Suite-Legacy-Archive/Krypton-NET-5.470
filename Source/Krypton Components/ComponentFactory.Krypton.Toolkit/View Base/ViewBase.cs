@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.ComponentModel;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Base class from which all view types derive.

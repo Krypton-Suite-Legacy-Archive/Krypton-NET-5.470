@@ -12,7 +12,7 @@
 using System.ComponentModel;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Storage for header palette settings.

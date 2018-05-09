@@ -11,9 +11,9 @@
 
 using System.Drawing;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Workspace
+namespace Krypton.Workspace
 {
 	/// <summary>
 	/// Workspace specific separator that works relative to a specific workspace item.
@@ -22,7 +22,7 @@ namespace ComponentFactory.Krypton.Workspace
                                               ISeparatorSource
     {
         #region Instance Fields
-        private readonly KryptonWorkspace _workspace;
+        private readonly Krypton.Workspace _workspace;
 
         #endregion
 
@@ -33,7 +33,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="workspace">Associated workspace instance.</param>
         /// <param name="workspaceItem">Associated workspace item.</param>
         /// <param name="orientation">Visual orientation of the content.</param>
-        public ViewDrawWorkspaceSeparator(KryptonWorkspace workspace,
+        public ViewDrawWorkspaceSeparator(Krypton.Workspace workspace,
                                           IWorkspaceItem workspaceItem,
                                           Orientation orientation)
             : base(workspace.StateDisabled.Separator, workspace.StateNormal.Separator, workspace.StateTracking, workspace.StatePressed,

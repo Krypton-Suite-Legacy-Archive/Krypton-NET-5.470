@@ -11,9 +11,9 @@
 
 using System.Drawing;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
     /// <summary>
     /// Provides drag feedback as solid windows overlaying hot areas.

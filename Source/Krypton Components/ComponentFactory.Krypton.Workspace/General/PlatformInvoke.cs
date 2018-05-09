@@ -9,7 +9,7 @@
 //  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-namespace ComponentFactory.Krypton.Workspace
+namespace Krypton.Workspace
 {
     internal class PI
     {

@@ -13,7 +13,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Encapsulates context for view layout operations.

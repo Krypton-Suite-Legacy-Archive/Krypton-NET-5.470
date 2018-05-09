@@ -16,16 +16,16 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
-    internal class KryptonRibbonGroupTripleDesigner : ComponentDesigner
+    internal class Krypton.RibbonGroupTripleDesigner : ComponentDesigner
     {
         #region Instance Fields
         private IDesignerHost _designerHost;
         private IComponentChangeService _changeService;
-        private KryptonRibbonGroupTriple _ribbonTriple;
+        private Krypton.RibbonGroupTriple _ribbonTriple;
         private DesignerVerbCollection _verbs;
         private DesignerVerb _toggleHelpersVerb;
         private DesignerVerb _moveFirstVerb;
@@ -84,9 +84,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the KryptonRibbonGroupTripleDesigner class.
+        /// Initialize a new instance of the Krypton.RibbonGroupTripleDesigner class.
         /// </summary>
-        public KryptonRibbonGroupTripleDesigner()
+        public Krypton.RibbonGroupTripleDesigner()
         {
         }
         #endregion
@@ -110,7 +110,7 @@ namespace ComponentFactory.Krypton.Ribbon
             base.Initialize(component);
 
             // Cast to correct type
-            _ribbonTriple = (KryptonRibbonGroupTriple)component;
+            _ribbonTriple = (Krypton.RibbonGroupTriple)component;
             _ribbonTriple.DesignTimeAddButton += OnAddButton;
             _ribbonTriple.DesignTimeAddColorButton += OnAddColorButton;
             _ribbonTriple.DesignTimeAddCheckBox += OnAddCheckBox;
@@ -285,7 +285,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTriple?.Ribbon != null) && _ribbonTriple.RibbonGroup.Items.Contains(_ribbonTriple))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTriple MoveFirst");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTriple MoveFirst");
 
                 try
                 {
@@ -295,7 +295,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Move position of the triple
-                    KryptonRibbonGroup ribbonGroup = _ribbonTriple.RibbonGroup;
+                    Krypton.RibbonGroup ribbonGroup = _ribbonTriple.RibbonGroup;
                     ribbonGroup.Items.Remove(_ribbonTriple);
                     ribbonGroup.Items.Insert(0, _ribbonTriple);
                     UpdateVerbStatus();
@@ -315,7 +315,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTriple?.Ribbon != null) && _ribbonTriple.RibbonGroup.Items.Contains(_ribbonTriple))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTriple MovePrevious");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTriple MovePrevious");
 
                 try
                 {
@@ -325,7 +325,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Move position of the triple
-                    KryptonRibbonGroup ribbonGroup = _ribbonTriple.RibbonGroup;
+                    Krypton.RibbonGroup ribbonGroup = _ribbonTriple.RibbonGroup;
                     int index = ribbonGroup.Items.IndexOf(_ribbonTriple) - 1;
                     index = Math.Max(index, 0);
                     ribbonGroup.Items.Remove(_ribbonTriple);
@@ -347,7 +347,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTriple?.Ribbon != null) && _ribbonTriple.RibbonGroup.Items.Contains(_ribbonTriple))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTriple MoveNext");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTriple MoveNext");
 
                 try
                 {
@@ -357,7 +357,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Move position of the triple
-                    KryptonRibbonGroup ribbonGroup = _ribbonTriple.RibbonGroup;
+                    Krypton.RibbonGroup ribbonGroup = _ribbonTriple.RibbonGroup;
                     int index = ribbonGroup.Items.IndexOf(_ribbonTriple) + 1;
                     index = Math.Min(index, ribbonGroup.Items.Count - 1);
                     ribbonGroup.Items.Remove(_ribbonTriple);
@@ -379,7 +379,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTriple?.Ribbon != null) && _ribbonTriple.RibbonGroup.Items.Contains(_ribbonTriple))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTriple MoveLast");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTriple MoveLast");
 
                 try
                 {
@@ -389,7 +389,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Move position of the triple
-                    KryptonRibbonGroup ribbonGroup = _ribbonTriple.RibbonGroup;
+                    Krypton.RibbonGroup ribbonGroup = _ribbonTriple.RibbonGroup;
                     ribbonGroup.Items.Remove(_ribbonTriple);
                     ribbonGroup.Items.Insert(ribbonGroup.Items.Count, _ribbonTriple);
                     UpdateVerbStatus();
@@ -409,7 +409,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTriple?.Ribbon != null) && _ribbonTriple.RibbonGroup.Items.Contains(_ribbonTriple))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTriple AddButton");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTriple AddButton");
 
                 try
                 {
@@ -419,7 +419,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Get designer to create a button item
-                    KryptonRibbonGroupButton button = (KryptonRibbonGroupButton)_designerHost.CreateComponent(typeof(KryptonRibbonGroupButton));
+                    Krypton.RibbonGroupButton button = (Krypton.RibbonGroupButton)_designerHost.CreateComponent(typeof(Krypton.RibbonGroupButton));
                     _ribbonTriple.Items.Add(button);
 
                     RaiseComponentChanged(propertyItems, null, null);
@@ -437,7 +437,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTriple?.Ribbon != null) && _ribbonTriple.RibbonGroup.Items.Contains(_ribbonTriple))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTriple AddColorButton");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTriple AddColorButton");
 
                 try
                 {
@@ -447,7 +447,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Get designer to create a button item
-                    KryptonRibbonGroupColorButton button = (KryptonRibbonGroupColorButton)_designerHost.CreateComponent(typeof(KryptonRibbonGroupColorButton));
+                    Krypton.RibbonGroupColorButton button = (Krypton.RibbonGroupColorButton)_designerHost.CreateComponent(typeof(Krypton.RibbonGroupColorButton));
                     _ribbonTriple.Items.Add(button);
 
                     RaiseComponentChanged(propertyItems, null, null);
@@ -465,7 +465,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTriple?.Ribbon != null) && _ribbonTriple.RibbonGroup.Items.Contains(_ribbonTriple))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTriple AddCheckBox");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTriple AddCheckBox");
 
                 try
                 {
@@ -475,7 +475,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Get designer to create a check box item.
-                    KryptonRibbonGroupCheckBox checkBox = (KryptonRibbonGroupCheckBox)_designerHost.CreateComponent(typeof(KryptonRibbonGroupCheckBox));
+                    Krypton.RibbonGroupCheckBox checkBox = (Krypton.RibbonGroupCheckBox)_designerHost.CreateComponent(typeof(Krypton.RibbonGroupCheckBox));
                     _ribbonTriple.Items.Add(checkBox);
 
                     RaiseComponentChanged(propertyItems, null, null);
@@ -493,7 +493,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTriple?.Ribbon != null) && _ribbonTriple.RibbonGroup.Items.Contains(_ribbonTriple))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTriple AddRadioButton");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTriple AddRadioButton");
 
                 try
                 {
@@ -503,7 +503,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Get designer to create a radio button item.
-                    KryptonRibbonGroupRadioButton radioButton = (KryptonRibbonGroupRadioButton)_designerHost.CreateComponent(typeof(KryptonRibbonGroupRadioButton));
+                    Krypton.RibbonGroupRadioButton radioButton = (Krypton.RibbonGroupRadioButton)_designerHost.CreateComponent(typeof(Krypton.RibbonGroupRadioButton));
                     _ribbonTriple.Items.Add(radioButton);
 
                     RaiseComponentChanged(propertyItems, null, null);
@@ -521,7 +521,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTriple?.Ribbon != null) && _ribbonTriple.RibbonGroup.Items.Contains(_ribbonTriple))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTriple AddLabel");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTriple AddLabel");
 
                 try
                 {
@@ -531,7 +531,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Get designer to create a label item
-                    KryptonRibbonGroupLabel label = (KryptonRibbonGroupLabel)_designerHost.CreateComponent(typeof(KryptonRibbonGroupLabel));
+                    Krypton.RibbonGroupLabel label = (Krypton.RibbonGroupLabel)_designerHost.CreateComponent(typeof(Krypton.RibbonGroupLabel));
                     _ribbonTriple.Items.Add(label);
 
                     RaiseComponentChanged(propertyItems, null, null);
@@ -549,7 +549,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTriple?.Ribbon != null) && _ribbonTriple.RibbonGroup.Items.Contains(_ribbonTriple))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTriple AddCustomControl");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTriple AddCustomControl");
 
                 try
                 {
@@ -559,7 +559,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Get designer to create a custom control item
-                    KryptonRibbonGroupCustomControl cc = (KryptonRibbonGroupCustomControl)_designerHost.CreateComponent(typeof(KryptonRibbonGroupCustomControl));
+                    Krypton.RibbonGroupCustomControl cc = (Krypton.RibbonGroupCustomControl)_designerHost.CreateComponent(typeof(Krypton.RibbonGroupCustomControl));
                     _ribbonTriple.Items.Add(cc);
 
                     RaiseComponentChanged(propertyItems, null, null);
@@ -577,7 +577,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTriple?.Ribbon != null) && _ribbonTriple.RibbonGroup.Items.Contains(_ribbonTriple))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTriple AddTextBox");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTriple AddTextBox");
 
                 try
                 {
@@ -587,7 +587,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Get designer to create a textbox item
-                    KryptonRibbonGroupTextBox tb = (KryptonRibbonGroupTextBox)_designerHost.CreateComponent(typeof(KryptonRibbonGroupTextBox));
+                    Krypton.RibbonGroupTextBox tb = (Krypton.RibbonGroupTextBox)_designerHost.CreateComponent(typeof(Krypton.RibbonGroupTextBox));
                     _ribbonTriple.Items.Add(tb);
 
                     RaiseComponentChanged(propertyItems, null, null);
@@ -605,7 +605,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTriple?.Ribbon != null) && _ribbonTriple.RibbonGroup.Items.Contains(_ribbonTriple))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTriple AddTrackBar");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTriple AddTrackBar");
 
                 try
                 {
@@ -615,7 +615,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Get designer to create a trackbar item
-                    KryptonRibbonGroupTrackBar tb = (KryptonRibbonGroupTrackBar)_designerHost.CreateComponent(typeof(KryptonRibbonGroupTrackBar));
+                    Krypton.RibbonGroupTrackBar tb = (Krypton.RibbonGroupTrackBar)_designerHost.CreateComponent(typeof(Krypton.RibbonGroupTrackBar));
                     _ribbonTriple.Items.Add(tb);
 
                     RaiseComponentChanged(propertyItems, null, null);
@@ -633,7 +633,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTriple?.Ribbon != null) && _ribbonTriple.RibbonGroup.Items.Contains(_ribbonTriple))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTriple AddMaskedTextBox");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTriple AddMaskedTextBox");
 
                 try
                 {
@@ -643,7 +643,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Get designer to create a textbox item
-                    KryptonRibbonGroupMaskedTextBox mtb = (KryptonRibbonGroupMaskedTextBox)_designerHost.CreateComponent(typeof(KryptonRibbonGroupMaskedTextBox));
+                    Krypton.RibbonGroupMaskedTextBox mtb = (Krypton.RibbonGroupMaskedTextBox)_designerHost.CreateComponent(typeof(Krypton.RibbonGroupMaskedTextBox));
                     _ribbonTriple.Items.Add(mtb);
 
                     RaiseComponentChanged(propertyItems, null, null);
@@ -661,7 +661,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTriple?.Ribbon != null) && _ribbonTriple.RibbonGroup.Items.Contains(_ribbonTriple))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTriple AddRichTextBox");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTriple AddRichTextBox");
 
                 try
                 {
@@ -671,7 +671,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Get designer to create a richtextbox item
-                    KryptonRibbonGroupRichTextBox rtb = (KryptonRibbonGroupRichTextBox)_designerHost.CreateComponent(typeof(KryptonRibbonGroupRichTextBox));
+                    Krypton.RibbonGroupRichTextBox rtb = (Krypton.RibbonGroupRichTextBox)_designerHost.CreateComponent(typeof(Krypton.RibbonGroupRichTextBox));
                     _ribbonTriple.Items.Add(rtb);
 
                     RaiseComponentChanged(propertyItems, null, null);
@@ -689,7 +689,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTriple?.Ribbon != null) && _ribbonTriple.RibbonGroup.Items.Contains(_ribbonTriple))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTriple AddComboBox");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTriple AddComboBox");
 
                 try
                 {
@@ -699,7 +699,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Get designer to create a combobox item
-                    KryptonRibbonGroupComboBox cc = (KryptonRibbonGroupComboBox)_designerHost.CreateComponent(typeof(KryptonRibbonGroupComboBox));
+                    Krypton.RibbonGroupComboBox cc = (Krypton.RibbonGroupComboBox)_designerHost.CreateComponent(typeof(Krypton.RibbonGroupComboBox));
                     _ribbonTriple.Items.Add(cc);
 
                     RaiseComponentChanged(propertyItems, null, null);
@@ -717,7 +717,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTriple?.Ribbon != null) && _ribbonTriple.RibbonGroup.Items.Contains(_ribbonTriple))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTriple AddNumericUpDown");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTriple AddNumericUpDown");
 
                 try
                 {
@@ -727,7 +727,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Get designer to create a numeric up-down item
-                    KryptonRibbonGroupNumericUpDown cc = (KryptonRibbonGroupNumericUpDown)_designerHost.CreateComponent(typeof(KryptonRibbonGroupNumericUpDown));
+                    Krypton.RibbonGroupNumericUpDown cc = (Krypton.RibbonGroupNumericUpDown)_designerHost.CreateComponent(typeof(Krypton.RibbonGroupNumericUpDown));
                     _ribbonTriple.Items.Add(cc);
 
                     RaiseComponentChanged(propertyItems, null, null);
@@ -745,7 +745,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTriple?.Ribbon != null) && _ribbonTriple.RibbonGroup.Items.Contains(_ribbonTriple))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTriple AddDomainUpDown");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTriple AddDomainUpDown");
 
                 try
                 {
@@ -755,7 +755,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Get designer to create a domain up-down item
-                    KryptonRibbonGroupDomainUpDown cc = (KryptonRibbonGroupDomainUpDown)_designerHost.CreateComponent(typeof(KryptonRibbonGroupDomainUpDown));
+                    Krypton.RibbonGroupDomainUpDown cc = (Krypton.RibbonGroupDomainUpDown)_designerHost.CreateComponent(typeof(Krypton.RibbonGroupDomainUpDown));
                     _ribbonTriple.Items.Add(cc);
 
                     RaiseComponentChanged(propertyItems, null, null);
@@ -773,7 +773,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTriple?.Ribbon != null) && _ribbonTriple.RibbonGroup.Items.Contains(_ribbonTriple))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTriple AddDateTimePicker");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTriple AddDateTimePicker");
 
                 try
                 {
@@ -783,7 +783,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Get designer to create a domain up-down item
-                    KryptonRibbonGroupDateTimePicker cc = (KryptonRibbonGroupDateTimePicker)_designerHost.CreateComponent(typeof(KryptonRibbonGroupDateTimePicker));
+                    Krypton.RibbonGroupDateTimePicker cc = (Krypton.RibbonGroupDateTimePicker)_designerHost.CreateComponent(typeof(Krypton.RibbonGroupDateTimePicker));
                     _ribbonTriple.Items.Add(cc);
 
                     RaiseComponentChanged(propertyItems, null, null);
@@ -801,7 +801,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTriple?.Ribbon != null) && _ribbonTriple.RibbonGroup.Items.Contains(_ribbonTriple))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTriple ClearItems");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTriple ClearItems");
 
                 try
                 {
@@ -816,7 +816,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     // We need to remove all the items from the triple group
                     for (int i = _ribbonTriple.Items.Count - 1; i >= 0; i--)
                     {
-                        KryptonRibbonGroupItem item = _ribbonTriple.Items[i];
+                        Krypton.RibbonGroupItem item = _ribbonTriple.Items[i];
                         _ribbonTriple.Items.Remove(item);
                         host.DestroyComponent(item);
                     }
@@ -836,7 +836,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTriple?.Ribbon != null) && _ribbonTriple.RibbonGroup.Items.Contains(_ribbonTriple))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTriple DeleteTriple");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTriple DeleteTriple");
 
                 try
                 {
@@ -943,7 +943,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 // We need to remove all items from the triple group
                 for (int j = _ribbonTriple.Items.Count - 1; j >= 0; j--)
                 {
-                    KryptonRibbonGroupItem item = _ribbonTriple.Items[j] as KryptonRibbonGroupItem;
+                    Krypton.RibbonGroupItem item = _ribbonTriple.Items[j] as Krypton.RibbonGroupItem;
                     _ribbonTriple.Items.Remove(item);
                     host.DestroyComponent(item);
                 }
@@ -975,20 +975,20 @@ namespace ComponentFactory.Krypton.Ribbon
                     _moveNextMenu = new ToolStripMenuItem("Move Triple Next", Design.Properties.Resources.MoveNext, OnMoveNext);
                     _moveLastMenu = new ToolStripMenuItem("Move Triple Last", Design.Properties.Resources.MoveLast, OnMoveLast);
                     _moveToGroupMenu = new ToolStripMenuItem("Move Triple To Group");
-                    _addButtonMenu = new ToolStripMenuItem("Add Button", Design.Properties.Resources.KryptonRibbonGroupButton, OnAddButton);
-                    _addColorButtonMenu = new ToolStripMenuItem("Add Color Button", Design.Properties.Resources.KryptonRibbonGroupColorButton, OnAddColorButton);
-                    _addCheckBoxMenu = new ToolStripMenuItem("Add CheckBox", Design.Properties.Resources.KryptonRibbonGroupCheckBox, OnAddCheckBox);
-                    _addRadioButtonMenu = new ToolStripMenuItem("Add RadioButton", Design.Properties.Resources.KryptonRibbonGroupRadioButton, OnAddRadioButton);
-                    _addLabelMenu = new ToolStripMenuItem("Add Label", Design.Properties.Resources.KryptonRibbonGroupLabel, OnAddLabel);
-                    _addCustomControlMenu = new ToolStripMenuItem("Add Custom Control", Design.Properties.Resources.KryptonRibbonGroupCustomControl, OnAddCustomControl);
-                    _addTextBoxMenu = new ToolStripMenuItem("Add TextBox", Design.Properties.Resources.KryptonRibbonGroupTextBox, OnAddTextBox);
-                    _addMaskedTextBoxMenu = new ToolStripMenuItem("Add MaskedTextBox", Design.Properties.Resources.KryptonRibbonGroupMaskedTextBox, OnAddMaskedTextBox);
-                    _addRichTextBoxMenu = new ToolStripMenuItem("Add RichTextBox", Design.Properties.Resources.KryptonRibbonGroupRichTextBox, OnAddRichTextBox);
-                    _addComboBoxMenu = new ToolStripMenuItem("Add ComboBox", Design.Properties.Resources.KryptonRibbonGroupComboBox, OnAddComboBox);
-                    _addNumericUpDownMenu = new ToolStripMenuItem("Add NumericUpDown", Design.Properties.Resources.KryptonRibbonGroupNumericUpDown, OnAddNumericUpDown);
-                    _addDomainUpDownMenu = new ToolStripMenuItem("Add DomainUpDown", Design.Properties.Resources.KryptonRibbonGroupDomainUpDown, OnAddDomainUpDown);
-                    _addDateTimePickerMenu = new ToolStripMenuItem("Add DateTimePicker", Design.Properties.Resources.KryptonRibbonGroupDateTimePicker, OnAddDateTimePicker);
-                    _addTrackBarMenu = new ToolStripMenuItem("Add TrackBar", Design.Properties.Resources.KryptonRibbonGroupTrackBar, OnAddTrackBar);
+                    _addButtonMenu = new ToolStripMenuItem("Add Button", Design.Properties.Resources.Krypton.RibbonGroupButton, OnAddButton);
+                    _addColorButtonMenu = new ToolStripMenuItem("Add Color Button", Design.Properties.Resources.Krypton.RibbonGroupColorButton, OnAddColorButton);
+                    _addCheckBoxMenu = new ToolStripMenuItem("Add CheckBox", Design.Properties.Resources.Krypton.RibbonGroupCheckBox, OnAddCheckBox);
+                    _addRadioButtonMenu = new ToolStripMenuItem("Add RadioButton", Design.Properties.Resources.Krypton.RibbonGroupRadioButton, OnAddRadioButton);
+                    _addLabelMenu = new ToolStripMenuItem("Add Label", Design.Properties.Resources.Krypton.RibbonGroupLabel, OnAddLabel);
+                    _addCustomControlMenu = new ToolStripMenuItem("Add Custom Control", Design.Properties.Resources.Krypton.RibbonGroupCustomControl, OnAddCustomControl);
+                    _addTextBoxMenu = new ToolStripMenuItem("Add TextBox", Design.Properties.Resources.Krypton.RibbonGroupTextBox, OnAddTextBox);
+                    _addMaskedTextBoxMenu = new ToolStripMenuItem("Add MaskedTextBox", Design.Properties.Resources.Krypton.RibbonGroupMaskedTextBox, OnAddMaskedTextBox);
+                    _addRichTextBoxMenu = new ToolStripMenuItem("Add RichTextBox", Design.Properties.Resources.Krypton.RibbonGroupRichTextBox, OnAddRichTextBox);
+                    _addComboBoxMenu = new ToolStripMenuItem("Add ComboBox", Design.Properties.Resources.Krypton.RibbonGroupComboBox, OnAddComboBox);
+                    _addNumericUpDownMenu = new ToolStripMenuItem("Add NumericUpDown", Design.Properties.Resources.Krypton.RibbonGroupNumericUpDown, OnAddNumericUpDown);
+                    _addDomainUpDownMenu = new ToolStripMenuItem("Add DomainUpDown", Design.Properties.Resources.Krypton.RibbonGroupDomainUpDown, OnAddDomainUpDown);
+                    _addDateTimePickerMenu = new ToolStripMenuItem("Add DateTimePicker", Design.Properties.Resources.Krypton.RibbonGroupDateTimePicker, OnAddDateTimePicker);
+                    _addTrackBarMenu = new ToolStripMenuItem("Add TrackBar", Design.Properties.Resources.Krypton.RibbonGroupTrackBar, OnAddTrackBar);
                     _clearItemsMenu = new ToolStripMenuItem("Clear Items", null, OnClearItems);
                     _deleteTripleMenu = new ToolStripMenuItem("Delete Triple", Design.Properties.Resources.delete2, OnDeleteTriple);                    
                     _cms.Items.AddRange(new ToolStripItem[] { _toggleHelpersMenu, new ToolStripSeparator(),
@@ -1069,7 +1069,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonTriple.Ribbon != null)
             {
                 // Create a new item per group in the same ribbon tab
-                foreach (KryptonRibbonGroup group in _ribbonTriple.RibbonTab.Groups)
+                foreach (Krypton.RibbonGroup group in _ribbonTriple.RibbonTab.Groups)
                 {
                     // Cannot move to ourself, so ignore outself
                     if (group != _ribbonTriple.RibbonGroup)
@@ -1099,10 +1099,10 @@ namespace ComponentFactory.Krypton.Ribbon
                 ToolStripMenuItem groupMenuItem = (ToolStripMenuItem)sender;
 
                 // Get access to the destination tab
-                KryptonRibbonGroup destination = (KryptonRibbonGroup)groupMenuItem.Tag;
+                Krypton.RibbonGroup destination = (Krypton.RibbonGroup)groupMenuItem.Tag;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTriple MoveTripleToGroup");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTriple MoveTripleToGroup");
 
                 try
                 {

@@ -9,7 +9,7 @@
 //  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Storage for palette ribbon group radio button text states.

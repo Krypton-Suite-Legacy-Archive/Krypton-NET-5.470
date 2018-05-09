@@ -13,7 +13,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms.VisualStyles;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Take into account the current theme when creating an Office 2003 appearance.

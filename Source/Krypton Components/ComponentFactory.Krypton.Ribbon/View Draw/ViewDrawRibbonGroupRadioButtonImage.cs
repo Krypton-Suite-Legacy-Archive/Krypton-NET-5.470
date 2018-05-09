@@ -11,9 +11,9 @@
 
 using System.Drawing;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Draws a radio button centered in the correct location.
@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbonGroupRadioButton _ribbonRadioButton;
+        private Krypton.RibbonGroupRadioButton _ribbonRadioButton;
         private readonly ViewDrawRadioButton _drawRadioButton;
         private readonly bool _large;
         #endregion
@@ -38,8 +38,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonRadioButton">Reference to ribbon group radio button definition.</param>
         /// <param name="large">Show the large image.</param>
-        public ViewDrawRibbonGroupRadioButtonImage(KryptonRibbon ribbon,
-                                                   KryptonRibbonGroupRadioButton ribbonRadioButton,
+        public ViewDrawRibbonGroupRadioButtonImage(Krypton.Ribbon ribbon,
+                                                   Krypton.RibbonGroupRadioButton ribbonRadioButton,
                                                    bool large)
         {
             Debug.Assert(ribbonRadioButton != null);

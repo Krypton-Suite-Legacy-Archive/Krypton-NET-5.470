@@ -9,14 +9,14 @@
 //  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Specialise the generic collection with type specific rules for group item accessor.
     /// </summary>
-    public class KryptonRibbonGroupCollection : TypedCollection<KryptonRibbonGroup>
+    public class Krypton.RibbonGroupCollection : TypedCollection<Krypton.RibbonGroup>
     {
         #region Public
         /// <summary>
@@ -24,12 +24,12 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         /// <param name="name">Name of the ribbon group instance.</param>
         /// <returns>Item at specified index.</returns>
-        public override KryptonRibbonGroup this[string name]
+        public override Krypton.RibbonGroup this[string name]
         {
             get
             {
                 // Search for a group with the same text as that requested.
-                foreach (KryptonRibbonGroup group in this)
+                foreach (Krypton.RibbonGroup group in this)
                 {
                     if ((@group.TextLine1 == name) ||
                         (@group.TextLine2 == name) ||

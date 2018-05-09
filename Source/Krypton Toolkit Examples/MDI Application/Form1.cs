@@ -5,16 +5,12 @@
 //  proprietary information of Component Factory Pty Ltd, PO Box 1504, 
 //  Glen Waverley, Vic 3150, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.5.0.0 	www.ComponentFactory.com
+//  Version 4.70.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Drawing;
 using System.Windows.Forms;
-using System.ComponentModel;
-using System.Collections.Generic;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
 namespace MDIApplication
 {
@@ -53,14 +49,18 @@ namespace MDIApplication
         {
             // Close just the active child
             if (ActiveMdiChild != null)
+            {
                 ActiveMdiChild.Close();
+            }
         }
 
         private void closeAllWidowToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Keep closing active children until all gone
             while (ActiveMdiChild != null)
+            {
                 ActiveMdiChild.Close();
+            }
         }
 
         private void cascadeToolStripMenuItem_Click(object sender, EventArgs e)

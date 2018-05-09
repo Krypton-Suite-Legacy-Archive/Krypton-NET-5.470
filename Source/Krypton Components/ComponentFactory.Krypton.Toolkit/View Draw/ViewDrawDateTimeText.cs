@@ -18,7 +18,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.ComponentModel;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Draw the date time picker text.

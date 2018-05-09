@@ -15,16 +15,16 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
-    internal class KryptonRibbonGroupClusterButtonDesigner : ComponentDesigner
+    internal class Krypton.RibbonGroupClusterButtonDesigner : ComponentDesigner
     {
         #region Instance Fields
         private IDesignerHost _designerHost;
         private IComponentChangeService _changeService;
-        private KryptonRibbonGroupClusterButton _ribbonButton;
+        private Krypton.RibbonGroupClusterButton _ribbonButton;
         private DesignerVerbCollection _verbs;
         private DesignerVerb _toggleHelpersVerb;
         private DesignerVerb _moveFirstVerb;
@@ -51,9 +51,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the KryptonRibbonGroupClusterButtonDesigner class.
+        /// Initialize a new instance of the Krypton.RibbonGroupClusterButtonDesigner class.
         /// </summary>
-        public KryptonRibbonGroupClusterButtonDesigner()
+        public Krypton.RibbonGroupClusterButtonDesigner()
         {
         }
         #endregion
@@ -77,7 +77,7 @@ namespace ComponentFactory.Krypton.Ribbon
             base.Initialize(component);
 
             // Cast to correct type
-            _ribbonButton = (KryptonRibbonGroupClusterButton)component;
+            _ribbonButton = (Krypton.RibbonGroupClusterButton)component;
             _ribbonButton.DesignTimeContextMenu += OnContextMenu;
 
             // Get access to the services
@@ -150,7 +150,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonButton?.Ribbon != null)
             {
                 // Cast container to the correct type
-                KryptonRibbonGroupCluster cluster = (KryptonRibbonGroupCluster)_ribbonButton.RibbonContainer;
+                Krypton.RibbonGroupCluster cluster = (Krypton.RibbonGroupCluster)_ribbonButton.RibbonContainer;
 
                 moveFirst = (cluster.Items.IndexOf(_ribbonButton) > 0);
                 movePrev = (cluster.Items.IndexOf(_ribbonButton) > 0);
@@ -178,10 +178,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonButton?.Ribbon != null)
             {
                 // Cast container to the correct type
-                KryptonRibbonGroupCluster cluster = (KryptonRibbonGroupCluster)_ribbonButton.RibbonContainer;
+                Krypton.RibbonGroupCluster cluster = (Krypton.RibbonGroupCluster)_ribbonButton.RibbonContainer;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupClusterButton MoveFirst");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupClusterButton MoveFirst");
 
                 try
                 {
@@ -210,10 +210,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonButton?.Ribbon != null)
             {
                 // Cast container to the correct type
-                KryptonRibbonGroupCluster cluster = (KryptonRibbonGroupCluster)_ribbonButton.RibbonContainer;
+                Krypton.RibbonGroupCluster cluster = (Krypton.RibbonGroupCluster)_ribbonButton.RibbonContainer;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupClusterButton MovePrevious");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupClusterButton MovePrevious");
 
                 try
                 {
@@ -244,10 +244,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonButton?.Ribbon != null)
             {
                 // Cast container to the correct type
-                KryptonRibbonGroupCluster cluster = (KryptonRibbonGroupCluster)_ribbonButton.RibbonContainer;
+                Krypton.RibbonGroupCluster cluster = (Krypton.RibbonGroupCluster)_ribbonButton.RibbonContainer;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupClusterButton MoveNext");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupClusterButton MoveNext");
 
                 try
                 {
@@ -281,10 +281,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonButton?.Ribbon != null)
             {
                 // Cast container to the correct type
-                KryptonRibbonGroupCluster cluster = (KryptonRibbonGroupCluster)_ribbonButton.RibbonContainer;
+                Krypton.RibbonGroupCluster cluster = (Krypton.RibbonGroupCluster)_ribbonButton.RibbonContainer;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupClusterButton MoveLast");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupClusterButton MoveLast");
 
                 try
                 {
@@ -316,10 +316,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonButton?.Ribbon != null)
             {
                 // Cast container to the correct type
-                KryptonRibbonGroupCluster cluster = (KryptonRibbonGroupCluster)_ribbonButton.RibbonContainer;
+                Krypton.RibbonGroupCluster cluster = (Krypton.RibbonGroupCluster)_ribbonButton.RibbonContainer;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupClusterButton DeleteButton");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupClusterButton DeleteButton");
 
                 try
                 {

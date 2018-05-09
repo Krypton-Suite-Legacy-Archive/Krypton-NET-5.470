@@ -18,14 +18,14 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Exposes global settings that affect all the Krypton controls.
     /// </summary>
     [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonManager), "ToolboxBitmaps.KryptonManager.bmp")]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonManagerDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer("Krypton.Toolkit.KryptonManagerDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [DefaultProperty("GlobalPaletteMode")]
     [Description("Access global Krypton settings.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]

@@ -11,7 +11,7 @@
 
 using System;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
 	/// <summary>
     /// Event arguments for a FloatingWindowAdding/FloatingWindowRemoved event.
@@ -29,7 +29,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="floatingWindow">Reference to floating window instance.</param>
         /// <param name="element">Reference to docking floating winodw element that is managing the floating window.</param>
         public FloatingWindowEventArgs(KryptonFloatingWindow floatingWindow,
-                                       KryptonDockingFloatingWindow element)
+                                       Krypton.DockingFloatingWindow element)
 		{
             FloatingWindow = floatingWindow;
             FloatingWindowElement = element;
@@ -43,9 +43,9 @@ namespace ComponentFactory.Krypton.Docking
         public KryptonFloatingWindow FloatingWindow { get; }
 
 	    /// <summary>
-        /// Gets a reference to the KryptonDockingFloatingWindow that is managing the dockspace.
+        /// Gets a reference to the Krypton.DockingFloatingWindow that is managing the dockspace.
         /// </summary>
-        public KryptonDockingFloatingWindow FloatingWindowElement { get; }
+        public Krypton.DockingFloatingWindow FloatingWindowElement { get; }
 
 	    #endregion
 	}

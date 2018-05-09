@@ -16,21 +16,21 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Represents a ribbon group cluster color button.
     /// </summary>
     [ToolboxItem(false)]
-    [ToolboxBitmap(typeof(KryptonRibbonGroupClusterColorButton), "ToolboxBitmaps.KryptonRibbonGroupClusterColorButton.bmp")]
-    [Designer("ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterColorButtonDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [ToolboxBitmap(typeof(Krypton.RibbonGroupClusterColorButton), "ToolboxBitmaps.Krypton.RibbonGroupClusterColorButton.bmp")]
+    [Designer("Krypton.Ribbon.Krypton.RibbonGroupClusterColorButtonDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
     [DefaultEvent("SelectedColorChanged")]
     [DefaultProperty("SelectedColor")]
-    public class KryptonRibbonGroupClusterColorButton : KryptonRibbonGroupItem
+    public class Krypton.RibbonGroupClusterColorButton : Krypton.RibbonGroupItem
     {
         #region Static Fields
         private static readonly Image _defaultButtonImageSmall = Properties.Resources.ButtonColorImageSmall;
@@ -135,9 +135,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialise a new instance of the KryptonRibbonGroupClusterColorButton class.
+        /// Initialise a new instance of the Krypton.RibbonGroupClusterColorButton class.
         /// </summary>
-        public KryptonRibbonGroupClusterColorButton()
+        public Krypton.RibbonGroupClusterColorButton()
         {
             // Default fields
             _enabled = true;
@@ -836,7 +836,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="needPaint">Delegate for notifying changes in display.</param>
         /// <returns>ViewBase derived instance.</returns>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override ViewBase CreateView(KryptonRibbon ribbon, 
+        public override ViewBase CreateView(Krypton.Ribbon ribbon, 
                                             NeedPaintHandler needPaint)
         {
             return new ViewDrawRibbonGroupClusterColorButton(ribbon, this, needPaint);

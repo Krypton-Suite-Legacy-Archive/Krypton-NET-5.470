@@ -12,7 +12,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Provide inheritance of palette content properties from source redirector.

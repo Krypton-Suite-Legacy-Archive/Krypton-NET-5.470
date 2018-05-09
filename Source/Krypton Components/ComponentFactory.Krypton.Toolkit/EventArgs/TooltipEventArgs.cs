@@ -13,7 +13,7 @@ using System;
 using System.Drawing;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Details for a tooltip related event.

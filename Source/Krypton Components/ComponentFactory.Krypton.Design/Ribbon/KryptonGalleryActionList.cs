@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.ComponentModel.Design;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     internal class KryptonGalleryActionList : DesignerActionList
     {

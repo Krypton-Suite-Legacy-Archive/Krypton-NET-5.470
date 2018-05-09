@@ -12,7 +12,7 @@
 using System;
 using System.Xml;
 
-namespace ComponentFactory.Krypton.Workspace
+namespace Krypton.Workspace
 {
 	/// <summary>
 	/// Event data for persisting extra data for a workspace.
@@ -29,7 +29,7 @@ namespace ComponentFactory.Krypton.Workspace
 		/// </summary>
         /// <param name="workspace">Reference to owning workspace control.</param>
         /// <param name="xmlWriter">Xml writer for persisting custom data.</param>
-        public XmlSavingEventArgs(KryptonWorkspace workspace,
+        public XmlSavingEventArgs(Krypton.Workspace workspace,
                                   XmlWriter xmlWriter)
 		{
             Workspace = workspace;
@@ -41,7 +41,7 @@ namespace ComponentFactory.Krypton.Workspace
 		/// <summary>
         /// Gets the workspace reference.
 		/// </summary>
-        public KryptonWorkspace Workspace { get; }
+        public Krypton.Workspace Workspace { get; }
 
 	    /// <summary>
         /// Gets the xml writer.

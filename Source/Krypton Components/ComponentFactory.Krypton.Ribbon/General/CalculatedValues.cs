@@ -12,9 +12,9 @@
 using System;
 using System.Drawing;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Set of calculated values for use when laying out view elements.
@@ -41,7 +41,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Instance Fields
         private PaletteRibbonShape _lastShape;
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private int _groupHeightModifier;
         private int _groupsHeightModifier;
         #endregion
@@ -51,7 +51,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Initialize a new instance of the CalculatedValues class.
         /// </summary>
         /// <param name="ribbon">Source control instance.</param>
-        public CalculatedValues(KryptonRibbon ribbon)
+        public CalculatedValues(Krypton.Ribbon ribbon)
         {
             Debug.Assert(ribbon != null);
             _ribbon = ribbon;

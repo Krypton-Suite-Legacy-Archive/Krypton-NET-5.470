@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws half of an application tab.
@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private IDisposable[] _mementos;
         private readonly PaletteRibbonGeneral _paletteGeneral;
         private readonly ApplicationTabToContent _contentProvider;
@@ -39,7 +39,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Initialize a new instance of the ViewDrawRibbonAppTab class.
 		/// </summary>
         /// <param name="ribbon">Owning control instance.</param>
-        public ViewDrawRibbonAppTab(KryptonRibbon ribbon)
+        public ViewDrawRibbonAppTab(Krypton.Ribbon ribbon)
         {
             Debug.Assert(ribbon != null);
 

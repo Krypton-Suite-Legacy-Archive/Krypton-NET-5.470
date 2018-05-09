@@ -11,9 +11,9 @@
 
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Process mouse events for a ribbon group textbox.
@@ -24,8 +24,8 @@ namespace ComponentFactory.Krypton.Ribbon
                                        IRibbonKeyTipTarget
 	{
 		#region Instance Fields
-        private readonly KryptonRibbon _ribbon;
-        private readonly KryptonRibbonGroupGallery _gallery;
+        private readonly Krypton.Ribbon _ribbon;
+        private readonly Krypton.RibbonGroupGallery _gallery;
         private readonly ViewDrawRibbonGroupGallery _target;
         #endregion
 
@@ -36,8 +36,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         /// <param name="gallery">Source definition.</param>
         /// <param name="target">Target view element.</param>
-        public GalleryController(KryptonRibbon ribbon,
-                                 KryptonRibbonGroupGallery gallery,
+        public GalleryController(Krypton.Ribbon ribbon,
+                                 Krypton.RibbonGroupGallery gallery,
                                  ViewDrawRibbonGroupGallery target)
 		{
             Debug.Assert(ribbon != null);
@@ -87,7 +87,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             switch (c)
             {
-                case KryptonRibbon rib:
+                case Krypton.Ribbon rib:
                     KeyDownRibbon(rib, e);
                     break;
                 case VisualPopupGroup pop:
@@ -125,7 +125,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Perform actual selection of the item.
         /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
-        public void KeyTipSelect(KryptonRibbon ribbon)
+        public void KeyTipSelect(Krypton.Ribbon ribbon)
         {
             // Prevent the ribbon from killing keyboard mode when it loses the focus,
             // as this causes the tracking windows to be killed and we want them kept
@@ -140,7 +140,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Implementation
-        private void KeyDownRibbon(KryptonRibbon ribbon, KeyEventArgs e)
+        private void KeyDownRibbon(Krypton.Ribbon ribbon, KeyEventArgs e)
         {
             ViewBase newView = null;
 

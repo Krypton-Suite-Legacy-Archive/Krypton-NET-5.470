@@ -12,7 +12,7 @@
 using System.Drawing;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Provide inheritance of palette ribbon background and text properties from source redirector.

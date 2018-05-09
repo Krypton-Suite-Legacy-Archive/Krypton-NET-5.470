@@ -11,7 +11,7 @@
 
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Implementation for internal calendar buttons.

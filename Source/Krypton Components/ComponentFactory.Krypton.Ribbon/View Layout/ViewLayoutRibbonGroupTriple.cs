@@ -15,9 +15,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Extends the ViewComposite by creating and laying out elements to represent ribbon group triple.
@@ -31,8 +31,8 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
-        private readonly KryptonRibbonGroupTriple _ribbonTriple;
+        private readonly Krypton.Ribbon _ribbon;
+        private readonly Krypton.RibbonGroupTriple _ribbonTriple;
         private ViewDrawRibbonDesignGroupTriple _viewAddItem;
         private readonly NeedPaintHandler _needPaint;
         private GroupItemSize _currentSize;
@@ -51,8 +51,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Owning ribbon control instance.</param>
         /// <param name="ribbonTriple">Reference to triple definition.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewLayoutRibbonGroupTriple(KryptonRibbon ribbon,
-                                           KryptonRibbonGroupTriple ribbonTriple,
+        public ViewLayoutRibbonGroupTriple(Krypton.Ribbon ribbon,
+                                           Krypton.RibbonGroupTriple ribbonTriple,
                                            NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);

@@ -14,7 +14,7 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Storage for color button content value information.

@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System;
-using ComponentFactory.Krypton.Workspace;
+using Krypton.Workspace;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
 	/// <summary>
     /// Event arguments for a FloatspaceCellAdding/FloatingCellRemoving events.
@@ -31,8 +31,8 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="element">Reference to docking floatspace element that is managing the floatspace control.</param>
         /// <param name="cell">Reference tofloatspace control cell instance.</param>
         public FloatspaceCellEventArgs(KryptonFloatspace floatspace,
-                                       KryptonDockingFloatspace element,
-                                       KryptonWorkspaceCell cell)
+                                       Krypton.DockingFloatspace element,
+                                       Krypton.WorkspaceCell cell)
 		{
             FloatspaceControl = floatspace;
             FloatspaceElement = element;
@@ -47,14 +47,14 @@ namespace ComponentFactory.Krypton.Docking
         public KryptonFloatspace FloatspaceControl { get; }
 
 	    /// <summary>
-        /// Gets a reference to the KryptonDockingFloatspace that is managing the floatspace.
+        /// Gets a reference to the Krypton.DockingFloatspace that is managing the floatspace.
         /// </summary>
-        public KryptonDockingFloatspace FloatspaceElement { get; }
+        public Krypton.DockingFloatspace FloatspaceElement { get; }
 
 	    /// <summary>
-        /// Gets a reference to the KryptonWorkspaceCell control.
+        /// Gets a reference to the Krypton.WorkspaceCell control.
         /// </summary>
-        public KryptonWorkspaceCell CellControl { get; }
+        public Krypton.WorkspaceCell CellControl { get; }
 
 	    #endregion
 	}

@@ -13,7 +13,7 @@ using System.Drawing;
 using System.Diagnostics;
 using Microsoft.Win32;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Provide KryptonColorTable values using an array of Color values as the source.

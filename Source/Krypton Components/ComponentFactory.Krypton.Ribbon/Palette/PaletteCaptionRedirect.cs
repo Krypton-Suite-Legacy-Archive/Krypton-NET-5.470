@@ -9,9 +9,9 @@
 //  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Override the redirection to force the borders for the caption to only show the bottom border as a maximum.

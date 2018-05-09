@@ -15,9 +15,9 @@ using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.ComponentModel;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws an individual RibbonTab.
@@ -37,7 +37,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Instance Fields
 
-        private KryptonRibbonTab _ribbonTab;
+        private Krypton.RibbonTab _ribbonTab;
         private readonly PaletteRibbonGeneral _paletteGeneral;
         private readonly PaletteRibbonDoubleInheritOverride _overrideStateNormal;
         private readonly PaletteRibbonDoubleInheritOverride _overrideStateTracking;
@@ -80,7 +80,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="layoutTabs">Reference to view used for layout out tabs.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonTab(KryptonRibbon ribbon,
+        public ViewDrawRibbonTab(Krypton.Ribbon ribbon,
                                  ViewLayoutRibbonTabs layoutTabs,
                                  NeedPaintHandler needPaint)
         {
@@ -221,7 +221,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the owning ribbon control instance.
         /// </summary>
-        public KryptonRibbon Ribbon { get; }
+        public Krypton.Ribbon Ribbon { get; }
 
         #endregion
 
@@ -229,7 +229,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the ribbon tab this is responsible for drawing.
         /// </summary>
-        public KryptonRibbonTab RibbonTab
+        public Krypton.RibbonTab RibbonTab
         {
             get => _ribbonTab;
 

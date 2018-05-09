@@ -9,9 +9,9 @@
 //  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	/// <summary>
 	/// Details for a context button action event.

@@ -12,9 +12,9 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	/// <summary>
 	/// Override to draw tab items overlapping a group border and draw the selected tab item last.

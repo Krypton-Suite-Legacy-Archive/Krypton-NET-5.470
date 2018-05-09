@@ -11,14 +11,14 @@
 
 using System.Drawing;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     internal class DesignTextToContent : RibbonToContent
     {
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         #endregion
 
         #region Identity
@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Initialize a new instance of the DesignTextToContent class.
         /// </summary>
         /// <param name="ribbon">Reference to the owning ribbon control.</param>
-        public DesignTextToContent(KryptonRibbon ribbon)
+        public DesignTextToContent(Krypton.Ribbon ribbon)
             : base(ribbon.StateCommon.RibbonGeneral)
         {
             Debug.Assert(ribbon != null);

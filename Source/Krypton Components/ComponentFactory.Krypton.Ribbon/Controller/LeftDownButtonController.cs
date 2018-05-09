@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Provide button pressed when mouse down functionality.
@@ -46,7 +46,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         /// <param name="target">Target for state changes.</param>
         /// <param name="needPaint">Delegate for notifying changes in display.</param>
-        public LeftDownButtonController(KryptonRibbon ribbon,
+        public LeftDownButtonController(Krypton.Ribbon ribbon,
                                         ViewBase target, 
                                         NeedPaintHandler needPaint)
 		{
@@ -70,7 +70,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the owning ribbon instance.
         /// </summary>
-        public KryptonRibbon Ribbon { get; }
+        public Krypton.Ribbon Ribbon { get; }
 
         #endregion
 

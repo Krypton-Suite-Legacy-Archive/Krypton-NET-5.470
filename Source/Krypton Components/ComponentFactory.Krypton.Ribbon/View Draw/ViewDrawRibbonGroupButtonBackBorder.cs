@@ -14,9 +14,9 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws the background and border for a group button.
@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private IDisposable _mementoBack;
         private readonly IPaletteBack _paletteBack;
         private readonly PaletteBackInheritForced _paletteBackDraw;
@@ -65,8 +65,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="paletteBorder">Palette to use for the border.</param>
         /// <param name="constantBorder">Should the border be a constant normal state.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonGroupButtonBackBorder(KryptonRibbon ribbon,
-                                                   KryptonRibbonGroupItem groupItem,
+        public ViewDrawRibbonGroupButtonBackBorder(Krypton.Ribbon ribbon,
+                                                   Krypton.RibbonGroupItem groupItem,
                                                    IPaletteBack paletteBack,
                                                    IPaletteBorder paletteBorder,
                                                    bool constantBorder,
@@ -141,7 +141,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the associated ribbon group item.
         /// </summary>
-        public KryptonRibbonGroupItem GroupItem { get; }
+        public Krypton.RibbonGroupItem GroupItem { get; }
 
         #endregion
 

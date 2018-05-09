@@ -16,16 +16,16 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
-    internal class KryptonRibbonGroupDateTimePickerDesigner : ComponentDesigner, IKryptonDesignObject
+    internal class Krypton.RibbonGroupDateTimePickerDesigner : ComponentDesigner, IKrypton.DesignObject
     {
         #region Instance Fields
         private IDesignerHost _designerHost;
         private IComponentChangeService _changeService;
-        private KryptonRibbonGroupDateTimePicker _ribbonDateTimePicker;
+        private Krypton.RibbonGroupDateTimePicker _ribbonDateTimePicker;
         private DesignerVerbCollection _verbs;
         private DesignerVerb _toggleHelpersVerb;
         private DesignerVerb _moveFirstVerb;
@@ -46,9 +46,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the KryptonRibbonGroupDateTimePickerDesigner class.
+        /// Initialize a new instance of the Krypton.RibbonGroupDateTimePickerDesigner class.
         /// </summary>
-        public KryptonRibbonGroupDateTimePickerDesigner()
+        public Krypton.RibbonGroupDateTimePickerDesigner()
         {
         }
         #endregion
@@ -72,7 +72,7 @@ namespace ComponentFactory.Krypton.Ribbon
             base.Initialize(component);
 
             // Cast to correct type
-            _ribbonDateTimePicker = (KryptonRibbonGroupDateTimePicker)component;
+            _ribbonDateTimePicker = (Krypton.RibbonGroupDateTimePicker)component;
             _ribbonDateTimePicker.DateTimePickerDesigner = this;
 
             // Update designer properties with actual starting values
@@ -169,7 +169,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 PropertyDescriptor descrip = (PropertyDescriptor)properties[strArray[i]];
                 if (descrip != null)
                 {
-                    properties[strArray[i]] = TypeDescriptor.CreateProperty(typeof(KryptonRibbonGroupDateTimePickerDesigner), descrip, attributes);
+                    properties[strArray[i]] = TypeDescriptor.CreateProperty(typeof(Krypton.RibbonGroupDateTimePickerDesigner), descrip, attributes);
                 }
             }
         }
@@ -226,7 +226,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             if (_ribbonDateTimePicker?.Ribbon != null)
             {
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
                 moveFirst = (items.IndexOf(_ribbonDateTimePicker) > 0);
                 movePrev = (items.IndexOf(_ribbonDateTimePicker) > 0);
                 moveNext = (items.IndexOf(_ribbonDateTimePicker) < (items.Count - 1));
@@ -253,10 +253,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonDateTimePicker?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupDateTimePicker MoveFirst");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupDateTimePicker MoveFirst");
 
                 try
                 {
@@ -285,10 +285,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonDateTimePicker?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupDateTimePicker MovePrevious");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupDateTimePicker MovePrevious");
 
                 try
                 {
@@ -319,10 +319,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonDateTimePicker?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupDateTimePicker MoveNext");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupDateTimePicker MoveNext");
 
                 try
                 {
@@ -353,10 +353,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonDateTimePicker?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupDateTimePicker MoveLast");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupDateTimePicker MoveLast");
 
                 try
                 {
@@ -385,10 +385,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonDateTimePicker?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupDateTimePicker DeleteDateTimePicker");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupDateTimePicker DeleteDateTimePicker");
 
                 try
                 {
@@ -485,15 +485,15 @@ namespace ComponentFactory.Krypton.Ribbon
             }
         }
 
-        private TypedRestrictCollection<KryptonRibbonGroupItem> ParentItems
+        private TypedRestrictCollection<Krypton.RibbonGroupItem> ParentItems
         {
             get
             {
                 switch (_ribbonDateTimePicker.RibbonContainer)
                 {
-                    case KryptonRibbonGroupTriple triple:
+                    case Krypton.RibbonGroupTriple triple:
                         return triple.Items;
-                    case KryptonRibbonGroupLines lines:
+                    case Krypton.RibbonGroupLines lines:
                         return lines.Items;
                     default:
                         // Should never happen!

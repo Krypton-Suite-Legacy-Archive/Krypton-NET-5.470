@@ -12,7 +12,7 @@
 using System.Drawing;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
     /// View element that draws nothing and just takes up the metric provided size.

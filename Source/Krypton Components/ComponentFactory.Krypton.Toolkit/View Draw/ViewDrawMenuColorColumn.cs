@@ -13,7 +13,7 @@ using System;
 using System.Drawing;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Positions the child within a border that is drawn as the column background color.

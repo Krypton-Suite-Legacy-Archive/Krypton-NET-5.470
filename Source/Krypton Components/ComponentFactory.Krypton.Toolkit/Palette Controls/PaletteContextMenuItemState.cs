@@ -11,7 +11,7 @@
 
 using System.ComponentModel;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Storage for KryptonContextMenuItem state values.

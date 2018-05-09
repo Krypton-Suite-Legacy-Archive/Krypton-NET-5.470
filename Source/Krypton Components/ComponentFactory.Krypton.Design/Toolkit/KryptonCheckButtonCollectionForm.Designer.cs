@@ -1,4 +1,4 @@
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     internal partial class KryptonCheckButtonCollectionForm
     {

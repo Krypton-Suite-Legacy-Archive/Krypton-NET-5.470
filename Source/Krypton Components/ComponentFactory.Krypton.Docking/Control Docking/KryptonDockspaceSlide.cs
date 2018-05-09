@@ -10,13 +10,13 @@
 // *****************************************************************************
 
 using System.ComponentModel;
-using ComponentFactory.Krypton.Navigator;
-using ComponentFactory.Krypton.Workspace;
+using Krypton.Navigator;
+using Krypton.Workspace;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
     /// <summary>
-    /// Extends the KryptonWorkspace to work within the docking edge of a control.
+    /// Extends the Krypton.Workspace to work within the docking edge of a control.
     /// </summary>
     [ToolboxItem(false)]
     [DesignerCategory("code")]
@@ -39,7 +39,7 @@ namespace ComponentFactory.Krypton.Docking
         /// Initialize a new cell.
         /// </summary>
         /// <param name="cell">Cell being added to the control.</param>
-        protected override void NewCellInitialize(KryptonWorkspaceCell cell)
+        protected override void NewCellInitialize(Krypton.WorkspaceCell cell)
         {
             // Let base class perform event hooking and customizations
             base.NewCellInitialize(cell);

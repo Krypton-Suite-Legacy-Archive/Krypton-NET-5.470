@@ -12,7 +12,7 @@
 using System;
 using System.ComponentModel.Design;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	internal class NavigatorPageCollectionEditor : CollectionEditor
 	{
@@ -42,7 +42,7 @@ namespace ComponentFactory.Krypton.Navigator
 		protected override object SetItems(object editValue, object[] value)
 		{
 			// Cast the context into the expected control type
-			KryptonNavigator navigator = (KryptonNavigator)Context.Instance;
+			Krypton.Navigator navigator = (Krypton.Navigator)Context.Instance;
 
 			// Suspend changes until collection has been updated
 		    navigator?.SuspendLayout();

@@ -15,8 +15,9 @@ using System.Drawing.Design;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+// ReSharper disable MemberCanBePrivate.Global
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
     /// Combines button functionality with the styling features of the Krypton Toolkit.
@@ -25,7 +26,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [ToolboxBitmap(typeof(KryptonButton), "ToolboxBitmaps.KryptonButton.bmp")]
     [DefaultEvent("Click")]
 	[DefaultProperty("Text")]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonButtonDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer("Krypton.Toolkit.KryptonButtonDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [DesignerCategory("code")]
     [Description("Raises an event when the user clicks it.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
@@ -356,28 +357,27 @@ namespace ComponentFactory.Krypton.Toolkit
 
 	        set
             {
-                if (_command != value)
+                if (_command == value) 
+                    return;
+                if (_command != null)
                 {
-                    if (_command != null)
-                    {
-                        _command.PropertyChanged -= OnCommandPropertyChanged;
-                    }
-                    else
-                    {
-                        _wasEnabled = Enabled;
-                    }
+                    _command.PropertyChanged -= OnCommandPropertyChanged;
+                }
+                else
+                {
+                    _wasEnabled = Enabled;
+                }
 
-                    _command = value;
-                    OnKryptonCommandChanged(EventArgs.Empty);
+                _command = value;
+                OnKryptonCommandChanged(EventArgs.Empty);
 
-                    if (_command != null)
-                    {
-                        _command.PropertyChanged += OnCommandPropertyChanged;
-                    }
-                    else
-                    {
-                        Enabled = _wasEnabled;
-                    }
+                if (_command != null)
+                {
+                    _command.PropertyChanged += OnCommandPropertyChanged;
+                }
+                else
+                {
+                    Enabled = _wasEnabled;
                 }
             }
         }
@@ -396,7 +396,7 @@ namespace ComponentFactory.Krypton.Toolkit
 				// Decide if the default overrides should be applied
                 _overrideNormal.Apply = value;
 
-				// Change in deault state requires a layout and repaint
+				// Change in default state requires a layout and repaint
 				PerformNeedPaint(true);
 			}
 		}
@@ -454,7 +454,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
 		/// <summary>
-		/// Determins the IME status of the object when selected.
+		/// Determines the IME status of the object when selected.
 		/// </summary>
 		[Browsable(false)]
 		[EditorBrowsable(EditorBrowsableState.Never)]
@@ -486,10 +486,10 @@ namespace ComponentFactory.Krypton.Toolkit
         public Image GetImage(PaletteState state) => KryptonCommand?.ImageSmall ?? Values.GetImage(state);
 
         /// <summary>
-        /// Gets the image color that should be transparent.
+        /// Gets the image colour that should be transparent.
         /// </summary>
         /// <param name="state">The state for which the image is needed.</param>
-        /// <returns>Color value.</returns>
+        /// <returns>Colour value.</returns>
         public Color GetImageTransparentColor(PaletteState state) =>
             KryptonCommand?.ImageTransparentColor ?? Values.GetImageTransparentColor(state);
         #endregion
@@ -587,7 +587,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Processes a mnemonic character.
 		/// </summary>
 		/// <param name="charCode">The mnemonic character entered.</param>
-		/// <returns>true if the mnemonic was processsed; otherwise, false.</returns>
+		/// <returns>true if the mnemonic was processed; otherwise, false.</returns>
         protected override bool ProcessMnemonic(char charCode)
 		{
 			// Are we allowed to process mnemonics?

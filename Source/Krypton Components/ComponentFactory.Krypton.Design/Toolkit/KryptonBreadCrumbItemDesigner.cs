@@ -14,7 +14,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     internal class KryptonBreadCrumbItemDesigner : ComponentDesigner
     {

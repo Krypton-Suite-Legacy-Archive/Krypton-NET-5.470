@@ -13,7 +13,7 @@ using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Set the SmoothingMode=AntiAlias until instance disposed.

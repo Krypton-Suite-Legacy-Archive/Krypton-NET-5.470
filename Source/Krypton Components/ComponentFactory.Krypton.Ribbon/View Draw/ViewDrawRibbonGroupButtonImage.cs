@@ -12,7 +12,7 @@
 using System.Drawing;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws either a large or small image from a group button.
@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly KryptonRibbonGroupButton _ribbonButton;
+        private readonly Krypton.RibbonGroupButton _ribbonButton;
         private readonly bool _large;
         #endregion
 
@@ -37,8 +37,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonButton">Reference to ribbon group button definition.</param>
         /// <param name="large">Show the large image.</param>
-        public ViewDrawRibbonGroupButtonImage(KryptonRibbon ribbon,
-                                              KryptonRibbonGroupButton ribbonButton,
+        public ViewDrawRibbonGroupButtonImage(Krypton.Ribbon ribbon,
+                                              Krypton.RibbonGroupButton ribbonButton,
                                               bool large)
             : base(ribbon)
         {

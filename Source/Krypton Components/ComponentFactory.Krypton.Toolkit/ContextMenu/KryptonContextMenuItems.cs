@@ -14,14 +14,14 @@ using System.Drawing.Design;
 using System.Windows.Forms;
 using System.ComponentModel;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Provide a collection of menu items.
     /// </summary>
     [ToolboxItem(false)]
     [ToolboxBitmap(typeof(KryptonContextMenuItems), "ToolboxBitmaps.KryptonContextMenuItems.bmp")]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemsDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer("Krypton.Toolkit.KryptonContextMenuItemsDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
     [DefaultProperty("Items")]
@@ -130,7 +130,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Data")]
         [Description("Collection of standard menu items.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [Editor("ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemCollectionEditor, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
+        [Editor("Krypton.Toolkit.KryptonContextMenuItemCollectionEditor, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
         public KryptonContextMenuItemCollection Items { get; }
 
         /// <summary>

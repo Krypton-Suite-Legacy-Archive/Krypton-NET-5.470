@@ -11,9 +11,9 @@
 
 using System.Windows.Forms;
 using System.ComponentModel;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Implementation for the fixed mdi child pendant buttons.

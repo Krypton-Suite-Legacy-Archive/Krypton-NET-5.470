@@ -12,10 +12,10 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using ComponentFactory.Krypton.Workspace;
-using ComponentFactory.Krypton.Navigator;
+using Krypton.Workspace;
+using Krypton.Navigator;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
     /// <summary>
     /// Provides docking functionality by attaching to an existing KryptonDockableWorkspace
@@ -23,25 +23,25 @@ namespace ComponentFactory.Krypton.Docking
     [ToolboxItem(false)]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
-    public class KryptonDockingWorkspace : KryptonDockingSpace
+    public class Krypton.DockingWorkspace : Krypton.DockingSpace
     {
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the KryptonDockingWorkspace class.
+        /// Initialize a new instance of the Krypton.DockingWorkspace class.
         /// </summary>
         /// <param name="name">Initial name of the element.</param>
-        public KryptonDockingWorkspace(string name)
+        public Krypton.DockingWorkspace(string name)
             : this(name, "Workspace", new KryptonDockableWorkspace())
         {
         }
 
         /// <summary>
-        /// Initialize a new instance of the KryptonDockingWorkspace class.
+        /// Initialize a new instance of the Krypton.DockingWorkspace class.
         /// </summary>
         /// <param name="name">Initial name of the element.</param>
         /// <param name="storeName">Name to use for storage pages.</param>
         /// <param name="workspace">Reference to workspace to manage.</param>
-        public KryptonDockingWorkspace(string name,
+        public Krypton.DockingWorkspace(string name,
                                        string storeName,
                                        KryptonDockableWorkspace workspace)
             : base(name, storeName)
@@ -70,7 +70,7 @@ namespace ComponentFactory.Krypton.Docking
                 base.Parent = value;
 
                 // Generate event so the any dockable workspace customization can be performed.
-                KryptonDockingManager dockingManager = DockingManager;
+                Krypton.DockingManager dockingManager = DockingManager;
                 if (dockingManager != null)
                 {
                     DockableWorkspaceEventArgs args = new DockableWorkspaceEventArgs(DockableWorkspaceControl, this);
@@ -508,8 +508,8 @@ namespace ComponentFactory.Krypton.Docking
         /// Find a workspace element by searching the hierarchy.
         /// </summary>
         /// <param name="uniqueName">Named page for which a suitable workspace element is required.</param>
-        /// <returns>KryptonDockingWorkspace reference if found; otherwise false.</returns>
-        public override KryptonDockingWorkspace FindDockingWorkspace(string uniqueName)
+        /// <returns>Krypton.DockingWorkspace reference if found; otherwise false.</returns>
+        public override Krypton.DockingWorkspace FindDockingWorkspace(string uniqueName)
         {
             return this;
         }
@@ -527,7 +527,7 @@ namespace ComponentFactory.Krypton.Docking
         protected override void RaiseRemoved()
         {
             // Generate event so the any dockable workspace customization can be reversed.
-            KryptonDockingManager dockingManager = DockingManager;
+            Krypton.DockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {
                 DockableWorkspaceEventArgs args = new DockableWorkspaceEventArgs(DockableWorkspaceControl, this);
@@ -539,10 +539,10 @@ namespace ComponentFactory.Krypton.Docking
         /// Raises the type specific cell adding event determinated by the derived class.
         /// </summary>
         /// <param name="cell">Referecence to new cell being added.</param>
-        protected override void RaiseCellAdding(KryptonWorkspaceCell cell)
+        protected override void RaiseCellAdding(Krypton.WorkspaceCell cell)
         {
             // Generate event so the dockable workspace cell customization can be performed.
-            KryptonDockingManager dockingManager = DockingManager;
+            Krypton.DockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {
                 DockableWorkspaceCellEventArgs args = new DockableWorkspaceCellEventArgs(DockableWorkspaceControl, this, cell);
@@ -554,10 +554,10 @@ namespace ComponentFactory.Krypton.Docking
         /// Raises the type specific cell removed event determinated by the derived class.
         /// </summary>
         /// <param name="cell">Referecence to an existing cell being removed.</param>
-        protected override void RaiseCellRemoved(KryptonWorkspaceCell cell)
+        protected override void RaiseCellRemoved(Krypton.WorkspaceCell cell)
         {
             // Generate event so the dockable workspace cell customization can be reversed.
-            KryptonDockingManager dockingManager = DockingManager;
+            Krypton.DockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {
                 DockableWorkspaceCellEventArgs args = new DockableWorkspaceCellEventArgs(DockableWorkspaceControl, this, cell);
@@ -573,7 +573,7 @@ namespace ComponentFactory.Krypton.Docking
         protected override void RaiseSpacePageDrop(object sender, PageDropEventArgs e)
         {
             // Use event to indicate the page is moving to a workspace and allow it to be cancelled
-            KryptonDockingManager dockingManager = DockingManager;
+            Krypton.DockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {
                 CancelUniqueNameEventArgs args = new CancelUniqueNameEventArgs(e.Page.UniqueName, false);
@@ -608,7 +608,7 @@ namespace ComponentFactory.Krypton.Docking
             if (pages.Count != 0)
             {
                 // Ask the docking manager for a IDragPageNotify implementation to handle the dragging operation
-                KryptonDockingManager dockingManager = DockingManager;
+                Krypton.DockingManager dockingManager = DockingManager;
                 dockingManager?.DoDragDrop(e.ScreenPoint, e.ElementOffset, e.Control, e.Pages);
             }
 

@@ -16,16 +16,16 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
-    internal class KryptonRibbonGroupGalleryDesigner : ComponentDesigner, IKryptonDesignObject
+    internal class Krypton.RibbonGroupGalleryDesigner : ComponentDesigner, IKrypton.DesignObject
     {
         #region Instance Fields
         private IDesignerHost _designerHost;
         private IComponentChangeService _changeService;
-        private KryptonRibbonGroupGallery _ribbonGallery;
+        private Krypton.RibbonGroupGallery _ribbonGallery;
         private DesignerVerbCollection _verbs;
         private DesignerVerb _toggleHelpersVerb;
         private DesignerVerb _moveFirstVerb;
@@ -55,9 +55,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the KryptonRibbonGroupGalleryDesigner class.
+        /// Initialize a new instance of the Krypton.RibbonGroupGalleryDesigner class.
         /// </summary>
-        public KryptonRibbonGroupGalleryDesigner()
+        public Krypton.RibbonGroupGalleryDesigner()
         {
         }
         #endregion
@@ -81,7 +81,7 @@ namespace ComponentFactory.Krypton.Ribbon
             base.Initialize(component);
 
             // Cast to correct type
-            _ribbonGallery = (KryptonRibbonGroupGallery)component;
+            _ribbonGallery = (Krypton.RibbonGroupGallery)component;
             _ribbonGallery.GalleryDesigner = this;
 
             // Update designer properties with actual starting values
@@ -178,7 +178,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 PropertyDescriptor descrip = (PropertyDescriptor)properties[strArray[i]];
                 if (descrip != null)
                 {
-                    properties[strArray[i]] = TypeDescriptor.CreateProperty(typeof(KryptonRibbonGroupGalleryDesigner), descrip, attributes);
+                    properties[strArray[i]] = TypeDescriptor.CreateProperty(typeof(Krypton.RibbonGroupGalleryDesigner), descrip, attributes);
                 }
             }
         }
@@ -261,7 +261,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonGallery?.Ribbon != null) && _ribbonGallery.RibbonGroup.Items.Contains(_ribbonGallery))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupGallery MoveFirst");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupGallery MoveFirst");
 
                 try
                 {
@@ -271,7 +271,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Move position of the gallery
-                    KryptonRibbonGroup ribbonGroup = _ribbonGallery.RibbonGroup;
+                    Krypton.RibbonGroup ribbonGroup = _ribbonGallery.RibbonGroup;
                     ribbonGroup.Items.Remove(_ribbonGallery);
                     ribbonGroup.Items.Insert(0, _ribbonGallery);
                     UpdateVerbStatus();
@@ -291,7 +291,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonGallery?.Ribbon != null) && _ribbonGallery.RibbonGroup.Items.Contains(_ribbonGallery))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupGallery MovePrevious");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupGallery MovePrevious");
 
                 try
                 {
@@ -301,7 +301,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Move position of the gallery
-                    KryptonRibbonGroup ribbonGroup = _ribbonGallery.RibbonGroup;
+                    Krypton.RibbonGroup ribbonGroup = _ribbonGallery.RibbonGroup;
                     int index = ribbonGroup.Items.IndexOf(_ribbonGallery) - 1;
                     index = Math.Max(index, 0);
                     ribbonGroup.Items.Remove(_ribbonGallery);
@@ -323,7 +323,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonGallery?.Ribbon != null) && _ribbonGallery.RibbonGroup.Items.Contains(_ribbonGallery))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupGallery MoveNext");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupGallery MoveNext");
 
                 try
                 {
@@ -333,7 +333,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Move position of the gallery
-                    KryptonRibbonGroup ribbonGroup = _ribbonGallery.RibbonGroup;
+                    Krypton.RibbonGroup ribbonGroup = _ribbonGallery.RibbonGroup;
                     int index = ribbonGroup.Items.IndexOf(_ribbonGallery) + 1;
                     index = Math.Min(index, ribbonGroup.Items.Count - 1);
                     ribbonGroup.Items.Remove(_ribbonGallery);
@@ -355,7 +355,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonGallery?.Ribbon != null) && _ribbonGallery.RibbonGroup.Items.Contains(_ribbonGallery))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupGallery MoveLast");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupGallery MoveLast");
 
                 try
                 {
@@ -365,7 +365,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Move position of the gallery
-                    KryptonRibbonGroup ribbonGroup = _ribbonGallery.RibbonGroup;
+                    Krypton.RibbonGroup ribbonGroup = _ribbonGallery.RibbonGroup;
                     ribbonGroup.Items.Remove(_ribbonGallery);
                     ribbonGroup.Items.Insert(ribbonGroup.Items.Count, _ribbonGallery);
                     UpdateVerbStatus();
@@ -385,7 +385,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonGallery?.Ribbon != null) && _ribbonGallery.RibbonGroup.Items.Contains(_ribbonGallery))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupGallery DeleteGallery");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupGallery DeleteGallery");
 
                 try
                 {

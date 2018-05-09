@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
     /// <summary>
     /// Implementation for the fixed context button for navigator.
@@ -24,7 +24,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// Initialize a new instance of the ButtonSpecNavContext class.
         /// </summary>
         /// <param name="navigator">Reference to owning navigator instance.</param>
-        public ButtonSpecNavContext(KryptonNavigator navigator)
+        public ButtonSpecNavContext(Krypton.Navigator navigator)
             : base(navigator, PaletteButtonSpecStyle.Context)
         {
             // Provide a context menu so that the button looks fixed when pressed

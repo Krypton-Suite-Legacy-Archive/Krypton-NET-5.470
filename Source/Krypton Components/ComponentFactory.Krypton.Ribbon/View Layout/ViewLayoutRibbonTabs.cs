@@ -14,9 +14,9 @@ using System.Drawing;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Extends the ViewComposite by creating and laying out elements to represent ribbon tabs.
@@ -37,7 +37,7 @@ namespace ComponentFactory.Krypton.Ribbon
 	    #endregion
 
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private readonly ViewDrawRibbonTabList _tabCache;
         private readonly ViewDrawRibbonTabSepList _tabSepCache;
         private ViewDrawRibbonDesignTab _viewAddTab;
@@ -62,7 +62,7 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// </summary>
         /// <param name="ribbon">Owning ribbon control instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewLayoutRibbonTabs(KryptonRibbon ribbon,
+        public ViewLayoutRibbonTabs(Krypton.Ribbon ribbon,
                                     NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);
@@ -147,7 +147,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         /// <param name="ribbonTab">Tab for which view element is needed.</param>
         /// <returns>View element for tab; otherwise null.</returns>
-        public ViewDrawRibbonTab GetViewForRibbonTab(KryptonRibbonTab ribbonTab)
+        public ViewDrawRibbonTab GetViewForRibbonTab(Krypton.RibbonTab ribbonTab)
         {
             foreach (ViewDrawRibbonTab viewTab in _tabCache)
             {
@@ -182,7 +182,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         /// <param name="ribbonTab">Current ribbon tab to use when searching.</param>
         /// <returns>View element for a tab; otherwise null.</returns>
-        public ViewDrawRibbonTab GetViewForNextRibbonTab(KryptonRibbonTab ribbonTab)
+        public ViewDrawRibbonTab GetViewForNextRibbonTab(Krypton.RibbonTab ribbonTab)
         {
             bool found = false;
             foreach (ViewBase child in this)
@@ -212,7 +212,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         /// <param name="ribbonTab">Current ribbon tab to use when searching.</param>
         /// <returns>View element for a tab; otherwise null.</returns>
-        public ViewDrawRibbonTab GetViewForPreviousRibbonTab(KryptonRibbonTab ribbonTab)
+        public ViewDrawRibbonTab GetViewForPreviousRibbonTab(Krypton.RibbonTab ribbonTab)
         {
             bool found = false;
             foreach (ViewBase child in Reverse())
@@ -303,11 +303,11 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="next">True if movement to next tab required; otherwise previous.</param>
         public void ProcessMouseWheel(bool next)
         {
-            KryptonRibbonTab selectTab = _ribbon.SelectedTab;
+            Krypton.RibbonTab selectTab = _ribbon.SelectedTab;
 
             // Scan to find the prev and next tabs
             bool prevSelected = false;
-            KryptonRibbonTab prev = null;
+            Krypton.RibbonTab prev = null;
             foreach (ViewBase child in this)
             {
                 // Only interested in visible ribbon tabs
@@ -622,7 +622,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // (Must do this for all tabs before setting them to the corret value)
             for (int i = 0; i < _ribbon.RibbonTabs.Count; i++)
             {
-                KryptonRibbonTab ribbonTab = _ribbon.RibbonTabs[i];
+                Krypton.RibbonTab ribbonTab = _ribbon.RibbonTabs[i];
                 if (IsRibbonVisible(ribbonTab, contextName))
                 {
                     _tabCache[i].RibbonTab = null;
@@ -632,7 +632,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Add child elements appropriate for each ribbon tab
             for (int i = 0; i < _ribbon.RibbonTabs.Count; i++)
             {
-                KryptonRibbonTab ribbonTab = _ribbon.RibbonTabs[i];
+                Krypton.RibbonTab ribbonTab = _ribbon.RibbonTabs[i];
                 if (IsRibbonVisible(ribbonTab, contextName))
                 {
                     // Get the matching indexed items
@@ -810,7 +810,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbon.InDesignHelperMode)
             {
                 // All all the defined ribbon contexts
-                foreach (KryptonRibbonContext context in _ribbon.RibbonContexts)
+                foreach (Krypton.RibbonContext context in _ribbon.RibbonContexts)
                 {
                     _cachedSelectedContext.Add(context.ContextName);
                 }
@@ -835,7 +835,7 @@ namespace ComponentFactory.Krypton.Ribbon
             }
         }
 
-        private bool IsRibbonVisible(KryptonRibbonTab tab, string contextName)
+        private bool IsRibbonVisible(Krypton.RibbonTab tab, string contextName)
         {
             // At design time we show all the tabs always
             if (tab.Visible || _ribbon.InDesignHelperMode)

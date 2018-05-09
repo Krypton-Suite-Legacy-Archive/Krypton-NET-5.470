@@ -11,7 +11,7 @@
 
 using System.Drawing;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     internal class KryptonProfessionalCustomKCT : KryptonProfessionalKCT
     {

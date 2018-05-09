@@ -13,7 +13,7 @@ using System;
 using System.Drawing;
 using System.ComponentModel;
 
-namespace ComponentFactory.Krypton.Workspace
+namespace Krypton.Workspace
 {
     #region CompactFlags
     /// <summary>

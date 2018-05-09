@@ -11,9 +11,9 @@
 
 using System.Drawing;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Map application button tooltip values to content values.
@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class AppButtonToolTipToContent : IContentValues
     {
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         #endregion
 
         #region Identity
@@ -29,7 +29,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Initialize a new instance of the AppButtonToolTipToContent class.
         /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
-        public AppButtonToolTipToContent(KryptonRibbon ribbon)
+        public AppButtonToolTipToContent(Krypton.Ribbon ribbon)
         {
             Debug.Assert(ribbon != null);
             _ribbon = ribbon;

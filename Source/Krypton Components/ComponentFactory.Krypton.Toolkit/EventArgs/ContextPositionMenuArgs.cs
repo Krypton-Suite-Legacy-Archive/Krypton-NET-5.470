@@ -11,7 +11,7 @@
 
 using System.Windows.Forms;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Details for context menu related events that have a requested relative position.

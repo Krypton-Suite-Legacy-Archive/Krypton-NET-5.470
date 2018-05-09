@@ -24,7 +24,7 @@ using System.Globalization;
 using System.Threading;
 using System.Runtime.InteropServices;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Define and modify a palette for styling Krypton controls.
@@ -34,7 +34,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [DefaultEvent("PalettePaint")]
     [DefaultProperty("BasePaletteMode")]
     [DesignerCategory("code")]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonPaletteDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer("Krypton.Toolkit.KryptonPaletteDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [Description("Customisable palette component.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]

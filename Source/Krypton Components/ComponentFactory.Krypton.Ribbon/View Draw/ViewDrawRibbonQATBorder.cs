@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Draws the border around the quick access toolbar.
@@ -36,7 +36,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private NeedPaintHandler _needPaintDelegate;
         private IDisposable _memento;
         private readonly bool _minibar;
@@ -50,7 +50,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="needPaintDelegate">Delegate for notifying paint/layout changes.</param>
         /// <param name="minibar">Minibar or full bar drawing.</param>
-        public ViewDrawRibbonQATBorder(KryptonRibbon ribbon,
+        public ViewDrawRibbonQATBorder(Krypton.Ribbon ribbon,
                                        NeedPaintHandler needPaintDelegate,
                                        bool minibar)
         {

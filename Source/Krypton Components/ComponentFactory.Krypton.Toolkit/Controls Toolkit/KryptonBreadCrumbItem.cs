@@ -14,7 +14,7 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Krypton object used to represent nodes in a hierarchical bread crumb data structure.
@@ -22,14 +22,14 @@ namespace ComponentFactory.Krypton.Toolkit
     [ToolboxItem(false)]
     [ToolboxBitmap(typeof(KryptonBreadCrumb), "ToolboxBitmaps.KryptonBreadCrumbItem.bmp")]
     [DesignTimeVisible(false)]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItemDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer("Krypton.Toolkit.KryptonBreadCrumbItemDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     public class KryptonBreadCrumbItem : KryptonListItem
     {
         #region Type Definitons
         /// <summary>
         /// Manages a collection of KryptonBreadCrumbItems
         /// </summary>
-        [Editor("ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItemsEditor, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
+        [Editor("Krypton.Toolkit.KryptonBreadCrumbItemsEditor, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
         public class BreadCrumbItems : TypedCollection<KryptonBreadCrumbItem>
         {
             #region Instance Fields
@@ -84,7 +84,7 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <summary>
             /// Raises the Inserting event.
             /// </summary>
-            /// <param name="e">A KryptonRibbonTabEventArgs instance containing event data.</param>
+            /// <param name="e">A Krypton.RibbonTabEventArgs instance containing event data.</param>
             protected override void OnInserting(TypedCollectionEventArgs<KryptonBreadCrumbItem> e)
             {
                 // Setup parent relationship

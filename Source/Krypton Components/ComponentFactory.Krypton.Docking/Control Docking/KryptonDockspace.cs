@@ -12,10 +12,10 @@
 using System.Drawing;
 using System.ComponentModel;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
     /// <summary>
-    /// Extends the KryptonWorkspace to work within the docking edge of a control.
+    /// Extends the Krypton.Workspace to work within the docking edge of a control.
     /// </summary>
     [ToolboxItem(false)]
     [DesignerCategory("code")]

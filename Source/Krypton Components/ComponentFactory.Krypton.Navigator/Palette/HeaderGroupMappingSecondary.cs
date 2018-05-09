@@ -11,9 +11,9 @@
 
 using System.Drawing;
 using System.ComponentModel;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	/// <summary>
     /// Storage and mapping for secondary header.
@@ -30,7 +30,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         /// <param name="navigator">Reference to owning navogator instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public HeaderGroupMappingSecondary(KryptonNavigator navigator,
+        public HeaderGroupMappingSecondary(Krypton.Navigator navigator,
                                            NeedPaintHandler needPaint)
             : base(navigator, needPaint)
         {

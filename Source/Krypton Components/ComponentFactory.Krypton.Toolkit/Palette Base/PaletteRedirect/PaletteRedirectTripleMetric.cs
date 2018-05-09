@@ -12,7 +12,7 @@
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Redirect back/border/content/metrics based on the incoming state of the request.

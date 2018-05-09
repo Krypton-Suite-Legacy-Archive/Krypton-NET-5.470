@@ -15,7 +15,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
     /// Control the sizing of two panels.
@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [DefaultEvent("SplitterMoved")]
 	[DefaultProperty("Orientation")]
 	[DesignerCategory("code")]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonSplitContainerDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer("Krypton.Toolkit.KryptonSplitContainerDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [Description("Divide the container inside two resizable panels.")]
     [Docking(DockingBehavior.AutoDock)]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]

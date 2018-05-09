@@ -12,10 +12,10 @@
 using System;
 using System.Drawing;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 using System.Runtime.InteropServices;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Allocate a spacer for the right side of a window that prevents layout over the min/max/close buttons.

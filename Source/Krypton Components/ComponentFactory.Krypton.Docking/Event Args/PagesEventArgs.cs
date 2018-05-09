@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System;
-using ComponentFactory.Krypton.Navigator;
+using Krypton.Navigator;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
 	/// <summary>
     /// Event arguments for events that need to provide a colletion of pages.

@@ -15,7 +15,7 @@ using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Extends the professional renderer to provide Office2010 style additions.

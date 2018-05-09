@@ -11,7 +11,7 @@
 
 using System.Drawing;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Provide inheritance of palette border properties from source redirector.

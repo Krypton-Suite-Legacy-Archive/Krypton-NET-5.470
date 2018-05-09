@@ -14,7 +14,7 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Displays an input box for the user.

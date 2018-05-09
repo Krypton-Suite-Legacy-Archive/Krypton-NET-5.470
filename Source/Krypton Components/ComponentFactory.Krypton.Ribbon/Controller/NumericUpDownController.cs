@@ -11,9 +11,9 @@
 
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Process mouse events for a ribbon group numeric up-down.
@@ -24,8 +24,8 @@ namespace ComponentFactory.Krypton.Ribbon
                                              IRibbonKeyTipTarget
 	{
 		#region Instance Fields
-        private readonly KryptonRibbon _ribbon;
-        private readonly KryptonRibbonGroupNumericUpDown _numericUpDown;
+        private readonly Krypton.Ribbon _ribbon;
+        private readonly Krypton.RibbonGroupNumericUpDown _numericUpDown;
         private readonly ViewDrawRibbonGroupNumericUpDown _target;
         #endregion
 
@@ -36,8 +36,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         /// <param name="numericUpDown">Source definition.</param>
         /// <param name="target">Target view element.</param>
-        public NumericUpDownController(KryptonRibbon ribbon,
-                                       KryptonRibbonGroupNumericUpDown numericUpDown,
+        public NumericUpDownController(Krypton.Ribbon ribbon,
+                                       Krypton.RibbonGroupNumericUpDown numericUpDown,
                                        ViewDrawRibbonGroupNumericUpDown target)
 		{
             Debug.Assert(ribbon != null);
@@ -86,7 +86,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             switch (c)
             {
-                case KryptonRibbon rib:
+                case Krypton.Ribbon rib:
                     KeyDownRibbon(rib, e);
                     break;
                 case VisualPopupGroup pop:
@@ -124,7 +124,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Perform actual selection of the item.
         /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
-        public void KeyTipSelect(KryptonRibbon ribbon)
+        public void KeyTipSelect(Krypton.Ribbon ribbon)
         {
             // Can the numeric up-down take the focus
             if (_numericUpDown.LastNumericUpDown.CanFocus)
@@ -154,7 +154,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Implementation
-        private void KeyDownRibbon(KryptonRibbon ribbon, KeyEventArgs e)
+        private void KeyDownRibbon(Krypton.Ribbon ribbon, KeyEventArgs e)
         {
             ViewBase newView = null;
 

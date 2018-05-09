@@ -20,7 +20,7 @@ using System.Windows.Forms.VisualStyles;
 using System.Reflection;
 using Microsoft.Win32;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Base class that allows a form to have custom chrome applied. You should derive 

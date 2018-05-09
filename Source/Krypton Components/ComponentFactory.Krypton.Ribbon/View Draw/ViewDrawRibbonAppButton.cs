@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws half of an application button.
@@ -30,7 +30,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Instance Fields
         private IDisposable[] _mementos;
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private readonly bool _bottomHalf;
         private Rectangle _clipRect;
         private readonly Size _size;
@@ -42,7 +42,7 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// </summary>
         /// <param name="ribbon">Owning control instance.</param>
         /// <param name="bottomHalf">Scroller orientation.</param>
-        public ViewDrawRibbonAppButton(KryptonRibbon ribbon,
+        public ViewDrawRibbonAppButton(Krypton.Ribbon ribbon,
                                        bool bottomHalf)
         {
             Debug.Assert(ribbon != null);

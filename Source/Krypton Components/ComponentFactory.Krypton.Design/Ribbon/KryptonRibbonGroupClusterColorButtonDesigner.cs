@@ -15,16 +15,16 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
-    internal class KryptonRibbonGroupClusterColorButtonDesigner : ComponentDesigner
+    internal class Krypton.RibbonGroupClusterColorButtonDesigner : ComponentDesigner
     {
         #region Instance Fields
         private IDesignerHost _designerHost;
         private IComponentChangeService _changeService;
-        private KryptonRibbonGroupClusterColorButton _ribbonColorButton;
+        private Krypton.RibbonGroupClusterColorButton _ribbonColorButton;
         private DesignerVerbCollection _verbs;
         private DesignerVerb _toggleHelpersVerb;
         private DesignerVerb _moveFirstVerb;
@@ -51,9 +51,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the KryptonRibbonGroupClusterColorButtonDesigner class.
+        /// Initialize a new instance of the Krypton.RibbonGroupClusterColorButtonDesigner class.
         /// </summary>
-        public KryptonRibbonGroupClusterColorButtonDesigner()
+        public Krypton.RibbonGroupClusterColorButtonDesigner()
         {
         }
         #endregion
@@ -77,7 +77,7 @@ namespace ComponentFactory.Krypton.Ribbon
             base.Initialize(component);
 
             // Cast to correct type
-            _ribbonColorButton = (KryptonRibbonGroupClusterColorButton)component;
+            _ribbonColorButton = (Krypton.RibbonGroupClusterColorButton)component;
             _ribbonColorButton.DesignTimeContextMenu += OnContextMenu;
 
             // Get access to the services
@@ -150,7 +150,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonColorButton?.Ribbon != null)
             {
                 // Cast container to the correct type
-                KryptonRibbonGroupCluster cluster = (KryptonRibbonGroupCluster)_ribbonColorButton.RibbonContainer;
+                Krypton.RibbonGroupCluster cluster = (Krypton.RibbonGroupCluster)_ribbonColorButton.RibbonContainer;
 
                 moveFirst = (cluster.Items.IndexOf(_ribbonColorButton) > 0);
                 movePrev = (cluster.Items.IndexOf(_ribbonColorButton) > 0);
@@ -178,10 +178,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonColorButton?.Ribbon != null)
             {
                 // Cast container to the correct type
-                KryptonRibbonGroupCluster cluster = (KryptonRibbonGroupCluster)_ribbonColorButton.RibbonContainer;
+                Krypton.RibbonGroupCluster cluster = (Krypton.RibbonGroupCluster)_ribbonColorButton.RibbonContainer;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupColorClusterButton MoveFirst");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupColorClusterButton MoveFirst");
 
                 try
                 {
@@ -210,10 +210,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonColorButton?.Ribbon != null)
             {
                 // Cast container to the correct type
-                KryptonRibbonGroupCluster cluster = (KryptonRibbonGroupCluster)_ribbonColorButton.RibbonContainer;
+                Krypton.RibbonGroupCluster cluster = (Krypton.RibbonGroupCluster)_ribbonColorButton.RibbonContainer;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupColorClusterButton MovePrevious");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupColorClusterButton MovePrevious");
 
                 try
                 {
@@ -244,10 +244,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonColorButton?.Ribbon != null)
             {
                 // Cast container to the correct type
-                KryptonRibbonGroupCluster cluster = (KryptonRibbonGroupCluster)_ribbonColorButton.RibbonContainer;
+                Krypton.RibbonGroupCluster cluster = (Krypton.RibbonGroupCluster)_ribbonColorButton.RibbonContainer;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupColorClusterButton MoveNext");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupColorClusterButton MoveNext");
 
                 try
                 {
@@ -278,10 +278,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonColorButton?.Ribbon != null)
             {
                 // Cast container to the correct type
-                KryptonRibbonGroupCluster cluster = (KryptonRibbonGroupCluster)_ribbonColorButton.RibbonContainer;
+                Krypton.RibbonGroupCluster cluster = (Krypton.RibbonGroupCluster)_ribbonColorButton.RibbonContainer;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupColorClusterButton MoveLast");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupColorClusterButton MoveLast");
 
                 try
                 {
@@ -310,10 +310,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonColorButton?.Ribbon != null)
             {
                 // Cast container to the correct type
-                KryptonRibbonGroupCluster cluster = (KryptonRibbonGroupCluster)_ribbonColorButton.RibbonContainer;
+                Krypton.RibbonGroupCluster cluster = (Krypton.RibbonGroupCluster)_ribbonColorButton.RibbonContainer;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupColorClusterButton DeleteButton");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupColorClusterButton DeleteButton");
 
                 try
                 {

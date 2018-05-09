@@ -11,9 +11,9 @@
 
 using System.ComponentModel;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	/// <summary>
 	/// Storage for group related properties.
@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Navigator
     public class NavigatorGroup : Storage
     {
         #region Instance Fields
-        private readonly KryptonNavigator _navigator;
+        private readonly Krypton.Navigator _navigator;
         private PaletteBackStyle _groupBackStyle;
         private PaletteBorderStyle _groupBorderStyle;
         #endregion
@@ -32,7 +32,7 @@ namespace ComponentFactory.Krypton.Navigator
 		/// </summary>
         /// <param name="navigator">Reference to owning navigator instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public NavigatorGroup(KryptonNavigator navigator,
+        public NavigatorGroup(Krypton.Navigator navigator,
                               NeedPaintHandler needPaint)
 		{
             Debug.Assert(navigator != null);

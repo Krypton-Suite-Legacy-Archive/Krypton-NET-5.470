@@ -14,21 +14,21 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Represents a ribbon group check box.
     /// </summary>
     [ToolboxItem(false)]
-    [ToolboxBitmap(typeof(KryptonRibbonGroupCheckBox), "ToolboxBitmaps.KryptonRibbonGroupCheckBox.bmp")]
-    [Designer("ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCheckBoxDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [ToolboxBitmap(typeof(Krypton.RibbonGroupCheckBox), "ToolboxBitmaps.Krypton.RibbonGroupCheckBox.bmp")]
+    [Designer("Krypton.Ribbon.Krypton.RibbonGroupCheckBoxDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
     [DefaultEvent("CheckedChanged")]
     [DefaultProperty("Checked")]
-    public class KryptonRibbonGroupCheckBox : KryptonRibbonGroupItem
+    public class Krypton.RibbonGroupCheckBox : Krypton.RibbonGroupItem
     {
         #region Instance Fields
         private bool _enabled;
@@ -85,9 +85,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialise a new instance of the KryptonRibbonGroupCheckBox class.
+        /// Initialise a new instance of the Krypton.RibbonGroupCheckBox class.
         /// </summary>
-        public KryptonRibbonGroupCheckBox()
+        public Krypton.RibbonGroupCheckBox()
         {
             // Default fields
             _enabled = true;
@@ -513,7 +513,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="needPaint">Delegate for notifying changes in display.</param>
         /// <returns>ViewBase derived instance.</returns>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override ViewBase CreateView(KryptonRibbon ribbon, 
+        public override ViewBase CreateView(Krypton.Ribbon ribbon, 
                                             NeedPaintHandler needPaint)
         {
             return new ViewDrawRibbonGroupCheckBox(ribbon, this, needPaint);

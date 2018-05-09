@@ -12,15 +12,15 @@
 using System;
 using System.ComponentModel.Design;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
-	internal class KryptonRibbonGroupClusterCollectionEditor : CollectionEditor
+	internal class Krypton.RibbonGroupClusterCollectionEditor : CollectionEditor
 	{
 		/// <summary>
-        /// Initialize a new instance of the KryptonRibbonGroupClusterCollectionEditor class.
+        /// Initialize a new instance of the Krypton.RibbonGroupClusterCollectionEditor class.
 		/// </summary>
-        public KryptonRibbonGroupClusterCollectionEditor()
-            : base(typeof(KryptonRibbonGroupClusterCollection))
+        public Krypton.RibbonGroupClusterCollectionEditor()
+            : base(typeof(Krypton.RibbonGroupClusterCollection))
 		{
 		}
 
@@ -30,8 +30,8 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// <returns>An array of data types that this collection can contain.</returns>
 		protected override Type[] CreateNewItemTypes()
 		{
-            return new Type[] { typeof(KryptonRibbonGroupClusterButton),
-                                typeof(KryptonRibbonGroupClusterColorButton)};
+            return new Type[] { typeof(Krypton.RibbonGroupClusterButton),
+                                typeof(Krypton.RibbonGroupClusterColorButton)};
 		}
 	}
 }

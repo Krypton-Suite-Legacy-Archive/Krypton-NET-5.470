@@ -13,14 +13,14 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     internal class ViewRibbonPopupGroupManager : ViewManager
     {
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private readonly ViewDrawRibbonGroup _viewGroup;
         private readonly NeedPaintHandler _needPaintDelegate;
         private ViewBase _focusView;
@@ -37,7 +37,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="viewGroup">Group to track.</param>
         /// <param name="needPaintDelegate">Delegate for performing painting.</param>
         public ViewRibbonPopupGroupManager(Control control,
-                                           KryptonRibbon ribbon,
+                                           Krypton.Ribbon ribbon,
                                            ViewBase root,
                                            ViewDrawRibbonGroup viewGroup,
                                            NeedPaintHandler needPaintDelegate)

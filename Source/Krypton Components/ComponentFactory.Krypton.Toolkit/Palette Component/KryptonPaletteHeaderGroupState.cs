@@ -13,7 +13,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Storage for header group values for a specific state.

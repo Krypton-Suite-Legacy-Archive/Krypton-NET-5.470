@@ -13,7 +13,7 @@ using System;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Controller for a VisualContextMenu popup.

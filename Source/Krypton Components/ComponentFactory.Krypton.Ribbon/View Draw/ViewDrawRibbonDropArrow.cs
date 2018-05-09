@@ -11,9 +11,9 @@
 
 using System.Drawing;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a drop arrow used in various ribbon controls.
@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         #endregion
 
         #region Identity
@@ -33,7 +33,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Initialize a new instance of the ViewDrawRibbonDropArrow class.
 		/// </summary>
         /// <param name="ribbon">Reference to owning control instance.</param>
-        public ViewDrawRibbonDropArrow(KryptonRibbon ribbon)
+        public ViewDrawRibbonDropArrow(Krypton.Ribbon ribbon)
         {
             Debug.Assert(ribbon != null);
             _ribbon = ribbon;

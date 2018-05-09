@@ -14,7 +14,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Reflection;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Implementation for the fixed close button for krypton form.

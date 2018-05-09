@@ -13,10 +13,10 @@ using System;
 using System.Xml;
 using System.Windows.Forms;
 using System.ComponentModel;
-using ComponentFactory.Krypton.Toolkit;
-using ComponentFactory.Krypton.Navigator;
+using Krypton.Toolkit;
+using Krypton.Navigator;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
     /// <summary>
     /// Provides docking functionality for floating windows.
@@ -24,7 +24,7 @@ namespace ComponentFactory.Krypton.Docking
     [ToolboxItem(false)]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
-    public class KryptonDockingFloating : DockingElementClosedCollection
+    public class Krypton.DockingFloating : DockingElementClosedCollection
     {
         #region Instance Fields
 
@@ -32,11 +32,11 @@ namespace ComponentFactory.Krypton.Docking
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the KryptonDockingFloating class.
+        /// Initialize a new instance of the Krypton.DockingFloating class.
         /// </summary>
         /// <param name="name">Initial name of the element.</param>
         /// <param name="ownerForm">Reference to form that will own all the floating windows.</param>
-        public KryptonDockingFloating(string name, Form ownerForm)
+        public Krypton.DockingFloating(string name, Form ownerForm)
             : base(name)
         {
             OwnerForm = ownerForm ?? throw new ArgumentNullException("owner");
@@ -53,7 +53,7 @@ namespace ComponentFactory.Krypton.Docking
         /// Create and add a new floating window.
         /// </summary>
         /// <returns>Reference to docking element that handles the new workspace.</returns>
-        public KryptonDockingFloatingWindow AddFloatingWindow()
+        public Krypton.DockingFloatingWindow AddFloatingWindow()
         {
             // Generate a unique string by creating a GUID
             return AddFloatingWindow(CommonHelper.UniqueString);
@@ -64,7 +64,7 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         /// <param name="name">Initial name of the dockspace element.</param>
         /// <returns>Reference to docking element that handles the new workspace.</returns>
-        public KryptonDockingFloatingWindow AddFloatingWindow(string name)
+        public Krypton.DockingFloatingWindow AddFloatingWindow(string name)
         {
             return CreateFloatingWindow(name);
         }
@@ -73,8 +73,8 @@ namespace ComponentFactory.Krypton.Docking
         /// Find a floating docking element by searching the hierarchy.
         /// </summary>
         /// <param name="uniqueName">Named page for which a suitable floating element is required.</param>
-        /// <returns>KryptonDockingFloating reference if found; otherwise false.</returns>
-        public override KryptonDockingFloating FindDockingFloating(string uniqueName)
+        /// <returns>Krypton.DockingFloating reference if found; otherwise false.</returns>
+        public override Krypton.DockingFloating FindDockingFloating(string uniqueName)
         {
             return this;
         }
@@ -83,14 +83,14 @@ namespace ComponentFactory.Krypton.Docking
         /// Return the floating window element that contains a placeholder for the named page.
         /// </summary>
         /// <param name="uniqueName">Unique name for search.</param>
-        /// <returns>Reference to KryptonDockingFloatingWindow if placeholder found; otherwise null.</returns>
-        public KryptonDockingFloatingWindow FloatingWindowForStorePage(string uniqueName)
+        /// <returns>Reference to Krypton.DockingFloatingWindow if placeholder found; otherwise null.</returns>
+        public Krypton.DockingFloatingWindow FloatingWindowForStorePage(string uniqueName)
         {
             // Search all the child docking elements
             foreach (IDockingElement child in this)
             {
                 // Only interested in floating window elements
-                if (child is KryptonDockingFloatingWindow floatingWindow)
+                if (child is Krypton.DockingFloatingWindow floatingWindow)
                 {
                     bool? ret = floatingWindow.PropogateBoolState(DockingPropogateBoolState.ContainsStorePage, uniqueName);
                     if (ret.HasValue && ret.Value)
@@ -127,23 +127,23 @@ namespace ComponentFactory.Krypton.Docking
             else
             {
                 // Create a new floating window and then reload it
-                KryptonDockingFloatingWindow floatingWindow = AddFloatingWindow(xmlReader.GetAttribute("N"));
+                Krypton.DockingFloatingWindow floatingWindow = AddFloatingWindow(xmlReader.GetAttribute("N"));
                 floatingWindow.LoadElementFromXml(xmlReader, pages);
             }
         }
         #endregion
 
         #region Implementation
-        private KryptonDockingFloatingWindow CreateFloatingWindow(string name)
+        private Krypton.DockingFloatingWindow CreateFloatingWindow(string name)
         {
             // Create a floatspace and floating window for hosting the floatspace
-            KryptonDockingFloatspace floatSpaceElement = new KryptonDockingFloatspace("Floatspace");
-            KryptonDockingFloatingWindow floatingWindowElement = new KryptonDockingFloatingWindow(name, OwnerForm, floatSpaceElement);
+            Krypton.DockingFloatspace floatSpaceElement = new Krypton.DockingFloatspace("Floatspace");
+            Krypton.DockingFloatingWindow floatingWindowElement = new Krypton.DockingFloatingWindow(name, OwnerForm, floatSpaceElement);
             floatingWindowElement.Disposed += OnDockingFloatingWindowDisposed;
             InternalAdd(floatingWindowElement);
 
             // Events are generated from the parent docking manager
-            KryptonDockingManager dockingManager = DockingManager;
+            Krypton.DockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {
                 // Generate events so the floating window/dockspace appearance can be customized
@@ -159,7 +159,7 @@ namespace ComponentFactory.Krypton.Docking
         private void OnDockingFloatingWindowDisposed(object sender, EventArgs e)
         {
             // Cast to correct type and unhook event handlers so garbage collection can occur
-            KryptonDockingFloatingWindow floatingWindowElement = (KryptonDockingFloatingWindow)sender;
+            Krypton.DockingFloatingWindow floatingWindowElement = (Krypton.DockingFloatingWindow)sender;
             floatingWindowElement.Disposed -= OnDockingFloatingWindowDisposed;
 
             // Remove the elemenet from our child collection as it is no longer valid

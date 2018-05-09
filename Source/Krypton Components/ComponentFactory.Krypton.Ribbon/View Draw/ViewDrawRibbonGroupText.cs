@@ -12,9 +12,9 @@
 using System;
 using System.Drawing;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws the text string for a group.
@@ -23,8 +23,8 @@ namespace ComponentFactory.Krypton.Ribbon
                                              IContentValues
     {
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
-        private readonly KryptonRibbonGroup _ribbonGroup;
+        private readonly Krypton.Ribbon _ribbon;
+        private readonly Krypton.RibbonGroup _ribbonGroup;
         private readonly RibbonGroupTextToContent _contentProvider;
         private IDisposable _memento;
         private readonly bool _firstText;
@@ -43,8 +43,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Source ribbon control.</param>
         /// <param name="ribbonGroup">Ribbon group to display title for.</param>
         /// <param name="firstText">Should show the first group text.</param>
-        public ViewDrawRibbonGroupText(KryptonRibbon ribbon,
-                                       KryptonRibbonGroup ribbonGroup,
+        public ViewDrawRibbonGroupText(Krypton.Ribbon ribbon,
+                                       Krypton.RibbonGroup ribbonGroup,
                                        bool firstText)
         {
             Debug.Assert(ribbon != null);

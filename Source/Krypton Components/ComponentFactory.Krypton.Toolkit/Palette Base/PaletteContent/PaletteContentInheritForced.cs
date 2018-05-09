@@ -13,7 +13,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
     /// Allow the content values to be forced to fixed values.

@@ -15,9 +15,9 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Windows.Forms.VisualStyles;
 using System.Runtime.InteropServices;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a context title.
@@ -35,7 +35,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private ContextTabSet _context;
         private readonly IPaletteRibbonBack _inherit;
         private readonly ContextToContent _contentProvider;
@@ -52,7 +52,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         /// <param name="ribbon">Source ribbon control.</param>
         /// <param name="inherit">Source for inheriting the ribbon bacgkground colors.</param>
-        public ViewDrawRibbonContextTitle(KryptonRibbon ribbon,
+        public ViewDrawRibbonContextTitle(Krypton.Ribbon ribbon,
                                           IPaletteRibbonBack inherit)
         {
             Debug.Assert(ribbon != null);

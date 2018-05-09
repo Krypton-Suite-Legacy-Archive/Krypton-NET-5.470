@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Collections.Generic;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Extends the ViewComposite by creating and laying out elements to represent ribbon groups.
@@ -23,7 +23,7 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ViewLayoutRibbonGroups : ViewComposite
     {
         #region Classes
-        private class GroupToView : Dictionary<KryptonRibbonGroup, ViewDrawRibbonGroup> {};
+        private class GroupToView : Dictionary<Krypton.RibbonGroup, ViewDrawRibbonGroup> {};
         private class ViewDrawRibbonGroupSepList : List<ViewLayoutRibbonSeparator> { };
         #endregion
 
@@ -35,8 +35,8 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
-        private readonly KryptonRibbonTab _ribbonTab;
+        private readonly Krypton.Ribbon _ribbon;
+        private readonly Krypton.RibbonTab _ribbonTab;
         private NeedPaintHandler _needPaint;
         private ViewDrawRibbonDesignGroup _viewAddGroup;
         private GroupToView _groupToView;
@@ -51,8 +51,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Owning ribbon control instance.</param>
         /// <param name="ribbonTab">RibbonTab to organize groups.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewLayoutRibbonGroups(KryptonRibbon ribbon,
-                                      KryptonRibbonTab ribbonTab,
+        public ViewLayoutRibbonGroups(Krypton.Ribbon ribbon,
+                                      Krypton.RibbonTab ribbonTab,
                                       NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);
@@ -396,7 +396,7 @@ namespace ComponentFactory.Krypton.Ribbon
             GroupToView regenerate = new GroupToView();
             
             // Make sure we have a view element to match each group
-            foreach(KryptonRibbonGroup ribGroup in _ribbonTab.Groups)
+            foreach(Krypton.RibbonGroup ribGroup in _ribbonTab.Groups)
             {
                 ViewDrawRibbonGroup view = null;
 
@@ -437,7 +437,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Add child elements appropriate for each ribbon group
             for (int i = 0; i < _ribbonTab.Groups.Count; i++)
             {
-                KryptonRibbonGroup ribbonGroup = _ribbonTab.Groups[i];
+                Krypton.RibbonGroup ribbonGroup = _ribbonTab.Groups[i];
 
                 // Only make the separator visible if the group is and not the first sep
                 bool groupVisible = (_ribbon.InDesignHelperMode || ribbonGroup.Visible);

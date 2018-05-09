@@ -14,9 +14,9 @@ using System.Drawing;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Extends the ViewComposite by creating and laying out elements to represent ribbon group content.
@@ -35,8 +35,8 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
-        private readonly KryptonRibbonGroup _ribbonGroup;
+        private readonly Krypton.Ribbon _ribbon;
+        private readonly Krypton.RibbonGroup _ribbonGroup;
         private ViewDrawRibbonDesignGroupContainer _viewAddContainer;
         private readonly NeedPaintHandler _needPaint;
         private ContainerToView _containerToView;
@@ -51,8 +51,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Owning ribbon control instance.</param>
         /// <param name="ribbonGroup">The ribbon group this layout is used to display.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewLayoutRibbonGroupContent(KryptonRibbon ribbon,
-                                            KryptonRibbonGroup ribbonGroup,
+        public ViewLayoutRibbonGroupContent(Krypton.Ribbon ribbon,
+                                            Krypton.RibbonGroup ribbonGroup,
                                             NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);
@@ -694,7 +694,7 @@ namespace ComponentFactory.Krypton.Ribbon
             ContainerToView regenerate = new ContainerToView();
 
             // Add a view element for each group item
-            foreach (KryptonRibbonGroupContainer container in _ribbonGroup.Items)
+            foreach (Krypton.RibbonGroupContainer container in _ribbonGroup.Items)
             {
                 // Do we already have a view for this container definition
                 ViewBase containerView = _containerToView.ContainsKey(container)

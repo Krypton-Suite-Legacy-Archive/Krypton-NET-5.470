@@ -13,7 +13,7 @@ using System;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     internal class KryptonCheckButtonActionList : KryptonButtonActionList
     {
@@ -87,7 +87,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Add the list of button specific actions
                 actions.Add(new DesignerActionHeaderItem("Appearance"));
-                actions.Add(new KryptonDesignerActionItem(new DesignerVerb(_action, OnCheckedClick), "Appearance"));
+                actions.Add(new Krypton.DesignerActionItem(new DesignerVerb(_action, OnCheckedClick), "Appearance"));
                 actions.Add(new DesignerActionPropertyItem("ButtonStyle", "Style", "Appearance", "Button style"));
                 actions.Add(new DesignerActionPropertyItem("Orientation", "Orientation", "Appearance", "Button orientation"));
                 actions.Add(new DesignerActionHeaderItem("Values"));

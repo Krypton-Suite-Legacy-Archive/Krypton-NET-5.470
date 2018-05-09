@@ -17,8 +17,8 @@ using System.Security.Permissions;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyVersion("4.5.0.0")]
-[assembly: AssemblyFileVersion("4.5.0.0")]
+[assembly: AssemblyVersion("4.70.5000.0")]
+[assembly: AssemblyFileVersion("4.70.5000.0")]
 [assembly: AssemblyCopyright("© Component Factory Pty Ltd 2012. All rights reserved.")]
 [assembly: AssemblyInformationalVersion("4.5.0.0")]
 [assembly: AssemblyProduct("Navigator + FloatingWindows")]
@@ -35,7 +35,7 @@ using System.Runtime.InteropServices;
 [assembly: Dependency("System", LoadHint.Always)]
 [assembly: Dependency("System.Drawing", LoadHint.Always)]
 [assembly: Dependency("System.Windows.Forms", LoadHint.Always)]
-[assembly: Dependency("ComponentFactory.Krypton.Toolkit", LoadHint.Always)]
-[assembly: Dependency("ComponentFactory.Krypton.Navigator", LoadHint.Always)]
-[assembly: Dependency("ComponentFactory.Krypton.Workspace", LoadHint.Always)]
-[assembly: Dependency("ComponentFactory.Krypton.Docking", LoadHint.Always)]
+[assembly: Dependency("Krypton.Toolkit", LoadHint.Always)]
+[assembly: Dependency("Krypton.Navigator", LoadHint.Always)]
+[assembly: Dependency("Krypton.Workspace", LoadHint.Always)]
+[assembly: Dependency("Krypton.Docking", LoadHint.Always)]

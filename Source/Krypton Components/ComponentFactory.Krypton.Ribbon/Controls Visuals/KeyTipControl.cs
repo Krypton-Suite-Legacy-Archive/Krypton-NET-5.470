@@ -13,14 +13,14 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     internal class KeyTipControl : Form
     {
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private List<ViewDrawRibbonKeyTip> _viewList;
         private string _prefix;
         private readonly bool _showDisabled;
@@ -33,7 +33,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Reference to owning control instance.</param>
         /// <param name="keyTips">List of key tips.</param>
         /// <param name="showDisabled">True to show disabled entries, otherwise enabled.</param>
-        public KeyTipControl(KryptonRibbon ribbon, 
+        public KeyTipControl(Krypton.Ribbon ribbon, 
                              KeyTipInfoList keyTips,
                              bool showDisabled)
         {

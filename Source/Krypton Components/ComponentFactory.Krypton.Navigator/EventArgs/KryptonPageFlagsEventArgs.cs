@@ -11,7 +11,7 @@
 
 using System;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	/// <summary>
 	/// Provide a KryptonPageFlags enumeration with event details.

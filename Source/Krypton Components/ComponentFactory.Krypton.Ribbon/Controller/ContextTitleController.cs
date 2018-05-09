@@ -12,9 +12,9 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Provide context title click functionality.
@@ -23,7 +23,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                             IMouseController
     {
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private bool _mouseOver;
         #endregion
 
@@ -32,7 +32,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Initialize a new instance of the ContextTitleController class.
 		/// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
-        public ContextTitleController(KryptonRibbon ribbon)
+        public ContextTitleController(Krypton.Ribbon ribbon)
 		{
             Debug.Assert(ribbon != null);
             _ribbon = ribbon;

@@ -12,7 +12,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Provides the Silver color scheme variant of the Office 2010 palette.

@@ -10,18 +10,18 @@
 // *****************************************************************************
 
 using System;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Manage the items that can be added to a ribbon group button cluster container.
     /// </summary>
-    public class KryptonRibbonGroupClusterCollection : TypedRestrictCollection<KryptonRibbonGroupItem>
+    public class Krypton.RibbonGroupClusterCollection : TypedRestrictCollection<Krypton.RibbonGroupItem>
     {
         #region Static Fields
-        private static readonly Type[] _types = { typeof(KryptonRibbonGroupClusterButton),
-                                                             typeof(KryptonRibbonGroupClusterColorButton)};
+        private static readonly Type[] _types = { typeof(Krypton.RibbonGroupClusterButton),
+                                                             typeof(Krypton.RibbonGroupClusterColorButton)};
         #endregion
 
         #region Restrict

@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a design time item.
@@ -35,7 +35,7 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonDesignBase(KryptonRibbon ribbon,
+        public ViewDrawRibbonDesignBase(Krypton.Ribbon ribbon,
                                         NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);
@@ -70,7 +70,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the ribbon control instance.
         /// </summary>
-        public KryptonRibbon Ribbon { get; }
+        public Krypton.Ribbon Ribbon { get; }
 
         #endregion
 

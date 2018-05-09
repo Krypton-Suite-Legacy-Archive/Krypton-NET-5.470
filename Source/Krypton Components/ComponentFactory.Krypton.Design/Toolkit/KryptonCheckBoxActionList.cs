@@ -13,7 +13,7 @@ using System.Drawing;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     internal class KryptonCheckBoxActionList : DesignerActionList
     {

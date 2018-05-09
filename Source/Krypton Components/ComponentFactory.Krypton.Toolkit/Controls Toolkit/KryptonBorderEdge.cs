@@ -15,7 +15,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
     /// Display text and images with the styling features of the Krypton Toolkit
@@ -24,7 +24,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [ToolboxBitmap(typeof(KryptonBorderEdge), "ToolboxBitmaps.KryptonBorderEdge.bmp")]
     [DefaultEvent("Paint")]                             
     [DefaultProperty("Orientation")]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonBorderEdgeDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer("Krypton.Toolkit.KryptonBorderEdgeDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [DesignerCategory("code")]
     [Description("Displays a vertical or horizontal border edge.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]

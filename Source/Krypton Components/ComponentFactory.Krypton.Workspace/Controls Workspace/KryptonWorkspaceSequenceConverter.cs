@@ -12,12 +12,12 @@
 using System;
 using System.ComponentModel;
 
-namespace ComponentFactory.Krypton.Workspace
+namespace Krypton.Workspace
 {
     /// <summary>
     /// Add conversion to a string for display in properties window at design time.
     /// </summary>
-    public class KryptonWorkspaceSequenceConverter : ExpandableObjectConverter
+    public class Krypton.WorkspaceSequenceConverter : ExpandableObjectConverter
     {
         /// <summary>
         /// Returns whether this converter can convert the object to the specified type.
@@ -53,7 +53,7 @@ namespace ComponentFactory.Krypton.Workspace
             // Can always convert to a string representation
             if (destinationType == typeof(string))
             {
-                KryptonWorkspaceSequence sequence = (KryptonWorkspaceSequence)value;
+                Krypton.WorkspaceSequence sequence = (Krypton.WorkspaceSequence)value;
                 return sequence.ToString();
             }
             

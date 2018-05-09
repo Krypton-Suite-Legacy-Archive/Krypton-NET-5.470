@@ -16,7 +16,7 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Collections.Generic;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     internal class KryptonBreadCrumbItemsEditor : CollectionEditor
     {

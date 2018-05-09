@@ -13,7 +13,7 @@ using System;
 using System.Drawing;
 using System.ComponentModel.Design;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     internal class KryptonLinkLabelActionList : DesignerActionList
     {
@@ -202,7 +202,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 actions.Add(new DesignerActionPropertyItem("LabelStyle", "Style", "Appearance", "Label style"));
                 actions.Add(new DesignerActionPropertyItem("Orientation", "Orientation", "Appearance", "Visual orientation"));
                 actions.Add(new DesignerActionPropertyItem("LinkBehavior", "Link Behavior", "Appearance", "Underline behavior"));
-                actions.Add(new KryptonDesignerActionItem(new DesignerVerb(_action, OnLinkVisitedClick), "Appearance"));
+                actions.Add(new Krypton.DesignerActionItem(new DesignerVerb(_action, OnLinkVisitedClick), "Appearance"));
                 actions.Add(new DesignerActionHeaderItem("Values"));
                 actions.Add(new DesignerActionPropertyItem("Text", "Text", "Values", "Label text"));
                 actions.Add(new DesignerActionPropertyItem("ExtraText", "ExtraText", "Values", "Label extra text"));

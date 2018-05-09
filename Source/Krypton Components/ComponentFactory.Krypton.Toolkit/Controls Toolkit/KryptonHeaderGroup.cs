@@ -17,7 +17,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
     /// Combines the benefits of the KryptonHeader and the KryptonGroup into one.
@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [ToolboxBitmap(typeof(KryptonHeaderGroup), "ToolboxBitmaps.KryptonHeaderGroup.bmp")]
     [DefaultEvent("Paint")]
 	[DefaultProperty("ValuesPrimary")]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonHeaderGroupDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer("Krypton.Toolkit.KryptonHeaderGroupDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [DesignerCategory("code")]
     [Description("Group a collection of controls with a descriptive caption.")]
     [Docking(DockingBehavior.Ask)]

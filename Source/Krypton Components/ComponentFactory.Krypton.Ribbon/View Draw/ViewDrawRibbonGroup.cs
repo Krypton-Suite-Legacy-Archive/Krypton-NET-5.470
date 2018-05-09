@@ -16,9 +16,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws an individual RibbonGroup.
@@ -44,8 +44,8 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
-        private readonly KryptonRibbonGroup _ribbonGroup;
+        private readonly Krypton.Ribbon _ribbon;
+        private readonly Krypton.RibbonGroup _ribbonGroup;
         private VisualPopupGroup _popupGroup;
         private ViewLayoutDocker _layoutCollapsedMain;
         private ViewDrawRibbonGroupText _viewCollapsedText1;
@@ -78,8 +78,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonGroup">Reference to ribbon group this represents.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonGroup(KryptonRibbon ribbon,
-                                   KryptonRibbonGroup ribbonGroup,
+        public ViewDrawRibbonGroup(Krypton.Ribbon ribbon,
+                                   Krypton.RibbonGroup ribbonGroup,
                                    NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);

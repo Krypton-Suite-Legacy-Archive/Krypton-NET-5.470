@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Button specification appropriate for an application menu

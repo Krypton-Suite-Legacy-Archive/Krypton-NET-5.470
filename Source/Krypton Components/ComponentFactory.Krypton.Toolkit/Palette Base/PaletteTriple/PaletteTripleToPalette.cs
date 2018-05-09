@@ -12,7 +12,7 @@
 using System.ComponentModel;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Redirect all triple requests directly to the redirector with a fixed state.

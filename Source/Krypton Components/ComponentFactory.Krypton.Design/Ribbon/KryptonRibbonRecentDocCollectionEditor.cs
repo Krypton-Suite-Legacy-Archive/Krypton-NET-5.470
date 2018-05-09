@@ -12,15 +12,15 @@
 using System;
 using System.ComponentModel.Design;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
-	internal class KryptonRibbonRecentDocCollectionEditor : CollectionEditor
+	internal class Krypton.RibbonRecentDocCollectionEditor : CollectionEditor
 	{
 		/// <summary>
-        /// Initialize a new instance of the KryptonRibbonRecentDocCollectionEditor class.
+        /// Initialize a new instance of the Krypton.RibbonRecentDocCollectionEditor class.
 		/// </summary>
-        public KryptonRibbonRecentDocCollectionEditor()
-            : base(typeof(KryptonRibbonRecentDocCollection))
+        public Krypton.RibbonRecentDocCollectionEditor()
+            : base(typeof(Krypton.RibbonRecentDocCollection))
 		{
 		}
 
@@ -30,7 +30,7 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// <returns>An array of data types that this collection can contain.</returns>
 		protected override Type[] CreateNewItemTypes()
 		{
-            return new Type[] { typeof(KryptonRibbonRecentDoc) };
+            return new Type[] { typeof(Krypton.RibbonRecentDoc) };
 		}
 	}
 }

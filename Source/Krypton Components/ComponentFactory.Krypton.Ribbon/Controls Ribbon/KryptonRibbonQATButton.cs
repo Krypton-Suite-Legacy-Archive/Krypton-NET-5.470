@@ -14,20 +14,20 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Represents a single ribbon quick access toolbar entry.
     /// </summary>
     [ToolboxItem(false)]
-    [ToolboxBitmap(typeof(KryptonRibbonQATButton), "ToolboxBitmaps.KryptonRibbonQATButton.bmp")]
+    [ToolboxBitmap(typeof(Krypton.RibbonQATButton), "ToolboxBitmaps.Krypton.RibbonQATButton.bmp")]
     [DefaultEvent("Click")]
     [DefaultProperty("Image")]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
-    public class KryptonRibbonQATButton : Component,
+    public class Krypton.RibbonQATButton : Component,
                                           IQuickAccessToolbarButton
     {
         #region Static Fields
@@ -58,9 +58,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialise a new instance of the KryptonRibbonQATButton class.
+        /// Initialise a new instance of the Krypton.RibbonQATButton class.
         /// </summary>
-        public KryptonRibbonQATButton()
+        public Krypton.RibbonQATButton()
         {
             // Default fields
             _image = _defaultImage;
@@ -82,7 +82,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public KryptonRibbon Ribbon { get; private set; }
+        public Krypton.Ribbon Ribbon { get; private set; }
 
         /// <summary>
         /// Gets and sets the application button image.
@@ -372,7 +372,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         /// <param name="ribbon">Reference to owning instance.</param>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        public void SetRibbon(KryptonRibbon ribbon)
+        public void SetRibbon(Krypton.Ribbon ribbon)
         {
             Ribbon = ribbon;
         }

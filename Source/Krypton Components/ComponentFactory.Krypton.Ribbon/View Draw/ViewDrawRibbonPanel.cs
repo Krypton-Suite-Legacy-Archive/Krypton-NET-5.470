@@ -12,9 +12,9 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws the ribbon background panel.
@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private readonly NeedPaintHandler _paintDelegate;
         private readonly Blend _compBlend;
         #endregion
@@ -40,7 +40,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         /// <param name="paletteBack">Reference to palette for obtaining background colors.</param>
         /// <param name="paintDelegate">Delegate for generating repaints.</param>
-        public ViewDrawRibbonPanel(KryptonRibbon ribbon,
+        public ViewDrawRibbonPanel(Krypton.Ribbon ribbon,
                                    IPaletteBack paletteBack,
                                    NeedPaintHandler paintDelegate)
             : base(paletteBack)

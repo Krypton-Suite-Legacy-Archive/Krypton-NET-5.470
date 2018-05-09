@@ -12,15 +12,15 @@
 using System;
 using System.ComponentModel.Design;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
-	internal class KryptonRibbonQATButtonCollectionEditor : CollectionEditor
+	internal class Krypton.RibbonQATButtonCollectionEditor : CollectionEditor
 	{
 		/// <summary>
-        /// Initialize a new instance of the KryptonRibbonQATButtonCollectionEditor class.
+        /// Initialize a new instance of the Krypton.RibbonQATButtonCollectionEditor class.
 		/// </summary>
-        public KryptonRibbonQATButtonCollectionEditor()
-            : base(typeof(KryptonRibbonQATButtonCollection))
+        public Krypton.RibbonQATButtonCollectionEditor()
+            : base(typeof(Krypton.RibbonQATButtonCollection))
 		{
 		}
 
@@ -30,7 +30,7 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// <returns>An array of data types that this collection can contain.</returns>
 		protected override Type[] CreateNewItemTypes()
 		{
-			return new Type[] { typeof(KryptonRibbonQATButton) };
+			return new Type[] { typeof(Krypton.RibbonQATButton) };
 		}
 
 		/// <summary>
@@ -42,7 +42,7 @@ namespace ComponentFactory.Krypton.Ribbon
 		protected override object SetItems(object editValue, object[] value)
 		{
 			// Cast the context into the expected control type
-            KryptonRibbon ribbon = (KryptonRibbon)Context.Instance;
+            Krypton.Ribbon ribbon = (Krypton.Ribbon)Context.Instance;
 
 			// Suspend changes until collection has been updated
 		    ribbon?.SuspendLayout();

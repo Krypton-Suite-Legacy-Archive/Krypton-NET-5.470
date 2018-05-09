@@ -11,9 +11,9 @@
 
 using System.ComponentModel;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	/// <summary>
 	/// Storage for tooltip related properties.
@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Navigator
     public class NavigatorToolTips : Storage
     {
         #region Instance Fields
-        private KryptonNavigator _navigator;
+        private Krypton.Navigator _navigator;
         private MapKryptonPageImage _mapImage;
         #endregion
 
@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Navigator
 		/// </summary>
         /// <param name="navigator">Reference to owning navigator instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public NavigatorToolTips(KryptonNavigator navigator,
+        public NavigatorToolTips(Krypton.Navigator navigator,
                                 NeedPaintHandler needPaint)
 		{
             Debug.Assert(navigator != null);

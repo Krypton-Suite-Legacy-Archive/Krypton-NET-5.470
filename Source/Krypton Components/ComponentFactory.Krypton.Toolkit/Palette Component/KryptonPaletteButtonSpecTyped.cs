@@ -14,7 +14,7 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Overrides for defining typed button specifications.

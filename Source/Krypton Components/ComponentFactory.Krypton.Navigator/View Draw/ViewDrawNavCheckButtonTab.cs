@@ -9,9 +9,9 @@
 //  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	/// <summary>
 	/// Navigator view element for drawing a tab check button for a krypton page.
@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <param name="navigator">Owning navigator instance.</param>
         /// <param name="page">Page this check button represents.</param>
         /// <param name="orientation">Orientation for the check button.</param>
-        public ViewDrawNavCheckButtonTab(KryptonNavigator navigator,
+        public ViewDrawNavCheckButtonTab(Krypton.Navigator navigator,
                                          KryptonPage page,
                                          VisualOrientation orientation)
             : base(navigator, page, orientation,

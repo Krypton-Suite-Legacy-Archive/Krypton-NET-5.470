@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.Drawing;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// View element that draws nothing and will center all children within itself.

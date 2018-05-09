@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System;
-using ComponentFactory.Krypton.Workspace;
+using Krypton.Workspace;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
 	/// <summary>
     /// Event arguments for a DockableWorkspaceCellAdding/DockableWorkspaceCellRemoving events.
@@ -31,8 +31,8 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="element">Reference to docking workspace element that is managing the dockable workspace control.</param>
         /// <param name="cell">Reference to workspace control cell instance.</param>
         public DockableWorkspaceCellEventArgs(KryptonDockableWorkspace workspace,
-                                              KryptonDockingWorkspace element,
-                                              KryptonWorkspaceCell cell)
+                                              Krypton.DockingWorkspace element,
+                                              Krypton.WorkspaceCell cell)
 		{
             DockableWorkspaceControl = workspace;
             WorkspaceElement = element;
@@ -47,14 +47,14 @@ namespace ComponentFactory.Krypton.Docking
         public KryptonDockableWorkspace DockableWorkspaceControl { get; }
 
 	    /// <summary>
-        /// Gets a reference to the KryptonDockingWorkspace that is managing the dockable workspace.
+        /// Gets a reference to the Krypton.DockingWorkspace that is managing the dockable workspace.
         /// </summary>
-        public KryptonDockingWorkspace WorkspaceElement { get; }
+        public Krypton.DockingWorkspace WorkspaceElement { get; }
 
 	    /// <summary>
-        /// Gets a reference to the KryptonWorkspaceCell control.
+        /// Gets a reference to the Krypton.WorkspaceCell control.
         /// </summary>
-        public KryptonWorkspaceCell CellControl { get; }
+        public Krypton.WorkspaceCell CellControl { get; }
 
 	    #endregion
 	}

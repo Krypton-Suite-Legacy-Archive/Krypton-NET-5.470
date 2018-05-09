@@ -12,18 +12,18 @@
 using System;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
     /// <summary>
     /// Designer time action list for the navigator.
     /// </summary>
-    public class KryptonNavigatorActionList : DesignerActionList
+    public class Krypton.NavigatorActionList : DesignerActionList
     {
         #region Instance Fields
-        private readonly KryptonNavigator _navigator;
-        private readonly KryptonNavigatorDesigner _designer;
+        private readonly Krypton.Navigator _navigator;
+        private readonly Krypton.NavigatorDesigner _designer;
         private readonly IComponentChangeService _serviceComponentChange;
         private readonly DesignerActionUIService _serviceDesignerAction;
         private DesignerVerb _headerBarVisible;
@@ -36,15 +36,15 @@ namespace ComponentFactory.Krypton.Navigator
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the KryptonNavigatorActionList class.
+        /// Initialize a new instance of the Krypton.NavigatorActionList class.
         /// </summary>
         /// <param name="owner">Designer that owns this action list instance.</param>
-        public KryptonNavigatorActionList(KryptonNavigatorDesigner owner)
+        public Krypton.NavigatorActionList(Krypton.NavigatorDesigner owner)
             : base(owner.Component)
         {
             // Remember designer and actual component instance being designed
             _designer = owner;
-            _navigator = (KryptonNavigator)owner.Component;
+            _navigator = (Krypton.Navigator)owner.Component;
 
             // Cache service used to notify when a property has changed
             _serviceComponentChange = (IComponentChangeService)GetService(typeof(IComponentChangeService));
@@ -764,21 +764,21 @@ namespace ComponentFactory.Krypton.Navigator
             {
                 actions.Add(new DesignerActionPropertyItem("BarHeaderStyle", "Bar Style", "Header", "Bar header style."));
                 actions.Add(new DesignerActionPropertyItem("BarHeaderPosition", "Bar Position", "Header", "Bar header position."));
-                actions.Add(new KryptonDesignerActionItem(_headerBarVisible, "Header"));
+                actions.Add(new Krypton.DesignerActionItem(_headerBarVisible, "Header"));
             }
 
             if (includeHeaderPrimary)
             {
                 actions.Add(new DesignerActionPropertyItem("PrimaryHeaderStyle", "Primary Style", "Header", "Primary header style."));
                 actions.Add(new DesignerActionPropertyItem("PrimaryHeaderPosition", "Primary Position", "Header", "Primary header position."));
-                actions.Add(new KryptonDesignerActionItem(_headerPrimaryVisible, "Header"));
+                actions.Add(new Krypton.DesignerActionItem(_headerPrimaryVisible, "Header"));
             }
 
             if (includeHeaderSecondary)
             {
                 actions.Add(new DesignerActionPropertyItem("SecondaryHeaderStyle", "Secondary Style", "Header", "Secondary header style."));
                 actions.Add(new DesignerActionPropertyItem("SecondaryHeaderPosition", "Secondary Position", "Header", "Secondary header position."));
-                actions.Add(new KryptonDesignerActionItem(_headerSecondaryVisible, "Header"));
+                actions.Add(new Krypton.DesignerActionItem(_headerSecondaryVisible, "Header"));
             }
         }
 

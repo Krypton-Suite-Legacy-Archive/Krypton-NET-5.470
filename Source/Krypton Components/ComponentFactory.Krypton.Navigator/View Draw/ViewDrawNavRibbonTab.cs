@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
     internal class ViewDrawNavRibbonTab : ViewComposite,
                                           IContentValues,
@@ -70,7 +70,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         /// <param name="navigator">Owning navigator instance.</param>
         /// <param name="page">Page this ribbon tab represents.</param>
-        public ViewDrawNavRibbonTab(KryptonNavigator navigator,
+        public ViewDrawNavRibbonTab(Krypton.Navigator navigator,
                                     KryptonPage page)
         {
             Debug.Assert(navigator != null);
@@ -215,7 +215,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets the navigator this check item is inside.
         /// </summary>
-        public KryptonNavigator Navigator { get; }
+        public Krypton.Navigator Navigator { get; }
 
         /// <summary>
         /// Gets and sets the checked state of the ribbon tab.

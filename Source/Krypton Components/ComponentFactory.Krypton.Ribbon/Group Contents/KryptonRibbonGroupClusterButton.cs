@@ -15,21 +15,21 @@ using System.Drawing.Design;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Represents a ribbon group cluster button.
     /// </summary>
     [ToolboxItem(false)]
-    [ToolboxBitmap(typeof(KryptonRibbonGroupClusterButton), "ToolboxBitmaps.KryptonRibbonGroupClusterButton.bmp")]
-    [Designer("ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButtonDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [ToolboxBitmap(typeof(Krypton.RibbonGroupClusterButton), "ToolboxBitmaps.Krypton.RibbonGroupClusterButton.bmp")]
+    [Designer("Krypton.Ribbon.Krypton.RibbonGroupClusterButtonDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
     [DefaultEvent("Click")]
     [DefaultProperty("ButtonType")]
-    public class KryptonRibbonGroupClusterButton : KryptonRibbonGroupItem
+    public class Krypton.RibbonGroupClusterButton : Krypton.RibbonGroupItem
     {
         #region Static Fields
         private static readonly Image _defaultButtonImageSmall = Properties.Resources.ButtonImageSmall;
@@ -85,9 +85,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialise a new instance of the KryptonRibbonGroupClusterButton class.
+        /// Initialise a new instance of the Krypton.RibbonGroupClusterButton class.
         /// </summary>
-        public KryptonRibbonGroupClusterButton()
+        public Krypton.RibbonGroupClusterButton()
         {
             // Default fields
             _enabled = true;
@@ -523,7 +523,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="needPaint">Delegate for notifying changes in display.</param>
         /// <returns>ViewBase derived instance.</returns>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override ViewBase CreateView(KryptonRibbon ribbon, 
+        public override ViewBase CreateView(Krypton.Ribbon ribbon, 
                                             NeedPaintHandler needPaint)
         {
             return new ViewDrawRibbonGroupClusterButton(ribbon, this, needPaint);

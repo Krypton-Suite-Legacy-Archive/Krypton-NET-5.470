@@ -16,16 +16,16 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
-    internal class KryptonRibbonTabDesigner : ComponentDesigner
+    internal class Krypton.RibbonTabDesigner : ComponentDesigner
     {
         #region Instance Fields
         private IDesignerHost _designerHost;
         private IComponentChangeService _changeService;
-        private KryptonRibbonTab _ribbonTab;
+        private Krypton.RibbonTab _ribbonTab;
         private DesignerVerbCollection _verbs;
         private DesignerVerb _toggleHelpersVerb;
         private DesignerVerb _moveFirstVerb;
@@ -49,9 +49,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the KryptonRibbonTabDesigner class.
+        /// Initialize a new instance of the Krypton.RibbonTabDesigner class.
 		/// </summary>
-        public KryptonRibbonTabDesigner()
+        public Krypton.RibbonTabDesigner()
         {
         }            
 		#endregion
@@ -75,7 +75,7 @@ namespace ComponentFactory.Krypton.Ribbon
             base.Initialize(component);
 
             // Cast to correct type
-            _ribbonTab = (KryptonRibbonTab)component;
+            _ribbonTab = (Krypton.RibbonTab)component;
             _ribbonTab.DesignTimeAddGroup += OnAddGroup;
             _ribbonTab.DesignTimeContextMenu += OnContextMenu;
 
@@ -201,7 +201,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTab?.Ribbon != null) && _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonTab MoveFirst");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonTab MoveFirst");
 
                 try
                 {
@@ -211,7 +211,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyTabs);
 
                     // Move position of the tab
-                    KryptonRibbon ribbon = _ribbonTab.Ribbon;
+                    Krypton.Ribbon ribbon = _ribbonTab.Ribbon;
                     ribbon.RibbonTabs.Remove(_ribbonTab);
                     ribbon.RibbonTabs.Insert(0, _ribbonTab);
                     ribbon.SelectedTab = _ribbonTab;
@@ -232,7 +232,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTab?.Ribbon != null) && _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonTab MoveNext");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonTab MoveNext");
 
                 try
                 {
@@ -242,7 +242,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyTabs);
 
                     // Move position of the tab
-                    KryptonRibbon ribbon = _ribbonTab.Ribbon;
+                    Krypton.Ribbon ribbon = _ribbonTab.Ribbon;
                     int index = ribbon.RibbonTabs.IndexOf(_ribbonTab) - 1;
                     index = Math.Max(index, 0);
                     ribbon.RibbonTabs.Remove(_ribbonTab);
@@ -265,7 +265,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTab?.Ribbon != null) && _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonTab MovePrevious");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonTab MovePrevious");
 
                 try
                 {
@@ -275,7 +275,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyTabs);
 
                     // Move position of the tab
-                    KryptonRibbon ribbon = _ribbonTab.Ribbon;
+                    Krypton.Ribbon ribbon = _ribbonTab.Ribbon;
                     int index = ribbon.RibbonTabs.IndexOf(_ribbonTab) + 1;
                     index = Math.Min(index, ribbon.RibbonTabs.Count - 1);
                     ribbon.RibbonTabs.Remove(_ribbonTab);
@@ -298,7 +298,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTab?.Ribbon != null) && _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonTab MoveLast");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonTab MoveLast");
 
                 try
                 {
@@ -308,7 +308,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyTabs);
 
                     // Move position of the tab
-                    KryptonRibbon ribbon = _ribbonTab.Ribbon;
+                    Krypton.Ribbon ribbon = _ribbonTab.Ribbon;
                     ribbon.RibbonTabs.Remove(_ribbonTab);
                     ribbon.RibbonTabs.Insert(ribbon.RibbonTabs.Count, _ribbonTab);
                     ribbon.SelectedTab = _ribbonTab;
@@ -329,7 +329,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTab?.Ribbon != null) && _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonTab AddGroup");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonTab AddGroup");
 
                 try
                 {
@@ -339,7 +339,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyGroups);
 
                     // Get designer to create the new group component
-                    KryptonRibbonGroup group = (KryptonRibbonGroup)_designerHost.CreateComponent(typeof(KryptonRibbonGroup));
+                    Krypton.RibbonGroup group = (Krypton.RibbonGroup)_designerHost.CreateComponent(typeof(Krypton.RibbonGroup));
                     _ribbonTab.Groups.Add(group);
 
                     RaiseComponentChanged(propertyGroups, null, null);
@@ -357,7 +357,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTab?.Ribbon != null) && _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonTab ClearGroups");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonTab ClearGroups");
 
                 try
                 {
@@ -372,7 +372,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     // We need to remove all the groups from the tab
                     for (int i = _ribbonTab.Groups.Count - 1; i >= 0; i--)
                     {
-                        KryptonRibbonGroup group = _ribbonTab.Groups[i];
+                        Krypton.RibbonGroup group = _ribbonTab.Groups[i];
                         _ribbonTab.Groups.Remove(group);
                         host.DestroyComponent(group);
                     }
@@ -392,7 +392,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonTab?.Ribbon != null) && _ribbonTab.Ribbon.RibbonTabs.Contains(_ribbonTab))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonTab DeleteTab");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonTab DeleteTab");
 
                 try
                 {
@@ -445,7 +445,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 // We need to remove all the groups from the tab
                 for (int i = _ribbonTab.Groups.Count - 1; i >= 0; i--)
                 {
-                    KryptonRibbonGroup group = _ribbonTab.Groups[i];
+                    Krypton.RibbonGroup group = _ribbonTab.Groups[i];
                     _ribbonTab.Groups.Remove(group);
                     host.DestroyComponent(group);
                 }
@@ -466,7 +466,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     _movePreviousMenu = new ToolStripMenuItem("Move Previous", Design.Properties.Resources.MovePrevious, OnMovePrevious);
                     _moveNextMenu = new ToolStripMenuItem("Move Next", Design.Properties.Resources.MoveNext, OnMoveNext);
                     _moveLastMenu = new ToolStripMenuItem("Move Last", Design.Properties.Resources.MoveLast, OnMoveLast);
-                    _addGroupMenu = new ToolStripMenuItem("Add Group", Design.Properties.Resources.KryptonRibbonGroup, OnAddGroup);
+                    _addGroupMenu = new ToolStripMenuItem("Add Group", Design.Properties.Resources.Krypton.RibbonGroup, OnAddGroup);
                     _clearGroupsMenu = new ToolStripMenuItem("Clear Groups", null, OnClearGroups);
                     _deleteTabMenu = new ToolStripMenuItem("Delete Tab", Design.Properties.Resources.delete2, OnDeleteTab);
                     _cms.Items.AddRange(new ToolStripItem[] { _toggleHelpersMenu, new ToolStripSeparator(),

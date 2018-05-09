@@ -20,26 +20,26 @@ using System.Windows.Forms;
 using System.Globalization;
 using System.Threading;
 using System.Runtime.InteropServices;
-using ComponentFactory.Krypton.Toolkit;
-using ComponentFactory.Krypton.Navigator;
-using ComponentFactory.Krypton.Workspace;
+using Krypton.Toolkit;
+using Krypton.Navigator;
+using Krypton.Workspace;
 // ReSharper disable UnusedMember.Global
 // ReSharper disable MemberCanBeProtected.Global
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
     /// <summary>
     /// Manages a hierarchy of docking elements to provide docking windows functionality.
     /// </summary>
     [ToolboxItem(true)]
-    [ToolboxBitmap(typeof(KryptonDockingManager), "ToolboxBitmaps.KryptonDockingManager.bmp")]
+    [ToolboxBitmap(typeof(Krypton.DockingManager), "ToolboxBitmaps.Krypton.DockingManager.bmp")]
     [DefaultEvent("PageCloseRequest")]
     [DefaultProperty("Strings")]
     [DesignerCategory("code")]
     [Description("Docking management component.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
-    public class KryptonDockingManager : DockingElementOpenCollection
+    public class Krypton.DockingManager : DockingElementOpenCollection
     {
         #region Instance Fields
 
@@ -336,18 +336,18 @@ namespace ComponentFactory.Krypton.Docking
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the KryptonDockingManager class.
+        /// Initialize a new instance of the Krypton.DockingManager class.
         /// </summary>
-        public KryptonDockingManager()
+        public Krypton.DockingManager()
             : this("DockingManager")
         {
         }
 
         /// <summary>
-        /// Initialize a new instance of the KryptonDockingManager class.
+        /// Initialize a new instance of the Krypton.DockingManager class.
         /// </summary>
         /// <param name="name">Initial name of the element.</param>
-        public KryptonDockingManager(string name)
+        public Krypton.DockingManager(string name)
             : base(name)
         {
             InitializeManager();
@@ -359,8 +359,8 @@ namespace ComponentFactory.Krypton.Docking
         /// Manage auto hidden/docked capabilities for provided control.
         /// </summary>
         /// <param name="c">Reference to control instance.</param>
-        /// <returns>KryptonDockingControl instance created.</returns>
-        public KryptonDockingControl ManageControl(Control c)
+        /// <returns>Krypton.DockingControl instance created.</returns>
+        public Krypton.DockingControl ManageControl(Control c)
         {
             return ManageControl("Control", c);
         }
@@ -370,8 +370,8 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         /// <param name="c">Reference to control instance.</param>
         /// <param name="navigator">Reference to docking navigator that is inside the control.</param>
-        /// <returns>KryptonDockingControl instance created.</returns>
-        public KryptonDockingControl ManageControl(Control c, KryptonDockingNavigator navigator)
+        /// <returns>Krypton.DockingControl instance created.</returns>
+        public Krypton.DockingControl ManageControl(Control c, Krypton.DockingNavigator navigator)
         {
             return ManageControl("Control", c, navigator);
         }
@@ -381,8 +381,8 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         /// <param name="c">Reference to control instance.</param>
         /// <param name="workspace">Reference to docking workspace that is inside the control.</param>
-        /// <returns>KryptonDockingControl instance created.</returns>
-        public KryptonDockingControl ManageControl(Control c, KryptonDockingWorkspace workspace)
+        /// <returns>Krypton.DockingControl instance created.</returns>
+        public Krypton.DockingControl ManageControl(Control c, Krypton.DockingWorkspace workspace)
         {
             return ManageControl("Control", c, workspace);
         }
@@ -392,10 +392,10 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         /// <param name="name">Name for new docking element.</param>
         /// <param name="c">Reference to control instance.</param>
-        /// <returns>KryptonDockingControl instance created.</returns>
-        public KryptonDockingControl ManageControl(string name, Control c)
+        /// <returns>Krypton.DockingControl instance created.</returns>
+        public Krypton.DockingControl ManageControl(string name, Control c)
         {
-            KryptonDockingControl dockingControl = new KryptonDockingControl(name, c);
+            Krypton.DockingControl dockingControl = new Krypton.DockingControl(name, c);
             Add(dockingControl);
             return dockingControl;
         }
@@ -406,10 +406,10 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="name">Name for new docking element.</param>
         /// <param name="c">Reference to control instance.</param>
         /// <param name="navigator">Reference to docking navigator that is inside the control.</param>
-        /// <returns>KryptonDockingControl instance created.</returns>
-        public KryptonDockingControl ManageControl(string name, Control c, KryptonDockingNavigator navigator)
+        /// <returns>Krypton.DockingControl instance created.</returns>
+        public Krypton.DockingControl ManageControl(string name, Control c, Krypton.DockingNavigator navigator)
         {
-            KryptonDockingControl dockingControl = new KryptonDockingControl(name, c, navigator);
+            Krypton.DockingControl dockingControl = new Krypton.DockingControl(name, c, navigator);
             Add(dockingControl);
             return dockingControl;
         }
@@ -420,10 +420,10 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="name">Name for new docking element.</param>
         /// <param name="c">Reference to control instance.</param>
         /// <param name="workspace">Reference to docking workspace that is inside the control.</param>
-        /// <returns>KryptonDockingControl instance created.</returns>
-        public KryptonDockingControl ManageControl(string name, Control c, KryptonDockingWorkspace workspace)
+        /// <returns>Krypton.DockingControl instance created.</returns>
+        public Krypton.DockingControl ManageControl(string name, Control c, Krypton.DockingWorkspace workspace)
         {
-            KryptonDockingControl dockingControl = new KryptonDockingControl(name, c, workspace);
+            Krypton.DockingControl dockingControl = new Krypton.DockingControl(name, c, workspace);
             Add(dockingControl);
             return dockingControl;
         }
@@ -432,8 +432,8 @@ namespace ComponentFactory.Krypton.Docking
         /// Manage floating windows capability for provided form.
         /// </summary>
         /// <param name="f">Reference to form.</param>
-        /// <returns>KryptonDockingFloating instance created.</returns>
-        public KryptonDockingFloating ManageFloating(Form f)
+        /// <returns>Krypton.DockingFloating instance created.</returns>
+        public Krypton.DockingFloating ManageFloating(Form f)
         {
             return ManageFloating("Floating", f);
         }
@@ -443,10 +443,10 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         /// <param name="name">Name for new docking element.</param>
         /// <param name="f">Reference to form.</param>
-        /// <returns>KryptonDockingFloating instance created.</returns>
-        public KryptonDockingFloating ManageFloating(string name, Form f)
+        /// <returns>Krypton.DockingFloating instance created.</returns>
+        public Krypton.DockingFloating ManageFloating(string name, Form f)
         {
-            KryptonDockingFloating dockingFloating = new KryptonDockingFloating(name, f);
+            Krypton.DockingFloating dockingFloating = new Krypton.DockingFloating(name, f);
             Add(dockingFloating);
             return dockingFloating;
         }
@@ -455,8 +455,8 @@ namespace ComponentFactory.Krypton.Docking
         /// Manage docking capability for provided dockable workspace control.
         /// </summary>
         /// <param name="w">Reference to dockable workspace.</param>
-        /// <returns>KryptonDockingWorkspace instance created.</returns>
-        public KryptonDockingWorkspace ManageWorkspace(KryptonDockableWorkspace w)
+        /// <returns>Krypton.DockingWorkspace instance created.</returns>
+        public Krypton.DockingWorkspace ManageWorkspace(KryptonDockableWorkspace w)
         {
             return ManageWorkspace("Workspace", "Filler", w);
         }
@@ -466,8 +466,8 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         /// <param name="name">Name for new docking element.</param>
         /// <param name="w">Reference to dockable workspace.</param>
-        /// <returns>KryptonDockingWorkspace instance created.</returns>
-        public KryptonDockingWorkspace ManageWorkspace(string name, KryptonDockableWorkspace w)
+        /// <returns>Krypton.DockingWorkspace instance created.</returns>
+        public Krypton.DockingWorkspace ManageWorkspace(string name, KryptonDockableWorkspace w)
         {
             return ManageWorkspace(name, "Filler", w);
         }
@@ -478,10 +478,10 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="name">Name for new docking element.</param>
         /// <param name="storeName">Store name for docking element.</param>
         /// <param name="w">Reference to dockable workspace.</param>
-        /// <returns>KryptonDockingWorkspace instance created.</returns>
-        public KryptonDockingWorkspace ManageWorkspace(string name, string storeName, KryptonDockableWorkspace w)
+        /// <returns>Krypton.DockingWorkspace instance created.</returns>
+        public Krypton.DockingWorkspace ManageWorkspace(string name, string storeName, KryptonDockableWorkspace w)
         {
-            KryptonDockingWorkspace dockingWorkspace = new KryptonDockingWorkspace(name, storeName, w);
+            Krypton.DockingWorkspace dockingWorkspace = new Krypton.DockingWorkspace(name, storeName, w);
             Add(dockingWorkspace);
             return dockingWorkspace;
         }
@@ -490,8 +490,8 @@ namespace ComponentFactory.Krypton.Docking
         /// Manage docking capability for provided dockable navigator control.
         /// </summary>
         /// <param name="n">Reference to dockable navigator.</param>
-        /// <returns>KryptonDockingNavigator instance created.</returns>
-        public KryptonDockingNavigator ManageNavigator(KryptonDockableNavigator n)
+        /// <returns>Krypton.DockingNavigator instance created.</returns>
+        public Krypton.DockingNavigator ManageNavigator(KryptonDockableNavigator n)
         {
             return ManageNavigator("Navigator", "Filler", n);
         }
@@ -501,8 +501,8 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         /// <param name="name">Name for new docking element.</param>
         /// <param name="n">Reference to dockable navigator.</param>
-        /// <returns>KryptonDockingNavigator instance created.</returns>
-        public KryptonDockingNavigator ManageNavigator(string name, KryptonDockableNavigator n)
+        /// <returns>Krypton.DockingNavigator instance created.</returns>
+        public Krypton.DockingNavigator ManageNavigator(string name, KryptonDockableNavigator n)
         {
             return ManageNavigator(name, "Filler", n);
         }
@@ -513,10 +513,10 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="name">Name for new docking element.</param>
         /// <param name="storeName">Store name for docking element.</param>
         /// <param name="n">Reference to dockable navigator.</param>
-        /// <returns>KryptonDockingNavigator instance created.</returns>
-        public KryptonDockingNavigator ManageNavigator(string name, string storeName, KryptonDockableNavigator n)
+        /// <returns>Krypton.DockingNavigator instance created.</returns>
+        public Krypton.DockingNavigator ManageNavigator(string name, string storeName, KryptonDockableNavigator n)
         {
-            KryptonDockingNavigator dockingNavigator = new KryptonDockingNavigator(name, storeName, n);
+            Krypton.DockingNavigator dockingNavigator = new Krypton.DockingNavigator(name, storeName, n);
             Add(dockingNavigator);
             return dockingNavigator;
         }
@@ -1316,11 +1316,11 @@ namespace ComponentFactory.Krypton.Docking
         /// Find a floating docking element by searching the hierarchy.
         /// </summary>
         /// <param name="uniqueName">Named page for which a suitable floating element is required.</param>
-        /// <returns>KryptonDockingFloating reference if found; otherwise false.</returns>
-        public override KryptonDockingFloating FindDockingFloating(string uniqueName)
+        /// <returns>Krypton.DockingFloating reference if found; otherwise false.</returns>
+        public override Krypton.DockingFloating FindDockingFloating(string uniqueName)
         {
             // First preference is to find an existing store page inside a floating element
-            if (FindStorePageElement(DockingLocation.Floating, uniqueName) is KryptonDockingFloating floating)
+            if (FindStorePageElement(DockingLocation.Floating, uniqueName) is Krypton.DockingFloating floating)
             {
                 return floating;
             }
@@ -1333,29 +1333,29 @@ namespace ComponentFactory.Krypton.Docking
         /// Find a edge docked element by searching the hierarchy.
         /// </summary>
         /// <param name="uniqueName">Named page for which a suitable docking edge element is required.</param>
-        /// <returns>KryptonDockingEdgeDocked reference if found; otherwise false.</returns>
-        public override KryptonDockingEdgeDocked FindDockingEdgeDocked(string uniqueName)
+        /// <returns>Krypton.DockingEdgeDocked reference if found; otherwise false.</returns>
+        public override Krypton.DockingEdgeDocked FindDockingEdgeDocked(string uniqueName)
         {
             // Try and find as an existing page inside the hierarchy
             DockingElement element = FindPageElement(uniqueName) as DockingElement;
 
             // If exists as a dockspace page...
-            if (element is KryptonDockingDockspace)
+            if (element is Krypton.DockingDockspace)
             {
                 // Find the edge the dockspace is against and return the matching docked edge
-                if (element.GetParentType(typeof(KryptonDockingEdgeDocked)) is KryptonDockingEdgeDocked edge)
+                if (element.GetParentType(typeof(Krypton.DockingEdgeDocked)) is Krypton.DockingEdgeDocked edge)
                 {
                     return edge;
                 }
             }
 
             // If exists as a auto hidden group page...
-            if (element is KryptonDockingAutoHiddenGroup)
+            if (element is Krypton.DockingAutoHiddenGroup)
             {
-                if (element.GetParentType(typeof(KryptonDockingEdgeAutoHidden)) is KryptonDockingEdgeAutoHidden edge)
+                if (element.GetParentType(typeof(Krypton.DockingEdgeAutoHidden)) is Krypton.DockingEdgeAutoHidden edge)
                 {
                     // Finally we grab the auto hidden edge that is expected to be a sibling of the docked edge
-                    if (edge["Docked"] is KryptonDockingEdgeDocked edgeDocked)
+                    if (edge["Docked"] is Krypton.DockingEdgeDocked edgeDocked)
                     {
                         return edgeDocked;
                     }
@@ -1363,23 +1363,23 @@ namespace ComponentFactory.Krypton.Docking
             }
 
             // First preference is to find an existing store page inside a dockspace element
-            if (FindStorePageElement(DockingLocation.Docked, uniqueName) is KryptonDockingDockspace dockspace)
+            if (FindStorePageElement(DockingLocation.Docked, uniqueName) is Krypton.DockingDockspace dockspace)
             {
                 // Find the docked edge that the dockspace is inside
-                if (dockspace.GetParentType(typeof(KryptonDockingEdgeDocked)) is KryptonDockingEdgeDocked edgeDocked)
+                if (dockspace.GetParentType(typeof(Krypton.DockingEdgeDocked)) is Krypton.DockingEdgeDocked edgeDocked)
                 {
                     return edgeDocked;
                 }
             }
 
             // Second preference is to find an existing store page inside a auto hidden group element
-            if (FindStorePageElement(DockingLocation.AutoHidden, uniqueName) is KryptonDockingAutoHiddenGroup group)
+            if (FindStorePageElement(DockingLocation.AutoHidden, uniqueName) is Krypton.DockingAutoHiddenGroup group)
             {
                 // Navigate upwards to find the edge that this group is inside
-                if (group.GetParentType(typeof(KryptonDockingEdge)) is KryptonDockingEdge edge)
+                if (group.GetParentType(typeof(Krypton.DockingEdge)) is Krypton.DockingEdge edge)
                 {
                     // Finally we grab the docked edge that is expected to be a sibling of the auto hidden edge
-                    if (edge["Docked"] is KryptonDockingEdgeDocked edgeDocked)
+                    if (edge["Docked"] is Krypton.DockingEdgeDocked edgeDocked)
                     {
                         return edgeDocked;
                     }
@@ -1394,19 +1394,19 @@ namespace ComponentFactory.Krypton.Docking
         /// Find a edge auto hidden element by searching the hierarchy.
         /// </summary>
         /// <param name="uniqueName">Named page for which a suitable auto hidden edge element is required.</param>
-        /// <returns>KryptonDockingEdgeAutoHidden reference if found; otherwise false.</returns>
-        public override KryptonDockingEdgeAutoHidden FindDockingEdgeAutoHidden(string uniqueName)
+        /// <returns>Krypton.DockingEdgeAutoHidden reference if found; otherwise false.</returns>
+        public override Krypton.DockingEdgeAutoHidden FindDockingEdgeAutoHidden(string uniqueName)
         {
             // Try and find as an existing page inside the hierarchy
             DockingElement element = FindPageElement(uniqueName) as DockingElement;
             
             // If exists as a dockspace page...
-            if (element is KryptonDockingDockspace)
+            if (element is Krypton.DockingDockspace)
             {
-                if (element.GetParentType(typeof(KryptonDockingEdge)) is KryptonDockingEdge edge)
+                if (element.GetParentType(typeof(Krypton.DockingEdge)) is Krypton.DockingEdge edge)
                 {
                     // Finally we grab the auto hidden edge that is expected to be a sibling of the docked edge
-                    if (edge["AutoHidden"] is KryptonDockingEdgeAutoHidden edgeAutoHidden)
+                    if (edge["AutoHidden"] is Krypton.DockingEdgeAutoHidden edgeAutoHidden)
                     {
                         return edgeAutoHidden;
                     }
@@ -1414,33 +1414,33 @@ namespace ComponentFactory.Krypton.Docking
             }
 
             // If exists as a auto hidden group page...
-            if (element is KryptonDockingAutoHiddenGroup)
+            if (element is Krypton.DockingAutoHiddenGroup)
             {
                 // Find the edge the dockspace is against and return the matching auto hidden edge
-                if (element.GetParentType(typeof(KryptonDockingEdgeAutoHidden)) is KryptonDockingEdgeAutoHidden edge)
+                if (element.GetParentType(typeof(Krypton.DockingEdgeAutoHidden)) is Krypton.DockingEdgeAutoHidden edge)
                 {
                     return edge;
                 }
             }
 
             // Second preference is to find an existing store page inside an auto hidden group element
-            if (FindStorePageElement(DockingLocation.AutoHidden, uniqueName) is KryptonDockingAutoHiddenGroup group)
+            if (FindStorePageElement(DockingLocation.AutoHidden, uniqueName) is Krypton.DockingAutoHiddenGroup group)
             {
                 // Find the auto hidden edge that the group is inside
-                if (group.GetParentType(typeof(KryptonDockingEdgeAutoHidden)) is KryptonDockingEdgeAutoHidden edgeAutoHidden)
+                if (group.GetParentType(typeof(Krypton.DockingEdgeAutoHidden)) is Krypton.DockingEdgeAutoHidden edgeAutoHidden)
                 {
                     return edgeAutoHidden;
                 }
             }
 
             // Third preference is to find an existing store page inside a docked element
-            if (FindStorePageElement(DockingLocation.Docked, uniqueName) is KryptonDockingDockspace dockspace)
+            if (FindStorePageElement(DockingLocation.Docked, uniqueName) is Krypton.DockingDockspace dockspace)
             {
                 // Navigate upwards to find the edge that this dockspace is inside
-                if (dockspace.GetParentType(typeof(KryptonDockingEdge)) is KryptonDockingEdge edge)
+                if (dockspace.GetParentType(typeof(Krypton.DockingEdge)) is Krypton.DockingEdge edge)
                 {
                     // Finally we grab the auto hidden edge that is expected to be a sibling of the docked edge
-                    if (edge["AutoHidden"] is KryptonDockingEdgeAutoHidden edgeAutoHidden)
+                    if (edge["AutoHidden"] is Krypton.DockingEdgeAutoHidden edgeAutoHidden)
                     {
                         return edgeAutoHidden;
                     }
@@ -1455,11 +1455,11 @@ namespace ComponentFactory.Krypton.Docking
         /// Find a workspace element by searching the hierarchy.
         /// </summary>
         /// <param name="uniqueName">Named page for which a suitable workspace element is required.</param>
-        /// <returns>KryptonDockingWorkspace reference if found; otherwise false.</returns>
-        public override KryptonDockingWorkspace FindDockingWorkspace(string uniqueName)
+        /// <returns>Krypton.DockingWorkspace reference if found; otherwise false.</returns>
+        public override Krypton.DockingWorkspace FindDockingWorkspace(string uniqueName)
         {
             // First preference is to find an existing store page inside a workspace element
-            if (FindStorePageElement(DockingLocation.Workspace, uniqueName) is KryptonDockingWorkspace workspace)
+            if (FindStorePageElement(DockingLocation.Workspace, uniqueName) is Krypton.DockingWorkspace workspace)
             {
                 return workspace;
             }
@@ -1557,7 +1557,7 @@ namespace ComponentFactory.Krypton.Docking
             if (ContainsPage(uniqueName) && (FindPageLocation(uniqueName) != DockingLocation.AutoHidden))
             {
                 // If we can find an auto hidden edge element appropriate for the named page
-                KryptonDockingEdgeAutoHidden autoHidden = FindDockingEdgeAutoHidden(uniqueName);
+                Krypton.DockingEdgeAutoHidden autoHidden = FindDockingEdgeAutoHidden(uniqueName);
                 if (autoHidden != null)
                 {
                     KryptonPage page = PageForUniqueName(uniqueName);
@@ -1580,7 +1580,7 @@ namespace ComponentFactory.Krypton.Docking
                             PropogateAction(DockingPropogateAction.StorePages, new string[] { uniqueName });
 
                             // Is there a auto hidden group with a restore page for the named page?
-                            if (autoHidden.FindStorePageElement(DockingLocation.AutoHidden, uniqueName) is KryptonDockingAutoHiddenGroup restoreElement)
+                            if (autoHidden.FindStorePageElement(DockingLocation.AutoHidden, uniqueName) is Krypton.DockingAutoHiddenGroup restoreElement)
                             {
                                 // Find the target index of the restore page
                                 KryptonAutoHiddenGroup control = restoreElement.AutoHiddenGroupControl;
@@ -1623,7 +1623,7 @@ namespace ComponentFactory.Krypton.Docking
             if (ContainsPage(uniqueName) && (FindPageLocation(uniqueName) != DockingLocation.Docked))
             {
                 // If we can find a docking edge element appropriate for the named page
-                KryptonDockingEdgeDocked docked = FindDockingEdgeDocked(uniqueName);
+                Krypton.DockingEdgeDocked docked = FindDockingEdgeDocked(uniqueName);
                 if (docked != null)
                 {
                     KryptonPage page = PageForUniqueName(uniqueName);
@@ -1646,10 +1646,10 @@ namespace ComponentFactory.Krypton.Docking
                             PropogateAction(DockingPropogateAction.StorePages, new string[] { uniqueName });
 
                             // Is there a dockspace with a restore page for the named page?
-                            if (docked.FindStorePageElement(DockingLocation.Docked, uniqueName) is KryptonDockingDockspace restoreElement)
+                            if (docked.FindStorePageElement(DockingLocation.Docked, uniqueName) is Krypton.DockingDockspace restoreElement)
                             {
                                 // Find the target cell and the index of the restore page
-                                KryptonWorkspaceCell cell = restoreElement.CellForPage(uniqueName);
+                                Krypton.WorkspaceCell cell = restoreElement.CellForPage(uniqueName);
                                 int pageIndex = cell.Pages.IndexOf(cell.Pages[uniqueName]);
 
                                 // Insert the page at the same index as the restore page
@@ -1661,7 +1661,7 @@ namespace ComponentFactory.Krypton.Docking
                             {
 
                                 // No existing store page so add as a new dockspace
-                                KryptonDockingDockspace dockspaceElement = docked.AppendDockspace();
+                                Krypton.DockingDockspace dockspaceElement = docked.AppendDockspace();
                                 dockspaceElement.Append(new KryptonPage[] { page });
                                 dockspaceElement.SelectPage(page.UniqueName);
                                 dockspaceElement.DockspaceControl.Select();
@@ -1694,7 +1694,7 @@ namespace ComponentFactory.Krypton.Docking
             if (ContainsPage(uniqueName) && (FindPageLocation(uniqueName) != DockingLocation.Floating))
             {
                 // If we can find a floating element appropriate for the named page
-                KryptonDockingFloating floating = FindDockingFloating(uniqueName);
+                Krypton.DockingFloating floating = FindDockingFloating(uniqueName);
                 if (floating != null)
                 {
                     KryptonPage page = PageForUniqueName(uniqueName);
@@ -1717,11 +1717,11 @@ namespace ComponentFactory.Krypton.Docking
                             PropogateAction(DockingPropogateAction.StorePages, new string[] { uniqueName });
 
                             // Is there a floating window with a restore page for the named page?
-                            KryptonDockingFloatingWindow restoreElement = floating.FloatingWindowForStorePage(uniqueName);
+                            Krypton.DockingFloatingWindow restoreElement = floating.FloatingWindowForStorePage(uniqueName);
                             if (restoreElement != null)
                             {
                                 // Find the target cell and the index of the restore page
-                                KryptonWorkspaceCell cell = restoreElement.CellForPage(uniqueName);
+                                Krypton.WorkspaceCell cell = restoreElement.CellForPage(uniqueName);
                                 int pageIndex = cell.Pages.IndexOf(cell.Pages[uniqueName]);
 
                                 // Insert the page at the same index as the restore page
@@ -1732,7 +1732,7 @@ namespace ComponentFactory.Krypton.Docking
                             else
                             {
                                 // No floating window found to restore into, so create a new window
-                                KryptonDockingFloatingWindow floatingElement = floating.AddFloatingWindow();
+                                Krypton.DockingFloatingWindow floatingElement = floating.AddFloatingWindow();
                                 floatingElement.FloatspaceElement.Append(new KryptonPage[] { page });
                                 floatingElement.SelectPage(uniqueName);
                                 floatingElement.FloatingWindow.Show();
@@ -1765,7 +1765,7 @@ namespace ComponentFactory.Krypton.Docking
             if (ContainsPage(uniqueName) && (FindPageLocation(uniqueName) != DockingLocation.Workspace))
             {
                 // If we can find a workspace element appropriate for the named page
-                KryptonDockingWorkspace workspaceElement = FindDockingWorkspace(uniqueName);
+                Krypton.DockingWorkspace workspaceElement = FindDockingWorkspace(uniqueName);
                 if (workspaceElement != null)
                 {
                     KryptonPage page = PageForUniqueName(uniqueName);
@@ -1788,7 +1788,7 @@ namespace ComponentFactory.Krypton.Docking
                             PropogateAction(DockingPropogateAction.StorePages, new string[] { uniqueName });
 
                             // Find the target cell, if there is one, that contains a store page
-                            KryptonWorkspaceCell cell = workspaceElement.CellForPage(uniqueName);
+                            Krypton.WorkspaceCell cell = workspaceElement.CellForPage(uniqueName);
 
                             if (cell != null)
                             {
@@ -1833,7 +1833,7 @@ namespace ComponentFactory.Krypton.Docking
             if (ContainsPage(uniqueName) && (FindPageLocation(uniqueName) != DockingLocation.Navigator))
             {
                 // If we can find a navigator element appropriate for the named page
-                KryptonDockingNavigator navigatorElement = FindDockingNavigator(uniqueName);
+                Krypton.DockingNavigator navigatorElement = FindDockingNavigator(uniqueName);
                 if (navigatorElement != null)
                 {
                     KryptonPage page = PageForUniqueName(uniqueName);
@@ -2010,8 +2010,8 @@ namespace ComponentFactory.Krypton.Docking
         /// Perform a switch from docked cell to auto hidden group for the visible pages inside the cell.
         /// </summary>
         /// <param name="uniqueName">Unique name of page inside docked cell that needs switching.</param>
-        /// <returns>KryptonDockingAutoHiddenGroup reference on success; otherwise null.</returns>
-        public virtual KryptonDockingAutoHiddenGroup SwitchDockedCellToAutoHiddenGroupRequest(string uniqueName)
+        /// <returns>Krypton.DockingAutoHiddenGroup reference on success; otherwise null.</returns>
+        public virtual Krypton.DockingAutoHiddenGroup SwitchDockedCellToAutoHiddenGroupRequest(string uniqueName)
         {
             // Cannot switch a null reference
             if (uniqueName == null)
@@ -2029,14 +2029,14 @@ namespace ComponentFactory.Krypton.Docking
             if (FindPageLocation(uniqueName) == DockingLocation.Docked)
             {
                 // Grab the dockspace element that we expect to contain the target unique name 
-                KryptonDockingDockspace dockspace = (KryptonDockingDockspace)ExpectPageElement(uniqueName, typeof(KryptonDockingDockspace));
+                Krypton.DockingDockspace dockspace = (Krypton.DockingDockspace)ExpectPageElement(uniqueName, typeof(Krypton.DockingDockspace));
                 if (dockspace != null)
                 {
                     // Does the dockspace currently have the focus?
                     bool hadFocus = dockspace.DockspaceControl.ContainsFocus;
 
                     // Find the sibling auto hidden edge so we can add a new auto hidden group to it later on
-                    KryptonDockingEdgeAutoHidden edgeAutoHidden = dockspace.EdgeAutoHiddenElement;
+                    Krypton.DockingEdgeAutoHidden edgeAutoHidden = dockspace.EdgeAutoHiddenElement;
                     if (edgeAutoHidden != null)
                     {
                         // Grab the set of visible pages in the same cell as the target unique name
@@ -2068,7 +2068,7 @@ namespace ComponentFactory.Krypton.Docking
                                     dockspace.PropogateAction(DockingPropogateAction.StorePages, uniqueNames);
 
                                     // Create a new auto hidden group and add the switch pages into it
-                                    KryptonDockingAutoHiddenGroup group = edgeAutoHidden.AppendAutoHiddenGroup();
+                                    Krypton.DockingAutoHiddenGroup group = edgeAutoHidden.AppendAutoHiddenGroup();
                                     group.Append(switchPages.ToArray());
 
                                     // If we had the focus at the start of the process and the dockspace no longer has it...
@@ -2080,7 +2080,7 @@ namespace ComponentFactory.Krypton.Docking
                                         {
                                             // ...then shift focus to the auto hidden group placeholder, to ensure the form still has the 
                                             // focus and so hovering the mouse over the auto hidden tabs will correctly get them to slide out
-                                            if (group.GetParentType(typeof(KryptonDockingEdgeAutoHidden)) is KryptonDockingEdgeAutoHidden edge)
+                                            if (group.GetParentType(typeof(Krypton.DockingEdgeAutoHidden)) is Krypton.DockingEdgeAutoHidden edge)
                                             {
                                                 topForm.Focus();
                                             }
@@ -2102,8 +2102,8 @@ namespace ComponentFactory.Krypton.Docking
         /// Perform a switch from docked pages to floating window for the named pages.
         /// </summary>
         /// <param name="uniqueNames">Unique name of pages inside a docked cell that needs switching.</param>
-        /// <returns>KryptonDockingFloatingWindow reference on success; otherwise null.</returns>
-        public virtual KryptonDockingFloatingWindow SwitchDockedToFloatingWindowRequest(string[] uniqueNames)
+        /// <returns>Krypton.DockingFloatingWindow reference on success; otherwise null.</returns>
+        public virtual Krypton.DockingFloatingWindow SwitchDockedToFloatingWindowRequest(string[] uniqueNames)
         {
             // Cannot action a null reference
             if (uniqueNames == null)
@@ -2152,9 +2152,9 @@ namespace ComponentFactory.Krypton.Docking
                             switchPages.Add(page);
 
                             // Navigate to the cell that holds the page
-                            if (FindPageElement(page) is KryptonDockingDockspace dockspace)
+                            if (FindPageElement(page) is Krypton.DockingDockspace dockspace)
                             {
-                                KryptonWorkspaceCell cell = dockspace.CellForPage(uniqueName);
+                                Krypton.WorkspaceCell cell = dockspace.CellForPage(uniqueName);
                                 if (cell != null)
                                 {
                                     // Remember the page that is active
@@ -2173,7 +2173,7 @@ namespace ComponentFactory.Krypton.Docking
             if (switchUniqueNames.Count > 0)
             {
                 // Find a floating element that is the target for the switching
-                KryptonDockingFloating floating = FindDockingFloating(selectedPage ?? switchUniqueNames[0]);
+                Krypton.DockingFloating floating = FindDockingFloating(selectedPage ?? switchUniqueNames[0]);
                 if (floating != null)
                 {
                     using (DockingMultiUpdate update = new DockingMultiUpdate(this))
@@ -2184,11 +2184,11 @@ namespace ComponentFactory.Krypton.Docking
                         foreach (string switchUniqueName in switchUniqueNames)
                         {
                             // Is there a floating window with a restore page for this unique name?
-                            KryptonDockingFloatingWindow restoreElement = floating.FloatingWindowForStorePage(switchUniqueName);
+                            Krypton.DockingFloatingWindow restoreElement = floating.FloatingWindowForStorePage(switchUniqueName);
                             if (restoreElement != null)
                             {
                                 // Find the target cell and the index of the restore page
-                                KryptonWorkspaceCell cell = restoreElement.CellForPage(switchUniqueName);
+                                Krypton.WorkspaceCell cell = restoreElement.CellForPage(switchUniqueName);
                                 int pageIndex = cell.Pages.IndexOf(cell.Pages[switchUniqueName]);
 
                                 // Insert the set of pages at the same index as the restore page
@@ -2205,7 +2205,7 @@ namespace ComponentFactory.Krypton.Docking
                         }
 
                         // No floating window found to restore into, so create a new window
-                        KryptonDockingFloatingWindow floatingElement = floating.AddFloatingWindow();
+                        Krypton.DockingFloatingWindow floatingElement = floating.AddFloatingWindow();
                         floatingElement.FloatspaceElement.Append(switchPages.ToArray());
 
                         // Make sure the same page is selected as was selected in the docked source
@@ -2227,8 +2227,8 @@ namespace ComponentFactory.Krypton.Docking
         /// Perform a switch from floating to docked for the named pages.
         /// </summary>
         /// <param name="uniqueNames">Unique name of floating pages that need switching.</param>
-        /// <returns>KryptonDockingDockspace reference if a new dockspace needed to be created; otherwise false.</returns>
-        public virtual KryptonDockingDockspace SwitchFloatingToDockedRequest(string[] uniqueNames)
+        /// <returns>Krypton.DockingDockspace reference if a new dockspace needed to be created; otherwise false.</returns>
+        public virtual Krypton.DockingDockspace SwitchFloatingToDockedRequest(string[] uniqueNames)
         {
             // Cannot action a null reference
             if (uniqueNames == null)
@@ -2277,9 +2277,9 @@ namespace ComponentFactory.Krypton.Docking
                             switchPages.Add(page);
 
                             // Navigate to the cell that holds the page
-                            if (FindPageElement(page) is KryptonDockingFloatspace floatspace)
+                            if (FindPageElement(page) is Krypton.DockingFloatspace floatspace)
                             {
-                                KryptonWorkspaceCell cell = floatspace.CellForPage(uniqueName);
+                                Krypton.WorkspaceCell cell = floatspace.CellForPage(uniqueName);
                                 if (cell != null)
                                 {
                                     // Remember the page that is active
@@ -2310,10 +2310,10 @@ namespace ComponentFactory.Krypton.Docking
                     {
                         // Find any dockspace that contains a restore page for this named page
                         string switchUniqueName = switchUniqueNames[i];
-                        if (DockingManager.FindStorePageElement(DockingLocation.Docked, switchUniqueName) is KryptonDockingDockspace restoreElement)
+                        if (DockingManager.FindStorePageElement(DockingLocation.Docked, switchUniqueName) is Krypton.DockingDockspace restoreElement)
                         {
                             // Find the target cell and the index of the restore page
-                            KryptonWorkspaceCell cell = restoreElement.CellForPage(switchUniqueName);
+                            Krypton.WorkspaceCell cell = restoreElement.CellForPage(switchUniqueName);
                             int pageIndex = cell.Pages.IndexOf(cell.Pages[switchUniqueName]);
 
                             // Insert the set of pages at the same index as the restore page
@@ -2343,10 +2343,10 @@ namespace ComponentFactory.Krypton.Docking
                     if (defaultPages.Count > 0)
                     {
                         // Cannot switch to docked unless we can find a docked element as the target
-                        KryptonDockingEdgeDocked edgeDocked = FindDockingEdgeDocked(defaultSelectedPage != null ? defaultSelectedPage.UniqueName : defaultPages[0].UniqueName);
+                        Krypton.DockingEdgeDocked edgeDocked = FindDockingEdgeDocked(defaultSelectedPage != null ? defaultSelectedPage.UniqueName : defaultPages[0].UniqueName);
                         if (edgeDocked != null)
                         {
-                            KryptonDockingDockspace dockspace = edgeDocked.AppendDockspace();
+                            Krypton.DockingDockspace dockspace = edgeDocked.AppendDockspace();
                             dockspace.Append(defaultPages.ToArray());
 
                             // Make sure the same page is selected as was selected in the floating source
@@ -2367,8 +2367,8 @@ namespace ComponentFactory.Krypton.Docking
         /// Perform a switch from floating to new floating window for the named pages.
         /// </summary>
         /// <param name="uniqueNames">Unique name of floating pages that need switching.</param>
-        /// <returns>KryptonDockingFloatingWindow reference on success; otherwise false.</returns>
-        public virtual KryptonDockingFloatingWindow SwitchFloatingToFloatingWindowRequest(string[] uniqueNames)
+        /// <returns>Krypton.DockingFloatingWindow reference on success; otherwise false.</returns>
+        public virtual Krypton.DockingFloatingWindow SwitchFloatingToFloatingWindowRequest(string[] uniqueNames)
         {
             // Cannot action a null reference
             if (uniqueNames == null)
@@ -2412,9 +2412,9 @@ namespace ComponentFactory.Krypton.Docking
                         switchPages.Add(page);
 
                         // Navigate to the cell that holds the page
-                        if (FindPageElement(page) is KryptonDockingFloatspace floatspace)
+                        if (FindPageElement(page) is Krypton.DockingFloatspace floatspace)
                         {
-                            KryptonWorkspaceCell cell = floatspace.CellForPage(uniqueName);
+                            Krypton.WorkspaceCell cell = floatspace.CellForPage(uniqueName);
                             if (cell != null)
                             {
                                 // Remember the page that is active
@@ -2432,19 +2432,19 @@ namespace ComponentFactory.Krypton.Docking
             if (switchUniqueNames.Count > 0)
             {
                 // Find a floating element that is the target for the switching
-                KryptonDockingFloating floating = FindDockingFloating(selectedPage ?? switchUniqueNames[0]);
+                Krypton.DockingFloating floating = FindDockingFloating(selectedPage ?? switchUniqueNames[0]);
                 if (floating != null)
                 {
                     using (DockingMultiUpdate update = new DockingMultiUpdate(this))
                     {
                         // Grab the current element that contains one of the pages being moved
-                        KryptonDockingFloatspace currentElement = FindPageElement(switchPages[0]) as KryptonDockingFloatspace;
+                        Krypton.DockingFloatspace currentElement = FindPageElement(switchPages[0]) as Krypton.DockingFloatspace;
 
                         // Remove the pages from the existing floating window
                         PropogateAction(DockingPropogateAction.RemovePages, switchUniqueNames.ToArray());
 
                         // Create a new floating window and add the specified set of pages
-                        KryptonDockingFloatingWindow floatingElement = floating.AddFloatingWindow();
+                        Krypton.DockingFloatingWindow floatingElement = floating.AddFloatingWindow();
                         floatingElement.FloatspaceElement.Append(switchPages.ToArray());
 
                         // Make sure any seleted page is selected in the new floating window
@@ -2469,8 +2469,8 @@ namespace ComponentFactory.Krypton.Docking
         /// Perform a switch from auto hidden group to docked cell for the visible pages inside the group.
         /// </summary>
         /// <param name="uniqueName">Unique name of page inside auto hidden group that needs switching.</param>
-        /// <returns>KryptonDockingDockspace reference if a new dockspace needed to be created; otherwise false.</returns>
-        public virtual KryptonDockingDockspace SwitchAutoHiddenGroupToDockedCellRequest(string uniqueName)
+        /// <returns>Krypton.DockingDockspace reference if a new dockspace needed to be created; otherwise false.</returns>
+        public virtual Krypton.DockingDockspace SwitchAutoHiddenGroupToDockedCellRequest(string uniqueName)
         {
             // Cannot switch a null reference
             if (uniqueName == null)
@@ -2488,9 +2488,9 @@ namespace ComponentFactory.Krypton.Docking
             if (FindPageLocation(uniqueName) == DockingLocation.AutoHidden)
             {
                 // Grab the auto hidden group docking element that we expect to contain the target unique name 
-                KryptonDockingAutoHiddenGroup autoHiddenGroup = (KryptonDockingAutoHiddenGroup)ExpectPageElement(uniqueName, typeof(KryptonDockingAutoHiddenGroup));
+                Krypton.DockingAutoHiddenGroup autoHiddenGroup = (Krypton.DockingAutoHiddenGroup)ExpectPageElement(uniqueName, typeof(Krypton.DockingAutoHiddenGroup));
                 // Find the sibling docked edge so we can add/restore pages
-                KryptonDockingEdgeDocked edgeDocked = autoHiddenGroup?.EdgeDockedElement;
+                Krypton.DockingEdgeDocked edgeDocked = autoHiddenGroup?.EdgeDockedElement;
                 if (edgeDocked != null)
                 {
                     // Grab the set of visible pages in the auto hidden group
@@ -2537,7 +2537,7 @@ namespace ComponentFactory.Krypton.Docking
                                         if (uniqueName == uniqueNames[i])
                                         {
                                             // If this restored page was the selected page in the auto hidden group, make it selected in the dockspace
-                                            if (edgeDocked.FindPageElement(uniqueNames[i]) is KryptonDockingDockspace restoreElement)
+                                            if (edgeDocked.FindPageElement(uniqueNames[i]) is Krypton.DockingDockspace restoreElement)
                                             {
                                                 restoreElement.SelectPage(uniqueNames[i]);
                                                 restoreElement.DockspaceControl.UpdateVisible(true);
@@ -2563,7 +2563,7 @@ namespace ComponentFactory.Krypton.Docking
                                 if (defaultPages.Count > 0)
                                 {
                                     // Place them all inside a new dockspace
-                                    KryptonDockingDockspace newDockspace = edgeDocked.AppendDockspace();
+                                    Krypton.DockingDockspace newDockspace = edgeDocked.AppendDockspace();
                                     newDockspace.Append(defaultPages.ToArray());
 
                                     // Make sure the same page is selected as was selected in the auto hidden group
@@ -2587,12 +2587,12 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Add set of pages docked against a specified edge of the specified control.
         /// </summary>
-        /// <param name="path">Path for finding the target KryptonDockingControl.</param>
-        /// <param name="edge">Target edge within the KryptonDockingControl.</param>
+        /// <param name="path">Path for finding the target Krypton.DockingControl.</param>
+        /// <param name="edge">Target edge within the Krypton.DockingControl.</param>
         /// <param name="pages">Array of pages to be added as docked.</param>
         /// <param name="stackPages">Extra arrays of pages to be added in a stacked manner.</param>
-        /// <returns>KryptonDockingDockspace reference.</returns>
-        public virtual KryptonDockingDockspace AddDockspace(string path, 
+        /// <returns>Krypton.DockingDockspace reference.</returns>
+        public virtual Krypton.DockingDockspace AddDockspace(string path, 
                                                             DockingEdge edge, 
                                                             KryptonPage[] pages, 
                                                             params KryptonPage[][] stackPages)
@@ -2619,24 +2619,24 @@ namespace ComponentFactory.Krypton.Docking
             }
 
             // Resolve the given path to the expected docking control element
-            if (!(ResolvePath(path) is KryptonDockingControl control))
+            if (!(ResolvePath(path) is Krypton.DockingControl control))
             {
-                throw new ArgumentException("Path does not resolve to a KryptonDockingControl");
+                throw new ArgumentException("Path does not resolve to a Krypton.DockingControl");
             }
 
             // Find the requested target edge
-            if (!(control[edge.ToString()] is KryptonDockingEdge edgeElement))
+            if (!(control[edge.ToString()] is Krypton.DockingEdge edgeElement))
             {
-                throw new ArgumentException("KryptonDockingControl does not have the requested edge.");
+                throw new ArgumentException("Krypton.DockingControl does not have the requested edge.");
             }
 
             // Find the docked edge
-            if (!(edgeElement["Docked"] is KryptonDockingEdgeDocked edgeDocked))
+            if (!(edgeElement["Docked"] is Krypton.DockingEdgeDocked edgeDocked))
             {
-                throw new ArgumentException("KryptonDockingControl edge does not have a docked element.");
+                throw new ArgumentException("Krypton.DockingControl edge does not have a docked element.");
             }
 
-            KryptonDockingDockspace dockspace;
+            Krypton.DockingDockspace dockspace;
             using (DockingMultiUpdate update = new DockingMultiUpdate(this))
             {
                 // Create a new dockspace and add the provided array of pages
@@ -2652,7 +2652,7 @@ namespace ComponentFactory.Krypton.Docking
                         if ((pageArray != null) && (pageArray.Length > 0))
                         {
                             // We need a new cell with all the pages from the array
-                            KryptonWorkspaceCell cell = new KryptonWorkspaceCell();
+                            Krypton.WorkspaceCell cell = new Krypton.WorkspaceCell();
                             cell.Pages.AddRange(pageArray);
 
                             // Add into the root collection so the cells appear in a stack
@@ -2681,12 +2681,12 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Add set of pages as a new auto hidden group to the specified edge of the specified control.
         /// </summary>
-        /// <param name="path">Path for finding the target KryptonDockingControl.</param>
-        /// <param name="edge">Target edge within the KryptonDockingControl.</param>
+        /// <param name="path">Path for finding the target Krypton.DockingControl.</param>
+        /// <param name="edge">Target edge within the Krypton.DockingControl.</param>
         /// <param name="pages">Array of pages to be added as an auto hidden group.</param>
         /// <param name="extraPages">Extra arrays of pages to be added as extra groups.</param>
-        /// <returns>KryptonDockingAutoHiddenGroup reference.</returns>
-        public virtual KryptonDockingAutoHiddenGroup AddAutoHiddenGroup(string path, 
+        /// <returns>Krypton.DockingAutoHiddenGroup reference.</returns>
+        public virtual Krypton.DockingAutoHiddenGroup AddAutoHiddenGroup(string path, 
                                                                         DockingEdge edge, 
                                                                         KryptonPage[] pages, 
                                                                         params KryptonPage[][] extraPages)
@@ -2713,24 +2713,24 @@ namespace ComponentFactory.Krypton.Docking
             }
 
             // Resolve the given path to the expected docking control element
-            if (!(ResolvePath(path) is KryptonDockingControl control))
+            if (!(ResolvePath(path) is Krypton.DockingControl control))
             {
-                throw new ArgumentException("Path does not resolve to a KryptonDockingControl");
+                throw new ArgumentException("Path does not resolve to a Krypton.DockingControl");
             }
 
             // Find the requested target edge
-            if (!(control[edge.ToString()] is KryptonDockingEdge edgeElement))
+            if (!(control[edge.ToString()] is Krypton.DockingEdge edgeElement))
             {
-                throw new ArgumentException("KryptonDockingControl does not have the requested edge.");
+                throw new ArgumentException("Krypton.DockingControl does not have the requested edge.");
             }
 
             // Find the auto hidden edge
-            if (!(edgeElement["AutoHidden"] is KryptonDockingEdgeAutoHidden edgeAutoHidden))
+            if (!(edgeElement["AutoHidden"] is Krypton.DockingEdgeAutoHidden edgeAutoHidden))
             {
-                throw new ArgumentException("KryptonDockingControl edge does not have an auto hidden element.");
+                throw new ArgumentException("Krypton.DockingControl edge does not have an auto hidden element.");
             }
 
-            KryptonDockingAutoHiddenGroup autoHiddenGroup;
+            Krypton.DockingAutoHiddenGroup autoHiddenGroup;
             using (DockingMultiUpdate update = new DockingMultiUpdate(this))
             {
                 // Create a new auto hidden group and add the provided array of pages
@@ -2746,7 +2746,7 @@ namespace ComponentFactory.Krypton.Docking
                         if ((pageArray != null) && (pageArray.Length > 0))
                         {
                             // Create a new auto hidden group and add the provided array of pages
-                            KryptonDockingAutoHiddenGroup extraAutoHiddenGroup = edgeAutoHidden.AppendAutoHiddenGroup();
+                            Krypton.DockingAutoHiddenGroup extraAutoHiddenGroup = edgeAutoHidden.AppendAutoHiddenGroup();
                             extraAutoHiddenGroup.Append(pageArray);
                         }
                     }
@@ -2759,10 +2759,10 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Add set of pages as a new floating window.
         /// </summary>
-        /// <param name="path">Path for finding the target KryptonDockingFloating.</param>
+        /// <param name="path">Path for finding the target Krypton.DockingFloating.</param>
         /// <param name="pages">Array of pages to be added as an auto hidden group.</param>
-        /// <returns>KryptonDockingFloatingWindow reference.</returns>
-        public virtual KryptonDockingFloatingWindow AddFloatingWindow(string path, KryptonPage[] pages)
+        /// <returns>Krypton.DockingFloatingWindow reference.</returns>
+        public virtual Krypton.DockingFloatingWindow AddFloatingWindow(string path, KryptonPage[] pages)
         {
             return AddFloatingWindow(path, pages, Point.Empty, Size.Empty);
         }
@@ -2770,11 +2770,11 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Add set of pages as a new floating window.
         /// </summary>
-        /// <param name="path">Path for finding the target KryptonDockingFloating.</param>
+        /// <param name="path">Path for finding the target Krypton.DockingFloating.</param>
         /// <param name="pages">Array of pages to be added as an auto hidden group.</param>
         /// <param name="clientSize">Initial client size of the floating window.</param>
-        /// <returns>KryptonDockingFloatingWindow reference.</returns>
-        public virtual KryptonDockingFloatingWindow AddFloatingWindow(string path,
+        /// <returns>Krypton.DockingFloatingWindow reference.</returns>
+        public virtual Krypton.DockingFloatingWindow AddFloatingWindow(string path,
                                                                       KryptonPage[] pages,
                                                                       Size clientSize)
         {
@@ -2784,11 +2784,11 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Add set of pages as a new floating window.
         /// </summary>
-        /// <param name="path">Path for finding the target KryptonDockingFloating.</param>
+        /// <param name="path">Path for finding the target Krypton.DockingFloating.</param>
         /// <param name="pages">Array of pages to be added as an auto hidden group.</param>
         /// <param name="location">Initial screen location of the floating window.</param>
-        /// <returns>KryptonDockingFloatingWindow reference.</returns>
-        public virtual KryptonDockingFloatingWindow AddFloatingWindow(string path,
+        /// <returns>Krypton.DockingFloatingWindow reference.</returns>
+        public virtual Krypton.DockingFloatingWindow AddFloatingWindow(string path,
                                                                       KryptonPage[] pages,
                                                                       Point location)
         {
@@ -2798,12 +2798,12 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Add set of pages as a new floating window.
         /// </summary>
-        /// <param name="path">Path for finding the target KryptonDockingFloating.</param>
+        /// <param name="path">Path for finding the target Krypton.DockingFloating.</param>
         /// <param name="pages">Array of pages to be added as an auto hidden group.</param>
         /// <param name="location">Initial screen location of the floating window.</param>
         /// <param name="clientSize">Initial client size of the floating window.</param>
-        /// <returns>KryptonDockingFloatingWindow reference.</returns>
-        public virtual KryptonDockingFloatingWindow AddFloatingWindow(string path, 
+        /// <returns>Krypton.DockingFloatingWindow reference.</returns>
+        public virtual Krypton.DockingFloatingWindow AddFloatingWindow(string path, 
                                                                       KryptonPage[] pages,
                                                                       Point location,
                                                                       Size clientSize)
@@ -2830,13 +2830,13 @@ namespace ComponentFactory.Krypton.Docking
             }
 
             // Resolve the given path to the expected docking floating element
-            if (!(ResolvePath(path) is KryptonDockingFloating floating))
+            if (!(ResolvePath(path) is Krypton.DockingFloating floating))
             {
-                throw new ArgumentException("Path does not resolve to a KryptonDockingFloating");
+                throw new ArgumentException("Path does not resolve to a Krypton.DockingFloating");
             }
 
             // Create a new floating window and add the provided array of pages
-            KryptonDockingFloatingWindow floatingWindow = floating.AddFloatingWindow();
+            Krypton.DockingFloatingWindow floatingWindow = floating.AddFloatingWindow();
             floatingWindow.FloatspaceElement.Append(pages);
 
             // Do we have a location to apply?
@@ -2863,10 +2863,10 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Add set of pages to a docking workspace.
         /// </summary>
-        /// <param name="path">Path for finding the target KryptonDockingWorkspace.</param>
+        /// <param name="path">Path for finding the target Krypton.DockingWorkspace.</param>
         /// <param name="pages">Array of pages to be added.</param>
-        /// <returns>KryptonDockingWorkspace reference.</returns>
-        public virtual KryptonDockingWorkspace AddToWorkspace(string path, KryptonPage[] pages)
+        /// <returns>Krypton.DockingWorkspace reference.</returns>
+        public virtual Krypton.DockingWorkspace AddToWorkspace(string path, KryptonPage[] pages)
         {
             // Cannot add a null array
             if (pages == null)
@@ -2890,9 +2890,9 @@ namespace ComponentFactory.Krypton.Docking
             }
 
             // Resolve the given path to the expected docking workspace element
-            if (!(ResolvePath(path) is KryptonDockingWorkspace workspace))
+            if (!(ResolvePath(path) is Krypton.DockingWorkspace workspace))
             {
-                throw new ArgumentException("Path does not resolve to a KryptonDockingWorkspace");
+                throw new ArgumentException("Path does not resolve to a Krypton.DockingWorkspace");
             }
 
             // Append pages to the workspace
@@ -2903,10 +2903,10 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Add set of pages to a docking navigator.
         /// </summary>
-        /// <param name="path">Path for finding the target KryptonDockingNavigator.</param>
+        /// <param name="path">Path for finding the target Krypton.DockingNavigator.</param>
         /// <param name="pages">Array of pages to be added.</param>
-        /// <returns>KryptonDockingNavigator reference.</returns>
-        public virtual KryptonDockingNavigator AddToNavigator(string path, KryptonPage[] pages)
+        /// <returns>Krypton.DockingNavigator reference.</returns>
+        public virtual Krypton.DockingNavigator AddToNavigator(string path, KryptonPage[] pages)
         {
             // Cannot add a null array
             if (pages == null)
@@ -2930,9 +2930,9 @@ namespace ComponentFactory.Krypton.Docking
             }
 
             // Resolve the given path to the expected docking navigator element
-            if (!(ResolvePath(path) is KryptonDockingNavigator navigator))
+            if (!(ResolvePath(path) is Krypton.DockingNavigator navigator))
             {
-                throw new ArgumentException("Path does not resolve to a KryptonDockingNavigator");
+                throw new ArgumentException("Path does not resolve to a Krypton.DockingNavigator");
             }
 
             // Append pages to the navigator
@@ -2943,13 +2943,13 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Add set of pages docked against a specified edge of the specified control.
         /// </summary>
-        /// <param name="path">Path for finding the target KryptonDockingControl.</param>
-        /// <param name="edge">Target edge within the KryptonDockingControl.</param>
+        /// <param name="path">Path for finding the target Krypton.DockingControl.</param>
+        /// <param name="edge">Target edge within the Krypton.DockingControl.</param>
         /// <param name="index">Insert index.</param>
         /// <param name="pages">Array of pages to be added as docked.</param>
         /// <param name="stackPages">Extra arrays of pages to be added in a stacked manner.</param>
-        /// <returns>KryptonDockingDockspace reference.</returns>
-        public virtual KryptonDockingDockspace InsertDockspace(string path,
+        /// <returns>Krypton.DockingDockspace reference.</returns>
+        public virtual Krypton.DockingDockspace InsertDockspace(string path,
                                                                DockingEdge edge,
                                                                int index,
                                                                KryptonPage[] pages,
@@ -2977,24 +2977,24 @@ namespace ComponentFactory.Krypton.Docking
             }
 
             // Resolve the given path to the expected docking control element
-            if (!(ResolvePath(path) is KryptonDockingControl control))
+            if (!(ResolvePath(path) is Krypton.DockingControl control))
             {
-                throw new ArgumentException("Path does not resolve to a KryptonDockingControl");
+                throw new ArgumentException("Path does not resolve to a Krypton.DockingControl");
             }
 
             // Find the requested target edge
-            if (!(control[edge.ToString()] is KryptonDockingEdge edgeElement))
+            if (!(control[edge.ToString()] is Krypton.DockingEdge edgeElement))
             {
-                throw new ArgumentException("KryptonDockingControl does not have the requested edge.");
+                throw new ArgumentException("Krypton.DockingControl does not have the requested edge.");
             }
 
             // Find the docked edge
-            if (!(edgeElement["Docked"] is KryptonDockingEdgeDocked edgeDocked))
+            if (!(edgeElement["Docked"] is Krypton.DockingEdgeDocked edgeDocked))
             {
-                throw new ArgumentException("KryptonDockingControl edge does not have a docked element.");
+                throw new ArgumentException("Krypton.DockingControl edge does not have a docked element.");
             }
 
-            KryptonDockingDockspace dockspace;
+            Krypton.DockingDockspace dockspace;
             using (DockingMultiUpdate update = new DockingMultiUpdate(this))
             {
                 // Create a new dockspace and insert the provided array of pages
@@ -3010,7 +3010,7 @@ namespace ComponentFactory.Krypton.Docking
                         if ((pageArray != null) && (pageArray.Length > 0))
                         {
                             // We need a new cell with all the pages from the array
-                            KryptonWorkspaceCell cell = new KryptonWorkspaceCell();
+                            Krypton.WorkspaceCell cell = new Krypton.WorkspaceCell();
                             cell.Pages.AddRange(pageArray);
 
                             // Add into the root collection so the cells appear in a stack
@@ -3039,13 +3039,13 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Add set of pages as a new auto hidden group to the specified edge of the specified control.
         /// </summary>
-        /// <param name="path">Path for finding the target KryptonDockingControl.</param>
-        /// <param name="edge">Target edge within the KryptonDockingControl.</param>
+        /// <param name="path">Path for finding the target Krypton.DockingControl.</param>
+        /// <param name="edge">Target edge within the Krypton.DockingControl.</param>
         /// <param name="index">Insert index.</param>
         /// <param name="pages">Array of pages to be added as an auto hidden group.</param>
         /// <param name="extraPages">Extra arrays of pages to be added as extra groups.</param>
-        /// <returns>KryptonDockingAutoHiddenGroup reference.</returns>
-        public virtual KryptonDockingAutoHiddenGroup InsertAutoHiddenGroup(string path,
+        /// <returns>Krypton.DockingAutoHiddenGroup reference.</returns>
+        public virtual Krypton.DockingAutoHiddenGroup InsertAutoHiddenGroup(string path,
                                                                            DockingEdge edge,
                                                                            int index,
                                                                            KryptonPage[] pages,
@@ -3073,24 +3073,24 @@ namespace ComponentFactory.Krypton.Docking
             }
 
             // Resolve the given path to the expected docking control element
-            if (!(ResolvePath(path) is KryptonDockingControl control))
+            if (!(ResolvePath(path) is Krypton.DockingControl control))
             {
-                throw new ArgumentException("Path does not resolve to a KryptonDockingControl");
+                throw new ArgumentException("Path does not resolve to a Krypton.DockingControl");
             }
 
             // Find the requested target edge
-            if (!(control[edge.ToString()] is KryptonDockingEdge edgeElement))
+            if (!(control[edge.ToString()] is Krypton.DockingEdge edgeElement))
             {
-                throw new ArgumentException("KryptonDockingControl does not have the requested edge.");
+                throw new ArgumentException("Krypton.DockingControl does not have the requested edge.");
             }
 
             // Find the auto hidden edge
-            if (!(edgeElement["AutoHidden"] is KryptonDockingEdgeAutoHidden edgeAutoHidden))
+            if (!(edgeElement["AutoHidden"] is Krypton.DockingEdgeAutoHidden edgeAutoHidden))
             {
-                throw new ArgumentException("KryptonDockingControl edge does not have an auto hidden element.");
+                throw new ArgumentException("Krypton.DockingControl edge does not have an auto hidden element.");
             }
 
-            KryptonDockingAutoHiddenGroup autoHiddenGroup;
+            Krypton.DockingAutoHiddenGroup autoHiddenGroup;
             using (DockingMultiUpdate update = new DockingMultiUpdate(this))
             {
                 // Create a new auto hidden group and add the provided array of pages
@@ -3106,7 +3106,7 @@ namespace ComponentFactory.Krypton.Docking
                         if ((pageArray != null) && (pageArray.Length > 0))
                         {
                             // Create a new auto hidden group and add the provided array of pages
-                            KryptonDockingAutoHiddenGroup extraAutoHiddenGroup = edgeAutoHidden.AppendAutoHiddenGroup();
+                            Krypton.DockingAutoHiddenGroup extraAutoHiddenGroup = edgeAutoHidden.AppendAutoHiddenGroup();
                             extraAutoHiddenGroup.Append(pageArray);
                         }
                     }
@@ -3176,9 +3176,9 @@ namespace ComponentFactory.Krypton.Docking
             if (atLeastOneFloating)
             {
                 // Can we find an existing floating store page...
-                if (FindStorePageElement(DockingLocation.Floating, firstFloatingPage) is KryptonDockingFloatspace floatspace)
+                if (FindStorePageElement(DockingLocation.Floating, firstFloatingPage) is Krypton.DockingFloatspace floatspace)
                 {
-                    if (floatspace.GetParentType(typeof(KryptonDockingFloatingWindow)) is KryptonDockingFloatingWindow floatingWindow)
+                    if (floatspace.GetParentType(typeof(Krypton.DockingFloatingWindow)) is Krypton.DockingFloatingWindow floatingWindow)
                     {
                         // If the floating window is not currently visible...
                         if (!floatingWindow.FloatingWindow.Visible)
@@ -3214,7 +3214,7 @@ namespace ComponentFactory.Krypton.Docking
 
                                 // Convert the append pages to store pages and then append to the same cell as the just restore page above
                                 PropogateAction(DockingPropogateAction.StorePages, appendUniqueNames.ToArray());
-                                KryptonWorkspaceCell cell = floatingWindow.CellForPage(firstFloatingPage.UniqueName);
+                                Krypton.WorkspaceCell cell = floatingWindow.CellForPage(firstFloatingPage.UniqueName);
                                 cell.Pages.AddRange(appendPages.ToArray());
                             }
                         }
@@ -3225,8 +3225,8 @@ namespace ComponentFactory.Krypton.Docking
                 if (dragManager.FloatingWindow == null)
                 {
                     // Get access to a floating element that allows a new floating window to be created
-                    KryptonDockingFloating floating = FindDockingFloating(firstFloatingPage.UniqueName);
-                    KryptonDockingFloatingWindow floatingWindow = floating?.AddFloatingWindow();
+                    Krypton.DockingFloating floating = FindDockingFloating(firstFloatingPage.UniqueName);
+                    Krypton.DockingFloatingWindow floatingWindow = floating?.AddFloatingWindow();
                     if (floatingWindow != null)
                     {
                         using (DockingMultiUpdate update = new DockingMultiUpdate(this))
@@ -3274,7 +3274,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="elementOffset">Offset from top left of element causing the drag.</param>
         /// <param name="c">Control that started the drag operation.</param>
         /// <param name="window">Reference to floating window element that should be dragged.</param>
-        public virtual void DoDragDrop(Point screenPoint, Point elementOffset, Control c, KryptonDockingFloatingWindow window)
+        public virtual void DoDragDrop(Point screenPoint, Point elementOffset, Control c, Krypton.DockingFloatingWindow window)
         {
             // Cannot drag a null reference
             if (window == null)
@@ -3284,7 +3284,7 @@ namespace ComponentFactory.Krypton.Docking
 
             // Create a list of all the visible pages inside the floating window
             KryptonPageCollection pages = new KryptonPageCollection();
-            KryptonWorkspaceCell cell = window.FloatspaceElement.FloatspaceControl.FirstVisibleCell();
+            Krypton.WorkspaceCell cell = window.FloatspaceElement.FloatspaceControl.FirstVisibleCell();
             while (cell != null)
             {
                 foreach (KryptonPage page in cell.Pages)
@@ -3522,7 +3522,7 @@ namespace ComponentFactory.Krypton.Docking
                 // We can only load 1 upward version formats
                 if (formatVersion < 1)
                 {
-                    throw new ArgumentException("Can only load Version 1 and upwards of KryptonDockingManager persisted data.");
+                    throw new ArgumentException("Can only load Version 1 and upwards of Krypton.DockingManager persisted data.");
                 }
 
                 using (DockingMultiUpdate update = new DockingMultiUpdate(this))
@@ -3717,11 +3717,11 @@ namespace ComponentFactory.Krypton.Docking
         /// Gets an array of all the cells inside the docking hierarchy.
         /// </summary>
         [Browsable(false)]
-        public virtual KryptonWorkspaceCell[] Cells
+        public virtual Krypton.WorkspaceCell[] Cells
         {
             get
             {
-                KryptonWorkspaceCellList cells = new KryptonWorkspaceCellList();
+                Krypton.WorkspaceCellList cells = new Krypton.WorkspaceCellList();
                 PropogateCellList(DockingPropogateCellList.All, cells);
                 return cells.ToArray();
             }
@@ -3731,11 +3731,11 @@ namespace ComponentFactory.Krypton.Docking
         /// Gets an array of all the cells docked inside the docking hierarchy.
         /// </summary>
         [Browsable(false)]
-        public virtual KryptonWorkspaceCell[] CellsDocked
+        public virtual Krypton.WorkspaceCell[] CellsDocked
         {
             get
             {
-                KryptonWorkspaceCellList cells = new KryptonWorkspaceCellList();
+                Krypton.WorkspaceCellList cells = new Krypton.WorkspaceCellList();
                 PropogateCellList(DockingPropogateCellList.Docked, cells);
                 return cells.ToArray();
             }
@@ -3745,11 +3745,11 @@ namespace ComponentFactory.Krypton.Docking
         /// Gets an array of all the cells floating inside the docking hierarchy.
         /// </summary>
         [Browsable(false)]
-        public virtual KryptonWorkspaceCell[] CellsFloating
+        public virtual Krypton.WorkspaceCell[] CellsFloating
         {
             get
             {
-                KryptonWorkspaceCellList cells = new KryptonWorkspaceCellList();
+                Krypton.WorkspaceCellList cells = new Krypton.WorkspaceCellList();
                 PropogateCellList(DockingPropogateCellList.Floating, cells);
                 return cells.ToArray();
             }
@@ -3759,11 +3759,11 @@ namespace ComponentFactory.Krypton.Docking
         /// Gets an array of all the cells inside a dockable workspace inside the docking hierarchy.
         /// </summary>
         [Browsable(false)]
-        public virtual KryptonWorkspaceCell[] CellsWorkspace
+        public virtual Krypton.WorkspaceCell[] CellsWorkspace
         {
             get
             {
-                KryptonWorkspaceCellList cells = new KryptonWorkspaceCellList();
+                Krypton.WorkspaceCellList cells = new Krypton.WorkspaceCellList();
                 PropogateCellList(DockingPropogateCellList.Workspace, cells);
                 return cells.ToArray();
             }
@@ -3773,24 +3773,24 @@ namespace ComponentFactory.Krypton.Docking
         /// Return the cell the page belongs to, when available (JDH Software add)
         /// </summary>
         /// <param name="uniqueName">The uniqueName of the page.</param>
-        /// <returns>The KryptonWorkspaceCell.</returns>
-        public KryptonWorkspaceCell DockingCellForPage(string uniqueName)
+        /// <returns>The Krypton.WorkspaceCell.</returns>
+        public Krypton.WorkspaceCell DockingCellForPage(string uniqueName)
         {
             //Action depends on current location of the page
             switch (this.FindPageLocation(uniqueName))
             {
                 case DockingLocation.Docked:
                     // Unique name page must be inside a Dockspace instance
-                    KryptonDockingDockspace dockspace = this.FindPageElement(uniqueName) as KryptonDockingDockspace;
+                    Krypton.DockingDockspace dockspace = this.FindPageElement(uniqueName) as Krypton.DockingDockspace;
                     // Find the cell containing the unique name page
                     return dockspace.CellForPage(uniqueName);
                 case DockingLocation.Floating:
                     // Unique name page must be inside a Dockspace instance
-                    KryptonDockingFloatspace floatspace = this.FindPageElement(uniqueName) as KryptonDockingFloatspace;
+                    Krypton.DockingFloatspace floatspace = this.FindPageElement(uniqueName) as Krypton.DockingFloatspace;
                     // Find the cell containing the unique name page
                     return floatspace.CellForPage(uniqueName);
                 case DockingLocation.Workspace:
-                    KryptonDockingWorkspace workspace = this.FindPageElement(uniqueName) as KryptonDockingWorkspace;
+                    Krypton.DockingWorkspace workspace = this.FindPageElement(uniqueName) as Krypton.DockingWorkspace;
                     // Find the cell containing the unique name page
                     return workspace.CellForPage(uniqueName);
                 case DockingLocation.AutoHidden:
@@ -4382,9 +4382,9 @@ namespace ComponentFactory.Krypton.Docking
         private void RemoveControlStorePages(DockingElement element, string[] uniqueNames, bool autoHidden, bool docked)
         {
             // Find the control element from the provided starting point
-            if (!(element is KryptonDockingControl control))
+            if (!(element is Krypton.DockingControl control))
             {
-                control = element.GetParentType(typeof(KryptonDockingControl)) as KryptonDockingControl;
+                control = element.GetParentType(typeof(Krypton.DockingControl)) as Krypton.DockingControl;
             }
 
             // If we managed to find a docking control element to work with
@@ -4394,12 +4394,12 @@ namespace ComponentFactory.Krypton.Docking
                 foreach (IDockingElement child in control)
                 {
                     // We are only interested in the edge elements
-                    if (child is KryptonDockingEdge edge)
+                    if (child is Krypton.DockingEdge edge)
                     {
                         // Do we need to clear auto hidden elements?
                         if (autoHidden)
                         {
-                            if (edge["AutoHidden"] is KryptonDockingEdgeAutoHidden autoHiddenEdge)
+                            if (edge["AutoHidden"] is Krypton.DockingEdgeAutoHidden autoHiddenEdge)
                             {
                                 autoHiddenEdge.PropogateAction(DockingPropogateAction.ClearStoredPages, uniqueNames);
                             }
@@ -4408,7 +4408,7 @@ namespace ComponentFactory.Krypton.Docking
                         // Do we need to clear docked elements?
                         if (docked)
                         {
-                            if (edge["Docked"] is KryptonDockingEdgeDocked dockedEdge)
+                            if (edge["Docked"] is Krypton.DockingEdgeDocked dockedEdge)
                             {
                                 dockedEdge.PropogateAction(DockingPropogateAction.ClearStoredPages, uniqueNames);
                             }

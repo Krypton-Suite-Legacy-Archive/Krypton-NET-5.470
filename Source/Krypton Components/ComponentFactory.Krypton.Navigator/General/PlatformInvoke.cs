@@ -12,7 +12,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
     internal class PI
     {

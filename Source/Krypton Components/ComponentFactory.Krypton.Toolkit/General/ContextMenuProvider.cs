@@ -14,7 +14,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Implementation class used to provide context menu details to view elements.

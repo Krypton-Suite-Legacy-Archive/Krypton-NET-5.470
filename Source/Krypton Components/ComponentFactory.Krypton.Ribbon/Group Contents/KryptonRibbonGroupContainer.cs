@@ -11,7 +11,7 @@
 
 using System.ComponentModel;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Represents the base class for all ribbon group containers.
@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Ribbon
     [ToolboxItem(false)]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
-    public abstract class KryptonRibbonGroupContainer : KryptonRibbonGroupItem,
+    public abstract class Krypton.RibbonGroupContainer : Krypton.RibbonGroupItem,
                                                         IRibbonGroupContainer
     {
         #region Instance Fields
@@ -28,9 +28,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialise a new instance of the KryptonRibbonGroupContainer class.
+        /// Initialise a new instance of the Krypton.RibbonGroupContainer class.
         /// </summary>
-        public KryptonRibbonGroupContainer()
+        public Krypton.RibbonGroupContainer()
         {
         }
         #endregion
@@ -42,7 +42,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public virtual KryptonRibbonGroup RibbonGroup { get; set; }
+        public virtual Krypton.RibbonGroup RibbonGroup { get; set; }
 
         /// <summary>
         /// Gets an array of all the contained components.

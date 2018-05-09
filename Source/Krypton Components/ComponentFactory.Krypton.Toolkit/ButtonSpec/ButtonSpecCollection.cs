@@ -15,7 +15,7 @@ using System.ComponentModel;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Manage a collection of ButtonSpec instances.

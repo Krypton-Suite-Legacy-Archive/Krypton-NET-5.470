@@ -17,10 +17,10 @@ using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     internal class KryptonSplitterPanelDesigner : KryptonPanelDesigner,
-                                                  IKryptonDesignerSelect
+                                                  IKrypton.DesignerSelect
 	{
 		#region Instance Fields
 		private KryptonSplitterPanel _panel;

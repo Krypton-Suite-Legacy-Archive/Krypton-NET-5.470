@@ -5,13 +5,13 @@
 //  proprietary information of Component Factory Pty Ltd, PO Box 1504, 
 //  Glen Waverley, Vic 3150, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.5.0.0 	www.ComponentFactory.com
+//  Version 4.70.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
 namespace ThreePaneApplication
 {
@@ -46,11 +46,15 @@ namespace ThreePaneApplication
 
             // Set correct initial checked button
             if (KryptonManager.CurrentGlobalPalette == KryptonManager.PaletteOffice2007Black)
+            {
                 toolStripOffice2007Black_Click(this, EventArgs.Empty);
+            }
 
             // Expand all the nodes to show entire tree structure
-            foreach(TreeNode n in treeView.Nodes)
+            foreach (TreeNode n in treeView.Nodes)
+            {
                 n.ExpandAll();
+            }
 
             // Hook into the up and down buttons on the details heading
             kryptonHeaderGroupDetails.ButtonSpecs[0].Click += new EventHandler(OnPrevious);
@@ -341,7 +345,9 @@ namespace ThreePaneApplication
                 kryptonReadingLabel.Values.Text = details;
             }
             else
+            {
                 kryptonReadingLabel.Values.Text = string.Empty;
+            }
         }
 
         private void loadPaletteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -392,7 +398,9 @@ namespace ThreePaneApplication
 
                 // If past end of list then go back to the start
                 if (index >= kryptonDataGridView.Rows.Count)
+                {
                     index = 0;
+                }
 
                 // Select the row
                 kryptonDataGridView.Rows[index].Selected = true;
@@ -420,7 +428,9 @@ namespace ThreePaneApplication
 
                 // If past start of list then go back to the end
                 if (index < 0)
+                {
                     index = kryptonDataGridView.Rows.Count - 1;
+                }
 
                 // Select the row
                 kryptonDataGridView.Rows[index].Selected = true;

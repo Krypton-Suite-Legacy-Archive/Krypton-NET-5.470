@@ -15,7 +15,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Creates and layout individual crumbs.

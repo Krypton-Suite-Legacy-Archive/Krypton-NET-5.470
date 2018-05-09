@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Security.Permissions;
-using ComponentFactory.Krypton.Navigator;
+using Krypton.Navigator;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
     /// <summary>
     /// Manage a docking dragging operation.
@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Docking
                                       IMessageFilter
     {
         #region Instance Fields
-        private readonly KryptonDockingManager _manager;
+        private readonly Krypton.DockingManager _manager;
         private Point _offset;
         private Point _screenPt;
         private readonly Timer _moveTimer;
@@ -39,7 +39,7 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         /// <param name="manager">Reference to manager creating this instance.</param>
         /// <param name="c">Control that is starting the drag operation.</param>
-        public DockingDragManager(KryptonDockingManager manager, Control c)
+        public DockingDragManager(Krypton.DockingManager manager, Control c)
         {
             _manager = manager;
             _offset = Point.Empty;

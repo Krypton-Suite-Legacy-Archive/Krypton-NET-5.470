@@ -10,10 +10,10 @@
 // *****************************************************************************
 
 using System.ComponentModel; 
-using ComponentFactory.Krypton.Toolkit;
-using ComponentFactory.Krypton.Navigator;
+using Krypton.Toolkit;
+using Krypton.Navigator;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
 	/// <summary>
     /// Event arguments for events that need a page and context menu.

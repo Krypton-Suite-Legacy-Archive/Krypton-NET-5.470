@@ -14,14 +14,14 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.ComponentModel;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     internal class VisualPopupAppMenu : VisualPopup
     {
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private IPalette _palette;
         private IPaletteBack _drawOutsideBack;
         private IPaletteBorder _drawOutsideBorder;
@@ -49,7 +49,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="rectAppButtonTopHalf">Screen location of the upper half of the app button.</param>
         /// <param name="rectAppButtonBottomHalf">Screen location of the lower half of the app button.</param>
         /// <param name="keyboardActivated">Was the context menu activated by a keyboard action.</param>
-        public VisualPopupAppMenu(KryptonRibbon ribbon,
+        public VisualPopupAppMenu(Krypton.Ribbon ribbon,
                                   RibbonAppButton appButton,
                                   IPalette palette,
                                   PaletteMode paletteMode,
@@ -158,7 +158,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Then generate an item per recent document entry
                 int index = 1;
-                foreach (KryptonRibbonRecentDoc recentDoc in _ribbon.RibbonAppButton.AppButtonRecentDocs)
+                foreach (Krypton.RibbonRecentDoc recentDoc in _ribbon.RibbonAppButton.AppButtonRecentDocs)
                 {
                     documentStack.Add(new ViewDrawRibbonAppMenuRecentDec(_ribbon, _provider, recentDoc, _ribbon.RibbonAppButton.AppButtonMaxRecentSize.Width, NeedPaintDelegate, index++));
                 }

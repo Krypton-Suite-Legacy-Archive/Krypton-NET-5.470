@@ -14,12 +14,12 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Helper functions for drawing in the glass styles.
     /// </summary>
-    internal class RenderGlassHelpers
+    public class RenderGlassHelpers
     {
         #region Static Fields
         private static readonly Color _glassColorTopL = Color.FromArgb(208, Color.White);

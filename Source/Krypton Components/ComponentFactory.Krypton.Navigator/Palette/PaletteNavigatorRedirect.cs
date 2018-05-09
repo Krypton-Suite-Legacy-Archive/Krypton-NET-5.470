@@ -11,9 +11,9 @@
 
 using System.Windows.Forms;
 using System.ComponentModel;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	/// <summary>
 	/// Implement redirected storage for common navigator appearance.
@@ -33,7 +33,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <param name="navigator">Reference to owning navigator.</param>
 		/// <param name="redirect">Inheritence redirection instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public PaletteNavigatorRedirect(KryptonNavigator navigator,
+        public PaletteNavigatorRedirect(Krypton.Navigator navigator,
                                         PaletteRedirect redirect,
                                         NeedPaintHandler needPaint)
             : this(navigator, redirect, redirect, redirect, 
@@ -66,7 +66,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <param name="redirectNavigatorRibbonTab">Inheritence redirection for ribbon tab.</param>
         /// <param name="redirectNavigatorRibbonGeneral">Inheritence redirection for ribbon general.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public PaletteNavigatorRedirect(KryptonNavigator navigator,
+        public PaletteNavigatorRedirect(Krypton.Navigator navigator,
                                         PaletteRedirect redirectNavigator,
                                         PaletteRedirect redirectNavigatorPage,
                                         PaletteRedirect redirectNavigatorHeaderGroup,

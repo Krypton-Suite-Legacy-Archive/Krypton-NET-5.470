@@ -16,7 +16,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Defines state and events for a single command.
@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [DefaultEvent("Click")]
     [DefaultProperty("Text")]
     [DesignerCategory("code")]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonCommandDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer("Krypton.Toolkit.KryptonCommandDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [Description("Defines state and events for a single command.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
@@ -239,12 +239,12 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-        /// Gets and sets the command text line 1 for use in KryptonRibbon.
+        /// Gets and sets the command text line 1 for use in Krypton.Ribbon.
         /// </summary>
         [Bindable(true)]
         [Localizable(true)]
         [Category("Appearance")]
-        [Description("Command text line 1 for use in KryptonRibbon.")]
+        [Description("Command text line 1 for use in Krypton.Ribbon.")]
         public string TextLine1
         {
             get => _textLine1;
@@ -270,12 +270,12 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-        /// Gets and sets the command text line 2 for use in KryptonRibbon.
+        /// Gets and sets the command text line 2 for use in Krypton.Ribbon.
         /// </summary>
         [Bindable(true)]
         [Localizable(true)]
         [Category("Appearance")]
-        [Description("Command text line 2 for use in KryptonRibbon.")]
+        [Description("Command text line 2 for use in Krypton.Ribbon.")]
         public string TextLine2
         {
             get => _textLine2;

@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
     /// <summary>
     /// Implementation for the fixed close button for navigator.
@@ -24,7 +24,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// Initialize a new instance of the ButtonSpecNavClose class.
         /// </summary>
         /// <param name="navigator">Reference to owning navigator instance.</param>
-        public ButtonSpecNavClose(KryptonNavigator navigator)
+        public ButtonSpecNavClose(Krypton.Navigator navigator)
             : base(navigator, PaletteButtonSpecStyle.Close)
         {
         }         

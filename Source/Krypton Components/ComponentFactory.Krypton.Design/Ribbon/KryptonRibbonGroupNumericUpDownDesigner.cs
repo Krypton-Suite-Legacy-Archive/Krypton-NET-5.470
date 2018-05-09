@@ -16,16 +16,16 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
-    internal class KryptonRibbonGroupNumericUpDownDesigner : ComponentDesigner, IKryptonDesignObject
+    internal class Krypton.RibbonGroupNumericUpDownDesigner : ComponentDesigner, IKrypton.DesignObject
     {
         #region Instance Fields
         private IDesignerHost _designerHost;
         private IComponentChangeService _changeService;
-        private KryptonRibbonGroupNumericUpDown _ribbonNumericUpDown;
+        private Krypton.RibbonGroupNumericUpDown _ribbonNumericUpDown;
         private DesignerVerbCollection _verbs;
         private DesignerVerb _toggleHelpersVerb;
         private DesignerVerb _moveFirstVerb;
@@ -46,9 +46,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the KryptonRibbonGroupNumericUpDownDesigner class.
+        /// Initialize a new instance of the Krypton.RibbonGroupNumericUpDownDesigner class.
         /// </summary>
-        public KryptonRibbonGroupNumericUpDownDesigner()
+        public Krypton.RibbonGroupNumericUpDownDesigner()
         {
         }
         #endregion
@@ -72,7 +72,7 @@ namespace ComponentFactory.Krypton.Ribbon
             base.Initialize(component);
 
             // Cast to correct type
-            _ribbonNumericUpDown = (KryptonRibbonGroupNumericUpDown)component;
+            _ribbonNumericUpDown = (Krypton.RibbonGroupNumericUpDown)component;
             _ribbonNumericUpDown.NumericUpDownDesigner = this;
 
             // Update designer properties with actual starting values
@@ -169,7 +169,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 PropertyDescriptor descrip = (PropertyDescriptor)properties[strArray[i]];
                 if (descrip != null)
                 {
-                    properties[strArray[i]] = TypeDescriptor.CreateProperty(typeof(KryptonRibbonGroupNumericUpDownDesigner), descrip, attributes);
+                    properties[strArray[i]] = TypeDescriptor.CreateProperty(typeof(Krypton.RibbonGroupNumericUpDownDesigner), descrip, attributes);
                 }
             }
         }
@@ -226,7 +226,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             if (_ribbonNumericUpDown?.Ribbon != null)
             {
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
                 moveFirst = (items.IndexOf(_ribbonNumericUpDown) > 0);
                 movePrev = (items.IndexOf(_ribbonNumericUpDown) > 0);
                 moveNext = (items.IndexOf(_ribbonNumericUpDown) < (items.Count - 1));
@@ -253,10 +253,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonNumericUpDown?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupNumericUpDown MoveFirst");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupNumericUpDown MoveFirst");
 
                 try
                 {
@@ -285,10 +285,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonNumericUpDown?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupNumericUpDown MovePrevious");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupNumericUpDown MovePrevious");
 
                 try
                 {
@@ -319,10 +319,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonNumericUpDown?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupNumericUpDown MoveNext");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupNumericUpDown MoveNext");
 
                 try
                 {
@@ -353,10 +353,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonNumericUpDown?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupNumericUpDown MoveLast");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupNumericUpDown MoveLast");
 
                 try
                 {
@@ -385,10 +385,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonNumericUpDown?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupNumericUpDown DeleteNumericUpDown");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupNumericUpDown DeleteNumericUpDown");
 
                 try
                 {
@@ -485,15 +485,15 @@ namespace ComponentFactory.Krypton.Ribbon
             }
         }
 
-        private TypedRestrictCollection<KryptonRibbonGroupItem> ParentItems
+        private TypedRestrictCollection<Krypton.RibbonGroupItem> ParentItems
         {
             get
             {
                 switch (_ribbonNumericUpDown.RibbonContainer)
                 {
-                    case KryptonRibbonGroupTriple triple:
+                    case Krypton.RibbonGroupTriple triple:
                         return triple.Items;
-                    case KryptonRibbonGroupLines lines:
+                    case Krypton.RibbonGroupLines lines:
                         return lines.Items;
                     default:
                         // Should never happen!

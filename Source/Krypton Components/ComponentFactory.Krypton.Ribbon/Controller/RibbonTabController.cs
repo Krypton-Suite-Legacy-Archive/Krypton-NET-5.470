@@ -12,9 +12,9 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Process mouse events for a ribbon tab.
@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                          IRibbonKeyTipTarget
 	{
 		#region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private bool _mouseOver;
         private bool _rightButtonDown;
         private readonly ViewDrawRibbonTab _target;
@@ -52,7 +52,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Reference to owning control.</param>
         /// <param name="target">Target for state changes.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public RibbonTabController(KryptonRibbon ribbon,
+        public RibbonTabController(Krypton.Ribbon ribbon,
                                    ViewDrawRibbonTab target,
                                    NeedPaintHandler needPaint)
 		{
@@ -392,7 +392,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Perform actual selection of the item.
         /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
-        public void KeyTipSelect(KryptonRibbon ribbon)
+        public void KeyTipSelect(Krypton.Ribbon ribbon)
         {
             // If we are not selected then make us so
             if (_ribbon.SelectedTab != _target.RibbonTab)

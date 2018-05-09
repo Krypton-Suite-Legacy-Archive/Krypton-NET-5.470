@@ -11,14 +11,14 @@
 
 using System;
 using System.Drawing;
-using ComponentFactory.Krypton.Toolkit;
-using ComponentFactory.Krypton.Navigator;
-using ComponentFactory.Krypton.Workspace;
+using Krypton.Toolkit;
+using Krypton.Navigator;
+using Krypton.Workspace;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
     /// <summary>
-    /// Extends the KryptonWorkspace to work within the docking framework.
+    /// Extends the Krypton.Workspace to work within the docking framework.
     /// </summary>
     [ToolboxBitmap(typeof(KryptonDockableWorkspace), "ToolboxBitmaps.KryptonDockableWorkspace.bmp")]
     public class KryptonDockableWorkspace : KryptonSpace
@@ -69,7 +69,7 @@ namespace ComponentFactory.Krypton.Docking
         /// Initialize a new cell.
         /// </summary>
         /// <param name="cell">Cell being added to the control.</param>
-        protected override void NewCellInitialize(KryptonWorkspaceCell cell)
+        protected override void NewCellInitialize(Krypton.WorkspaceCell cell)
         {
             // Let base class perform event hooking and customizations
             base.NewCellInitialize(cell);
@@ -86,7 +86,7 @@ namespace ComponentFactory.Krypton.Docking
         protected override void OnActiveCellChanged(ActiveCellChangedEventArgs e)
         {
             // Ensure all but the newly selected cell have a lower profile appearance
-            KryptonWorkspaceCell cell = FirstCell();
+            Krypton.WorkspaceCell cell = FirstCell();
             while (cell != null)
             {
                 if (e.NewCell != cell)

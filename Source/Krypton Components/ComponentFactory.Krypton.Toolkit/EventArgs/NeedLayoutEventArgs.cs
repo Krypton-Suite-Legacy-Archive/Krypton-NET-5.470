@@ -12,7 +12,7 @@
 using System;
 using System.Drawing;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Details for need layout events.

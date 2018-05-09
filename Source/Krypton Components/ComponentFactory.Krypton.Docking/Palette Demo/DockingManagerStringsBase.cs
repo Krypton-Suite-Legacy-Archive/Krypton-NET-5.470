@@ -14,9 +14,9 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Reflection;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
     /// <summary>
     /// Storage for docking managee strings.
@@ -34,7 +34,7 @@ namespace ComponentFactory.Krypton.Docking
         /// Initialize a new instance of the DockingManagerStringsBase class.
         /// </summary>
         /// <param name="docking">Reference to owning docking manager.</param>
-        public DockingManagerStringsBase(KryptonDockingManager docking)
+        public DockingManagerStringsBase(Krypton.DockingManager docking)
         {
             // Define the encryted licence information
             EncryptedLicenseProvider.SetParameters(_licenseParameters);
@@ -45,7 +45,7 @@ namespace ComponentFactory.Krypton.Docking
             {
                 // Is there a valid license registered?
                 License license = null;
-                validated = LicenseManager.IsValid(typeof(KryptonDockingManager), this, out license);
+                validated = LicenseManager.IsValid(typeof(Krypton.DockingManager), this, out license);
 
                 // Valid license is not enough!
                 if (validated)
@@ -105,7 +105,7 @@ namespace ComponentFactory.Krypton.Docking
                     else
                     {
                         LicenseInstallForm form = new LicenseInstallForm();
-                        form.ShowDialog(typeof(KryptonDockingManager));
+                        form.ShowDialog(typeof(Krypton.DockingManager));
                     }
                 }
             }

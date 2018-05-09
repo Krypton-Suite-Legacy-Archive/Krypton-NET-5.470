@@ -14,9 +14,9 @@ using System.Drawing;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	/// <summary>
 	/// View element that can size and position each page entry on the bar.

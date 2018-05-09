@@ -17,14 +17,14 @@ using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
-    internal class KryptonRibbonDesigner : ParentControlDesigner
+    internal class Krypton.RibbonDesigner : ParentControlDesigner
     {
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private Krypton.Ribbon _ribbon;
         private IDesignerHost _designerHost;
         private ISelectionService _selectionService;
         private IComponentChangeService _changeService;
@@ -37,9 +37,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the KryptonRibbonDesigner class.
+        /// Initialize a new instance of the Krypton.RibbonDesigner class.
 		/// </summary>
-        public KryptonRibbonDesigner()
+        public Krypton.RibbonDesigner()
         {
             // The resizing handles around the control need to change depending on the
             // value of the AutoSize and AutoSizeMode properties. When in AutoSize you
@@ -67,7 +67,7 @@ namespace ComponentFactory.Krypton.Ribbon
             base.Initialize(component);
 
             // Cast to correct type
-            _ribbon = (KryptonRibbon)component;
+            _ribbon = (Krypton.Ribbon)component;
 
             // Hook into ribbon events
             _ribbon.GetViewManager().MouseUpProcessed += OnRibbonMouseUp;
@@ -114,7 +114,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 compound.AddRange(_ribbon.RibbonAppButton.AppButtonSpecs);
 
                 // Add all the objects for each tab
-                foreach (KryptonRibbonTab ribbonTab in _ribbon.RibbonTabs)
+                foreach (Krypton.RibbonTab ribbonTab in _ribbon.RibbonTabs)
                 {
                     compound.Add(ribbonTab);
                 }
@@ -135,7 +135,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
 
                     // Add the ribbon specific list
-                    new KryptonRibbonActionList(this)
+                    new Krypton.RibbonActionList(this)
                 };
 
                 return actionLists;
@@ -280,7 +280,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnAddTab(object sender, EventArgs e)
         {
             // Use a transaction to support undo/redo actions
-            DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbon AddTab");
+            DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.Ribbon AddTab");
 
             try
             {
@@ -290,7 +290,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 RaiseComponentChanging(propertyPages);
 
                 // Get designer to create the new tab component
-                KryptonRibbonTab page = (KryptonRibbonTab)_designerHost.CreateComponent(typeof(KryptonRibbonTab));
+                Krypton.RibbonTab page = (Krypton.RibbonTab)_designerHost.CreateComponent(typeof(Krypton.RibbonTab));
                 _ribbon.RibbonTabs.Add(page);
 
                 RaiseComponentChanged(propertyPages, null, null);
@@ -307,7 +307,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private void OnClearTabs(object sender, EventArgs e)
         {
             // Use a transaction to support undo/redo actions
-            DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbon ClearTabs");
+            DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.Ribbon ClearTabs");
 
             try
             {
@@ -322,7 +322,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 // We need to remove all the tabs from the ribbon
                 for (int i = _ribbon.RibbonTabs.Count - 1; i >= 0; i--)
                 {
-                    KryptonRibbonTab tab = _ribbon.RibbonTabs[i];
+                    Krypton.RibbonTab tab = _ribbon.RibbonTabs[i];
                     _ribbon.RibbonTabs.Remove(tab);
                     host.DestroyComponent(tab);
                 }
@@ -405,7 +405,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 // We need to remove all the ribbon context instances
                 for (int i = _ribbon.RibbonContexts.Count - 1; i >= 0; i--)
                 {
-                    KryptonRibbonContext context = _ribbon.RibbonContexts[i];
+                    Krypton.RibbonContext context = _ribbon.RibbonContexts[i];
                     _ribbon.RibbonContexts.Remove(context);
                     host.DestroyComponent(context);
                 }
@@ -413,7 +413,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 // We need to remove all the ribbon tab instances
                 for (int i = _ribbon.RibbonTabs.Count - 1; i >= 0; i--)
                 {
-                    KryptonRibbonTab tab = _ribbon.RibbonTabs[i];
+                    Krypton.RibbonTab tab = _ribbon.RibbonTabs[i];
                     _ribbon.RibbonTabs.Remove(tab);
                     host.DestroyComponent(tab);
                 }

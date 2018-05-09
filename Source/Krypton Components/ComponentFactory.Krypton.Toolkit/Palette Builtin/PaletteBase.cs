@@ -16,7 +16,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using Microsoft.Win32;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Provides base class implementation for palettes.

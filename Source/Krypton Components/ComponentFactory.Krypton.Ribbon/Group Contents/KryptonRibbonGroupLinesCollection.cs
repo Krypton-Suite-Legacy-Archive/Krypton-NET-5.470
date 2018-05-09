@@ -10,31 +10,31 @@
 // *****************************************************************************
 
 using System;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Manage the items that can be added to a ribbon group lines container.
     /// </summary>
-    public class KryptonRibbonGroupLinesCollection : TypedRestrictCollection<KryptonRibbonGroupItem>
+    public class Krypton.RibbonGroupLinesCollection : TypedRestrictCollection<Krypton.RibbonGroupItem>
     {
         #region Static Fields
-        private static readonly Type[] _types = { typeof(KryptonRibbonGroupButton),
-                                                             typeof(KryptonRibbonGroupColorButton),
-                                                             typeof(KryptonRibbonGroupCheckBox),
-                                                             typeof(KryptonRibbonGroupComboBox),
-                                                             typeof(KryptonRibbonGroupCluster),
-                                                             typeof(KryptonRibbonGroupCustomControl),
-                                                             typeof(KryptonRibbonGroupDateTimePicker),
-                                                             typeof(KryptonRibbonGroupDomainUpDown),
-                                                             typeof(KryptonRibbonGroupLabel),
-                                                             typeof(KryptonRibbonGroupNumericUpDown),
-                                                             typeof(KryptonRibbonGroupRadioButton),
-                                                             typeof(KryptonRibbonGroupRichTextBox),
-                                                             typeof(KryptonRibbonGroupTextBox),
-                                                             typeof(KryptonRibbonGroupTrackBar),
-                                                             typeof(KryptonRibbonGroupMaskedTextBox),
+        private static readonly Type[] _types = { typeof(Krypton.RibbonGroupButton),
+                                                             typeof(Krypton.RibbonGroupColorButton),
+                                                             typeof(Krypton.RibbonGroupCheckBox),
+                                                             typeof(Krypton.RibbonGroupComboBox),
+                                                             typeof(Krypton.RibbonGroupCluster),
+                                                             typeof(Krypton.RibbonGroupCustomControl),
+                                                             typeof(Krypton.RibbonGroupDateTimePicker),
+                                                             typeof(Krypton.RibbonGroupDomainUpDown),
+                                                             typeof(Krypton.RibbonGroupLabel),
+                                                             typeof(Krypton.RibbonGroupNumericUpDown),
+                                                             typeof(Krypton.RibbonGroupRadioButton),
+                                                             typeof(Krypton.RibbonGroupRichTextBox),
+                                                             typeof(Krypton.RibbonGroupTextBox),
+                                                             typeof(Krypton.RibbonGroupTrackBar),
+                                                             typeof(Krypton.RibbonGroupMaskedTextBox),
                                                            };
 
         #endregion

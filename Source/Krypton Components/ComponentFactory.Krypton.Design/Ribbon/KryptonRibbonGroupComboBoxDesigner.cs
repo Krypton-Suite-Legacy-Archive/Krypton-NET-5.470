@@ -16,16 +16,16 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
-    internal class KryptonRibbonGroupComboBoxDesigner : ComponentDesigner, IKryptonDesignObject
+    internal class Krypton.RibbonGroupComboBoxDesigner : ComponentDesigner, IKrypton.DesignObject
     {
         #region Instance Fields
         private IDesignerHost _designerHost;
         private IComponentChangeService _changeService;
-        private KryptonRibbonGroupComboBox _ribbonComboBox;
+        private Krypton.RibbonGroupComboBox _ribbonComboBox;
         private DesignerVerbCollection _verbs;
         private DesignerVerb _toggleHelpersVerb;
         private DesignerVerb _moveFirstVerb;
@@ -46,9 +46,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the KryptonRibbonGroupComboBoxDesigner class.
+        /// Initialize a new instance of the Krypton.RibbonGroupComboBoxDesigner class.
         /// </summary>
-        public KryptonRibbonGroupComboBoxDesigner()
+        public Krypton.RibbonGroupComboBoxDesigner()
         {
         }
         #endregion
@@ -72,7 +72,7 @@ namespace ComponentFactory.Krypton.Ribbon
             base.Initialize(component);
 
             // Cast to correct type
-            _ribbonComboBox = (KryptonRibbonGroupComboBox)component;
+            _ribbonComboBox = (Krypton.RibbonGroupComboBox)component;
             _ribbonComboBox.ComboBoxDesigner = this;
 
             // Update designer properties with actual starting values
@@ -169,7 +169,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 PropertyDescriptor descrip = (PropertyDescriptor)properties[strArray[i]];
                 if (descrip != null)
                 {
-                    properties[strArray[i]] = TypeDescriptor.CreateProperty(typeof(KryptonRibbonGroupComboBoxDesigner), descrip, attributes);
+                    properties[strArray[i]] = TypeDescriptor.CreateProperty(typeof(Krypton.RibbonGroupComboBoxDesigner), descrip, attributes);
                 }
             }
         }
@@ -226,7 +226,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             if (_ribbonComboBox?.Ribbon != null)
             {
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
                 moveFirst = (items.IndexOf(_ribbonComboBox) > 0);
                 movePrev = (items.IndexOf(_ribbonComboBox) > 0);
                 moveNext = (items.IndexOf(_ribbonComboBox) < (items.Count - 1));
@@ -253,10 +253,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonComboBox?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupComboBoxBox MoveFirst");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupComboBoxBox MoveFirst");
 
                 try
                 {
@@ -285,10 +285,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonComboBox?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupComboBox MovePrevious");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupComboBox MovePrevious");
 
                 try
                 {
@@ -319,10 +319,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonComboBox?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupComboBox MoveNext");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupComboBox MoveNext");
 
                 try
                 {
@@ -353,10 +353,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonComboBox?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupComboBox MoveLast");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupComboBox MoveLast");
 
                 try
                 {
@@ -385,10 +385,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonComboBox?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupComboBox DeleteComboBox");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupComboBox DeleteComboBox");
 
                 try
                 {
@@ -485,15 +485,15 @@ namespace ComponentFactory.Krypton.Ribbon
             }
         }
 
-        private TypedRestrictCollection<KryptonRibbonGroupItem> ParentItems
+        private TypedRestrictCollection<Krypton.RibbonGroupItem> ParentItems
         {
             get
             {
                 switch (_ribbonComboBox.RibbonContainer)
                 {
-                    case KryptonRibbonGroupTriple triple:
+                    case Krypton.RibbonGroupTriple triple:
                         return triple.Items;
-                    case KryptonRibbonGroupLines lines:
+                    case Krypton.RibbonGroupLines lines:
                         return lines.Items;
                     default:
                         // Should never happen!

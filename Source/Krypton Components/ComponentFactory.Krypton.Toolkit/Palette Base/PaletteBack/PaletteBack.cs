@@ -12,7 +12,7 @@
 using System.Drawing;
 using System.ComponentModel;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Implement storage for palette background details.

@@ -13,7 +13,7 @@ using System;
 using System.Drawing;
 using System.Collections.Generic;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
     /// <summary>
     /// Manage a list of drag targets.
@@ -172,7 +172,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <param name="target">Target navigator instance.</param>
         /// <param name="data">Dragged page data.</param>
         /// <returns>Last page to be transferred.</returns>
-        protected KryptonPage ProcessDragEndData(KryptonNavigator target,
+        protected KryptonPage ProcessDragEndData(Krypton.Navigator target,
                                                  PageDragEndData data)
         {
             KryptonPage ret = null;

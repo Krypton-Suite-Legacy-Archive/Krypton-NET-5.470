@@ -15,7 +15,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.ComponentModel;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Manages a view presentation for a control display surface.

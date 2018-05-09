@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Layout area for the application tab.
@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ViewLayoutRibbonAppTab : ViewLayoutDocker
     {
         #region Instance Fields
-        private KryptonRibbon _ribbon;
+        private Krypton.Ribbon _ribbon;
 
         #endregion
 
@@ -29,7 +29,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Initialize a new instance of the ViewLayoutRibbonAppTab class.
 		/// </summary>
         /// <param name="ribbon">Owning control instance.</param>
-        public ViewLayoutRibbonAppTab(KryptonRibbon ribbon)
+        public ViewLayoutRibbonAppTab(Krypton.Ribbon ribbon)
         {
             Debug.Assert(ribbon != null);
             _ribbon = ribbon;

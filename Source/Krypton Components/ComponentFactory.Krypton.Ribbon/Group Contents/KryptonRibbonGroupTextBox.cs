@@ -14,21 +14,21 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Represents a ribbon group text box.
     /// </summary>
     [ToolboxItem(false)]
-    [ToolboxBitmap(typeof(KryptonRibbonGroupTextBox), "ToolboxBitmaps.KryptonRibbonGroupTextBox.bmp")]
-    [Designer("ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTextBoxDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [ToolboxBitmap(typeof(Krypton.RibbonGroupTextBox), "ToolboxBitmaps.Krypton.RibbonGroupTextBox.bmp")]
+    [Designer("Krypton.Ribbon.Krypton.RibbonGroupTextBoxDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
     [DefaultEvent("TextChanged")]
     [DefaultProperty("Text")]
-    public class KryptonRibbonGroupTextBox : KryptonRibbonGroupItem
+    public class Krypton.RibbonGroupTextBox : Krypton.RibbonGroupItem
     {
         #region Instance Fields
         private bool _visible;
@@ -148,9 +148,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialise a new instance of the KryptonRibbonGroupTextBox class.
+        /// Initialise a new instance of the Krypton.RibbonGroupTextBox class.
         /// </summary>
-        public KryptonRibbonGroupTextBox()
+        public Krypton.RibbonGroupTextBox()
         {
             // Default fields
             _visible = true;
@@ -215,7 +215,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public override KryptonRibbon Ribbon
+        public override Krypton.Ribbon Ribbon
         {
             set
             {
@@ -902,7 +902,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="needPaint">Delegate for notifying changes in display.</param>
         /// <returns>ViewBase derived instance.</returns>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override ViewBase CreateView(KryptonRibbon ribbon, 
+        public override ViewBase CreateView(Krypton.Ribbon ribbon, 
                                             NeedPaintHandler needPaint)
         {
             return new ViewDrawRibbonGroupTextBox(ribbon, this, needPaint);
@@ -914,7 +914,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public IKryptonDesignObject TextBoxDesigner { get; set; }
+        public IKrypton.DesignObject TextBoxDesigner { get; set; }
 
         /// <summary>
         /// Internal design time properties.

@@ -12,7 +12,7 @@
 using System;
 using System.Drawing;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	/// <summary>
     /// Details for an event that provides pages associated with a page dragging event.

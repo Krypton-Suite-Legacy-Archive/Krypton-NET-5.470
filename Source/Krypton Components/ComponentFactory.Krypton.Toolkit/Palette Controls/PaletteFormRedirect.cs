@@ -13,7 +13,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
     /// Redirect storage for PaletteForm states.

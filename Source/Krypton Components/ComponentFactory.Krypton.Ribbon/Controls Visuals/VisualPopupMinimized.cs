@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     internal class VisualPopupMinimized : VisualPopup
     {
@@ -27,7 +27,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private readonly ViewDrawRibbonCaptionArea _captionArea;
         #endregion
 
@@ -39,7 +39,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="viewManager">View manager instance for managing view display.</param>
         /// <param name="captionArea">View element that manages the custom chrome injection.</param>
         /// <param name="renderer">Drawing renderer.</param>
-        public VisualPopupMinimized(KryptonRibbon ribbon,
+        public VisualPopupMinimized(Krypton.Ribbon ribbon,
                                     ViewManager viewManager,
                                     ViewDrawRibbonCaptionArea captionArea,
                                     IRenderer renderer)

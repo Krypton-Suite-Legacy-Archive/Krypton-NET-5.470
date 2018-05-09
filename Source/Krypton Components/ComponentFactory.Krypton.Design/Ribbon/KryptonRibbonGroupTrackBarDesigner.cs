@@ -16,16 +16,16 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
-    internal class KryptonRibbonGroupTrackBarDesigner : ComponentDesigner, IKryptonDesignObject
+    internal class Krypton.RibbonGroupTrackBarDesigner : ComponentDesigner, IKrypton.DesignObject
     {
         #region Instance Fields
         private IDesignerHost _designerHost;
         private IComponentChangeService _changeService;
-        private KryptonRibbonGroupTrackBar _ribbonTrackBar;
+        private Krypton.RibbonGroupTrackBar _ribbonTrackBar;
         private DesignerVerbCollection _verbs;
         private DesignerVerb _toggleHelpersVerb;
         private DesignerVerb _moveFirstVerb;
@@ -46,9 +46,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the KryptonRibbonGroupTrackBarDesigner class.
+        /// Initialize a new instance of the Krypton.RibbonGroupTrackBarDesigner class.
         /// </summary>
-        public KryptonRibbonGroupTrackBarDesigner()
+        public Krypton.RibbonGroupTrackBarDesigner()
         {
         }
         #endregion
@@ -72,7 +72,7 @@ namespace ComponentFactory.Krypton.Ribbon
             base.Initialize(component);
 
             // Cast to correct type
-            _ribbonTrackBar = (KryptonRibbonGroupTrackBar)component;
+            _ribbonTrackBar = (Krypton.RibbonGroupTrackBar)component;
             _ribbonTrackBar.TrackBarDesigner = this;
 
             // Update designer properties with actual starting values
@@ -169,7 +169,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 PropertyDescriptor descrip = (PropertyDescriptor)properties[strArray[i]];
                 if (descrip != null)
                 {
-                    properties[strArray[i]] = TypeDescriptor.CreateProperty(typeof(KryptonRibbonGroupTrackBarDesigner), descrip, attributes);
+                    properties[strArray[i]] = TypeDescriptor.CreateProperty(typeof(Krypton.RibbonGroupTrackBarDesigner), descrip, attributes);
                 }
             }
         }
@@ -226,7 +226,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             if (_ribbonTrackBar?.Ribbon != null)
             {
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
                 moveFirst = (items.IndexOf(_ribbonTrackBar) > 0);
                 movePrev = (items.IndexOf(_ribbonTrackBar) > 0);
                 moveNext = (items.IndexOf(_ribbonTrackBar) < (items.Count - 1));
@@ -253,10 +253,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonTrackBar?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTrackBar MoveFirst");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTrackBar MoveFirst");
 
                 try
                 {
@@ -285,10 +285,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonTrackBar?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTrackBar MovePrevious");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTrackBar MovePrevious");
 
                 try
                 {
@@ -319,10 +319,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonTrackBar?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTrackBar MoveNext");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTrackBar MoveNext");
 
                 try
                 {
@@ -353,10 +353,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonTrackBar?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTrackBar MoveLast");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTrackBar MoveLast");
 
                 try
                 {
@@ -385,10 +385,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonTrackBar?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupTrackBar DeleteTrackBar");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupTrackBar DeleteTrackBar");
 
                 try
                 {
@@ -485,15 +485,15 @@ namespace ComponentFactory.Krypton.Ribbon
             }
         }
 
-        private TypedRestrictCollection<KryptonRibbonGroupItem> ParentItems
+        private TypedRestrictCollection<Krypton.RibbonGroupItem> ParentItems
         {
             get
             {
                 switch (_ribbonTrackBar.RibbonContainer)
                 {
-                    case KryptonRibbonGroupTriple triple:
+                    case Krypton.RibbonGroupTriple triple:
                         return triple.Items;
-                    case KryptonRibbonGroupLines lines:
+                    case Krypton.RibbonGroupLines lines:
                         return lines.Items;
                     default:
                         // Should never happen!

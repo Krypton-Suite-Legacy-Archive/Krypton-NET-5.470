@@ -14,7 +14,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Manage a collection of specified reference instances.
@@ -456,7 +456,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Raises the Inserting event.
         /// </summary>
-        /// <param name="e">A KryptonRibbonTabEventArgs instance containing event data.</param>
+        /// <param name="e">A Krypton.RibbonTabEventArgs instance containing event data.</param>
         protected virtual void OnInserting(TypedCollectionEventArgs<T> e)
         {
             Inserting?.Invoke(this, e);

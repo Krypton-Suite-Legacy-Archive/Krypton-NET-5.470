@@ -13,7 +13,7 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Implement storage for palette border edge details.

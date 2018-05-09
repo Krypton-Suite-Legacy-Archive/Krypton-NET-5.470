@@ -13,11 +13,11 @@ using System;
 using System.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
-using ComponentFactory.Krypton.Toolkit;
-using ComponentFactory.Krypton.Workspace;
-using ComponentFactory.Krypton.Navigator;
+using Krypton.Toolkit;
+using Krypton.Workspace;
+using Krypton.Navigator;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
     /// <summary>
     /// Provides docking functionality by attaching to an existing KryptonDockableNavigator
@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Docking
     [ToolboxItem(false)]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
-    public class KryptonDockingNavigator : DockingElementClosedCollection
+    public class Krypton.DockingNavigator : DockingElementClosedCollection
     {
         #region Instance Fields
         private readonly string _storeName;
@@ -34,21 +34,21 @@ namespace ComponentFactory.Krypton.Docking
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the KryptonDockingNavigator class.
+        /// Initialize a new instance of the Krypton.DockingNavigator class.
         /// </summary>
         /// <param name="name">Initial name of the element.</param>
-        public KryptonDockingNavigator(string name)
+        public Krypton.DockingNavigator(string name)
             : this(name, "Workspace", new KryptonDockableNavigator())
         {
         }
 
         /// <summary>
-        /// Initialize a new instance of the KryptonDockingNavigator class.
+        /// Initialize a new instance of the Krypton.DockingNavigator class.
         /// </summary>
         /// <param name="name">Initial name of the element.</param>
         /// <param name="storeName">Name to use for storage pages.</param>
         /// <param name="navigator">Reference to navigator to manage.</param>
-        public KryptonDockingNavigator(string name,
+        public Krypton.DockingNavigator(string name,
                                        string storeName,
                                        KryptonDockableNavigator navigator)
             : base(name)
@@ -80,7 +80,7 @@ namespace ComponentFactory.Krypton.Docking
                 base.Parent = value;
 
                 // Generate event so the any dockable navigator customization can be performed.
-                KryptonDockingManager dockingManager = DockingManager;
+                Krypton.DockingManager dockingManager = DockingManager;
                 if (dockingManager != null)
                 {
                     DockableNavigatorEventArgs args = new DockableNavigatorEventArgs(DockableNavigatorControl, this);
@@ -716,8 +716,8 @@ namespace ComponentFactory.Krypton.Docking
         /// Find a navigator element by searching the hierarchy.
         /// </summary>
         /// <param name="uniqueName">Named page for which a suitable navigator element is required.</param>
-        /// <returns>KryptonDockingNavigator reference if found; otherwise false.</returns>
-        public override KryptonDockingNavigator FindDockingNavigator(string uniqueName)
+        /// <returns>Krypton.DockingNavigator reference if found; otherwise false.</returns>
+        public override Krypton.DockingNavigator FindDockingNavigator(string uniqueName)
         {
             return this;
         }
@@ -753,7 +753,7 @@ namespace ComponentFactory.Krypton.Docking
             xmlWriter.WriteAttributeString("C", DockableNavigatorControl.Pages.Count.ToString());
 
             // Persist each child page in turn
-            KryptonDockingManager dockingManager = DockingManager;
+            Krypton.DockingManager dockingManager = DockingManager;
             foreach (KryptonPage page in DockableNavigatorControl.Pages)
             {
                 // Are we allowed to save the page?
@@ -811,7 +811,7 @@ namespace ComponentFactory.Krypton.Docking
             int count = int.Parse(elementCount);
             if (count > 0)
             {
-                KryptonDockingManager manager = DockingManager;
+                Krypton.DockingManager manager = DockingManager;
                 KryptonPage page = null;
                 for (int i = 0; i < count; i++)
                 {
@@ -935,7 +935,7 @@ namespace ComponentFactory.Krypton.Docking
             DockableNavigatorControl.PageDrop -= OnDockableNavigatorPageDrop;
 
             // Generate event so the any dockable navigator customization can be reversed.
-            KryptonDockingManager dockingManager = DockingManager;
+            Krypton.DockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {
                 DockableNavigatorEventArgs args = new DockableNavigatorEventArgs(DockableNavigatorControl, this);
@@ -947,7 +947,7 @@ namespace ComponentFactory.Krypton.Docking
         {
             // Remove any store page for the unique name of this page being added. In either case of adding a store
             // page or a regular page we want to ensure there does not exist a store page for that same unique name.
-            KryptonDockingManager dockingManager = DockingManager;
+            Krypton.DockingManager dockingManager = DockingManager;
             dockingManager?.PropogateAction(DockingPropogateAction.ClearFillerStoredPages, new string[] { e.Item.UniqueName });
         }
 
@@ -967,7 +967,7 @@ namespace ComponentFactory.Krypton.Docking
             if (pages.Count != 0)
             {
                 // Ask the docking manager for a IDragPageNotify implementation to handle the dragging operation
-                KryptonDockingManager dockingManager = DockingManager;
+                Krypton.DockingManager dockingManager = DockingManager;
                 dockingManager?.DoDragDrop(e.ScreenPoint, e.ElementOffset, e.Control, e.Pages);
             }
 
@@ -978,7 +978,7 @@ namespace ComponentFactory.Krypton.Docking
         private void OnDockableNavigatorPageDrop(object sender, PageDropEventArgs e)
         {
             // Use event to indicate the page is moving to a navigator and allow it to be cancelled
-            KryptonDockingManager dockingManager = DockingManager;
+            Krypton.DockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {
                 CancelUniqueNameEventArgs args = new CancelUniqueNameEventArgs(e.Page.UniqueName, false);

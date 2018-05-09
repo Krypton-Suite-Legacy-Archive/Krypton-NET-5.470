@@ -12,9 +12,9 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
     /// Extends the ViewLayoutRibbonQATContents by providing the definitions that are overflowing the original source.
@@ -36,7 +36,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="showExtraButton">Should the extra button be shown.</param>
         /// <param name="contents">Source for finding buttons that are overflowing.</param>
         public ViewLayoutRibbonQATFromOverflow(Control parentControl,
-                                               KryptonRibbon ribbon,
+                                               Krypton.Ribbon ribbon,
                                                NeedPaintHandler needPaint,
                                                bool showExtraButton,
                                                ViewLayoutRibbonQATContents contents)

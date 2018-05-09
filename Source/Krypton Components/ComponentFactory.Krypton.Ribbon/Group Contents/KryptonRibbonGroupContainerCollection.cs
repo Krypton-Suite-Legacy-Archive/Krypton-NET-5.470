@@ -10,20 +10,20 @@
 // *****************************************************************************
 
 using System;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Manage the items that can be added to the top level of a ribbon group instance.
     /// </summary>
-    public class KryptonRibbonGroupContainerCollection : TypedRestrictCollection<KryptonRibbonGroupContainer>
+    public class Krypton.RibbonGroupContainerCollection : TypedRestrictCollection<Krypton.RibbonGroupContainer>
     {
         #region Static Fields
-        private static readonly Type[] _types = { typeof(KryptonRibbonGroupLines),
-                                                             typeof(KryptonRibbonGroupTriple),
-                                                             typeof(KryptonRibbonGroupSeparator),
-                                                             typeof(KryptonRibbonGroupGallery)};
+        private static readonly Type[] _types = { typeof(Krypton.RibbonGroupLines),
+                                                             typeof(Krypton.RibbonGroupTriple),
+                                                             typeof(Krypton.RibbonGroupSeparator),
+                                                             typeof(Krypton.RibbonGroupGallery)};
         #endregion
 
         #region Restrict

@@ -12,9 +12,9 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Draws a check box centered in the correct location.
@@ -27,7 +27,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private KryptonRibbonGroupCheckBox _ribbonCheckBox;
+        private Krypton.RibbonGroupCheckBox _ribbonCheckBox;
         private readonly ViewDrawCheckBox _drawCheckBox;
         private readonly bool _large;
         #endregion
@@ -39,8 +39,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonCheckBox">Reference to ribbon group check box definition.</param>
         /// <param name="large">Show the large image.</param>
-        public ViewDrawRibbonGroupCheckBoxImage(KryptonRibbon ribbon,
-                                                KryptonRibbonGroupCheckBox ribbonCheckBox,
+        public ViewDrawRibbonGroupCheckBoxImage(Krypton.Ribbon ribbon,
+                                                Krypton.RibbonGroupCheckBox ribbonCheckBox,
                                                 bool large)
         {
             Debug.Assert(ribbonCheckBox != null);

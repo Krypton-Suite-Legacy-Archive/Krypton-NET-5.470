@@ -9,7 +9,7 @@
 //  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	/// <summary>
 	/// Details for a direction button (next/previous) action event.

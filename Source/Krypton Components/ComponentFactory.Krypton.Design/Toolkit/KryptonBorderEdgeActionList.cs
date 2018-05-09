@@ -14,7 +14,7 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     internal class KryptonBorderEdgeActionList : DesignerActionList
     {
@@ -142,7 +142,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 actions.Add(new DesignerActionHeaderItem("Layout"));
                 actions.Add(new DesignerActionPropertyItem("AutoSize", "AutoSize", "Layout", "Determines whether the control resizes based on its contents."));
                 actions.Add(new DesignerActionPropertyItem("Dock", "Dock", "Layout", "Determines how the control is sized with its parent."));
-                actions.Add(new KryptonDesignerActionItem(new DesignerVerb(_action, OnOrientationClick), "Layout"));
+                actions.Add(new Krypton.DesignerActionItem(new DesignerVerb(_action, OnOrientationClick), "Layout"));
                 actions.Add(new DesignerActionHeaderItem("Visuals"));
                 actions.Add(new DesignerActionPropertyItem("PaletteMode", "Palette", "Visuals", "Palette applied to drawing"));
             }

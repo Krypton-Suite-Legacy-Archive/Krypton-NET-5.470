@@ -15,22 +15,22 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
-using ComponentFactory.Krypton.Navigator;
-using ComponentFactory.Krypton.Workspace;
+using Krypton.Toolkit;
+using Krypton.Navigator;
+using Krypton.Workspace;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
     /// <summary>
-    /// Extends the KryptonWorkspace with common functionality shared by various docking implementations.
+    /// Extends the Krypton.Workspace with common functionality shared by various docking implementations.
     /// </summary>
-    public abstract class KryptonSpace : KryptonWorkspace
+    public abstract class KryptonSpace : Krypton.Workspace
     {
         #region Type Declarations
         /// <summary>
         /// Lookup between a cell and the cell state.
         /// </summary>
-        protected class CellToCachedState : Dictionary<KryptonWorkspaceCell, CachedCellState> { };
+        protected class CellToCachedState : Dictionary<Krypton.WorkspaceCell, CachedCellState> { };
 
         /// <summary>
         /// State cached per-cell within the workspace.
@@ -44,7 +44,7 @@ namespace ComponentFactory.Krypton.Docking
             /// <summary>
             /// Gets and sets the workspace cell for which this state relates.
             /// </summary>
-            public KryptonWorkspaceCell Cell { get; set; }
+            public Krypton.WorkspaceCell Cell { get; set; }
 
             /// <summary>
             /// Gets and sets the focus state of the cell.
@@ -88,17 +88,17 @@ namespace ComponentFactory.Krypton.Docking
 
         #region Events
         /// <summary>
-        /// Occurs when the focus moves to be inside the KryptonWorkspaceCell instance.
+        /// Occurs when the focus moves to be inside the Krypton.WorkspaceCell instance.
         /// </summary>
         [Category("DockableWorkspace")]
-        [Description("Occurs when the focus moves to be inside the KryptonWorkspaceCell instance.")]
+        [Description("Occurs when the focus moves to be inside the Krypton.WorkspaceCell instance.")]
         public event EventHandler<WorkspaceCellEventArgs> CellGainsFocus;
 
         /// <summary>
-        /// Occurs when the focus moves away from inside the KryptonWorkspaceCell instance.
+        /// Occurs when the focus moves away from inside the Krypton.WorkspaceCell instance.
         /// </summary>
         [Category("DockableWorkspace")]
-        [Description("Occurs when the focus moves away from inside the KryptonWorkspaceCell instance.")]
+        [Description("Occurs when the focus moves away from inside the Krypton.WorkspaceCell instance.")]
         public event EventHandler<WorkspaceCellEventArgs> CellLosesFocus;
 
         /// <summary>
@@ -434,7 +434,7 @@ namespace ComponentFactory.Krypton.Docking
         /// Initialize a new cell.
         /// </summary>
         /// <param name="cell">Cell being added to the control.</param>
-        protected override void NewCellInitialize(KryptonWorkspaceCell cell)
+        protected override void NewCellInitialize(Krypton.WorkspaceCell cell)
         {
             // Let base class perform event hooking and customizations
             base.NewCellInitialize(cell);
@@ -497,7 +497,7 @@ namespace ComponentFactory.Krypton.Docking
         /// Detach an existing cell.
         /// </summary>
         /// <param name="cell">Cell being removed from the control.</param>
-        protected override void ExistingCellDetach(KryptonWorkspaceCell cell)
+        protected override void ExistingCellDetach(Krypton.WorkspaceCell cell)
         {
             // Grab the per-cell cached state
 
@@ -526,7 +526,7 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         /// <param name="cell">Reference to workspace cell that needs updating.</param>
         /// <param name="cellState">Reference to cell specific cached state.</param>
-        protected virtual void UpdateCellActions(KryptonWorkspaceCell cell, CachedCellState cellState)
+        protected virtual void UpdateCellActions(Krypton.WorkspaceCell cell, CachedCellState cellState)
         {
             if (ApplyDockingDropDownAction)
             {
@@ -651,7 +651,7 @@ namespace ComponentFactory.Krypton.Docking
             if (ApplyDockingAppearance)
             {
                 CheckPerformLayout(false);
-                KryptonWorkspaceCell cell = FirstCell();
+                Krypton.WorkspaceCell cell = FirstCell();
                 while (cell != null)
                 {
                     // Use focus dependant header style
@@ -689,7 +689,7 @@ namespace ComponentFactory.Krypton.Docking
             if (ApplyDockingVisibility)
             {
                 bool visibleChanged = false;
-                KryptonWorkspaceCell cell = FirstCell();
+                Krypton.WorkspaceCell cell = FirstCell();
                 while (cell != null)
                 {
                     // Cell if only visible if it has at least 1 visible page
@@ -760,7 +760,7 @@ namespace ComponentFactory.Krypton.Docking
             if (ApplyDockingAppearance)
             {
                 // Set the focus into the active page
-                KryptonWorkspaceCell cell = (KryptonWorkspaceCell)sender;
+                Krypton.WorkspaceCell cell = (Krypton.WorkspaceCell)sender;
                 cell.SelectedPage?.SelectNextControl(cell.SelectedPage, true, true, true, false);
             }
         }
@@ -770,7 +770,7 @@ namespace ComponentFactory.Krypton.Docking
             // Should we apply docking specific change of focus when the primary header is clicked?
             if (ApplyDockingAppearance)
             {
-                KryptonWorkspaceCell cell = (KryptonWorkspaceCell)sender;
+                Krypton.WorkspaceCell cell = (Krypton.WorkspaceCell)sender;
                 if (cell.SelectedPage != null)
                 {
                     // Set the focus into the active page
@@ -798,7 +798,7 @@ namespace ComponentFactory.Krypton.Docking
                 List<string> uniqueNames = new List<string>();
 
                 // Create list of visible pages that are not placeholders
-                KryptonWorkspaceCell cell = (KryptonWorkspaceCell)sender;
+                Krypton.WorkspaceCell cell = (Krypton.WorkspaceCell)sender;
                 foreach (KryptonPage page in cell.Pages)
                 {
                     if (page.LastVisibleSet && !(page is KryptonStorePage))
@@ -823,7 +823,7 @@ namespace ComponentFactory.Krypton.Docking
         {
             if (ApplyDockingAppearance)
             {
-                KryptonWorkspaceCell cell = FirstVisibleCell();
+                Krypton.WorkspaceCell cell = FirstVisibleCell();
                 while (cell != null)
                 {
                     // Cell display mode depends on the number of tabs in the cell
@@ -854,7 +854,7 @@ namespace ComponentFactory.Krypton.Docking
             if (ApplyDockingCloseAction || ApplyDockingPinAction)
             {
                 // Get access to the cached state for this cell
-                KryptonWorkspaceCell cell = (KryptonWorkspaceCell)sender;
+                Krypton.WorkspaceCell cell = (Krypton.WorkspaceCell)sender;
                 CachedCellState cellState = _lookupCellState[cell];
 
                 // Remove events on the old selected page
@@ -881,7 +881,7 @@ namespace ComponentFactory.Krypton.Docking
             {
                 // Only need to process the change in flags if the page in question is a selected page
                 KryptonPage page = (KryptonPage)sender;
-                KryptonWorkspaceCell cell = CellForPage(page);
+                Krypton.WorkspaceCell cell = CellForPage(page);
                 if (cell.SelectedPage == page)
                 {
                     UpdateCellActions(cell, _lookupCellState[cell]);

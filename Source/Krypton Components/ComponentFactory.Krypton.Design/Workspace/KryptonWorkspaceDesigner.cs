@@ -15,14 +15,14 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Workspace
+namespace Krypton.Workspace
 {
-    internal class KryptonWorkspaceDesigner : ParentControlDesigner
+    internal class Krypton.WorkspaceDesigner : ParentControlDesigner
     {
         #region Instance Fields
-        private KryptonWorkspace _workspace;
+        private Krypton.Workspace _workspace;
         private IComponentChangeService _changeService;
         #endregion
 
@@ -48,7 +48,7 @@ namespace ComponentFactory.Krypton.Workspace
             AutoResizeHandles = true;
 
             // Remember the actual control being designed
-            _workspace = (KryptonWorkspace)component;
+            _workspace = (Krypton.Workspace)component;
 
             // Get access to the services
             _changeService = (IComponentChangeService)GetService(typeof(IComponentChangeService));
@@ -87,7 +87,7 @@ namespace ComponentFactory.Krypton.Workspace
                 {
 
                     // Add the navigator specific list
-                    new KryptonWorkspaceActionList(this)
+                    new Krypton.WorkspaceActionList(this)
                 };
 
                 return actionLists;

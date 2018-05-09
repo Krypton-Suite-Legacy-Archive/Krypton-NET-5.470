@@ -15,7 +15,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.ComponentModel;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     internal class MenuLinkLabelController : GlobalId,
                                              IMouseController,

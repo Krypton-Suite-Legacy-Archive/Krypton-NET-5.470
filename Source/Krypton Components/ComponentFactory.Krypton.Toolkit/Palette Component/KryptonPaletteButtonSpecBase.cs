@@ -14,7 +14,7 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Base class for defining button specifications.

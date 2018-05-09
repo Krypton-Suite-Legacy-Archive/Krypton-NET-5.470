@@ -37,7 +37,7 @@
             System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Rome", 4, 4);
             System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Berlin", 5, 5);
             System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Vienna", 6, 6);
-            this.kryptonWorkspace = new ComponentFactory.Krypton.Workspace.KryptonWorkspace();
+            this.kryptonWorkspace = new Krypton.Workspace.KryptonWorkspace();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.dragTreeView = new AdvancedPageDragAndDrop.PageDragTreeView();
             this.labelTitle = new System.Windows.Forms.Label();
@@ -49,8 +49,8 @@
             this.labelWorkspaces = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
             this.labelNavigators = new System.Windows.Forms.Label();
-            this.kryptonNavigator = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
-            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonNavigator = new Krypton.Navigator.KryptonNavigator();
+            this.kryptonManager1 = new Krypton.Toolkit.KryptonManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonWorkspace)).BeginInit();
             this.groupBoxDragFeedback.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator)).BeginInit();
@@ -70,7 +70,7 @@
             this.kryptonWorkspace.Size = new System.Drawing.Size(333, 250);
             this.kryptonWorkspace.TabIndex = 2;
             this.kryptonWorkspace.TabStop = true;
-            this.kryptonWorkspace.WorkspaceCellAdding += new System.EventHandler<ComponentFactory.Krypton.Workspace.WorkspaceCellEventArgs>(this.workspaceCellAdding);
+            this.kryptonWorkspace.WorkspaceCellAdding += new System.EventHandler<Krypton.Workspace.WorkspaceCellEventArgs>(this.workspaceCellAdding);
             // 
             // imageList
             // 
@@ -244,8 +244,8 @@
             // 
             this.kryptonNavigator.AllowPageDrag = true;
             this.kryptonNavigator.AllowTabFocus = false;
-            this.kryptonNavigator.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
-            this.kryptonNavigator.Button.ContextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigator.Button.CloseButtonDisplay = Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigator.Button.ContextButtonDisplay = Krypton.Navigator.ButtonDisplay.Hide;
             this.kryptonNavigator.Location = new System.Drawing.Point(165, 74);
             this.kryptonNavigator.Name = "kryptonNavigator";
             this.kryptonNavigator.Size = new System.Drawing.Size(285, 250);
@@ -287,8 +287,8 @@
         #endregion
 
         private PageDragTreeView dragTreeView;
-        private ComponentFactory.Krypton.Workspace.KryptonWorkspace kryptonWorkspace;
-        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigator;
+        private Krypton.Workspace.KryptonWorkspace kryptonWorkspace;
+        private Krypton.Navigator.KryptonNavigator kryptonNavigator;
         private System.Windows.Forms.ImageList imageList;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Label labelTreeView;
@@ -299,7 +299,7 @@
         private System.Windows.Forms.Label labelWorkspaces;
         private System.Windows.Forms.Label labelNavigators;
         private System.Windows.Forms.Button buttonClose;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager1;
+        private Krypton.Toolkit.KryptonManager kryptonManager1;
     }
 }
 

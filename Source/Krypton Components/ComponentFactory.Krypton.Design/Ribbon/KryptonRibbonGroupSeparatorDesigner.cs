@@ -15,16 +15,16 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
-    internal class KryptonRibbonGroupSeparatorDesigner : ComponentDesigner
+    internal class Krypton.RibbonGroupSeparatorDesigner : ComponentDesigner
     {
         #region Instance Fields
         private IDesignerHost _designerHost;
         private IComponentChangeService _changeService;
-        private KryptonRibbonGroupSeparator _ribbonSeparator;
+        private Krypton.RibbonGroupSeparator _ribbonSeparator;
         private DesignerVerbCollection _verbs;
         private DesignerVerb _toggleHelpersVerb;
         private DesignerVerb _moveFirstVerb;
@@ -44,9 +44,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the KryptonRibbonGroupSeparatorDesigner class.
+        /// Initialize a new instance of the Krypton.RibbonGroupSeparatorDesigner class.
         /// </summary>
-        public KryptonRibbonGroupSeparatorDesigner()
+        public Krypton.RibbonGroupSeparatorDesigner()
         {
         }
         #endregion
@@ -70,7 +70,7 @@ namespace ComponentFactory.Krypton.Ribbon
             base.Initialize(component);
 
             // Cast to correct type
-            _ribbonSeparator = (KryptonRibbonGroupSeparator)component;
+            _ribbonSeparator = (Krypton.RibbonGroupSeparator)component;
             _ribbonSeparator.DesignTimeContextMenu += OnContextMenu;
 
             // Get access to the services
@@ -171,7 +171,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonSeparator?.Ribbon != null) && _ribbonSeparator.RibbonGroup.Items.Contains(_ribbonSeparator))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupSeparator MoveFirst");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupSeparator MoveFirst");
 
                 try
                 {
@@ -181,7 +181,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Move position of the separator
-                    KryptonRibbonGroup ribbonGroup = _ribbonSeparator.RibbonGroup;
+                    Krypton.RibbonGroup ribbonGroup = _ribbonSeparator.RibbonGroup;
                     ribbonGroup.Items.Remove(_ribbonSeparator);
                     ribbonGroup.Items.Insert(0, _ribbonSeparator);
                     UpdateVerbStatus();
@@ -201,7 +201,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonSeparator?.Ribbon != null) && _ribbonSeparator.RibbonGroup.Items.Contains(_ribbonSeparator))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupSeparator MovePrevious");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupSeparator MovePrevious");
 
                 try
                 {
@@ -211,7 +211,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Move position of the triple
-                    KryptonRibbonGroup ribbonGroup = _ribbonSeparator.RibbonGroup;
+                    Krypton.RibbonGroup ribbonGroup = _ribbonSeparator.RibbonGroup;
                     int index = ribbonGroup.Items.IndexOf(_ribbonSeparator) - 1;
                     index = Math.Max(index, 0);
                     ribbonGroup.Items.Remove(_ribbonSeparator);
@@ -233,7 +233,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonSeparator?.Ribbon != null) && _ribbonSeparator.RibbonGroup.Items.Contains(_ribbonSeparator))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupSeparator MoveNext");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupSeparator MoveNext");
 
                 try
                 {
@@ -243,7 +243,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Move position of the triple
-                    KryptonRibbonGroup ribbonGroup = _ribbonSeparator.RibbonGroup;
+                    Krypton.RibbonGroup ribbonGroup = _ribbonSeparator.RibbonGroup;
                     int index = ribbonGroup.Items.IndexOf(_ribbonSeparator) + 1;
                     index = Math.Min(index, ribbonGroup.Items.Count - 1);
                     ribbonGroup.Items.Remove(_ribbonSeparator);
@@ -265,7 +265,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonSeparator?.Ribbon != null) && _ribbonSeparator.RibbonGroup.Items.Contains(_ribbonSeparator))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupSeparator MoveLast");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupSeparator MoveLast");
 
                 try
                 {
@@ -275,7 +275,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     RaiseComponentChanging(propertyItems);
 
                     // Move position of the triple
-                    KryptonRibbonGroup ribbonGroup = _ribbonSeparator.RibbonGroup;
+                    Krypton.RibbonGroup ribbonGroup = _ribbonSeparator.RibbonGroup;
                     ribbonGroup.Items.Remove(_ribbonSeparator);
                     ribbonGroup.Items.Insert(ribbonGroup.Items.Count, _ribbonSeparator);
                     UpdateVerbStatus();
@@ -295,7 +295,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if ((_ribbonSeparator?.Ribbon != null) && _ribbonSeparator.RibbonGroup.Items.Contains(_ribbonSeparator))
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupSeparator DeleteSeparator");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupSeparator DeleteSeparator");
 
                 try
                 {
@@ -380,7 +380,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonSeparator.Ribbon != null)
             {
                 // Create a new item per group in the same ribbon tab
-                foreach (KryptonRibbonGroup group in _ribbonSeparator.RibbonTab.Groups)
+                foreach (Krypton.RibbonGroup group in _ribbonSeparator.RibbonTab.Groups)
                 {
                     // Cannot move to ourself, so ignore outself
                     if (group != _ribbonSeparator.RibbonGroup)
@@ -410,10 +410,10 @@ namespace ComponentFactory.Krypton.Ribbon
                 ToolStripMenuItem groupMenuItem = (ToolStripMenuItem)sender;
 
                 // Get access to the destination tab
-                KryptonRibbonGroup destination = (KryptonRibbonGroup)groupMenuItem.Tag;
+                Krypton.RibbonGroup destination = (Krypton.RibbonGroup)groupMenuItem.Tag;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupSeparator MoveSeparatorToGroup");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupSeparator MoveSeparatorToGroup");
 
                 try
                 {

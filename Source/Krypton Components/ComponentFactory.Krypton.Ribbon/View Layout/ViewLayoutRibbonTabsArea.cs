@@ -15,9 +15,9 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Ribbon area that contains the tabs and pendant.
@@ -35,7 +35,7 @@ namespace ComponentFactory.Krypton.Ribbon
             /// Initialize a new instance of the RibbonButtonSpecFixedCollection class.
             /// </summary>
             /// <param name="owner">Reference to owning object.</param>
-            public RibbonButtonSpecFixedCollection(KryptonRibbon owner)
+            public RibbonButtonSpecFixedCollection(Krypton.Ribbon owner)
                 : base(owner)
             {
             }
@@ -53,7 +53,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private ViewLayoutRibbonScrollPort _tabsViewport;
         private ViewLayoutSeparator _layoutAppButtonSep;
         private ViewLayoutRibbonSeparator _leftSeparator;
@@ -98,7 +98,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="captionArea">Reference to the caption area.</param>
         /// <param name="layoutContexts">Reference to layout of the context area.</param>
         /// <param name="needPaintDelegate">Delegate for notifying paint/layout changes.</param>
-        public ViewLayoutRibbonTabsArea(KryptonRibbon ribbon,
+        public ViewLayoutRibbonTabsArea(Krypton.Ribbon ribbon,
                                         PaletteRedirect redirect,
                                         ViewDrawRibbonCaptionArea captionArea,
                                         ViewLayoutRibbonContextTitles layoutContexts,
@@ -844,7 +844,7 @@ namespace ComponentFactory.Krypton.Ribbon
                             {
                                 // Cast to correct type
 
-                                // Create a content that recovers values from a KryptonRibbonGroupItem
+                                // Create a content that recovers values from a Krypton.RibbonGroupItem
                                 GroupItemToolTipToContent groupItemContent = new GroupItemToolTipToContent(viewElement2.GroupLabel);
 
                                 // Is there actually anything to show for the tooltip
@@ -872,7 +872,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                         // Is the target is a button or cluster button
                                         // Cast to correct type
 
-                                        // Create a content that recovers values from a KryptonRibbonGroupItem
+                                        // Create a content that recovers values from a Krypton.RibbonGroupItem
                                         GroupItemToolTipToContent groupItemContent = new GroupItemToolTipToContent(viewElement3.GroupItem);
 
                                         // Is there actually anything to show for the tooltip
@@ -897,7 +897,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                         // Cast to correct type
                                         ViewDrawRibbonGroupCheckBox viewElement = (ViewDrawRibbonGroupCheckBox)e.Target.Parent;
 
-                                        // Create a content that recovers values from a KryptonRibbonGroupItem
+                                        // Create a content that recovers values from a Krypton.RibbonGroupItem
                                         GroupItemToolTipToContent groupItemContent = new GroupItemToolTipToContent(viewElement.GroupCheckBox);
 
                                         // Is there actually anything to show for the tooltip
@@ -922,7 +922,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                         // Cast to correct type
                                         ViewDrawRibbonGroupRadioButton viewElement = (ViewDrawRibbonGroupRadioButton)e.Target.Parent;
 
-                                        // Create a content that recovers values from a KryptonRibbonGroupItem
+                                        // Create a content that recovers values from a Krypton.RibbonGroupItem
                                         GroupItemToolTipToContent groupItemContent = new GroupItemToolTipToContent(viewElement.GroupRadioButton);
 
                                         // Is there actually anything to show for the tooltip

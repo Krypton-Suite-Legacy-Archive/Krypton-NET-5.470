@@ -12,17 +12,17 @@
 using System.Drawing;
 using System.ComponentModel;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Represents a single context definition.
     /// </summary>
     [ToolboxItem(false)]
-    [ToolboxBitmap(typeof(KryptonRibbonContext), "ToolboxBitmaps.KryptonRibbonContext.bmp")]
+    [ToolboxBitmap(typeof(Krypton.RibbonContext), "ToolboxBitmaps.Krypton.RibbonContext.bmp")]
     [DefaultProperty("ContextName")]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
-    public class KryptonRibbonContext : Component
+    public class Krypton.RibbonContext : Component
     {
         #region Instance Fields
         private string _contextName;
@@ -40,9 +40,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialise a new instance of the KryptonRibbonContext class.
+        /// Initialise a new instance of the Krypton.RibbonContext class.
         /// </summary>
-        public KryptonRibbonContext()
+        public Krypton.RibbonContext()
         {
             // Default fields
             _contextName = "Context";

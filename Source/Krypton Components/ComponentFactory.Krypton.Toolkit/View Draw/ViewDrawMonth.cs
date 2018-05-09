@@ -14,7 +14,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Globalization;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Extends the ViewComposite by organising and drawing an individual month.

@@ -12,9 +12,9 @@
 using System;
 using System.Drawing;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws the text string for a group color cluster button.
@@ -23,8 +23,8 @@ namespace ComponentFactory.Krypton.Ribbon
                                                                IContentValues
     {
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
-        private readonly KryptonRibbonGroupClusterColorButton _ribbonColorButton;
+        private readonly Krypton.Ribbon _ribbon;
+        private readonly Krypton.RibbonGroupClusterColorButton _ribbonColorButton;
         private readonly RibbonGroupNormalDisabledTextToContent _contentProvider;
         private IDisposable _memento;
         private int _heightExtra;
@@ -41,8 +41,8 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// </summary>
         /// <param name="ribbon">Source ribbon control.</param>
         /// <param name="ribbonColorButton">Group cluster color button to display title for.</param>
-        public ViewDrawRibbonGroupClusterColorButtonText(KryptonRibbon ribbon,
-                                                         KryptonRibbonGroupClusterColorButton ribbonColorButton)
+        public ViewDrawRibbonGroupClusterColorButtonText(Krypton.Ribbon ribbon,
+                                                         Krypton.RibbonGroupClusterColorButton ribbonColorButton)
                                              
         {
             Debug.Assert(ribbon != null);

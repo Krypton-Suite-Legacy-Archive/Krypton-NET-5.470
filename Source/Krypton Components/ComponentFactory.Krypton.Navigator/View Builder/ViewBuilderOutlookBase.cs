@@ -17,9 +17,9 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Reflection;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	/// <summary>
     /// Implements base functionality for NavigatorMode.Outlook modes.
@@ -40,7 +40,7 @@ namespace ComponentFactory.Krypton.Navigator
             /// Initialize a new instance of the OutlookButtonSpecCollection class.
             /// </summary>
             /// <param name="owner">Reference to owning object.</param>
-            public OutlookButtonSpecCollection(KryptonNavigator owner)
+            public OutlookButtonSpecCollection(Krypton.Navigator owner)
                 : base(owner)
             {
             }
@@ -87,8 +87,8 @@ namespace ComponentFactory.Krypton.Navigator
             Assembly myAssembly = Assembly.GetAssembly(typeof(ViewBuilderOutlookBase));
 
             // Get the resource streams containing the images
-            Stream streamBlueUp = myAssembly.GetManifestResourceStream("ComponentFactory.Krypton.Navigator.Resources.BlueUp.bmp");
-            Stream streamBlueDown= myAssembly.GetManifestResourceStream("ComponentFactory.Krypton.Navigator.Resources.BlueDown.bmp");
+            Stream streamBlueUp = myAssembly.GetManifestResourceStream("Krypton.Navigator.Resources.BlueUp.bmp");
+            Stream streamBlueDown= myAssembly.GetManifestResourceStream("Krypton.Navigator.Resources.BlueDown.bmp");
 
             // Load the bitmap from stream
             _moreButtons = new Bitmap(streamBlueUp, true);
@@ -281,7 +281,7 @@ namespace ComponentFactory.Krypton.Navigator
 		/// <param name="navigator">Reference to navigator instance.</param>
 		/// <param name="manager">Reference to current manager.</param>
 		/// <param name="redirector">Palette redirector.</param>
-		public override void Construct(KryptonNavigator navigator, 
+		public override void Construct(Krypton.Navigator navigator, 
 									   ViewManager manager,
 									   PaletteRedirect redirector)
 		{

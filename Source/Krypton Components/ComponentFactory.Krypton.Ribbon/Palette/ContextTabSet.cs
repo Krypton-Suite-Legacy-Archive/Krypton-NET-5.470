@@ -11,9 +11,9 @@
 
 using System.Drawing;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Stores information needed to draw the display text for a context set
@@ -33,7 +33,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="tab">Reference to first tab of the set.</param>
         /// <param name="context">Reference to owning context details.</param>
         public ContextTabSet(ViewDrawRibbonTab tab,
-                             KryptonRibbonContext context)
+                             Krypton.RibbonContext context)
         {
             Debug.Assert(tab != null);
             Debug.Assert(context != null);
@@ -125,7 +125,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets the context component.
         /// </summary>
-        public KryptonRibbonContext Context { get; }
+        public Krypton.RibbonContext Context { get; }
 
         /// <summary>
         /// Gets the name of the context.

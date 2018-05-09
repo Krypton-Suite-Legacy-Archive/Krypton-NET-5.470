@@ -9,8 +9,8 @@
     <ProjectGuid>{9144BA04-155B-4B66-B85A-9A89AA93F7D4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ComponentFactory.Krypton.Workspace</RootNamespace>
-    <AssemblyName>ComponentFactory.Krypton.Workspace</AssemblyName>
+    <RootNamespace>Krypton.Workspace</RootNamespace>
+    <AssemblyName>Krypton Workspace</AssemblyName>
     <ApplicationIcon>Krypton.ico</ApplicationIcon>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>StrongKrypton.snk</AssemblyOriginatorKeyFile>
@@ -34,7 +34,6 @@
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
     <TargetFrameworkProfile />
     <ShouldCreateLogs>True</ShouldCreateLogs>
     <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
@@ -49,24 +48,24 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\Bin\Versions\4.7\</OutputPath>
+    <OutputPath>build\$(Configuration)</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\..\Bin\Versions\4.7\ComponentFactory.Krypton.Workspace.XML</DocumentationFile>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Debug\Krypton Workspace.xml</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\Bin\</OutputPath>
+    <OutputPath>build\$(Configuration)</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\..\Bin\ComponentFactory.Krypton.Workspace.XML</DocumentationFile>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Release\Krypton Workspace.xml</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -78,12 +77,12 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls Workspace\KryptonWorkspaceSequenceConverter.cs" />
-    <Compile Include="Controls Workspace\KryptonWorkspaceCollection.cs">
+    <Compile Include="Controls Workspace\Krypton.WorkspaceSequenceConverter.cs" />
+    <Compile Include="Controls Workspace\Krypton.WorkspaceCollection.cs">
     </Compile>
-    <Compile Include="Controls Workspace\KryptonWorkspaceCell.cs" />
-    <Compile Include="Controls Workspace\KryptonWorkspaceSequence.cs" />
-    <Compile Include="Controls Workspace\KryptonWorkspace.cs" />
+    <Compile Include="Controls Workspace\Krypton.WorkspaceCell.cs" />
+    <Compile Include="Controls Workspace\Krypton.WorkspaceSequence.cs" />
+    <Compile Include="Controls Workspace\Krypton.Workspace.cs" />
     <Compile Include="Dragging\DragTargetWorkspace.cs" />
     <Compile Include="Dragging\DragTargetWorkspaceCellTransfer.cs" />
     <Compile Include="Dragging\DragTargetWorkspaceCellEdge.cs" />
@@ -128,48 +127,21 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ToolboxBitmaps\KryptonWorkspaceSequence.bmp" />
-    <EmbeddedResource Include="ToolboxBitmaps\KryptonWorkspaceCell.bmp" />
-    <EmbeddedResource Include="ToolboxBitmaps\KryptonWorkspace.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\Krypton.WorkspaceSequence.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\Krypton.WorkspaceCell.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\Krypton.Workspace.bmp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="StrongKrypton.snk" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ComponentFactory.Krypton.Navigator\ComponentFactory.Krypton.Navigator 2018.csproj">
+    <ProjectReference Include="..\Krypton.Navigator\Krypton.Navigator 2018.csproj">
       <Project>{dc0dd714-4d19-4f31-a6d0-ea209d4f0ea8}</Project>
-      <Name>ComponentFactory.Krypton.Navigator 2018</Name>
+      <Name>Krypton.Navigator 2018</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ComponentFactory.Krypton.Toolkit\ComponentFactory.Krypton.Toolkit 2018.csproj">
+    <ProjectReference Include="..\Krypton.Toolkit\Krypton.Toolkit 2018.csproj">
       <Project>{96ecaecc-54f8-4aa5-8591-b443c2d9565f}</Project>
-      <Name>ComponentFactory.Krypton.Toolkit 2018</Name>
+      <Name>Krypton.Toolkit 2018</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -181,7 +153,7 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release "$(ProjectDir)..\GacUtil.exe" -i "$(TargetPath)" /f</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(TargetDir)*.*" "$(ProjectDir)..\..\..\Bin\" /D /R /Y /S</PostBuildEvent>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

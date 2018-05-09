@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ComponentFactory.Krypton.Design.Properties {
+namespace Krypton.Design.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace ComponentFactory.Krypton.Design.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ComponentFactory.Krypton.Design.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Krypton.Design.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -513,9 +513,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonContext {
+        internal static System.Drawing.Bitmap Krypton.RibbonContext {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonContext", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonContext", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -523,9 +523,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonGroup {
+        internal static System.Drawing.Bitmap Krypton.RibbonGroup {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonGroup", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonGroup", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -533,9 +533,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonGroupButton {
+        internal static System.Drawing.Bitmap Krypton.RibbonGroupButton {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonGroupButton", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonGroupButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -543,9 +543,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonGroupCheckBox {
+        internal static System.Drawing.Bitmap Krypton.RibbonGroupCheckBox {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonGroupCheckBox", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonGroupCheckBox", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -553,9 +553,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonGroupCluster {
+        internal static System.Drawing.Bitmap Krypton.RibbonGroupCluster {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonGroupCluster", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonGroupCluster", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -563,9 +563,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonGroupClusterButton {
+        internal static System.Drawing.Bitmap Krypton.RibbonGroupClusterButton {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonGroupClusterButton", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonGroupClusterButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -573,9 +573,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonGroupClusterColorButton {
+        internal static System.Drawing.Bitmap Krypton.RibbonGroupClusterColorButton {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonGroupClusterColorButton", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonGroupClusterColorButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -583,9 +583,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonGroupColorButton {
+        internal static System.Drawing.Bitmap Krypton.RibbonGroupColorButton {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonGroupColorButton", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonGroupColorButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -593,9 +593,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonGroupComboBox {
+        internal static System.Drawing.Bitmap Krypton.RibbonGroupComboBox {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonGroupComboBox", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonGroupComboBox", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -603,9 +603,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonGroupCustomControl {
+        internal static System.Drawing.Bitmap Krypton.RibbonGroupCustomControl {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonGroupCustomControl", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonGroupCustomControl", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -613,9 +613,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonGroupDateTimePicker {
+        internal static System.Drawing.Bitmap Krypton.RibbonGroupDateTimePicker {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonGroupDateTimePicker", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonGroupDateTimePicker", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -623,9 +623,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonGroupDomainUpDown {
+        internal static System.Drawing.Bitmap Krypton.RibbonGroupDomainUpDown {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonGroupDomainUpDown", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonGroupDomainUpDown", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -633,9 +633,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonGroupLabel {
+        internal static System.Drawing.Bitmap Krypton.RibbonGroupLabel {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonGroupLabel", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonGroupLabel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -643,9 +643,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonGroupLines {
+        internal static System.Drawing.Bitmap Krypton.RibbonGroupLines {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonGroupLines", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonGroupLines", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -653,9 +653,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonGroupMaskedTextBox {
+        internal static System.Drawing.Bitmap Krypton.RibbonGroupMaskedTextBox {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonGroupMaskedTextBox", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonGroupMaskedTextBox", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -663,9 +663,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonGroupNumericUpDown {
+        internal static System.Drawing.Bitmap Krypton.RibbonGroupNumericUpDown {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonGroupNumericUpDown", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonGroupNumericUpDown", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -673,9 +673,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonGroupRadioButton {
+        internal static System.Drawing.Bitmap Krypton.RibbonGroupRadioButton {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonGroupRadioButton", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonGroupRadioButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -683,9 +683,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonGroupRichTextBox {
+        internal static System.Drawing.Bitmap Krypton.RibbonGroupRichTextBox {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonGroupRichTextBox", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonGroupRichTextBox", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -693,9 +693,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonGroupSeparator {
+        internal static System.Drawing.Bitmap Krypton.RibbonGroupSeparator {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonGroupSeparator", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonGroupSeparator", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -703,9 +703,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonGroupTextBox {
+        internal static System.Drawing.Bitmap Krypton.RibbonGroupTextBox {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonGroupTextBox", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonGroupTextBox", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -713,9 +713,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonGroupTrackBar {
+        internal static System.Drawing.Bitmap Krypton.RibbonGroupTrackBar {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonGroupTrackBar", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonGroupTrackBar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -723,9 +723,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonGroupTriple {
+        internal static System.Drawing.Bitmap Krypton.RibbonGroupTriple {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonGroupTriple", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonGroupTriple", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -733,9 +733,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonQATButton {
+        internal static System.Drawing.Bitmap Krypton.RibbonQATButton {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonQATButton", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonQATButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -743,9 +743,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonRecentDoc {
+        internal static System.Drawing.Bitmap Krypton.RibbonRecentDoc {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonRecentDoc", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonRecentDoc", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -753,9 +753,9 @@ namespace ComponentFactory.Krypton.Design.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KryptonRibbonTab {
+        internal static System.Drawing.Bitmap Krypton.RibbonTab {
             get {
-                object obj = ResourceManager.GetObject("KryptonRibbonTab", resourceCulture);
+                object obj = ResourceManager.GetObject("Krypton.RibbonTab", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

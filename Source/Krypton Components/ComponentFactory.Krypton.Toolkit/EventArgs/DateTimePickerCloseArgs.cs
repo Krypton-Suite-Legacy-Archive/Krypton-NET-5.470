@@ -11,7 +11,7 @@
 
 using System;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Details about the context menu that has been closed up on a KryptonDateTimePicker.

@@ -12,7 +12,7 @@
 using System;
 using System.Drawing;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
 	/// <summary>
     /// Event arguments for events that need a screen point and element offset.

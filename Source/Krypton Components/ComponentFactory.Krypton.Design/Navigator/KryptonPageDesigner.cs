@@ -17,12 +17,12 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
     internal class KryptonPageDesigner : ScrollableControlDesigner,
-                                         IKryptonDesignerSelect
+                                         IKrypton.DesignerSelect
     {
         #region Instance Fields
         private KryptonPage _page;
@@ -75,8 +75,8 @@ namespace ComponentFactory.Krypton.Navigator
         /// <returns>true if the control managed by the specified designer can parent the control managed by this designer; otherwise, false.</returns>
         public override bool CanBeParentedTo(IDesigner parentDesigner)
         {
-            // Can only place a KrytonPage in the KryptonNavigator
-            return parentDesigner?.Component is KryptonNavigator;
+            // Can only place a KrytonPage in the Krypton.Navigator
+            return parentDesigner?.Component is Krypton.Navigator;
         }
 
         /// <summary>
@@ -229,7 +229,7 @@ namespace ComponentFactory.Krypton.Navigator
             RaiseComponentChanged(propertyFlags, null, null);
         }
 
-        private KryptonNavigator ParentNavigator
+        private Krypton.Navigator ParentNavigator
         {
             get
             {
@@ -238,7 +238,7 @@ namespace ComponentFactory.Krypton.Navigator
                 // Search parent chain looking for navigator instance
                 while(parent != null)
                 {
-                    if (parent is KryptonNavigator navigator)
+                    if (parent is Krypton.Navigator navigator)
                     {
                         return navigator;
                     }

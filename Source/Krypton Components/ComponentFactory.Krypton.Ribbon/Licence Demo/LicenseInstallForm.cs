@@ -12,9 +12,9 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Xml;
 using Microsoft.Win32;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Provides a basic form for installing Infralution Encrypted Licenses that can be extended or modified using 
@@ -28,15 +28,15 @@ namespace ComponentFactory.Krypton.Ribbon
         private KryptonTextBox _keyText;
         private EncryptedLicense _license;
         private System.ComponentModel.Container components = null;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanelTop;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelTopHeader;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanelBottom;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonIgnore;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanelBottomBorder;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanelTopBorder;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonOK;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonHelp;
+        private Krypton.Toolkit.KryptonPanel kryptonPanelTop;
+        private Krypton.Toolkit.KryptonLabel labelTopHeader;
+        private Krypton.Toolkit.KryptonPanel kryptonPanelBottom;
+        private Krypton.Toolkit.KryptonButton kryptonButtonIgnore;
+        private Krypton.Toolkit.KryptonPanel kryptonPanelBottomBorder;
+        private Krypton.Toolkit.KryptonPanel kryptonPanelTopBorder;
+        private Krypton.Toolkit.KryptonPanel kryptonPanel1;
+        private Krypton.Toolkit.KryptonButton kryptonButtonOK;
+        private Krypton.Toolkit.KryptonButton kryptonButtonHelp;
         private PictureBox pictureBoxRight;
         private Label _msgLabel;
         private Label _msgError;
@@ -53,18 +53,18 @@ namespace ComponentFactory.Krypton.Ribbon
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LicenseInstallForm));
-            this._keyText = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this._keyLabel = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonPanelTop = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.labelTopHeader = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this._keyText = new Krypton.Toolkit.KryptonTextBox();
+            this._keyLabel = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonPanelTop = new Krypton.Toolkit.KryptonPanel();
+            this.labelTopHeader = new Krypton.Toolkit.KryptonLabel();
             this.pictureBoxRight = new System.Windows.Forms.PictureBox();
-            this.kryptonPanelBottom = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonButtonHelp = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonButtonOK = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonButtonIgnore = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonPanelBottomBorder = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonPanelTopBorder = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonPanelBottom = new Krypton.Toolkit.KryptonPanel();
+            this.kryptonButtonHelp = new Krypton.Toolkit.KryptonButton();
+            this.kryptonButtonOK = new Krypton.Toolkit.KryptonButton();
+            this.kryptonButtonIgnore = new Krypton.Toolkit.KryptonButton();
+            this.kryptonPanelBottomBorder = new Krypton.Toolkit.KryptonPanel();
+            this.kryptonPanelTopBorder = new Krypton.Toolkit.KryptonPanel();
+            this.kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
             this._msgError = new System.Windows.Forms.Label();
             this._msgLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -81,11 +81,11 @@ namespace ComponentFactory.Krypton.Ribbon
             // 
             // _keyText
             // 
-            this._keyText.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Standalone;
+            this._keyText.InputControlStyle = Krypton.Toolkit.InputControlStyle.Standalone;
             this._keyText.Location = new System.Drawing.Point(89, 98);
             this._keyText.Multiline = true;
             this._keyText.Name = "_keyText";
-            this._keyText.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this._keyText.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this._keyText.Size = new System.Drawing.Size(320, 35);
             this._keyText.TabIndex = 0;
             this._keyText.TextChanged += new System.EventHandler(this.OnLicenceTextChanged);
@@ -93,10 +93,10 @@ namespace ComponentFactory.Krypton.Ribbon
             // _keyLabel
             // 
             this._keyLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this._keyLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
+            this._keyLabel.LabelStyle = Krypton.Toolkit.LabelStyle.NormalControl;
             this._keyLabel.Location = new System.Drawing.Point(17, 101);
             this._keyLabel.Name = "_keyLabel";
-            this._keyLabel.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this._keyLabel.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this._keyLabel.Size = new System.Drawing.Size(69, 19);
             this._keyLabel.TabIndex = 3;
             this._keyLabel.Values.Text = "Licence Key";
@@ -108,22 +108,22 @@ namespace ComponentFactory.Krypton.Ribbon
             this.kryptonPanelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.kryptonPanelTop.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanelTop.Name = "kryptonPanelTop";
-            this.kryptonPanelTop.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.kryptonPanelTop.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
+            this.kryptonPanelTop.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonPanelTop.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.ControlClient;
             this.kryptonPanelTop.Size = new System.Drawing.Size(437, 90);
             this.kryptonPanelTop.TabIndex = 0;
             // 
             // labelTopHeader
             // 
-            this.labelTopHeader.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
+            this.labelTopHeader.LabelStyle = Krypton.Toolkit.LabelStyle.NormalControl;
             this.labelTopHeader.Location = new System.Drawing.Point(12, 30);
             this.labelTopHeader.Name = "labelTopHeader";
-            this.labelTopHeader.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.labelTopHeader.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.labelTopHeader.Size = new System.Drawing.Size(215, 53);
             this.labelTopHeader.StateCommon.ShortText.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTopHeader.StateCommon.ShortText.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.AntiAlias;
-            this.labelTopHeader.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.labelTopHeader.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
+            this.labelTopHeader.StateCommon.ShortText.Hint = Krypton.Toolkit.PaletteTextHint.AntiAlias;
+            this.labelTopHeader.StateCommon.ShortText.ImageStyle = Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.labelTopHeader.StateCommon.ShortText.Trim = Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.labelTopHeader.TabIndex = 1;
             this.labelTopHeader.Values.Text = "Krypton Suite\r\nInstall Licence";
             // 
@@ -132,7 +132,7 @@ namespace ComponentFactory.Krypton.Ribbon
             this.pictureBoxRight.BackColor = System.Drawing.SystemColors.Window;
             this.pictureBoxRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBoxRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBoxRight.Image = global::ComponentFactory.Krypton.Ribbon.Properties.Resources.CF_logo;
+            this.pictureBoxRight.Image = global::Krypton.Ribbon.Properties.Resources.CF_logo;
             this.pictureBoxRight.Location = new System.Drawing.Point(231, 0);
             this.pictureBoxRight.Name = "pictureBoxRight";
             this.pictureBoxRight.Size = new System.Drawing.Size(206, 90);
@@ -147,50 +147,50 @@ namespace ComponentFactory.Krypton.Ribbon
             this.kryptonPanelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.kryptonPanelBottom.Location = new System.Drawing.Point(0, 330);
             this.kryptonPanelBottom.Name = "kryptonPanelBottom";
-            this.kryptonPanelBottom.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.kryptonPanelBottom.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelClient;
+            this.kryptonPanelBottom.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonPanelBottom.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.PanelClient;
             this.kryptonPanelBottom.Size = new System.Drawing.Size(437, 45);
-            this.kryptonPanelBottom.StateNormal.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.kryptonPanelBottom.StateNormal.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.kryptonPanelBottom.StateNormal.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPanelBottom.StateNormal.ImageStyle = Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPanelBottom.TabIndex = 1;
             // 
             // kryptonButtonHelp
             // 
             this.kryptonButtonHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonButtonHelp.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Standalone;
+            this.kryptonButtonHelp.ButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             this.kryptonButtonHelp.Location = new System.Drawing.Point(10, 10);
             this.kryptonButtonHelp.Name = "kryptonButtonHelp";
-            this.kryptonButtonHelp.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonButtonHelp.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.kryptonButtonHelp.Size = new System.Drawing.Size(74, 25);
             this.kryptonButtonHelp.TabIndex = 0;
-            this.kryptonButtonHelp.Values.Image = global::ComponentFactory.Krypton.Ribbon.Properties.Resources.help2;
+            this.kryptonButtonHelp.Values.Image = global::Krypton.Ribbon.Properties.Resources.help2;
             this.kryptonButtonHelp.Values.Text = "Help";
             this.kryptonButtonHelp.Click += new System.EventHandler(this.OnHelpButtonClick);
             // 
             // kryptonButtonOK
             // 
             this.kryptonButtonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonButtonOK.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Standalone;
+            this.kryptonButtonOK.ButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             this.kryptonButtonOK.Enabled = false;
             this.kryptonButtonOK.Location = new System.Drawing.Point(273, 10);
             this.kryptonButtonOK.Name = "kryptonButtonOK";
-            this.kryptonButtonOK.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonButtonOK.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.kryptonButtonOK.Size = new System.Drawing.Size(74, 25);
             this.kryptonButtonOK.TabIndex = 1;
-            this.kryptonButtonOK.Values.Image = global::ComponentFactory.Krypton.Ribbon.Properties.Resources.check2;
+            this.kryptonButtonOK.Values.Image = global::Krypton.Ribbon.Properties.Resources.check2;
             this.kryptonButtonOK.Values.Text = "OK";
             this.kryptonButtonOK.Click += new System.EventHandler(this.OnOkButtonClick);
             // 
             // kryptonButtonIgnore
             // 
             this.kryptonButtonIgnore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonButtonIgnore.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Standalone;
+            this.kryptonButtonIgnore.ButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             this.kryptonButtonIgnore.Location = new System.Drawing.Point(353, 10);
             this.kryptonButtonIgnore.Name = "kryptonButtonIgnore";
-            this.kryptonButtonIgnore.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonButtonIgnore.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.kryptonButtonIgnore.Size = new System.Drawing.Size(74, 25);
             this.kryptonButtonIgnore.TabIndex = 2;
-            this.kryptonButtonIgnore.Values.Image = global::ComponentFactory.Krypton.Ribbon.Properties.Resources.delete2;
+            this.kryptonButtonIgnore.Values.Image = global::Krypton.Ribbon.Properties.Resources.delete2;
             this.kryptonButtonIgnore.Values.Text = "Ignore";
             this.kryptonButtonIgnore.Click += new System.EventHandler(this.OnIgnoreButtonClick);
             // 
@@ -199,8 +199,8 @@ namespace ComponentFactory.Krypton.Ribbon
             this.kryptonPanelBottomBorder.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.kryptonPanelBottomBorder.Location = new System.Drawing.Point(0, 327);
             this.kryptonPanelBottomBorder.Name = "kryptonPanelBottomBorder";
-            this.kryptonPanelBottomBorder.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.kryptonPanelBottomBorder.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
+            this.kryptonPanelBottomBorder.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonPanelBottomBorder.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
             this.kryptonPanelBottomBorder.Size = new System.Drawing.Size(437, 3);
             this.kryptonPanelBottomBorder.TabIndex = 13;
             // 
@@ -209,8 +209,8 @@ namespace ComponentFactory.Krypton.Ribbon
             this.kryptonPanelTopBorder.Dock = System.Windows.Forms.DockStyle.Top;
             this.kryptonPanelTopBorder.Location = new System.Drawing.Point(0, 90);
             this.kryptonPanelTopBorder.Name = "kryptonPanelTopBorder";
-            this.kryptonPanelTopBorder.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.kryptonPanelTopBorder.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
+            this.kryptonPanelTopBorder.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonPanelTopBorder.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
             this.kryptonPanelTopBorder.Size = new System.Drawing.Size(437, 3);
             this.kryptonPanelTopBorder.TabIndex = 14;
             // 
@@ -224,8 +224,8 @@ namespace ComponentFactory.Krypton.Ribbon
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 93);
             this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.kryptonPanel1.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
+            this.kryptonPanel1.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonPanel1.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
             this.kryptonPanel1.Size = new System.Drawing.Size(437, 234);
             this.kryptonPanel1.TabIndex = 0;
             // 

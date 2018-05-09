@@ -15,7 +15,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
     /// Allow user to scroll between a range of values.
@@ -24,7 +24,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [ToolboxBitmap(typeof(KryptonTrackBar), "ToolboxBitmaps.KryptonTrackBar.bmp")]
     [DefaultEvent("ValueChanged")]
 	[DefaultProperty("Value")]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonTrackBarDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer("Krypton.Toolkit.KryptonTrackBarDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [DesignerCategory("code")]
     [Description("Allow user to scroll between a range of values.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]

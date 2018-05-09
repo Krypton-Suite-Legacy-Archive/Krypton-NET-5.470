@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.ComponentModel;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Draw the image/text of a recent document in the application menu.
@@ -37,9 +37,9 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="maxWidth">Maximum width allowed for the item.</param>
         /// <param name="needPaintDelegate">Delegate for requesting paint updates.</param>
         /// <param name="index">Recent documet index.</param>
-        public ViewDrawRibbonAppMenuRecentDec(KryptonRibbon ribbon,
+        public ViewDrawRibbonAppMenuRecentDec(Krypton.Ribbon ribbon,
                                               IContextMenuProvider provider,
-                                              KryptonRibbonRecentDoc recentDoc,
+                                              Krypton.RibbonRecentDoc recentDoc,
                                               int maxWidth,
                                               NeedPaintHandler needPaintDelegate,
                                               int index)
@@ -124,7 +124,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the originating recent doc definition.
         /// </summary>
-        public KryptonRibbonRecentDoc RecentDoc { get; }
+        public Krypton.RibbonRecentDoc RecentDoc { get; }
 
 	    /// <summary>
         /// Gets access to the items shortcut text.

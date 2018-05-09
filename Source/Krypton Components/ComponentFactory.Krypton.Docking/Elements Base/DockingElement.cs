@@ -16,10 +16,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
 using System.Linq;
-using ComponentFactory.Krypton.Navigator;
-using ComponentFactory.Krypton.Workspace;
+using Krypton.Navigator;
+using Krypton.Workspace;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
     /// <summary>
     /// Implements base docking element functionality.
@@ -276,7 +276,7 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         /// <param name="state">Request that should result in the cells collection being modified.</param>
         /// <param name="cells">Cells collection for modification by the docking elements.</param>
-        public virtual void PropogateCellList(DockingPropogateCellList state, KryptonWorkspaceCellList cells)
+        public virtual void PropogateCellList(DockingPropogateCellList state, Krypton.WorkspaceCellList cells)
         {
             // Propogate the action request to all the child elements
             // (use reverse order so if element removes itself we still have a valid loop)
@@ -377,11 +377,11 @@ namespace ComponentFactory.Krypton.Docking
         /// Find a floating docking element by searching the hierarchy.
         /// </summary>
         /// <param name="uniqueName">Named page for which a suitable floating element is required.</param>
-        /// <returns>KryptonDockingFloating reference if found; otherwise false.</returns>
-        public virtual KryptonDockingFloating FindDockingFloating(string uniqueName)
+        /// <returns>Krypton.DockingFloating reference if found; otherwise false.</returns>
+        public virtual Krypton.DockingFloating FindDockingFloating(string uniqueName)
         {
             // Default to not finding the element
-            KryptonDockingFloating floatingElement = null;
+            Krypton.DockingFloating floatingElement = null;
 
             // Search all child docking elements
             for (int i = 0; i < Count; i++)
@@ -400,11 +400,11 @@ namespace ComponentFactory.Krypton.Docking
         /// Find a edge docked element by searching the hierarchy.
         /// </summary>
         /// <param name="uniqueName">Named page for which a suitable docking edge element is required.</param>
-        /// <returns>KryptonDockingEdgeDocked reference if found; otherwise false.</returns>
-        public virtual KryptonDockingEdgeDocked FindDockingEdgeDocked(string uniqueName)
+        /// <returns>Krypton.DockingEdgeDocked reference if found; otherwise false.</returns>
+        public virtual Krypton.DockingEdgeDocked FindDockingEdgeDocked(string uniqueName)
         {
             // Default to not finding the element
-            KryptonDockingEdgeDocked edgeDockedElement = null;
+            Krypton.DockingEdgeDocked edgeDockedElement = null;
 
             // Search all child docking elements
             for (int i = 0; i < Count; i++)
@@ -423,11 +423,11 @@ namespace ComponentFactory.Krypton.Docking
         /// Find a edge auto hidden element by searching the hierarchy.
         /// </summary>
         /// <param name="uniqueName">Named page for which a suitable auto hidden edge element is required.</param>
-        /// <returns>KryptonDockingEdgeAutoHidden reference if found; otherwise false.</returns>
-        public virtual KryptonDockingEdgeAutoHidden FindDockingEdgeAutoHidden(string uniqueName)
+        /// <returns>Krypton.DockingEdgeAutoHidden reference if found; otherwise false.</returns>
+        public virtual Krypton.DockingEdgeAutoHidden FindDockingEdgeAutoHidden(string uniqueName)
         {
             // Default to not finding the element
-            KryptonDockingEdgeAutoHidden edgeAutoHiddenElement = null;
+            Krypton.DockingEdgeAutoHidden edgeAutoHiddenElement = null;
 
             // Search all child docking elements
             for (int i = 0; i < Count; i++)
@@ -446,11 +446,11 @@ namespace ComponentFactory.Krypton.Docking
         /// Find a workspace element by searching the hierarchy.
         /// </summary>
         /// <param name="uniqueName">Named page for which a suitable workspace element is required.</param>
-        /// <returns>KryptonDockingWorkspace reference if found; otherwise false.</returns>
-        public virtual KryptonDockingWorkspace FindDockingWorkspace(string uniqueName)
+        /// <returns>Krypton.DockingWorkspace reference if found; otherwise false.</returns>
+        public virtual Krypton.DockingWorkspace FindDockingWorkspace(string uniqueName)
         {
             // Default to not finding the element
-            KryptonDockingWorkspace workspaceElement = null;
+            Krypton.DockingWorkspace workspaceElement = null;
 
             // Search all child docking elements
             for (int i = 0; i < Count; i++)
@@ -469,11 +469,11 @@ namespace ComponentFactory.Krypton.Docking
         /// Find a navigator element by searching the hierarchy.
         /// </summary>
         /// <param name="uniqueName">Named page for which a suitable navigator element is required.</param>
-        /// <returns>KryptonDockingNavigator reference if found; otherwise false.</returns>
-        public virtual KryptonDockingNavigator FindDockingNavigator(string uniqueName)
+        /// <returns>Krypton.DockingNavigator reference if found; otherwise false.</returns>
+        public virtual Krypton.DockingNavigator FindDockingNavigator(string uniqueName)
         {
             // Default to not finding the element
-            KryptonDockingNavigator navigatorElement = null;
+            Krypton.DockingNavigator navigatorElement = null;
 
             // Search all child docking elements
             for (int i = 0; i < Count; i++)
@@ -586,7 +586,7 @@ namespace ComponentFactory.Krypton.Docking
         {
             if (!HasDockManager)
             {
-                throw new ApplicationException("Cannot perform this operation when there is no access to a KryptonDockingManager.");
+                throw new ApplicationException("Cannot perform this operation when there is no access to a Krypton.DockingManager.");
             }
         }
 
@@ -597,10 +597,10 @@ namespace ComponentFactory.Krypton.Docking
         public bool HasDockManager => (DockingManager != null);
 
         /// <summary>
-        /// Finds the KryptonDockingManager instance that owns this part of the docking hierarchy.
+        /// Finds the Krypton.DockingManager instance that owns this part of the docking hierarchy.
         /// </summary>
         [Browsable(false)]
-        public KryptonDockingManager DockingManager
+        public Krypton.DockingManager DockingManager
         {
             get 
             {
@@ -609,9 +609,9 @@ namespace ComponentFactory.Krypton.Docking
                 while (parent != null)
                 {
                     // If we find a match then we are done
-                    if (parent is KryptonDockingManager)
+                    if (parent is Krypton.DockingManager)
                     {
-                        return parent as KryptonDockingManager;
+                        return parent as Krypton.DockingManager;
                     }
 
                     // Keep going up the parent chain

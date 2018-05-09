@@ -16,7 +16,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
     /// Display frame around a group of related controls with an optional caption.
@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [ToolboxBitmap(typeof(KryptonGroupBox), "ToolboxBitmaps.KryptonGroupBox.bmp")]
     [DefaultEvent("Paint")]
 	[DefaultProperty("ValuesPrimary")]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonGroupBoxDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer("Krypton.Toolkit.KryptonGroupBoxDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [DesignerCategory("code")]
     [Description("Display frame around a group of related controls with an optional caption.")]
     [Docking(DockingBehavior.Ask)]

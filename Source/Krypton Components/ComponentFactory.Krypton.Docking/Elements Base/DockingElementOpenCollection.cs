@@ -9,7 +9,7 @@
 //  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
     /// <summary>
     /// Extends base functionality by allowing a collection of child docking elements.

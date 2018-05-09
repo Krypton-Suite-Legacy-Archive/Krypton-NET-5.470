@@ -11,7 +11,7 @@
 
 using System;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
 	/// <summary>
     /// Event arguments for events that need to provide a set of unique names.

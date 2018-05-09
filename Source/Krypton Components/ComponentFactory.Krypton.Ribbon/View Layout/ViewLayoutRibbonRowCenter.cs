@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Collections.Generic;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// View element that positions the elements in a row centered in total area.

@@ -13,9 +13,9 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a ribbon group label.
@@ -29,7 +29,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private readonly NeedPaintHandler _needPaint;
         private ViewLayoutDocker _viewLarge;
         private ViewLayoutRibbonCenterPadding _viewLargeImage;
@@ -52,8 +52,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonLabel">Reference to source label definition.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonGroupLabel(KryptonRibbon ribbon,
-                                        KryptonRibbonGroupLabel ribbonLabel,
+        public ViewDrawRibbonGroupLabel(Krypton.Ribbon ribbon,
+                                        Krypton.RibbonGroupLabel ribbonLabel,
                                         NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);
@@ -124,7 +124,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the owning group label instance.
         /// </summary>
-        public KryptonRibbonGroupLabel GroupLabel { get; private set; }
+        public Krypton.RibbonGroupLabel GroupLabel { get; private set; }
 
         #endregion
 

@@ -11,9 +11,9 @@
 
 using System;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws an design time only for adding a new group to the selected tab.
@@ -30,7 +30,7 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonDesignGroup(KryptonRibbon ribbon,
+        public ViewDrawRibbonDesignGroup(Krypton.Ribbon ribbon,
                                          NeedPaintHandler needPaint)
             : base(ribbon, needPaint)
         {

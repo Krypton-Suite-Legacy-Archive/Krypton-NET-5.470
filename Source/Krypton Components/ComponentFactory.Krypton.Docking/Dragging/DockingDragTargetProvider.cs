@@ -9,9 +9,9 @@
 //  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using ComponentFactory.Krypton.Navigator;
+using Krypton.Navigator;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
     /// <summary>
     /// Provides the set of drag targets relevent to the set of pages being moved.
@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Docking
     public class DockingDragTargetProvider : IDragTargetProvider
     {
         #region Instance Fields
-        private readonly KryptonDockingManager _manager;
+        private readonly Krypton.DockingManager _manager;
         private KryptonPageCollection _pages;
         private readonly KryptonFloatingWindow _floatingWindow;
         #endregion
@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="manager">Reference to docking manager.</param>
         /// <param name="floatingWindow">Reference to window being dragged.</param>
         /// <param name="pages">Reference to collection of pages to drag.</param>
-        public DockingDragTargetProvider(KryptonDockingManager manager, 
+        public DockingDragTargetProvider(Krypton.DockingManager manager, 
                                          KryptonFloatingWindow floatingWindow,
                                          KryptonPageCollection pages)
         {

@@ -9,8 +9,8 @@
     <ProjectGuid>{E00FF125-CB44-480B-847E-7B3D27E481EB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ComponentFactory.Krypton.Docking</RootNamespace>
-    <AssemblyName>ComponentFactory.Krypton.Docking</AssemblyName>
+    <RootNamespace>Krypton.Docking</RootNamespace>
+    <AssemblyName>Krypton Docking</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <StartupObject>
@@ -36,7 +36,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
     <TargetFrameworkProfile />
     <ShouldCreateLogs>True</ShouldCreateLogs>
     <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
@@ -51,24 +50,24 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\Bin\Versions\4.7\</OutputPath>
+    <OutputPath>build\$(Configuration)</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\..\Bin\Versions\4.7\ComponentFactory.Krypton.Docking.XML</DocumentationFile>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Debug\Krypton Docking.xml</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\Bin\</OutputPath>
+    <OutputPath>build\$(Configuration)</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\..\Bin\ComponentFactory.Krypton.Docking.XML</DocumentationFile>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Release\Krypton Docking.xml</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -106,19 +105,19 @@
     <Compile Include="Elements Base\DockingElement.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Elements Impl\KryptonDockingNavigator.cs" />
-    <Compile Include="Elements Impl\KryptonDockingWorkspace.cs" />
-    <Compile Include="Elements Impl\KryptonDockingSpace.cs" />
-    <Compile Include="Elements Impl\KryptonDockingFloatspace.cs" />
-    <Compile Include="Elements Impl\KryptonDockingFloatingWindow.cs" />
-    <Compile Include="Elements Impl\KryptonDockingFloating.cs" />
-    <Compile Include="Elements Impl\KryptonDockingAutoHiddenGroup.cs" />
-    <Compile Include="Elements Impl\KryptonDockingDockspace.cs" />
-    <Compile Include="Elements Impl\KryptonDockingEdgeAutoHidden.cs" />
-    <Compile Include="Elements Impl\KryptonDockingEdgeDocked.cs" />
-    <Compile Include="Elements Impl\KryptonDockingEdge.cs" />
-    <Compile Include="Elements Impl\KryptonDockingManager.cs" />
-    <Compile Include="Elements Impl\KryptonDockingControl.cs" />
+    <Compile Include="Elements Impl\Krypton.DockingNavigator.cs" />
+    <Compile Include="Elements Impl\Krypton.DockingWorkspace.cs" />
+    <Compile Include="Elements Impl\Krypton.DockingSpace.cs" />
+    <Compile Include="Elements Impl\Krypton.DockingFloatspace.cs" />
+    <Compile Include="Elements Impl\Krypton.DockingFloatingWindow.cs" />
+    <Compile Include="Elements Impl\Krypton.DockingFloating.cs" />
+    <Compile Include="Elements Impl\Krypton.DockingAutoHiddenGroup.cs" />
+    <Compile Include="Elements Impl\Krypton.DockingDockspace.cs" />
+    <Compile Include="Elements Impl\Krypton.DockingEdgeAutoHidden.cs" />
+    <Compile Include="Elements Impl\Krypton.DockingEdgeDocked.cs" />
+    <Compile Include="Elements Impl\Krypton.DockingEdge.cs" />
+    <Compile Include="Elements Impl\Krypton.DockingManager.cs" />
+    <Compile Include="Elements Impl\Krypton.DockingControl.cs" />
     <Compile Include="Event Args\AutoHiddenGroupEventArgs.cs" />
     <Compile Include="Event Args\AutoHiddenGroupPanelEventArgs.cs" />
     <Compile Include="Event Args\AutoHiddenSeparatorResizeEventArgs.cs" />
@@ -177,20 +176,20 @@
     <None Include="Resources\CF_Logo.bmp" />
     <EmbeddedResource Include="ToolboxBitmaps\KryptonDockableNavigator.bmp" />
     <EmbeddedResource Include="ToolboxBitmaps\KryptonDockableWorkspace.bmp" />
-    <EmbeddedResource Include="ToolboxBitmaps\KryptonDockingManager.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\Krypton.DockingManager.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ComponentFactory.Krypton.Navigator\ComponentFactory.Krypton.Navigator 2018.csproj">
+    <ProjectReference Include="..\Krypton.Navigator\Krypton.Navigator 2018.csproj">
       <Project>{dc0dd714-4d19-4f31-a6d0-ea209d4f0ea8}</Project>
-      <Name>ComponentFactory.Krypton.Navigator 2018</Name>
+      <Name>Krypton.Navigator 2018</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ComponentFactory.Krypton.Toolkit\ComponentFactory.Krypton.Toolkit 2018.csproj">
+    <ProjectReference Include="..\Krypton.Toolkit\Krypton.Toolkit 2018.csproj">
       <Project>{96ecaecc-54f8-4aa5-8591-b443c2d9565f}</Project>
-      <Name>ComponentFactory.Krypton.Toolkit 2018</Name>
+      <Name>Krypton.Toolkit 2018</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ComponentFactory.Krypton.Workspace\ComponentFactory.Krypton.Workspace 2018.csproj">
+    <ProjectReference Include="..\Krypton.Workspace\Krypton.Workspace 2018.csproj">
       <Project>{9144ba04-155b-4b66-b85a-9a89aa93f7d4}</Project>
-      <Name>ComponentFactory.Krypton.Workspace 2018</Name>
+      <Name>Krypton.Workspace 2018</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -202,7 +201,7 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release "$(ProjectDir)..\GacUtil.exe" -i "$(TargetPath)" /f</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(TargetDir)*.*" "$(ProjectDir)..\..\..\Bin\" /D /R /Y /S</PostBuildEvent>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

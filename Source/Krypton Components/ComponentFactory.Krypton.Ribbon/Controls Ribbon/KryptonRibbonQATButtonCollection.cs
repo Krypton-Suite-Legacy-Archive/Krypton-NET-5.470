@@ -11,14 +11,14 @@
 
 using System;
 using System.ComponentModel;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Quick access toolbar can contain any component that implements the IQuickAccessToolbarEntry
     /// </summary>
-    public class KryptonRibbonQATButtonCollection : TypedRestrictCollection<Component>
+    public class Krypton.RibbonQATButtonCollection : TypedRestrictCollection<Component>
     {
         #region Static Fields
         private static readonly Type[] _types = { typeof(IQuickAccessToolbarButton) };

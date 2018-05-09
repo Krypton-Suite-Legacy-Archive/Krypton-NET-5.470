@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.ComponentModel;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
     /// <summary>
     /// Provides HeaderGroup functionality modified to work in the Outlook mode.
@@ -30,7 +30,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <param name="navigator">Reference to navigator instance.</param>
         /// <param name="redirector">Palette redirector.</param>
         /// <param name="needPaintDelegate">Delegate for notifying paint requests.</param>
-        public ViewletHeaderGroupOutlook(KryptonNavigator navigator,
+        public ViewletHeaderGroupOutlook(Krypton.Navigator navigator,
                                          PaletteRedirect redirector,
                                          NeedPaintHandler needPaintDelegate)
             : base(navigator, redirector, needPaintDelegate)

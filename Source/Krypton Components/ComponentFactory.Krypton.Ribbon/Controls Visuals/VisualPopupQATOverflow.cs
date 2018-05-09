@@ -14,14 +14,14 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     internal class VisualPopupQATOverflow : VisualPopup
     {
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private readonly ViewDrawRibbonQATOverflow _viewQAT;
 
         #endregion
@@ -33,7 +33,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="contents">Reference to original contents which has overflow items.</param>
         /// <param name="renderer">Drawing renderer.</param>
-        public VisualPopupQATOverflow(KryptonRibbon ribbon,
+        public VisualPopupQATOverflow(Krypton.Ribbon ribbon,
                                       ViewLayoutRibbonQATContents contents,
                                       IRenderer renderer)
             : base(renderer, true)

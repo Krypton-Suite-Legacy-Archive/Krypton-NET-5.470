@@ -14,12 +14,12 @@ using System.Drawing.Design;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Manage the items that can be added to a top level context menu collection.
     /// </summary>
-    [Editor("ComponentFactory.Krypton.Toolkit.KryptonContextMenuCollectionEditor, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
+    [Editor("Krypton.Toolkit.KryptonContextMenuCollectionEditor, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
     public class KryptonContextMenuCollection : TypedRestrictCollection<KryptonContextMenuItemBase>
     {
         #region Static Fields

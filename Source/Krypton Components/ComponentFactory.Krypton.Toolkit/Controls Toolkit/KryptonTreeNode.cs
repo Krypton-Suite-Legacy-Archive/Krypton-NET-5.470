@@ -13,7 +13,7 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Krypton extension of the TreeNode allowing extra information to be drawn.

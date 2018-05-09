@@ -11,9 +11,9 @@
 
 using System.Drawing;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Return inhertied values unless empty in which case return the context color.
@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Ribbon
     public class PaletteRibbonContextBack: IPaletteRibbonBack
     {
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private IPaletteRibbonBack _inherit;
         #endregion
 
@@ -30,7 +30,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Initialize a new instance of the PaletteRibbonContextBack class.
 		/// </summary>
         /// <param name="ribbon">Reference to ribbon control.</param>
-        public PaletteRibbonContextBack(KryptonRibbon ribbon) 
+        public PaletteRibbonContextBack(Krypton.Ribbon ribbon) 
 		{
             Debug.Assert(ribbon != null);
             _ribbon = ribbon;
@@ -175,11 +175,11 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // We need an associated ribbon tab
             // Does the ribbon tab have a context setting?
-            KryptonRibbonTab selectedTab = _ribbon?.SelectedTab;
+            Krypton.RibbonTab selectedTab = _ribbon?.SelectedTab;
             if (!string.IsNullOrEmpty(selectedTab?.ContextName))
             {
                 // Find the context definition for this context
-                KryptonRibbonContext ribbonContext = _ribbon.RibbonContexts[selectedTab.ContextName];
+                Krypton.RibbonContext ribbonContext = _ribbon.RibbonContexts[selectedTab.ContextName];
 
                 // Should always work, but you never know!
                 if (ribbonContext != null)

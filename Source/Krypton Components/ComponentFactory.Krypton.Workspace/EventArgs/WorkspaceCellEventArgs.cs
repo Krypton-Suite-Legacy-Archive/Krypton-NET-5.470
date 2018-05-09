@@ -11,7 +11,7 @@
 
 using System;
 
-namespace ComponentFactory.Krypton.Workspace
+namespace Krypton.Workspace
 {
 	/// <summary>
 	/// Workspace cell event data.
@@ -27,7 +27,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// Initialize a new instance of the WorkspaceCellEventArgs class.
 		/// </summary>
         /// <param name="cell">Workspace cell associated with the event.</param>
-        public WorkspaceCellEventArgs(KryptonWorkspaceCell cell)
+        public WorkspaceCellEventArgs(Krypton.WorkspaceCell cell)
 		{
             Cell = cell;
 		}
@@ -37,7 +37,7 @@ namespace ComponentFactory.Krypton.Workspace
 		/// <summary>
         /// Gets the cell reference.
 		/// </summary>
-        public KryptonWorkspaceCell Cell { get; }
+        public Krypton.WorkspaceCell Cell { get; }
 
 	    #endregion
 	}

@@ -11,9 +11,9 @@
 
 using System.ComponentModel;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	/// <summary>
 	/// Storage for outlook full mode related properties.
@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Navigator
     public class NavigatorOutlookFull : Storage
     {
         #region Instance Fields
-        private KryptonNavigator _navigator;
+        private Krypton.Navigator _navigator;
         private MapKryptonPageText _overflowMapText;
         private MapKryptonPageText _overflowMapExtraText;
         private MapKryptonPageImage _overflowMapImage;
@@ -36,7 +36,7 @@ namespace ComponentFactory.Krypton.Navigator
 		/// </summary>
         /// <param name="navigator">Reference to owning navigator instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public NavigatorOutlookFull(KryptonNavigator navigator,
+        public NavigatorOutlookFull(Krypton.Navigator navigator,
                                     NeedPaintHandler needPaint)
 		{
             Debug.Assert(navigator != null);

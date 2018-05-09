@@ -16,14 +16,14 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
     /// <summary>
     /// Designer for the navigator instance.
     /// </summary>
-    public class KryptonNavigatorDesigner : ParentControlDesigner
+    public class Krypton.NavigatorDesigner : ParentControlDesigner
 	{
         #region Instance Fields
         private bool _lastHitTest;
@@ -53,7 +53,7 @@ namespace ComponentFactory.Krypton.Navigator
             AutoResizeHandles = true;
 
             // Cast to correct type
-            Navigator = (KryptonNavigator)component;
+            Navigator = (Krypton.Navigator)component;
 
             // Must enable the child panel so that copy and paste of navigator
             // correctly copies across copies of the child pages. Also allows the
@@ -118,7 +118,7 @@ namespace ComponentFactory.Krypton.Navigator
                 {
 
                     // Add the navigator specific list
-                    new KryptonNavigatorActionList(this)
+                    new Krypton.NavigatorActionList(this)
                 };
 
                 return actionLists;
@@ -322,7 +322,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets access to the associated navigator instance.
         /// </summary>
-        protected KryptonNavigator Navigator { get; private set; }
+        protected Krypton.Navigator Navigator { get; private set; }
 
 	    /// <summary>
         /// Occurs when the component is being removed from the designer.
@@ -364,7 +364,7 @@ namespace ComponentFactory.Krypton.Navigator
         private void OnAddPage(object sender, EventArgs e)
         {
             // Use a transaction to support undo/redo actions
-            DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonNavigator AddPage");
+            DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.Navigator AddPage");
 
             try
             {
@@ -418,7 +418,7 @@ namespace ComponentFactory.Krypton.Navigator
         private void OnRemovePage(object sender, EventArgs e)
         {
             // Use a transaction to support undo/redo actions
-            DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonNavigator RemovePage");
+            DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.Navigator RemovePage");
 
             try
             {
@@ -451,7 +451,7 @@ namespace ComponentFactory.Krypton.Navigator
                                 MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonNavigator RemovePage");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.Navigator RemovePage");
 
                 try
                 {

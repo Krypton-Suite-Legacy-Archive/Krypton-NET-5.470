@@ -12,7 +12,7 @@
 using System.Drawing;
 using System.ComponentModel;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Represents a single gallery range.

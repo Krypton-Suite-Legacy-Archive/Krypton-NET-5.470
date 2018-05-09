@@ -11,9 +11,9 @@
 
 using System.ComponentModel;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Workspace
+namespace Krypton.Workspace
 {
 	/// <summary>
 	/// Storage for workspace context menu for pages.
@@ -49,7 +49,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <summary>
         /// Initialize a new instance of the WorkspaceMenus class.
 		/// </summary>
-        public WorkspaceMenus(KryptonWorkspace workspace)
+        public WorkspaceMenus(Krypton.Workspace workspace)
             : base()
 		{
             // Default values

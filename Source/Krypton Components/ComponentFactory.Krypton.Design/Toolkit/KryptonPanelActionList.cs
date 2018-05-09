@@ -11,7 +11,7 @@
 
 using System.ComponentModel.Design;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     internal class KryptonPanelActionList : DesignerActionList
     {

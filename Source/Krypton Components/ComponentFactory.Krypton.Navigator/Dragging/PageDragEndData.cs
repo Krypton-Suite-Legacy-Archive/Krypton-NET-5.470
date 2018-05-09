@@ -9,7 +9,7 @@
 //  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	/// <summary>
     /// Details for an event that provides pages and cell associated with a page dragging event.
@@ -39,7 +39,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <param name="navigator">Navigator associated with pages.</param>
         /// <param name="pages">Collection of pages.</param>
         public PageDragEndData(object source,
-                               KryptonNavigator navigator,
+                               Krypton.Navigator navigator,
                                KryptonPageCollection pages)
         {
             Source = source;
@@ -55,9 +55,9 @@ namespace ComponentFactory.Krypton.Navigator
         public object Source { get; }
 
 	    /// <summary>
-        /// Gets access to any associated KryptonNavigator instance.
+        /// Gets access to any associated Krypton.Navigator instance.
         /// </summary>
-        public KryptonNavigator Navigator { get; }
+        public Krypton.Navigator Navigator { get; }
 
 	    /// <summary>
         /// Gets access to the collection of pages.

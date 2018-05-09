@@ -11,7 +11,7 @@
 
 using System;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Delegate used for hooking into TypedCollection events.

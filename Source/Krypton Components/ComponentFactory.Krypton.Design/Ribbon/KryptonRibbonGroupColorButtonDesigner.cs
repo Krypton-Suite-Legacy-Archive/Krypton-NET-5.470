@@ -15,16 +15,16 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
-    internal class KryptonRibbonGroupColorButtonDesigner : ComponentDesigner
+    internal class Krypton.RibbonGroupColorButtonDesigner : ComponentDesigner
     {
         #region Instance Fields
         private IDesignerHost _designerHost;
         private IComponentChangeService _changeService;
-        private KryptonRibbonGroupColorButton _ribbonColorButton;
+        private Krypton.RibbonGroupColorButton _ribbonColorButton;
         private DesignerVerbCollection _verbs;
         private DesignerVerb _toggleHelpersVerb;
         private DesignerVerb _moveFirstVerb;
@@ -51,9 +51,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the KryptonRibbonGroupColorButtonDesigner class.
+        /// Initialize a new instance of the Krypton.RibbonGroupColorButtonDesigner class.
         /// </summary>
-        public KryptonRibbonGroupColorButtonDesigner()
+        public Krypton.RibbonGroupColorButtonDesigner()
         {
         }
         #endregion
@@ -77,7 +77,7 @@ namespace ComponentFactory.Krypton.Ribbon
             base.Initialize(component);
 
             // Cast to correct type
-            _ribbonColorButton = (KryptonRibbonGroupColorButton)component;
+            _ribbonColorButton = (Krypton.RibbonGroupColorButton)component;
             _ribbonColorButton.DesignTimeContextMenu += OnContextMenu;
 
             // Get access to the services
@@ -149,7 +149,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             if (_ribbonColorButton?.Ribbon != null)
             {
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
                 moveFirst = (items.IndexOf(_ribbonColorButton) > 0);
                 movePrev = (items.IndexOf(_ribbonColorButton) > 0);
                 moveNext = (items.IndexOf(_ribbonColorButton) < (items.Count - 1));
@@ -176,10 +176,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonColorButton?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupColorButton MoveFirst");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupColorButton MoveFirst");
 
                 try
                 {
@@ -208,10 +208,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonColorButton?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupColorButton MovePrevious");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupColorButton MovePrevious");
 
                 try
                 {
@@ -242,10 +242,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonColorButton?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupColorButton MoveNext");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupColorButton MoveNext");
 
                 try
                 {
@@ -276,10 +276,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonColorButton?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupColorButton MoveLast");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupColorButton MoveLast");
 
                 try
                 {
@@ -308,10 +308,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonColorButton?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupColorButton DeleteButton");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupColorButton DeleteButton");
 
                 try
                 {
@@ -462,15 +462,15 @@ namespace ComponentFactory.Krypton.Ribbon
             }
         }
 
-        private TypedRestrictCollection<KryptonRibbonGroupItem> ParentItems
+        private TypedRestrictCollection<Krypton.RibbonGroupItem> ParentItems
         {
             get
             {
                 switch (_ribbonColorButton.RibbonContainer)
                 {
-                    case KryptonRibbonGroupTriple triple:
+                    case Krypton.RibbonGroupTriple triple:
                         return triple.Items;
-                    case KryptonRibbonGroupLines lines:
+                    case Krypton.RibbonGroupLines lines:
                         return lines.Items;
                     default:
                         // Should never happen!

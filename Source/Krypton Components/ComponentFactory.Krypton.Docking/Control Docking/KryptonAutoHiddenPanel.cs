@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
     /// <summary>
     /// Extends the KryptonPanel to work as a panel for hosting KryptonAutoHiddenGroup controls.

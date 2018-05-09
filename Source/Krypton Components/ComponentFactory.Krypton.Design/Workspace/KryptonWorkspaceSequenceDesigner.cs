@@ -15,22 +15,22 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Workspace
+namespace Krypton.Workspace
 {
-    internal class KryptonWorkspaceSequenceDesigner : ComponentDesigner
+    internal class Krypton.WorkspaceSequenceDesigner : ComponentDesigner
     {
         #region Instance Fields
-        private KryptonWorkspaceSequence _sequence;
+        private Krypton.WorkspaceSequence _sequence;
         private IComponentChangeService _changeService;
         #endregion
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the KryptonWorkspaceSequenceDesigner class.
+        /// Initialize a new instance of the Krypton.WorkspaceSequenceDesigner class.
 		/// </summary>
-        public KryptonWorkspaceSequenceDesigner()
+        public Krypton.WorkspaceSequenceDesigner()
         {
         }            
 		#endregion
@@ -54,7 +54,7 @@ namespace ComponentFactory.Krypton.Workspace
             base.Initialize(component);
 
             // Cast to correct type
-            _sequence = (KryptonWorkspaceSequence)component;
+            _sequence = (Krypton.WorkspaceSequence)component;
 
             // Get access to the services
             _changeService = (IComponentChangeService)GetService(typeof(IComponentChangeService));
@@ -113,7 +113,7 @@ namespace ComponentFactory.Krypton.Workspace
                 IDesignerHost host = (IDesignerHost)GetService(typeof(IDesignerHost));
 
                 // Climb the workspace item tree to get the top most sequence
-                KryptonWorkspace workspace = null;
+                Krypton.Workspace workspace = null;
                 IWorkspaceItem workspaceItem = _sequence;
                 while (workspaceItem.WorkspaceParent != null)
                 {
@@ -121,7 +121,7 @@ namespace ComponentFactory.Krypton.Workspace
                 }
 
                 // Grab the workspace control that contains the top most sequence
-                if (workspaceItem is KryptonWorkspaceSequence sequence)
+                if (workspaceItem is Krypton.WorkspaceSequence sequence)
                 {
                     workspace = sequence.WorkspaceControl;
                 }

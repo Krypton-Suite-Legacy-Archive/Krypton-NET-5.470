@@ -12,9 +12,9 @@
 using System;
 using System.Drawing;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws the text string for a group check box.
@@ -23,8 +23,8 @@ namespace ComponentFactory.Krypton.Ribbon
                                                      IContentValues
     {
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
-        private readonly KryptonRibbonGroupCheckBox _ribbonCheckBox;
+        private readonly Krypton.Ribbon _ribbon;
+        private readonly Krypton.RibbonGroupCheckBox _ribbonCheckBox;
         private readonly RibbonGroupNormalDisabledTextToContent _contentProvider;
         private IDisposable _memento;
         private readonly bool _firstText;
@@ -43,8 +43,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Source ribbon control.</param>
         /// <param name="ribbonCheckBox">Group check box to display title for.</param>
         /// <param name="firstText">Should show the first button text.</param>
-        public ViewDrawRibbonGroupCheckBoxText(KryptonRibbon ribbon,
-                                               KryptonRibbonGroupCheckBox ribbonCheckBox,
+        public ViewDrawRibbonGroupCheckBoxText(Krypton.Ribbon ribbon,
+                                               Krypton.RibbonGroupCheckBox ribbonCheckBox,
                                                bool firstText)
         {
             Debug.Assert(ribbon != null);

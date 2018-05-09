@@ -11,7 +11,7 @@
 
 using System.Windows.Forms;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
     internal class ObscureControl : Control
     {

@@ -13,12 +13,12 @@ using System;
 using System.ComponentModel.Design;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Action item that presents as a method call but calls a property.
     /// </summary>
-    public class KryptonDesignerActionItem : DesignerActionMethodItem
+    public class Krypton.DesignerActionItem : DesignerActionMethodItem
     {
         #region Instance Fields
         private readonly DesignerVerb _verb;
@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="verb">Verb instance to wrap.</param>
         /// <param name="category">Name of the category the action belongs to.</param>
-        public KryptonDesignerActionItem(DesignerVerb verb, string category)
+        public Krypton.DesignerActionItem(DesignerVerb verb, string category)
             : base(null, null, null)
         {
             Debug.Assert(verb != null);

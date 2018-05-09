@@ -30,31 +30,31 @@ namespace QuickAccessToolbar
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.kryptonRibbon = new ComponentFactory.Krypton.Ribbon.KryptonRibbon();
-            this.kryptonContextMenuItem1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.tabHome = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
-            this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
-            this.panelFill = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonGroup2 = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.buttonClear = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.buttonRemove = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.buttonAdd = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.labelQATButtons = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonGroup1 = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.checkButtonDisallowUserChanges = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.checkButtonAllowUserChanges = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.labelQATUserChange = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.groupQATLocation = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.checkButtonHidden = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.checkButtonBelow = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.checkButtonAbove = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.labelQATLocation = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.checkSetQATPosition = new ComponentFactory.Krypton.Toolkit.KryptonCheckSet(this.components);
-            this.checkSetQATUserChange = new ComponentFactory.Krypton.Toolkit.KryptonCheckSet(this.components);
-            this.kryptonCheckButton1 = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.kryptonCheckButton2 = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.kryptonCheckButton3 = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kryptonRibbon = new Krypton.Ribbon.KryptonRibbon();
+            this.kryptonContextMenuItem1 = new Krypton.Toolkit.KryptonContextMenuItem();
+            this.tabHome = new Krypton.Ribbon.KryptonRibbonTab();
+            this.kryptonManager = new Krypton.Toolkit.KryptonManager(this.components);
+            this.panelFill = new Krypton.Toolkit.KryptonPanel();
+            this.kryptonGroup2 = new Krypton.Toolkit.KryptonGroup();
+            this.buttonClear = new Krypton.Toolkit.KryptonButton();
+            this.buttonRemove = new Krypton.Toolkit.KryptonButton();
+            this.buttonAdd = new Krypton.Toolkit.KryptonButton();
+            this.labelQATButtons = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonGroup1 = new Krypton.Toolkit.KryptonGroup();
+            this.checkButtonDisallowUserChanges = new Krypton.Toolkit.KryptonCheckButton();
+            this.checkButtonAllowUserChanges = new Krypton.Toolkit.KryptonCheckButton();
+            this.labelQATUserChange = new Krypton.Toolkit.KryptonLabel();
+            this.groupQATLocation = new Krypton.Toolkit.KryptonGroup();
+            this.checkButtonHidden = new Krypton.Toolkit.KryptonCheckButton();
+            this.checkButtonBelow = new Krypton.Toolkit.KryptonCheckButton();
+            this.checkButtonAbove = new Krypton.Toolkit.KryptonCheckButton();
+            this.labelQATLocation = new Krypton.Toolkit.KryptonLabel();
+            this.checkSetQATPosition = new Krypton.Toolkit.KryptonCheckSet(this.components);
+            this.checkSetQATUserChange = new Krypton.Toolkit.KryptonCheckSet(this.components);
+            this.kryptonCheckButton1 = new Krypton.Toolkit.KryptonCheckButton();
+            this.kryptonCheckButton2 = new Krypton.Toolkit.KryptonCheckButton();
+            this.kryptonCheckButton3 = new Krypton.Toolkit.KryptonCheckButton();
+            this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonRibbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelFill)).BeginInit();
             this.panelFill.SuspendLayout();
@@ -75,10 +75,10 @@ namespace QuickAccessToolbar
             // kryptonRibbon
             // 
             this.kryptonRibbon.Name = "kryptonRibbon";
-            this.kryptonRibbon.RibbonAppButton.AppButtonMenuItems.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonRibbon.RibbonAppButton.AppButtonMenuItems.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kryptonContextMenuItem1});
             this.kryptonRibbon.RibbonAppButton.AppButtonShowRecentDocs = false;
-            this.kryptonRibbon.RibbonTabs.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab[] {
+            this.kryptonRibbon.RibbonTabs.AddRange(new Krypton.Ribbon.KryptonRibbonTab[] {
             this.tabHome});
             this.kryptonRibbon.SelectedContext = null;
             this.kryptonRibbon.SelectedTab = this.tabHome;
@@ -98,7 +98,7 @@ namespace QuickAccessToolbar
             // 
             // kryptonManager
             // 
-            this.kryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2007Silver;
+            this.kryptonManager.GlobalPaletteMode = Krypton.Toolkit.PaletteModeManager.Office2007Silver;
             // 
             // panelFill
             // 
@@ -113,7 +113,7 @@ namespace QuickAccessToolbar
             // 
             // kryptonGroup2
             // 
-            this.kryptonGroup2.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
+            this.kryptonGroup2.GroupBackStyle = Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
             this.kryptonGroup2.Location = new System.Drawing.Point(12, 174);
             this.kryptonGroup2.Name = "kryptonGroup2";
             // 
@@ -155,7 +155,7 @@ namespace QuickAccessToolbar
             // 
             // labelQATButtons
             // 
-            this.labelQATButtons.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitlePanel;
+            this.labelQATButtons.LabelStyle = Krypton.Toolkit.LabelStyle.TitlePanel;
             this.labelQATButtons.Location = new System.Drawing.Point(4, 4);
             this.labelQATButtons.Name = "labelQATButtons";
             this.labelQATButtons.Size = new System.Drawing.Size(124, 29);
@@ -164,7 +164,7 @@ namespace QuickAccessToolbar
             // 
             // kryptonGroup1
             // 
-            this.kryptonGroup1.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
+            this.kryptonGroup1.GroupBackStyle = Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
             this.kryptonGroup1.Location = new System.Drawing.Point(159, 16);
             this.kryptonGroup1.Name = "kryptonGroup1";
             // 
@@ -195,7 +195,7 @@ namespace QuickAccessToolbar
             // 
             // labelQATUserChange
             // 
-            this.labelQATUserChange.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitlePanel;
+            this.labelQATUserChange.LabelStyle = Krypton.Toolkit.LabelStyle.TitlePanel;
             this.labelQATUserChange.Location = new System.Drawing.Point(4, 4);
             this.labelQATUserChange.Name = "labelQATUserChange";
             this.labelQATUserChange.Size = new System.Drawing.Size(165, 29);
@@ -204,7 +204,7 @@ namespace QuickAccessToolbar
             // 
             // groupQATLocation
             // 
-            this.groupQATLocation.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
+            this.groupQATLocation.GroupBackStyle = Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
             this.groupQATLocation.Location = new System.Drawing.Point(12, 16);
             this.groupQATLocation.Name = "groupQATLocation";
             // 
@@ -244,7 +244,7 @@ namespace QuickAccessToolbar
             // 
             // labelQATLocation
             // 
-            this.labelQATLocation.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitlePanel;
+            this.labelQATLocation.LabelStyle = Krypton.Toolkit.LabelStyle.TitlePanel;
             this.labelQATLocation.Location = new System.Drawing.Point(4, 4);
             this.labelQATLocation.Name = "labelQATLocation";
             this.labelQATLocation.Size = new System.Drawing.Size(130, 29);
@@ -293,7 +293,7 @@ namespace QuickAccessToolbar
             // 
             // kryptonLabel1
             // 
-            this.kryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitlePanel;
+            this.kryptonLabel1.LabelStyle = Krypton.Toolkit.LabelStyle.TitlePanel;
             this.kryptonLabel1.Location = new System.Drawing.Point(4, 4);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.Size = new System.Drawing.Size(123, 27);
@@ -337,31 +337,31 @@ namespace QuickAccessToolbar
 
         #endregion
 
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbon kryptonRibbon;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonTab tabHome;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel panelFill;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckSet checkSetQATPosition;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup groupQATLocation;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelQATLocation;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton checkButtonHidden;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton checkButtonBelow;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton checkButtonAbove;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup kryptonGroup1;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton checkButtonDisallowUserChanges;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton checkButtonAllowUserChanges;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelQATUserChange;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckSet checkSetQATUserChange;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup kryptonGroup2;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton buttonClear;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton buttonRemove;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton buttonAdd;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelQATButtons;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton kryptonCheckButton1;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton kryptonCheckButton2;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton kryptonCheckButton3;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem1;
+        private Krypton.Ribbon.KryptonRibbon kryptonRibbon;
+        private Krypton.Ribbon.KryptonRibbonTab tabHome;
+        private Krypton.Toolkit.KryptonManager kryptonManager;
+        private Krypton.Toolkit.KryptonPanel panelFill;
+        private Krypton.Toolkit.KryptonCheckSet checkSetQATPosition;
+        private Krypton.Toolkit.KryptonGroup groupQATLocation;
+        private Krypton.Toolkit.KryptonLabel labelQATLocation;
+        private Krypton.Toolkit.KryptonCheckButton checkButtonHidden;
+        private Krypton.Toolkit.KryptonCheckButton checkButtonBelow;
+        private Krypton.Toolkit.KryptonCheckButton checkButtonAbove;
+        private Krypton.Toolkit.KryptonGroup kryptonGroup1;
+        private Krypton.Toolkit.KryptonCheckButton checkButtonDisallowUserChanges;
+        private Krypton.Toolkit.KryptonCheckButton checkButtonAllowUserChanges;
+        private Krypton.Toolkit.KryptonLabel labelQATUserChange;
+        private Krypton.Toolkit.KryptonCheckSet checkSetQATUserChange;
+        private Krypton.Toolkit.KryptonGroup kryptonGroup2;
+        private Krypton.Toolkit.KryptonButton buttonClear;
+        private Krypton.Toolkit.KryptonButton buttonRemove;
+        private Krypton.Toolkit.KryptonButton buttonAdd;
+        private Krypton.Toolkit.KryptonLabel labelQATButtons;
+        private Krypton.Toolkit.KryptonCheckButton kryptonCheckButton1;
+        private Krypton.Toolkit.KryptonCheckButton kryptonCheckButton2;
+        private Krypton.Toolkit.KryptonCheckButton kryptonCheckButton3;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem1;
     }
 }
 

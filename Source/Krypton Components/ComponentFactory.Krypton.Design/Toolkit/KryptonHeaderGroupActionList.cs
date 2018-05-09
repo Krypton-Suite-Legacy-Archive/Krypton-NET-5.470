@@ -12,7 +12,7 @@
 using System;
 using System.ComponentModel.Design;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     internal class KryptonHeaderGroupActionList : DesignerActionList
     {
@@ -192,11 +192,11 @@ namespace ComponentFactory.Krypton.Toolkit
                 actions.Add(new DesignerActionPropertyItem("GroupBackStyle", "Back style", "Appearance", "Background style"));
                 actions.Add(new DesignerActionPropertyItem("GroupBorderStyle", "Border style", "Appearance", "Border style"));
                 actions.Add(new DesignerActionHeaderItem("Primary Header"));
-                actions.Add(new KryptonDesignerActionItem(_visible1, "Primary Header"));
+                actions.Add(new Krypton.DesignerActionItem(_visible1, "Primary Header"));
                 actions.Add(new DesignerActionPropertyItem("HeaderStylePrimary", "Style", "Primary Header", "Primary header style"));
                 actions.Add(new DesignerActionPropertyItem("HeaderPositionPrimary", "Position", "Primary Header", "Primary header position"));
                 actions.Add(new DesignerActionHeaderItem("Secondary Header"));
-                actions.Add(new KryptonDesignerActionItem(_visible2, "Secondary Header"));
+                actions.Add(new Krypton.DesignerActionItem(_visible2, "Secondary Header"));
                 actions.Add(new DesignerActionPropertyItem("HeaderStyleSecondary", "Style", "Secondary Header", "Secondary header style"));
                 actions.Add(new DesignerActionPropertyItem("HeaderPositionSecondary", "Position", "Secondary Header", "Secondary header position"));
                 actions.Add(new DesignerActionHeaderItem("Visuals"));

@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	/// <summary>
 	/// Draws a window containing rounded docking indicators.

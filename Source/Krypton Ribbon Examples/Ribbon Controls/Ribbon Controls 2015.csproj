@@ -58,17 +58,17 @@
         <Prefer32Bit>false</Prefer32Bit>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+        <Reference Include="Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
             <SpecificVersion>False</SpecificVersion>
-            <HintPath>..\..\..\Bin\Versions\4.7\ComponentFactory.Krypton.Design.dll</HintPath>
+            <HintPath>..\..\..\Bin\Versions\4.7\Krypton.Design.dll</HintPath>
         </Reference>
-        <Reference Include="ComponentFactory.Krypton.Ribbon, Version=4.70.518.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+        <Reference Include="Krypton.Ribbon, Version=4.70.518.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
             <SpecificVersion>False</SpecificVersion>
-            <HintPath>..\..\..\Bin\Versions\4.7\ComponentFactory.Krypton.Ribbon.dll</HintPath>
+            <HintPath>..\..\..\Bin\Versions\4.7\Krypton.Ribbon.dll</HintPath>
         </Reference>
-        <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.70.532.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+        <Reference Include="Krypton.Toolkit, Version=4.70.532.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
             <SpecificVersion>False</SpecificVersion>
-            <HintPath>..\..\..\Bin\Versions\4.7\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+            <HintPath>..\..\..\Bin\Versions\4.7\Krypton.Toolkit.dll</HintPath>
         </Reference>
         <Reference Include="System" />
         <Reference Include="System.Drawing" />

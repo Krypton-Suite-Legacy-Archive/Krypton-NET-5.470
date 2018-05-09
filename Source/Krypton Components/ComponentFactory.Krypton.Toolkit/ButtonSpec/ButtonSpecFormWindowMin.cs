@@ -12,7 +12,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Implementation for the fixed minimize button for krypton form.

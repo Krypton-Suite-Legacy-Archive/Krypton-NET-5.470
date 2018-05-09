@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Process mouse events for a ribbon group radio button.
@@ -27,7 +27,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                                 IRibbonKeyTipTarget
 	{
 		#region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
 	    private readonly ViewDrawRibbonGroupRadioButtonImage _targetImage;
         private NeedPaintHandler _needPaint;
         private bool _rightButtonDown;
@@ -56,7 +56,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="targetMain">Target for main element changes.</param>
         /// <param name="targetImage">Target for image state changes.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public GroupRadioButtonController(KryptonRibbon ribbon,
+        public GroupRadioButtonController(Krypton.Ribbon ribbon,
                                           ViewBase targetMain,
                                           ViewDrawRibbonGroupRadioButtonImage targetImage,
                                           NeedPaintHandler needPaint)
@@ -278,7 +278,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             switch (c)
             {
-                case KryptonRibbon rib:
+                case Krypton.Ribbon rib:
                     KeyDownRibbon(rib, e);
                     break;
                 case VisualPopupGroup pop:
@@ -316,7 +316,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Perform actual selection of the item.
         /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
-        public void KeyTipSelect(KryptonRibbon ribbon)
+        public void KeyTipSelect(Krypton.Ribbon ribbon)
         {
             // Exit keyboard mode when you click the button spec
             ribbon.KillKeyboardMode();
@@ -459,7 +459,7 @@ namespace ComponentFactory.Krypton.Ribbon
 		#endregion
 
         #region Implementation
-        private void KeyDownRibbon(KryptonRibbon ribbon, KeyEventArgs e)
+        private void KeyDownRibbon(Krypton.Ribbon ribbon, KeyEventArgs e)
         {
             ViewBase newView = null;
 

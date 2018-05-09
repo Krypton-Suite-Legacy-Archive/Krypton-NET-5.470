@@ -14,7 +14,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Allow user to select a date using a visual monthly calendar display.

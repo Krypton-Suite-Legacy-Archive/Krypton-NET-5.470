@@ -11,7 +11,7 @@
 
 using System;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Manage a collection of references that must be one of a restricted set of types.

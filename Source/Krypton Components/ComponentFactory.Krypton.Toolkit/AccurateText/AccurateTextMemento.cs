@@ -13,7 +13,7 @@ using System;
 using System.Drawing;
 using System.Drawing.Text;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Encapsulate the information needed to draw text using the AccurateText class.
@@ -27,8 +27,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
 		#region Instance Fields
         private readonly bool _disposeFont;
-	    private TextRenderingHint _hint;
-		#endregion
+	    #endregion
 
 		#region Identity
 		/// <summary>
@@ -51,8 +50,7 @@ namespace ComponentFactory.Krypton.Toolkit
             Size = new Size((int)sizeF.Width + 1, (int)sizeF.Height + 1);
             Font = font;
             Format = format;
-            _hint = hint;
-            _disposeFont = disposeFont;
+		    _disposeFont = disposeFont;
 		}
 
         /// <summary>

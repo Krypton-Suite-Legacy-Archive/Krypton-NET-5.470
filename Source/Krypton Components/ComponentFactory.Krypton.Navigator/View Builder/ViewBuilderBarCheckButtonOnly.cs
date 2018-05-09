@@ -9,9 +9,9 @@
 //  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	/// <summary>
     /// Implements the NavigatorMode.BarCheckButtonOnly mode.
@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Navigator
 		/// <param name="navigator">Reference to navigator instance.</param>
 		/// <param name="manager">Reference to current manager.</param>
 		/// <param name="redirector">Palette redirector.</param>
-		public override void Construct(KryptonNavigator navigator, 
+		public override void Construct(Krypton.Navigator navigator, 
 									   ViewManager manager,
 									   PaletteRedirect redirector)
 		{

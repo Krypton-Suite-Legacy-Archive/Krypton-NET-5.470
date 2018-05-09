@@ -11,9 +11,9 @@
 
 using System.ComponentModel;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	/// <summary>
 	/// Storage for header related properties.
@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Navigator
     public class NavigatorHeader : Storage
     {
         #region Instance Fields
-        private readonly KryptonNavigator _navigator;
+        private readonly Krypton.Navigator _navigator;
         private bool _headerVisiblePrimary;
         private bool _headerVisibleSecondary;
         private bool _headerVisibleBar;
@@ -40,7 +40,7 @@ namespace ComponentFactory.Krypton.Navigator
 		/// </summary>
         /// <param name="navigator">Reference to owning navigator instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public NavigatorHeader(KryptonNavigator navigator,
+        public NavigatorHeader(Krypton.Navigator navigator,
                                NeedPaintHandler needPaint)
 		{
             Debug.Assert(navigator != null);

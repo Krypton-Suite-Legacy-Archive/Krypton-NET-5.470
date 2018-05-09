@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a scrolling button with given orientation.
@@ -23,7 +23,7 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class ViewDrawRibbonScrollButton : ViewLeaf
     {
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private IDisposable _mementoBack;
         #endregion
 
@@ -33,7 +33,7 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="orientation">Scroller orientation.</param>
-        public ViewDrawRibbonScrollButton(KryptonRibbon ribbon,
+        public ViewDrawRibbonScrollButton(Krypton.Ribbon ribbon,
                                           VisualOrientation orientation)
         {
             _ribbon = ribbon;

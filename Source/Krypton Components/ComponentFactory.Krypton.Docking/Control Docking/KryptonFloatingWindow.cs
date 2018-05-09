@@ -14,11 +14,11 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
-using ComponentFactory.Krypton.Navigator;
-using ComponentFactory.Krypton.Workspace;
+using Krypton.Toolkit;
+using Krypton.Navigator;
+using Krypton.Workspace;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
     /// <summary>
     /// Extends the KryptonForm to act as a floating window within the docking framework.
@@ -267,7 +267,7 @@ namespace ComponentFactory.Krypton.Docking
 
         private void UpdateCellSettings()
         {
-            KryptonWorkspaceCell cell = FloatspaceControl.FirstVisibleCell();
+            Krypton.WorkspaceCell cell = FloatspaceControl.FirstVisibleCell();
             if (cell != null)
             {
                 // If there is only a single cell inside the floating window
@@ -295,7 +295,7 @@ namespace ComponentFactory.Krypton.Docking
         private string[] VisibleCloseableUniqueNames()
         {
             List<string> uniqueNames = new List<string>();
-            KryptonWorkspaceCell cell = FloatspaceControl.FirstVisibleCell();
+            Krypton.WorkspaceCell cell = FloatspaceControl.FirstVisibleCell();
             while (cell != null)
             {
                 // Create a list of all the visible page names in the floatspace that are allowed to be closed

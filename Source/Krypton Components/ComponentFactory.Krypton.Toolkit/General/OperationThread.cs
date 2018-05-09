@@ -11,7 +11,7 @@
 
 using System;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     internal class OperationThread : GlobalId
     {

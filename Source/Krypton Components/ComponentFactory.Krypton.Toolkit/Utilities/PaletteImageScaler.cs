@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace ComponentFactory.Krypton.Toolkit.Utilities
+namespace Krypton.Toolkit.Utilities
 {
     /// <summary>
     /// Helper class for high DPI.

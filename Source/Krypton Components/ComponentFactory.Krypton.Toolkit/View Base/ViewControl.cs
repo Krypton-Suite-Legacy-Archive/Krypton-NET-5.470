@@ -16,7 +16,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Reflection;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Control that is contained inside an element to act as clipping of real controls.

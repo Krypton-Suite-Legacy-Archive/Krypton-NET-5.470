@@ -14,9 +14,9 @@ using System.Drawing.Drawing2D;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Layout area for the application button.
@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private readonly ViewLayoutRibbonSeparator _separator;
 
         #endregion
@@ -42,7 +42,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         /// <param name="ribbon">Owning control instance.</param>
         /// <param name="bottomHalf">Scroller orientation.</param>
-        public ViewLayoutRibbonAppButton(KryptonRibbon ribbon,
+        public ViewLayoutRibbonAppButton(Krypton.Ribbon ribbon,
                                          bool bottomHalf)
         {
             Debug.Assert(ribbon != null);

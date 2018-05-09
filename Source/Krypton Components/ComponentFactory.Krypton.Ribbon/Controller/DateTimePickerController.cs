@@ -11,9 +11,9 @@
 
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Process mouse events for a ribbon group date time picker.
@@ -24,8 +24,8 @@ namespace ComponentFactory.Krypton.Ribbon
                                               IRibbonKeyTipTarget
 	{
 		#region Instance Fields
-        private readonly KryptonRibbon _ribbon;
-        private readonly KryptonRibbonGroupDateTimePicker _dateTimePicker;
+        private readonly Krypton.Ribbon _ribbon;
+        private readonly Krypton.RibbonGroupDateTimePicker _dateTimePicker;
         private readonly ViewDrawRibbonGroupDateTimePicker _target;
         #endregion
 
@@ -36,8 +36,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         /// <param name="dateTimePicker">Source definition.</param>
         /// <param name="target">Target view element.</param>
-        public DateTimePickerController(KryptonRibbon ribbon,
-                                        KryptonRibbonGroupDateTimePicker dateTimePicker,
+        public DateTimePickerController(Krypton.Ribbon ribbon,
+                                        Krypton.RibbonGroupDateTimePicker dateTimePicker,
                                         ViewDrawRibbonGroupDateTimePicker target)
 		{
             Debug.Assert(ribbon != null);
@@ -87,7 +87,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             switch (c)
             {
-                case KryptonRibbon rib:
+                case Krypton.Ribbon rib:
                     KeyDownRibbon(rib, e);
                     break;
                 case VisualPopupGroup pop:
@@ -125,7 +125,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Perform actual selection of the item.
         /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
-        public void KeyTipSelect(KryptonRibbon ribbon)
+        public void KeyTipSelect(Krypton.Ribbon ribbon)
         {
             // Can the date time picker take the focus
             if (_dateTimePicker.LastDateTimePicker.CanFocus)
@@ -155,7 +155,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Implementation
-        private void KeyDownRibbon(KryptonRibbon ribbon, KeyEventArgs e)
+        private void KeyDownRibbon(Krypton.Ribbon ribbon, KeyEventArgs e)
         {
             ViewBase newView = null;
 

@@ -15,7 +15,7 @@ using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.ComponentModel;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Base class for drawing a krypton context menu as a popup control.

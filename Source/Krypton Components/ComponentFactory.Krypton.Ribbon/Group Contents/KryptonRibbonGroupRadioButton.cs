@@ -14,21 +14,21 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Represents a ribbon group radio button.
     /// </summary>
     [ToolboxItem(false)]
-    [ToolboxBitmap(typeof(KryptonRibbonGroupRadioButton), "ToolboxBitmaps.KryptonRibbonGroupRadioButton.bmp")]
-    [Designer("ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupRadioButtonDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [ToolboxBitmap(typeof(Krypton.RibbonGroupRadioButton), "ToolboxBitmaps.Krypton.RibbonGroupRadioButton.bmp")]
+    [Designer("Krypton.Ribbon.Krypton.RibbonGroupRadioButtonDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
     [DefaultEvent("CheckedChanged")]
     [DefaultProperty("Checked")]
-    public class KryptonRibbonGroupRadioButton : KryptonRibbonGroupItem
+    public class Krypton.RibbonGroupRadioButton : Krypton.RibbonGroupItem
     {
         #region Instance Fields
         private bool _enabled;
@@ -77,9 +77,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialise a new instance of the KryptonRibbonGroupRadioButton class.
+        /// Initialise a new instance of the Krypton.RibbonGroupRadioButton class.
         /// </summary>
-        public KryptonRibbonGroupRadioButton()
+        public Krypton.RibbonGroupRadioButton()
         {
             // Default fields
             _enabled = true;
@@ -428,7 +428,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="needPaint">Delegate for notifying changes in display.</param>
         /// <returns>ViewBase derived instance.</returns>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override ViewBase CreateView(KryptonRibbon ribbon, 
+        public override ViewBase CreateView(Krypton.Ribbon ribbon, 
                                             NeedPaintHandler needPaint)
         {
             return new ViewDrawRibbonGroupRadioButton(ribbon, this, needPaint);
@@ -595,7 +595,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 else
                 {
                     // If this is another radio button...
-                    if (component is KryptonRibbonGroupRadioButton radioButton)
+                    if (component is Krypton.RibbonGroupRadioButton radioButton)
                     {
 
                         // Do not process ourself!

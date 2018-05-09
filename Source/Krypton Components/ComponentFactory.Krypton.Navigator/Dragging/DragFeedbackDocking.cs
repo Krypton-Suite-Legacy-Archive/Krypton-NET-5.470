@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
     /// <summary>
     /// Provides drag feedback as a set of docking indicators.

@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.ComponentModel;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
     /// <summary>
     /// Provides HeaderGroup functionality.
@@ -40,7 +40,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <param name="navigator">Reference to navigator instance.</param>
         /// <param name="redirector">Palette redirector.</param>
         /// <param name="needPaintDelegate">Delegate for notifying paint requests.</param>
-        public ViewletHeaderGroup(KryptonNavigator navigator,
+        public ViewletHeaderGroup(Krypton.Navigator navigator,
                                   PaletteRedirect redirector,
                                   NeedPaintHandler needPaintDelegate)
         {
@@ -59,7 +59,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets access to the navigator reference.
         /// </summary>
-        public KryptonNavigator Navigator { get; }
+        public Krypton.Navigator Navigator { get; }
 
         /// <summary>
         /// Gets access to the palette redirector reference.

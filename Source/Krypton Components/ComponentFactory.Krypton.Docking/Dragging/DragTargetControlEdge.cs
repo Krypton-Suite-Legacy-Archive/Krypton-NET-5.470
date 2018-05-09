@@ -13,10 +13,10 @@ using System;
 using System.Drawing;
 using System.Diagnostics;
 using System.Collections.Generic;
-using ComponentFactory.Krypton.Toolkit;
-using ComponentFactory.Krypton.Navigator;
+using Krypton.Toolkit;
+using Krypton.Navigator;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
     /// <summary>
     /// Target one of the four sides of a docking control.
@@ -43,7 +43,7 @@ namespace ComponentFactory.Krypton.Docking
                                      Rectangle hotRect,
                                      Rectangle drawRect,
                                      DragTargetHint hint,
-                                     KryptonDockingControl controlElement,
+                                     Krypton.DockingControl controlElement,
                                      KryptonPageFlags allowFlags,
                                      bool outsideEdge)
             : base(screenRect, hotRect, drawRect, hint, allowFlags)
@@ -97,7 +97,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the target docking element.
         /// </summary>
-        public KryptonDockingControl ControlElement { get; private set; }
+        public Krypton.DockingControl ControlElement { get; private set; }
 
         /// <summary>
         /// Is this target a match for the provided screen position.
@@ -119,26 +119,26 @@ namespace ComponentFactory.Krypton.Docking
         public override bool PerformDrop(Point screenPt, PageDragEndData data)
         {
             // Find our docking edge
-            KryptonDockingEdge dockingEdge = null;
+            Krypton.DockingEdge dockingEdge = null;
             switch (Edge)
             {
                 case VisualOrientation.Left:
-                    dockingEdge = ControlElement["Left"] as KryptonDockingEdge;
+                    dockingEdge = ControlElement["Left"] as Krypton.DockingEdge;
                     break;
                 case VisualOrientation.Right:
-                    dockingEdge = ControlElement["Right"] as KryptonDockingEdge;
+                    dockingEdge = ControlElement["Right"] as Krypton.DockingEdge;
                     break;
                 case VisualOrientation.Top:
-                    dockingEdge = ControlElement["Top"] as KryptonDockingEdge;
+                    dockingEdge = ControlElement["Top"] as Krypton.DockingEdge;
                     break;
                 case VisualOrientation.Bottom:
-                    dockingEdge = ControlElement["Bottom"] as KryptonDockingEdge;
+                    dockingEdge = ControlElement["Bottom"] as Krypton.DockingEdge;
                     break;
             }
 
             // Find the docked edge
-            KryptonDockingEdgeDocked dockedEdge = dockingEdge?["Docked"] as KryptonDockingEdgeDocked;
-            KryptonDockingManager manager = dockedEdge?.DockingManager;
+            Krypton.DockingEdgeDocked dockedEdge = dockingEdge?["Docked"] as Krypton.DockingEdgeDocked;
+            Krypton.DockingManager manager = dockedEdge?.DockingManager;
             if (manager != null)
             {
                 // Create a list of pages that are allowed to be transferred into the dockspace
@@ -167,7 +167,7 @@ namespace ComponentFactory.Krypton.Docking
                     manager.PropogateAction(DockingPropogateAction.StorePages, transferUniqueNames.ToArray());
 
                     // Create a new dockspace at the start of the list so it is closest to the control edge
-                    KryptonDockingDockspace dockspace = (_outsideEdge ? dockedEdge.InsertDockspace(0) : dockedEdge.AppendDockspace());
+                    Krypton.DockingDockspace dockspace = (_outsideEdge ? dockedEdge.InsertDockspace(0) : dockedEdge.AppendDockspace());
 
                     // Add pages into the target
                     dockspace.Append(transferPages.ToArray());

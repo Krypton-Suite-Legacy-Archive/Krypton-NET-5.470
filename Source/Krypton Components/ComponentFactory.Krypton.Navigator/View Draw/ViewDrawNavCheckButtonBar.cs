@@ -11,9 +11,9 @@
 
 using System;
 using System.Drawing;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	/// <summary>
 	/// Navigator view element for drawing a bar check button for a krypton page.
@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <param name="navigator">Owning navigator instance.</param>
         /// <param name="page">Page this check button represents.</param>
         /// <param name="orientation">Orientation for the check button.</param>
-        public ViewDrawNavCheckButtonBar(KryptonNavigator navigator,
+        public ViewDrawNavCheckButtonBar(Krypton.Navigator navigator,
                                          KryptonPage page,
                                          VisualOrientation orientation)
             : base(navigator, page, orientation)
@@ -47,7 +47,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <param name="statePressed">Source for pressed state values.</param>
         /// <param name="stateSelected">Source for selected state values.</param>
         /// <param name="stateFocused">Source for focused state values.</param>
-        public ViewDrawNavCheckButtonBar(KryptonNavigator navigator,
+        public ViewDrawNavCheckButtonBar(Krypton.Navigator navigator,
                                          KryptonPage page,
                                          VisualOrientation orientation,
                                          IPaletteTriple stateDisabled,

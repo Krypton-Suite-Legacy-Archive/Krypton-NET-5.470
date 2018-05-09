@@ -25,7 +25,7 @@ using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Reflection;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     #region Delegates
     /// <summary>

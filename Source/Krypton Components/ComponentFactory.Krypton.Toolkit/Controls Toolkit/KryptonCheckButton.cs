@@ -14,7 +14,7 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
     /// Presents the user with a binary choice such as Yes/No or True/False.
@@ -23,7 +23,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [ToolboxBitmap(typeof(KryptonCheckButton), "ToolboxBitmaps.KryptonCheckButton.bmp")]
     [DefaultEvent("Click")]
 	[DefaultProperty("Text")]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonCheckButtonDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer("Krypton.Toolkit.KryptonCheckButtonDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [DesignerCategory("code")]
     [Description("Toggles checked state when user clicks button.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]

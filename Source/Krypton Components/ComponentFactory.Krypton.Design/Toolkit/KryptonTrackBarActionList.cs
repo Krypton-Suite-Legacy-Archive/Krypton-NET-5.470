@@ -14,7 +14,7 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     internal class KryptonTrackBarActionList : DesignerActionList
     {
@@ -193,7 +193,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 actions.Add(new DesignerActionHeaderItem("Layout"));
                 actions.Add(new DesignerActionPropertyItem("TickStyle", "Tick Style", "Layout", "Tick style"));
                 actions.Add(new DesignerActionPropertyItem("TrackBarSize", "TrackBar Size", "Layout", "Size of the track bar"));
-                actions.Add(new KryptonDesignerActionItem(new DesignerVerb(_action, OnOrientationClick), "Layout"));
+                actions.Add(new Krypton.DesignerActionItem(new DesignerVerb(_action, OnOrientationClick), "Layout"));
                 actions.Add(new DesignerActionHeaderItem("Values"));
                 actions.Add(new DesignerActionPropertyItem("Minimum", "Minimum", "Values", "Minium value"));
                 actions.Add(new DesignerActionPropertyItem("Maximum", "Maximum", "Values", "Maximum value"));

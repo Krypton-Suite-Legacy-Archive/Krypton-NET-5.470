@@ -12,7 +12,7 @@
 using System.Drawing;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a large image from a gallery.
@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly KryptonRibbonGroupGallery _ribbonGallery;
+        private readonly Krypton.RibbonGroupGallery _ribbonGallery;
         #endregion
 
         #region Identity
@@ -34,8 +34,8 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonGallery">Reference to ribbon group gallery definition.</param>
-        public ViewDrawRibbonGroupGalleryImage(KryptonRibbon ribbon,
-                                               KryptonRibbonGroupGallery ribbonGallery)
+        public ViewDrawRibbonGroupGalleryImage(Krypton.Ribbon ribbon,
+                                               Krypton.RibbonGroupGallery ribbonGallery)
             : base(ribbon)
         {
             Debug.Assert(ribbonGallery != null);

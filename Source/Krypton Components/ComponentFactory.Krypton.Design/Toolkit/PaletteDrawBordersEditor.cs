@@ -14,7 +14,7 @@ using System.Drawing.Design;
 using System.ComponentModel;
 using System.Windows.Forms.Design;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     internal class PaletteDrawBordersEditor : UITypeEditor
     {

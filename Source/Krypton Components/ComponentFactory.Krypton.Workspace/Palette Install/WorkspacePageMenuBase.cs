@@ -14,9 +14,9 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Reflection;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Workspace
+namespace Krypton.Workspace
 {
     /// <summary>
     /// Storage for workspace context menu for pages.
@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// Initialize a new instance of the WorkspacePageMenuBase class.
         /// </summary>
         /// <param name="workspace">Reference to owning workspace.</param>
-        public WorkspacePageMenuBase(KryptonWorkspace workspace)
+        public WorkspacePageMenuBase(Krypton.Workspace workspace)
         {
         }
         #endregion

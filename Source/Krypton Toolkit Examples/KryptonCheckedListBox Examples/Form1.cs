@@ -5,16 +5,12 @@
 //  proprietary information of Component Factory Pty Ltd, PO Box 1504, 
 //  Glen Waverley, Vic 3150, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.5.0.0 	www.ComponentFactory.com
+//  Version 4.70.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Drawing;
 using System.Windows.Forms;
-using System.ComponentModel;
-using System.Collections.Generic;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
 namespace KryptonCheckedListBoxExamples
 {
@@ -64,14 +60,18 @@ namespace KryptonCheckedListBoxExamples
 
             // If nothing currently selected, then select the new one
             if (kryptonCheckedListBox.SelectedIndex == -1)
+            {
                 kryptonCheckedListBox.SelectedIndex = 0;
+            }
         }
 
         private void buttonInsert_Click(object sender, EventArgs e)
         {
             // Can only insert if something is already selected
             if (kryptonCheckedListBox.SelectedIndex >= 0)
+            {
                 kryptonCheckedListBox.Items.Insert(kryptonCheckedListBox.SelectedIndex, CreateNewItem());
+            }
         }
 
         private void buttonRemove_Click(object sender, EventArgs e)
@@ -82,14 +82,18 @@ namespace KryptonCheckedListBoxExamples
                 // Find the new index to select
                 int index = kryptonCheckedListBox.SelectedIndex;
                 if (index == (kryptonCheckedListBox.Items.Count - 1))
+                {
                     index--;
+                }
 
                 // Remove entry
                 kryptonCheckedListBox.Items.RemoveAt(kryptonCheckedListBox.SelectedIndex);
 
                 // Select the new item
                 if (index < kryptonCheckedListBox.Items.Count)
+                {
                     kryptonCheckedListBox.SelectedIndex = index;
+                }
             }
         }
 
@@ -101,13 +105,21 @@ namespace KryptonCheckedListBoxExamples
         private void kryptonCheckSet_CheckedButtonChanged(object sender, EventArgs e)
         {
             if (kryptonCheckSet.CheckedButton == check2007Blue)
+            {
                 kryptonManager1.GlobalPaletteMode = PaletteModeManager.Office2007Blue;
+            }
             else if (kryptonCheckSet.CheckedButton == check2010Blue)
+            {
                 kryptonManager1.GlobalPaletteMode = PaletteModeManager.Office2010Blue;
+            }
             else if (kryptonCheckSet.CheckedButton == checkSparkle)
+            {
                 kryptonManager1.GlobalPaletteMode = PaletteModeManager.SparkleBlue;
+            }
             else if (kryptonCheckSet.CheckedButton == checkSystem)
+            {
                 kryptonManager1.GlobalPaletteMode = PaletteModeManager.ProfessionalSystem;
+            }
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

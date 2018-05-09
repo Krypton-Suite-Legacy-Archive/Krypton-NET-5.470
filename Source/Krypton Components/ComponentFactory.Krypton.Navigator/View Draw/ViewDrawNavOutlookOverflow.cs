@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.Drawing;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	/// <summary>
 	/// Navigator view element for drawing an overflow item for the Outlook mode.
@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <param name="navigator">Owning navigator instance.</param>
         /// <param name="page">Page this check button represents.</param>
         /// <param name="orientation">Orientation for the check button.</param>
-        public ViewDrawNavOutlookOverflow(KryptonNavigator navigator,
+        public ViewDrawNavOutlookOverflow(Krypton.Navigator navigator,
                                           KryptonPage page,
                                           VisualOrientation orientation)
             : base(navigator, page, orientation, true)

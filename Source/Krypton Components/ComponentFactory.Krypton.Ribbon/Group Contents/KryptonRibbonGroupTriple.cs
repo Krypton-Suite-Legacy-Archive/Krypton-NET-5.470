@@ -14,20 +14,20 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Represents a ribbon group triple container.
     /// </summary>
     [ToolboxItem(false)]
-    [ToolboxBitmap(typeof(KryptonRibbonGroupTriple), "ToolboxBitmaps.KryptonRibbonGroupTriple.bmp")]
-    [Designer("ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTripleDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [ToolboxBitmap(typeof(Krypton.RibbonGroupTriple), "ToolboxBitmaps.Krypton.RibbonGroupTriple.bmp")]
+    [Designer("Krypton.Ribbon.Krypton.RibbonGroupTripleDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
     [DefaultProperty("Visible")]
-    public class KryptonRibbonGroupTriple : KryptonRibbonGroupContainer
+    public class Krypton.RibbonGroupTriple : Krypton.RibbonGroupContainer
     {
         #region Instance Fields
 
@@ -154,9 +154,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialise a new instance of the KryptonRibbonGroupTriple class.
+        /// Initialise a new instance of the Krypton.RibbonGroupTriple class.
         /// </summary>
-        public KryptonRibbonGroupTriple()
+        public Krypton.RibbonGroupTriple()
         {
             // Default fields
             _visible = true;
@@ -166,7 +166,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _itemAlignment = RibbonItemAlignment.Near;
 
             // Create collection for holding triple items
-            Items = new KryptonRibbonGroupTripleCollection();
+            Items = new Krypton.RibbonGroupTripleCollection();
             Items.Clearing += OnRibbonGroupTripleClearing;
             Items.Cleared += OnRibbonGroupTripleCleared;
             Items.Inserted += OnRibbonGroupTripleInserted;
@@ -182,7 +182,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if (disposing)
             {
                 // Dispose of per-item resources
-                foreach (KryptonRibbonGroupItem item in Items)
+                foreach (Krypton.RibbonGroupItem item in Items)
                 {
                     item.Dispose();
                 }
@@ -199,7 +199,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public override KryptonRibbon Ribbon
+        public override Krypton.Ribbon Ribbon
         {
             get => base.Ribbon;
 
@@ -209,7 +209,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Forward the reference to all children (just in case the children
                 // are added before the this object is added to the owner)
-                foreach (KryptonRibbonGroupItem item in Items)
+                foreach (Krypton.RibbonGroupItem item in Items)
                 {
                     item.Ribbon = value;
                 }
@@ -222,7 +222,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public override KryptonRibbonTab RibbonTab
+        public override Krypton.RibbonTab RibbonTab
         {
             get => base.RibbonTab;
 
@@ -232,7 +232,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 // Forward the reference to all children (just in case the children
                 // are added before the this object is added to the owner)
-                foreach (KryptonRibbonGroupItem item in Items)
+                foreach (Krypton.RibbonGroupItem item in Items)
                 {
                     item.RibbonTab = value;
                 }
@@ -453,7 +453,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="needPaint">Delegate for notifying changes in display.</param>
         /// <returns>ViewBase derived instance.</returns>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override ViewBase CreateView(KryptonRibbon ribbon,
+        public override ViewBase CreateView(Krypton.Ribbon ribbon,
                                             NeedPaintHandler needPaint)
         {
             return new ViewLayoutRibbonGroupTriple(ribbon, this, needPaint);
@@ -465,9 +465,9 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Visuals")]
         [Description("Collection of ribbon group triple items.")]
         [MergableProperty(false)]
-        [Editor("ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTripleCollectionEditor, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
+        [Editor("Krypton.Ribbon.Krypton.RibbonGroupTripleCollectionEditor, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonRibbonGroupTripleCollection Items { get; }
+        public Krypton.RibbonGroupTripleCollection Items { get; }
 
         /// <summary>
         /// Gets an array of all the contained components.
@@ -580,7 +580,7 @@ namespace ComponentFactory.Krypton.Ribbon
         internal override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             // Ask the containers to check for command key processing
-            foreach (KryptonRibbonGroupItem item in Items)
+            foreach (Krypton.RibbonGroupItem item in Items)
             {
                 if (item.ProcessCmdKey(ref msg, keyData))
                 {
@@ -613,7 +613,7 @@ namespace ComponentFactory.Krypton.Ribbon
             }
         }
 
-        private void OnRibbonGroupTripleInserted(object sender, TypedCollectionEventArgs<KryptonRibbonGroupItem> e)
+        private void OnRibbonGroupTripleInserted(object sender, TypedCollectionEventArgs<Krypton.RibbonGroupItem> e)
         {
             // Setup the back references
             e.Item.Ribbon = Ribbon;
@@ -632,7 +632,7 @@ namespace ComponentFactory.Krypton.Ribbon
             }
         }
 
-        private void OnRibbonGroupTripleRemoved(object sender, TypedCollectionEventArgs<KryptonRibbonGroupItem> e)
+        private void OnRibbonGroupTripleRemoved(object sender, TypedCollectionEventArgs<Krypton.RibbonGroupItem> e)
         {
             // Remove the back references
             e.Item.Ribbon = null;

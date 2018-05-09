@@ -12,9 +12,9 @@
 using System;
 using System.Drawing;
 using System.ComponentModel;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
     #region PageButtonSpecCollection
     /// <summary>
@@ -37,7 +37,7 @@ namespace ComponentFactory.Krypton.Navigator
 
     #region NavigatorButtonSpecCollection
     /// <summary>
-    /// Collection for managing NavigatorButtonSpec instances for a KryptonNavigator.
+    /// Collection for managing NavigatorButtonSpec instances for a Krypton.Navigator.
     /// </summary>
     public class NavigatorButtonSpecCollection : ButtonSpecCollection<ButtonSpecNavigator> 
     { 
@@ -46,7 +46,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// Initialize a new instance of the NavigatorButtonSpecCollection class.
         /// </summary>
         /// <param name="owner">Reference to owning object.</param>
-        public NavigatorButtonSpecCollection(KryptonNavigator owner)
+        public NavigatorButtonSpecCollection(Krypton.Navigator owner)
             : base(owner)
         {
         }
@@ -65,7 +65,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// Initialize a new instance of the NavFixedButtonSpecCollection class.
         /// </summary>
         /// <param name="owner">Reference to owning object.</param>
-        public NavFixedButtonSpecCollection(KryptonNavigator owner)
+        public NavFixedButtonSpecCollection(Krypton.Navigator owner)
             : base(owner)
         {
         }
@@ -744,7 +744,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <param name="sender">Source of the page drag; should never be null.</param>
         /// <param name="navigator">Navigator instance associated with source; can be null.</param>
         /// <param name="e">Event arguments indicating list of pages being dragged.</param>
-        void PageDragStart(object sender, KryptonNavigator navigator, PageDragCancelEventArgs e);
+        void PageDragStart(object sender, Krypton.Navigator navigator, PageDragCancelEventArgs e);
 
         /// <summary>
         /// Occurs when the mouse moves during the drag operation.
@@ -798,7 +798,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets the navigator this check item is inside.
         /// </summary>
-        KryptonNavigator Navigator { get; }
+        Krypton.Navigator Navigator { get; }
 
         /// <summary>
         /// Gets and sets the checked state of the check item.

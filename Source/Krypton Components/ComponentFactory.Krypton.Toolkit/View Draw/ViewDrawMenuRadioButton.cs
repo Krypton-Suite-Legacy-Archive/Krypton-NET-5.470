@@ -13,7 +13,7 @@ using System;
 using System.Diagnostics;
 using System.ComponentModel;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     internal class ViewDrawMenuRadioButton: ViewComposite
     {

@@ -12,15 +12,15 @@
 using System;
 using System.ComponentModel.Design;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
-	internal class KryptonRibbonGroupTripleCollectionEditor : CollectionEditor
+	internal class Krypton.RibbonGroupTripleCollectionEditor : CollectionEditor
 	{
 		/// <summary>
-        /// Initialize a new instance of the KryptonRibbonGroupTripleCollectionEditor class.
+        /// Initialize a new instance of the Krypton.RibbonGroupTripleCollectionEditor class.
 		/// </summary>
-        public KryptonRibbonGroupTripleCollectionEditor()
-            : base(typeof(KryptonRibbonGroupTripleCollection))
+        public Krypton.RibbonGroupTripleCollectionEditor()
+            : base(typeof(Krypton.RibbonGroupTripleCollection))
 		{
 		}
 
@@ -30,17 +30,17 @@ namespace ComponentFactory.Krypton.Ribbon
 		/// <returns>An array of data types that this collection can contain.</returns>
 		protected override Type[] CreateNewItemTypes()
 		{
-            return new Type[] { typeof(KryptonRibbonGroupButton),
-                                typeof(KryptonRibbonGroupColorButton),
-                                typeof(KryptonRibbonGroupCheckBox),
-                                typeof(KryptonRibbonGroupComboBox),
-                                typeof(KryptonRibbonGroupCustomControl),
-                                typeof(KryptonRibbonGroupDateTimePicker),
-                                typeof(KryptonRibbonGroupLabel),
-                                typeof(KryptonRibbonGroupRadioButton),
-                                typeof(KryptonRibbonGroupRichTextBox),
-                                typeof(KryptonRibbonGroupTextBox),
-                                typeof(KryptonRibbonGroupMaskedTextBox)};
+            return new Type[] { typeof(Krypton.RibbonGroupButton),
+                                typeof(Krypton.RibbonGroupColorButton),
+                                typeof(Krypton.RibbonGroupCheckBox),
+                                typeof(Krypton.RibbonGroupComboBox),
+                                typeof(Krypton.RibbonGroupCustomControl),
+                                typeof(Krypton.RibbonGroupDateTimePicker),
+                                typeof(Krypton.RibbonGroupLabel),
+                                typeof(Krypton.RibbonGroupRadioButton),
+                                typeof(Krypton.RibbonGroupRichTextBox),
+                                typeof(Krypton.RibbonGroupTextBox),
+                                typeof(Krypton.RibbonGroupMaskedTextBox)};
 		}
 	}
 }

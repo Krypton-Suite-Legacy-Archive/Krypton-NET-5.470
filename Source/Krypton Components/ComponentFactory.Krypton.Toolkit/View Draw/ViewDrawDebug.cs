@@ -13,7 +13,7 @@ using System;
 using System.Drawing;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
     /// View element that has a preferred size and then draws a solid color, used for debugging.

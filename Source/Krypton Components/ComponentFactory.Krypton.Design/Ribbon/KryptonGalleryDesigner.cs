@@ -17,7 +17,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.Design;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     internal class KryptonGalleryDesigner : ParentControlDesigner
     {

@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     #region IQuickAccessToolbarButton
     /// <summary>
@@ -37,7 +37,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Provides a back reference to the owning ribbon control instance.
         /// </summary>
         /// <param name="ribbon">Reference to owning instance.</param>
-        void SetRibbon(KryptonRibbon ribbon);
+        void SetRibbon(Krypton.Ribbon ribbon);
 
         /// <summary>
         /// Gets the entry image.
@@ -116,17 +116,17 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the owning ribbon control instance.
         /// </summary>
-        KryptonRibbon Ribbon { get; set; }
+        Krypton.Ribbon Ribbon { get; set; }
 
         /// <summary>
         /// Gets and sets the owning ribbon tab instance.
         /// </summary>
-        KryptonRibbonTab RibbonTab { get; set; }
+        Krypton.RibbonTab RibbonTab { get; set; }
 
         /// <summary>
         /// Gets and sets the owning ribbon container instance.
         /// </summary>
-        KryptonRibbonGroupContainer RibbonContainer { get; set; }
+        Krypton.RibbonGroupContainer RibbonContainer { get; set; }
 
         /// <summary>
         /// Gets the visible state of the item.
@@ -161,7 +161,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Reference to the owning ribbon control.</param>
         /// <param name="needPaint">Delegate for notifying changes in display.</param>
         /// <returns>ViewBase derived instance.</returns>
-        ViewBase CreateView(KryptonRibbon ribbon, NeedPaintHandler needPaint);
+        ViewBase CreateView(Krypton.Ribbon ribbon, NeedPaintHandler needPaint);
     }
     #endregion
 
@@ -312,7 +312,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Perform actual selection of the item.
         /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
-        void KeyTipSelect(KryptonRibbon ribbon);
+        void KeyTipSelect(Krypton.Ribbon ribbon);
     }
     #endregion
 

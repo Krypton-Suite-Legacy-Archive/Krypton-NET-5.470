@@ -14,7 +14,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {    
     /// <summary>
     /// Used to obscure an area of the screen to hide form changes underneath.

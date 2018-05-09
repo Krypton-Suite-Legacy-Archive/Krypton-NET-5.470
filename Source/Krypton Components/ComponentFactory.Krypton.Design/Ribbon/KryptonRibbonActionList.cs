@@ -10,27 +10,27 @@
 // *****************************************************************************
 
 using System.ComponentModel.Design;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
-    internal class KryptonRibbonActionList : DesignerActionList
+    internal class Krypton.RibbonActionList : DesignerActionList
     {
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private readonly IComponentChangeService _service;
         #endregion
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the KryptonRibbonActionList class.
+        /// Initialize a new instance of the Krypton.RibbonActionList class.
         /// </summary>
         /// <param name="owner">Designer that owns this action list instance.</param>
-        public KryptonRibbonActionList(KryptonRibbonDesigner owner) 
+        public Krypton.RibbonActionList(Krypton.RibbonDesigner owner) 
             : base(owner.Component)
         {
             // Remember the ribbon instance
-            _ribbon = (KryptonRibbon)owner.Component;
+            _ribbon = (Krypton.Ribbon)owner.Component;
 
             // Cache service used to notify when a property has changed
             _service = (IComponentChangeService)GetService(typeof(IComponentChangeService));

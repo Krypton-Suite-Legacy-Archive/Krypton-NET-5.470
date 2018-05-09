@@ -14,7 +14,7 @@ using System.Drawing;
 using System.Diagnostics;
 using System.ComponentModel;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     internal class ViewDrawMenuCheckButton : ViewComposite
     {

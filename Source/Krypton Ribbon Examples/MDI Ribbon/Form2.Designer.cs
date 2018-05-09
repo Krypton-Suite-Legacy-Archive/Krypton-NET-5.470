@@ -17,19 +17,19 @@ namespace MDIRibbon
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.radioSparkleOrange = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.radioSparklePurple = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.radioSparkleBlue = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.radioBlack = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.radioSilver = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.radioBlue = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.radioOffice2003 = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.radioSystem = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
-            this.radio2010Black = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.radio2010Silver = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.radio2010Blue = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
+            this.kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
+            this.radioSparkleOrange = new Krypton.Toolkit.KryptonRadioButton();
+            this.radioSparklePurple = new Krypton.Toolkit.KryptonRadioButton();
+            this.radioSparkleBlue = new Krypton.Toolkit.KryptonRadioButton();
+            this.radioBlack = new Krypton.Toolkit.KryptonRadioButton();
+            this.radioSilver = new Krypton.Toolkit.KryptonRadioButton();
+            this.radioBlue = new Krypton.Toolkit.KryptonRadioButton();
+            this.radioOffice2003 = new Krypton.Toolkit.KryptonRadioButton();
+            this.radioSystem = new Krypton.Toolkit.KryptonRadioButton();
+            this.kryptonManager = new Krypton.Toolkit.KryptonManager(this.components);
+            this.radio2010Black = new Krypton.Toolkit.KryptonRadioButton();
+            this.radio2010Silver = new Krypton.Toolkit.KryptonRadioButton();
+            this.radio2010Blue = new Krypton.Toolkit.KryptonRadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +55,7 @@ namespace MDIRibbon
             // 
             // radioSparkleOrange
             // 
-            this.radioSparkleOrange.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.radioSparkleOrange.LabelStyle = Krypton.Toolkit.LabelStyle.NormalPanel;
             this.radioSparkleOrange.Location = new System.Drawing.Point(289, 41);
             this.radioSparkleOrange.Name = "radioSparkleOrange";
             this.radioSparkleOrange.Size = new System.Drawing.Size(110, 19);
@@ -65,7 +65,7 @@ namespace MDIRibbon
             // 
             // radioSparklePurple
             // 
-            this.radioSparklePurple.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.radioSparklePurple.LabelStyle = Krypton.Toolkit.LabelStyle.NormalPanel;
             this.radioSparklePurple.Location = new System.Drawing.Point(289, 65);
             this.radioSparklePurple.Name = "radioSparklePurple";
             this.radioSparklePurple.Size = new System.Drawing.Size(104, 19);
@@ -75,7 +75,7 @@ namespace MDIRibbon
             // 
             // radioSparkleBlue
             // 
-            this.radioSparkleBlue.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.radioSparkleBlue.LabelStyle = Krypton.Toolkit.LabelStyle.NormalPanel;
             this.radioSparkleBlue.Location = new System.Drawing.Point(289, 17);
             this.radioSparkleBlue.Name = "radioSparkleBlue";
             this.radioSparkleBlue.Size = new System.Drawing.Size(93, 19);
@@ -85,7 +85,7 @@ namespace MDIRibbon
             // 
             // radioBlack
             // 
-            this.radioBlack.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.radioBlack.LabelStyle = Krypton.Toolkit.LabelStyle.NormalPanel;
             this.radioBlack.Location = new System.Drawing.Point(150, 65);
             this.radioBlack.Name = "radioBlack";
             this.radioBlack.Size = new System.Drawing.Size(119, 19);
@@ -95,7 +95,7 @@ namespace MDIRibbon
             // 
             // radioSilver
             // 
-            this.radioSilver.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.radioSilver.LabelStyle = Krypton.Toolkit.LabelStyle.NormalPanel;
             this.radioSilver.Location = new System.Drawing.Point(150, 41);
             this.radioSilver.Name = "radioSilver";
             this.radioSilver.Size = new System.Drawing.Size(120, 19);
@@ -105,7 +105,7 @@ namespace MDIRibbon
             // 
             // radioBlue
             // 
-            this.radioBlue.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.radioBlue.LabelStyle = Krypton.Toolkit.LabelStyle.NormalPanel;
             this.radioBlue.Location = new System.Drawing.Point(150, 17);
             this.radioBlue.Name = "radioBlue";
             this.radioBlue.Size = new System.Drawing.Size(114, 19);
@@ -115,7 +115,7 @@ namespace MDIRibbon
             // 
             // radioOffice2003
             // 
-            this.radioOffice2003.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.radioOffice2003.LabelStyle = Krypton.Toolkit.LabelStyle.NormalPanel;
             this.radioOffice2003.Location = new System.Drawing.Point(15, 103);
             this.radioOffice2003.Name = "radioOffice2003";
             this.radioOffice2003.Size = new System.Drawing.Size(81, 19);
@@ -125,7 +125,7 @@ namespace MDIRibbon
             // 
             // radioSystem
             // 
-            this.radioSystem.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.radioSystem.LabelStyle = Krypton.Toolkit.LabelStyle.NormalPanel;
             this.radioSystem.Location = new System.Drawing.Point(150, 103);
             this.radioSystem.Name = "radioSystem";
             this.radioSystem.Size = new System.Drawing.Size(59, 19);
@@ -135,7 +135,7 @@ namespace MDIRibbon
             // 
             // radio2010Black
             // 
-            this.radio2010Black.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.radio2010Black.LabelStyle = Krypton.Toolkit.LabelStyle.NormalPanel;
             this.radio2010Black.Location = new System.Drawing.Point(15, 65);
             this.radio2010Black.Name = "radio2010Black";
             this.radio2010Black.Size = new System.Drawing.Size(119, 19);
@@ -145,7 +145,7 @@ namespace MDIRibbon
             // 
             // radio2010Silver
             // 
-            this.radio2010Silver.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.radio2010Silver.LabelStyle = Krypton.Toolkit.LabelStyle.NormalPanel;
             this.radio2010Silver.Location = new System.Drawing.Point(15, 41);
             this.radio2010Silver.Name = "radio2010Silver";
             this.radio2010Silver.Size = new System.Drawing.Size(120, 19);
@@ -156,7 +156,7 @@ namespace MDIRibbon
             // radio2010Blue
             // 
             this.radio2010Blue.Checked = true;
-            this.radio2010Blue.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.radio2010Blue.LabelStyle = Krypton.Toolkit.LabelStyle.NormalPanel;
             this.radio2010Blue.Location = new System.Drawing.Point(15, 17);
             this.radio2010Blue.Name = "radio2010Blue";
             this.radio2010Blue.Size = new System.Drawing.Size(114, 19);
@@ -183,18 +183,18 @@ namespace MDIRibbon
 
         #endregion
 
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton radioSystem;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton radioBlack;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton radioSilver;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton radioBlue;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton radioOffice2003;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton radioSparkleBlue;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton radioSparkleOrange;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton radioSparklePurple;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton radio2010Black;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton radio2010Silver;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton radio2010Blue;
+        private Krypton.Toolkit.KryptonPanel kryptonPanel1;
+        private Krypton.Toolkit.KryptonRadioButton radioSystem;
+        private Krypton.Toolkit.KryptonRadioButton radioBlack;
+        private Krypton.Toolkit.KryptonRadioButton radioSilver;
+        private Krypton.Toolkit.KryptonRadioButton radioBlue;
+        private Krypton.Toolkit.KryptonRadioButton radioOffice2003;
+        private Krypton.Toolkit.KryptonManager kryptonManager;
+        private Krypton.Toolkit.KryptonRadioButton radioSparkleBlue;
+        private Krypton.Toolkit.KryptonRadioButton radioSparkleOrange;
+        private Krypton.Toolkit.KryptonRadioButton radioSparklePurple;
+        private Krypton.Toolkit.KryptonRadioButton radio2010Black;
+        private Krypton.Toolkit.KryptonRadioButton radio2010Silver;
+        private Krypton.Toolkit.KryptonRadioButton radio2010Blue;
     }
 }

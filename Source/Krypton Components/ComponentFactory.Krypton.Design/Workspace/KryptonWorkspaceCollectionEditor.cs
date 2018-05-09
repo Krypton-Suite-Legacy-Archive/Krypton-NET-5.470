@@ -16,18 +16,18 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Collections.Generic;
-using ComponentFactory.Krypton.Toolkit;
-using ComponentFactory.Krypton.Navigator;
+using Krypton.Toolkit;
+using Krypton.Navigator;
 
-namespace ComponentFactory.Krypton.Workspace
+namespace Krypton.Workspace
 {
-    internal class KryptonWorkspaceCollectionEditor : CollectionEditor
+    internal class Krypton.WorkspaceCollectionEditor : CollectionEditor
     {
         #region Classes
         /// <summary>
-        /// Form used for editing the KryptonWorkspaceCollection.
+        /// Form used for editing the Krypton.WorkspaceCollection.
         /// </summary>
-        protected partial class KryptonWorkspaceCollectionForm : CollectionForm
+        protected partial class Krypton.WorkspaceCollectionForm : CollectionForm
         {
             #region Types
             /// <summary>
@@ -317,7 +317,7 @@ namespace ComponentFactory.Krypton.Workspace
             protected class CellProxy
             {
                 #region Instance Fields
-                private readonly KryptonWorkspaceCell _item;
+                private readonly Krypton.WorkspaceCell _item;
                 #endregion
 
                 #region Identity
@@ -325,7 +325,7 @@ namespace ComponentFactory.Krypton.Workspace
                 /// Initialize a new instance of the CellProxy class.
                 /// </summary>
                 /// <param name="item">Item to act as proxy for.</param>
-                public CellProxy(KryptonWorkspaceCell item)
+                public CellProxy(Krypton.WorkspaceCell item)
                 {
                     _item = item;
                 }
@@ -610,7 +610,7 @@ namespace ComponentFactory.Krypton.Workspace
             protected class SequenceProxy
             {
                 #region Instance Fields
-                private readonly KryptonWorkspaceSequence _item;
+                private readonly Krypton.WorkspaceSequence _item;
                 #endregion
 
                 #region Identity
@@ -618,7 +618,7 @@ namespace ComponentFactory.Krypton.Workspace
                 /// Initialize a new instance of the SequenceProxy class.
                 /// </summary>
                 /// <param name="item">Item to act as proxy for.</param>
-                public SequenceProxy(KryptonWorkspaceSequence item)
+                public SequenceProxy(Krypton.WorkspaceSequence item)
                 {
                     _item = item;
                 }
@@ -689,14 +689,14 @@ namespace ComponentFactory.Krypton.Workspace
                         Text = "Page (" + PageItem.Text.ToString() + ")";
                     }
 
-                    CellItem = item as KryptonWorkspaceCell;
+                    CellItem = item as Krypton.WorkspaceCell;
                     if (CellItem != null)
                     {
                         CellItem.PropertyChanged += OnCellPropertyChanged;
                         Text = "Cell (" + CellItem.StarSize.ToString() + ")";
                     }
 
-                    SequenceItem = item as KryptonWorkspaceSequence;
+                    SequenceItem = item as Krypton.WorkspaceSequence;
                     if (SequenceItem != null)
                     {
                         SequenceItem.PropertyChanged += OnSequencePropertyChanged;
@@ -719,12 +719,12 @@ namespace ComponentFactory.Krypton.Workspace
                 /// <summary>
                 /// Gets access to the associated workspace cell item.
                 /// </summary>
-                public KryptonWorkspaceCell CellItem { get; }
+                public Krypton.WorkspaceCell CellItem { get; }
 
                 /// <summary>
                 /// Gets access to the associated workspace sequence item.
                 /// </summary>
-                public KryptonWorkspaceSequence SequenceItem { get; }
+                public Krypton.WorkspaceSequence SequenceItem { get; }
 
                 /// <summary>
                 /// Gets the instance identifier.
@@ -828,7 +828,7 @@ namespace ComponentFactory.Krypton.Workspace
             #endregion
 
             #region Instance Fields
-            private readonly KryptonWorkspaceCollectionEditor _editor;
+            private readonly Krypton.WorkspaceCollectionEditor _editor;
             private DictItemBase _beforeItems;
             private readonly TreeView treeView;
             private readonly PropertyGrid propertyGrid;
@@ -845,9 +845,9 @@ namespace ComponentFactory.Krypton.Workspace
 
             #region Identity
             /// <summary>
-            /// Initialize a new instance of the KryptonWorkspaceCollectionForm class.
+            /// Initialize a new instance of the Krypton.WorkspaceCollectionForm class.
             /// </summary>
-            public KryptonWorkspaceCollectionForm(KryptonWorkspaceCollectionEditor editor)
+            public Krypton.WorkspaceCollectionForm(Krypton.WorkspaceCollectionEditor editor)
                 : base(editor)
             {
                 _editor = editor;
@@ -1028,7 +1028,7 @@ namespace ComponentFactory.Krypton.Workspace
                 VisibleChanged += OnVisibleChanged;
                 Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
                 MinimumSize = new Size(501, 344);
-                Name = "KryptonWorkspaceCollectionForm";
+                Name = "Krypton.WorkspaceCollectionForm";
                 StartPosition = FormStartPosition.CenterScreen;
                 Text = "Workspace Collection Editor";
                 ResumeLayout(false);
@@ -1391,7 +1391,7 @@ namespace ComponentFactory.Krypton.Workspace
             private void buttonAddCell_Click(object sender, EventArgs e)
             {
                 // Create new cell and menu node for the cell and two nodes for the child pages
-                KryptonWorkspaceCell cell = (KryptonWorkspaceCell)CreateInstance(typeof(KryptonWorkspaceCell));
+                Krypton.WorkspaceCell cell = (Krypton.WorkspaceCell)CreateInstance(typeof(Krypton.WorkspaceCell));
                 TreeNode newNode = new MenuTreeNode(cell);
 
                 // Add each page inside the new cell as a child of the new node
@@ -1441,7 +1441,7 @@ namespace ComponentFactory.Krypton.Workspace
             private void buttonAddSequence_Click(object sender, EventArgs e)
             {
                 // Create new sequence and menu node for the sequence
-                KryptonWorkspaceSequence sequence = (KryptonWorkspaceSequence)CreateInstance(typeof(KryptonWorkspaceSequence));
+                Krypton.WorkspaceSequence sequence = (Krypton.WorkspaceSequence)CreateInstance(typeof(Krypton.WorkspaceSequence));
                 TreeNode newNode = new MenuTreeNode(sequence);
 
                 MenuTreeNode selectedNode = (MenuTreeNode)treeView.SelectedNode;
@@ -1697,7 +1697,7 @@ namespace ComponentFactory.Krypton.Workspace
                 after = separator.WorkspaceItem;
 
                 // Workspace item before the separator (to the left or above)
-                KryptonWorkspaceSequence beforeSequence = (KryptonWorkspaceSequence)after.WorkspaceParent;
+                Krypton.WorkspaceSequence beforeSequence = (Krypton.WorkspaceSequence)after.WorkspaceParent;
 
                 // Previous items might be invisible and so search till we find the visible one we expect
                 before = null;
@@ -1771,7 +1771,7 @@ namespace ComponentFactory.Krypton.Workspace
                 dictItems.Add(baseItem, baseItem);
 
                 // Add pages from a cell
-                if (baseItem is KryptonWorkspaceCell cell)
+                if (baseItem is Krypton.WorkspaceCell cell)
                 {
                     foreach (Component item in cell.Pages)
                     {
@@ -1780,7 +1780,7 @@ namespace ComponentFactory.Krypton.Workspace
                 }
 
                 // Add children from a sequence
-                if (baseItem is KryptonWorkspaceSequence sequence)
+                if (baseItem is Krypton.WorkspaceSequence sequence)
                 {
                     foreach (Component item in sequence.Children)
                     {
@@ -1805,7 +1805,7 @@ namespace ComponentFactory.Krypton.Workspace
                 }
 
                 // Add pages from a cell
-                if (item is KryptonWorkspaceCell cell)
+                if (item is Krypton.WorkspaceCell cell)
                 {
                     foreach (Component page in cell.Pages)
                     {
@@ -1814,7 +1814,7 @@ namespace ComponentFactory.Krypton.Workspace
                 }
 
                 // Add children from a sequence
-                if (item is KryptonWorkspaceSequence sequence)
+                if (item is Krypton.WorkspaceSequence sequence)
                 {
                     foreach (Component child in sequence.Children)
                     {
@@ -1867,10 +1867,10 @@ namespace ComponentFactory.Krypton.Workspace
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the KryptonWorkspaceCollectionEditor class.
+        /// Initialize a new instance of the Krypton.WorkspaceCollectionEditor class.
 		/// </summary>
-        public KryptonWorkspaceCollectionEditor()
-            : base(typeof(KryptonWorkspaceCollection))
+        public Krypton.WorkspaceCollectionEditor()
+            : base(typeof(Krypton.WorkspaceCollection))
 		{
         }
         #endregion
@@ -1879,11 +1879,11 @@ namespace ComponentFactory.Krypton.Workspace
         /// <summary>
         /// Gets access to the owning workspace instance.
         /// </summary>
-        public KryptonWorkspace Workspace
+        public Krypton.Workspace Workspace
         {
             get
             {
-                KryptonWorkspaceSequence sequence = (KryptonWorkspaceSequence)Context.Instance;
+                Krypton.WorkspaceSequence sequence = (Krypton.WorkspaceSequence)Context.Instance;
                 return sequence.WorkspaceControl;
             }
         }
@@ -1896,7 +1896,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// <returns>A CollectionForm to provide as the user interface for editing the collection.</returns>
         protected override CollectionForm CreateCollectionForm()
         {
-            return new KryptonWorkspaceCollectionForm(this);
+            return new Krypton.WorkspaceCollectionForm(this);
         }
         #endregion
     }

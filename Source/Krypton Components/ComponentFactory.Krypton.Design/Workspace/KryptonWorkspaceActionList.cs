@@ -10,27 +10,27 @@
 // *****************************************************************************
 
 using System.ComponentModel.Design;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Workspace
+namespace Krypton.Workspace
 {
-    internal class KryptonWorkspaceActionList : DesignerActionList
+    internal class Krypton.WorkspaceActionList : DesignerActionList
     {
         #region Instance Fields
-        private readonly KryptonWorkspace _workspace;
+        private readonly Krypton.Workspace _workspace;
         private readonly IComponentChangeService _service;
         #endregion
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the KryptonWorkspaceActionList class.
+        /// Initialize a new instance of the Krypton.WorkspaceActionList class.
         /// </summary>
         /// <param name="owner">Designer that owns this action list instance.</param>
-        public KryptonWorkspaceActionList(KryptonWorkspaceDesigner owner)
+        public Krypton.WorkspaceActionList(Krypton.WorkspaceDesigner owner)
             : base(owner.Component)
         {
             // Remember designer and actual component instance being designed
-            _workspace = (KryptonWorkspace)owner.Component;
+            _workspace = (Krypton.Workspace)owner.Component;
 
             // Cache service used to notify when a property has changed
             _service = (IComponentChangeService)GetService(typeof(IComponentChangeService));

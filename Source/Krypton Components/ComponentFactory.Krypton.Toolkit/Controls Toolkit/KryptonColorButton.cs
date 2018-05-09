@@ -17,7 +17,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
     /// Combines color button functionality with the styling features of the Krypton Toolkit.
@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [ToolboxBitmap(typeof(KryptonColorButton), "ToolboxBitmaps.KryptonColorButton.bmp")]
     [DefaultEvent("SelectedColorChanged")]
     [DefaultProperty("SelectedColor")]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonColorButtonDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer("Krypton.Toolkit.KryptonColorButtonDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [DesignerCategory("code")]
     [Description("Raises an event when the user clicks it.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]

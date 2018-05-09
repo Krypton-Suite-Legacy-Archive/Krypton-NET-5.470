@@ -12,7 +12,7 @@
 using System.Drawing;
 using System.ComponentModel.Design;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
     internal class KryptonPageActionList : DesignerActionList
     {

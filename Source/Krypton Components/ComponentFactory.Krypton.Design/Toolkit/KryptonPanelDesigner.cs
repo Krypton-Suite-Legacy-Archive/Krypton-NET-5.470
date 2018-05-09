@@ -15,7 +15,7 @@ using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     internal class KryptonPanelDesigner : ScrollableControlDesigner
 	{

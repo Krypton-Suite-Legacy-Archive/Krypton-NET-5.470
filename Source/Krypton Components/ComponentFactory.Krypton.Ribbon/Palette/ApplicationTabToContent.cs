@@ -10,14 +10,14 @@
 // *****************************************************************************
 
 using System.Drawing;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     internal class ApplicationTabToContent : RibbonToContent
     {
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         #endregion
 
         #region Identity
@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         /// <param name="ribbon">Reference to owning ribbon control..</param>
         /// <param name="ribbonGeneral">Source for general ribbon settings.</param>
-        public ApplicationTabToContent(KryptonRibbon ribbon,
+        public ApplicationTabToContent(Krypton.Ribbon ribbon,
                                        PaletteRibbonGeneral ribbonGeneral)
             : base(ribbonGeneral)
         {

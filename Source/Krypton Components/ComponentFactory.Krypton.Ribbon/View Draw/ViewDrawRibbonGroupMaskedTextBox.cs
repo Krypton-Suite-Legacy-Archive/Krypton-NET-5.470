@@ -14,9 +14,9 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a ribbon group masked textbox.
@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private ViewDrawRibbonGroup _activeGroup;
         private readonly MaskedTextBoxController _controller;
         private readonly NeedPaintHandler _needPaint;
@@ -45,8 +45,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonMaskedTextBox">Reference to source masked textbox.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonGroupMaskedTextBox(KryptonRibbon ribbon,
-                                                KryptonRibbonGroupMaskedTextBox ribbonMaskedTextBox,
+        public ViewDrawRibbonGroupMaskedTextBox(Krypton.Ribbon ribbon,
+                                                Krypton.RibbonGroupMaskedTextBox ribbonMaskedTextBox,
                                                 NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);
@@ -135,7 +135,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the owning group masked textbox instance.
         /// </summary>
-        public KryptonRibbonGroupMaskedTextBox GroupMaskedTextBox { get; private set; }
+        public Krypton.RibbonGroupMaskedTextBox GroupMaskedTextBox { get; private set; }
 
         #endregion
 
@@ -571,7 +571,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         {
                             // Check that the group is not collapsed
                             if ((GroupMaskedTextBox.RibbonContainer.RibbonGroup.IsCollapsed) &&
-                                ((_ribbon.GetControllerControl(GroupMaskedTextBox.MaskedTextBox) is KryptonRibbon) ||
+                                ((_ribbon.GetControllerControl(GroupMaskedTextBox.MaskedTextBox) is Krypton.Ribbon) ||
                                  (_ribbon.GetControllerControl(GroupMaskedTextBox.MaskedTextBox) is VisualPopupMinimized)))
                             {
                                 visible = false;
@@ -579,7 +579,7 @@ namespace ComponentFactory.Krypton.Ribbon
                             else
                             {
                                 // Check that the hierarchy of containers are all visible
-                                KryptonRibbonGroupContainer container = GroupMaskedTextBox.RibbonContainer;
+                                Krypton.RibbonGroupContainer container = GroupMaskedTextBox.RibbonContainer;
 
                                 // Keep going until we have searched the entire parent chain of containers
                                 while (container != null)

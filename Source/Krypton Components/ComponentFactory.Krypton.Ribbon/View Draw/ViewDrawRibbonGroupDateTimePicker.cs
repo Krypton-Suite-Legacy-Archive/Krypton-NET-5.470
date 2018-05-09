@@ -14,9 +14,9 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a ribbon group date time picker.
@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private ViewDrawRibbonGroup _activeGroup;
         private readonly DateTimePickerController _controller;
         private readonly NeedPaintHandler _needPaint;
@@ -45,8 +45,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonDateTimePicker">Reference to source date time picker.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonGroupDateTimePicker(KryptonRibbon ribbon,
-                                                 KryptonRibbonGroupDateTimePicker ribbonDateTimePicker,
+        public ViewDrawRibbonGroupDateTimePicker(Krypton.Ribbon ribbon,
+                                                 Krypton.RibbonGroupDateTimePicker ribbonDateTimePicker,
                                                  NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);
@@ -135,7 +135,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets access to the owning group date time picker instance.
         /// </summary>
-        public KryptonRibbonGroupDateTimePicker GroupDateTimePicker { get; private set; }
+        public Krypton.RibbonGroupDateTimePicker GroupDateTimePicker { get; private set; }
 
         #endregion
 
@@ -574,7 +574,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         {
                             // Check that the group is not collapsed
                             if ((GroupDateTimePicker.RibbonContainer.RibbonGroup.IsCollapsed) &&
-                                ((_ribbon.GetControllerControl(GroupDateTimePicker.DateTimePicker) is KryptonRibbon) ||
+                                ((_ribbon.GetControllerControl(GroupDateTimePicker.DateTimePicker) is Krypton.Ribbon) ||
                                  (_ribbon.GetControllerControl(GroupDateTimePicker.DateTimePicker) is VisualPopupMinimized)))
                             {
                                 visible = false;
@@ -582,7 +582,7 @@ namespace ComponentFactory.Krypton.Ribbon
                             else
                             {
                                 // Check that the hierarchy of containers are all visible
-                                KryptonRibbonGroupContainer container = GroupDateTimePicker.RibbonContainer;
+                                Krypton.RibbonGroupContainer container = GroupDateTimePicker.RibbonContainer;
 
                                 // Keep going until we have searched the entire parent chain of containers
                                 while (container != null)

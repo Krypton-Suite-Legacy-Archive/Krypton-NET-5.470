@@ -13,7 +13,7 @@ using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     [ToolboxItem(false)]
     internal partial class PaletteDrawBordersSelector : UserControl

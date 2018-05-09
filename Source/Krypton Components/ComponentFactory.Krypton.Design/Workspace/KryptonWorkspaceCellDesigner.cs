@@ -11,11 +11,11 @@
 
 using System.ComponentModel.Design;
 using System.Windows.Forms.Design;
-using ComponentFactory.Krypton.Navigator;
+using Krypton.Navigator;
 
-namespace ComponentFactory.Krypton.Workspace
+namespace Krypton.Workspace
 {
-    internal class KryptonWorkspaceCellDesigner : KryptonNavigatorDesigner
+    internal class Krypton.WorkspaceCellDesigner : Krypton.NavigatorDesigner
     {
         #region Public
         /// <summary>
@@ -37,9 +37,9 @@ namespace ComponentFactory.Krypton.Workspace
             if (e.Component == Navigator)
             {
                 // If this workspace cell is inside a parent
-                KryptonWorkspaceCell cell = (KryptonWorkspaceCell)Navigator;
+                Krypton.WorkspaceCell cell = (Krypton.WorkspaceCell)Navigator;
                 // Cell an only be inside a workspace sequence
-                KryptonWorkspaceSequence sequence = (KryptonWorkspaceSequence) cell.WorkspaceParent;
+                Krypton.WorkspaceSequence sequence = (Krypton.WorkspaceSequence) cell.WorkspaceParent;
                 // Remove the cell from the parent
                 sequence?.Children.Remove(cell);
             }

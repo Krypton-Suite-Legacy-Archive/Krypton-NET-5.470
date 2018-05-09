@@ -12,9 +12,9 @@
 using System;
 using System.Drawing;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Draws the group image for a collapsed group.
@@ -34,8 +34,8 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
-        private readonly KryptonRibbonGroup _ribbonGroup;
+        private readonly Krypton.Ribbon _ribbon;
+        private readonly Krypton.RibbonGroup _ribbonGroup;
         private readonly ViewDrawRibbonGroup _viewGroup;
         private IDisposable _memento1;
         private IDisposable _memento2;
@@ -50,8 +50,8 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonGroup">Reference to ribbon group definition.</param>
         /// <param name="viewGroup">Reference to top level group element.</param>
-        public ViewDrawRibbonGroupImage(KryptonRibbon ribbon,
-                                        KryptonRibbonGroup ribbonGroup,
+        public ViewDrawRibbonGroupImage(Krypton.Ribbon ribbon,
+                                        Krypton.RibbonGroup ribbonGroup,
                                         ViewDrawRibbonGroup viewGroup)
         {
             Debug.Assert(ribbon != null);

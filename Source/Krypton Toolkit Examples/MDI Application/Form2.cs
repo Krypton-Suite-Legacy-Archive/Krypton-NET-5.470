@@ -5,16 +5,11 @@
 //  proprietary information of Component Factory Pty Ltd, PO Box 1504, 
 //  Glen Waverley, Vic 3150, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.5.0.0 	www.ComponentFactory.com
+//  Version 4.70.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Drawing;
-using System.Windows.Forms;
-using System.ComponentModel;
-using System.Collections.Generic;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
 namespace MDIApplication
 {
@@ -34,7 +29,9 @@ namespace MDIApplication
                 KryptonManager.GlobalPaletteChanged -= new EventHandler(OnPaletteChanged);
 
                 if (components != null)
+                {
                     components.Dispose();
+                }
             }
             base.Dispose(disposing);
         }
@@ -51,67 +48,89 @@ namespace MDIApplication
         private void radio2010Blue_CheckedChanged(object sender, EventArgs e)
         {
             if (radio2010Blue.Checked)
+            {
                 kryptonManager.GlobalPaletteMode = PaletteModeManager.Office2010Blue;
+            }
         }
 
         private void radio2010Silver_CheckedChanged(object sender, EventArgs e)
         {
             if (radio2010Silver.Checked)
+            {
                 kryptonManager.GlobalPaletteMode = PaletteModeManager.Office2010Silver;
+            }
         }
 
         private void radio2010Black_CheckedChanged(object sender, EventArgs e)
         {
             if (radio2010Black.Checked)
+            {
                 kryptonManager.GlobalPaletteMode = PaletteModeManager.Office2010Black;
+            }
         }
 
         private void radio2007Blue_CheckedChanged(object sender, EventArgs e)
         {
             if (radio2007Blue.Checked)
+            {
                 kryptonManager.GlobalPaletteMode = PaletteModeManager.Office2007Blue;
+            }
         }
 
         private void radio2007Silver_CheckedChanged(object sender, EventArgs e)
         {
             if (radio2007Silver.Checked)
+            {
                 kryptonManager.GlobalPaletteMode = PaletteModeManager.Office2007Silver;
+            }
         }
 
         private void radio2007Black_CheckedChanged(object sender, EventArgs e)
         {
             if (radio2007Black.Checked)
+            {
                 kryptonManager.GlobalPaletteMode = PaletteModeManager.Office2007Black;
+            }
         }
 
         private void radioSparkleBlue_CheckedChanged(object sender, EventArgs e)
         {
             if (radioSparkleBlue.Checked)
+            {
                 kryptonManager.GlobalPaletteMode = PaletteModeManager.SparkleBlue;
+            }
         }
 
         private void radioSparkleOrange_CheckedChanged(object sender, EventArgs e)
         {
             if (radioSparkleOrange.Checked)
+            {
                 kryptonManager.GlobalPaletteMode = PaletteModeManager.SparkleOrange;
+            }
         }
 
         private void radioSparklePurple_CheckedChanged(object sender, EventArgs e)
         {
             if (radioSparklePurple.Checked)
+            {
                 kryptonManager.GlobalPaletteMode = PaletteModeManager.SparklePurple;
+            }
         }
 
         private void radioOffice2003_CheckedChanged(object sender, EventArgs e)
         {
             if (radioOffice2003.Checked)
+            {
                 kryptonManager.GlobalPaletteMode = PaletteModeManager.ProfessionalOffice2003;
+            }
         }
 
         private void radioSystem_CheckedChanged(object sender, EventArgs e)
         {
             if (radioSystem.Checked)
+            {
                 kryptonManager.GlobalPaletteMode = PaletteModeManager.ProfessionalSystem;
+            }
         }
 
         private void OnPaletteChanged(object sender, EventArgs e)

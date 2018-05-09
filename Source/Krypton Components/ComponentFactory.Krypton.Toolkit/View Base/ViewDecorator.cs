@@ -14,7 +14,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Base class from which all decorator views inherit.

@@ -15,7 +15,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
     /// Represents a Windows control that allows the user to select a date and a time and to display the date and time with a specified format.
@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [DefaultEvent("ValueChanged")]
 	[DefaultProperty("Value")]
     [DefaultBindingProperty("Value")]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonDateTimePickerDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer("Krypton.Toolkit.KryptonDateTimePickerDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [DesignerCategory("code")]
     [Description("Enables the user to select a date and time, and to display that date and time in a specified format.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]

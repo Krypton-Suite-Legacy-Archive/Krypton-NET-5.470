@@ -14,7 +14,7 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Draw a solid color block inside a context menu color column.

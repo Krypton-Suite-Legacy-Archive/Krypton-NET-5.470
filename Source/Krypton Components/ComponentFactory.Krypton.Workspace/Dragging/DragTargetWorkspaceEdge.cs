@@ -14,10 +14,10 @@ using System.Drawing;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.ComponentModel;
-using ComponentFactory.Krypton.Toolkit;
-using ComponentFactory.Krypton.Navigator;
+using Krypton.Toolkit;
+using Krypton.Navigator;
 
-namespace ComponentFactory.Krypton.Workspace
+namespace Krypton.Workspace
 {
     /// <summary>
     /// Target one of the four sides of the workspace control.
@@ -42,7 +42,7 @@ namespace ComponentFactory.Krypton.Workspace
                                        Rectangle hotRect,
                                        Rectangle drawRect,
                                        DragTargetHint hint,
-                                       KryptonWorkspace workspace,
+                                       Krypton.Workspace workspace,
                                        KryptonPageFlags allowFlags)
             : base(screenRect, hotRect, drawRect, hint, workspace, allowFlags)
         {
@@ -84,7 +84,7 @@ namespace ComponentFactory.Krypton.Workspace
         public override bool PerformDrop(Point screenPt, PageDragEndData data)
         {
             // Transfer the dragged pages into a new cell
-            KryptonWorkspaceCell cell = new KryptonWorkspaceCell();
+            Krypton.WorkspaceCell cell = new Krypton.WorkspaceCell();
             KryptonPage page = ProcessDragEndData(Workspace, cell, data);
 
             // If no pages are transferred then we do nothing and no longer need cell instance
@@ -100,7 +100,7 @@ namespace ComponentFactory.Krypton.Workspace
                     (!dropHorizontal && (Workspace.Root.Orientation == Orientation.Horizontal)))
                 {
                     // Create a new sequence and place all existing root items into it
-                    KryptonWorkspaceSequence sequence = new KryptonWorkspaceSequence(Workspace.Root.Orientation);
+                    Krypton.WorkspaceSequence sequence = new Krypton.WorkspaceSequence(Workspace.Root.Orientation);
                     for (int i = Workspace.Root.Children.Count - 1; i >= 0; i--)
                     {
                         Component child = Workspace.Root.Children[i];

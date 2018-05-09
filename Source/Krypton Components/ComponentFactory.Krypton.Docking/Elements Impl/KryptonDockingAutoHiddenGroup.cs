@@ -13,11 +13,11 @@ using System;
 using System.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
-using ComponentFactory.Krypton.Toolkit;
-using ComponentFactory.Krypton.Workspace;
-using ComponentFactory.Krypton.Navigator;
+using Krypton.Toolkit;
+using Krypton.Workspace;
+using Krypton.Navigator;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
     /// <summary>
     /// Provides display and docking functionality for a group of auto hidden pages.
@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Docking
     [ToolboxItem(false)]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
-    public class KryptonDockingAutoHiddenGroup : DockingElementClosedCollection
+    public class Krypton.DockingAutoHiddenGroup : DockingElementClosedCollection
     {
         #region Instance Fields
 
@@ -51,11 +51,11 @@ namespace ComponentFactory.Krypton.Docking
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the KryptonDockingAutoHiddenGroup class.
+        /// Initialize a new instance of the Krypton.DockingAutoHiddenGroup class.
         /// </summary>
         /// <param name="name">Initial name of the element.</param>
         /// <param name="edge">Docking edge being managed.</param>
-        public KryptonDockingAutoHiddenGroup(string name, DockingEdge edge)
+        public Krypton.DockingAutoHiddenGroup(string name, DockingEdge edge)
             : base(name)
         {
             Edge = edge;
@@ -85,15 +85,15 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the sibling docked edge.
         /// </summary>
-        public KryptonDockingEdgeDocked EdgeDockedElement
+        public Krypton.DockingEdgeDocked EdgeDockedElement
         {
             get
             {
                 // Scan up the parent chain to get the edge we are expected to be inside
-                if (GetParentType(typeof(KryptonDockingEdge)) is KryptonDockingEdge dockingEdge)
+                if (GetParentType(typeof(Krypton.DockingEdge)) is Krypton.DockingEdge dockingEdge)
                 {
                     // Extract the expected fixed name of the docked edge element
-                    return dockingEdge["Docked"] as KryptonDockingEdgeDocked;
+                    return dockingEdge["Docked"] as Krypton.DockingEdgeDocked;
                 }
 
                 return null;
@@ -427,7 +427,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="xmlWriter">Xml writer object.</param>
         public override void SaveElementToXml(XmlWriter xmlWriter)
         {
-            KryptonDockingManager manager = DockingManager;
+            Krypton.DockingManager manager = DockingManager;
 
             // Output docking manager element
             xmlWriter.WriteStartElement(XmlElementName);
@@ -532,7 +532,7 @@ namespace ComponentFactory.Krypton.Docking
                                                         KryptonPageCollection pages,
                                                         IDockingElement child)
         {
-            KryptonDockingManager manager = DockingManager;
+            Krypton.DockingManager manager = DockingManager;
 
             // Is it the expected xml element name?
             if (xmlReader.Name != "KP")
@@ -714,7 +714,7 @@ namespace ComponentFactory.Krypton.Docking
             AutoHiddenGroupControl.Disposed -= OnAutoHiddenGroupDisposed;
 
             // Events are generated from the parent docking manager
-            KryptonDockingManager dockingManager = DockingManager;
+            Krypton.DockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {
                 // Allow the auto hidden group to be customized by event handlers

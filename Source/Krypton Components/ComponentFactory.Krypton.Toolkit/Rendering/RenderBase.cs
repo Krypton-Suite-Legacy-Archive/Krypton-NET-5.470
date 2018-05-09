@@ -18,7 +18,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// Provides base class for rendering implementations.

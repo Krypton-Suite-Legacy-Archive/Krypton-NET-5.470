@@ -12,9 +12,9 @@
 using System;
 using System.Drawing;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
 	/// <summary>
     /// Return inhertied values unless empty in which case return the context color.
@@ -23,7 +23,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                               IPaletteRibbonText
     {
         #region Instance Fields
-        private readonly KryptonRibbon _ribbon;
+        private readonly Krypton.Ribbon _ribbon;
         private PaletteRibbonDoubleInheritOverride _inherit;
 
         #endregion
@@ -33,7 +33,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Initialize a new instance of the PaletteRibbonContextDouble class.
 		/// </summary>
         /// <param name="ribbon">Reference to ribbon control.</param>
-        public PaletteRibbonContextDouble(KryptonRibbon ribbon) 
+        public PaletteRibbonContextDouble(Krypton.Ribbon ribbon) 
 		{
             Debug.Assert(ribbon != null);
             _ribbon = ribbon;
@@ -45,7 +45,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <summary>
         /// Gets and sets the associated ribbon tab.
         /// </summary>
-        public KryptonRibbonTab RibbonTab { get; set; }
+        public Krypton.RibbonTab RibbonTab { get; set; }
 
         #endregion
 
@@ -214,7 +214,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if (!string.IsNullOrEmpty(RibbonTab?.ContextName))
             {
                 // Find the context definition for this context
-                KryptonRibbonContext ribbonContext = _ribbon.RibbonContexts[RibbonTab.ContextName];
+                Krypton.RibbonContext ribbonContext = _ribbon.RibbonContexts[RibbonTab.ContextName];
 
                 // Should always work, but you never know!
                 if (ribbonContext != null)

@@ -15,7 +15,7 @@ using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
 	/// <summary>
 	/// View element that applies padding to the drawing of a border and background.

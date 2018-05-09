@@ -11,9 +11,9 @@
 
 using System.ComponentModel;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	/// <summary>
 	/// Storage for metrics that can be overriden by the developer.
@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Navigator
     public class PaletteMetrics : Storage
     {
         #region Instance Fields
-        private readonly KryptonNavigator _navigator;
+        private readonly Krypton.Navigator _navigator;
         private int _pageButtonSpecInset;
         private Padding _pageButtonSpecPadding;
         #endregion
@@ -32,7 +32,7 @@ namespace ComponentFactory.Krypton.Navigator
 		/// </summary>
         /// <param name="navigator">Reference to owning navigator.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public PaletteMetrics(KryptonNavigator navigator,
+        public PaletteMetrics(Krypton.Navigator navigator,
                               NeedPaintHandler needPaint)
 		{
             _navigator = navigator;

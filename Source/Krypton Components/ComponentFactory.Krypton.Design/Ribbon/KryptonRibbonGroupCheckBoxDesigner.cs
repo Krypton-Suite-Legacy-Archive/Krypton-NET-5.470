@@ -15,16 +15,16 @@ using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
-    internal class KryptonRibbonGroupCheckBoxDesigner : ComponentDesigner
+    internal class Krypton.RibbonGroupCheckBoxDesigner : ComponentDesigner
     {
         #region Instance Fields
         private IDesignerHost _designerHost;
         private IComponentChangeService _changeService;
-        private KryptonRibbonGroupCheckBox _ribbonCheckBox;
+        private Krypton.RibbonGroupCheckBox _ribbonCheckBox;
         private DesignerVerbCollection _verbs;
         private DesignerVerb _toggleHelpersVerb;
         private DesignerVerb _moveFirstVerb;
@@ -48,9 +48,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the KryptonRibbonGroupCheckBoxDesigner class.
+        /// Initialize a new instance of the Krypton.RibbonGroupCheckBoxDesigner class.
         /// </summary>
-        public KryptonRibbonGroupCheckBoxDesigner()
+        public Krypton.RibbonGroupCheckBoxDesigner()
         {
         }
         #endregion
@@ -74,7 +74,7 @@ namespace ComponentFactory.Krypton.Ribbon
             base.Initialize(component);
 
             // Cast to correct type
-            _ribbonCheckBox = (KryptonRibbonGroupCheckBox)component;
+            _ribbonCheckBox = (Krypton.RibbonGroupCheckBox)component;
             _ribbonCheckBox.DesignTimeContextMenu += OnContextMenu;
 
             // Get access to the services
@@ -146,7 +146,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             if (_ribbonCheckBox?.Ribbon != null)
             {
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
                 moveFirst = (items.IndexOf(_ribbonCheckBox) > 0);
                 movePrev = (items.IndexOf(_ribbonCheckBox) > 0);
                 moveNext = (items.IndexOf(_ribbonCheckBox) < (items.Count - 1));
@@ -173,10 +173,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonCheckBox?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupCheckBox MoveFirst");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupCheckBox MoveFirst");
 
                 try
                 {
@@ -205,10 +205,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonCheckBox?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupCheckBox MovePrevious");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupCheckBox MovePrevious");
 
                 try
                 {
@@ -239,10 +239,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonCheckBox?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupCheckBox MoveNext");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupCheckBox MoveNext");
 
                 try
                 {
@@ -273,10 +273,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonCheckBox?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupCheckBox MoveLast");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupCheckBox MoveLast");
 
                 try
                 {
@@ -305,10 +305,10 @@ namespace ComponentFactory.Krypton.Ribbon
             if (_ribbonCheckBox?.Ribbon != null)
             {
                 // Get access to the parent collection of items
-                TypedRestrictCollection<KryptonRibbonGroupItem> items = ParentItems;
+                TypedRestrictCollection<Krypton.RibbonGroupItem> items = ParentItems;
 
                 // Use a transaction to support undo/redo actions
-                DesignerTransaction transaction = _designerHost.CreateTransaction("KryptonRibbonGroupCheckBox DeleteCheckBox");
+                DesignerTransaction transaction = _designerHost.CreateTransaction("Krypton.RibbonGroupCheckBox DeleteCheckBox");
 
                 try
                 {
@@ -435,15 +435,15 @@ namespace ComponentFactory.Krypton.Ribbon
             }
         }
 
-        private TypedRestrictCollection<KryptonRibbonGroupItem> ParentItems
+        private TypedRestrictCollection<Krypton.RibbonGroupItem> ParentItems
         {
             get
             {
                 switch (_ribbonCheckBox.RibbonContainer)
                 {
-                    case KryptonRibbonGroupTriple triple:
+                    case Krypton.RibbonGroupTriple triple:
                         return triple.Items;
-                    case KryptonRibbonGroupLines lines:
+                    case Krypton.RibbonGroupLines lines:
                         return lines.Items;
                     default:
                         // Should never happen!

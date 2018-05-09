@@ -13,21 +13,21 @@ using System;
 using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     /// <summary>
     /// Represents a ribbon group track bar.
     /// </summary>
     [ToolboxItem(false)]
-    [ToolboxBitmap(typeof(KryptonRibbonGroupTrackBar), "ToolboxBitmaps.KryptonRibbonGroupTrackBar.bmp")]
-    [Designer("ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTrackBarDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [ToolboxBitmap(typeof(Krypton.RibbonGroupTrackBar), "ToolboxBitmaps.Krypton.RibbonGroupTrackBar.bmp")]
+    [Designer("Krypton.Ribbon.Krypton.RibbonGroupTrackBarDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
     [DefaultEvent("ValueChanged")]
     [DefaultProperty("Value")]
-    public class KryptonRibbonGroupTrackBar : KryptonRibbonGroupItem
+    public class Krypton.RibbonGroupTrackBar : Krypton.RibbonGroupItem
     {
         #region Instance Fields
         private bool _visible;
@@ -79,9 +79,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialise a new instance of the KryptonRibbonGroupTrackBar class.
+        /// Initialise a new instance of the Krypton.RibbonGroupTrackBar class.
         /// </summary>
-        public KryptonRibbonGroupTrackBar()
+        public Krypton.RibbonGroupTrackBar()
         {
             // Default fields
             _visible = true;
@@ -137,7 +137,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public override KryptonRibbon Ribbon
+        public override Krypton.Ribbon Ribbon
         {
             set
             {
@@ -511,7 +511,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="needPaint">Delegate for notifying changes in display.</param>
         /// <returns>ViewBase derived instance.</returns>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override ViewBase CreateView(KryptonRibbon ribbon, 
+        public override ViewBase CreateView(Krypton.Ribbon ribbon, 
                                             NeedPaintHandler needPaint)
         {
             return new ViewDrawRibbonGroupTrackBar(ribbon, this, needPaint);
@@ -523,7 +523,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public IKryptonDesignObject TrackBarDesigner { get; set; }
+        public IKrypton.DesignObject TrackBarDesigner { get; set; }
 
         /// <summary>
         /// Internal design time properties.

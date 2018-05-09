@@ -12,25 +12,25 @@
 using System;
 using System.Windows.Forms;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	/// <summary>
 	/// Represents a collection of child controls for the navigator.
 	/// </summary>
-    public class KryptonNavigatorControlCollection : KryptonControlCollection
+    public class Krypton.NavigatorControlCollection : KryptonControlCollection
 	{
 		#region Instance Fields
-		private KryptonNavigator _owner;
+		private Krypton.Navigator _owner;
 		#endregion
 
 		#region Identity
 		/// <summary>
-		/// Initialize a new instance of the KryptonNavigatorControlCollection class.
+		/// Initialize a new instance of the Krypton.NavigatorControlCollection class.
 		/// </summary>
 		/// <param name="owner">Control containing this collection.</param>
-		public KryptonNavigatorControlCollection(KryptonNavigator owner)
+		public Krypton.NavigatorControlCollection(Krypton.Navigator owner)
 			: base(owner)
 		{
 			Debug.Assert(owner != null);

@@ -12,7 +12,7 @@
 using System.Drawing;
 using System.Collections.Generic;
 
-namespace ComponentFactory.Krypton.Ribbon
+namespace Krypton.Ribbon
 {
     internal class KeyTipInfoList : List<KeyTipInfo> {};
 
@@ -77,7 +77,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Perform actual selection of the item.
         /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
-        public void KeyTipSelect(KryptonRibbon ribbon)
+        public void KeyTipSelect(Krypton.Ribbon ribbon)
         {
             _target?.KeyTipSelect(ribbon);
         }

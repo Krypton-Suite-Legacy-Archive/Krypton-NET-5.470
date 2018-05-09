@@ -14,9 +14,9 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Security.Permissions;
-using ComponentFactory.Krypton.Toolkit.Properties;
+using Krypton.Toolkit.Properties;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     /// <summary>
     /// Show a wait dialog during long operations.

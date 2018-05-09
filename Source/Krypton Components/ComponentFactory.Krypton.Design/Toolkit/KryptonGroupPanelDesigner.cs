@@ -15,10 +15,10 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms.Design;
 
-namespace ComponentFactory.Krypton.Toolkit
+namespace Krypton.Toolkit
 {
     internal class KryptonGroupPanelDesigner : KryptonPanelDesigner,
-                                               IKryptonDesignerSelect
+                                               IKrypton.DesignerSelect
 	{
 		#region Instance Fields
 		private KryptonGroupPanel _panel;
