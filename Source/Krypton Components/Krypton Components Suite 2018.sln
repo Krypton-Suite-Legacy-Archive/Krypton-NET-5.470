@@ -716,6 +716,33 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docfx-tmpl", "docfx-tmpl", 
 		..\..\..\..\Help\DocFX\docfx-tmpl\README.md = ..\..\..\..\Help\DocFX\docfx-tmpl\README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Updates", "Updates", "{8071D2CE-0F60-4DDE-B067-7C755E14A33A}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Updates\update.xml = ..\..\Updates\update.xml
+		..\..\Updates\updates.txt = ..\..\Updates\updates.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Experimental", "Experimental", "{03BE16FD-FA20-4F71-A717-0C397988F806}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Updates\Experimental\update.xml = ..\..\Updates\Experimental\update.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Changelog", "Changelog", "{29748D21-B5F4-4C80-A030-7B7720BF8021}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Updates\changelog\changelog.html = ..\..\Updates\changelog\changelog.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSS", "CSS", "{F4852EB6-6AC9-4B1A-ADB6-4077330A2ED5}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Updates\changelog\css\main.css = ..\..\Updates\changelog\css\main.css
+		..\..\Updates\changelog\css\table.css = ..\..\Updates\changelog\css\table.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IMG", "IMG", "{29935FC9-D8AE-4C7A-83AB-03C3E6179946}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Updates\changelog\img\Krypton.ico = ..\..\Updates\changelog\img\Krypton.ico
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -756,9 +783,13 @@ Global
 		{642A2DBC-D742-47CA-8C78-76FEE09C0DCB} = {61013E5A-3095-4A61-8B4B-72ABDCB608BE}
 		{A5C9F9CE-CCF0-4855-BEB7-624BA2C5DD8A} = {642A2DBC-D742-47CA-8C78-76FEE09C0DCB}
 		{D6D14E45-AE08-45A5-87C8-4BA6A7F8BF17} = {61013E5A-3095-4A61-8B4B-72ABDCB608BE}
+		{03BE16FD-FA20-4F71-A717-0C397988F806} = {8071D2CE-0F60-4DDE-B067-7C755E14A33A}
+		{29748D21-B5F4-4C80-A030-7B7720BF8021} = {8071D2CE-0F60-4DDE-B067-7C755E14A33A}
+		{F4852EB6-6AC9-4B1A-ADB6-4077330A2ED5} = {29748D21-B5F4-4C80-A030-7B7720BF8021}
+		{29935FC9-D8AE-4C7A-83AB-03C3E6179946} = {29748D21-B5F4-4C80-A030-7B7720BF8021}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		BuildVersion_StartDate = 2000/1/1
 		SolutionGuid = {ECEA7A85-0CA8-47A4-93BE-6AA896E9749D}
+		BuildVersion_StartDate = 2000/1/1
 	EndGlobalSection
 EndGlobal
