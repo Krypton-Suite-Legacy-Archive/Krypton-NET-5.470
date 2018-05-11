@@ -7,7 +7,8 @@ body {
 }
 
 #current-version {
-	background-color: #2A7E2B;
+	/*background-color: #2A7E2B;*/
+    background: radial-gradient(circle, #78BC78, #489948, #2A7E2A);
 	color: #FFFFFF;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14pt;
