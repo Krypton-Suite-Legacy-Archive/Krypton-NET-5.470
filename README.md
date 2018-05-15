@@ -14,7 +14,7 @@
 
 ## 2018-05-15 Namespace changes
 * Updated namespaces to reflect assembly names, these are found in the `Experimental` folder
-* New HTML5 & CSS3 based changelog
+* New HTML5 & CSS3 based changelog (not live yet)
 
 =======
 
@@ -251,7 +251,7 @@
 
 ## 2018-01-07 pm Toolkit Solution changes
 * Reupload of fresh binaries after a good fight!
-* Changed year of all classes, controls et.c from 2017 to 2018
+* Changed year of all classes, controls etc from `2017` to `2018`
 * Mass rebuild of solution
 * Eradicated all references of `4.5.0.0` to `4.7.0.0`
 
