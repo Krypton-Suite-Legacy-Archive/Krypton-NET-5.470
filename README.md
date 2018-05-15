@@ -12,6 +12,12 @@
 
 =======
 
+## 2018-05-15 Namespace changes
+* Updated namespaces to reflect assembly names, these are found in the `Experimental` folder
+* New HTML5 & CSS3 based changelog
+
+=======
+
 ## 2018-04-29 Build 572
 * Build 572 (build date Sunday 29th April 2018) is now obtainable through the `releases` tab.
 
