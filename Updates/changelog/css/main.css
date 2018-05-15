@@ -6,27 +6,23 @@ body {
 	font-size: 12pt;
 }
 
-#current-version {
-	/*background-color: #2A7E2B;*/
-    background: radial-gradient(circle, #78BC78, #489948, #2A7E2A);
-	color: #FFFFFF;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 14pt;
-}
-
-#old-version {
-    /*background-color: #E4532F;*/
-    background: radial-gradient(circle, #FF9A82, #F77557, #E4522F);
-    color: #FFFFFF;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14pt;
-}
-
-.table {
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-}
-
 a {
-	color: #1E3977;
+    background-color: #8DA8CB;
+    color: #1E3977;
+}
+
+a:visited {
+     color: #0E2760;
+}
+
+.img-align {
+    text-align: right;
+}
+
+/*strong, em {
+    background-color: #8DA8CB;
+}*/
+
+strong .highlight {
+    background-color: #8DA8CB;
 }
