@@ -1,0 +1,29 @@
+﻿@charset "utf-8";
+.table {
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+.current-version {
+    /*background-color: #2A7E2B;*/
+    background: radial-gradient(circle, #78BC78, #489948, #2A7E2A);
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14pt;
+}
+
+.old-version, override {
+    /*background-color: #E4532F;*/
+    background: radial-gradient(circle, #FF9A82, #F77557, #E4522F);
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14pt;
+}
+
+table, td, th {
+    border: 1px solid gray;
+}
+
+.strong-current-version-override {
+    /*background: */
+}

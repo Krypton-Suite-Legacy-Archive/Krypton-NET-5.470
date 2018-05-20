@@ -358,9 +358,13 @@ namespace KryptonToolkitUpdater.Classes
                     sparklePurpleTheme.Enabled = false;
 
                     customTheme.Enabled = true;
+
+                    customTheme.Checked = true;
                     break;
                 case SuppotedKryptonThemePalettes.OFFICE2013THEMEPALETTE:
                     office2013SilverTheme.Enabled = true;
+
+                    office2013SilverTheme.Checked = true;
 
                     office2013WhiteTheme.Enabled = true;
 
@@ -401,6 +405,8 @@ namespace KryptonToolkitUpdater.Classes
 
                     office2010BlackTheme.Enabled = true;
 
+                    office2010BlackTheme.Checked = true;
+
                     office2010BlueTheme.Enabled = true;
 
                     office2010SilverTheme.Enabled = true;
@@ -423,6 +429,8 @@ namespace KryptonToolkitUpdater.Classes
                     office2013WhiteTheme.Enabled = false;
 
                     office2007BlackTheme.Enabled = true;
+
+                    office2007BlackTheme.Checked = true;
 
                     office2007BlueTheme.Enabled = true;
 
@@ -465,6 +473,8 @@ namespace KryptonToolkitUpdater.Classes
 
                     professionalOffice2003Theme.Enabled = true;
 
+                    professionalOffice2003Theme.Checked = true;
+
                     professionalSystemTheme.Enabled = true;
 
                     sparkleBlueTheme.Enabled = false;
@@ -497,6 +507,8 @@ namespace KryptonToolkitUpdater.Classes
                     professionalSystemTheme.Enabled = false;
 
                     sparkleBlueTheme.Enabled = true;
+
+                    sparkleBlueTheme.Checked = true;
 
                     sparkleOrangeTheme.Enabled = true;
 

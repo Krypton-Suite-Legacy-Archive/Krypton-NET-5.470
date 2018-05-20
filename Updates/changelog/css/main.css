@@ -1,0 +1,28 @@
+﻿@charset "utf-8";
+body {
+	background-color: #BBCEE6;
+	color: #1E3976;
+	font-family: Arial, Helvetica, sans-serif, 'Segoe UI';
+	font-size: 12pt;
+}
+
+a {
+    background-color: #8DA8CB;
+    color: #1E3977;
+}
+
+a:visited {
+     color: #0E2760;
+}
+
+.img-align {
+    text-align: right;
+}
+
+/*strong, em {
+    background-color: #8DA8CB;
+}*/
+
+strong .highlight {
+    background-color: #8DA8CB;
+}

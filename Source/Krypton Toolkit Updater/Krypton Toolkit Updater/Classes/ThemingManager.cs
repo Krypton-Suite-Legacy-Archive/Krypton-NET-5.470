@@ -3,13 +3,16 @@ using KryptonToolkitUpdater.Enumerations;
 
 namespace KryptonToolkitUpdater.Classes
 {
+    /// <summary>
+    /// Manages theme palettes.
+    /// </summary>
     public class ThemingManager
     {
         #region Variables
         ThemeSettingsHelper _themeSettingsHelper = new ThemeSettingsHelper();
         #endregion
 
-        #region Constructor        
+        #region Constructor
         /// <summary>
         /// Initialises a new instance of the <see cref="ThemingManager"/> class.
         /// </summary>
@@ -19,7 +22,7 @@ namespace KryptonToolkitUpdater.Classes
         }
         #endregion
 
-        #region Methods        
+        #region Methods
         /// <summary>
         /// Applies the theme.
         /// </summary>

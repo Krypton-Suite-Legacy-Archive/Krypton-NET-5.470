@@ -8,6 +8,21 @@
 
 =======
 
+## NOTE: With the advent of Windows 10 1803 being released to the general public, I am pleased to announce the availability of a 4.72 release that will support the .NET 4.7.2 framework. You can follow the project [here](https://github.com/Wagnerp/Krypton-NET-4.72).
+
+=======
+
+## 2018-05-15 Namespace changes
+* Updated namespaces to reflect assembly names, these are found in the `Experimental` folder
+* New HTML5 & CSS3 based changelog (not live yet)
+
+=======
+
+## 2018-04-29 Build 572
+* Build 572 (build date Sunday 29th April 2018) is now obtainable through the `releases` tab.
+
+=======
+
 ## 2018-04-28 Fix build path output, and Demo Apps Ref path import and Output
 * Remove hard-coded directory offsets for Component outputs
 * Use offset location for components in Demo Apps 
@@ -236,7 +251,7 @@
 
 ## 2018-01-07 pm Toolkit Solution changes
 * Reupload of fresh binaries after a good fight!
-* Changed year of all classes, controls et.c from 2017 to 2018
+* Changed year of all classes, controls etc from `2017` to `2018`
 * Mass rebuild of solution
 * Eradicated all references of `4.5.0.0` to `4.7.0.0`
 

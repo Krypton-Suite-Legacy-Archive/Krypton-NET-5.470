@@ -51,6 +51,7 @@
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kbtnDownloadUpdate = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kpnlBackground)).BeginInit();
             this.kpnlBackground.SuspendLayout();
             this.ctxNotifyIcon.SuspendLayout();
@@ -58,10 +59,11 @@
             // 
             // kpnlBackground
             // 
+            this.kpnlBackground.Controls.Add(this.kbtnCheckForUpdates);
+            this.kpnlBackground.Controls.Add(this.kbtnDownloadUpdate);
             this.kpnlBackground.Controls.Add(this.progressBar1);
             this.kpnlBackground.Controls.Add(this.klblCurrentStatus);
             this.kpnlBackground.Controls.Add(this.kbtnOptions);
-            this.kpnlBackground.Controls.Add(this.kbtnCheckForUpdates);
             this.kpnlBackground.Controls.Add(this.kbtnCancel);
             this.kpnlBackground.Controls.Add(this.kllHelp);
             this.kpnlBackground.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -187,6 +189,16 @@
             this.quitToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.quitToolStripMenuItem.Text = "&Quit";
             // 
+            // kbtnDownloadUpdate
+            // 
+            this.kbtnDownloadUpdate.Location = new System.Drawing.Point(531, 126);
+            this.kbtnDownloadUpdate.Name = "kbtnDownloadUpdate";
+            this.kbtnDownloadUpdate.Size = new System.Drawing.Size(161, 25);
+            this.kbtnDownloadUpdate.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kbtnDownloadUpdate.TabIndex = 6;
+            this.kbtnDownloadUpdate.Values.Text = "D&ownload Update";
+            this.kbtnDownloadUpdate.Click += new System.EventHandler(this.kbtnDownloadUpdate_Click);
+            // 
             // UpdaterMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,5 +241,6 @@
         private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnDownloadUpdate;
     }
 }

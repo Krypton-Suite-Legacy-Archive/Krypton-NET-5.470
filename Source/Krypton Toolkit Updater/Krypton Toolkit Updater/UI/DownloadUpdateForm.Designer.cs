@@ -33,6 +33,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DownloadUpdateForm));
             this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kpnlBackground = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kbtnInstallUpdate = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -139,6 +140,7 @@
             this.kllDownloadingTo.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kllDownloadingTo.TabIndex = 6;
             this.kllDownloadingTo.Values.Text = "{0}";
+            this.kllDownloadingTo.LinkClicked += new System.EventHandler(this.kllDownloadingTo_LinkClicked);
             // 
             // kryptonLabel1
             // 
@@ -165,11 +167,13 @@
             this.ClientSize = new System.Drawing.Size(1083, 241);
             this.Controls.Add(this.kpnlBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DownloadUpdateForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Download Update";
+            this.TextExtra = "(Beta)";
             this.Load += new System.EventHandler(this.DownloadUpdateForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kpnlBackground)).EndInit();
             this.kpnlBackground.ResumeLayout(false);

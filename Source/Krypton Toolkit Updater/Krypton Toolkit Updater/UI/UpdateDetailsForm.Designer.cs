@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kpnlBackground = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kbtnRemindMeLater = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kbtnDownloadUpdate = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kbtnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.wbChangelog = new System.Windows.Forms.WebBrowser();
@@ -38,7 +39,6 @@
             this.klblVersionInformation = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.kbtnRemindMeLater = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kpnlBackground)).BeginInit();
             this.kpnlBackground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -59,6 +59,16 @@
             this.kpnlBackground.Name = "kpnlBackground";
             this.kpnlBackground.Size = new System.Drawing.Size(869, 741);
             this.kpnlBackground.TabIndex = 0;
+            // 
+            // kbtnRemindMeLater
+            // 
+            this.kbtnRemindMeLater.Location = new System.Drawing.Point(12, 704);
+            this.kbtnRemindMeLater.Name = "kbtnRemindMeLater";
+            this.kbtnRemindMeLater.Size = new System.Drawing.Size(144, 25);
+            this.kbtnRemindMeLater.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kbtnRemindMeLater.TabIndex = 16;
+            this.kbtnRemindMeLater.Values.Text = "&Remind Me Later";
+            this.kbtnRemindMeLater.Click += new System.EventHandler(this.kbtnRemindMeLater_Click);
             // 
             // kbtnDownloadUpdate
             // 
@@ -124,16 +134,6 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // kbtnRemindMeLater
-            // 
-            this.kbtnRemindMeLater.Location = new System.Drawing.Point(12, 704);
-            this.kbtnRemindMeLater.Name = "kbtnRemindMeLater";
-            this.kbtnRemindMeLater.Size = new System.Drawing.Size(144, 25);
-            this.kbtnRemindMeLater.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kbtnRemindMeLater.TabIndex = 16;
-            this.kbtnRemindMeLater.Values.Text = "&Remind Me Later";
-            this.kbtnRemindMeLater.Click += new System.EventHandler(this.kbtnRemindMeLater_Click);
-            // 
             // UpdateDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -145,6 +145,8 @@
             this.MinimizeBox = false;
             this.Name = "UpdateDetailsForm";
             this.Text = "Update Details";
+            this.TextExtra = "(Beta)";
+            this.Load += new System.EventHandler(this.UpdateDetailsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kpnlBackground)).EndInit();
             this.kpnlBackground.ResumeLayout(false);
             this.kpnlBackground.PerformLayout();

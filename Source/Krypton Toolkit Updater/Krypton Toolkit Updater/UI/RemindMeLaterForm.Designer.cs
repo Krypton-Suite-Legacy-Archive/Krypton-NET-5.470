@@ -35,17 +35,17 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RemindMeLaterForm));
             this.kpnlBackdrop = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kcmbRemindMeLaterTimeSpan = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kbtnRemindMeLater = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kbtnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.kMan = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kcmbRemindMeLaterTimeSpan = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.kpnlBackdrop)).BeginInit();
             this.kpnlBackdrop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kcmbRemindMeLaterTimeSpan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // kpnlBackdrop
@@ -61,6 +61,39 @@
             this.kpnlBackdrop.Name = "kpnlBackdrop";
             this.kpnlBackdrop.Size = new System.Drawing.Size(800, 450);
             this.kpnlBackdrop.TabIndex = 0;
+            // 
+            // kryptonLabel2
+            // 
+            this.kryptonLabel2.Location = new System.Drawing.Point(275, 241);
+            this.kryptonLabel2.Name = "kryptonLabel2";
+            this.kryptonLabel2.Size = new System.Drawing.Size(192, 26);
+            this.kryptonLabel2.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel2.TabIndex = 18;
+            this.kryptonLabel2.Values.Text = "Remind me to update in:";
+            // 
+            // kcmbRemindMeLaterTimeSpan
+            // 
+            this.kcmbRemindMeLaterTimeSpan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.kcmbRemindMeLaterTimeSpan.DropDownWidth = 315;
+            this.kcmbRemindMeLaterTimeSpan.Items.AddRange(new object[] {
+            "1 Day",
+            "1 Week",
+            "30 Days"});
+            this.kcmbRemindMeLaterTimeSpan.Location = new System.Drawing.Point(473, 241);
+            this.kcmbRemindMeLaterTimeSpan.Name = "kcmbRemindMeLaterTimeSpan";
+            this.kcmbRemindMeLaterTimeSpan.Size = new System.Drawing.Size(315, 27);
+            this.kcmbRemindMeLaterTimeSpan.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kcmbRemindMeLaterTimeSpan.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kcmbRemindMeLaterTimeSpan.TabIndex = 17;
+            // 
+            // kryptonLabel1
+            // 
+            this.kryptonLabel1.Location = new System.Drawing.Point(275, 12);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(124, 26);
+            this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel1.TabIndex = 16;
+            this.kryptonLabel1.Values.Text = "kryptonLabel1";
             // 
             // kbtnRemindMeLater
             // 
@@ -92,39 +125,6 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // kryptonLabel1
-            // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(275, 12);
-            this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(124, 26);
-            this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel1.TabIndex = 16;
-            this.kryptonLabel1.Values.Text = "kryptonLabel1";
-            // 
-            // kcmbRemindMeLaterTimeSpan
-            // 
-            this.kcmbRemindMeLaterTimeSpan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.kcmbRemindMeLaterTimeSpan.DropDownWidth = 315;
-            this.kcmbRemindMeLaterTimeSpan.Items.AddRange(new object[] {
-            "1 Day",
-            "1 Week",
-            "30 Days"});
-            this.kcmbRemindMeLaterTimeSpan.Location = new System.Drawing.Point(473, 241);
-            this.kcmbRemindMeLaterTimeSpan.Name = "kcmbRemindMeLaterTimeSpan";
-            this.kcmbRemindMeLaterTimeSpan.Size = new System.Drawing.Size(315, 27);
-            this.kcmbRemindMeLaterTimeSpan.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kcmbRemindMeLaterTimeSpan.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kcmbRemindMeLaterTimeSpan.TabIndex = 17;
-            // 
-            // kryptonLabel2
-            // 
-            this.kryptonLabel2.Location = new System.Drawing.Point(275, 241);
-            this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(192, 26);
-            this.kryptonLabel2.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel2.TabIndex = 18;
-            this.kryptonLabel2.Values.Text = "Remind me to update in:";
-            // 
             // RemindMeLaterForm
             // 
             this.AcceptButton = this.kbtnCancel;
@@ -140,11 +140,12 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Remind Me Later";
+            this.TextExtra = "(Beta)";
             ((System.ComponentModel.ISupportInitialize)(this.kpnlBackdrop)).EndInit();
             this.kpnlBackdrop.ResumeLayout(false);
             this.kpnlBackdrop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kcmbRemindMeLaterTimeSpan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

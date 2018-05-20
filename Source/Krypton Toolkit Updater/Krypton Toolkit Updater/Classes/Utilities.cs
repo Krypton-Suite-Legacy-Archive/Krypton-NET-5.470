@@ -18,6 +18,8 @@ namespace KryptonToolkitUpdater.Classes
         UpdaterSettingsHelper updaterSettingsHelper = new UpdaterSettingsHelper();
 
         ThemeSettingsHelper themeSettingsHelper = new ThemeSettingsHelper();
+
+        UpdatePackageInformationSettingsHelper updatePackageInformationSettingsHelper = new UpdatePackageInformationSettingsHelper();
         #endregion
 
         #region Constructor        
@@ -153,6 +155,52 @@ namespace KryptonToolkitUpdater.Classes
 
         //    return currentTheme;
         //}
+
+        /// <summary>
+        /// Determines whether [is newer than] [the specified current version].
+        /// </summary>
+        /// <param name="currentVersion">The current version.</param>
+        /// <returns>
+        ///   <c>true</c> if [is newer than] [the specified current version]; otherwise, <c>false</c>.
+        /// </returns>
+        public bool IsNewerThan(Version currentVersion)
+        {
+            try
+            {
+                return Version.Parse(updatePackageInformationSettingsHelper.GetServerVersion()) > currentVersion;
+            }
+            catch (Exception ex)
+            {
+                KryptonMessageBox.Show($"Error: { ex.Message }", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Exists the on server.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
+        /// <returns></returns>
+        public bool ExistsOnServer(Uri filePath)
+        {
+            try
+            {
+                HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(filePath.AbsoluteUri);
+
+                HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse();
+
+                webResponse.Close();
+
+                return webResponse.StatusCode == HttpStatusCode.OK;
+            }
+            catch (Exception ex)
+            {
+                KryptonMessageBox.Show($"Error: { ex.Message }", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
         #endregion
     }
 }

@@ -160,7 +160,7 @@
             this.kryptonPage1,
             this.kryptonPage2,
             this.kryptonPage3});
-            this.knavOptions.SelectedIndex = 0;
+            this.knavOptions.SelectedIndex = 1;
             this.knavOptions.Size = new System.Drawing.Size(969, 738);
             this.knavOptions.StateCommon.Tab.Content.ShortText.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.knavOptions.TabIndex = 6;
@@ -808,6 +808,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Updater Options";
+            this.TextExtra = "(Beta)";
             this.Load += new System.EventHandler(this.UpdaterOptionsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kpnlBackground)).EndInit();
             this.kpnlBackground.ResumeLayout(false);
