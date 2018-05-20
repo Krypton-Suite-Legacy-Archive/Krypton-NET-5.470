@@ -1305,9 +1305,9 @@ namespace OutlookMailClone
             // 
             // kryptonRibbon
             // 
-            this.kryptonRibbon.AllowFormIntegrate = false;
             this.kryptonRibbon.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecHelp});
+            this.kryptonRibbon.InDesignHelperMode = true;
             this.kryptonRibbon.Name = "kryptonRibbon";
             this.kryptonRibbon.QATButtons.AddRange(new System.ComponentModel.Component[] {
             this.qatSave,
@@ -1351,8 +1351,7 @@ namespace OutlookMailClone
             this.tabOptions,
             this.tabFormatText,
             this.tabDeveloper});
-            this.kryptonRibbon.SelectedContext = null;
-            this.kryptonRibbon.SelectedTab = this.tabMessage;
+            this.kryptonRibbon.SelectedTab = this.tabInsert;
             this.kryptonRibbon.Size = new System.Drawing.Size(782, 115);
             this.kryptonRibbon.TabIndex = 0;
             // 

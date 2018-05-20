@@ -54,12 +54,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Krypton Design">
-      <HintPath>..\..\..\Bin\Krypton Design.dll</HintPath>
-    </Reference>
-    <Reference Include="Krypton Navigator">
-      <HintPath>..\..\..\Bin\Krypton Navigator.dll</HintPath>
-    </Reference>
     <Reference Include="Krypton Ribbon, Version=4.70.552.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Bin\Krypton Ribbon.dll</HintPath>

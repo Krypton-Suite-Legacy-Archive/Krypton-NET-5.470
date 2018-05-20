@@ -12,6 +12,14 @@
 
 =======
 
+## 2018-05-20 Fix the designer for _All_
+* Remove the Designer dll (Project / code moved in Git)
+* Place designers into actual dlls (Small size increase)
+* Fix fallout from Designer dll removal from other projects
+  * Fix build path output, and Demo Apps Ref path import and Output
+
+=======
+
 ## 2018-05-15 Namespace changes
 * Updated namespaces to reflect assembly names, these are found in the `Experimental` folder
 * New HTML5 & CSS3 based changelog (not live yet)

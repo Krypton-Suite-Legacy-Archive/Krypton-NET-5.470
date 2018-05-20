@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Workspace
     [ToolboxItem(false)]
     [ToolboxBitmap(typeof(KryptonWorkspaceSequence), "ToolboxBitmaps.KryptonWorkspaceSequence.bmp")]
     [TypeConverter(typeof(KryptonWorkspaceSequenceConverter))]
-    [Designer("ComponentFactory.Krypton.Workspace.KryptonWorkspaceSequenceDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Workspace.KryptonWorkspaceSequenceDesigner))]
     [DesignTimeVisible(false)]
     [DesignerCategory("code")]
     [DefaultProperty("Children")]
@@ -123,7 +123,7 @@ namespace ComponentFactory.Krypton.Workspace
         [Category("Workspace")]
         [Description("Collection of child workspace items.")]
         [MergableProperty(false)]
-        [Editor("ComponentFactory.Krypton.Workspace.KryptonWorkspaceCollectionEditor, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
+        [Editor(typeof(ComponentFactory.Krypton.Workspace.KryptonWorkspaceCollectionEditor), typeof(UITypeEditor))]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public KryptonWorkspaceCollection Children { get; }
 
