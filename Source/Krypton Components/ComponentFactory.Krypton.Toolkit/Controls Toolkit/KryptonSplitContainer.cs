@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [DefaultEvent("SplitterMoved")]
 	[DefaultProperty("Orientation")]
 	[DesignerCategory("code")]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonSplitContainerDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonSplitContainerDesigner))]
     [Description("Divide the container inside two resizable panels.")]
     [Docking(DockingBehavior.AutoDock)]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]

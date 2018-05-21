@@ -30,28 +30,28 @@ namespace ThreePaneApplication
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node1");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node2");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node3");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Node4");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Node5");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Node1");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Node2");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Node3");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Node4");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Node5");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
-            treeNode7,
-            treeNode8,
-            treeNode9,
-            treeNode10,
-            treeNode11});
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Node1");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Node2");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Node3");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Node4");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Node5");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
+            treeNode13,
+            treeNode14,
+            treeNode15,
+            treeNode16,
+            treeNode17});
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Node1");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Node2");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Node3");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Node4");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Node5");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
+            treeNode19,
+            treeNode20,
+            treeNode21,
+            treeNode22,
+            treeNode23});
             this.kryptonPanelMain = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonHeaderGroupDetails = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
@@ -184,7 +184,7 @@ namespace ThreePaneApplication
             // 
             this.kryptonButton3.Location = new System.Drawing.Point(464, 4);
             this.kryptonButton3.Name = "kryptonButton3";
-            this.kryptonButton3.Size = new System.Drawing.Size(220, 49);
+            this.kryptonButton3.Size = new System.Drawing.Size(220, 55);
             this.kryptonButton3.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.kryptonButton3.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.kryptonButton3.StateCommon.Content.LongText.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.AntiAlias;
@@ -203,20 +203,20 @@ namespace ThreePaneApplication
             // 
             this.kryptonTreeView2.Location = new System.Drawing.Point(494, 211);
             this.kryptonTreeView2.Name = "kryptonTreeView2";
-            treeNode1.Name = "Node1";
-            treeNode1.Text = "Node1";
-            treeNode2.Name = "Node2";
-            treeNode2.Text = "Node2";
-            treeNode3.Name = "Node3";
-            treeNode3.Text = "Node3";
-            treeNode4.Name = "Node4";
-            treeNode4.Text = "Node4";
-            treeNode5.Name = "Node5";
-            treeNode5.Text = "Node5";
-            treeNode6.Name = "Node0";
-            treeNode6.Text = "Node0";
+            treeNode13.Name = "Node1";
+            treeNode13.Text = "Node1";
+            treeNode14.Name = "Node2";
+            treeNode14.Text = "Node2";
+            treeNode15.Name = "Node3";
+            treeNode15.Text = "Node3";
+            treeNode16.Name = "Node4";
+            treeNode16.Text = "Node4";
+            treeNode17.Name = "Node5";
+            treeNode17.Text = "Node5";
+            treeNode18.Name = "Node0";
+            treeNode18.Text = "Node0";
             this.kryptonTreeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode6});
+            treeNode18});
             this.kryptonTreeView2.Size = new System.Drawing.Size(58, 96);
             this.kryptonTreeView2.TabIndex = 18;
             this.kryptonTreeView2.TrackMouseEnter += new System.EventHandler(this.InnerControl_MouseEnter);
@@ -227,20 +227,20 @@ namespace ThreePaneApplication
             // 
             this.kryptonTreeView1.Location = new System.Drawing.Point(350, 215);
             this.kryptonTreeView1.Name = "kryptonTreeView1";
-            treeNode7.Name = "Node1";
-            treeNode7.Text = "Node1";
-            treeNode8.Name = "Node2";
-            treeNode8.Text = "Node2";
-            treeNode9.Name = "Node3";
-            treeNode9.Text = "Node3";
-            treeNode10.Name = "Node4";
-            treeNode10.Text = "Node4";
-            treeNode11.Name = "Node5";
-            treeNode11.Text = "Node5";
-            treeNode12.Name = "Node0";
-            treeNode12.Text = "Node0";
+            treeNode19.Name = "Node1";
+            treeNode19.Text = "Node1";
+            treeNode20.Name = "Node2";
+            treeNode20.Text = "Node2";
+            treeNode21.Name = "Node3";
+            treeNode21.Text = "Node3";
+            treeNode22.Name = "Node4";
+            treeNode22.Text = "Node4";
+            treeNode23.Name = "Node5";
+            treeNode23.Text = "Node5";
+            treeNode24.Name = "Node0";
+            treeNode24.Text = "Node0";
             this.kryptonTreeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode12});
+            treeNode24});
             this.kryptonTreeView1.Size = new System.Drawing.Size(120, 96);
             this.kryptonTreeView1.TabIndex = 17;
             this.kryptonTreeView1.Click += new System.EventHandler(this.OnClick);

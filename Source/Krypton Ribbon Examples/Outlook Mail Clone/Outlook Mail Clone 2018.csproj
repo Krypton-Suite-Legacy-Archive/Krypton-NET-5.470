@@ -33,6 +33,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <TargetFrameworkProfile />
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,23 +55,11 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Krypton Design">
-      <HintPath>..\..\..\Bin\Krypton Design.dll</HintPath>
-    </Reference>
-    <Reference Include="Krypton Docking">
-      <HintPath>..\..\..\Bin\Krypton Docking.dll</HintPath>
-    </Reference>
-    <Reference Include="Krypton Navigator">
-      <HintPath>..\..\..\Bin\Krypton Navigator.dll</HintPath>
-    </Reference>
     <Reference Include="Krypton Ribbon">
       <HintPath>..\..\..\Bin\Krypton Ribbon.dll</HintPath>
     </Reference>
     <Reference Include="Krypton Toolkit">
       <HintPath>..\..\..\Bin\Krypton Toolkit.dll</HintPath>
-    </Reference>
-    <Reference Include="Krypton Workspace">
-      <HintPath>..\..\..\Bin\Krypton Workspace.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />

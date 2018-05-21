@@ -73,9 +73,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2010BlackContextMenuSub1 {
+            get {
+                object obj = ResourceManager.GetObject("_2010BlackContextMenuSub1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _2010BlackDropDownButton {
             get {
                 object obj = ResourceManager.GetObject("_2010BlackDropDownButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _2010BlackDropDownButton1 {
+            get {
+                object obj = ResourceManager.GetObject("_2010BlackDropDownButton1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +113,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2010BlueContextMenuSub1 {
+            get {
+                object obj = ResourceManager.GetObject("_2010BlueContextMenuSub1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _2010BlueDropDownButton {
             get {
                 object obj = ResourceManager.GetObject("_2010BlueDropDownButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _2010BlueDropDownButton1 {
+            get {
+                object obj = ResourceManager.GetObject("_2010BlueDropDownButton1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +153,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2010ButtonClose1 {
+            get {
+                object obj = ResourceManager.GetObject("_2010ButtonClose1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _2010ButtonCloseBlack {
             get {
                 object obj = ResourceManager.GetObject("_2010ButtonCloseBlack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _2010ButtonCloseBlack1 {
+            get {
+                object obj = ResourceManager.GetObject("_2010ButtonCloseBlack1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +193,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2010ButtonCloseH1 {
+            get {
+                object obj = ResourceManager.GetObject("_2010ButtonCloseH1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _2010ButtonMax {
             get {
                 object obj = ResourceManager.GetObject("_2010ButtonMax", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _2010ButtonMax1 {
+            get {
+                object obj = ResourceManager.GetObject("_2010ButtonMax1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +233,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2010ButtonMaxBlack1 {
+            get {
+                object obj = ResourceManager.GetObject("_2010ButtonMaxBlack1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _2010ButtonMDIClose {
             get {
                 object obj = ResourceManager.GetObject("_2010ButtonMDIClose", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _2010ButtonMDIClose1 {
+            get {
+                object obj = ResourceManager.GetObject("_2010ButtonMDIClose1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +273,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2010ButtonMDICloseBlack1 {
+            get {
+                object obj = ResourceManager.GetObject("_2010ButtonMDICloseBlack1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _2010ButtonMDIMax {
             get {
                 object obj = ResourceManager.GetObject("_2010ButtonMDIMax", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _2010ButtonMDIMax1 {
+            get {
+                object obj = ResourceManager.GetObject("_2010ButtonMDIMax1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,9 +313,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2010ButtonMDIMaxBlack1 {
+            get {
+                object obj = ResourceManager.GetObject("_2010ButtonMDIMaxBlack1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _2010ButtonMDIMin {
             get {
                 object obj = ResourceManager.GetObject("_2010ButtonMDIMin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _2010ButtonMDIMin1 {
+            get {
+                object obj = ResourceManager.GetObject("_2010ButtonMDIMin1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,9 +353,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2010ButtonMDIMinBlack1 {
+            get {
+                object obj = ResourceManager.GetObject("_2010ButtonMDIMinBlack1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _2010ButtonMDIRestore {
             get {
                 object obj = ResourceManager.GetObject("_2010ButtonMDIRestore", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _2010ButtonMDIRestore1 {
+            get {
+                object obj = ResourceManager.GetObject("_2010ButtonMDIRestore1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,9 +393,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2010ButtonMDIRestoreBlack1 {
+            get {
+                object obj = ResourceManager.GetObject("_2010ButtonMDIRestoreBlack1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _2010ButtonMin {
             get {
                 object obj = ResourceManager.GetObject("_2010ButtonMin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _2010ButtonMin1 {
+            get {
+                object obj = ResourceManager.GetObject("_2010ButtonMin1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,9 +433,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2010ButtonMinBlack1 {
+            get {
+                object obj = ResourceManager.GetObject("_2010ButtonMinBlack1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _2010ButtonRestore {
             get {
                 object obj = ResourceManager.GetObject("_2010ButtonRestore", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _2010ButtonRestore1 {
+            get {
+                object obj = ResourceManager.GetObject("_2010ButtonRestore1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -273,9 +473,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2010ButtonRestoreBlack1 {
+            get {
+                object obj = ResourceManager.GetObject("_2010ButtonRestoreBlack1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add {
             get {
                 object obj = ResourceManager.GetObject("add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap add1 {
+            get {
+                object obj = ResourceManager.GetObject("add1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -293,9 +513,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap arrow_down_blue1 {
+            get {
+                object obj = ResourceManager.GetObject("arrow_down_blue1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrow_up_blue {
             get {
                 object obj = ResourceManager.GetObject("arrow_up_blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap arrow_up_blue1 {
+            get {
+                object obj = ResourceManager.GetObject("arrow_up_blue1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -313,9 +553,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlackButtonCloseA1 {
+            get {
+                object obj = ResourceManager.GetObject("BlackButtonCloseA1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BlackButtonCloseAH {
             get {
                 object obj = ResourceManager.GetObject("BlackButtonCloseAH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BlackButtonCloseAH1 {
+            get {
+                object obj = ResourceManager.GetObject("BlackButtonCloseAH1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -333,9 +593,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlackButtonCloseI1 {
+            get {
+                object obj = ResourceManager.GetObject("BlackButtonCloseI1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BlackButtonCollapse {
             get {
                 object obj = ResourceManager.GetObject("BlackButtonCollapse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BlackButtonCollapse1 {
+            get {
+                object obj = ResourceManager.GetObject("BlackButtonCollapse1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -353,9 +633,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlackButtonExpand1 {
+            get {
+                object obj = ResourceManager.GetObject("BlackButtonExpand1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BlackButtonMaxA {
             get {
                 object obj = ResourceManager.GetObject("BlackButtonMaxA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BlackButtonMaxA1 {
+            get {
+                object obj = ResourceManager.GetObject("BlackButtonMaxA1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -373,9 +673,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlackButtonMaxAH1 {
+            get {
+                object obj = ResourceManager.GetObject("BlackButtonMaxAH1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BlackButtonMaxI {
             get {
                 object obj = ResourceManager.GetObject("BlackButtonMaxI", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BlackButtonMaxI1 {
+            get {
+                object obj = ResourceManager.GetObject("BlackButtonMaxI1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -393,9 +713,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlackButtonMinA1 {
+            get {
+                object obj = ResourceManager.GetObject("BlackButtonMinA1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BlackButtonMinAH {
             get {
                 object obj = ResourceManager.GetObject("BlackButtonMinAH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BlackButtonMinAH1 {
+            get {
+                object obj = ResourceManager.GetObject("BlackButtonMinAH1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -413,9 +753,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlackButtonMinI1 {
+            get {
+                object obj = ResourceManager.GetObject("BlackButtonMinI1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BlackButtonRestoreA {
             get {
                 object obj = ResourceManager.GetObject("BlackButtonRestoreA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BlackButtonRestoreA1 {
+            get {
+                object obj = ResourceManager.GetObject("BlackButtonRestoreA1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -433,9 +793,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlackButtonRestoreAH1 {
+            get {
+                object obj = ResourceManager.GetObject("BlackButtonRestoreAH1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BlackButtonRestoreI {
             get {
                 object obj = ResourceManager.GetObject("BlackButtonRestoreI", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BlackButtonRestoreI1 {
+            get {
+                object obj = ResourceManager.GetObject("BlackButtonRestoreI1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -453,9 +833,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlackContextMenuSub1 {
+            get {
+                object obj = ResourceManager.GetObject("BlackContextMenuSub1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BlackDropDownButton {
             get {
                 object obj = ResourceManager.GetObject("BlackDropDownButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BlackDropDownButton1 {
+            get {
+                object obj = ResourceManager.GetObject("BlackDropDownButton1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -473,9 +873,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlueButtonCloseA1 {
+            get {
+                object obj = ResourceManager.GetObject("BlueButtonCloseA1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BlueButtonCloseI {
             get {
                 object obj = ResourceManager.GetObject("BlueButtonCloseI", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BlueButtonCloseI1 {
+            get {
+                object obj = ResourceManager.GetObject("BlueButtonCloseI1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -493,9 +913,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlueButtonMaxA1 {
+            get {
+                object obj = ResourceManager.GetObject("BlueButtonMaxA1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BlueButtonMaxI {
             get {
                 object obj = ResourceManager.GetObject("BlueButtonMaxI", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BlueButtonMaxI1 {
+            get {
+                object obj = ResourceManager.GetObject("BlueButtonMaxI1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -513,9 +953,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlueButtonMinA1 {
+            get {
+                object obj = ResourceManager.GetObject("BlueButtonMinA1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BlueButtonMinI {
             get {
                 object obj = ResourceManager.GetObject("BlueButtonMinI", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BlueButtonMinI1 {
+            get {
+                object obj = ResourceManager.GetObject("BlueButtonMinI1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -533,9 +993,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlueButtonRestoreA1 {
+            get {
+                object obj = ResourceManager.GetObject("BlueButtonRestoreA1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BlueButtonRestoreI {
             get {
                 object obj = ResourceManager.GetObject("BlueButtonRestoreI", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BlueButtonRestoreI1 {
+            get {
+                object obj = ResourceManager.GetObject("BlueButtonRestoreI1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -553,9 +1033,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlueContextMenuSub1 {
+            get {
+                object obj = ResourceManager.GetObject("BlueContextMenuSub1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BlueDropDownButton {
             get {
                 object obj = ResourceManager.GetObject("BlueDropDownButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BlueDropDownButton1 {
+            get {
+                object obj = ResourceManager.GetObject("BlueDropDownButton1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -573,9 +1073,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ButtonColorImageSmall1 {
+            get {
+                object obj = ResourceManager.GetObject("ButtonColorImageSmall1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ButtonNoColor {
             get {
                 object obj = ResourceManager.GetObject("ButtonNoColor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ButtonNoColor1 {
+            get {
+                object obj = ResourceManager.GetObject("ButtonNoColor1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -593,9 +1113,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CB2007Black1 {
+            get {
+                object obj = ResourceManager.GetObject("CB2007Black1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CB2007Blue {
             get {
                 object obj = ResourceManager.GetObject("CB2007Blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CB2007Blue1 {
+            get {
+                object obj = ResourceManager.GetObject("CB2007Blue1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -613,9 +1153,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CB2007Silver1 {
+            get {
+                object obj = ResourceManager.GetObject("CB2007Silver1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CB2010Black {
             get {
                 object obj = ResourceManager.GetObject("CB2010Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CB2010Black1 {
+            get {
+                object obj = ResourceManager.GetObject("CB2010Black1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -633,9 +1193,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CB2010Blue1 {
+            get {
+                object obj = ResourceManager.GetObject("CB2010Blue1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CB2010Silver {
             get {
                 object obj = ResourceManager.GetObject("CB2010Silver", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CB2010Silver1 {
+            get {
+                object obj = ResourceManager.GetObject("CB2010Silver1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -653,9 +1233,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CBSparkle1 {
+            get {
+                object obj = ResourceManager.GetObject("CBSparkle1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CBSparkleOrange {
             get {
                 object obj = ResourceManager.GetObject("CBSparkleOrange", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CBSparkleOrange1 {
+            get {
+                object obj = ResourceManager.GetObject("CBSparkleOrange1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -673,9 +1273,229 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CBSparklePurple1 {
+            get {
+                object obj = ResourceManager.GetObject("CBSparklePurple1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CollapseIcon {
+            get {
+                object obj = ResourceManager.GetObject("CollapseIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CollapseIcon2010 {
+            get {
+                object obj = ResourceManager.GetObject("CollapseIcon2010", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap color2scale_generic_16 {
+            get {
+                object obj = ResourceManager.GetObject("color2scale_generic_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap color3scale_generic_16 {
+            get {
+                object obj = ResourceManager.GetObject("color3scale_generic_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ComponentYellow {
             get {
                 object obj = ResourceManager.GetObject("ComponentYellow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ComponentYellow1 {
+            get {
+                object obj = ResourceManager.GetObject("ComponentYellow1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap databar_generic_16 {
+            get {
+                object obj = ResourceManager.GetObject("databar_generic_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Databar_gradient_blue_32 {
+            get {
+                object obj = ResourceManager.GetObject("Databar_gradient_blue_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Databar_gradient_green_32 {
+            get {
+                object obj = ResourceManager.GetObject("Databar_gradient_green_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Databar_gradient_pink_32 {
+            get {
+                object obj = ResourceManager.GetObject("Databar_gradient_pink_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Databar_gradient_red_32 {
+            get {
+                object obj = ResourceManager.GetObject("Databar_gradient_red_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Databar_gradient_rose_32 {
+            get {
+                object obj = ResourceManager.GetObject("Databar_gradient_rose_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Databar_gradient_violet_32 {
+            get {
+                object obj = ResourceManager.GetObject("Databar_gradient_violet_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Databar_gradient_yellow_32 {
+            get {
+                object obj = ResourceManager.GetObject("Databar_gradient_yellow_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Databar_gradient2_blue_32 {
+            get {
+                object obj = ResourceManager.GetObject("Databar_gradient2_blue_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Databar_solid_blue_32 {
+            get {
+                object obj = ResourceManager.GetObject("Databar_solid_blue_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Databar_solid_green_32 {
+            get {
+                object obj = ResourceManager.GetObject("Databar_solid_green_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Databar_solid_pink_32 {
+            get {
+                object obj = ResourceManager.GetObject("Databar_solid_pink_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Databar_solid_red_32 {
+            get {
+                object obj = ResourceManager.GetObject("Databar_solid_red_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Databar_solid_rose_32 {
+            get {
+                object obj = ResourceManager.GetObject("Databar_solid_rose_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Databar_solid_violet_32 {
+            get {
+                object obj = ResourceManager.GetObject("Databar_solid_violet_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Databar_solid_yellow_32 {
+            get {
+                object obj = ResourceManager.GetObject("Databar_solid_yellow_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -693,9 +1513,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap delete21 {
+            get {
+                object obj = ResourceManager.GetObject("delete21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DisabledDropDownButton {
             get {
                 object obj = ResourceManager.GetObject("DisabledDropDownButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DisabledDropDownButton1 {
+            get {
+                object obj = ResourceManager.GetObject("DisabledDropDownButton1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -713,9 +1553,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DisabledDropDownButton21 {
+            get {
+                object obj = ResourceManager.GetObject("DisabledDropDownButton21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DisabledDropUpButton {
             get {
                 object obj = ResourceManager.GetObject("DisabledDropUpButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DisabledDropUpButton1 {
+            get {
+                object obj = ResourceManager.GetObject("DisabledDropUpButton1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -733,9 +1593,109 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DisabledGalleryDropButton1 {
+            get {
+                object obj = ResourceManager.GetObject("DisabledGalleryDropButton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap element {
+            get {
+                object obj = ResourceManager.GetObject("element", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap element_delete {
+            get {
+                object obj = ResourceManager.GetObject("element_delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap element_minus_16 {
+            get {
+                object obj = ResourceManager.GetObject("element_minus_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap element_plus_16 {
+            get {
+                object obj = ResourceManager.GetObject("element_plus_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap element_selection_delete {
+            get {
+                object obj = ResourceManager.GetObject("element_selection_delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap elements_minus_16 {
+            get {
+                object obj = ResourceManager.GetObject("elements_minus_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap elements_plus_16 {
+            get {
+                object obj = ResourceManager.GetObject("elements_plus_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Empty16x16 {
             get {
                 object obj = ResourceManager.GetObject("Empty16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Empty16x161 {
+            get {
+                object obj = ResourceManager.GetObject("Empty16x161", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eraser {
+            get {
+                object obj = ResourceManager.GetObject("eraser", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -753,9 +1713,59 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap error1 {
+            get {
+                object obj = ResourceManager.GetObject("error1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap errorSmall {
             get {
                 object obj = ResourceManager.GetObject("errorSmall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap errorSmall1 {
+            get {
+                object obj = ResourceManager.GetObject("errorSmall1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ExpandIcon {
+            get {
+                object obj = ResourceManager.GetObject("ExpandIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ExpandIcon2010 {
+            get {
+                object obj = ResourceManager.GetObject("ExpandIcon2010", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fit_to_size {
+            get {
+                object obj = ResourceManager.GetObject("fit_to_size", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -773,9 +1783,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Gallery20101 {
+            get {
+                object obj = ResourceManager.GetObject("Gallery20101", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap GalleryBlue {
             get {
                 object obj = ResourceManager.GetObject("GalleryBlue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GalleryBlue1 {
+            get {
+                object obj = ResourceManager.GetObject("GalleryBlue1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -793,9 +1823,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GallerySilverBlack1 {
+            get {
+                object obj = ResourceManager.GetObject("GallerySilverBlack1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap GridErrorIcon {
             get {
                 object obj = ResourceManager.GetObject("GridErrorIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GridErrorIcon1 {
+            get {
+                object obj = ResourceManager.GetObject("GridErrorIcon1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -813,9 +1863,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GridRowIndicators1 {
+            get {
+                object obj = ResourceManager.GetObject("GridRowIndicators1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap GridSortOrder {
             get {
                 object obj = ResourceManager.GetObject("GridSortOrder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GridSortOrder1 {
+            get {
+                object obj = ResourceManager.GetObject("GridSortOrder1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -833,9 +1903,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap help21 {
+            get {
+                object obj = ResourceManager.GetObject("help21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap help2Small {
             get {
                 object obj = ResourceManager.GetObject("help2Small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap help2Small1 {
+            get {
+                object obj = ResourceManager.GetObject("help2Small1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -853,9 +1943,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap HourGlass1 {
+            get {
+                object obj = ResourceManager.GetObject("HourGlass1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap information {
             get {
                 object obj = ResourceManager.GetObject("information", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap information1 {
+            get {
+                object obj = ResourceManager.GetObject("information1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -873,9 +1983,79 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap informationSmall1 {
+            get {
+                object obj = ResourceManager.GetObject("informationSmall1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonBorderEdge {
+            get {
+                object obj = ResourceManager.GetObject("KryptonBorderEdge", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonBreadCrumb {
+            get {
+                object obj = ResourceManager.GetObject("KryptonBreadCrumb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonBreadCrumbItem {
+            get {
+                object obj = ResourceManager.GetObject("KryptonBreadCrumbItem", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonButton {
+            get {
+                object obj = ResourceManager.GetObject("KryptonButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonButtonSpec {
+            get {
+                object obj = ResourceManager.GetObject("KryptonButtonSpec", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap KryptonCheckBox {
             get {
                 object obj = ResourceManager.GetObject("KryptonCheckBox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonCheckBox1 {
+            get {
+                object obj = ResourceManager.GetObject("KryptonCheckBox1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -893,9 +2073,89 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap KryptonCheckButton1 {
+            get {
+                object obj = ResourceManager.GetObject("KryptonCheckButton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonCheckedListBox {
+            get {
+                object obj = ResourceManager.GetObject("KryptonCheckedListBox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonCheckSet {
+            get {
+                object obj = ResourceManager.GetObject("KryptonCheckSet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonColorButton {
+            get {
+                object obj = ResourceManager.GetObject("KryptonColorButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonComboBox {
+            get {
+                object obj = ResourceManager.GetObject("KryptonComboBox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonCommand {
+            get {
+                object obj = ResourceManager.GetObject("KryptonCommand", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonContextMenu {
+            get {
+                object obj = ResourceManager.GetObject("KryptonContextMenu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap KryptonContextMenuColorColumns {
             get {
                 object obj = ResourceManager.GetObject("KryptonContextMenuColorColumns", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonContextMenuColorColumns1 {
+            get {
+                object obj = ResourceManager.GetObject("KryptonContextMenuColorColumns1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -913,9 +2173,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap KryptonContextMenuHeading1 {
+            get {
+                object obj = ResourceManager.GetObject("KryptonContextMenuHeading1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap KryptonContextMenuImageSelect {
             get {
                 object obj = ResourceManager.GetObject("KryptonContextMenuImageSelect", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonContextMenuImageSelect1 {
+            get {
+                object obj = ResourceManager.GetObject("KryptonContextMenuImageSelect1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -933,9 +2213,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap KryptonContextMenuItem1 {
+            get {
+                object obj = ResourceManager.GetObject("KryptonContextMenuItem1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap KryptonContextMenuItems {
             get {
                 object obj = ResourceManager.GetObject("KryptonContextMenuItems", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonContextMenuItems1 {
+            get {
+                object obj = ResourceManager.GetObject("KryptonContextMenuItems1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -953,9 +2253,179 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap KryptonContextMenuSeparator1 {
+            get {
+                object obj = ResourceManager.GetObject("KryptonContextMenuSeparator1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonDataGridView {
+            get {
+                object obj = ResourceManager.GetObject("KryptonDataGridView", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonDateTimePicker {
+            get {
+                object obj = ResourceManager.GetObject("KryptonDateTimePicker", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonDomainUpDown {
+            get {
+                object obj = ResourceManager.GetObject("KryptonDomainUpDown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonDropButton {
+            get {
+                object obj = ResourceManager.GetObject("KryptonDropButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonForm {
+            get {
+                object obj = ResourceManager.GetObject("KryptonForm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonGallery {
+            get {
+                object obj = ResourceManager.GetObject("KryptonGallery", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonGroup {
+            get {
+                object obj = ResourceManager.GetObject("KryptonGroup", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonGroupBox {
+            get {
+                object obj = ResourceManager.GetObject("KryptonGroupBox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonGroupPanel {
+            get {
+                object obj = ResourceManager.GetObject("KryptonGroupPanel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonHeader {
+            get {
+                object obj = ResourceManager.GetObject("KryptonHeader", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonHeaderGroup {
+            get {
+                object obj = ResourceManager.GetObject("KryptonHeaderGroup", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonLabel {
+            get {
+                object obj = ResourceManager.GetObject("KryptonLabel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap KryptonLinkLabel {
             get {
                 object obj = ResourceManager.GetObject("KryptonLinkLabel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonLinkLabel1 {
+            get {
+                object obj = ResourceManager.GetObject("KryptonLinkLabel1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonListBox {
+            get {
+                object obj = ResourceManager.GetObject("KryptonListBox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonManager {
+            get {
+                object obj = ResourceManager.GetObject("KryptonManager", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonMaskedTextBox {
+            get {
+                object obj = ResourceManager.GetObject("KryptonMaskedTextBox", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -973,9 +2443,359 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap KryptonMonthCalendar1 {
+            get {
+                object obj = ResourceManager.GetObject("KryptonMonthCalendar1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonNumericUpDown {
+            get {
+                object obj = ResourceManager.GetObject("KryptonNumericUpDown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonPalette {
+            get {
+                object obj = ResourceManager.GetObject("KryptonPalette", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonPanel {
+            get {
+                object obj = ResourceManager.GetObject("KryptonPanel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap KryptonRadioButton {
             get {
                 object obj = ResourceManager.GetObject("KryptonRadioButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRadioButton1 {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRadioButton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonContext {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonContext", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonGroup {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonGroup", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonGroupButton {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonGroupButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonGroupCheckBox {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonGroupCheckBox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonGroupCluster {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonGroupCluster", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonGroupClusterButton {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonGroupClusterButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonGroupClusterColorButton {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonGroupClusterColorButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonGroupColorButton {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonGroupColorButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonGroupComboBox {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonGroupComboBox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonGroupCustomControl {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonGroupCustomControl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonGroupDateTimePicker {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonGroupDateTimePicker", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonGroupDomainUpDown {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonGroupDomainUpDown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonGroupLabel {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonGroupLabel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonGroupLines {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonGroupLines", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonGroupMaskedTextBox {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonGroupMaskedTextBox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonGroupNumericUpDown {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonGroupNumericUpDown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonGroupRadioButton {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonGroupRadioButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonGroupRichTextBox {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonGroupRichTextBox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonGroupSeparator {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonGroupSeparator", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonGroupTextBox {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonGroupTextBox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonGroupTrackBar {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonGroupTrackBar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonGroupTriple {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonGroupTriple", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonQATButton {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonQATButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonRecentDoc {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonRecentDoc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRibbonTab {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRibbonTab", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonRichTextBox {
+            get {
+                object obj = ResourceManager.GetObject("KryptonRichTextBox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonSeparator {
+            get {
+                object obj = ResourceManager.GetObject("KryptonSeparator", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonSplitContainer {
+            get {
+                object obj = ResourceManager.GetObject("KryptonSplitContainer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonTextBox {
+            get {
+                object obj = ResourceManager.GetObject("KryptonTextBox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KryptonWrapLabel {
+            get {
+                object obj = ResourceManager.GetObject("KryptonWrapLabel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -993,9 +2813,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MdiClose1 {
+            get {
+                object obj = ResourceManager.GetObject("MdiClose1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MdiMin {
             get {
                 object obj = ResourceManager.GetObject("MdiMin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MdiMin1 {
+            get {
+                object obj = ResourceManager.GetObject("MdiMin1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1013,9 +2853,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MdiRestore1 {
+            get {
+                object obj = ResourceManager.GetObject("MdiRestore1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MdiRibbonExpand {
             get {
                 object obj = ResourceManager.GetObject("MdiRibbonExpand", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MdiRibbonExpand1 {
+            get {
+                object obj = ResourceManager.GetObject("MdiRibbonExpand1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1033,9 +2893,89 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MdiRibbonMinimize1 {
+            get {
+                object obj = ResourceManager.GetObject("MdiRibbonMinimize1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MoveFirst {
+            get {
+                object obj = ResourceManager.GetObject("MoveFirst", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MoveLast {
+            get {
+                object obj = ResourceManager.GetObject("MoveLast", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MoveNext {
+            get {
+                object obj = ResourceManager.GetObject("MoveNext", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MovePrevious {
+            get {
+                object obj = ResourceManager.GetObject("MovePrevious", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap navigate_minus {
+            get {
+                object obj = ResourceManager.GetObject("navigate_minus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap navigate_plus {
+            get {
+                object obj = ResourceManager.GetObject("navigate_plus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Office2007Checked {
             get {
                 object obj = ResourceManager.GetObject("Office2007Checked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Office2007Checked1 {
+            get {
+                object obj = ResourceManager.GetObject("Office2007Checked1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1053,9 +2993,39 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Office2007Indeterminate1 {
+            get {
+                object obj = ResourceManager.GetObject("Office2007Indeterminate1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap paint_bucket_green {
+            get {
+                object obj = ResourceManager.GetObject("paint_bucket_green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ProfessionalArrowDownButton {
             get {
                 object obj = ResourceManager.GetObject("ProfessionalArrowDownButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalArrowDownButton1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalArrowDownButton1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1073,9 +3043,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalArrowLeftButton1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalArrowLeftButton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ProfessionalArrowRightButton {
             get {
                 object obj = ResourceManager.GetObject("ProfessionalArrowRightButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalArrowRightButton1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalArrowRightButton1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1093,9 +3083,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalArrowUpButton1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalArrowUpButton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ProfessionalButtonCloseA {
             get {
                 object obj = ResourceManager.GetObject("ProfessionalButtonCloseA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalButtonCloseA1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalButtonCloseA1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1113,9 +3123,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalButtonCloseI1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalButtonCloseI1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ProfessionalButtonMaxA {
             get {
                 object obj = ResourceManager.GetObject("ProfessionalButtonMaxA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalButtonMaxA1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalButtonMaxA1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1133,9 +3163,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalButtonMaxI1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalButtonMaxI1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ProfessionalButtonMinA {
             get {
                 object obj = ResourceManager.GetObject("ProfessionalButtonMinA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalButtonMinA1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalButtonMinA1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1153,9 +3203,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalButtonMinI1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalButtonMinI1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ProfessionalButtonRestoreA {
             get {
                 object obj = ResourceManager.GetObject("ProfessionalButtonRestoreA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalButtonRestoreA1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalButtonRestoreA1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1173,9 +3243,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalButtonRestoreI1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalButtonRestoreI1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ProfessionalCloseButton {
             get {
                 object obj = ResourceManager.GetObject("ProfessionalCloseButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalCloseButton1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalCloseButton1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1193,9 +3283,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalContextButton1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalContextButton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ProfessionalDropDownButton {
             get {
                 object obj = ResourceManager.GetObject("ProfessionalDropDownButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalDropDownButton1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalDropDownButton1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1213,9 +3323,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalMaximize1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalMaximize1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ProfessionalNextButton {
             get {
                 object obj = ResourceManager.GetObject("ProfessionalNextButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalNextButton1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalNextButton1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1233,9 +3363,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalPendantCloseA1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalPendantCloseA1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ProfessionalPendantCloseI {
             get {
                 object obj = ResourceManager.GetObject("ProfessionalPendantCloseI", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalPendantCloseI1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalPendantCloseI1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1253,9 +3403,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalPendantExpandA1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalPendantExpandA1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ProfessionalPendantExpandI {
             get {
                 object obj = ResourceManager.GetObject("ProfessionalPendantExpandI", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalPendantExpandI1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalPendantExpandI1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1273,9 +3443,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalPendantMinA1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalPendantMinA1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ProfessionalPendantMinI {
             get {
                 object obj = ResourceManager.GetObject("ProfessionalPendantMinI", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalPendantMinI1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalPendantMinI1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1293,9 +3483,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalPendantMinimizeA1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalPendantMinimizeA1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ProfessionalPendantMinimizeI {
             get {
                 object obj = ResourceManager.GetObject("ProfessionalPendantMinimizeI", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalPendantMinimizeI1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalPendantMinimizeI1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1313,9 +3523,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalPendantRestoreA1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalPendantRestoreA1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ProfessionalPendantRestoreI {
             get {
                 object obj = ResourceManager.GetObject("ProfessionalPendantRestoreI", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalPendantRestoreI1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalPendantRestoreI1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1333,9 +3563,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalPinHorizontalButton1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalPinHorizontalButton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ProfessionalPinVerticalButton {
             get {
                 object obj = ResourceManager.GetObject("ProfessionalPinVerticalButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalPinVerticalButton1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalPinVerticalButton1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1353,9 +3603,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalPreviousButton1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalPreviousButton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ProfessionalRestore {
             get {
                 object obj = ResourceManager.GetObject("ProfessionalRestore", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProfessionalRestore1 {
+            get {
+                object obj = ResourceManager.GetObject("ProfessionalRestore1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1373,9 +3643,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RB2007BlackN1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2007BlackN1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RB2007BlackNC {
             get {
                 object obj = ResourceManager.GetObject("RB2007BlackNC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RB2007BlackNC1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2007BlackNC1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1393,9 +3683,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RB2007BlackP1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2007BlackP1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RB2007BlackPC {
             get {
                 object obj = ResourceManager.GetObject("RB2007BlackPC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RB2007BlackPC1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2007BlackPC1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1413,9 +3723,39 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RB2007BlackT1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2007BlackT1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RB2007BlackTC {
             get {
                 object obj = ResourceManager.GetObject("RB2007BlackTC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RB2007BlackTC1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2007BlackTC1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RB2007Blue {
+            get {
+                object obj = ResourceManager.GetObject("RB2007Blue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1433,9 +3773,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RB2007BlueD1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2007BlueD1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RB2007BlueDC {
             get {
                 object obj = ResourceManager.GetObject("RB2007BlueDC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RB2007BlueDC1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2007BlueDC1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1453,9 +3813,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RB2007BlueN1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2007BlueN1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RB2007BlueNC {
             get {
                 object obj = ResourceManager.GetObject("RB2007BlueNC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RB2007BlueNC1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2007BlueNC1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1473,9 +3853,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RB2007BlueP1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2007BlueP1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RB2007BluePC {
             get {
                 object obj = ResourceManager.GetObject("RB2007BluePC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RB2007BluePC1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2007BluePC1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1493,9 +3893,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RB2007BlueT1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2007BlueT1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RB2007BlueTC {
             get {
                 object obj = ResourceManager.GetObject("RB2007BlueTC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RB2007BlueTC1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2007BlueTC1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1513,9 +3933,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RB2007SilverN1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2007SilverN1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RB2007SilverNC {
             get {
                 object obj = ResourceManager.GetObject("RB2007SilverNC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RB2007SilverNC1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2007SilverNC1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1533,9 +3973,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RB2007SilverP1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2007SilverP1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RB2007SilverPC {
             get {
                 object obj = ResourceManager.GetObject("RB2007SilverPC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RB2007SilverPC1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2007SilverPC1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1553,9 +4013,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RB2007SilverT1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2007SilverT1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RB2007SilverTC {
             get {
                 object obj = ResourceManager.GetObject("RB2007SilverTC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RB2007SilverTC1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2007SilverTC1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1573,9 +4053,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RB2010BlueD1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2010BlueD1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RB2010BlueDC {
             get {
                 object obj = ResourceManager.GetObject("RB2010BlueDC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RB2010BlueDC1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2010BlueDC1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1593,9 +4093,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RB2010BlueN1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2010BlueN1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RB2010BlueNC {
             get {
                 object obj = ResourceManager.GetObject("RB2010BlueNC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RB2010BlueNC1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2010BlueNC1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1613,9 +4133,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RB2010BlueP1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2010BlueP1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RB2010BluePC {
             get {
                 object obj = ResourceManager.GetObject("RB2010BluePC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RB2010BluePC1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2010BluePC1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1633,9 +4173,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RB2010BlueT1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2010BlueT1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RB2010BlueTC {
             get {
                 object obj = ResourceManager.GetObject("RB2010BlueTC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RB2010BlueTC1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2010BlueTC1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1653,9 +4213,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RB2010SilverN1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2010SilverN1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RB2010SilverNC {
             get {
                 object obj = ResourceManager.GetObject("RB2010SilverNC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RB2010SilverNC1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2010SilverNC1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1673,9 +4253,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RB2010SilverPC1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2010SilverPC1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RB2010SilverTC {
             get {
                 object obj = ResourceManager.GetObject("RB2010SilverTC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RB2010SilverTC1 {
+            get {
+                object obj = ResourceManager.GetObject("RB2010SilverTC1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1693,9 +4293,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RBSparkleD1 {
+            get {
+                object obj = ResourceManager.GetObject("RBSparkleD1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RBSparkleDC {
             get {
                 object obj = ResourceManager.GetObject("RBSparkleDC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RBSparkleDC1 {
+            get {
+                object obj = ResourceManager.GetObject("RBSparkleDC1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1713,9 +4333,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RBSparkleN1 {
+            get {
+                object obj = ResourceManager.GetObject("RBSparkleN1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RBSparkleNC {
             get {
                 object obj = ResourceManager.GetObject("RBSparkleNC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RBSparkleNC1 {
+            get {
+                object obj = ResourceManager.GetObject("RBSparkleNC1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1733,9 +4373,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RBSparkleOrangeNC1 {
+            get {
+                object obj = ResourceManager.GetObject("RBSparkleOrangeNC1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RBSparkleOrangeP {
             get {
                 object obj = ResourceManager.GetObject("RBSparkleOrangeP", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RBSparkleOrangeP1 {
+            get {
+                object obj = ResourceManager.GetObject("RBSparkleOrangeP1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1753,9 +4413,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RBSparkleOrangePC1 {
+            get {
+                object obj = ResourceManager.GetObject("RBSparkleOrangePC1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RBSparkleOrangeT {
             get {
                 object obj = ResourceManager.GetObject("RBSparkleOrangeT", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RBSparkleOrangeT1 {
+            get {
+                object obj = ResourceManager.GetObject("RBSparkleOrangeT1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1773,9 +4453,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RBSparkleOrangeTC1 {
+            get {
+                object obj = ResourceManager.GetObject("RBSparkleOrangeTC1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RBSparkleP {
             get {
                 object obj = ResourceManager.GetObject("RBSparkleP", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RBSparkleP1 {
+            get {
+                object obj = ResourceManager.GetObject("RBSparkleP1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1793,9 +4493,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RBSparklePC1 {
+            get {
+                object obj = ResourceManager.GetObject("RBSparklePC1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RBSparklePurpleNC {
             get {
                 object obj = ResourceManager.GetObject("RBSparklePurpleNC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RBSparklePurpleNC1 {
+            get {
+                object obj = ResourceManager.GetObject("RBSparklePurpleNC1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1813,9 +4533,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RBSparklePurpleP1 {
+            get {
+                object obj = ResourceManager.GetObject("RBSparklePurpleP1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RBSparklePurplePC {
             get {
                 object obj = ResourceManager.GetObject("RBSparklePurplePC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RBSparklePurplePC1 {
+            get {
+                object obj = ResourceManager.GetObject("RBSparklePurplePC1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1833,9 +4573,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RBSparklePurpleT1 {
+            get {
+                object obj = ResourceManager.GetObject("RBSparklePurpleT1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RBSparklePurpleTC {
             get {
                 object obj = ResourceManager.GetObject("RBSparklePurpleTC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RBSparklePurpleTC1 {
+            get {
+                object obj = ResourceManager.GetObject("RBSparklePurpleTC1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1853,9 +4613,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RBSparkleT1 {
+            get {
+                object obj = ResourceManager.GetObject("RBSparkleT1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RBSparkleTC {
             get {
                 object obj = ResourceManager.GetObject("RBSparkleTC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RBSparkleTC1 {
+            get {
+                object obj = ResourceManager.GetObject("RBSparkleTC1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1873,9 +4653,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RibbonDown20101 {
+            get {
+                object obj = ResourceManager.GetObject("RibbonDown20101", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RibbonDown2010Black {
             get {
                 object obj = ResourceManager.GetObject("RibbonDown2010Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RibbonDown2010Black1 {
+            get {
+                object obj = ResourceManager.GetObject("RibbonDown2010Black1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1893,9 +4693,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RibbonUp20101 {
+            get {
+                object obj = ResourceManager.GetObject("RibbonUp20101", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RibbonUp2010Black {
             get {
                 object obj = ResourceManager.GetObject("RibbonUp2010Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RibbonUp2010Black1 {
+            get {
+                object obj = ResourceManager.GetObject("RibbonUp2010Black1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1913,9 +4733,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SelectParentControl1 {
+            get {
+                object obj = ResourceManager.GetObject("SelectParentControl1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sign_warning {
             get {
                 object obj = ResourceManager.GetObject("sign_warning", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sign_warning1 {
+            get {
+                object obj = ResourceManager.GetObject("sign_warning1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1933,9 +4773,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap sign_warningSmall1 {
+            get {
+                object obj = ResourceManager.GetObject("sign_warningSmall1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SilverButtonCloseA {
             get {
                 object obj = ResourceManager.GetObject("SilverButtonCloseA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SilverButtonCloseA1 {
+            get {
+                object obj = ResourceManager.GetObject("SilverButtonCloseA1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1953,9 +4813,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SilverButtonCloseI1 {
+            get {
+                object obj = ResourceManager.GetObject("SilverButtonCloseI1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SilverButtonMaxA {
             get {
                 object obj = ResourceManager.GetObject("SilverButtonMaxA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SilverButtonMaxA1 {
+            get {
+                object obj = ResourceManager.GetObject("SilverButtonMaxA1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1973,9 +4853,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SilverButtonMaxI1 {
+            get {
+                object obj = ResourceManager.GetObject("SilverButtonMaxI1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SilverButtonMinA {
             get {
                 object obj = ResourceManager.GetObject("SilverButtonMinA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SilverButtonMinA1 {
+            get {
+                object obj = ResourceManager.GetObject("SilverButtonMinA1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1993,9 +4893,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SilverButtonMinI1 {
+            get {
+                object obj = ResourceManager.GetObject("SilverButtonMinI1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SilverButtonRestoreA {
             get {
                 object obj = ResourceManager.GetObject("SilverButtonRestoreA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SilverButtonRestoreA1 {
+            get {
+                object obj = ResourceManager.GetObject("SilverButtonRestoreA1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2013,9 +4933,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SilverButtonRestoreI1 {
+            get {
+                object obj = ResourceManager.GetObject("SilverButtonRestoreI1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SilverContextMenuSub {
             get {
                 object obj = ResourceManager.GetObject("SilverContextMenuSub", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SilverContextMenuSub1 {
+            get {
+                object obj = ResourceManager.GetObject("SilverContextMenuSub1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2033,9 +4973,59 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SilverDropDownButton1 {
+            get {
+                object obj = ResourceManager.GetObject("SilverDropDownButton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sort_az_ascending2 {
+            get {
+                object obj = ResourceManager.GetObject("sort_az_ascending2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sort_az_descending2 {
+            get {
+                object obj = ResourceManager.GetObject("sort_az_descending2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sort_up_down_delete_16 {
+            get {
+                object obj = ResourceManager.GetObject("sort_up_down_delete_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SparkleButtonCloseA {
             get {
                 object obj = ResourceManager.GetObject("SparkleButtonCloseA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SparkleButtonCloseA1 {
+            get {
+                object obj = ResourceManager.GetObject("SparkleButtonCloseA1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2053,9 +5043,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SparkleButtonCloseI1 {
+            get {
+                object obj = ResourceManager.GetObject("SparkleButtonCloseI1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SparkleButtonMaxA {
             get {
                 object obj = ResourceManager.GetObject("SparkleButtonMaxA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SparkleButtonMaxA1 {
+            get {
+                object obj = ResourceManager.GetObject("SparkleButtonMaxA1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2073,9 +5083,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SparkleButtonMaxI1 {
+            get {
+                object obj = ResourceManager.GetObject("SparkleButtonMaxI1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SparkleButtonMinA {
             get {
                 object obj = ResourceManager.GetObject("SparkleButtonMinA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SparkleButtonMinA1 {
+            get {
+                object obj = ResourceManager.GetObject("SparkleButtonMinA1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2093,9 +5123,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SparkleButtonMinI1 {
+            get {
+                object obj = ResourceManager.GetObject("SparkleButtonMinI1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SparkleButtonRestoreA {
             get {
                 object obj = ResourceManager.GetObject("SparkleButtonRestoreA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SparkleButtonRestoreA1 {
+            get {
+                object obj = ResourceManager.GetObject("SparkleButtonRestoreA1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2113,9 +5163,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SparkleButtonRestoreI1 {
+            get {
+                object obj = ResourceManager.GetObject("SparkleButtonRestoreI1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SparkleChecked {
             get {
                 object obj = ResourceManager.GetObject("SparkleChecked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SparkleChecked1 {
+            get {
+                object obj = ResourceManager.GetObject("SparkleChecked1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2133,9 +5203,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SparkleContextMenuSub1 {
+            get {
+                object obj = ResourceManager.GetObject("SparkleContextMenuSub1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SparkleDropDownButton {
             get {
                 object obj = ResourceManager.GetObject("SparkleDropDownButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SparkleDropDownButton1 {
+            get {
+                object obj = ResourceManager.GetObject("SparkleDropDownButton1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2153,9 +5243,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SparkleDropDownOutlineButton1 {
+            get {
+                object obj = ResourceManager.GetObject("SparkleDropDownOutlineButton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SparkleDropUpButton {
             get {
                 object obj = ResourceManager.GetObject("SparkleDropUpButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SparkleDropUpButton1 {
+            get {
+                object obj = ResourceManager.GetObject("SparkleDropUpButton1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2173,9 +5283,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SparkleGalleryDropButton1 {
+            get {
+                object obj = ResourceManager.GetObject("SparkleGalleryDropButton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SparkleGrayChecked {
             get {
                 object obj = ResourceManager.GetObject("SparkleGrayChecked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SparkleGrayChecked1 {
+            get {
+                object obj = ResourceManager.GetObject("SparkleGrayChecked1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2193,9 +5323,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SparkleGrayIndeterminate1 {
+            get {
+                object obj = ResourceManager.GetObject("SparkleGrayIndeterminate1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SparkleIndeterminate {
             get {
                 object obj = ResourceManager.GetObject("SparkleIndeterminate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SparkleIndeterminate1 {
+            get {
+                object obj = ResourceManager.GetObject("SparkleIndeterminate1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2223,9 +5373,169 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap star_yellow {
+            get {
+                object obj = ResourceManager.GetObject("star_yellow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap star_yellow_disabled {
+            get {
+                object obj = ResourceManager.GetObject("star_yellow_disabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap star_yellow_half_16 {
+            get {
+                object obj = ResourceManager.GetObject("star_yellow_half_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap star0 {
+            get {
+                object obj = ResourceManager.GetObject("star0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap star1 {
+            get {
+                object obj = ResourceManager.GetObject("star1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap star2 {
+            get {
+                object obj = ResourceManager.GetObject("star2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap star3 {
+            get {
+                object obj = ResourceManager.GetObject("star3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap star4 {
+            get {
+                object obj = ResourceManager.GetObject("star4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap star5 {
+            get {
+                object obj = ResourceManager.GetObject("star5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap starhot0 {
+            get {
+                object obj = ResourceManager.GetObject("starhot0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap starhot1 {
+            get {
+                object obj = ResourceManager.GetObject("starhot1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap starhot2 {
+            get {
+                object obj = ResourceManager.GetObject("starhot2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap starhot3 {
+            get {
+                object obj = ResourceManager.GetObject("starhot3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap starhot4 {
+            get {
+                object obj = ResourceManager.GetObject("starhot4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap starhot5 {
+            get {
+                object obj = ResourceManager.GetObject("starhot5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SystemChecked {
             get {
                 object obj = ResourceManager.GetObject("SystemChecked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SystemChecked1 {
+            get {
+                object obj = ResourceManager.GetObject("SystemChecked1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2243,9 +5553,109 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SystemContextMenuSub1 {
+            get {
+                object obj = ResourceManager.GetObject("SystemContextMenuSub1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SystemIndeterminate {
             get {
                 object obj = ResourceManager.GetObject("SystemIndeterminate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SystemIndeterminate1 {
+            get {
+                object obj = ResourceManager.GetObject("SystemIndeterminate1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap table_conditional_16 {
+            get {
+                object obj = ResourceManager.GetObject("table_conditional_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap table2_selection_column {
+            get {
+                object obj = ResourceManager.GetObject("table2_selection_column", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThreeColors_blue_white_red_32 {
+            get {
+                object obj = ResourceManager.GetObject("ThreeColors_blue_white_red_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThreeColors_green_white_red_32 {
+            get {
+                object obj = ResourceManager.GetObject("ThreeColors_green_white_red_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThreeColors_green_yellow_red_32 {
+            get {
+                object obj = ResourceManager.GetObject("ThreeColors_green_yellow_red_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThreeColors_red_white_blue_32 {
+            get {
+                object obj = ResourceManager.GetObject("ThreeColors_red_white_blue_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThreeColors_red_white_green_32 {
+            get {
+                object obj = ResourceManager.GetObject("ThreeColors_red_white_green_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThreeColors_red_yellow_green_32 {
+            get {
+                object obj = ResourceManager.GetObject("ThreeColors_red_yellow_green_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2263,6 +5673,16 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap TreeCollapseBlack1 {
+            get {
+                object obj = ResourceManager.GetObject("TreeCollapseBlack1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap TreeCollapseDark {
             get {
                 object obj = ResourceManager.GetObject("TreeCollapseDark", resourceCulture);
@@ -2271,11 +5691,21 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         }
         
         /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap TreeCollapseMinus {
             get {
                 object obj = ResourceManager.GetObject("TreeCollapseMinus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TreeCollapseMinus1 {
+            get {
+                object obj = ResourceManager.GetObject("TreeCollapseMinus1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2291,11 +5721,21 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         }
         
         /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap TreeExpandPlus {
             get {
                 object obj = ResourceManager.GetObject("TreeExpandPlus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TreeExpandPlus1 {
+            get {
+                object obj = ResourceManager.GetObject("TreeExpandPlus1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2313,9 +5753,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap TreeExpandWhite1 {
+            get {
+                object obj = ResourceManager.GetObject("TreeExpandWhite1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap TreeMinusBox {
             get {
                 object obj = ResourceManager.GetObject("TreeMinusBox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TreeMinusBox1 {
+            get {
+                object obj = ResourceManager.GetObject("TreeMinusBox1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2333,9 +5793,149 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap TreePlusBox1 {
+            get {
+                object obj = ResourceManager.GetObject("TreePlusBox1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TwoColors_blue_white_32 {
+            get {
+                object obj = ResourceManager.GetObject("TwoColors_blue_white_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TwoColors_green_white_32 {
+            get {
+                object obj = ResourceManager.GetObject("TwoColors_green_white_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TwoColors_pink_white_32 {
+            get {
+                object obj = ResourceManager.GetObject("TwoColors_pink_white_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TwoColors_red_white_32 {
+            get {
+                object obj = ResourceManager.GetObject("TwoColors_red_white_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TwoColors_violet_white_32 {
+            get {
+                object obj = ResourceManager.GetObject("TwoColors_violet_white_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TwoColors_white_blue_32 {
+            get {
+                object obj = ResourceManager.GetObject("TwoColors_white_blue_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TwoColors_white_green_32 {
+            get {
+                object obj = ResourceManager.GetObject("TwoColors_white_green_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TwoColors_white_pink_32 {
+            get {
+                object obj = ResourceManager.GetObject("TwoColors_white_pink_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TwoColors_white_red_32 {
+            get {
+                object obj = ResourceManager.GetObject("TwoColors_white_red_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TwoColors_white_violet_32 {
+            get {
+                object obj = ResourceManager.GetObject("TwoColors_white_violet_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TwoColors_white_yellow_32 {
+            get {
+                object obj = ResourceManager.GetObject("TwoColors_white_yellow_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TwoColors_yellow_white_32 {
+            get {
+                object obj = ResourceManager.GetObject("TwoColors_yellow_white_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap WhiteArrowDownButton {
             get {
                 object obj = ResourceManager.GetObject("WhiteArrowDownButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhiteArrowDownButton1 {
+            get {
+                object obj = ResourceManager.GetObject("WhiteArrowDownButton1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2353,9 +5953,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap WhiteArrowLeftButton1 {
+            get {
+                object obj = ResourceManager.GetObject("WhiteArrowLeftButton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap WhiteArrowRightButton {
             get {
                 object obj = ResourceManager.GetObject("WhiteArrowRightButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhiteArrowRightButton1 {
+            get {
+                object obj = ResourceManager.GetObject("WhiteArrowRightButton1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2373,9 +5993,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap WhiteArrowUpButton1 {
+            get {
+                object obj = ResourceManager.GetObject("WhiteArrowUpButton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap WhiteButtonClose {
             get {
                 object obj = ResourceManager.GetObject("WhiteButtonClose", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhiteButtonClose1 {
+            get {
+                object obj = ResourceManager.GetObject("WhiteButtonClose1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2393,9 +6033,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap WhiteCloseButton1 {
+            get {
+                object obj = ResourceManager.GetObject("WhiteCloseButton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap WhiteContextButton {
             get {
                 object obj = ResourceManager.GetObject("WhiteContextButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhiteContextButton1 {
+            get {
+                object obj = ResourceManager.GetObject("WhiteContextButton1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2413,9 +6073,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap WhiteDropDownButton1 {
+            get {
+                object obj = ResourceManager.GetObject("WhiteDropDownButton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap WhiteMaximize {
             get {
                 object obj = ResourceManager.GetObject("WhiteMaximize", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhiteMaximize1 {
+            get {
+                object obj = ResourceManager.GetObject("WhiteMaximize1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2433,9 +6113,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap WhiteNextButton1 {
+            get {
+                object obj = ResourceManager.GetObject("WhiteNextButton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap WhitePendantCloseA {
             get {
                 object obj = ResourceManager.GetObject("WhitePendantCloseA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhitePendantCloseA1 {
+            get {
+                object obj = ResourceManager.GetObject("WhitePendantCloseA1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2453,9 +6153,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap WhitePendantMinA1 {
+            get {
+                object obj = ResourceManager.GetObject("WhitePendantMinA1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap WhitePendantRestoreA {
             get {
                 object obj = ResourceManager.GetObject("WhitePendantRestoreA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhitePendantRestoreA1 {
+            get {
+                object obj = ResourceManager.GetObject("WhitePendantRestoreA1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2473,9 +6193,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap WhitePendantRibbonExpand1 {
+            get {
+                object obj = ResourceManager.GetObject("WhitePendantRibbonExpand1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap WhitePendantRibbonMinimize {
             get {
                 object obj = ResourceManager.GetObject("WhitePendantRibbonMinimize", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhitePendantRibbonMinimize1 {
+            get {
+                object obj = ResourceManager.GetObject("WhitePendantRibbonMinimize1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2493,9 +6233,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap WhitePinHorizontalButton1 {
+            get {
+                object obj = ResourceManager.GetObject("WhitePinHorizontalButton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap WhitePinVerticalButton {
             get {
                 object obj = ResourceManager.GetObject("WhitePinVerticalButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhitePinVerticalButton1 {
+            get {
+                object obj = ResourceManager.GetObject("WhitePinVerticalButton1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2513,9 +6273,29 @@ namespace ComponentFactory.Krypton.Toolkit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap WhitePreviousButton1 {
+            get {
+                object obj = ResourceManager.GetObject("WhitePreviousButton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap WhiteRestore {
             get {
                 object obj = ResourceManager.GetObject("WhiteRestore", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhiteRestore1 {
+            get {
+                object obj = ResourceManager.GetObject("WhiteRestore1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

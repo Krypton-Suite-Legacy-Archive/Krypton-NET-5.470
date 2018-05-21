@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [DefaultEvent("SelectedItemChanged")]
 	[DefaultProperty("Items")]
     [DefaultBindingProperty("SelectedItem")]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonDomainUpDownDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonDomainUpDownDesigner))]
     [DesignerCategory("code")]
     [Description("Represents a Windows spin box (also known as an up-down control) that displays string values.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]

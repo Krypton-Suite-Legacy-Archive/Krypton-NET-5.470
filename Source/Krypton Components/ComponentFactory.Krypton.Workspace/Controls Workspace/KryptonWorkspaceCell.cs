@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Workspace
     /// </summary>
     [ToolboxItem(false)]
     [ToolboxBitmap(typeof(KryptonWorkspaceCell), "ToolboxBitmaps.KryptonWorkspaceCell.bmp")]
-    [Designer("ComponentFactory.Krypton.Workspace.KryptonWorkspaceCellDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Workspace.KryptonWorkspaceCellDesigner))]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
     [DefaultProperty("Pages")]

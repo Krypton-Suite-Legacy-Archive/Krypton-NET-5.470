@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Toolkit
 	[DefaultProperty("Text")]
     [DefaultBindingProperty("Text")]
     [LookupBindingProperties("DataSource", "DisplayMember", "ValueMember", "SelectedValue")]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonComboBoxDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonComboBoxDesigner))]
     [DesignerCategory("code")]
     [Description("Displays an editable textbox with a drop-down list of permitted values.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]

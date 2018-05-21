@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [ToolboxBitmap(typeof(KryptonHeader), "ToolboxBitmaps.KryptonHeader.bmp")]
     [DefaultEvent("Paint")]
 	[DefaultProperty("Text")]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonHeaderDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonHeaderDesigner))]
     [DesignerCategory("code")]
     [Description("Display a descriptive caption.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
@@ -176,8 +176,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
 		/// Gets or sets the text associated with this control. 
 		/// </summary>
-		[Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
-		public override string Text
+        [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
+        public override string Text
 		{
 			get => Values.Heading;
 

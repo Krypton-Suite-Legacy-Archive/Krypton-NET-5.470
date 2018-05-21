@@ -56,9 +56,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Krypton Design">
-      <HintPath>..\..\..\Bin\Krypton Design.dll</HintPath>
-    </Reference>
     <Reference Include="Krypton Toolkit">
       <HintPath>..\..\..\Bin\Krypton Toolkit.dll</HintPath>
     </Reference>
@@ -102,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Krypton.ico" />
+    <None Include="Resources\Databar_gradient_pink_32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

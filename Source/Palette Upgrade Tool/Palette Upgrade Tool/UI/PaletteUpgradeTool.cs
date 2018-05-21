@@ -82,7 +82,7 @@ namespace PaletteUpgradeTool.UI
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void kbtnClose_Click(object sender, EventArgs e)
         {
-            ExitApplication();
+            Close();
         }
 
         /// <summary>
@@ -442,18 +442,9 @@ namespace PaletteUpgradeTool.UI
                 if (KryptonMessageBox.Show("The converted palette file has not been saved. Save now?", "Save Palette File", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     kbtnExport.PerformClick();
-
-                    Close();
-                }
-                else
-                {
-                    Close();
                 }
             }
-            else
-            {
-                Close();
-            }
+            // App will now close as the close_form called this !
         }
         #endregion
     }

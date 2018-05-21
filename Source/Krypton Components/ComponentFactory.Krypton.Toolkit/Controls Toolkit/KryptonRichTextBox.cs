@@ -27,7 +27,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [DefaultEvent("TextChanged")]
 	[DefaultProperty("Text")]
     [DefaultBindingProperty("Text")]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonRichTextBoxDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonRichTextBoxDesigner))]
     [DesignerCategory("code")]
     [Description("Enables the user to enter text, and provides multi-line editing and password character masking.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]

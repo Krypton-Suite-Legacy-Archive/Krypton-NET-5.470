@@ -21,7 +21,7 @@ namespace ComponentFactory.Krypton.Toolkit
 	/// </summary>
 	[ToolboxItem(false)]
 	[DesignerCategory("code")]
-	[Designer("System.Windows.Forms.Design.ParentControlDesigner, System.Design")]
+	[Designer(typeof(System.Windows.Forms.Design.ParentControlDesigner))]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
 	public abstract class VisualControlContainment : VisualControl

@@ -54,9 +54,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Krypton Design">
-      <HintPath>..\..\..\Bin\Krypton Design.dll</HintPath>
-    </Reference>
     <Reference Include="Krypton Ribbon">
       <HintPath>..\..\..\Bin\Krypton Ribbon.dll</HintPath>
     </Reference>

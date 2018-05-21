@@ -22,7 +22,7 @@ namespace ComponentFactory.Krypton.Toolkit
     /// </summary>
     [ToolboxItem(false)]
     [ToolboxBitmap(typeof(KryptonContextMenuItem), "ToolboxBitmaps.KryptonContextMenuItem.bmp")]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemDesigner))]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
     [DefaultProperty("Text")]
@@ -557,7 +557,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Data")]
         [Description("Collection of sub-menu items.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [Editor("ComponentFactory.Krypton.Toolkit.KryptonContextMenuCollectionEditor, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
+        [Editor(typeof(ComponentFactory.Krypton.Toolkit.KryptonContextMenuCollectionEditor), typeof(UITypeEditor))]
         public KryptonContextMenuCollection Items { get; }
 
         /// <summary>

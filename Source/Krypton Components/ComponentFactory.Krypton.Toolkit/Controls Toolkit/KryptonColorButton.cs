@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [ToolboxBitmap(typeof(KryptonColorButton), "ToolboxBitmaps.KryptonColorButton.bmp")]
     [DefaultEvent("SelectedColorChanged")]
     [DefaultProperty("SelectedColor")]
-    [Designer("ComponentFactory.Krypton.Toolkit.KryptonColorButtonDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonColorButtonDesigner))]
     [DesignerCategory("code")]
     [Description("Raises an event when the user clicks it.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
@@ -251,12 +251,12 @@ namespace ComponentFactory.Krypton.Toolkit
             get => base.Padding;
             set => base.Padding = value;
         }
-        
+
         /// <summary>
-		/// Gets or sets the text associated with this control. 
-		/// </summary>
-		[Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
-		public override string Text
+        /// Gets or sets the text associated with this control. 
+        /// </summary>
+        [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
+        public override string Text
 		{
 			get => Values.Text;
 
