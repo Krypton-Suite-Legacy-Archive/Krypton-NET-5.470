@@ -12,6 +12,11 @@
 
 =======
 
+## 2018-05-25 Updater Fix
+* Fix `Close` button
+
+=======
+
 ## 2018-05-21 Build 593
 * Build 593 (build date Monday 21st May 2018) is now obtainable through the `releases` tab.
 

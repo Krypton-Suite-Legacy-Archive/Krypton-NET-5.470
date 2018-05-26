@@ -35,9 +35,15 @@ namespace KryptonToolkitUpdater.UI
             InitializeComponent();
         }
 
+        #region Event Handlers
+        /// <summary>
+        /// Handles the Click event of the kbtnCancel control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void kbtnCancel_Click(object sender, EventArgs e)
         {
-
+            CloseUpdater(CheckingForUpdates);
         }
 
         private void kbtnCheckForUpdates_Click(object sender, EventArgs e)
@@ -59,10 +65,25 @@ namespace KryptonToolkitUpdater.UI
 
         private void UpdaterMainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            CloseUpdater(CheckingForUpdates);
         }
 
-        #region Methods
+        private void kllHelp_LinkClicked(object sender, System.EventArgs e)
+        {
+            KryptonMessageBox.Show("This utility will enable you to check for and download updates for Krypton .NET 4.70.", "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void kbtnDownloadUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region Methods        
+        /// <summary>
+        /// Checks for updates.
+        /// </summary>
+        /// <param name="updateXMLPath">The update XML path.</param>
         private void CheckForUpdates(string updateXMLPath)
         {
             try
@@ -87,6 +108,27 @@ namespace KryptonToolkitUpdater.UI
                 KryptonMessageBox.Show($"Error: { exc.Message }", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        /// <summary>
+        /// Closes the updater.
+        /// </summary>
+        /// <param name="isUpdating">if set to <c>true</c> [is updating].</param>
+        private void CloseUpdater(bool isUpdating)
+        {
+            if (isUpdating)
+            {
+                DialogResult result = KryptonMessageBox.Show("You are currently checking for updates.\nQuit now?", "Update in progress", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+            }
+            else
+            {
+                Application.Exit();
+            }
+        }
         #endregion
 
         #region Setters and Getters
@@ -108,15 +150,5 @@ namespace KryptonToolkitUpdater.UI
             return CheckingForUpdates;
         }
         #endregion
-
-        private void kllHelp_LinkClicked(object sender, System.EventArgs e)
-        {
-            KryptonMessageBox.Show("This utility will enable you to check for and download updates for Krypton .NET 4.70.", "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void kbtnDownloadUpdate_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
