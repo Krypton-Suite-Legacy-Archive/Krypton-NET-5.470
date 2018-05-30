@@ -13,7 +13,7 @@ using System.ComponentModel.Design;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-    internal class KryptonPaletteDesigner : ComponentDesigner
+    public class KryptonPaletteDesigner : ComponentDesigner
 	{
         #region Public Overrides
         /// <summary>
