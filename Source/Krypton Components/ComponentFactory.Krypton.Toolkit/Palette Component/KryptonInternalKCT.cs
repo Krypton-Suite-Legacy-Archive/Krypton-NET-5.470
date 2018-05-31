@@ -9,9 +9,9 @@
 //  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using System.Drawing;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -34,7 +34,7 @@ namespace ComponentFactory.Krypton.Toolkit
             : base(palette)
         {
             Debug.Assert(baseKCT != null);
-            
+
             // Remember the base used for inheriting
             _baseKCT = baseKCT;
 
@@ -66,7 +66,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Button
         #region ButtonCheckedGradientBegin
-            /// <summary>
+        /// <summary>
         /// Gets the starting color of the gradient used when the button is checked.
         /// </summary>
         public override Color ButtonCheckedGradientBegin
@@ -93,7 +93,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.ButtonCheckedGradientBegin] = value;
         }
         #endregion
-        
+
         #region ButtonCheckedGradientEnd
         /// <summary>
         /// Gets the end color of the gradient used when the button is checked.
@@ -151,7 +151,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.ButtonCheckedGradientMiddle] = value;
         }
         #endregion
-        
+
         #region ButtonCheckedHighlight
         /// <summary>
         /// Gets the solid color used when the button is checked.
@@ -180,7 +180,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.ButtonCheckedHighlight] = value;
         }
         #endregion
-        
+
         #region ButtonCheckedHighlightBorder
         /// <summary>
         /// Gets the border color to use with ButtonCheckedHighlight.
@@ -296,7 +296,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.ButtonPressedGradientEnd] = value;
         }
         #endregion
-        
+
         #region ButtonPressedGradientMiddle
         /// <summary>
         /// Gets the middle color of the gradient used when the button is pressed.
@@ -470,7 +470,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.ButtonSelectedGradientEnd] = value;
         }
         #endregion
-        
+
         #region ButtonSelectedGradientMiddle
         /// <summary>
         /// Gets the middle color of the gradient used when the button is selected.
@@ -588,7 +588,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.CheckBackground] = value;
         }
         #endregion
-        
+
         #region CheckPressedBackground
         /// <summary>
         /// Gets the solid color to use when the button is checked and selected and gradients are being used.
@@ -677,7 +677,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.GripDark] = value;
         }
         #endregion
-        
+
         #region GripLight
         /// <summary>
         /// Gets the color to use for highlight effects on the grip (move handle).
@@ -737,7 +737,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.ImageMarginGradientBegin] = value;
         }
         #endregion
-        
+
         #region ImageMarginGradientEnd
         /// <summary>
         /// Gets the end color of the gradient used in the image margin of a ToolStripDropDownMenu.
@@ -766,7 +766,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.ImageMarginGradientEnd] = value;
         }
         #endregion
-        
+
         #region ImageMarginGradientMiddle
         /// <summary>
         /// Gets the middle color of the gradient used in the image margin of a ToolStripDropDownMenu.
@@ -795,7 +795,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.ImageMarginGradientMiddle] = value;
         }
         #endregion
-        
+
         #region ImageMarginRevealedGradientBegin
         /// <summary>
         /// Gets the starting color of the gradient used in the image margin of a ToolStripDropDownMenu when an item is revealed.
@@ -824,7 +824,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.ImageMarginRevealedGradientBegin] = value;
         }
         #endregion
-        
+
         #region ImageMarginRevealedGradientEnd
         /// <summary>
         /// Gets the end color of the gradient used in the image margin of a ToolStripDropDownMenu when an item is revealed.
@@ -853,7 +853,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.ImageMarginRevealedGradientEnd] = value;
         }
         #endregion
-        
+
         #region ImageMarginRevealedGradientMiddle
         /// <summary>
         /// Gets the middle color of the gradient used in the image margin of a ToolStripDropDownMenu when an item is revealed.
@@ -997,7 +997,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.MenuItemBorder] = value;
         }
         #endregion
-        
+
         #region MenuItemPressedGradientBegin
         /// <summary>
         /// Gets the starting color of the gradient used when a top-level ToolStripMenuItem is pressed.
@@ -1026,7 +1026,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.MenuItemPressedGradientBegin] = value;
         }
         #endregion
-        
+
         #region MenuItemPressedGradientEnd
         /// <summary>
         /// Gets the end color of the gradient used when a top-level ToolStripMenuItem is pressed.
@@ -1055,7 +1055,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.MenuItemPressedGradientEnd] = value;
         }
         #endregion
-        
+
         #region MenuItemPressedGradientMiddle
         /// <summary>
         /// Gets the middle color of the gradient used when a top-level ToolStripMenuItem is pressed.
@@ -1084,7 +1084,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.MenuItemPressedGradientMiddle] = value;
         }
         #endregion
-        
+
         #region MenuItemSelected
         /// <summary>
         /// Gets the solid color to use when a ToolStripMenuItem other than the top-level ToolStripMenuItem is selected.
@@ -1113,7 +1113,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.MenuItemSelected] = value;
         }
         #endregion
-        
+
         #region MenuItemSelectedGradientBegin
         /// <summary>
         /// Gets the starting color of the gradient used when the ToolStripMenuItem is selected.
@@ -1142,7 +1142,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.MenuItemSelectedGradientBegin] = value;
         }
         #endregion
-        
+
         #region MenuItemSelectedGradientEnd
         /// <summary>
         /// Gets the end color of the gradient used when the ToolStripMenuItem is selected.
@@ -1229,7 +1229,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.MenuStripGradientBegin] = value;
         }
         #endregion
-        
+
         #region MenuStripGradientEnd
         /// <summary>
         /// Gets the end color of the gradient used in the MenuStrip.
@@ -1289,7 +1289,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.OverflowButtonGradientBegin] = value;
         }
         #endregion
-        
+
         #region OverflowButtonGradientEnd
         /// <summary>
         /// Gets the end color of the gradient used in the ToolStripOverflowButton.
@@ -1318,7 +1318,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.OverflowButtonGradientEnd] = value;
         }
         #endregion
-        
+
         #region OverflowButtonGradientMiddle
         /// <summary>
         /// Gets the middle color of the gradient used in the ToolStripOverflowButton.
@@ -1378,7 +1378,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.RaftingContainerGradientBegin] = value;
         }
         #endregion
-        
+
         #region RaftingContainerGradientEnd
         /// <summary>
         /// Gets the end color of the gradient used in the ToolStripContainer.
@@ -1524,7 +1524,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public Font InternalStatusStripFont { get; set; }
 
         #endregion
-        
+
         #region StatusStripGradientBegin
         /// <summary>
         /// Gets the starting color of the gradient used on the StatusStrip.
@@ -1553,7 +1553,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.StatusStripGradientBegin] = value;
         }
         #endregion
-        
+
         #region StatusStripGradientEnd
         /// <summary>
         /// Gets the end color of the gradient used on the StatusStrip.
@@ -1668,7 +1668,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.ToolStripBorder] = value;
         }
         #endregion
-        
+
         #region ToolStripContentPanelGradientBegin
         /// <summary>
         /// Gets the starting color of the gradient used in the ToolStripContentPanel.
@@ -1697,7 +1697,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.ToolStripContentPanelGradientBegin] = value;
         }
         #endregion
-        
+
         #region ToolStripContentPanelGradientEnd
         /// <summary>
         /// Gets the end color of the gradient used in the ToolStripContentPanel.
@@ -1755,7 +1755,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.ToolStripDropDownBackground] = value;
         }
         #endregion
-        
+
         #region ToolStripGradientBegin
         /// <summary>
         /// Gets the starting color of the gradient used in the ToolStrip background.
@@ -1784,7 +1784,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.ToolStripGradientBegin] = value;
         }
         #endregion
-        
+
         #region ToolStripGradientEnd
         /// <summary>
         /// Gets the end color of the gradient used in the ToolStrip background.
@@ -1813,7 +1813,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.ToolStripGradientEnd] = value;
         }
         #endregion
-        
+
         #region ToolStripGradientMiddle
         /// <summary>
         /// Gets the middle color of the gradient used in the ToolStrip background.
@@ -1842,7 +1842,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.ToolStripGradientMiddle] = value;
         }
         #endregion
-        
+
         #region ToolStripPanelGradientBegin
         /// <summary>
         /// Gets the starting color of the gradient used in the ToolStripPanel.
@@ -1871,7 +1871,7 @@ namespace ComponentFactory.Krypton.Toolkit
             set => _colors[(int)PaletteColorIndex.ToolStripPanelGradientBegin] = value;
         }
         #endregion
-        
+
         #region ToolStripPanelGradientEnd
         /// <summary>
         /// Gets the end color of the gradient used in the ToolStripPanel.
@@ -1933,12 +1933,26 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get => _baseKCT;
 
-            set 
+            set
             {
                 // Use the new inheritance
                 _baseKCT = value;
 
                 // Always assume the same use of system colors
+                UseSystemColors = _baseKCT.UseSystemColors;
+            }
+        }
+        #endregion
+
+        #region Public
+        public KryptonColorTable PublicBaseKCT
+        {
+            get => _baseKCT;
+
+            set
+            {
+                _baseKCT = value;
+
                 UseSystemColors = _baseKCT.UseSystemColors;
             }
         }

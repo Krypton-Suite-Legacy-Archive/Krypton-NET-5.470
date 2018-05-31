@@ -30,7 +30,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="palette">Associated palettte instance.</param>
         /// <param name="baseKCT">Initial base KCT to inherit values from.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        internal KryptonPaletteTMS(IPalette palette,
+        public KryptonPaletteTMS(IPalette palette,
                                    KryptonColorTable baseKCT,
                                    NeedPaintHandler needPaint)
         {
