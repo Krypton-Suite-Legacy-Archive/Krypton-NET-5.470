@@ -18,10 +18,11 @@ namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// An extended version of the <seealso cref="KryptonManager"/>.
+    /// (FOR DEVELOPMENT USE ONLY!)
     /// </summary>
     /// <seealso cref="System.ComponentModel.Component" />
     /// <seealso cref="ComponentFactory.Krypton.Toolkit.IPalette" />
-    [ToolboxItem(true)]
+    [ToolboxItem(false)]
     [ToolboxBitmap(typeof(KryptonManager), "ToolboxBitmaps.KryptonManager.bmp")]
     [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonPaletteDesigner))]
     [DefaultProperty("Access global Krypton settings.")]
