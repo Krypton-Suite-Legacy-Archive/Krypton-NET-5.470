@@ -8,7 +8,13 @@
 
 =======
 
-## NOTE: With the advent of Windows 10 1803 being released to the general public, I am pleased to announce the availability of a 4.72 release that will support the .NET 4.7.2 framework. You can follow the project [here](https://github.com/Wagnerp/Krypton-NET-4.72).
+## NOTE: (01/05/2018) With the advent of Windows 10 1803 being released to the general public, I am pleased to announce the availability of a 4.72 release that will support the .NET 4.7.2 framework. You can follow the project [here](https://github.com/Wagnerp/Krypton-NET-4.72).
+
+=======
+
+## 2018-06-04 Version 595
+* Build 595 (build date Monday 4th June 2018) is now obtainable through the `releases` tab.
+* Proper usage of `KryptonMessageBox` for `KryptonPalette` `Import()` and `Export()` methods.
 
 =======
 
