@@ -12,6 +12,16 @@
 
 =======
 
+## 2018-05-25 Updater Fix
+* Fix `Close` button
+
+=======
+
+## 2018-05-21 Build 593
+* Build 593 (build date Monday 21st May 2018) is now obtainable through the `releases` tab.
+
+=======
+
 ## 2018-05-20 Fix the designer for _All_
 * Remove the Designer dll (Project / code moved in Git)
 * Place designers into actual dlls (Small size increase)
