@@ -12,12 +12,6 @@
 
 =======
 
-## 2018-06-04 Version 595
-* Build 595 (build date Monday 4th June 2018) is now obtainable through the `releases` tab.
-* Proper usage of `KryptonMessageBox` for `KryptonPalette` `Import()` and `Export()` methods.
-
-=======
-
 ## 2018-05-25 Updater Fix
 * Fix `Close` button
 
