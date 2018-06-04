@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content=" | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>Workspace Layout</p>
+<p><strong>Cells and Sequences</strong><br>You can create any complexity of workspace layout by combining the
+<em>KryptonWorkspaceCell</em> and <em>KryptonWorkspaceSequences</em> elements. Each
+<em>KryptonWorkspaceCell</em> represents a leaf node in the layout and is actually a
+class derived from the <em>KryptonNavigator</em>. Leaf nodes are those that do not have
+any children. As each cell is actually a specialized <em>Navigator</em> instance you
+can customize the appearance with any of the <em>Navigator</em> capabilities. The
+<em>KryptonWorkspaceSquence</em> is used to contain a set of child elements and by
+combing sequences within sequences you can create a tree like structure that
+defines the layout hierarchy.</p>
+<p><strong>KryptonWorkspace.Root</strong><br>The starting point for defining the layout is the <em>Root</em> property of the
+<em>KryptonWorkspace</em> that is actually just a <em>KryptonWorkspaceSequence</em> instance.
+Each sequence, including the <em>Root</em>, has a property called <em>Orientation</em> that
+determines the direction that child elements are positioned. To demonstrate
+Figure 1 has a <em>Root</em> sequence with three cells inside. The left image has a
+<em>Root.Orientation</em> of <em>Horizontal</em> and the right image a value of <em>Vertical</em>.</p>
+<p>  <em>Figure 1 - Horizontal and Vertical orientations</em></p>
+<p>Children within a sequence are always sized to fill the opposite direction. So
+in the left image we have a horizontal sequence where each cell is automatically
+defined to be the full height of the area. The height definition of the cell is
+ignored as the height is auto generated. The opposite is true of the right
+image. With the sequence being vertical the width is automatically defined to
+fill the entire width of the sequence and the cell defined width value ignored.
+The following hierarchy represents the left hand image:-</p>
+<p>   Sequence  (Horizontal)<br>        Cell (Page 1)<br>        Cell (Page 2)<br>        Cell (Page 3)</p>
+<p><strong>Embedded Sequences</strong><br>To create a more complex layout we need to embed sequence instances inside the
+root sequence. Figure 2 shows a simple design where we have a cell on the left
+and then on the right we have two cells that are arranged in a vertically
+column.  </p>
+<p>  <em>Figure 2 - Sequence with the Root sequence</em></p>
+<p>The hierarchy of elements looks like the following with the first sequence being
+the <em>Root</em> sequence property of the <em>KryptonWorkspace</em>.</p>
+<p>   Sequence       (Horizontal)<br>        Cell      (Page 1)<br>        Sequence  (Vertical)<br>             Cell (Page 2)<br>             Cell (Page 3)</p>
+<p>We can keep going and place another sequence in the place of the third cell
+above. In that case we would achieve Figure 3.</p>
+<p>  <em>Figure 3 - Sequence within Sequence within Root sequence</em></p>
+<p>This hierarchy of elements now looks like the following.</p>
+<p>   Sequence            (Horizontal)<br>        Cell           (Page 1)<br>        Sequence       (Vertical)<br>             Cell      (Page 2)<br>             Sequence  (Horizontal)<br>                  Cell (Page 3)<br>                  Cell (Page 4)</p>
+<p><strong>Perform Layout</strong><br>You can make as many changes as you like the workspace hierarchy but no change
+will occur until the control performs a layout cycle. This happens when you
+explicitly call the <em>PerformLayout</em> method or when the next windows message is
+processed. So you are safe to make multiple changes to the workspace definition
+without the changes actually occuring until windows messages are processed
+again. As cells are added and removed from the child collection of controls only
+during the layout processing it means you will not receive the
+<em>WorkspacePageAdding</em> and <em>WorkspacePageRemoved</em> events during your changes to
+the workspace definition. Instead they will occur some time afterwards once
+layout processing is performed by the control.</p>
+<p><strong>Compacting</strong><br>As the user drags and drops pages around the workspace extra sequences are
+created in order to create the appropriate appearance. After many such changes
+the workspace definition would become very disorganized and inefficient. In
+order to prevent this a compacting phase is performed just before the layout.
+For this reason you will notice that if you add a sequence that has no children
+the sequence is automatically removed from the definition because it is
+redundant. To see a full list of the compacting actions you are recommend to
+read the <a href="topic115.html">compacting</a> section.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

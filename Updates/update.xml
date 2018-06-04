@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<update projectIdentification="KryptonNET470">
+	<!--<projectName>Krypton .NET 4.70</projectName>-->
+	<currentInstalledVersion>4.70.572.0</currentInstalledVersion>
+	<serverVersion>4.70.573.0</serverVersion>
+	<fileName>Krypton Toolkit 470 Setup.exe</fileName>
+	<updatePackageServerURLDownloadLocation>https://github.com/Wagnerp/Krypton-NET-4.70/releases/download/4.70.572/Krypton.NET.4.70.exe</updatePackageServerURLDownloadLocation>
+	<changelogURLLocation>https://github.com/Wagnerp/Krypton-NET-4.70/blob/master/Updates/changelog/Changelog.html</changelogURLLocation>
+	<md5CheckSum></md5CheckSum>
+    <sha1CheckSum></sha1CheckSum>
+    <sha256CheckSum></sha256CheckSum>
+    <sha384CheckSum></sha384CheckSum>
+    <sha512CheckSum></sha512CheckSum>
+    <ripemd160CheckSum></ripemd160CheckSum>
+	<updatePackageFileSize></updatePackageFileSize>
+    <updatePackageBuildDate></updatePackageBuildDate>
+    <updatePackageReleaseDate></updatePackageReleaseDate>
+    <betaFlag>false</betaFlag>
+    <startUpdateInstallationUponDownloadCompletion>false</startUpdateInstallationUponDownloadCompletion>
+    <virusTotalScanURL>https://www.virustotal.com/#/url/08b70689c11a7d28fdac75b8fe6fbb673e8661d6a4b6b54d654636ef204f1911/detection</virusTotalScanURL>
+</update>

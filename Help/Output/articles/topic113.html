@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content=" | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>Workspace Overview  </p>
+<p><strong>Workspace Properties</strong><br>The <em>KryptonWorkspace</em> specific properties are shown in Figure 1.  </p>
+<ul>
+<li>Figure 1 - Workspace properties*</li>
+</ul>
+<p><strong>AllowPageDrag</strong><br>A boolean property that determines if the user is allowed to drag pages in order
+to change the workspace layout.</p>
+<p><strong>AllowResizing</strong><br>Determines if the user is allowed to resize cells by moving the separators that
+are positioned between cells. Also note that there is an <em>AllowResizing</em>
+property on each of the <em>KryptonWorkspaceCell</em> instances that can prevent
+resizing on a per-cell basis. In order to move a separator this property must be
+<em>True</em> as well as the cell on on either side of the separator.</p>
+<p><strong>CompactFlags</strong><br>Just before the workspace is sized and positioned a compacting phase is run
+to optimize the structure of the workspace hierarchy definition. This set of
+flags determine the compacting actions that are allowed to take place. For more
+detail read the <a href="topic115.html">Compacting</a> section that describes reach of the
+flags.</p>
+<p><strong>ContainerBackStyle</strong><br>Use this style to determine the appearance of the workspace background. The
+background can be seen when you have no contents visible or between the cells
+when the separator style chooses not to draw any separator element.</p>
+<p><strong>ContextMenus</strong><br>This is a collection of properties that specify the display text and keyboard
+shortcuts used for the context menu that appears when you right click a page
+header. Try right click on a page header in the workspace and a context menu is
+shown with a set of options for modifying the layout. For example you can use
+<em>Move Next</em> and <em>Move Previous</em> to transfer the page to the next/previous cell.</p>
+<p><strong>MaximizedCell</strong><br>Assign a KryptonWorkspaceCell that exists inside the workspace hierarchy to
+order to have that cell maximized and showing as the only cell in the workspace
+client area. This is useful if you want to allow the user to concentrate on a
+single cell for a period of time. Set the property to <em>null</em> to remove the
+maximized setting.</p>
+<p><strong>Palette, PaletteMode</strong><br>These properties allow you to define the palette for use when drawing the
+control. By default it will use the global palette as defined by the
+<em>KryptonManager</em> instance.</p>
+<p><strong>Root</strong><br>This is a <em>KryptonWorkspaceSequence</em> instance that represents the starting point
+for defining the workspace definition. You can add <em>KryptonWorkspaceCell</em> and
+<em>KryptonWorkspaceSequence</em> instances into a sequence in order to create a tree
+like hierarchy. For more details you should read the <a href="topic114.html">Layout</a>
+section followed by the related <a href="topic116.html">Sizing</a> section.</p>
+<p><strong>SeparatorStyle</strong><br>Style used for drawing the separators that exist between the individual cell
+entries.</p>
+<p><strong>ShowMaximizeButtin</strong><br>Use this property to determine if an extra button should be added to each
+workspace cell that is used to toggle between maximized and restored states.</p>
+<p><strong>SplitterWidth</strong><br>Pixel width of the separators that exist between the individual cell entries.</p>
+<p><strong>Four States</strong><br>The separator can be in one of four possible states, <em>Disabled</em>, <em>Normal</em>,
+<em>Tracking</em> and <em>Pressed</em>. When resizing is allowed for the separator it will be
+in the <em>Normal</em> state until the user moves the mouse over the separator area at
+which point it enters the <em>Tracking</em> state. If the user presses the left mouse
+button whilst over the separator then it enters the <em>Pressed</em> state. If the
+workspace control has been disabled then each separator is also placed in the
+<em>Disabled</em> state.</p>
+<p><strong>Common State</strong><br>To speed up the customization process an extra <em>StateCommon</em> property has been
+provided. The settings from this are used if no override has been defined for
+the state specific entry. Note that the specific state values always take
+precedence and so if you define the border width in <em>StateNormal</em> and
+<em>StateCommon</em> then the <em>StateNormal</em> value will be used whenever the control is
+in the <em>Normal</em> state. Only if the <em>StateNormal</em> value is not overridden will it
+look in <em>StateCommon</em>..</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

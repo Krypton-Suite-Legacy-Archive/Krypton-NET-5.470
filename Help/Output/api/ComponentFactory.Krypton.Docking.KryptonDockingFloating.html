@@ -1,0 +1,688 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class KryptonDockingFloating
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class KryptonDockingFloating
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloating">
+  <h1 id="ComponentFactory_Krypton_Docking_KryptonDockingFloating" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloating">Class KryptonDockingFloating
+  </h1>
+  <div class="markdown level0 summary"><p>Provides docking functionality for floating windows.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">System.MarshalByRefObject</span></div>
+    <div class="level2"><span class="xref">System.ComponentModel.Component</span></div>
+    <div class="level3"><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html">DockingElement</a></div>
+    <div class="level4"><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.html">DockingElementClosedCollection</a></div>
+    <div class="level5"><span class="xref">KryptonDockingFloating</span></div>
+  </div>
+  
+  
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.html#ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Count">DockingElementClosedCollection.Count</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.html#ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Item_System_Int32_">DockingElementClosedCollection.Item[Int32]</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.html#ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Item_System_String_">DockingElementClosedCollection.Item[String]</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.html#ComponentFactory_Krypton_Docking_DockingElementClosedCollection_GetEnumerator">DockingElementClosedCollection.GetEnumerator()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.html#ComponentFactory_Krypton_Docking_DockingElementClosedCollection_Contains_ComponentFactory_Krypton_Docking_IDockingElement_">DockingElementClosedCollection.Contains(IDockingElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.html#ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalAdd_ComponentFactory_Krypton_Docking_IDockingElement_">DockingElementClosedCollection.InternalAdd(IDockingElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.html#ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalInsert_System_Int32_ComponentFactory_Krypton_Docking_IDockingElement_">DockingElementClosedCollection.InternalInsert(Int32, IDockingElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.html#ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalRemove_ComponentFactory_Krypton_Docking_IDockingElement_">DockingElementClosedCollection.InternalRemove(IDockingElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElementClosedCollection.html#ComponentFactory_Krypton_Docking_DockingElementClosedCollection_InternalClear">DockingElementClosedCollection.InternalClear()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_Name">DockingElement.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_Path">DockingElement.Path</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_ResolvePath_System_String_">DockingElement.ResolvePath(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_Parent">DockingElement.Parent</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_PropogateAction_ComponentFactory_Krypton_Docking_DockingPropogateAction_System_String___">DockingElement.PropogateAction(DockingPropogateAction, String[])</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_PropogateAction_ComponentFactory_Krypton_Docking_DockingPropogateAction_ComponentFactory_Krypton_Navigator_KryptonPage___">DockingElement.PropogateAction(DockingPropogateAction, KryptonPage[])</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_PropogateAction_ComponentFactory_Krypton_Docking_DockingPropogateAction_System_Int32_">DockingElement.PropogateAction(DockingPropogateAction, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_PropogateBoolState_ComponentFactory_Krypton_Docking_DockingPropogateBoolState_System_String_">DockingElement.PropogateBoolState(DockingPropogateBoolState, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_PropogateIntState_ComponentFactory_Krypton_Docking_DockingPropogateIntState_System_Int32__">DockingElement.PropogateIntState(DockingPropogateIntState, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_PropogatePageState_ComponentFactory_Krypton_Docking_DockingPropogatePageState_System_String_">DockingElement.PropogatePageState(DockingPropogatePageState, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_PropogatePageList_ComponentFactory_Krypton_Docking_DockingPropogatePageList_ComponentFactory_Krypton_Navigator_KryptonPageCollection_">DockingElement.PropogatePageList(DockingPropogatePageList, KryptonPageCollection)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_PropogateCellList_ComponentFactory_Krypton_Docking_DockingPropogateCellList_ComponentFactory_Krypton_Workspace_KryptonWorkspaceCellList_">DockingElement.PropogateCellList(DockingPropogateCellList, KryptonWorkspaceCellList)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_PropogateDragTargets_ComponentFactory_Krypton_Docking_KryptonFloatingWindow_ComponentFactory_Krypton_Navigator_PageDragEndData_ComponentFactory_Krypton_Navigator_DragTargetList_">DockingElement.PropogateDragTargets(KryptonFloatingWindow, PageDragEndData, DragTargetList)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_FindPageLocation_System_String_">DockingElement.FindPageLocation(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_FindPageElement_System_String_">DockingElement.FindPageElement(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_FindStorePageElement_ComponentFactory_Krypton_Docking_DockingLocation_System_String_">DockingElement.FindStorePageElement(DockingLocation, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_FindDockingEdgeDocked_System_String_">DockingElement.FindDockingEdgeDocked(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_FindDockingEdgeAutoHidden_System_String_">DockingElement.FindDockingEdgeAutoHidden(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_FindDockingWorkspace_System_String_">DockingElement.FindDockingWorkspace(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_FindDockingNavigator_System_String_">DockingElement.FindDockingNavigator(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_SaveElementToXml_System_Xml_XmlWriter_">DockingElement.SaveElementToXml(XmlWriter)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_LoadElementFromXml_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_">DockingElement.LoadElementFromXml(XmlReader, KryptonPageCollection)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_DemandPagesNotBePresent_ComponentFactory_Krypton_Navigator_KryptonPage___">DockingElement.DemandPagesNotBePresent(KryptonPage[])</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_DemandDockingManager">DockingElement.DemandDockingManager()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_HasDockManager">DockingElement.HasDockManager</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_DockingManager">DockingElement.DockingManager</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_GetParentType_System_Type_">DockingElement.GetParentType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_System_Collections_IEnumerable_GetEnumerator">DockingElement.IEnumerable.GetEnumerator()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_LoadDockingElement_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_">DockingElement.LoadDockingElement(XmlReader, KryptonPageCollection)</a>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Dispose()</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Dispose(System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.GetService(System.Type)</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.CanRaiseEvents</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Events</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Site</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Container</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.DesignMode</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Disposed</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.MemberwiseClone(System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.GetLifetimeService()</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.InitializeLifetimeService()</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.CreateObjRef(System.Type)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
+  <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Docking.dll</h6>
+  
+  <h5 id="ComponentFactory_Krypton_Docking_KryptonDockingFloating_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class KryptonDockingFloating : DockingElementClosedCollection, IComponent, IDisposable, IDockingElement, IEnumerable&lt;IDockingElement&gt;, IEnumerable</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Docking_KryptonDockingFloating__ctor_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloating.#ctor*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloating__ctor_System_String_System_Windows_Forms_Form_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloating.#ctor(System.String,System.Windows.Forms.Form)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloating__ctor_System_String_System_Windows_Forms_Form_" class="expander" data-toggle="collapse">KryptonDockingFloating(String, Form)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloating__ctor_System_String_System_Windows_Forms_Form_" class="collapse in">
+  <div class="markdown level1 summary"><p>Initialize a new instance of the KryptonDockingFloating class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public KryptonDockingFloating(string name, Form ownerForm)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">name</span>
+        <p><p>Initial name of the element.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Form</span></span>
+        <span class="parametername">ownerForm</span>
+        <p><p>Reference to form that will own all the floating windows.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Docking_KryptonDockingFloating_OwnerForm_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloating.OwnerForm*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloating_OwnerForm" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloating.OwnerForm"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloating_OwnerForm" class="expander" data-toggle="collapse">OwnerForm</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloating_OwnerForm" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the form the floating windows have as the owner.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Form OwnerForm { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Windows.Forms.Form</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Docking_KryptonDockingFloating_XmlElementName_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloating.XmlElementName*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloating_XmlElementName" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloating.XmlElementName"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloating_XmlElementName" class="expander" data-toggle="collapse">XmlElementName</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloating_XmlElementName" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the xml element name to use when saving.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override string XmlElementName { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_XmlElementName">DockingElement.XmlElementName</a></div>
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Docking_KryptonDockingFloating_AddFloatingWindow_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloating.AddFloatingWindow*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloating_AddFloatingWindow" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloating.AddFloatingWindow"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloating_AddFloatingWindow" class="expander" data-toggle="collapse">AddFloatingWindow()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloating_AddFloatingWindow" class="collapse in">
+  <div class="markdown level1 summary"><p>Create and add a new floating window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public KryptonDockingFloatingWindow AddFloatingWindow()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingFloatingWindow.html">KryptonDockingFloatingWindow</a>
+        <p><p>Reference to docking element that handles the new workspace.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Docking_KryptonDockingFloating_AddFloatingWindow_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloating.AddFloatingWindow*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloating_AddFloatingWindow_System_String_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloating.AddFloatingWindow(System.String)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloating_AddFloatingWindow_System_String_" class="expander" data-toggle="collapse">AddFloatingWindow(String)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloating_AddFloatingWindow_System_String_" class="collapse in">
+  <div class="markdown level1 summary"><p>Create and add a new floating window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public KryptonDockingFloatingWindow AddFloatingWindow(string name)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">name</span>
+        <p><p>Initial name of the dockspace element.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingFloatingWindow.html">KryptonDockingFloatingWindow</a>
+        <p><p>Reference to docking element that handles the new workspace.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Docking_KryptonDockingFloating_FindDockingFloating_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloating.FindDockingFloating*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloating_FindDockingFloating_System_String_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloating.FindDockingFloating(System.String)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloating_FindDockingFloating_System_String_" class="expander" data-toggle="collapse">FindDockingFloating(String)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloating_FindDockingFloating_System_String_" class="collapse in">
+  <div class="markdown level1 summary"><p>Find a floating docking element by searching the hierarchy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override KryptonDockingFloating FindDockingFloating(string uniqueName)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">uniqueName</span>
+        <p><p>Named page for which a suitable floating element is required.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingFloating.html">KryptonDockingFloating</a>
+        <p><p>KryptonDockingFloating reference if found; otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_FindDockingFloating_System_String_">DockingElement.FindDockingFloating(String)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Docking_KryptonDockingFloating_FloatingWindowForStorePage_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloating.FloatingWindowForStorePage*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloating_FloatingWindowForStorePage_System_String_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloating.FloatingWindowForStorePage(System.String)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloating_FloatingWindowForStorePage_System_String_" class="expander" data-toggle="collapse">FloatingWindowForStorePage(String)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloating_FloatingWindowForStorePage_System_String_" class="collapse in">
+  <div class="markdown level1 summary"><p>Return the floating window element that contains a placeholder for the named page.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public KryptonDockingFloatingWindow FloatingWindowForStorePage(string uniqueName)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">uniqueName</span>
+        <p><p>Unique name for search.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Docking.KryptonDockingFloatingWindow.html">KryptonDockingFloatingWindow</a>
+        <p><p>Reference to KryptonDockingFloatingWindow if placeholder found; otherwise null.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Docking_KryptonDockingFloating_LoadChildDockingElement_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloating.LoadChildDockingElement*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Docking_KryptonDockingFloating_LoadChildDockingElement_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_ComponentFactory_Krypton_Docking_IDockingElement_" data-uid="ComponentFactory.Krypton.Docking.KryptonDockingFloating.LoadChildDockingElement(System.Xml.XmlReader,ComponentFactory.Krypton.Navigator.KryptonPageCollection,ComponentFactory.Krypton.Docking.IDockingElement)"><a href="#collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloating_LoadChildDockingElement_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_ComponentFactory_Krypton_Docking_IDockingElement_" class="expander" data-toggle="collapse">LoadChildDockingElement(XmlReader, KryptonPageCollection, IDockingElement)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Docking_KryptonDockingFloating_LoadChildDockingElement_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_ComponentFactory_Krypton_Docking_IDockingElement_" class="collapse in">
+  <div class="markdown level1 summary"><p>Perform docking element specific actions for loading a child xml.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void LoadChildDockingElement(XmlReader xmlReader, KryptonPageCollection pages, IDockingElement child)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Xml.XmlReader</span></span>
+        <span class="parametername">xmlReader</span>
+        <p><p>Xml reader object.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Navigator.KryptonPageCollection.html">KryptonPageCollection</a></span>
+        <span class="parametername">pages</span>
+        <p><p>Collection of available pages.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Docking.IDockingElement.html">IDockingElement</a></span>
+        <span class="parametername">child</span>
+        <p><p>Optional reference to existing child docking element.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ComponentFactory.Krypton.Docking.DockingElement.html#ComponentFactory_Krypton_Docking_DockingElement_LoadChildDockingElement_System_Xml_XmlReader_ComponentFactory_Krypton_Navigator_KryptonPageCollection_ComponentFactory_Krypton_Docking_IDockingElement_">DockingElement.LoadChildDockingElement(XmlReader, KryptonPageCollection, IDockingElement)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

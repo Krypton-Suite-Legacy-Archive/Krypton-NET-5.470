@@ -1,0 +1,730 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IRenderContent
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IRenderContent
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.IRenderContent">
+  <h1 id="ComponentFactory_Krypton_Toolkit_IRenderContent" data-uid="ComponentFactory.Krypton.Toolkit.IRenderContent">Interface IRenderContent
+  </h1>
+  <div class="markdown level0 summary"><p>Exposes methods for drawing content.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+
+  
+  
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
+  <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
+  <h5 id="ComponentFactory_Krypton_Toolkit_IRenderContent_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IRenderContent</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_IRenderContent_DrawContent_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderContent.DrawContent*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_IRenderContent_DrawContent_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteContent_System_IDisposable_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_System_Boolean_System_Boolean_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderContent.DrawContent(ComponentFactory.Krypton.Toolkit.RenderContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteContent,System.IDisposable,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.PaletteState,System.Boolean,System.Boolean,System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_IRenderContent_DrawContent_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteContent_System_IDisposable_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_System_Boolean_System_Boolean_System_Boolean_" class="expander" data-toggle="collapse">DrawContent(RenderContext, Rectangle, IPaletteContent, IDisposable, VisualOrientation, PaletteState, Boolean, Boolean, Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_IRenderContent_DrawContent_ComponentFactory_Krypton_Toolkit_RenderContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteContent_System_IDisposable_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_System_Boolean_System_Boolean_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Perform draw of content using provided memento.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawContent(RenderContext context, Rectangle displayRect, IPaletteContent palette, IDisposable memento, VisualOrientation orientation, PaletteState state, bool composition, bool glowing, bool allowFocusRect)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></span>
+        <span class="parametername">context</span>
+        <p><p>Render context.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Rectangle</span></span>
+        <span class="parametername">displayRect</span>
+        <p><p>Display area available for drawing.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteContent.html">IPaletteContent</a></span>
+        <span class="parametername">palette</span>
+        <p><p>Content palette details.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IDisposable</span></span>
+        <span class="parametername">memento</span>
+        <p><p>Cached values from layout call.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></span>
+        <span class="parametername">orientation</span>
+        <p><p>Visual orientation of the content.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>State associated with rendering.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">composition</span>
+        <p><p>Drawing onto a composition element.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">glowing</span>
+        <p><p>If composition, should glowing be drawn.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">allowFocusRect</span>
+        <p><p>Allow drawing of focus rectangle.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentImageDisplayed_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderContent.GetContentImageDisplayed*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentImageDisplayed_System_IDisposable_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderContent.GetContentImageDisplayed(System.IDisposable)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentImageDisplayed_System_IDisposable_" class="expander" data-toggle="collapse">GetContentImageDisplayed(IDisposable)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentImageDisplayed_System_IDisposable_" class="collapse in">
+  <div class="markdown level1 summary"><p>Request the calculated display of the image.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool GetContentImageDisplayed(IDisposable memento)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IDisposable</span></span>
+        <span class="parametername">memento</span>
+        <p><p>Cached values from layout call.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if the image is being displayed; otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentImageRectangle_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderContent.GetContentImageRectangle*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentImageRectangle_System_IDisposable_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderContent.GetContentImageRectangle(System.IDisposable)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentImageRectangle_System_IDisposable_" class="expander" data-toggle="collapse">GetContentImageRectangle(IDisposable)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentImageRectangle_System_IDisposable_" class="collapse in">
+  <div class="markdown level1 summary"><p>Request the calculated position of the content image.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Rectangle GetContentImageRectangle(IDisposable memento)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IDisposable</span></span>
+        <span class="parametername">memento</span>
+        <p><p>Cached values from layout call.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Rectangle</span>
+        <p><p>Display rectangle for the image content.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentLongTextDisplayed_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderContent.GetContentLongTextDisplayed*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentLongTextDisplayed_System_IDisposable_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderContent.GetContentLongTextDisplayed(System.IDisposable)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentLongTextDisplayed_System_IDisposable_" class="expander" data-toggle="collapse">GetContentLongTextDisplayed(IDisposable)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentLongTextDisplayed_System_IDisposable_" class="collapse in">
+  <div class="markdown level1 summary"><p>Request the calculated display of the long text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool GetContentLongTextDisplayed(IDisposable memento)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IDisposable</span></span>
+        <span class="parametername">memento</span>
+        <p><p>Cached values from layout call.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if the long text is being displayed; otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentLongTextRectangle_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderContent.GetContentLongTextRectangle*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentLongTextRectangle_System_IDisposable_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderContent.GetContentLongTextRectangle(System.IDisposable)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentLongTextRectangle_System_IDisposable_" class="expander" data-toggle="collapse">GetContentLongTextRectangle(IDisposable)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentLongTextRectangle_System_IDisposable_" class="collapse in">
+  <div class="markdown level1 summary"><p>Request the calculated position of the content long text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Rectangle GetContentLongTextRectangle(IDisposable memento)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IDisposable</span></span>
+        <span class="parametername">memento</span>
+        <p><p>Cached values from layout call.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Rectangle</span>
+        <p><p>Display rectangle for the image content.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentPreferredSize_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderContent.GetContentPreferredSize*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentPreferredSize_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_ComponentFactory_Krypton_Toolkit_IPaletteContent_ComponentFactory_Krypton_Toolkit_IContentValues_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_System_Boolean_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderContent.GetContentPreferredSize(ComponentFactory.Krypton.Toolkit.ViewLayoutContext,ComponentFactory.Krypton.Toolkit.IPaletteContent,ComponentFactory.Krypton.Toolkit.IContentValues,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.PaletteState,System.Boolean,System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentPreferredSize_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_ComponentFactory_Krypton_Toolkit_IPaletteContent_ComponentFactory_Krypton_Toolkit_IContentValues_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_System_Boolean_System_Boolean_" class="expander" data-toggle="collapse">GetContentPreferredSize(ViewLayoutContext, IPaletteContent, IContentValues, VisualOrientation, PaletteState, Boolean, Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentPreferredSize_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_ComponentFactory_Krypton_Toolkit_IPaletteContent_ComponentFactory_Krypton_Toolkit_IContentValues_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_System_Boolean_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Get the preferred size for drawing the content.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Size GetContentPreferredSize(ViewLayoutContext context, IPaletteContent palette, IContentValues values, VisualOrientation orientation, PaletteState state, bool composition, bool glowing)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></span>
+        <span class="parametername">context</span>
+        <p><p>Layout context.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteContent.html">IPaletteContent</a></span>
+        <span class="parametername">palette</span>
+        <p><p>Content palette details.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IContentValues.html">IContentValues</a></span>
+        <span class="parametername">values</span>
+        <p><p>Content values.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></span>
+        <span class="parametername">orientation</span>
+        <p><p>Visual orientation of the content.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>State associated with rendering.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">composition</span>
+        <p><p>Drawing onto a composition element.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">glowing</span>
+        <p><p>If composition, should glowing be drawn.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Size</span>
+        <p><p>Preferred size.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentShortTextDisplayed_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderContent.GetContentShortTextDisplayed*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentShortTextDisplayed_System_IDisposable_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderContent.GetContentShortTextDisplayed(System.IDisposable)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentShortTextDisplayed_System_IDisposable_" class="expander" data-toggle="collapse">GetContentShortTextDisplayed(IDisposable)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentShortTextDisplayed_System_IDisposable_" class="collapse in">
+  <div class="markdown level1 summary"><p>Request the calculated display of the short text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool GetContentShortTextDisplayed(IDisposable memento)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IDisposable</span></span>
+        <span class="parametername">memento</span>
+        <p><p>Cached values from layout call.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if the short text is being displayed; otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentShortTextRectangle_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderContent.GetContentShortTextRectangle*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentShortTextRectangle_System_IDisposable_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderContent.GetContentShortTextRectangle(System.IDisposable)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentShortTextRectangle_System_IDisposable_" class="expander" data-toggle="collapse">GetContentShortTextRectangle(IDisposable)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_IRenderContent_GetContentShortTextRectangle_System_IDisposable_" class="collapse in">
+  <div class="markdown level1 summary"><p>Request the calculated position of the content short text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Rectangle GetContentShortTextRectangle(IDisposable memento)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IDisposable</span></span>
+        <span class="parametername">memento</span>
+        <p><p>Cached values from layout call.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Rectangle</span>
+        <p><p>Display rectangle for the image content.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_IRenderContent_LayoutContent_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderContent.LayoutContent*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_IRenderContent_LayoutContent_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteContent_ComponentFactory_Krypton_Toolkit_IContentValues_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_System_Boolean_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.IRenderContent.LayoutContent(ComponentFactory.Krypton.Toolkit.ViewLayoutContext,System.Drawing.Rectangle,ComponentFactory.Krypton.Toolkit.IPaletteContent,ComponentFactory.Krypton.Toolkit.IContentValues,ComponentFactory.Krypton.Toolkit.VisualOrientation,ComponentFactory.Krypton.Toolkit.PaletteState,System.Boolean,System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_IRenderContent_LayoutContent_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteContent_ComponentFactory_Krypton_Toolkit_IContentValues_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_System_Boolean_System_Boolean_" class="expander" data-toggle="collapse">LayoutContent(ViewLayoutContext, Rectangle, IPaletteContent, IContentValues, VisualOrientation, PaletteState, Boolean, Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_IRenderContent_LayoutContent_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_System_Drawing_Rectangle_ComponentFactory_Krypton_Toolkit_IPaletteContent_ComponentFactory_Krypton_Toolkit_IContentValues_ComponentFactory_Krypton_Toolkit_VisualOrientation_ComponentFactory_Krypton_Toolkit_PaletteState_System_Boolean_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Perform layout calculations on the provided content.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IDisposable LayoutContent(ViewLayoutContext context, Rectangle availableRect, IPaletteContent palette, IContentValues values, VisualOrientation orientation, PaletteState state, bool composition, bool glowing)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></span>
+        <span class="parametername">context</span>
+        <p><p>Layout context.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Rectangle</span></span>
+        <span class="parametername">availableRect</span>
+        <p><p>Space available for laying out.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IPaletteContent.html">IPaletteContent</a></span>
+        <span class="parametername">palette</span>
+        <p><p>Content palette details.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.IContentValues.html">IContentValues</a></span>
+        <span class="parametername">values</span>
+        <p><p>Content values.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></span>
+        <span class="parametername">orientation</span>
+        <p><p>Visual orientation of the content.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a></span>
+        <span class="parametername">state</span>
+        <p><p>State associated with rendering.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">composition</span>
+        <p><p>Drawing onto a composition element.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">glowing</span>
+        <p><p>If composition, should glowing be drawn.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.IDisposable</span>
+        <p><p>Memento with cached information.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

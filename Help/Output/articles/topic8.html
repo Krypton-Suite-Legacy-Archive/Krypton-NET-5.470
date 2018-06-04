@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content=" | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>Content</p>
+<p>Content always consists of two text values and one set of image details. All of
+these are optional so you can choose to provide none, one, two or all three
+properties as needed. They are grouped together, for example the <em>KryptonButton</em>
+provides a property called <em>Values</em> that contains the values as child
+properties. See Figure 1 for an example of the property window for a
+<em>KryptonButton</em>.</p>
+<ul>
+<li>Figure 1 – KryptonButton values property*</li>
+</ul>
+<p>The exact name of the properties varies depending on the context in which the
+content is being used. The <em>KryptonButton</em> calls them <em>Text</em>, <em>ExtraText, Image,
+ImageStates</em> and <em>ImageTransparentColor</em> whereas the <em>KryptonHeader</em> uses the
+names <em>Header and</em> <em>Description</em> instead of <em>Text</em> and <em>ExtraText</em>. We will call
+them <em>ShortText</em>, <em>LongText</em>, <em>Image, ImageStates</em> and <em>ImageTransparentColor</em>
+for the duration of this section.</p>
+<p>Any control that provides content values will also allow you to specify how the
+content is displayed for each of the control states. Figure 2 shows the set of
+properties available for controlling the display of the content values.</p>
+<ul>
+<li>Figure 2 – Content display settings*</li>
+</ul>
+<p><strong>Content Properties</strong></p>
+<p><em>AdjacentGap</em> controls the pixel spacing between the different content values.
+Use this to change the distance between the <em>ShortText</em>, <em>LongText</em> and <em>Image</em>.
+Figure 3 shows a <em>KryptonLabel</em> with values of 1, 5 and 20 respectively.</p>
+<p>   <em>Figure 3 – AdjacentGap property</em></p>
+<p><em>Draw</em> is used to determine if any of the content should be displayed. When
+defined as <em>False</em> the content is ignored completely. <em>DrawFocus</em> indicates if a
+focus rectangle should be drawn around the edge of the content area. Figure 4
+shows a <em>KryptonLabel</em> control with the <em>DrawFocus</em> defined as <em>False</em> and
+<em>True</em> respectively.</p>
+<p><em>Figure 4 – DrawFocus property</em></p>
+<p><em>Padding</em> specifies how far to inset the content from the outside of the
+control. You can provide a value that is the same for all the sides or
+individual values for each of the edges. Figure 5 uses a <em>KryptonButton</em> control
+that is auto sized to demonstrate how padding values affect the size and drawing
+of the control.</p>
+<ul>
+<li>Figure 5 – Padding property*</li>
+</ul>
+<p>The remaining three properties are <em>Image</em>, <em>ShortText</em> and <em>LongText</em> that
+contain settings that affect just the corresponding parts of the content.</p>
+<p><strong>Positioning</strong> </p>
+<p>Each of the three content parts has a property for controlling the horizontal
+alignment and another for the vertical alignment. These are called <em>ImageH</em>,
+<em>ImageV</em> for the <em>Image</em> and <em>TextH</em>, <em>TextV</em> for the <em>ShortText</em> and
+<em>LongText</em>. All of them have the same possible set of values <em>Inherit</em>, <em>Near</em>,
+<em>Center</em> and <em>Far</em>.</p>
+<p>Inherit is used to indicate that the value of the property should be determined
+by looking higher up the inheritance chain. On a left to right system the
+<em>Near</em>, <em>Center</em> and <em>Far</em> are interpreted as Left/Top, Middle and Right/Bottom.
+Right to left systems will interpret this in the reverse order of Right/Bottom,
+Middle and Left/Top.</p>
+<p>Positioning is easiest to understand by using examples. In figure 6 a sequence
+of images shows the <em>ShortText</em> positioned inside a fixed size <em>KryptonButton</em>.
+In each case the actual display text is the horizontal and vertical alignment
+values.</p>
+<ul>
+<li>Figure 6 – TextH, TextV positioning of ShortText only*</li>
+</ul>
+<p>If you position more than one of the content elements in the same place then
+they simply concatenate together in the order of <em>Image</em>, <em>ShortText</em> and
+<em>LongText</em>. So if all three were positioned at (<em>Far</em>, <em>Far)</em> then you would get
+the situation shown in figure 7. Note that the <em>Image</em> is positioned first and
+so takes the furthest position horizontally. Then the <em>ShortText</em> is added and
+finally the <em>LongText</em>.</p>
+<ul>
+<li>Figure 7 – Far, Far positioning of all content*</li>
+</ul>
+<p>You can achieve most affects you will need by using these settings. For example,
+if you would like to see the <em>LongText</em> at the bottom with the <em>ShortText</em> above
+and finally the <em>Image</em> at the top then you use the (<em>Center</em>,<em>Top</em>) for the
+<em>Image</em> then define (<em>Center</em>,<em>Center</em>) for the <em>ShortText</em> and finally
+(<em>Center</em>,<em>Bottom</em>) for the <em>LongText</em>. This would achieve the appearance of
+figure 8.</p>
+<ul>
+<li>Figure 8 – Content in centered for spread out vertically*</li>
+</ul>
+<p>If you need to squeeze the content more closely together then you have two
+options. The preferred method is to auto size the control so that it
+automatically resizes to be just big enough to hold the content. You could also
+add a larger <em>Padding</em> value so that the spare space is reduced forcing the
+content closer together. Figure 9 shows the auto sizing approach followed by the
+<em>Padding</em> approach where it has been defined as 22 pixels of <em>padding</em> for each
+edge. The last picture in figure 9 shows both the auto sizing and <em>Padding</em>
+applied to the same control.</p>
+<ul>
+<li>Figure 9 – AutoSize, Padding and both*</li>
+</ul>
+<p><strong>Image Properties</strong> </p>
+<p>As you can see from Figure 10 the <em>Image</em> property has five child properties of
+which the <em>ImageH</em> and <em>ImageV</em> have already been described above. The <em>Effect</em>
+property allows a color transition to be made at the time of drawing the actual
+image to the screen.</p>
+<ul>
+<li>Figure 10 – Image child properties*</li>
+</ul>
+<p>The most commonly used enumeration values are the <em>Normal</em>, which just shows the
+image without any change, and <em>Disabled</em> which shows the image is a washed out
+appearance suitable for a disabled control. You can lighten or darken the image
+by using one of the <em>Light</em>, <em>LightLight</em>, <em>Dark</em> and <em>DarkDark</em> options. There
+are four options for performing gray scaling. <em>GrayScale</em> will convert all
+colors into black and white whilst <em>GrayScaleRed</em>, <em>GrayScaleGreen</em> and
+<em>GrayScaleBlue</em> convert all except the nominated color into gray scale. See
+figure 11 to see all the enumeration options applied.</p>
+<ul>
+<li>Figure 11 – Image Effect enumeration*</li>
+</ul>
+<p>When the image is being painted you can remap one of the image colors to an
+alternate. Use the <em>ImageColorMap</em> to specify the color you want to alter and
+use <em>ImageColorTo</em> to define the new output color. This is useful if you have
+just a single color image and want to alter the display color based on the
+tracking or pressed state. Figure 12 shows a black cross image in three colors.
+The left most image is the original Image without any color re mapping applied.
+In the second image the <em>ImageColorMap = Black</em> and <em>ImageColorTo = Red</em>. Last
+is the blue image which also has <em>ImageColorMap = Black</em> but <em>ImageColorTo =
+Blue.</em></p>
+<p>  <em>Figure 12 - Original image, ColorTo = Red, ColorTo = Blue</em></p>
+<p><strong>ShortText &amp; LongText Properties</strong></p>
+<p>Figure 11 shows the full list of extra properties that are available for both
+the <em>ShortText</em> and <em>LongText</em>. The <em>TextV</em> and <em>TextH</em> properties have already
+been described above in the section about positioning.</p>
+<ul>
+<li>Figure 11 – ShortText child properties*</li>
+</ul>
+<p>The <em>ColorStyle</em> property determines how to make use of the <em>Color1</em>, <em>Color2</em>,
+<em>ColorAlign</em> and <em>ColorAngle</em> set properties. When <em>ColorStyle</em> is defined as
+<em>Solid</em> the text will be drawn using the <em>Color1</em> value and the other color
+properties are ignored as not relevant. Figure 12 shows some <em>KryptonLabel</em>
+instances with <em>Solid</em> defined.</p>
+<ul>
+<li>Figure 12 – ColorStyle = Solid*</li>
+</ul>
+<p>All other <em>ColorStyle</em> values such as <em>Linear</em> and <em>Rounded</em> allow a gradient
+effect between two colors, where <em>Color1</em> is the starting color and <em>Color2</em> is
+the ending color. Now the <em>ColorAngle</em> property becomes important as it
+determines the direction in which the transition occurs. Figure 13 shows the
+same <em>Linear</em> style and same starting and ending colors but with different
+angles.</p>
+<ul>
+<li>Figure 13 – ColorStyle = Linear*</li>
+</ul>
+<p><em>ColorAlign</em> is used to decide how to calculate the starting and ending points
+for the gradient effect. By default it will always start at the top left of the
+control and ends at the bottom right of the control which gives an appearance as
+seen already in figure 13. If instead you choose the <em>Form</em> level alignment then
+it will use the top left of the enclosing form and bottom right of the enclosing
+form as the total area of the gradient. Figure 14 shows four label controls all
+with exactly the same <em>ColorAngle</em> of 45 degrees, <em>ColorAlign</em> of <em>Form</em> and
+<em>ColorStyle</em> of Sigma.</p>
+<ul>
+<li>Figure 14 – ColorStyle =Sigma, ColorAlign = Form, ColorAngle = 45*</li>
+</ul>
+<p><em>Font</em> and <em>Hint</em> are used to define the text font used when drawing and the
+quality of the font rendering. Figure 15 shows the <em>Font</em> modified between the
+first and second instances. The third instance is exactly the same as the second
+but with the <em>Hint</em> defined as <em>AntiAlias</em>.</p>
+<ul>
+<li>Figure 15 – Font and Hint properties*</li>
+</ul>
+<p>Rather than just use colors you can also draw an <em>Image</em> over the text. Note
+that the <em>Image</em> is always drawn after the color has been painted so that images
+that contain alpha channels will show through the defined color effect.</p>
+<p>The <em>ImageAlign</em> property allows the image to be draw aligned against the <em>Form</em>
+and not just the control instance. Figure 16 shows the use of many
+<em>KryptonLabel</em> controls that are all assigned the same <em>Image</em>, <em>ImageAlign</em> and
+<em>ImageEffect</em>.</p>
+<ul>
+<li>Figure 16 – ImageAlign = Form, ImageEffect = Stretch*</li>
+</ul>
+<p>The <em>ImageEffect</em> property describes how to draw the Image over the required
+area. Figure 16 shows the example where <em>Stretch</em> is used to ensure the <em>Image</em>
+exactly covers the entire area. Tiling options include <em>Tile</em>, <em>TileFlipX</em>,
+<em>TileFlipY</em> and <em>TileFlipXY</em> that repeat over and over again until the entire
+area is filled. Positioning options such as <em>TopLeft</em> and <em>BottomMiddle</em> allow
+the image to be placed relative to both the vertical and horizontal edges.</p>
+<p><em>Prefix</em> has three possible values that determine how to process the ampersand
+character inside the text string. <em>None</em> specifies that no pre-processing of
+ampersand characters take place so the output is the exact string provided.
+<em>Hide</em> will process ampersand characters but will not underline the output text.
+<em>Show</em> will process ampersand characters and place an underline under the next
+character. Figure 17 shows the each of the three options.</p>
+<ul>
+<li>Figure 17 – Prefix options*</li>
+</ul>
+<p>Each <em>ShortText</em> and <em>LongText</em> can contain carriage returns and so span
+multiple lines of text. This is the default setting for <em>MultiLine</em> but if you
+prefer to have all the text always on a single line then just set the property
+to <em>False</em>. When text spans multiple lines then you can use the <em>MultiLineH</em>
+property to define how the lines are aligned. Figure 18 shows an example of text
+containing a carriage return being forced to show on a single line and then an
+example of the three alignment options.</p>
+<ul>
+<li>Figure 18 – MultiLine and MultiLineH properties*</li>
+</ul>
+<p>Finally the <em>Trim</em> property is used to specify how to handle text when there is
+not enough room to display it all. If you would like the text to disappear then
+use the <em>Hide</em> option. Alternatively you can use the <em>Character</em> or <em>Word</em>
+options to remove the excess characters or words that that will not fit. If you
+would like the user to be made aware that truncation has taken place then use
+one of the ellipses options <em>EllipsesCharacter</em>, <em>EllipsesWord</em> or
+<em>EllipsesPath</em>. Figure 19 shows the various options in action.</p>
+<ul>
+<li>Figure 19 - Trim options*</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>ButtonSpec | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="ButtonSpec | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="buttonspec">ButtonSpec</h2>
+
+<p>Some <em>Krypton</em> controls allow buttons to be specified for display within the
+<em>Krypton</em> control itself. In the case of the <em>KryptonHeader</em> and
+<em>KryptonHeaderGroup</em> they are displayed in the header portions of the
+control. In order to support this capability they expose a collection property
+called <em>ButtonSpecs.</em> This collection can contain any number of <em>ButtonSpec</em>
+(Button Specification) instances that describe the button that is required for
+display. Figure 1 below shows the <em>ButtonSpecs</em> property as it is exposed by the
+<em>KryptonHeader</em> control.</p>
+<p><img src="images/ButtonSpecsProperty.png" alt="*Figure 1 - ButtonSpecs property on KryptonHeader*"></p>
+<p><em>Figure 1 - ButtonSpecs property on KryptonHeader</em></p>
+<h3 id="buttonspec-instances">ButtonSpec Instances</h3>
+<p>On clicking the property button the standard collection editor is displayed as a
+modal dialog box. You can then use the collection editor to create and remove
+individual <em>ButtonSpec</em> instances. On the right side of the collection editor
+you will see the properties of the currently selected <em>ButtonSpec</em> instance.
+Figure 2 shows the properties that are exposed for a <em>ButtonSpec</em> instance.</p>
+<p><img src="images/ButtonSpecProperties.png" alt="*Figure 2 - ButtonSpec properties in collection editor*"></p>
+<p><em>Figure2 - ButtonSpec properties in collection editor</em></p>
+<p>To describe the function of the different properties a <em>KryptonHeader</em> control
+will be used. Figure 3 shows a simple <em>KryptonHeader *instance that has been
+created and currently does not have any *ButtonSpec</em> instances added.</p>
+<p><img src="images/HeaderButtons1.png" alt="*Figure 3 - KryptonHeader with no buttons*"></p>
+<p><em>Figure 3 - KryptonHeader with no buttons</em></p>
+<h3 id="text-extratext-image-imagestates-and-imagetransparentcolor">Text, ExtraText, Image, ImageStates and ImageTransparentColor</h3>
+<p>The <em>ButtonSpec</em> exposes the same value properties as a <em>KryptonButton</em>
+instance. You can assign text for display by setting the <em>Text</em> and <em>ExtraText</em>
+properties. To show an image you use the <em>Image</em> property and if you need
+per-state images then you can use the properties available as children of
+<em>ImageStates</em>. If you need to specify which color in the <em>Image</em> should be
+transparent then use the <em>ImageTransparentColor</em> property. Figure 4 shows a red
+cross assigned to the <em>Image</em> property and all other properties of the
+<em>ButtonSpec</em> left as default values. At the top of figure 4 is the output when
+the mouse is not interacting with the button, the second picture shows the mouse
+tracking over the button and finally when the mouse is pressed down.</p>
+<p><img src="images/HeaderButtons2.png" alt="*Figure 4 - Button in normal, tracking and pressed states*"></p>
+<p>   <em>Figure 4 - Button in normal, tracking and pressed states</em></p>
+<p>If you need to show different images for each of the button states then instead
+of using the <em>Image</em> property you would assign the different images to the child
+properties of <em>ImageStates</em>. You would not usually define all of the <em>Text</em>,
+<em>ExtraText</em> and <em>Image</em> properties together because of the excessive amount of
+space they would occupy but Figure 5 shows that it is possible.</p>
+<p><img src="images/HeaderButtonsA.png" alt="*Figure 5 - ButtonSpec with Image, Text &amp; ExtraText defined*"></p>
+<p><em>Figure 5 - ButtonSpec with Image, Text &amp; ExtraText defined</em></p>
+<h3 id="tooltiptitle-tooltipbody-tooltipimage-tooltipimagetransparentcolor-and">ToolTipTitle, ToolTipBody, ToolTipImage, ToolTipImageTransparentColor and</h3>
+<p>ToolTipStyle
+These properties are used to specify the tool tip details for display when the
+user hovers over the button spec instance. Use the <em>ToolTipTitle</em> and
+<em>ToolTipBody</em> properties to define two text strings for display. To associate an
+image with the tool tip you should assign it to <em>ToolTipImage</em> and use the
+<em>ToolTipImageTransparentColor</em> for specifying a color in the image that should
+be treated as transparent. For example, many bitmaps will use magenta as a color
+for the background area that should become transparent when the bitmap is drawn,
+in that case assign Color.Magenta to the
+<em>ToolTipImageTransparentColor</em> property.</p>
+<p>The default value for the <em>ToolTipStyle</em> is <em>LabelStyle.ToolTip</em> and will cause
+the image and title text to be shown at the top of the tool tip area and the
+body text to be shown below. Alternatively you could change the style to
+<em>LabelStyle.SuperTip</em> in which case the title text is shown in bold at the top
+of the tool tip area, the image in shown below with the title also below and to
+the right of the image.</p>
+<p>Note that by default the <em>Krypton</em> controls that allow the definition of button
+specification do not show tool tips for them. You must therefore find the
+appropriate property such as <em>AllowButtonSpecTooltips</em> and set it to <em>True</em>
+before tool tips will be displayed.  </p>
+<h3 id="style">Style</h3>
+<p>By default the button will be displayed using the <em>ButtonSpec</em> button style
+appearance. Note that the <em>Standalone</em> button style is intended for use
+with standard buttons within the main application, <em>LowProfile</em> is likewise
+intended for standalone buttons that need a lower profile. <em>ButtonSpec, *as the
+name indicates,</em> <em>is intended for use with button specification scenarios and
+has a much smaller padding between the button contents and the border. This is
+because space is very constrained in places that a *ButtonSpec</em> is used and so
+the button needs to be kept compact.  </p>
+<p>If you prefer to change the default <em>ButtonSpec</em> button style then just modify
+the <em>Style</em> property. Figure 6 shows the appearance when the <em>Style</em> is altered
+to <em>Standalone</em>, where a background and border are shown even when the mouse is
+not over the button.  </p>
+<p><img src="images/HeaderButtons3.png" alt="*Figure 6 - Style = Button1*"></p>
+<p><em>Figure 6 - Style = Button1</em></p>
+<h3 id="edge">Edge</h3>
+<p>All the examples so far have shown the button placed on the right hand side of
+the example <em>KryptonHeader</em>. This is the default, <em>Far</em>, position but you can
+reverse this to have the button shown <em>Near</em>. Figure 7 shows the <em>Edge</em> property
+modified to <em>Near</em>.</p>
+<p><img src="images/HeaderButtons4.png" alt="*Figure 7 - Edge = Near*"></p>
+<p><em>Figure 7 - Edge = Near</em></p>
+<h3 id="enabled">Enabled</h3>
+<p>The <em>Enabled</em> property has three possible values. If you specify <em>Enabled</em> as
+<em>True</em> then the button will be enabled as long as the control itself is also
+enabled. Remember that if the <em>Krypton</em> control itself has been disabled then
+each <em>ButtonSpec</em> must be disabled because the user has been prevented from
+interacting with the control. If you specify <em>Enabled</em> as <em>False</em> then the
+button is always displayed as disabled as can seen in figure 8.</p>
+<p>The third possible <em>Enabled</em> property value is <em>Container</em>. The need for three
+different enabled options is not apparent on a simple control like a
+<em>KryptonHeader</em> but is required for more complex controls like the
+<em>KryptonNavigator</em>. The <em>Container</em> option acts the same as the <em>True</em> setting
+for simple controls where the whole control is the container. If the control
+(which is also the container) is enabled then so is the <em>ButtonSpec,</em> if the
+control is disabled then so is the ButtonSpec. Hence the <em>True</em> and <em>Container</em>
+options act in exactly the same way. For the <em>KryptonNavigator</em>, and other
+complex controls, the container is not the whole control and so the semantics
+are altered. Refer to the documentation for the complex control for control
+specific details.</p>
+<p><img src="images/HeaderButtons5.png" alt="*Figure 8 - Enabled = False*"></p>
+<p><em>Figure 8 - Enabled = False</em></p>
+<h3 id="visible">Visible</h3>
+<p>By default the <em>Visible</em> property is defined as <em>True</em> so that the <em>ButtonSpec</em>
+is shown. Alter this to <em>False</em> to remove it from the display.  </p>
+<h3 id="checked">Checked</h3>
+<p>If you need your <em>ButtonSpec</em> to act like a toggle button instead of the default
+push button then you need to alter the <em>Checked</em> property. The default value of
+this property is <em>NotCheckButton</em> and so it is always drawn as a standard push
+button. If you alter the property to either <em>Checked</em> or <em>Unchecked</em> then
+pressing the button with cause it to toggle between those two values. Figure 9
+shows the <em>Checked</em> property defined as <em>Checked.</em></p>
+<p><img src="images/HeaderButtons6.png" alt="*Figure 9 - Checked = Checked*"></p>
+<p><em>Figure 9 - Checked = Checked</em>  </p>
+<h3 id="type">Type</h3>
+<p>By default the <em>Type</em> property for a new <em>ButtonSpec</em> is defined as <em>Generic</em>.
+This means the button has no predefined meaning and you must supply the image
+and text that you would like displayed. There are however some common types of
+button and you can indicate that your button should be of that predefined type.
+In these case the image and text are inherited from the palette if you do not
+provide them yourself in the <em>ButtonSpec</em> properties. Figure 10 shows four of
+the predefined types of <em>Previous</em>, <em>Next</em>, <em>Context</em> and <em>Close</em> and the images
+that are inherited from the palette. There are other predefined types including
+<em>ArrowUp</em>, <em>ArrowDown</em>, <em>ArrowLeft, ArrowRight, FormClose, FormMin, FormMax</em> and
+<em>FormRestore</em>.  </p>
+<p>Because the image and text values are inherited for predefined types you need a
+mechanism to specify no image or no text. If you leave the <em>Image</em> property
+blank then the image is pulled in from the palette. But what if you really do
+not want any image? Then you can assign <em>False</em> to the <em>AllowImageInherit</em>
+property. Likewise you can use the <em>AllowTextInherit</em> and
+<em>AllowExtraTextInherit</em> to prevent the text values from being inherited.</p>
+<p><img src="images/HeaderButtons7.png" alt="*Figure 10 - Previous, Next, Context and Close types*"></p>
+<p><em>Figure 10 - Previous, Next, Context and Close types</em></p>
+<h3 id="orientation">Orientation</h3>
+<p>What happens to the display of the buttons when the owning control has a
+different orientation? Figure 11 shows that by default the buttons are also
+rotated in the same way as the owning control. However this might not always be
+appropriate for your application as the <em>Previous</em> and <em>Next</em> predefined types
+no longer point left and right respectively.</p>
+<p><img src="images/HeaderButtons8.png" alt="*Figure 11 - Orientation = Auto*"></p>
+<p><em>Figure 11 - Orientation = Auto</em></p>
+<p>This is purpose of the <em>Orientation</em> property on the <em>ButtonSpec</em>. The default
+value of Auto will cause the button to be rotated in line with the owning
+control as seen above. You can however fix the orientation of the <em>ButtonSpec</em>
+to a particular value. Figure 12 shows the <em>Orientation</em> property defined as
+<em>FixedTop</em> which now makes more sense to the user.</p>
+<p><img src="images/HeaderButtons9.png" alt="*Figure 12 - Orientation = FixedTop*"></p>
+<p><em>Figure 12 - Orientation = FixedTop</em></p>
+<h3 id="colormap">ColorMap</h3>
+<p>If you look at Figure 13 you will see that four predefined types have been used
+on to <em>KryptonHeader</em> controls, the top header is using a <em>Header1</em> style and
+the bottom header <em>Header2</em> style. Although the builtin palette has only a
+single black image for each predefined type the headers are still showing the
+images colored appropriately for each header style. This is where the <em>ColorMap</em>
+property comes into play.  </p>
+<p>When the <em>ColorMap</em> property is defined as a color then the button will remap
+that specified color to the color used for drawing the main content text. As can
+be seen in figure 13 the top header is using white for the main content text and
+the second header is used black, hence the buttons have been re mapped from
+black to the appropriate color. The <em>ColorMap</em> value is inherited from the
+palette and so when you specify a predefined type of <em>Close</em> the palette will
+automatically map the black that is used in the <em>Close</em> image. When you specify
+your own image or use the <em>Generic</em> type then you would need to set the
+<em>ColorMap</em> manually to get the functionality.  </p>
+<p><img src="images/HeaderButtons10.png" alt="*Figure 13 - Types with default color re mapping*"></p>
+<p><em>Figure 13 - Types with default color re mapping</em>  </p>
+<p>It is not just the image that is re mapped but also the text as well. Figure 14
+shows a <em>ButtonSpec</em> that is defined as the <em>Close</em> type and where additional
+<em>Text</em> has been provided as well. In the top picture you can see that text is
+also in white to match the main content color. The second picture shows the main
+text changed to green and also how the re mapping is continuing to work.</p>
+<p><img src="images/HeaderButtonsB.png" alt="*Figure 14 - Color re mapping*"></p>
+<p><em>Figure 14 - Color re mapping</em></p>
+<h3 id="mnemonics">Mnemonics</h3>
+<p>As with the standard <em>KryptonButton</em> you can use the ampersand character to
+place an underline with the following character. If the owning control that
+contains the <em>ButtonSpec</em> definition processes a mnemonic character then it will
+check each <em>ButtonSpec</em> to see if the mnemonic matches it. If so then the
+<em>Click</em> event for the ButtonSpec will be fired. Check that the owning control
+has the <em>UseMnemonic</em> property defined as <em>True</em>.  </p>
+<h3 id="contextmenustrip">ContextMenuStrip</h3>
+<p>If you assign a <em>ContextMenuStrip</em> reference to the property of the same name
+then clicking the button will cause the context menu to be displayed. Note that
+this property is only used if the <em>KryptonContextMenu</em> property is not defined.  </p>
+<h3 id="kryptoncontextmenu">KryptonContextMenu</h3>
+<p>Clicking the button will cause this context menu to be shown below the button on
+the screen. This property takes precedence over the <em>ContextMenuStrip</em> property
+as defined above. Only if this property is <em>null</em> will the <em>ContextMenuStrip</em> be
+tested and used instead. Use of the context menu properties is a quick way to
+add context functionality to a <em>KryptonHeader</em>, <em>KryptonHeaderGroup,
+KryptonRibbon</em> or <em>KryptonNavigator</em> control.  </p>
+<h3 id="uniquename">UniqueName</h3>
+<p>As the name suggests, this field allows the developer to assign a unique name to
+the button specification. By default each new instance will be assigned a new
+GUID generated from the operating system to ensure uniqueness. As these are not
+easy to remember it is recommended you alter the property to a more meaningful
+value if you intend to make use of the property</p>
+<h3 id="tag">Tag</h3>
+<p>Use this to associate your application specific information with the button spec
+instance.  </p>
+<h3 id="click-event">Click Event</h3>
+<p>The standard <em>Click</em> event is fired whenever the user presses the button
+represented by the button specification.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

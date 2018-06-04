@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content=" | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>Ribbon Application Button</p>
+<p>The application button is the large round button that appears at the top left of
+the ribbon control. You cannot prevent the display of the button and pressing it
+should always result in the display of a context menu. When the ribbon control
+is integrated into the custom chrome of the owning <em>Form</em> then the application
+button should be presented half in the <em>Form</em> caption area and half in the
+ribbon control itself. When the ribbon is not integrated then an extra header
+area is shown at the top of the ribbon control that allows the application
+button to be completely shown.</p>
+<p><strong>Application Button Properties</strong><br>You can see in Figure 1 the ribbon properties relating to the application
+button.</p>
+<ul>
+<li>Figure 1 - Application Button Properties*</li>
+</ul>
+<p><strong>AppButtonImage</strong><br>Use this property to define the image that is displayed in the center of the
+application button. You should always assign an <em>Image</em> of size 24 x 24 pixel as
+the ribbon will always stretch the provided image to be drawn in that fixed
+size. Note that this property cannot be assigned <em>null</em> and so if you cannot
+supply a value of your own it will default to the blue jigsaw piece seen in the
+sample applications.</p>
+<p><strong>AppButtonMenuItems</strong><br>Defines the hierarchy of context menu items that are displayed on the left side
+of the application menu. Note that the first level of sub menus are displayed as
+a fixed size that overlap the recent documents area. Hence it is important to
+have a reasonably large recent documents area so that all the first level sub
+menus will be fully displayed. The exception to this rule is when the recent
+documents area is turned off via the <em>AppButtonShowRecentDocs</em> property, in
+which case the first level sub menus are shown sized according to content.</p>
+<p><strong>AppButtonMinRecentSize</strong><br>The recent documents area of the application menu honors a minimum size as
+specified by this property. This ensures that when you only have a small number
+of entries you still reserve a reasonable amount of display space. It is also
+essential when you have large first sub menus defined. The first level of sub
+menus are always displayed as a fixed size that overlay the recent documents
+area. Therefore you would need to use this property to ensure that the sub menu
+always has enough size that the sub menu can be fully displayed.</p>
+<p><strong>AppButtonMaxRecentSize</strong><br>Adding recent document entries that have large text values, such as a full path
+filename, it can quickly make the application menu very wide. Use this property
+to limit the width of the recent documents area so it does not become
+unmanageable.</p>
+<p><strong>AppButtonRecentDocs</strong><br>Each entry in this collection will appear as an option inside the recent
+documents section of the application menu. </p>
+<p><strong>AppButtonShowRecentDocs</strong><br>The recent documents section of the application menu is optional. If you set
+this property to <em>False</em> then this section will not be displayed. This is a
+useful if your application does not support the concept of recent documents and
+also has no need to reuse the section or another purpose.</p>
+<p><strong>AppButtonSpecs</strong><br>You can use this collection to define additional buttons that appear at the
+bottom of the application menu. Typically you would use this feature to add an
+<em>Exit</em> or <em>Options</em> button in the same manner as the <em>Office 2007</em> applications.
+They should be used when it does not make sense to add the same capability to
+the context menu portion of the application menu.</p>
+<p><strong>AppButtonToolTipBody</strong><br><strong>AppButtonToolTipImage</strong><br><strong>AppButtonToolTipImageTransparentColor</strong><br><strong>AppButtonToolTipStyle</strong><br><strong>AppButtonToolTipTitle</strong><br>When the user hovers the mouse over the application button instance you can use
+these properties to define the tool tip that will be displayed. Use
+<em>AppButtonToolTipTitle</em> and <em>AppButtonToolTipBody</em> to define the two text
+strings for display and <em>AppButtonToolTipImage</em> for the associated image. If you
+image contains a color that you would like to be treated as transparent then set
+the <em>AppButtonToolTipImageTransparentColor</em>. For example, many bitmaps use
+magenta as the color to become transparent. To control how the text and image
+are displayed in the tool tip you can use the <em>AppButtonToolTipStyle</em> property.</p>
+<p><strong>AppButtonVisible</strong><br>Determines if the application button is displayed with the ribbon.</p>
+<p><strong>AppButtonKeyTip</strong><br>When the user enter <em>KeyTips</em> mode by using the <em>ALT</em> key or <em>F10</em> this property
+is used to decide on the <em>KeyTip</em> text to be used for the application button. By
+default the single letter <em>F</em> is used because the most likely use of the
+application button is to show a <em>File</em> context menu. This property is
+localizable so you can change the value on a per culture basis.</p>
+<p><strong>RecentDocuments</strong><br>This property defines the string that is displayed as a title for the recent
+documents section of the application menu. You can change the title if you
+require to repurpose the use of that menu section. This property is localizable
+so you can change the value on a per culture basis.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
