@@ -2460,7 +2460,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     KryptonMessageBox.Show("Reset of palette is completed.",
                                     "Palette Reset",
-                                    MessageBoxButtons.OK);
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -2502,7 +2503,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     KryptonMessageBox.Show("Relevant values have been populated.",
                                     "Populate Values",
-                                    MessageBoxButtons.OK);
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -2586,7 +2588,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     KryptonMessageBox.Show("Import from file '" + filename + "' completed.",
                                     "Palette Import",
-                                    MessageBoxButtons.OK);
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -2645,7 +2648,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     KryptonMessageBox.Show("Import completed with success.",
                                     "Palette Import",
-                                    MessageBoxButtons.OK);
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -2702,7 +2706,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     KryptonMessageBox.Show("Import completed with success.",
                                     "Palette Import",
-                                    MessageBoxButtons.OK);
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -2793,7 +2798,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     KryptonMessageBox.Show("Export to file '" + filename + "' completed.",
                                     "Palette Export",
-                                    MessageBoxButtons.OK);
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -2857,7 +2863,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     KryptonMessageBox.Show("Export completed with success.",
                                     "Palette Export",
-                                    MessageBoxButtons.OK);
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -2917,7 +2924,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     KryptonMessageBox.Show("Export completed with success.",
                                     "Palette Export",
-                                    MessageBoxButtons.OK);
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
