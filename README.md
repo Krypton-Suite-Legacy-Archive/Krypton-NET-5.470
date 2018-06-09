@@ -2,8 +2,6 @@
 
 =======
 
-## NOTE: In order to **design** within the IDE with this toolkit, please ensure that you reference the `Krypton Design.dll` in ALL of your projects at ALL times!
-
 # ["Toolkit help index"](https://rawgit.com/Wagnerp/Krypton-NET-4.7/master/Help/Output/index.html)
 
 =======
