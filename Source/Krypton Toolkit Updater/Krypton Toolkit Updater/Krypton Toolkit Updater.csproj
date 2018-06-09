@@ -35,14 +35,11 @@
     <ApplicationIcon>Resources\interact.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ComponentFactory.Krypton.Design">
-      <HintPath>A:\Developer DLLs\Krypton DLLs\Versions\4.70\Failsafe\ComponentFactory.Krypton.Design.dll</HintPath>
+    <Reference Include="Krypton Navigator">
+      <HintPath>A:\Developer DLLs\Krypton DLLs\Versions\4.70\Krypton Navigator.dll</HintPath>
     </Reference>
-    <Reference Include="ComponentFactory.Krypton.Navigator">
-      <HintPath>A:\Developer DLLs\Krypton DLLs\Versions\4.70\Failsafe\ComponentFactory.Krypton.Navigator.dll</HintPath>
-    </Reference>
-    <Reference Include="ComponentFactory.Krypton.Toolkit">
-      <HintPath>A:\Developer DLLs\Krypton DLLs\Versions\4.70\Failsafe\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    <Reference Include="Krypton Toolkit">
+      <HintPath>A:\Developer DLLs\Krypton DLLs\Versions\4.70\Krypton Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WindowsAPICodePack.1.1.0\lib\Microsoft.WindowsAPICodePack.dll</HintPath>

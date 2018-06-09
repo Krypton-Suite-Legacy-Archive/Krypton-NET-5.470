@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{82F9ADB9-3D5D-48AF-B022-891769336CA0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>KryptonToolkitUpdater</RootNamespace>
+    <AssemblyName>Krypton Toolkit Updater</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>build\$(Configuration)</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>build\$(Configuration)</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\interact.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ComponentFactory.Krypton.Design">
+      <HintPath>A:\Developer DLLs\Krypton DLLs\Versions\4.70\Failsafe\ComponentFactory.Krypton.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Navigator">
+      <HintPath>A:\Developer DLLs\Krypton DLLs\Versions\4.70\Failsafe\ComponentFactory.Krypton.Navigator.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Toolkit">
+      <HintPath>A:\Developer DLLs\Krypton DLLs\Versions\4.70\Failsafe\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack.1.1.0\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ExtendedLinguisticServices, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack.1.1.0\lib\Microsoft.WindowsAPICodePack.ExtendedLinguisticServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Sensors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack.1.1.0\lib\Microsoft.WindowsAPICodePack.Sensors.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack.1.1.0\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack.1.1.0\lib\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\ControlController.cs" />
+    <Compile Include="Classes\ThemeSettingsHelper.cs" />
+    <Compile Include="Classes\ThemingManager.cs" />
+    <Compile Include="Classes\UpdatePackageInformationSettingsHelper.cs" />
+    <Compile Include="Classes\UpdaterLogic.cs" />
+    <Compile Include="Classes\UpdaterSettingsHelper.cs" />
+    <Compile Include="Classes\Utilities.cs" />
+    <Compile Include="Classes\XMLParser.cs" />
+    <Compile Include="Enumerations\Enumerations.cs" />
+    <Compile Include="Classes\GlobalSuppressions.cs" />
+    <Compile Include="Interfaces\IUpdatePackageInformationSettings.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\ThemeSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>ThemeSettings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\UpdatePackageInformationSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>UpdatePackageInformationSettings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\UpdaterSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>UpdaterSettings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DownloadUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DownloadUpdateForm.Designer.cs">
+      <DependentUpon>DownloadUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RemindMeLaterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RemindMeLaterForm.Designer.cs">
+      <DependentUpon>RemindMeLaterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UpdateDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UpdateDetailsForm.Designer.cs">
+      <DependentUpon>UpdateDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UpdatePackageDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UpdatePackageDetails.Designer.cs">
+      <DependentUpon>UpdatePackageDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UpdaterMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UpdaterMainForm.Designer.cs">
+      <DependentUpon>UpdaterMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UpdaterOptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UpdaterOptionsForm.Designer.cs">
+      <DependentUpon>UpdaterOptionsForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UI\DownloadUpdateForm.resx">
+      <DependentUpon>DownloadUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RemindMeLaterForm.resx">
+      <DependentUpon>RemindMeLaterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UpdateDetailsForm.resx">
+      <DependentUpon>UpdateDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UpdatePackageDetails.resx">
+      <DependentUpon>UpdatePackageDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UpdaterMainForm.resx">
+      <DependentUpon>UpdaterMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UpdaterOptionsForm.resx">
+      <DependentUpon>UpdaterOptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Settings\ThemeSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>ThemeSettings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Settings\UpdatePackageInformationSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>UpdatePackageInformationSettings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Settings\UpdaterSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>UpdaterSettings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\interact.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Globe-Download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gnome-settings-default-applications.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\palette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gnome-settings-default-applications.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\palette.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clock.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clock.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
