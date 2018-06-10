@@ -168,7 +168,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 _prefix += key;
 
                 // Hide ourself and then show again to force redraw
-                PI.ShowWindow(Handle, (short)PI.SW_HIDE);
+                PI.ShowWindow(Handle, PI.SW_HIDE);
 
                 // Use timer to force redraw
                 StartTimer();
@@ -288,7 +288,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Show the window and so cause it to be redrawn
             if (!IsDisposed && (Handle != IntPtr.Zero))
             {
-                PI.ShowWindow(Handle, (short)PI.SW_SHOWNOACTIVATE);
+                PI.ShowWindow(Handle, PI.SW_SHOWNOACTIVATE);
             }
         }
         #endregion

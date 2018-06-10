@@ -1403,7 +1403,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Bindable(true)]
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        [DefaultValue((string)null)]
+        [DefaultValue(null)]
         public object SelectedValue
         {
             get => _listBox.SelectedValue;

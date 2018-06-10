@@ -1735,7 +1735,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void WndProc(ref Message m)
         {
             // At design time inside the ribbon we are transparent to the mouse
-            if ((m.Msg == (int)PI.WM_NCHITTEST) && InRibbonDesignMode)
+            if ((m.Msg == PI.WM_NCHITTEST) && InRibbonDesignMode)
             {
                 // Allow actions to occur to window beneath us
                 m.Result = (IntPtr)PI.HTTRANSPARENT;

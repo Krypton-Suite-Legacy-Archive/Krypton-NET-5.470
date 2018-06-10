@@ -90,7 +90,7 @@ namespace ComponentFactory.Krypton.Toolkit
             ClientSize = screenRect.Size;
 
             // Show the window without activating it (i.e. do not take focus)
-			PI.ShowWindow(Handle, (short)PI.SW_SHOWNOACTIVATE);
+			PI.ShowWindow(Handle, PI.SW_SHOWNOACTIVATE);
         }
 
         /// <summary>

@@ -556,7 +556,7 @@ namespace ComponentFactory.Krypton.Docking
                             {
                                 cbSize = (uint)Marshal.SizeOf(typeof(PI.TRACKMOUSEEVENTS)),
                                 dwHoverTime = 100,
-                                dwFlags = (int)(PI.TME_LEAVE),
+                                dwFlags = PI.TME_LEAVE,
                                 hWnd = Handle
                             };
 

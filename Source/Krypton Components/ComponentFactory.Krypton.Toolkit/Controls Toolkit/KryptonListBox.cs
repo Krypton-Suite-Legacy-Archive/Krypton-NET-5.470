@@ -728,7 +728,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Bindable(true)]
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        [DefaultValue((string)null)]
+        [DefaultValue(null)]
         public object SelectedValue
         {
             get => _listBox.SelectedValue;
@@ -881,7 +881,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Indicates the list that this control will use to gets its items.")]
         [AttributeProvider(typeof(IListSource))]
         [RefreshProperties(RefreshProperties.Repaint)]
-        [DefaultValue((string)null)]
+        [DefaultValue(null)]
         public virtual object DataSource
         {
             get => _listBox.DataSource;

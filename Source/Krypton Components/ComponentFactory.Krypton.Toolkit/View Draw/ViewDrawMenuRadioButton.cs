@@ -51,7 +51,7 @@ namespace ComponentFactory.Krypton.Toolkit
             KryptonContextMenuRadioButton.SetPaletteRedirect(provider.ProviderRedirector);
 
             // Create the content for the actual heading text/image
-            ViewDrawContent = new ViewDrawContent((ItemEnabled ? (IPaletteContent)KryptonContextMenuRadioButton.OverrideNormal : (IPaletteContent)KryptonContextMenuRadioButton.OverrideDisabled),
+            ViewDrawContent = new ViewDrawContent((ItemEnabled ? KryptonContextMenuRadioButton.OverrideNormal : KryptonContextMenuRadioButton.OverrideDisabled),
                                                _contentValues, VisualOrientation.Top)
             {
                 UseMnemonic = true,

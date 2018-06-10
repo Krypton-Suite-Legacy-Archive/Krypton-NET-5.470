@@ -243,7 +243,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Visuals")]
         [Description("The percentage the caption should overlap the group area.")]
         [TypeConverter(typeof(OpacityConverter))]
-        [DefaultValue((double)0.5)]
+        [DefaultValue(0.5)]
         public double CaptionOverlap
         {
             get => _drawDocker.CaptionOverlap;

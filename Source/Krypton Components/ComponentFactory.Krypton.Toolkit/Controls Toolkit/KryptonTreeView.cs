@@ -881,7 +881,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Behavior")]
         [Description("The ImageList control from which nodes images are taken.")]
         [RefreshProperties(RefreshProperties.Repaint)]
-        [DefaultValue((string)null)]
+        [DefaultValue(null)]
         public ImageList ImageList
         {
             get => _treeView.ImageList;
@@ -1023,7 +1023,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Category("Behavior")]
         [Description("The ImageList used by the control for custom states.")]
-        [DefaultValue((string)null)]
+        [DefaultValue(null)]
         public ImageList StateImageList
         {
             get => _treeView.StateImageList;

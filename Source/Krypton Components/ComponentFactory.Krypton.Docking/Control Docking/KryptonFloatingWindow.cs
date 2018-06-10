@@ -106,14 +106,14 @@ namespace ComponentFactory.Krypton.Docking
                 case PI.WM_NCLBUTTONDOWN:
                     {
                         // Perform a hit test to determine which area the mouse press is over at the moment
-                        uint result = PI.SendMessage(Handle, (int)PI.WM_NCHITTEST, 0, (uint)m.LParam);
+                        uint result = PI.SendMessage(Handle, PI.WM_NCHITTEST, 0, (uint)m.LParam);
 
                         // Only want to override the behaviour of moving the window via the caption bar
                         if (result == PI.HITTEST_CAPTION)
                         {
                             // Extract screen position of the mouse from the message LPARAM
                             Point screenPos = new Point((short)((uint)m.LParam & 0x0000FFFFU),
-                                                        (short)(uint)(((uint)m.LParam & 0xFFFF0000U) >> 16));
+                                                        (short)(((uint)m.LParam & 0xFFFF0000U) >> 16));
 
                             // Find the mouse offset relative to the top left of the window
                             Point offset = new Point(screenPos.X - Location.X, screenPos.Y - Location.Y);

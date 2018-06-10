@@ -1091,7 +1091,7 @@ namespace ComponentFactory.Krypton.Navigator
             {
                 // Grab the page associated view elements
                 ViewDrawNavCheckButtonStack checkButton = (ViewDrawNavCheckButtonStack)_pageLookup[page];
-                ViewDrawBorderEdge buttonEdge = (ViewDrawBorderEdge)_buttonEdgeLookup[page];
+                ViewDrawBorderEdge buttonEdge = _buttonEdgeLookup[page];
 
                 // Add to the child collection with the correct docking style
                 if (dockTopLeft)

@@ -325,7 +325,7 @@ namespace ComponentFactory.Krypton.Ribbon
             UpdateShapeValues();
 
             // Ask the normal group content for its possible sizes
-            IRibbonViewGroupSize viewSize = (IRibbonViewGroupSize)_layoutNormalContent;
+            IRibbonViewGroupSize viewSize = _layoutNormalContent;
 
             // Get the permutations from the content area
             List<GroupSizeWidth> retWidths = new List<GroupSizeWidth>();
@@ -471,7 +471,7 @@ namespace ComponentFactory.Krypton.Ribbon
             Collapsed = (size == null);
 
             // Pass solution onto the contained view
-            IRibbonViewGroupSize viewSize = (IRibbonViewGroupSize)_layoutNormalContent;
+            IRibbonViewGroupSize viewSize = _layoutNormalContent;
             viewSize.SetSolutionSize(size);
         }
 

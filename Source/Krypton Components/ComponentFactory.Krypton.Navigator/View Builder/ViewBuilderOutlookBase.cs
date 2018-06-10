@@ -2402,7 +2402,7 @@ namespace ComponentFactory.Krypton.Navigator
             {
                 // Grab the page associated view elements
                 ViewDrawNavOutlookStack checkButton = (ViewDrawNavOutlookStack)_pageStackLookup[page];
-                ViewDrawBorderEdge buttonEdge = (ViewDrawBorderEdge)_buttonEdgeLookup[page];
+                ViewDrawBorderEdge buttonEdge = _buttonEdgeLookup[page];
                 
                 // Add to the end of the collection
                 _viewLayout.Add(buttonEdge, dockFar);

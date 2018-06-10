@@ -54,7 +54,7 @@ namespace ComponentFactory.Krypton.Toolkit
             KryptonContextMenuCheckBox.SetPaletteRedirect(provider.ProviderRedirector);
 
             // Create the content for the actual heading text/image
-            ViewDrawContent = new ViewDrawContent((ItemEnabled ? (IPaletteContent)KryptonContextMenuCheckBox.OverrideNormal : (IPaletteContent)KryptonContextMenuCheckBox.OverrideDisabled),
+            ViewDrawContent = new ViewDrawContent((ItemEnabled ? KryptonContextMenuCheckBox.OverrideNormal : KryptonContextMenuCheckBox.OverrideDisabled),
                                                _contentValues, VisualOrientation.Top)
             {
                 UseMnemonic = true,
@@ -351,7 +351,7 @@ namespace ComponentFactory.Krypton.Toolkit
             ItemEnabled = _provider.ProviderEnabled && ResolveEnabled;
 
             // Update with enabled state
-            ViewDrawContent.SetPalette(ItemEnabled ? (IPaletteContent)KryptonContextMenuCheckBox.OverrideNormal : (IPaletteContent)KryptonContextMenuCheckBox.OverrideDisabled);
+            ViewDrawContent.SetPalette(ItemEnabled ? KryptonContextMenuCheckBox.OverrideNormal : KryptonContextMenuCheckBox.OverrideDisabled);
             ViewDrawContent.Enabled = ItemEnabled;
             ViewDrawCheckBox.Enabled = ItemEnabled;
 

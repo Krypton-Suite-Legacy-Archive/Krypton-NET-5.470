@@ -1258,7 +1258,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                                     // Update the splitter distance and percentage to reflect new positions
                                     _splitterDistance = Panel1.Width;
-                                    _splitterPercent = (double)Panel1.Width / (double)Width;
+                                    _splitterPercent = Panel1.Width / (double)Width;
                                     break;
                                 case FixedPanel.Panel2:
                                     // Set the fixed size of second panel, and fill remaining space with 
@@ -1280,7 +1280,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                                     // Update the splitter distance and percentage to reflect new positions
                                     _splitterDistance = Panel1.Width;
-                                    _splitterPercent = (double)Panel1.Width / (double)Width;
+                                    _splitterPercent = Panel1.Width / (double)Width;
                                     break;
                                 default:
                                     // Find the maximum allowed panel width
@@ -1311,7 +1311,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                     // Update the percentage but not if this occurs because of a resize operation
                                     if (!_resizing)
                                     {
-                                        _splitterPercent = (double)panel1Width / (double)Width;
+                                        _splitterPercent = panel1Width / (double)Width;
                                     }
                                     break;
                             }
@@ -1337,7 +1337,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                                     // Update the splitter distance and percentage to reflect new positions
                                     _splitterDistance = Panel1.Height;
-                                    _splitterPercent = (double)Panel1.Height / (double)Height;
+                                    _splitterPercent = Panel1.Height / (double)Height;
                                     break;
                                 case FixedPanel.Panel2:
                                     // Set the fixed size of second panel, and fill remaining space with 
@@ -1350,7 +1350,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                                     // Update the splitter distance and percentage to reflect new positions
                                     _splitterDistance = Panel1.Height;
-                                    _splitterPercent = (double)Panel1.Height / (double)Height;
+                                    _splitterPercent = Panel1.Height / (double)Height;
                                     break;
                                 default:
                                     // Find the maximum allowed panel1 height
@@ -1372,7 +1372,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                     // Update the percentage but not if this occurs because of a resize operation
                                     if (!_resizing)
                                     {
-                                        _splitterPercent = (double)panel1Height / (double)Height;
+                                        _splitterPercent = panel1Height / (double)Height;
                                     }
                                     break;
                             }

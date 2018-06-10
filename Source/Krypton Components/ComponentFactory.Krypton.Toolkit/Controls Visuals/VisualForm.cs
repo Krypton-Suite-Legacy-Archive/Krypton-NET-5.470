@@ -533,9 +533,9 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed && !Disposing && IsHandleCreated)
             {
                 PI.SetWindowPos(Handle, IntPtr.Zero, 0, 0, 0, 0,
-                                (uint)(PI.SWP_NOACTIVATE | PI.SWP_NOMOVE |
-                                       PI.SWP_NOZORDER | PI.SWP_NOSIZE |
-                                       PI.SWP_NOOWNERZORDER | PI.SWP_FRAMECHANGED));
+                                PI.SWP_NOACTIVATE | PI.SWP_NOMOVE |
+                                PI.SWP_NOZORDER | PI.SWP_NOSIZE |
+                                PI.SWP_NOOWNERZORDER | PI.SWP_FRAMECHANGED);
             }
         }
         #endregion
@@ -684,7 +684,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         IntPtr hRgn = invalidRegion.GetHrgn(g);
 
                         PI.RedrawWindow(Handle, IntPtr.Zero, hRgn,
-                                        (uint)(PI.RDW_FRAME | PI.RDW_UPDATENOW | PI.RDW_INVALIDATE));
+                                        PI.RDW_FRAME | PI.RDW_UPDATENOW | PI.RDW_INVALIDATE);
 
                         PI.DeleteObject(hRgn);
                     }

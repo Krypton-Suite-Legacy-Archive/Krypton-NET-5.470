@@ -608,10 +608,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Work out DPI adjustment factor
                 float factorX = g.DpiX > 96 ? ((1.0f * g.DpiX) / 96) : 1.0f;
                 float factorY = g.DpiY > 96 ? ((1.0f * g.DpiY) / 96) : 1.0f;
-                messageMainSize.Width = (int)((float)messageMainSize.Width * factorX);
-                messageMainSize.Height = (int)((float)messageMainSize.Height * factorY);
-                messageContentSize.Width = (int)((float)messageContentSize.Width * factorX);
-                messageContentSize.Height = (int)((float)messageContentSize.Height * factorY);
+                messageMainSize.Width = (int)(messageMainSize.Width * factorX);
+                messageMainSize.Height = (int)(messageMainSize.Height * factorY);
+                messageContentSize.Width = (int)(messageContentSize.Width * factorX);
+                messageContentSize.Height = (int)(messageContentSize.Height * factorY);
 
                 // Always add on an extra 5 pixels as sometimes the measure size does not draw the last 
                 // character it contains, this ensures there is always definitely enough space for it all
@@ -1100,7 +1100,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // 
             _messageContent.AutoSize = false;
             _messageContent.Font = new Font("Segoe UI", 9F);
-            _messageContent.ForeColor = Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            _messageContent.ForeColor = Color.FromArgb(30, 57, 91);
             _messageContent.LabelStyle = LabelStyle.NormalPanel;
             _messageContent.Location = new Point(6, 34);
             _messageContent.Margin = new Padding(0);
@@ -1122,7 +1122,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // 
             _messageText.AutoSize = false;
             _messageText.Font = new Font("Segoe UI", 13.5F, FontStyle.Bold);
-            _messageText.ForeColor = Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            _messageText.ForeColor = Color.FromArgb(30, 57, 91);
             _messageText.LabelStyle = LabelStyle.TitlePanel;
             _messageText.Location = new Point(5, 5);
             _messageText.Margin = new Padding(0);
@@ -1191,7 +1191,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // 
             // _buttonOK
             // 
-            _buttonOK.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+            _buttonOK.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             _buttonOK.AutoSize = true;
             _buttonOK.DialogResult = DialogResult.OK;
             _buttonOK.IgnoreAltF4 = false;
@@ -1206,7 +1206,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // 
             // _buttonYes
             // 
-            _buttonYes.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+            _buttonYes.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             _buttonYes.AutoSize = true;
             _buttonYes.DialogResult = DialogResult.Yes;
             _buttonYes.IgnoreAltF4 = false;
@@ -1221,7 +1221,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // 
             // _buttonNo
             // 
-            _buttonNo.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+            _buttonNo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             _buttonNo.AutoSize = true;
             _buttonNo.DialogResult = DialogResult.No;
             _buttonNo.IgnoreAltF4 = false;
@@ -1236,7 +1236,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // 
             // _buttonRetry
             // 
-            _buttonRetry.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+            _buttonRetry.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             _buttonRetry.AutoSize = true;
             _buttonRetry.DialogResult = DialogResult.Retry;
             _buttonRetry.IgnoreAltF4 = false;
@@ -1251,7 +1251,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // 
             // _buttonCancel
             // 
-            _buttonCancel.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+            _buttonCancel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             _buttonCancel.AutoSize = true;
             _buttonCancel.DialogResult = DialogResult.Cancel;
             _buttonCancel.IgnoreAltF4 = false;
@@ -1266,7 +1266,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // 
             // _buttonClose
             // 
-            _buttonClose.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+            _buttonClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             _buttonClose.AutoSize = true;
             _buttonClose.IgnoreAltF4 = false;
             _buttonClose.Location = new Point(485, 9);
@@ -1316,7 +1316,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // 
             _footerLabel.AutoSize = false;
             _footerLabel.Font = new Font("Segoe UI", 9F);
-            _footerLabel.ForeColor = Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            _footerLabel.ForeColor = Color.FromArgb(30, 57, 91);
             _footerLabel.LabelStyle = LabelStyle.NormalPanel;
             _footerLabel.Location = new Point(36, 11);
             _footerLabel.Margin = new Padding(0);

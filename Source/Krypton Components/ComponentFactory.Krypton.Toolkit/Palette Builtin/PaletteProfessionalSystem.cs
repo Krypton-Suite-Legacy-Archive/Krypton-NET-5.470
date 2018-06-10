@@ -179,7 +179,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>InheritBool value.</returns>
         public override InheritBool GetAllowFormChrome()
         {
-            return InheritBool.False;
+            return InheritBool.True;
         }
         #endregion
 
@@ -394,9 +394,12 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 case PaletteBackStyle.FormMain:
                 case PaletteBackStyle.FormCustom1:
-                    return ColorTable.MenuStripGradientBegin;
                 case PaletteBackStyle.HeaderForm:
-                    return Table.Header1Begin;
+                    if (state == PaletteState.Disabled)
+                    {
+                        return SystemColors.GradientInactiveCaption;
+                    }
+                    return SystemColors.GradientActiveCaption;// ColorTable.MenuStripGradientBegin;
                 case PaletteBackStyle.PanelClient:
                 case PaletteBackStyle.PanelRibbonInactive:
                 case PaletteBackStyle.PanelCustom1:
@@ -716,9 +719,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 case PaletteBackStyle.FormMain:
                 case PaletteBackStyle.FormCustom1:
-                    return ColorTable.MenuStripGradientBegin;
                 case PaletteBackStyle.HeaderForm:
-                    return Table.Header1End;
+                    if (state == PaletteState.Disabled)
+                    {
+                        return SystemColors.InactiveCaption;
+                    }
+
+                    return SystemColors.ActiveCaption; //ColorTable.MenuStripGradientBegin;
                 case PaletteBackStyle.PanelClient:
                 case PaletteBackStyle.PanelRibbonInactive:
                 case PaletteBackStyle.PanelCustom1:
@@ -1931,7 +1938,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.FormMain:
                 case PaletteBorderStyle.FormCustom1:
                 case PaletteBorderStyle.HeaderForm:
-                    return ColorTable.MenuBorder;
+                    if (state == PaletteState.Disabled)
+                    {
+                        return SystemColors.InactiveCaption; // ColorTable.MenuBorder;
+                    }
+
+                    return SystemColors.ActiveCaption;// ColorTable.MenuBorder;
                 case PaletteBorderStyle.ControlToolTip:
                     if (state == PaletteState.Disabled)
                     {
@@ -2230,8 +2242,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.FormMain:
                 case PaletteBorderStyle.FormCustom1:
                 case PaletteBorderStyle.HeaderForm:
-                    return ColorTable.MenuBorder;
-                case PaletteBorderStyle.ControlToolTip:
+			        if (state == PaletteState.Disabled)
+			        {
+			            return SystemColors.InactiveCaption;
+			        }
+
+                    return SystemColors.ActiveCaption;
+			    case PaletteBorderStyle.ControlToolTip:
                     if (state == PaletteState.Disabled)
                     {
                         return FadedColor(ColorTable.ButtonSelectedBorder);
@@ -4605,12 +4622,11 @@ namespace ComponentFactory.Krypton.Toolkit
             switch (style)
             {
                 case PaletteContentStyle.HeaderForm:
-                    return ColorTable.SeparatorLight;
-            }
-
-            if (state == PaletteState.Disabled)
-            {
-                return SystemColors.ControlDark;
+                    if (state == PaletteState.Disabled)
+                    {
+                        return SystemColors.InactiveCaptionText;
+                    }
+                    return SystemColors.ActiveCaptionText;
             }
 
             switch (style)
@@ -4618,7 +4634,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.LabelToolTip:
                 case PaletteContentStyle.LabelSuperTip:
                 case PaletteContentStyle.LabelKeyTip:
-                    return _toolTipText;
+                    return SystemColors.InfoText;
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderCalendar:
                 case PaletteContentStyle.HeaderCustom1:
@@ -4735,7 +4751,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if ((state == PaletteState.Disabled) &&
                 (style != PaletteContentStyle.ButtonInputControl))
             {
-                return SystemColors.ControlDark;
+                return SystemColors.InactiveCaptionText;
             }
 
             switch (style)
@@ -6160,7 +6176,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             if (state == PaletteState.Disabled)
             {
-                return SystemColors.ControlDark;
+                return SystemColors.InactiveCaptionText;
             }
 
             switch (style)
@@ -9009,20 +9025,20 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public override KryptonColorTable ColorTable => Table;
 
-	    internal KryptonProfessionalKCT Table => _table ?? (_table = GenerateColorTable());
+	    internal KryptonProfessionalKCT Table => _table ?? (_table = GenerateColorTable(false));
 
 	    /// <summary>
         /// Generate an appropriate color table.
         /// </summary>
         /// <returns>KryptonProfessionalKCT instance.</returns>
-        internal virtual KryptonProfessionalKCT GenerateColorTable()
+        internal virtual KryptonProfessionalKCT GenerateColorTable(bool useSystemColors)
         {
             // Create the color table to use as the base for getting krypton colors
             KryptonColorTable kct = new KryptonColorTable(this)
             {
 
                 // Always turn off the use of any theme specific colors
-                UseSystemColors = true
+                UseSystemColors = useSystemColors
             };
 
             // Calculate the krypton specific colors
@@ -9123,22 +9139,21 @@ namespace ComponentFactory.Krypton.Toolkit
 
             _italicFont?.Dispose();
 
-            float baseFontSize = BaseFontSize;
-            _header1ShortFont = new Font("Arial", baseFontSize + 4.5f, FontStyle.Bold);
-            _header2ShortFont = SystemFonts.IconTitleFont;
-            _header1LongFont = new Font(SystemFonts.MenuFont.FontFamily, baseFontSize + 1.5f, FontStyle.Regular);
+            _header1ShortFont = SystemFonts.IconTitleFont; //new Font("Arial", baseFontSize + 4.5f, FontStyle.Bold);
+            _header2ShortFont = SystemFonts.DefaultFont;
+            _header1LongFont = SystemFonts.MenuFont;
             _header2LongFont = SystemFonts.IconTitleFont;
-            _headerFormFont = new Font("Arial", SystemFonts.CaptionFont.SizeInPoints, FontStyle.Bold);
+            _headerFormFont = SystemFonts.CaptionFont;
             _buttonFont = SystemFonts.IconTitleFont;
-            _buttonFontNavigatorMini = new Font("Arial", baseFontSize + 3.5f, FontStyle.Bold);
+            _buttonFontNavigatorMini = SystemFonts.SmallCaptionFont;
             _tabFontNormal = SystemFonts.IconTitleFont;
             _tabFontSelected = new Font(_tabFontNormal, FontStyle.Bold);
             _gridFont = SystemFonts.IconTitleFont;
-            _superToolFont = new Font(SystemFonts.MenuFont.FontFamily, baseFontSize, FontStyle.Bold);
-            _calendarFont = new Font(SystemFonts.IconTitleFont.FontFamily, baseFontSize, FontStyle.Regular);
-            _calendarBoldFont = new Font(SystemFonts.IconTitleFont.FontFamily, baseFontSize, FontStyle.Bold);
-            _boldFont = new Font(SystemFonts.IconTitleFont.FontFamily, baseFontSize, FontStyle.Bold);
-            _italicFont = new Font(SystemFonts.IconTitleFont.FontFamily, baseFontSize, FontStyle.Italic);
+            _superToolFont = SystemFonts.SmallCaptionFont;
+            _calendarFont = SystemFonts.DialogFont;;
+            _calendarBoldFont = new Font(SystemFonts.DialogFont, FontStyle.Bold);
+            _boldFont = new Font(SystemFonts.DialogFont, FontStyle.Bold);
+            _italicFont = new Font(SystemFonts.DialogFont, FontStyle.Italic);
         }
         #endregion
 

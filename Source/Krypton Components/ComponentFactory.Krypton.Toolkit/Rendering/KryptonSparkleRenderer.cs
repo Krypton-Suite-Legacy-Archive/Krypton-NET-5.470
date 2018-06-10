@@ -1496,8 +1496,8 @@ namespace ComponentFactory.Krypton.Toolkit
         private static GraphicsPath CreateIndeterminatePath(Rectangle rect)
         {
             // Get the center point of the rect
-            float x = (float)rect.X + (((float)rect.Width - 6) / 2);
-            float y = (float)rect.Y + (((float)rect.Height - 6) / 2);
+            float x = rect.X + (((float)rect.Width - 6) / 2);
+            float y = rect.Y + (((float)rect.Height - 6) / 2);
 
             GraphicsPath path = new GraphicsPath();
             path.AddEllipse(x, y, 6f, 6f);

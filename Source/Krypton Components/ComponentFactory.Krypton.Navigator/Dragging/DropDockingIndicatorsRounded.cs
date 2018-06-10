@@ -73,16 +73,16 @@ namespace ComponentFactory.Krypton.Navigator
                 Parent = IntPtr.Zero,
 
                 // Appear as a top-level window
-                Style = unchecked((int)(uint)PI.WS_POPUP),
+                Style = unchecked((int)PI.WS_POPUP),
 
                 // Set styles so that it does not have a caption bar and is above all other 
                 // windows in the ZOrder, i.e. TOPMOST
-                ExStyle = (int)PI.WS_EX_TOPMOST +
-                         (int)PI.WS_EX_TOOLWINDOW
+                ExStyle = PI.WS_EX_TOPMOST +
+                         PI.WS_EX_TOOLWINDOW
             };
 
             // We are going to use per-pixrl alpha blending and so need a layered window
-            cp.ExStyle += (int)PI.WS_EX_LAYERED;
+            cp.ExStyle += PI.WS_EX_LAYERED;
 
             // Create the actual window
             CreateHandle(cp);
@@ -138,7 +138,7 @@ namespace ComponentFactory.Krypton.Navigator
             UpdateLayeredWindow(new Rectangle(location, _showRect.Size));
             
 			// Show the window without activating it (i.e. do not take focus)
-			PI.ShowWindow(Handle, (short)PI.SW_SHOWNOACTIVATE);
+			PI.ShowWindow(Handle, PI.SW_SHOWNOACTIVATE);
 		}
 
         /// <summary>
@@ -146,7 +146,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public void Hide()
         {
-            PI.ShowWindow(Handle, (short)PI.SW_HIDE);
+            PI.ShowWindow(Handle, PI.SW_HIDE);
         }
 
 		/// <summary>
@@ -262,16 +262,16 @@ namespace ComponentFactory.Krypton.Navigator
                     // We want to make the entire bitmap opaque 
                     PI.BLENDFUNCTION blend = new PI.BLENDFUNCTION
                     {
-                        BlendOp = (byte)PI.AC_SRC_OVER,
+                        BlendOp = PI.AC_SRC_OVER,
                         BlendFlags = 0,
                         SourceConstantAlpha = 255,
-                        AlphaFormat = (byte)PI.AC_SRC_ALPHA
+                        AlphaFormat = PI.AC_SRC_ALPHA
                     };
 
                     // Tell operating system to use our bitmap for painting
                     PI.UpdateLayeredWindow(Handle, hDC, ref topPos, ref ulwsize,
                                            memoryDC, ref pointSource, 0, ref blend,
-                                           (int)PI.ULW_ALPHA);
+                                           PI.ULW_ALPHA);
 
                     // Put back the old bitmap handle
                     PI.SelectObject(memoryDC, oldBitmap);
