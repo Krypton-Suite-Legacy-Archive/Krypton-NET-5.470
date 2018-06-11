@@ -480,7 +480,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Description("Indicates the list that this control will use to gets its items.")]
         [AttributeProvider(typeof(IListSource))]
         [RefreshProperties(RefreshProperties.Repaint)]
-        [DefaultValue((string)null)]
+        [DefaultValue(null)]
         public object DataSource
         {
             get => ComboBox.DataSource;

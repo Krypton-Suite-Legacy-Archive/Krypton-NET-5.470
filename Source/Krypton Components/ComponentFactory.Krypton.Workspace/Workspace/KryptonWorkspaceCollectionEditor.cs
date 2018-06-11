@@ -709,7 +709,7 @@ namespace ComponentFactory.Krypton.Workspace
                 /// <summary>
                 /// Gets access to the associated workspace cell item.
                 /// </summary>
-                public Component Item => (PageItem != null ? (Component)PageItem : (CellItem != null ? (Component)CellItem : (Component)SequenceItem));
+                public Component Item => (PageItem != null ? PageItem : (CellItem != null ? CellItem : (Component)SequenceItem));
 
                 /// <summary>
                 /// Gets access to the associated workspace cell item.
@@ -867,7 +867,7 @@ namespace ComponentFactory.Krypton.Workspace
                 // 
                 // buttonOK
                 // 
-                buttonOK.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Right)));
+                buttonOK.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
                 buttonOK.DialogResult = DialogResult.OK;
                 buttonOK.Location = new Point(547, 382);
                 buttonOK.Name = "buttonOK";
@@ -879,9 +879,9 @@ namespace ComponentFactory.Krypton.Workspace
                 // 
                 // treeView
                 // 
-                treeView.Anchor = ((AnchorStyles)((((AnchorStyles.Top | AnchorStyles.Bottom)
-                            | AnchorStyles.Left)
-                            | AnchorStyles.Right)));
+                treeView.Anchor = ((AnchorStyles.Top | AnchorStyles.Bottom)
+                                   | AnchorStyles.Left)
+                                  | AnchorStyles.Right;
                 treeView.Location = new Point(12, 32);
                 treeView.Name = "treeView";
                 treeView.Size = new Size(251, 339);
@@ -891,7 +891,7 @@ namespace ComponentFactory.Krypton.Workspace
                 // 
                 // buttonMoveUp
                 // 
-                buttonMoveUp.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonMoveUp.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonMoveUp.Image = Properties.Resources.arrow_up_blue;
                 buttonMoveUp.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonMoveUp.Location = new Point(272, 32);
@@ -906,7 +906,7 @@ namespace ComponentFactory.Krypton.Workspace
                 // 
                 // buttonMoveDown
                 // 
-                buttonMoveDown.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonMoveDown.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonMoveDown.Image = Properties.Resources.arrow_down_blue;
                 buttonMoveDown.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonMoveDown.Location = new Point(272, 66);
@@ -921,7 +921,7 @@ namespace ComponentFactory.Krypton.Workspace
                 // 
                 // buttonDelete
                 // 
-                buttonDelete.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonDelete.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonDelete.Image = Properties.Resources.delete2;
                 buttonDelete.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonDelete.Location = new Point(272, 234);
@@ -936,8 +936,8 @@ namespace ComponentFactory.Krypton.Workspace
                 // 
                 // propertyGrid
                 // 
-                propertyGrid.Anchor = ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Bottom)
-                            | AnchorStyles.Right)));
+                propertyGrid.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom)
+                                      | AnchorStyles.Right;
                 propertyGrid.HelpVisible = false;
                 propertyGrid.Location = new Point(376, 32);
                 propertyGrid.Name = "propertyGrid";
@@ -947,7 +947,7 @@ namespace ComponentFactory.Krypton.Workspace
                 // 
                 // labelItemProperties
                 // 
-                labelItemProperties.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                labelItemProperties.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 labelItemProperties.AutoSize = true;
                 labelItemProperties.Location = new Point(370, 13);
                 labelItemProperties.Name = "labelItemProperties";
@@ -966,7 +966,7 @@ namespace ComponentFactory.Krypton.Workspace
                 // 
                 // buttonAddPage
                 // 
-                buttonAddPage.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonAddPage.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonAddPage.Image = Properties.Resources.add;
                 buttonAddPage.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonAddPage.Location = new Point(272, 114);
@@ -981,7 +981,7 @@ namespace ComponentFactory.Krypton.Workspace
                 // 
                 // buttonAddCell
                 // 
-                buttonAddCell.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonAddCell.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonAddCell.Image = Properties.Resources.add;
                 buttonAddCell.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonAddCell.Location = new Point(272, 148);
@@ -996,7 +996,7 @@ namespace ComponentFactory.Krypton.Workspace
                 // 
                 // buttonAddSequence
                 // 
-                buttonAddSequence.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonAddSequence.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonAddSequence.Image = Properties.Resources.add;
                 buttonAddSequence.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonAddSequence.Location = new Point(272, 182);
@@ -1026,7 +1026,7 @@ namespace ComponentFactory.Krypton.Workspace
                 Controls.Add(labelWorkspaceCollection);
                 Controls.Add(labelItemProperties);
                 VisibleChanged += OnVisibleChanged;
-                Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
                 MinimumSize = new Size(501, 344);
                 Name = "KryptonWorkspaceCollectionForm";
                 StartPosition = FormStartPosition.CenterScreen;
@@ -1156,7 +1156,7 @@ namespace ComponentFactory.Krypton.Workspace
                             else if (isPreviousCell)
                             {
                                 // Add page as last item of target cell
-                                parentNode = (MenuTreeNode)previousNode;
+                                parentNode = previousNode;
                                 parentNode.CellItem.Pages.Insert(parentNode.CellItem.Pages.Count, node.PageItem);
                                 parentNode.Nodes.Insert(parentNode.Nodes.Count, node);
                             }
@@ -1196,7 +1196,7 @@ namespace ComponentFactory.Krypton.Workspace
                             else if (isPreviousSequence)
                             {
                                 // Add cell as last item of target sequence
-                                parentNode = (MenuTreeNode)previousNode;
+                                parentNode = previousNode;
                                 parentNode.SequenceItem.Children.Insert(parentNode.SequenceItem.Children.Count, node.CellItem);
                                 parentNode.Nodes.Insert(parentNode.Nodes.Count, node);
                             }
@@ -1236,7 +1236,7 @@ namespace ComponentFactory.Krypton.Workspace
                             else if (isPreviousSequence)
                             {
                                 // Add sequence as last item of target sequence
-                                parentNode = (MenuTreeNode)previousNode;
+                                parentNode = previousNode;
                                 parentNode.SequenceItem.Children.Insert(parentNode.SequenceItem.Children.Count, node.SequenceItem);
                                 parentNode.Nodes.Insert(parentNode.Nodes.Count, node);
                             }
@@ -1285,7 +1285,7 @@ namespace ComponentFactory.Krypton.Workspace
                             else if (isNextCell)
                             {
                                 // Add page as first item of target cell
-                                parentNode = (MenuTreeNode)nextNode;
+                                parentNode = nextNode;
                                 parentNode.CellItem.Pages.Insert(0, node.PageItem);
                                 parentNode.Nodes.Insert(0, node);
                             }
@@ -1314,7 +1314,7 @@ namespace ComponentFactory.Krypton.Workspace
                             else if (isNextSequence)
                             {
                                 // Add cell as first item of target sequence
-                                parentNode = (MenuTreeNode)nextNode;
+                                parentNode = nextNode;
                                 parentNode.SequenceItem.Children.Insert(0, node.CellItem);
                                 parentNode.Nodes.Insert(0, node);
                             }
@@ -1343,7 +1343,7 @@ namespace ComponentFactory.Krypton.Workspace
                             else if (isNextSequence)
                             {
                                 // Add sequence as first item of target sequence
-                                parentNode = (MenuTreeNode)nextNode;
+                                parentNode = nextNode;
                                 parentNode.SequenceItem.Children.Insert(0, node.SequenceItem);
                                 parentNode.Nodes.Insert(0, node);
                             }

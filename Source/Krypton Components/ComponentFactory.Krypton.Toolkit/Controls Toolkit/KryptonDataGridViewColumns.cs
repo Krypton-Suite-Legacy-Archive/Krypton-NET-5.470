@@ -1433,7 +1433,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets or sets the default text displayed on the button cell.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue((string)null)]
+        [DefaultValue(null)]
         public string Text
         {
             get => _text;
@@ -2073,7 +2073,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets or sets the default text displayed on the link cell.
         /// </summary>
         [Category("Appearance")]
-        [DefaultValue((string)null)]
+        [DefaultValue(null)]
         public string Text
         {
             get => _text;

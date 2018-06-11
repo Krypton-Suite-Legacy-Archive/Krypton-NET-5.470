@@ -257,7 +257,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Processes a mnemonic character.
         /// </summary>
         /// <param name="charCode">The mnemonic character entered.</param>
-        /// <returns>true if the mnemonic was processsed; otherwise, false.</returns>
+        /// <returns>true if the mnemonic was processed; otherwise, false.</returns>
         public bool ProcessMnemonic(char charCode)
         {
             if (UseMnemonic)
@@ -303,7 +303,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Update metric palette
                     _viewMetrics[i] = viewMetric;
 
-                    // Update the the metric for all the spacers associated with this docker
+                    // Update the metric for all the spacers associated with this docker
                     foreach (ViewLayoutMetricSpacer spacer in _viewSpacers[i])
                     {
                         spacer.SetMetrics(viewMetric);
@@ -340,7 +340,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     _viewMetrics[i] = viewMetric;
                     _viewMetricPaddings[i] = viewMetricPadding;
 
-                    // Update the the metric for all the spacers associated with this docker
+                    // Update the metric for all the spacers associated with this docker
                     foreach (ViewLayoutMetricSpacer spacer in _viewSpacers[i])
                     {
                         spacer.SetMetrics(viewMetric, viewMetricInt);
@@ -541,7 +541,7 @@ namespace ComponentFactory.Krypton.Toolkit
             bool found = false;
             for (int i = _specLookup.Count - 1; i >= 0; i--)
             {
-                ButtonSpecView specView = (ButtonSpecView)specLookups[i];
+                ButtonSpecView specView = specLookups[i];
 
                 if (!found)
                 {
@@ -576,7 +576,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             for(int i =_specLookup.Count - 1; i>=0; i--)
             {
-                ButtonSpecView specView = (ButtonSpecView)specLookups[i];
+                ButtonSpecView specView = specLookups[i];
 
                 // Is the button actually visible/enabled
                 if (specView.ViewCenter.Visible &&
@@ -639,7 +639,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected abstract VisualOrientation DockerOrientation(int i);
 
         /// <summary>
-        /// Gets the element that represents the foreground color.
+        /// Gets the element that represents the foreground colour.
         /// </summary>
         /// <param name="i">Index.</param>
         /// <returns>View content instance.</returns>
@@ -675,7 +675,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Cast the remapping palette to the correct type
             ButtonSpecRemapByContentView remapPalette = (ButtonSpecRemapByContentView)buttonView.RemapPalette;
             
-            // Update button with the foreground used for color mapping
+            // Update button with the foreground used for colour mapping
             remapPalette.Foreground = GetDockerForeground(viewDockerIndex);
         }
 
@@ -745,20 +745,20 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Update the visible state of the edge spacers
                 for (int i = 0; i < _viewMetrics.Length; i++)
                 {
-                    ViewBase viewDocker = IndexDocker(i);
-
                     // Only enable the spacer if there is at least one visible button on that edge
                     bool farVisible = (farCounts[i] > 0);
                     bool nearVisible = (nearCounts[i] > 0);
 
+                    ListSpacers spacer = _viewSpacers[i];
+
                     // The outside spacers are always present
-                    _viewSpacers[i][0].Visible = nearVisible;
-                    _viewSpacers[i][1].Visible = farVisible;
+                    spacer[0].Visible = nearVisible;
+                    spacer[1].Visible = farVisible;
 
                     if (UseInsideSpacers)
                     {
-                        _viewSpacers[i][2].Visible = nearVisible;
-                        _viewSpacers[i][3].Visible = farVisible;
+                        spacer[2].Visible = nearVisible;
+                        spacer[3].Visible = farVisible;
                     }
                 }
             }

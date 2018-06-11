@@ -923,9 +923,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public static Color ColorToBlackAndWhite(Color color)
         {
             // Use the standard percentages of RGB for the human eye bias
-            int gray = (int)(((float)color.R * 0.3f) +
-                             ((float)color.G * 0.59f) +
-                             ((float)color.B * 0.11f));
+            int gray = (int)((color.R * 0.3f) +
+                             (color.G * 0.59f) +
+                             (color.B * 0.11f));
 
             return Color.FromArgb(gray, gray, gray);
         }
@@ -1115,8 +1115,8 @@ namespace ComponentFactory.Krypton.Toolkit
             IntPtr desktopDC = PI.GetDC(IntPtr.Zero);
 
             // Find raw values that define the color depth
-            int planes = PI.GetDeviceCaps(desktopDC, (int)PI.PLANES);
-            int bitsPerPixel = PI.GetDeviceCaps(desktopDC, (int)PI.BITSPIXEL);
+            int planes = PI.GetDeviceCaps(desktopDC, PI.PLANES);
+            int bitsPerPixel = PI.GetDeviceCaps(desktopDC, PI.BITSPIXEL);
 
             // Must remember to release it!
             PI.ReleaseDC(IntPtr.Zero, desktopDC);
@@ -1130,7 +1130,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public static bool IsShiftKeyPressed
         {
             [DebuggerStepThrough]
-            get { return ((int)(PI.GetKeyState(VK_SHIFT) & 0x00008000) != 0); }
+            get { return ((PI.GetKeyState(VK_SHIFT) & 0x00008000) != 0); }
         }
 
         /// <summary>
@@ -1139,7 +1139,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public static bool IsCtrlKeyPressed
         {
             [DebuggerStepThrough]
-            get { return ((int)(PI.GetKeyState(VK_CONTROL) & 0x00008000) != 0); }
+            get { return ((PI.GetKeyState(VK_CONTROL) & 0x00008000) != 0); }
         }
 
         /// <summary>
@@ -1148,7 +1148,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public static bool IsAltKeyPressed
         {
             [DebuggerStepThrough]
-            get { return ((int)(PI.GetKeyState(VK_MENU) & 0x00008000) != 0); }
+            get { return ((PI.GetKeyState(VK_MENU) & 0x00008000) != 0); }
         }
 
         /// <summary>

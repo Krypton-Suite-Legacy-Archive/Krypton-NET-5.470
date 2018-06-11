@@ -279,7 +279,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // buttonOK
                 // 
-                buttonOK.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Right)));
+                buttonOK.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
                 buttonOK.DialogResult = DialogResult.OK;
                 buttonOK.Location = new Point(547, 382);
                 buttonOK.Name = "buttonOK";
@@ -291,9 +291,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // treeView1
                 // 
-                treeView1.Anchor = ((AnchorStyles)((((AnchorStyles.Top | AnchorStyles.Bottom)
-                            | AnchorStyles.Left)
-                            | AnchorStyles.Right)));
+                treeView1.Anchor = ((AnchorStyles.Top | AnchorStyles.Bottom)
+                                    | AnchorStyles.Left)
+                                   | AnchorStyles.Right;
                 treeView1.Location = new Point(12, 32);
                 treeView1.Name = "treeView1";
                 treeView1.Size = new Size(254, 339);
@@ -303,7 +303,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // buttonMoveUp
                 // 
-                buttonMoveUp.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonMoveUp.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonMoveUp.Image = Properties.Resources.arrow_up_blue;
                 buttonMoveUp.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonMoveUp.Location = new Point(272, 32);
@@ -318,7 +318,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // buttonMoveDown
                 // 
-                buttonMoveDown.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonMoveDown.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonMoveDown.Image = Properties.Resources.arrow_down_blue;
                 buttonMoveDown.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonMoveDown.Location = new Point(272, 66);
@@ -333,7 +333,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // buttonAddItem
                 // 
-                buttonAddItem.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonAddItem.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonAddItem.Image = Properties.Resources.add;
                 buttonAddItem.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonAddItem.Location = new Point(272, 112);
@@ -348,7 +348,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // buttonDelete
                 // 
-                buttonDelete.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonDelete.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonDelete.Image = Properties.Resources.delete2;
                 buttonDelete.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonDelete.Location = new Point(272, 190);
@@ -363,8 +363,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // propertyGrid1
                 // 
-                propertyGrid1.Anchor = ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Bottom)
-                            | AnchorStyles.Right)));
+                propertyGrid1.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom)
+                                       | AnchorStyles.Right;
                 propertyGrid1.HelpVisible = false;
                 propertyGrid1.Location = new Point(373, 32);
                 propertyGrid1.Name = "propertyGrid1";
@@ -374,7 +374,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // label1
                 // 
-                label1.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 label1.AutoSize = true;
                 label1.Location = new Point(370, 13);
                 label1.Name = "label1";
@@ -393,7 +393,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // buttonAddChild
                 // 
-                buttonAddChild.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonAddChild.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonAddChild.Image = Properties.Resources.add;
                 buttonAddChild.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonAddChild.Location = new Point(272, 146);
@@ -423,7 +423,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 Controls.Add(buttonMoveUp);
                 Controls.Add(treeView1);
                 Controls.Add(buttonOK);
-                Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
                 MinimumSize = new Size(501, 296);
                 Name = "KryptonBreadCrumbCollectionForm";
                 StartPosition = FormStartPosition.CenterScreen;
@@ -635,7 +635,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         }
                         else
                         {
-                            parentNode = (MenuTreeNode)previousNode;
+                            parentNode = previousNode;
                             parentNode.Item.Items.Insert(parentNode.Nodes.Count, node.Item);
                             parentNode.Nodes.Insert(parentNode.Nodes.Count, node);
                         }
@@ -679,7 +679,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         }
                         else
                         {
-                            parentNode = (MenuTreeNode)nextNode;
+                            parentNode = nextNode;
                             parentNode.Item.Items.Insert(0, node.Item);
                             parentNode.Nodes.Insert(0, node);
                         }

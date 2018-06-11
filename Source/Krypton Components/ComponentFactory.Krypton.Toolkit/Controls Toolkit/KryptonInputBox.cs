@@ -202,8 +202,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Work out DPI adjustment factor
                 float factorX = g.DpiX > 96 ? ((1.0f * g.DpiX) / 96) : 1.0f;
                 float factorY = g.DpiY > 96 ? ((1.0f * g.DpiY) / 96) : 1.0f;
-                messageSize.Width = (int)((float)messageSize.Width * factorX);
-                messageSize.Height = (int)((float)messageSize.Height * factorY);
+                messageSize.Width = (int)(messageSize.Width * factorX);
+                messageSize.Height = (int)(messageSize.Height * factorY);
                 
                 _labelPrompt.Location = new Point(GAP, GAP);
                 _labelPrompt.Size = new Size(255, Math.Max(messageSize.Height, _buttonCancel.Bottom - _buttonOK.Top));
@@ -281,7 +281,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // 
             _labelPrompt.AutoSize = false;
             _labelPrompt.Font = new Font("Segoe UI", 9F);
-            _labelPrompt.ForeColor = Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            _labelPrompt.ForeColor = Color.FromArgb(30, 57, 91);
             _labelPrompt.LabelStyle = LabelStyle.NormalPanel;
             _labelPrompt.Location = new Point(12, 12);
             _labelPrompt.Margin = new Padding(0);
@@ -291,7 +291,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // 
             // _buttonCancel
             // 
-            _buttonCancel.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+            _buttonCancel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             _buttonCancel.AutoSize = true;
             _buttonCancel.DialogResult = DialogResult.Cancel;
             _buttonCancel.Location = new Point(295, 43);
@@ -305,7 +305,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // 
             // _buttonOK
             // 
-            _buttonOK.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+            _buttonOK.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             _buttonOK.AutoSize = true;
             _buttonOK.DialogResult = DialogResult.OK;
             _buttonOK.Location = new Point(295, 12);

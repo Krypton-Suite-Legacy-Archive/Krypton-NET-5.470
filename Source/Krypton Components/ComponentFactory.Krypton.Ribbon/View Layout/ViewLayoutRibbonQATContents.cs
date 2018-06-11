@@ -556,7 +556,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Add child elements appropriate for each qat button
             for (int i = 0; i < qatButtons.Length; i++)
             {
-                IQuickAccessToolbarButton qatButton = (IQuickAccessToolbarButton)qatButtons[i];
+                IQuickAccessToolbarButton qatButton = qatButtons[i];
 
                 // Does the layout processing require the view to be updated
                 if (layout)

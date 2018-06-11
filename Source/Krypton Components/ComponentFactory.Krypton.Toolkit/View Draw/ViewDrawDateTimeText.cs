@@ -694,7 +694,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Push return values into the individual fragment entries
                 for (int i = 0; i < _fragments.Count; i++)
                 {
-                    _fragments[i].TotalWidth = (int)Math.Ceiling((double)charRegion[i].GetBounds(g).Width);
+                    _fragments[i].TotalWidth = (int)Math.Ceiling(charRegion[i].GetBounds(g).Width);
                 }
             }
 

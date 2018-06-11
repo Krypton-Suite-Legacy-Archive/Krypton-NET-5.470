@@ -256,7 +256,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // buttonOK
                 // 
-                buttonOK.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Right)));
+                buttonOK.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
                 buttonOK.DialogResult = DialogResult.OK;
                 buttonOK.Location = new Point(630, 504);
                 buttonOK.Name = "buttonOK";
@@ -268,9 +268,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // treeView
                 // 
-                treeView.Anchor = ((AnchorStyles)((((AnchorStyles.Top | AnchorStyles.Bottom)
-                            | AnchorStyles.Left)
-                            | AnchorStyles.Right)));
+                treeView.Anchor = ((AnchorStyles.Top | AnchorStyles.Bottom)
+                                   | AnchorStyles.Left)
+                                  | AnchorStyles.Right;
                 treeView.HideSelection = false;
                 treeView.ImageIndex = 0;
                 treeView.ImageList = imageList;
@@ -326,7 +326,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // buttonDelete
                 // 
-                buttonDelete.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonDelete.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonDelete.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonDelete.ImageIndex = 9;
                 buttonDelete.ImageList = imageList;
@@ -341,7 +341,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // buttonMoveUp
                 // 
-                buttonMoveUp.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonMoveUp.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonMoveUp.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonMoveUp.ImageIndex = 10;
                 buttonMoveUp.ImageList = imageList;
@@ -356,7 +356,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // buttonMoveDown
                 // 
-                buttonMoveDown.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonMoveDown.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonMoveDown.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonMoveDown.ImageIndex = 11;
                 buttonMoveDown.ImageList = imageList;
@@ -371,7 +371,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // buttonAddCheckBox
                 // 
-                buttonAddCheckBox.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonAddCheckBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonAddCheckBox.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonAddCheckBox.ImageIndex = 6;
                 buttonAddCheckBox.ImageList = imageList;
@@ -386,7 +386,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // buttonAddCheckButton
                 // 
-                buttonAddCheckButton.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonAddCheckButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonAddCheckButton.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonAddCheckButton.ImageIndex = 7;
                 buttonAddCheckButton.ImageList = imageList;
@@ -401,7 +401,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // buttonAddRadioButton
                 // 
-                buttonAddRadioButton.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonAddRadioButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonAddRadioButton.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonAddRadioButton.ImageIndex = 5;
                 buttonAddRadioButton.ImageList = imageList;
@@ -416,7 +416,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // buttonAddLinkLabel
                 // 
-                buttonAddLinkLabel.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonAddLinkLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonAddLinkLabel.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonAddLinkLabel.ImageIndex = 8;
                 buttonAddLinkLabel.ImageList = imageList;
@@ -431,7 +431,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // buttonAddSeparator
                 // 
-                buttonAddSeparator.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonAddSeparator.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonAddSeparator.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonAddSeparator.ImageIndex = 4;
                 buttonAddSeparator.ImageList = imageList;
@@ -446,7 +446,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // buttonAddItem
                 // 
-                buttonAddItem.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonAddItem.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonAddItem.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonAddItem.ImageIndex = 2;
                 buttonAddItem.ImageList = imageList;
@@ -461,7 +461,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // buttonAddItems
                 // 
-                buttonAddItems.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonAddItems.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonAddItems.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonAddItems.ImageIndex = 3;
                 buttonAddItems.ImageList = imageList;
@@ -476,7 +476,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // buttonAddHeading
                 // 
-                buttonAddHeading.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonAddHeading.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonAddHeading.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonAddHeading.ImageIndex = 1;
                 buttonAddHeading.ImageList = imageList;
@@ -491,7 +491,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // buttonAddMonthCalendar
                 // 
-                buttonAddMonthCalendar.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonAddMonthCalendar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonAddMonthCalendar.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonAddMonthCalendar.ImageIndex = 14;
                 buttonAddMonthCalendar.ImageList = imageList;
@@ -506,8 +506,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // propertyGrid1
                 // 
-                propertyGrid1.Anchor = ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Bottom)
-                            | AnchorStyles.Right)));
+                propertyGrid1.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom)
+                                       | AnchorStyles.Right;
                 propertyGrid1.HelpVisible = false;
                 propertyGrid1.Location = new Point(439, 29);
                 propertyGrid1.Name = "propertyGrid1";
@@ -517,7 +517,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // label2
                 // 
-                label2.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 label2.AutoSize = true;
                 label2.Location = new Point(436, 11);
                 label2.Name = "label2";
@@ -527,7 +527,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // buttonAddColorColumns
                 // 
-                buttonAddColorColumns.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonAddColorColumns.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonAddColorColumns.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonAddColorColumns.ImageIndex = 12;
                 buttonAddColorColumns.ImageList = imageList;
@@ -542,7 +542,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // 
                 // buttonAddImageSelect
                 // 
-                buttonAddImageSelect.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+                buttonAddImageSelect.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 buttonAddImageSelect.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonAddImageSelect.ImageIndex = 13;
                 buttonAddImageSelect.ImageList = imageList;

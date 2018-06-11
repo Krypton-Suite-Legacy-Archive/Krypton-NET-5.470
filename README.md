@@ -10,6 +10,13 @@
 
 =======
 
+## 2018-06-10 System Themes
+* Start work on getting the system themes to display the extras. Issue #37 & #38
+  * Not perfect but at least the "Chrome" displays the intended buttons and text(s).
+* Removal of "not needed" casts.
+
+=======
+
 ## 2018-05-25 Updater Fix
 * Fix `Close` button
 

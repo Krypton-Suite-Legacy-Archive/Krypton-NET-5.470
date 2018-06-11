@@ -294,7 +294,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _controller.Click += clickHandler;
 
             // If associated with a tooltip manager then pass mouse messages onto tooltip manager
-            IMouseController mouseController = (IMouseController)_controller;
+            IMouseController mouseController = _controller;
             if (Manager.ToolTipManager != null)
             {
                 mouseController = new ToolTipController(Manager.ToolTipManager, viewButton, _controller);
