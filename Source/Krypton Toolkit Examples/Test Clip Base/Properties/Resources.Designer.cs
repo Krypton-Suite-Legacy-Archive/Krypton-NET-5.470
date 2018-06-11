@@ -69,5 +69,15 @@ namespace Test_Clip_Base.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon Krypton {
+            get {
+                object obj = ResourceManager.GetObject("Krypton", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }

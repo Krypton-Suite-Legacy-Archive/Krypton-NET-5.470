@@ -10,6 +10,12 @@
 
 =======
 
+## 2018-06-11 Build 620 + Bugfixes
+* Build 620 (build date Monday 11th June 2018) is now obtainable through the `releases` tab.
+* Fixed references that blocked demo applications from launching.
+
+=======
+
 ## 2018-06-10 System Themes
 * Start work on getting the system themes to display the extras. Issue #37 & #38
   * Not perfect but at least the "Chrome" displays the intended buttons and text(s).
