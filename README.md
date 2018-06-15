@@ -10,6 +10,11 @@
 
 =======
 
+## 2018-06-15 Palette Example Application
+* Now you can export your custom palette creation in the `Krypton Palette Example` application.
+
+=======
+
 ## 2018-06-11 Build 620 + Bugfixes
 * Build 620 (build date Monday 11th June 2018) is now obtainable through the `releases` tab.
 * Fixed references that blocked demo applications from launching.
