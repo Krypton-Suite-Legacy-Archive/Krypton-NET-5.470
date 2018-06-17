@@ -10,19 +10,19 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
-using System.Xml;
-using System.Drawing;
-using System.Reflection;
-using System.ComponentModel;
 using System.Collections.Generic;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization;
-using System.Windows.Forms;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Globalization;
-using System.Threading;
+using System.IO;
+using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading;
+using System.Windows.Forms;
+using System.Xml;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -34,7 +34,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [DefaultEvent("PalettePaint")]
     [DefaultProperty("BasePaletteMode")]
     [DesignerCategory("code")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonPaletteDesigner))]
+    [Designer("ComponentFactory.Krypton.Toolkit.KryptonPaletteDesigner, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [Description("Customisable palette component.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
@@ -2458,17 +2458,16 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Perform the reset operation on a separate worker thread
                     CommonHelper.PerformOperation(ResetOperation, null);
 
-                    KryptonMessageBox.Show("Reset of palette is completed.",
+                    MessageBox.Show("Reset of palette is completed.",
                                     "Palette Reset",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
+                                    MessageBoxButtons.OK);
                 }
             }
             catch (Exception ex)
             {
                 if (!silent)
                 {
-                    KryptonMessageBox.Show("Reset failed.\n\n Error:" + ex.Message,
+                    MessageBox.Show("Reset failed.\n\n Error:" + ex.Message,
                                     "Palette Reset",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
@@ -2501,17 +2500,16 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Perform the reset operation on a separate worker thread
                     CommonHelper.PerformOperation(PopulateFromBaseOperation, null);
 
-                    KryptonMessageBox.Show("Relevant values have been populated.",
+                    MessageBox.Show("Relevant values have been populated.",
                                     "Populate Values",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
+                                    MessageBoxButtons.OK);
                 }
             }
             catch (Exception ex)
             {
                 if (!silent)
                 {
-                    KryptonMessageBox.Show("Reset failed.\n\n Error:" + ex.Message,
+                    MessageBox.Show("Reset failed.\n\n Error:" + ex.Message,
                                     "Populate Values",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
@@ -2586,17 +2584,16 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Perform the import operation on a separate worker thread
                     ret = (string)CommonHelper.PerformOperation(ImportFromFile, filename);
 
-                    KryptonMessageBox.Show("Import from file '" + filename + "' completed.",
+                    MessageBox.Show("Import from file '" + filename + "' completed.",
                                     "Palette Import",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
+                                    MessageBoxButtons.OK);
                 }
             }
             catch (Exception ex)
             {
                 if (!silent)
                 {
-                    KryptonMessageBox.Show("Import from file '" + filename + "' failed.\n\n Error:" + ex.Message,
+                    MessageBox.Show("Import from file '" + filename + "' failed.\n\n Error:" + ex.Message,
                                     "Palette Import",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
@@ -2646,17 +2643,16 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Perform the import operation on a separate worker thread
                     CommonHelper.PerformOperation(ImportFromStream, stream);
 
-                    KryptonMessageBox.Show("Import completed with success.",
+                    MessageBox.Show("Import completed with success.",
                                     "Palette Import",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
+                                    MessageBoxButtons.OK);
                 }
             }
             catch (Exception ex)
             {
                 if (!silent)
                 {
-                    KryptonMessageBox.Show("Import has failed.\n\n Error:" + ex.Message,
+                    MessageBox.Show("Import has failed.\n\n Error:" + ex.Message,
                                     "Palette Import",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
@@ -2704,17 +2700,16 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Perform the import operation on a separate worker thread
                     CommonHelper.PerformOperation(ImportFromByteArray, byteArray);
 
-                    KryptonMessageBox.Show("Import completed with success.",
+                    MessageBox.Show("Import completed with success.",
                                     "Palette Import",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
+                                    MessageBoxButtons.OK);
                 }
             }
             catch (Exception ex)
             {
                 if (!silent)
                 {
-                    KryptonMessageBox.Show("Import has failed.\n\n Error:" + ex.Message,
+                    MessageBox.Show("Import has failed.\n\n Error:" + ex.Message,
                                     "Palette Import",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
@@ -2796,17 +2791,16 @@ namespace ComponentFactory.Krypton.Toolkit
                     ret = (string)CommonHelper.PerformOperation(ExportToFile,
                                                                 new object[] { filename, ignoreDefaults });
 
-                    KryptonMessageBox.Show("Export to file '" + filename + "' completed.",
+                    MessageBox.Show("Export to file '" + filename + "' completed.",
                                     "Palette Export",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
+                                    MessageBoxButtons.OK);
                 }
             }
             catch (Exception ex)
             {
                 if (!silent)
                 {
-                    KryptonMessageBox.Show("Export to file '" + filename + "' failed.\n\n Error:" + ex.Message,
+                    MessageBox.Show("Export to file '" + filename + "' failed.\n\n Error:" + ex.Message,
                                     "Palette Export",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
@@ -2861,17 +2855,16 @@ namespace ComponentFactory.Krypton.Toolkit
                     CommonHelper.PerformOperation(ExportToStream,
                                                   new object[] { stream, ignoreDefaults });
 
-                    KryptonMessageBox.Show("Export completed with success.",
+                    MessageBox.Show("Export completed with success.",
                                     "Palette Export",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
+                                    MessageBoxButtons.OK);
                 }
             }
             catch (Exception ex)
             {
                 if (!silent)
                 {
-                    KryptonMessageBox.Show("Export has failed.\n\n Error:" + ex.Message,
+                    MessageBox.Show("Export has failed.\n\n Error:" + ex.Message,
                                     "Palette Export",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
@@ -2922,17 +2915,16 @@ namespace ComponentFactory.Krypton.Toolkit
                     ret = (byte[])CommonHelper.PerformOperation(ExportToByteArray,
                                                                 new object[] { ignoreDefaults });
 
-                    KryptonMessageBox.Show("Export completed with success.",
+                    MessageBox.Show("Export completed with success.",
                                     "Palette Export",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
+                                    MessageBoxButtons.OK);
                 }
             }
             catch (Exception ex)
             {
                 if (!silent)
                 {
-                    KryptonMessageBox.Show("Export has failed.\n\n Error:" + ex.Message,
+                    MessageBox.Show("Export has failed.\n\n Error:" + ex.Message,
                                     "Palette Export",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
