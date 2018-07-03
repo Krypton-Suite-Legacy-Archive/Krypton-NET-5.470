@@ -100,6 +100,9 @@ namespace ComponentFactory.Krypton.Toolkit
             private static ViewBase _target = null;
             private static Control _parent = null;
 
+            /// <summary>
+            /// Hides this instance.
+            /// </summary>
             public static void Hide()
             {
                 if (_ctrl != null)
@@ -118,6 +121,12 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 }
             }
+
+            /// <summary>
+            /// Shows the specified target.
+            /// </summary>
+            /// <param name="target">The target.</param>
+            /// <param name="screenRect">The screen rect.</param>
             public static void Show(ViewBase target, Rectangle screenRect)
             {
                 //
@@ -179,6 +188,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     _ctrl.Show();
                 }
 
+                //
+                // Force a redraw
+                //
                 _ctrl.Invalidate();
             }
         }
