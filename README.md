@@ -10,6 +10,11 @@
 
 =======
 
+## 2018-07-03 `SeparatorController.cs` & `DragObject` bug fix, #79
+* Fix for bug Issue, #79, courtesy of [James Simms](https://github.com/jwsimms)
+
+=======
+
 ## 2018-06-15 Palette Example Application
 * Now you can export your custom palette creation in the `Krypton Palette Example` application.
 
