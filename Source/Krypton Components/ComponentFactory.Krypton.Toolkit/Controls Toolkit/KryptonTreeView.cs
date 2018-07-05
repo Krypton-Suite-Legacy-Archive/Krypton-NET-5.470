@@ -10,14 +10,14 @@
 // *****************************************************************************
 
 using System;
+using System.Collections;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Drawing.Drawing2D;
-using System.ComponentModel;
-using System.Windows.Forms;
-using System.Runtime.InteropServices;
-using System.Collections;
 using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -1730,6 +1730,21 @@ namespace ComponentFactory.Krypton.Toolkit
             PerformNeedPaint(true);
             _treeView.Invalidate();
             base.OnMouseLeave(e);
+        }
+
+        /// <summary>
+        /// Raises the MouseDown event.
+        /// </summary>
+        /// <param name="e">A MouseEventArgs that contains the event data.</param>
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            _mouseOver = false;
+
+            PerformNeedPaint(true);
+
+            _treeView.Invalidate();
+
+            base.OnMouseDown(e);
         }
 
         /// <summary>
