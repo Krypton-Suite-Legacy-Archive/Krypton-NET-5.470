@@ -166,7 +166,7 @@
             this.klblStatus.StateCommon.ShortText.Color1 = System.Drawing.Color.Red;
             this.klblStatus.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.klblStatus.TabIndex = 11;
-            this.klblStatus.Values.Text = "You must select a valid input file.";
+            this.klblStatus.Values.Text = "You must specify a valid input file.";
             // 
             // PaletteUpgradeTool
             // 
