@@ -8,6 +8,12 @@
 
 ## NOTE: With the advent of Windows 10 1803 being released to the general public, I am pleased to announce the availability of a 4.72 release that will support the .NET 4.7.2 framework. You can follow the project [here](https://github.com/Wagnerp/Krypton-NET-4.72).
 
+
+=======
+
+## 2018-07-15 Fix KryptonForm does not respect Minimum Size set in designer #57
+* And sort out some spelling mistakes in the VisualForm.cs
+
 =======
 
 ## 2018-07-03 `SeparatorController.cs` & `DragObject` bug fix, #79

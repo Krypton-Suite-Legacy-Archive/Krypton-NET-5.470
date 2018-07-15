@@ -19,6 +19,9 @@ using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class KryptonOffice2007Renderer : KryptonProfessionalRenderer
     {
         #region GradientItemColors
