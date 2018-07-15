@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Drawing;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace SystemThemedForms
@@ -10,6 +10,13 @@ namespace SystemThemedForms
         {
             InitializeComponent();
             buttonSpecAny1.Click += ButtonSpecAny1_Click;
+            button4.BackColor = SystemColors.InactiveCaption;
+            button5.BackColor = SystemColors.ActiveCaption;
+            button6.BackColor = SystemColors.GradientActiveCaption;
+            button7.BackColor = SystemColors.GradientInactiveCaption;
+            button8.BackColor = SystemColors.WindowFrame;
+            //button9.BackColor = SystemColors.ActiveCaption;
+            //button10.BackColor = SystemColors.ActiveCaption;
         }
 
         private void ButtonSpecAny1_Click(object sender, EventArgs e)
