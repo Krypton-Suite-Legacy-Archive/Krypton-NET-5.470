@@ -9,23 +9,23 @@
 //  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
+using Microsoft.Win32;
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
-using System.ComponentModel;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using Microsoft.Win32;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Provide a ComboBox with Krypton styling applied.
-	/// </summary>
-	[ToolboxItem(true)]
+    /// </summary>
+    [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonComboBox), "ToolboxBitmaps.KryptonComboBox.bmp")]
     [DefaultEvent("SelectedIndexChanged")]
-	[DefaultProperty("Text")]
+    [DefaultProperty("Text")]
     [DefaultBindingProperty("Text")]
     [LookupBindingProperties("DataSource", "DisplayMember", "ValueMember", "SelectedValue")]
     [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonComboBoxDesigner))]
@@ -159,7 +159,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 get => _mouseOver;
 
-                set 
+                set
                 {
                     // Only interested in changes
                     if (_mouseOver != value)
@@ -418,7 +418,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                          stringFormat);
                                         }
                                     }
-                                    catch(ArgumentException)
+                                    catch (ArgumentException)
                                     {
                                         using (SolidBrush foreBrush = new SolidBrush(ForeColor))
                                         {
@@ -505,7 +505,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                           PaletteContentStyle.ButtonStandalone);
 
                     // Create view element for drawing the actual button
-                    _viewButton = new ViewDrawButton(_palette, _palette, _palette, 
+                    _viewButton = new ViewDrawButton(_palette, _palette, _palette,
                                                      _palette, _palette, _palette, _palette,
                                                      new PaletteMetricRedirect(_kryptonComboBox.Redirector),
                                                      this, VisualOrientation.Top, false);
@@ -781,8 +781,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Collection for managing ButtonSpecAny instances.
         /// </summary>
-        public class ComboBoxButtonSpecCollection : ButtonSpecCollection<ButtonSpecAny> 
-        { 
+        public class ComboBoxButtonSpecCollection : ButtonSpecCollection<ButtonSpecAny>
+        {
             #region Identity
             /// <summary>
             /// Initialize a new instance of the ComboBoxButtonSpecCollection class.
@@ -991,6 +991,13 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public new event EventHandler PaddingChanged;
+
+        /// <summary>
+        /// Occurs when [draw item].
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public new event DrawItemEventHandler DrawItem;
         #endregion
 
         #region Identity
@@ -1149,7 +1156,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Public
+        #region Public
         /// <summary>
         /// Signals the object that initialization is starting.
         /// </summary>
@@ -1171,7 +1178,7 @@ namespace ComponentFactory.Krypton.Toolkit
             IsInitializing = false;
 
             // Force calculation of the drop down items again so they are sized correctly
-            _comboBox.DrawMode = DrawMode.OwnerDrawVariable;             
+            _comboBox.DrawMode = DrawMode.OwnerDrawVariable;
 
             // Raise event to show control is now initialized
             OnInitialized(EventArgs.Empty);
@@ -1361,10 +1368,10 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get => base.ContextMenuStrip;
 
-            set 
+            set
             {
                 base.ContextMenuStrip = value;
-                _comboBox.ContextMenuStrip = value; 
+                _comboBox.ContextMenuStrip = value;
             }
         }
 
@@ -1402,7 +1409,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Indicates the property to display for the items in this control.")]
         [TypeConverter("System.Windows.Forms.Design.DataMemberFieldConverter, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
         [Editor("System.Windows.Forms.Design.DataMemberFieldEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
-        [DefaultValue("")]        
+        [DefaultValue("")]
         public string DisplayMember
         {
             get => _comboBox.DisplayMember;
@@ -1494,7 +1501,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get => _comboBox.DropDownStyle;
 
-            set 
+            set
             {
                 if (_comboBox.DropDownStyle != value)
                 {
@@ -1546,9 +1553,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public int ItemHeight
         {
             get { return _comboBox.ItemHeight; }
-            
-            set 
-            { 
+
+            set
+            {
                 // Do nothing, we set the ItemHeight internally to match the font 
             }
         }
@@ -1816,32 +1823,32 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             return !StateCommon.IsDefault;
         }
-        
+
         /// <summary>
         /// Gets access to the disabled combobox appearance entries.
-		/// </summary>
-		[Category("Visuals")]
+        /// </summary>
+        [Category("Visuals")]
         [Description("Overrides for defining disabled combobox appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteComboBoxStates StateDisabled { get; }
 
         private bool ShouldSerializeStateDisabled()
-		{
-			return !StateDisabled.IsDefault;
-		}
+        {
+            return !StateDisabled.IsDefault;
+        }
 
-		/// <summary>
+        /// <summary>
         /// Gets access to the normal combobox appearance entries.
-		/// </summary>
-		[Category("Visuals")]
+        /// </summary>
+        [Category("Visuals")]
         [Description("Overrides for defining normal combobox appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteComboBoxStates StateNormal { get; }
 
         private bool ShouldSerializeStateNormal()
-		{
-			return !StateNormal.IsDefault;
-		}
+        {
+            return !StateNormal.IsDefault;
+        }
 
         /// <summary>
         /// Gets access to the active combobox appearance entries.
@@ -1981,7 +1988,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool IsActive
         {
-            get 
+            get
             {
                 if (_fixedActive != null)
                 {
@@ -2068,16 +2075,16 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets the rectangle that represents the display area of the control.
 		/// </summary>
 		public override Rectangle DisplayRectangle
-		{
-			get
-			{
+        {
+            get
+            {
                 // Ensure that the layout is calculated in order to know the remaining display space
                 ForceViewLayout();
 
                 // The inside combo box is the client rectangle size
                 return new Rectangle(_comboHolder.Location, _comboHolder.Size);
-			}
-		}
+            }
+        }
 
         /// <summary>
         /// Override the display padding for the layout fill.
@@ -2241,6 +2248,12 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnTrackMouseLeave(EventArgs e) => TrackMouseLeave?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the <see cref="E:DrawItem" /> event.
+        /// </summary>
+        /// <param name="e">The <see cref="DrawItemEventArgs"/> instance containing the event data.</param>
+        protected virtual void OnDrawItem(DrawItemEventArgs e) => DrawItem?.Invoke(this, e);
         #endregion
 
         #region Protected Overrides
@@ -2278,7 +2291,7 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		/// <param name="e">An EventArgs that contains the event data.</param>
 		protected override void OnEnabledChanged(EventArgs e)
-		{
+        {
             // Ensure we have subclassed the contained edit control
             UpdateEditControl();
 
@@ -2460,8 +2473,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         if (fillRect != _comboHolder.Bounds)
                         {
                             _comboHolder.SetBounds(fillRect.X, fillRect.Y, fillRect.Width, fillRect.Height);
-                            _comboBox.SetBounds(-(1 + _layoutPadding.Left), 
-                                                -(1 + _layoutPadding.Top), 
+                            _comboBox.SetBounds(-(1 + _layoutPadding.Left),
+                                                -(1 + _layoutPadding.Top),
                                                 fillRect.Width + 2 + _layoutPadding.Right,
                                                 fillRect.Height + 2 + _layoutPadding.Bottom);
                         }
@@ -2478,8 +2491,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="width">The new Width property value of the control.</param>
         /// <param name="height">The new Height property value of the control.</param>
         /// <param name="specified">A bitwise combination of the BoundsSpecified values.</param>
-        protected override void SetBoundsCore(int x, int y, 
-                                              int width, int height, 
+        protected override void SetBoundsCore(int x, int y,
+                                              int width, int height,
                                               BoundsSpecified specified)
         {
             // If setting the actual height
@@ -2707,7 +2720,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     e.Graphics.TextRenderingHint = CommonHelper.PaletteTextHintToRenderingHint(StateNormal.Item.PaletteContent.GetContentShortTextHint(PaletteState.Normal));
 
                     TextFormatFlags flags = TextFormatFlags.TextBoxControl | TextFormatFlags.NoPadding;
-                    
+
                     // Use the correct prefix setting
                     flags |= TextFormatFlags.NoPrefix;
 
