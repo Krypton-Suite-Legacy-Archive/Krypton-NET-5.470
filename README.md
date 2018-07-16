@@ -10,8 +10,8 @@
 
 =======
 
-## 2018-07-16 Build 620
-* Build 620 (released Monday 16th July, 2018) is now available through the **releases** tab
+## 2018-07-16 Build 620 refresh
+* Build 620 refresh (released Monday 16th July, 2018) is now available through the **releases** tab
 
 =======
 
