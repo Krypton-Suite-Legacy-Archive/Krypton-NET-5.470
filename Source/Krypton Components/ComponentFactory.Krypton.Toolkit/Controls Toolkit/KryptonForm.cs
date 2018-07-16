@@ -1620,7 +1620,9 @@ namespace ComponentFactory.Krypton.Toolkit
             return cp;
         }
 
-        // Example by juverpp
+        /// <summary>
+        /// Example by juverpp 
+        /// </summary>
         protected override CreateParams CreateParams
         {
             get

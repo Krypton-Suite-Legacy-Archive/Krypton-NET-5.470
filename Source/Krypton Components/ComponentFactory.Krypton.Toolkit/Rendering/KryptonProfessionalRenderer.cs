@@ -18,6 +18,9 @@ using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class KryptonProfessionalRenderer : ToolStripProfessionalRenderer
     {
         #region Instance Fields

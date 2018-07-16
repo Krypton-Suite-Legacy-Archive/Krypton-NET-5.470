@@ -19,6 +19,9 @@ using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class KryptonSparkleRenderer : KryptonProfessionalRenderer
     {
         #region LinearItemColors
