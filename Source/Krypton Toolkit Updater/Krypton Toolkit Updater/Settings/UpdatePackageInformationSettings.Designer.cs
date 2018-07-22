@@ -12,7 +12,7 @@ namespace KryptonToolkitUpdater.Settings {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.7.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.8.0.0")]
     internal sealed partial class UpdatePackageInformationSettings : global::System.Configuration.ApplicationSettingsBase {
         
         private static UpdatePackageInformationSettings defaultInstance = ((UpdatePackageInformationSettings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new UpdatePackageInformationSettings())));
@@ -234,6 +234,18 @@ namespace KryptonToolkitUpdater.Settings {
             }
             set {
                 this["XMLUpdatePathURL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DownloadLocalLocation {
+            get {
+                return ((string)(this["DownloadLocalLocation"]));
+            }
+            set {
+                this["DownloadLocalLocation"] = value;
             }
         }
     }

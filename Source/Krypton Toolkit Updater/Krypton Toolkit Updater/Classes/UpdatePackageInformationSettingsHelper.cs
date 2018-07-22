@@ -8,7 +8,7 @@ namespace KryptonToolkitUpdater.Classes
     public class UpdatePackageInformationSettingsHelper
     {
         #region Variables
-        UpdatePackageInformationSettings updatePackageInformationSettings = new UpdatePackageInformationSettings();
+        private UpdatePackageInformationSettings updatePackageInformationSettings = new UpdatePackageInformationSettings();
         #endregion
 
         #region Constructors        
@@ -332,6 +332,24 @@ namespace KryptonToolkitUpdater.Classes
         public string GetXMLUpdatePathURL()
         {
             return updatePackageInformationSettings.XMLUpdatePathURL;
+        }
+
+        /// <summary>
+        /// Sets the DownloadLocalLocation to the value of value.
+        /// </summary>
+        /// <param name="value">The value of value.</param>
+        public void SetDownloadLocalLocation(string value)
+        {
+            updatePackageInformationSettings.DownloadLocalLocation = value;
+        }
+
+        /// <summary>
+        /// Gets the DownloadLocalLocation value.
+        /// </summary>
+        /// <returns>The value of value.</returns>
+        public string GetDownloadLocalLocation()
+        {
+            return updatePackageInformationSettings.DownloadLocalLocation;
         }
         #endregion
 
