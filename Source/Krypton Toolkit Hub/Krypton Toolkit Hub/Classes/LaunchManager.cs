@@ -324,26 +324,70 @@ namespace KryptonToolkitHub.Classes
             switch (applicationExample)
             {
                 case ApplicationToolkitExamples.INPUTFORM:
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.THREEPANEAPPLICATIONBASIC:
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.THREEPANEAPPLICATIONEXTENDED:
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.EXPANDINGHEADERGROUPSSPLITTERS:
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.EXPANDINGHEADERGROUPSDOCKSTYLE:
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.EXPANDINGHEADERGROUPSSTACK:
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.MDIAPPLICATION:
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.CHILDCONTROLSTACK:
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.BUTTONSPECPLAYGROUND:
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.CUSTOMCONTROLUSINGPALETTES:
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.CUSTOMCONTROLUSINGRENDERERS:
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.READY:
                     UpdateStatus(statusLabel, "Ready", useFullPath);

@@ -68,10 +68,10 @@
             // 
             // kryptonDockingManager
             // 
-            this.kryptonDockingManager.PageLoading += new System.EventHandler<ComponentFactory.Krypton.Docking.DockPageLoadingEventArgs>(this.kryptonDockingManager_PageLoading);
+            this.kryptonDockingManager.GlobalSaving += new System.EventHandler<ComponentFactory.Krypton.Docking.DockGlobalSavingEventArgs>(this.kryptonDockingManager_GlobalSaving);
             this.kryptonDockingManager.GlobalLoading += new System.EventHandler<ComponentFactory.Krypton.Docking.DockGlobalLoadingEventArgs>(this.kryptonDockingManager_GlobalLoading);
             this.kryptonDockingManager.PageSaving += new System.EventHandler<ComponentFactory.Krypton.Docking.DockPageSavingEventArgs>(this.kryptonDockingManager_PageSaving);
-            this.kryptonDockingManager.GlobalSaving += new System.EventHandler<ComponentFactory.Krypton.Docking.DockGlobalSavingEventArgs>(this.kryptonDockingManager_GlobalSaving);
+            this.kryptonDockingManager.PageLoading += new System.EventHandler<ComponentFactory.Krypton.Docking.DockPageLoadingEventArgs>(this.kryptonDockingManager_PageLoading);
             // 
             // imageListSmall
             // 
@@ -83,13 +83,15 @@
             // 
             // kryptonRibbon
             // 
+            this.kryptonRibbon.AllowFormIntegrate = true;
+            this.kryptonRibbon.InDesignHelperMode = true;
             this.kryptonRibbon.Name = "kryptonRibbon";
-            this.kryptonRibbon.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Global;
             this.kryptonRibbon.RibbonAppButton.AppButtonImage = ((System.Drawing.Image)(resources.GetObject("kryptonRibbon.RibbonAppButton.AppButtonImage")));
             this.kryptonRibbon.RibbonAppButton.AppButtonMenuItems.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kryptonContextMenuItem1});
             this.kryptonRibbon.RibbonTabs.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab[] {
             this.tabPersistence});
+            this.kryptonRibbon.SelectedContext = null;
             this.kryptonRibbon.SelectedTab = this.tabPersistence;
             this.kryptonRibbon.Size = new System.Drawing.Size(784, 115);
             this.kryptonRibbon.TabIndex = 0;
@@ -97,7 +99,6 @@
             // kryptonContextMenuItem1
             // 
             this.kryptonContextMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("kryptonContextMenuItem1.Image")));
-            this.kryptonContextMenuItem1.ImageTransparentColor = System.Drawing.Color.Empty;
             this.kryptonContextMenuItem1.Text = "E&xit";
             this.kryptonContextMenuItem1.Click += new System.EventHandler(this.kryptonContextMenuItem1_Click);
             // 
@@ -107,7 +108,6 @@
             this.kryptonRibbonGroup1,
             this.kryptonRibbonGroup2,
             this.kryptonRibbonGroup3});
-            this.tabPersistence.Tag = null;
             this.tabPersistence.Text = "Persistence";
             // 
             // kryptonRibbonGroup1
@@ -119,7 +119,6 @@
             this.kryptonRibbonGroupSeparator1,
             this.kryptonRibbonGroupTriple3});
             this.kryptonRibbonGroup1.KeyTipGroup = "A";
-            this.kryptonRibbonGroup1.Tag = null;
             this.kryptonRibbonGroup1.TextLine1 = "Array Persist";
             // 
             // kryptonRibbonGroupTriple1
@@ -130,15 +129,12 @@
             this.buttonSaveArray3});
             this.kryptonRibbonGroupTriple1.MaximumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Medium;
             this.kryptonRibbonGroupTriple1.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Medium;
-            this.kryptonRibbonGroupTriple1.Tag = null;
             // 
             // buttonSaveArray1
             // 
             this.buttonSaveArray1.ImageLarge = ((System.Drawing.Image)(resources.GetObject("buttonSaveArray1.ImageLarge")));
             this.buttonSaveArray1.ImageSmall = ((System.Drawing.Image)(resources.GetObject("buttonSaveArray1.ImageSmall")));
             this.buttonSaveArray1.KeyTip = "SA1";
-            this.buttonSaveArray1.ShortcutKeys = System.Windows.Forms.Keys.None;
-            this.buttonSaveArray1.Tag = null;
             this.buttonSaveArray1.TextLine1 = "Save Array 1";
             this.buttonSaveArray1.Click += new System.EventHandler(this.buttonSaveArray1_Click);
             // 
@@ -147,8 +143,6 @@
             this.buttonSaveArray2.ImageLarge = ((System.Drawing.Image)(resources.GetObject("buttonSaveArray2.ImageLarge")));
             this.buttonSaveArray2.ImageSmall = ((System.Drawing.Image)(resources.GetObject("buttonSaveArray2.ImageSmall")));
             this.buttonSaveArray2.KeyTip = "SA2";
-            this.buttonSaveArray2.ShortcutKeys = System.Windows.Forms.Keys.None;
-            this.buttonSaveArray2.Tag = null;
             this.buttonSaveArray2.TextLine1 = "Save Array 2";
             this.buttonSaveArray2.Click += new System.EventHandler(this.buttonSaveArray2_Click);
             // 
@@ -157,14 +151,8 @@
             this.buttonSaveArray3.ImageLarge = ((System.Drawing.Image)(resources.GetObject("buttonSaveArray3.ImageLarge")));
             this.buttonSaveArray3.ImageSmall = ((System.Drawing.Image)(resources.GetObject("buttonSaveArray3.ImageSmall")));
             this.buttonSaveArray3.KeyTip = "SA3";
-            this.buttonSaveArray3.ShortcutKeys = System.Windows.Forms.Keys.None;
-            this.buttonSaveArray3.Tag = null;
             this.buttonSaveArray3.TextLine1 = "Save Array 3";
             this.buttonSaveArray3.Click += new System.EventHandler(this.buttonSaveArray3_Click);
-            // 
-            // kryptonRibbonGroupSeparator1
-            // 
-            this.kryptonRibbonGroupSeparator1.Tag = null;
             // 
             // kryptonRibbonGroupTriple3
             // 
@@ -174,7 +162,6 @@
             this.buttonLoadArray3});
             this.kryptonRibbonGroupTriple3.MaximumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Medium;
             this.kryptonRibbonGroupTriple3.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Medium;
-            this.kryptonRibbonGroupTriple3.Tag = null;
             // 
             // buttonLoadArray1
             // 
@@ -182,8 +169,6 @@
             this.buttonLoadArray1.ImageLarge = ((System.Drawing.Image)(resources.GetObject("buttonLoadArray1.ImageLarge")));
             this.buttonLoadArray1.ImageSmall = ((System.Drawing.Image)(resources.GetObject("buttonLoadArray1.ImageSmall")));
             this.buttonLoadArray1.KeyTip = "LA1";
-            this.buttonLoadArray1.ShortcutKeys = System.Windows.Forms.Keys.None;
-            this.buttonLoadArray1.Tag = null;
             this.buttonLoadArray1.TextLine1 = "Load Array 1";
             this.buttonLoadArray1.Click += new System.EventHandler(this.buttonLoadArray1_Click);
             // 
@@ -193,8 +178,6 @@
             this.buttonLoadArray2.ImageLarge = ((System.Drawing.Image)(resources.GetObject("buttonLoadArray2.ImageLarge")));
             this.buttonLoadArray2.ImageSmall = ((System.Drawing.Image)(resources.GetObject("buttonLoadArray2.ImageSmall")));
             this.buttonLoadArray2.KeyTip = "LA2";
-            this.buttonLoadArray2.ShortcutKeys = System.Windows.Forms.Keys.None;
-            this.buttonLoadArray2.Tag = null;
             this.buttonLoadArray2.TextLine1 = "Load Array 2";
             this.buttonLoadArray2.Click += new System.EventHandler(this.buttonLoadArray2_Click);
             // 
@@ -204,8 +187,6 @@
             this.buttonLoadArray3.ImageLarge = ((System.Drawing.Image)(resources.GetObject("buttonLoadArray3.ImageLarge")));
             this.buttonLoadArray3.ImageSmall = ((System.Drawing.Image)(resources.GetObject("buttonLoadArray3.ImageSmall")));
             this.buttonLoadArray3.KeyTip = "LA3";
-            this.buttonLoadArray3.ShortcutKeys = System.Windows.Forms.Keys.None;
-            this.buttonLoadArray3.Tag = null;
             this.buttonLoadArray3.TextLine1 = "Load Array 3";
             this.buttonLoadArray3.Click += new System.EventHandler(this.buttonLoadArray3_Click);
             // 
@@ -217,7 +198,6 @@
             this.kryptonRibbonGroupTriple2,
             this.kryptonRibbonGroupSeparator2,
             this.kryptonRibbonGroupTriple4});
-            this.kryptonRibbonGroup2.Tag = null;
             this.kryptonRibbonGroup2.TextLine1 = "File Persist";
             // 
             // kryptonRibbonGroupTriple2
@@ -225,37 +205,27 @@
             this.kryptonRibbonGroupTriple2.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.buttonSaveFile});
             this.kryptonRibbonGroupTriple2.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Large;
-            this.kryptonRibbonGroupTriple2.Tag = null;
             // 
             // buttonSaveFile
             // 
             this.buttonSaveFile.ImageLarge = ((System.Drawing.Image)(resources.GetObject("buttonSaveFile.ImageLarge")));
             this.buttonSaveFile.ImageSmall = ((System.Drawing.Image)(resources.GetObject("buttonSaveFile.ImageSmall")));
             this.buttonSaveFile.KeyTip = "SF";
-            this.buttonSaveFile.ShortcutKeys = System.Windows.Forms.Keys.None;
-            this.buttonSaveFile.Tag = null;
             this.buttonSaveFile.TextLine1 = "Save";
             this.buttonSaveFile.TextLine2 = "File";
             this.buttonSaveFile.Click += new System.EventHandler(this.buttonSaveFile_Click);
-            // 
-            // kryptonRibbonGroupSeparator2
-            // 
-            this.kryptonRibbonGroupSeparator2.Tag = null;
             // 
             // kryptonRibbonGroupTriple4
             // 
             this.kryptonRibbonGroupTriple4.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.buttonLoadFile});
             this.kryptonRibbonGroupTriple4.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Large;
-            this.kryptonRibbonGroupTriple4.Tag = null;
             // 
             // buttonLoadFile
             // 
             this.buttonLoadFile.ImageLarge = ((System.Drawing.Image)(resources.GetObject("buttonLoadFile.ImageLarge")));
             this.buttonLoadFile.ImageSmall = ((System.Drawing.Image)(resources.GetObject("buttonLoadFile.ImageSmall")));
             this.buttonLoadFile.KeyTip = "LF";
-            this.buttonLoadFile.ShortcutKeys = System.Windows.Forms.Keys.None;
-            this.buttonLoadFile.Tag = null;
             this.buttonLoadFile.TextLine1 = "Load";
             this.buttonLoadFile.TextLine2 = "File";
             this.buttonLoadFile.Click += new System.EventHandler(this.buttonLoadFile_Click);
@@ -266,7 +236,6 @@
             this.kryptonRibbonGroup3.Image = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroup3.Image")));
             this.kryptonRibbonGroup3.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupTriple5});
-            this.kryptonRibbonGroup3.Tag = null;
             this.kryptonRibbonGroup3.TextLine1 = "Visibility";
             // 
             // kryptonRibbonGroupTriple5
@@ -274,15 +243,12 @@
             this.kryptonRibbonGroupTriple5.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.buttonHideAll,
             this.buttonShowAll});
-            this.kryptonRibbonGroupTriple5.Tag = null;
             // 
             // buttonHideAll
             // 
             this.buttonHideAll.ImageLarge = ((System.Drawing.Image)(resources.GetObject("buttonHideAll.ImageLarge")));
             this.buttonHideAll.ImageSmall = ((System.Drawing.Image)(resources.GetObject("buttonHideAll.ImageSmall")));
             this.buttonHideAll.KeyTip = "VH";
-            this.buttonHideAll.ShortcutKeys = System.Windows.Forms.Keys.None;
-            this.buttonHideAll.Tag = null;
             this.buttonHideAll.TextLine1 = "Hide";
             this.buttonHideAll.TextLine2 = "All";
             this.buttonHideAll.Click += new System.EventHandler(this.buttonHideAll_Click);
@@ -292,37 +258,34 @@
             this.buttonShowAll.ImageLarge = ((System.Drawing.Image)(resources.GetObject("buttonShowAll.ImageLarge")));
             this.buttonShowAll.ImageSmall = ((System.Drawing.Image)(resources.GetObject("buttonShowAll.ImageSmall")));
             this.buttonShowAll.KeyTip = "VS";
-            this.buttonShowAll.ShortcutKeys = System.Windows.Forms.Keys.None;
-            this.buttonShowAll.Tag = null;
             this.buttonShowAll.TextLine1 = "Show";
             this.buttonShowAll.TextLine2 = "All";
             this.buttonShowAll.Click += new System.EventHandler(this.buttonShowAll_Click);
             // 
-            // kryptonPanelDocking
+            // kryptonPanel
             // 
             this.kryptonPanel.Controls.Add(this.kryptonDockableWorkspace);
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel.Location = new System.Drawing.Point(0, 115);
-            this.kryptonPanel.Name = "kryptonPanelDocking";
+            this.kryptonPanel.Name = "kryptonPanel";
             this.kryptonPanel.Padding = new System.Windows.Forms.Padding(3);
-            this.kryptonPanel.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Global;
-            this.kryptonPanel.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelClient;
             this.kryptonPanel.Size = new System.Drawing.Size(784, 449);
             this.kryptonPanel.TabIndex = 1;
             // 
             // kryptonDockableWorkspace
             // 
             this.kryptonDockableWorkspace.AutoHiddenHost = false;
-            this.kryptonDockableWorkspace.CompactFlags = ((ComponentFactory.Krypton.Workspace.CompactFlags)(((ComponentFactory.Krypton.Workspace.CompactFlags.RemoveEmptyCells | ComponentFactory.Krypton.Workspace.CompactFlags.RemoveEmptySequences)
-                        | ComponentFactory.Krypton.Workspace.CompactFlags.PromoteLeafs)));
+            this.kryptonDockableWorkspace.CompactFlags = ((ComponentFactory.Krypton.Workspace.CompactFlags)(((ComponentFactory.Krypton.Workspace.CompactFlags.RemoveEmptyCells | ComponentFactory.Krypton.Workspace.CompactFlags.RemoveEmptySequences) 
+            | ComponentFactory.Krypton.Workspace.CompactFlags.PromoteLeafs)));
             this.kryptonDockableWorkspace.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonDockableWorkspace.Location = new System.Drawing.Point(3, 3);
             this.kryptonDockableWorkspace.Name = "kryptonDockableWorkspace";
-            this.kryptonDockableWorkspace.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Global;
             // 
             // 
             // 
             this.kryptonDockableWorkspace.Root.UniqueName = "5462F66039D342065462F66039D34206";
+            this.kryptonDockableWorkspace.Root.WorkspaceControl = this.kryptonDockableWorkspace;
+            this.kryptonDockableWorkspace.ShowMaximizeButton = false;
             this.kryptonDockableWorkspace.Size = new System.Drawing.Size(778, 443);
             this.kryptonDockableWorkspace.TabIndex = 0;
             this.kryptonDockableWorkspace.TabStop = true;
