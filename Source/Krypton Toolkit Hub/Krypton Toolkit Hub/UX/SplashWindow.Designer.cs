@@ -56,7 +56,7 @@
             // klblKryptonToolkitHubVersion
             // 
             this.klblKryptonToolkitHubVersion.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
-            this.klblKryptonToolkitHubVersion.Location = new System.Drawing.Point(105, 294);
+            this.klblKryptonToolkitHubVersion.Location = new System.Drawing.Point(114, 390);
             this.klblKryptonToolkitHubVersion.Name = "klblKryptonToolkitHubVersion";
             this.klblKryptonToolkitHubVersion.Size = new System.Drawing.Size(594, 30);
             this.klblKryptonToolkitHubVersion.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -67,7 +67,7 @@
             // klblTitle
             // 
             this.klblTitle.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
-            this.klblTitle.Location = new System.Drawing.Point(233, 166);
+            this.klblTitle.Location = new System.Drawing.Point(255, 351);
             this.klblTitle.Name = "klblTitle";
             this.klblTitle.Size = new System.Drawing.Size(311, 33);
             this.klblTitle.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -79,10 +79,10 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::KryptonToolkitHub.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(308, 72);
+            this.pictureBox1.Image = global::KryptonToolkitHub.Properties.Resources.Square_Design_256_x_256_New_Green1;
+            this.pictureBox1.Location = new System.Drawing.Point(274, 68);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(160, 43);
+            this.pictureBox1.Size = new System.Drawing.Size(256, 256);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;

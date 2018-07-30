@@ -9,11 +9,11 @@
 //  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
+using ComponentFactory.Krypton.Toolkit;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {

@@ -2114,7 +2114,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox1.Image = global::KryptonToolkitHub.Properties.Resources.Logo;
+            this.pictureBox1.Image = global::KryptonToolkitHub.Properties.Resources.Square_Design_64_x_64_New_Green;
             this.pictureBox1.Location = new System.Drawing.Point(1040, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(160, 114);

@@ -121,182 +121,182 @@ namespace KryptonToolkitHub.Classes
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONLISTBOX:
-
+                    ProcessManager.LaunchProcess(@".\Krypton ListBox Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONCHECKEDLISTBOX:
-
+                    ProcessManager.LaunchProcess(@".\Krypton Checked ListBox Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONTEXTBOX:
-
+                    ProcessManager.LaunchProcess(@".\Krypton TextBox Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONMASKEDTEXTBOX:
-
+                    ProcessManager.LaunchProcess(@".\Krypton Masked TextBox Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONRICHTEXTBOX:
-
+                    ProcessManager.LaunchProcess(@".\Krypton Rich TextBox Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONCOMBOBOX:
-
+                    ProcessManager.LaunchProcess(@".\Krypton ComboBox Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONNUMERICUPDOWN:
-
+                    ProcessManager.LaunchProcess(@".\Krypton Numeric UpDown Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONDOMAINUPDOWN:
-
+                    ProcessManager.LaunchProcess(@".\Krypton Domain UpDown Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONBREADCRUMB:
-
+                    ProcessManager.LaunchProcess(@".\Krypton Bread Crumb Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONDATETIMEPICKER:
-
+                    ProcessManager.LaunchProcess(@".\Krypton DateTimePicker Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONMONTHCALENDAR:
-
+                    ProcessManager.LaunchProcess(@".\Krypton Month Calendar Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONDATAGRIDVIEW:
-
+                    ProcessManager.LaunchProcess(@".\Krypton Data GridView Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONTREEVIEW:
-
+                    ProcessManager.LaunchProcess(@".\Krypton TreeView Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONBORDEREDGE:
-
+                    ProcessManager.LaunchProcess(@".\Krypton Border Edge Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONSEPARATOR:
-
+                    ProcessManager.LaunchProcess(@".\Krypton Separator Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONPANEL:
-
+                    ProcessManager.LaunchProcess(@".\Krypton Panel Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONGROUP:
-
+                    ProcessManager.LaunchProcess(@".\Krypton Group Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONGROUPBOX:
-
+                    ProcessManager.LaunchProcess(@".\Krypton GroupBox Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONHEADERGROUP:
-
+                    ProcessManager.LaunchProcess(@".\Krypton Header Group Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONHEADER:
-
+                    ProcessManager.LaunchProcess(@".\Krypton Header Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONPALETTE:
-
+                    ProcessManager.LaunchProcess(@".\Krypton Palette Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONCOMMAND:
-
+                    ProcessManager.LaunchProcess(@".\Krypton Command Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONINPUTBOX:
-
+                    ProcessManager.LaunchProcess(@".\Krypton InputBox Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONMESSAGEBOX:
-
+                    ProcessManager.LaunchProcess(@".\Krypton MessageBox Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONTASKDIALOG:
-
+                    ProcessManager.LaunchProcess(@".\Krypton TaskDialog Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONFORM:
-
+                    ProcessManager.LaunchProcess(@".\Krypton Form Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 

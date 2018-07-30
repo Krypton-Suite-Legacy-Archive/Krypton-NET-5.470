@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\Square Design 256 x 256 Green.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Square Design 256 x 256 New Green.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Krypton Navigator">
@@ -120,6 +120,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Square Design 256 x 256 Green.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Square Design 256 x 256 New Green.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Square Design 32 x 32 New Green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Square Design 64 x 64 New Green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Square Design 128 x 128 New Green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Square Design 256 x 256 Green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Square Design 256 x 256 New Green.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
