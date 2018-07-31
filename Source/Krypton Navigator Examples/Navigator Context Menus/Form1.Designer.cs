@@ -132,7 +132,7 @@ namespace NavigatorContextMenus
             // 
             this.kryptonLabel1.Location = new System.Drawing.Point(16, 16);
             this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(159, 19);
+            this.kryptonLabel1.Size = new System.Drawing.Size(168, 20);
             this.kryptonLabel1.TabIndex = 0;
             this.kryptonLabel1.Values.Text = "Right-click me or the header.";
             // 
@@ -188,7 +188,7 @@ namespace NavigatorContextMenus
             // 
             this.kryptonLabel2.Location = new System.Drawing.Point(129, 77);
             this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(159, 19);
+            this.kryptonLabel2.Size = new System.Drawing.Size(168, 20);
             this.kryptonLabel2.TabIndex = 1;
             this.kryptonLabel2.Values.Text = "Right-click me or the header.";
             // 
@@ -257,7 +257,7 @@ namespace NavigatorContextMenus
             // 
             this.kryptonLabel3.Location = new System.Drawing.Point(73, 47);
             this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(159, 19);
+            this.kryptonLabel3.Size = new System.Drawing.Size(168, 20);
             this.kryptonLabel3.TabIndex = 1;
             this.kryptonLabel3.Values.Text = "Right-click me or the header.";
             // 
@@ -331,7 +331,7 @@ namespace NavigatorContextMenus
             // 
             this.kryptonLabel4.Location = new System.Drawing.Point(129, 19);
             this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(159, 19);
+            this.kryptonLabel4.Size = new System.Drawing.Size(168, 20);
             this.kryptonLabel4.TabIndex = 1;
             this.kryptonLabel4.Values.Text = "Right-click me or the header.";
             // 

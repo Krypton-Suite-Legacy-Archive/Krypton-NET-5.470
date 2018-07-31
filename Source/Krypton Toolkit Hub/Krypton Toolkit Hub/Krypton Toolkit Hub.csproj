@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\ExceptionHandler.cs" />
+    <Compile Include="Classes\Experimental\LaunchManagerTest.cs" />
     <Compile Include="Classes\FadeEffects.cs" />
     <Compile Include="Classes\IOOperations.cs" />
     <Compile Include="Classes\LaunchManager.cs" />

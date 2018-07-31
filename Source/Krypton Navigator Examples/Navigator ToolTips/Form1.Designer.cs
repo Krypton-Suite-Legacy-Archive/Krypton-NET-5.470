@@ -28,7 +28,6 @@ namespace NavigatorToolTips
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBoxTooltipProperties = new System.Windows.Forms.GroupBox();
             this.checkAllowButtonSpecTooltips = new System.Windows.Forms.CheckBox();
@@ -46,7 +45,7 @@ namespace NavigatorToolTips
             this.kryptonPage3 = new ComponentFactory.Krypton.Navigator.KryptonPage();
             this.kryptonPage4 = new ComponentFactory.Krypton.Navigator.KryptonPage();
             this.buttonClose = new System.Windows.Forms.Button();
-            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager();
             this.groupBoxTooltipProperties.SuspendLayout();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator)).BeginInit();
@@ -155,9 +154,9 @@ namespace NavigatorToolTips
             // 
             // panel
             // 
-            this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel.Controls.Add(this.kryptonNavigator);
             this.panel.Location = new System.Drawing.Point(351, 18);
             this.panel.Name = "panel";
@@ -191,7 +190,7 @@ namespace NavigatorToolTips
             this.kryptonPage1.LastVisibleSet = true;
             this.kryptonPage1.MinimumSize = new System.Drawing.Size(50, 50);
             this.kryptonPage1.Name = "kryptonPage1";
-            this.kryptonPage1.Size = new System.Drawing.Size(311, 145);
+            this.kryptonPage1.Size = new System.Drawing.Size(311, 144);
             this.kryptonPage1.Text = "Page 1";
             this.kryptonPage1.TextDescription = "Description of page 1";
             this.kryptonPage1.TextTitle = "Page Title 1";
@@ -265,6 +264,10 @@ namespace NavigatorToolTips
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            // 
+            // kryptonManager1
+            // 
+            this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.ProfessionalSystem;
             // 
             // Form1
             // 

@@ -28,7 +28,6 @@ namespace NavigatorPlayground
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.kryptonNavigator1 = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
             this.kryptonPage1 = new ComponentFactory.Krypton.Navigator.KryptonPage();
@@ -41,8 +40,8 @@ namespace NavigatorPlayground
             this.kryptonButtonClear = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButtonRemove = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButtonAdd = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList();
+            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator1)).BeginInit();
             this.kryptonNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPage1)).BeginInit();
@@ -53,8 +52,8 @@ namespace NavigatorPlayground
             // 
             // kryptonNavigator1
             // 
-            this.kryptonNavigator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.kryptonNavigator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.kryptonNavigator1.Location = new System.Drawing.Point(18, 31);
             this.kryptonNavigator1.Name = "kryptonNavigator1";
             this.kryptonNavigator1.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
@@ -102,9 +101,9 @@ namespace NavigatorPlayground
             // 
             // groupBoxProperties
             // 
-            this.groupBoxProperties.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxProperties.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxProperties.Controls.Add(this.propertyGrid1);
             this.groupBoxProperties.Location = new System.Drawing.Point(328, 12);
             this.groupBoxProperties.Name = "groupBoxProperties";
@@ -198,6 +197,10 @@ namespace NavigatorPlayground
             this.imageList1.Images.SetKeyName(7, "virus.png");
             this.imageList1.Images.SetKeyName(8, "web.png");
             this.imageList1.Images.SetKeyName(9, "worm.png");
+            // 
+            // kryptonManager1
+            // 
+            this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.SparkleBlue;
             // 
             // Form1
             // 

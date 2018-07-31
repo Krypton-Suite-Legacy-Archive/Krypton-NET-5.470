@@ -377,7 +377,7 @@ namespace NavigatorModes
             this.kryptonPage1.MinimumSize = new System.Drawing.Size(50, 50);
             this.kryptonPage1.Name = "kryptonPage1";
             this.kryptonPage1.Padding = new System.Windows.Forms.Padding(15);
-            this.kryptonPage1.Size = new System.Drawing.Size(327, 239);
+            this.kryptonPage1.Size = new System.Drawing.Size(327, 238);
             this.kryptonPage1.Text = "Page 1";
             this.kryptonPage1.TextDescription = "Page 1 Description";
             this.kryptonPage1.TextTitle = "Page 1 Title";
