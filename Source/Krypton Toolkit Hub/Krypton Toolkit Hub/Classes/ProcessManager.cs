@@ -9,7 +9,7 @@ namespace KryptonToolkitHub.Classes
     public class ProcessManager
     {
         #region Variables
-        static string _procesFilePath = string.Empty;
+        private static string _procesFilePath = string.Empty;
         #endregion
 
         #region Properties

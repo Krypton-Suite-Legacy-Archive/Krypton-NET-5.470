@@ -2,16 +2,12 @@
 using System.IO;
 using System.Windows.Forms;
 
-namespace KryptonToolkitHub.Classes
+namespace KryptonToolkitHub.Classes.Experimental
 {
-    public class LaunchManager
+    public class LaunchManagerTest
     {
-        #region Variables
-        private IOOperations _io = new IOOperations();
-        #endregion
-
         #region Constructor
-        public LaunchManager()
+        public LaunchManagerTest()
         {
 
         }
@@ -34,273 +30,273 @@ namespace KryptonToolkitHub.Classes
             switch (componentExample)
             {
                 case ComponentToolkitExamples.KRYPTONBUTTON:
-                    ProcessManager.LaunchProcess(@".\Krypton Button Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Button Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONCHECKBUTTON:
-                    ProcessManager.LaunchProcess(@".\Krypton CheckButton Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton CheckButton Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONDROPBUTTON:
-                    ProcessManager.LaunchProcess(@".\Krypton DropButton Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton DropButton Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONCOLOURBUTTON:
-                    ProcessManager.LaunchProcess(@".\Krypton ColorButton Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton ColorButton Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONCHECKSET:
-                    ProcessManager.LaunchProcess(@".\Krypton CheckSet Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton CheckSet Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONCHECKBOX:
-                    ProcessManager.LaunchProcess(@".\Krypton CheckBox Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton CheckBox Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONRADIOBUTTON:
-                    ProcessManager.LaunchProcess(@".\Krypton RadioButton Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton RadioButton Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONLABEL:
-                    ProcessManager.LaunchProcess(@".\Krypton Label Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Label Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONLINKLABEL:
-                    ProcessManager.LaunchProcess(@".\Krypton Link Label Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Link Label Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONWRAPLABEL:
-                    ProcessManager.LaunchProcess(@".\Krypton Wrap Label Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Wrap Label Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONSPLITCONTAINER:
-                    ProcessManager.LaunchProcess(@".\Krypton Split Container Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Split Container Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONCONTEXTMENU:
-                    ProcessManager.LaunchProcess(@".\Krypton Context Menu Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Context Menu Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONTRACKBAR:
-                    ProcessManager.LaunchProcess(@".\Krypton TrackBar Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton TrackBar Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONLISTBOX:
-                    ProcessManager.LaunchProcess(@".\Krypton ListBox Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton ListBox Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONCHECKEDLISTBOX:
-                    ProcessManager.LaunchProcess(@".\Krypton Checked ListBox Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Checked ListBox Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONTEXTBOX:
-                    ProcessManager.LaunchProcess(@".\Krypton TextBox Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton TextBox Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONMASKEDTEXTBOX:
-                    ProcessManager.LaunchProcess(@".\Krypton Masked TextBox Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Masked TextBox Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONRICHTEXTBOX:
-                    ProcessManager.LaunchProcess(@".\Krypton Rich TextBox Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Rich TextBox Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONCOMBOBOX:
-                    ProcessManager.LaunchProcess(@".\Krypton ComboBox Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton ComboBox Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONNUMERICUPDOWN:
-                    ProcessManager.LaunchProcess(@".\Krypton Numeric UpDown Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Numeric UpDown Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONDOMAINUPDOWN:
-                    ProcessManager.LaunchProcess(@".\Krypton Domain UpDown Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Domain UpDown Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONBREADCRUMB:
-                    ProcessManager.LaunchProcess(@".\Krypton Bread Crumb Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Bread Crumb Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONDATETIMEPICKER:
-                    ProcessManager.LaunchProcess(@".\Krypton DateTimePicker Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton DateTimePicker Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONMONTHCALENDAR:
-                    ProcessManager.LaunchProcess(@".\Krypton Month Calendar Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Month Calendar Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONDATAGRIDVIEW:
-                    ProcessManager.LaunchProcess(@".\Krypton Data GridView Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Data GridView Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONTREEVIEW:
-                    ProcessManager.LaunchProcess(@".\Krypton TreeView Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton TreeView Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONBORDEREDGE:
-                    ProcessManager.LaunchProcess(@".\Krypton Border Edge Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Border Edge Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONSEPARATOR:
-                    ProcessManager.LaunchProcess(@".\Krypton Separator Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Separator Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONPANEL:
-                    ProcessManager.LaunchProcess(@".\Krypton Panel Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Panel Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONGROUP:
-                    ProcessManager.LaunchProcess(@".\Krypton Group Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Group Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONGROUPBOX:
-                    ProcessManager.LaunchProcess(@".\Krypton GroupBox Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton GroupBox Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONHEADERGROUP:
-                    ProcessManager.LaunchProcess(@".\Krypton Header Group Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Header Group Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONHEADER:
-                    ProcessManager.LaunchProcess(@".\Krypton Header Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Header Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONPALETTE:
-                    ProcessManager.LaunchProcess(@".\Krypton Palette Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Palette Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONCOMMAND:
-                    ProcessManager.LaunchProcess(@".\Krypton Command Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Command Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONINPUTBOX:
-                    ProcessManager.LaunchProcess(@".\Krypton InputBox Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton InputBox Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONMESSAGEBOX:
-                    ProcessManager.LaunchProcess(@".\Krypton MessageBox Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton MessageBox Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONTASKDIALOG:
-                    ProcessManager.LaunchProcess(@".\Krypton TaskDialog Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton TaskDialog Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ComponentToolkitExamples.KRYPTONFORM:
-                    ProcessManager.LaunchProcess(@".\Krypton Form Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Form Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
@@ -328,77 +324,77 @@ namespace KryptonToolkitHub.Classes
             switch (applicationExample)
             {
                 case ApplicationToolkitExamples.INPUTFORM:
-                    ProcessManager.LaunchProcess(@".\Input Form Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Input Form Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.THREEPANEAPPLICATIONBASIC:
-                    ProcessManager.LaunchProcess(@".\Three Pane Application Basic.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Three Pane Application Basic.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.THREEPANEAPPLICATIONEXTENDED:
-                    ProcessManager.LaunchProcess(@".\Three Pane Application Extended.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Three Pane Application Extended.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.EXPANDINGHEADERGROUPSSPLITTERS:
-                    ProcessManager.LaunchProcess(@".\Expanding Header Groups Splitters Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Expanding Header Groups Splitters Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.EXPANDINGHEADERGROUPSDOCKSTYLE:
-                    ProcessManager.LaunchProcess(@".\Expanding Header Groups DockStyle Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Expanding Header Groups DockStyle Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.EXPANDINGHEADERGROUPSSTACK:
-                    ProcessManager.LaunchProcess(@".\Expanding Header Groups Stack Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Expanding Header Groups Stack Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.MDIAPPLICATION:
-                    ProcessManager.LaunchProcess(@".\MDI Application.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\MDI Application.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.CHILDCONTROLSTACK:
-                    ProcessManager.LaunchProcess(@".\Child Control Stack.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Child Control Stack.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.BUTTONSPECPLAYGROUND:
-                    ProcessManager.LaunchProcess(@".\Button Spec Playground.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Button Spec Playground.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.CUSTOMCONTROLUSINGPALETTES:
-                    ProcessManager.LaunchProcess(@".\Custom Control Using Palettes.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Custom Control Using Palettes.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.CUSTOMCONTROLUSINGRENDERERS:
-                    ProcessManager.LaunchProcess(@".\Custom Control Using Renderers.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Custom Control Using Renderers.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
@@ -426,35 +422,35 @@ namespace KryptonToolkitHub.Classes
             switch (applicationToolkitExample)
             {
                 case TestApplicationToolkitExamples.KRYPTONTREEVIEW:
-                    ProcessManager.LaunchProcess(@".\Krypton TreeView Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton TreeView Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case TestApplicationToolkitExamples.SYSTEMTHEMEDFORMS:
-                    ProcessManager.LaunchProcess(@".\System Themed Forms.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\System Themed Forms.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case TestApplicationToolkitExamples.TESTCLIPBASE:
-                    ProcessManager.LaunchProcess(@".\Test Clip Base.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Test Clip Base.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case TestApplicationToolkitExamples.TESTMESSAGEBOXCLIPPING:
-                    ProcessManager.LaunchProcess(@".\Test MessageBox Clipping.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Test MessageBox Clipping.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case TestApplicationToolkitExamples.TESTTEXTCLIPPING:
-                    ProcessManager.LaunchProcess(@".\Test Text Clipping.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Test Text Clipping.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
@@ -482,35 +478,35 @@ namespace KryptonToolkitHub.Classes
             switch (dockingFeatureExample)
             {
                 case DockingFeatureExamples.DOCKINGCUSTOMISED:
-                    ProcessManager.LaunchProcess(@".\Docking Customized.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Docking Customized.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case DockingFeatureExamples.DOCKINGPERSISTENCE:
-                    ProcessManager.LaunchProcess(@".\Docking Persistence.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Docking Persistence.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case DockingFeatureExamples.DOCKINGFLAGS:
-                    ProcessManager.LaunchProcess(@".\Docking Flags.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Docking Flags.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case DockingFeatureExamples.MULTICONTROLDOCKING:
-                    ProcessManager.LaunchProcess(@".\Multi Control Docking.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Multi Control Docking.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case DockingFeatureExamples.EXTERNALDRAGTODOCKING:
-                    ProcessManager.LaunchProcess(@".\External Drag To Docking.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\External Drag To Docking.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
@@ -538,14 +534,14 @@ namespace KryptonToolkitHub.Classes
             switch (dockingUsageExample)
             {
                 case DockingUsageExamples.STANDARDDOCKING:
-                    ProcessManager.LaunchProcess(@".\Standard Docking.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Standard Docking.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case DockingUsageExamples.NAVICATORPLUSFLOATINGWINDOWS:
-                    ProcessManager.LaunchProcess(@".\Navigator And Floating Windows.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Navigator And Floating Windows.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
@@ -573,42 +569,42 @@ namespace KryptonToolkitHub.Classes
             switch (workspaceFeatureExample)
             {
                 case WorkspaceFeatureExamples.WORKSPACECELLMODES:
-                    ProcessManager.LaunchProcess(@".\Workspace Cell Modes.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Workspace Cell Modes.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case WorkspaceFeatureExamples.WORKSPACECELLLAYOUT:
-                    ProcessManager.LaunchProcess(@".\Workspace Cell Layout.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Workspace Cell Layout.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case WorkspaceFeatureExamples.WORKSPACEPERSISTENCE:
-                    ProcessManager.LaunchProcess(@".\Workspace Persistence.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Workspace Persistence.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case WorkspaceFeatureExamples.CELLMAXIMISEPLUSRESTORE:
-                    ProcessManager.LaunchProcess(@".\Cell Maximize And Restore.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Cell Maximize And Restore.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case WorkspaceFeatureExamples.BASICPAGEDRAGANDDROP:
-                    ProcessManager.LaunchProcess(@".\Basic Page Drag And Drop.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Basic Page Drag And Drop.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case WorkspaceFeatureExamples.ADVANCEDPAGEDRAGANDDROP:
-                    ProcessManager.LaunchProcess(@".\Advanced Page Drag And Drop.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Advanced Page Drag And Drop.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
@@ -636,14 +632,14 @@ namespace KryptonToolkitHub.Classes
             switch (workspaceUsageExample)
             {
                 case WorkspaceUsageExamples.RIBBONPLUSNAVIGATORPLUSWORKSPACE:
-                    ProcessManager.LaunchProcess(@".\Ribbon And Navigator And Workspace.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Ribbon And Navigator And Workspace.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case WorkspaceUsageExamples.MEMOEDITOR:
-                    ProcessManager.LaunchProcess(@".\Memo Editor.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Memo Editor.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
@@ -671,91 +667,91 @@ namespace KryptonToolkitHub.Classes
             switch (navigatorFeatureExample)
             {
                 case NavigatorFeatureExamples.NAVIGATORMODES:
-                    ProcessManager.LaunchProcess(@".\Navigator Modes.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Navigator Modes.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case NavigatorFeatureExamples.NAVIGATORPALETTES:
-                    ProcessManager.LaunchProcess(@".\Navigator Palettes.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Navigator Palettes.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case NavigatorFeatureExamples.OREINTATIONPLUSALIGNMENT:
-                    ProcessManager.LaunchProcess(@".\Orientation Plus Alignment.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Orientation Plus Alignment.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case NavigatorFeatureExamples.SINGLELINEPLUSMULTILINE:
-                    ProcessManager.LaunchProcess(@".\Singleline Plus Multiline.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Singleline Plus Multiline.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case NavigatorFeatureExamples.TABBORDERSTYLES:
-                    ProcessManager.LaunchProcess(@".\Tab Border Styles.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Tab Border Styles.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case NavigatorFeatureExamples.POPUPPAGES:
-                    ProcessManager.LaunchProcess(@".\Popup Pages.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Popup Pages.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case NavigatorFeatureExamples.PERTABBUTTONS:
-                    ProcessManager.LaunchProcess(@".\Per Tab Buttons.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Per Tab Buttons.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case NavigatorFeatureExamples.NAVIGATORTOOLTIPS:
-                    ProcessManager.LaunchProcess(@".\Navigator Tool Tips.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Navigator Tool Tips.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case NavigatorFeatureExamples.NAVIGATORCONTEXTMENUS:
-                    ProcessManager.LaunchProcess(@".\Navigator Context Menus.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Navigator Context Menus.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case NavigatorFeatureExamples.NAVIGATORPLAYGROROUND:
-                    ProcessManager.LaunchProcess(@".\Navigator Playground.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Navigator Playground.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case NavigatorFeatureExamples.BASICPAGEDRAGANDDROP:
-                    ProcessManager.LaunchProcess(@".\Basic Page Drag And Drop.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Basic Page Drag And Drop.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case NavigatorFeatureExamples.ADVANCEDPAGEDRAGANDDROP:
-                    ProcessManager.LaunchProcess(@".\Advanced Page Drag And Drop.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Advanced Page Drag And Drop.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case NavigatorFeatureExamples.BASICEVENTS:
-                    ProcessManager.LaunchProcess(@".\Basic Events.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Basic Events.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
@@ -783,42 +779,42 @@ namespace KryptonToolkitHub.Classes
             switch (navigatorUsageExample)
             {
                 case NavigatorUsageExamples.USERPAGECREATION:
-                    ProcessManager.LaunchProcess(@".\User Page Creation.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\User Page Creation.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case NavigatorUsageExamples.ONENOTETABS:
-                    ProcessManager.LaunchProcess(@".\OneNote Tabs.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\OneNote Tabs.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case NavigatorUsageExamples.OUTLOOKMOCKUP:
-                    ProcessManager.LaunchProcess(@".\Outlook Mockup.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Outlook Mockup.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case NavigatorUsageExamples.RIBBONPLUSNAVIGATORPLUSWORKSPACE:
-                    ProcessManager.LaunchProcess(@".\Ribbon And Navigator And Workspace.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Ribbon And Navigator And Workspace.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case NavigatorUsageExamples.EXPANDINGPAGES:
-                    ProcessManager.LaunchProcess(@".\Expanding Pages.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Expanding Pages.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case NavigatorUsageExamples.NAVIGATORPLUSFLOATINGWINDOWS:
-                    ProcessManager.LaunchProcess(@".\Navigator And Floating Windows.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Navigator And Floating Windows.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
@@ -846,63 +842,63 @@ namespace KryptonToolkitHub.Classes
             switch (ribbonFeatureExample)
             {
                 case RibbonFeatureExamples.CONTEXTUALTABS:
-                    ProcessManager.LaunchProcess(@".\Contextual Tabs.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Contextual Tabs.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case RibbonFeatureExamples.KEYTIPSPLUSKEYBOARDACCESS:
-                    ProcessManager.LaunchProcess(@".\Key Tips And Keyboard Access.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Key Tips And Keyboard Access.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case RibbonFeatureExamples.AUTOSHRINKINGGROUPS:
-                    ProcessManager.LaunchProcess(@".\Auto Shrinking Groups.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Auto Shrinking Groups.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case RibbonFeatureExamples.QUICKACCESSTOOLBAR:
-                    ProcessManager.LaunchProcess(@".\Quick Access Toolbar.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Quick Access Toolbar.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case RibbonFeatureExamples.RIBBONGALLERY:
-                    ProcessManager.LaunchProcess(@".\Ribbon Gallery.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Ribbon Gallery.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case RibbonFeatureExamples.RIBBONTOOLTIPS:
-                    ProcessManager.LaunchProcess(@".\Ribbon Tool Tips.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Ribbon Tool Tips.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case RibbonFeatureExamples.RIBBONCONTROLS:
-                    ProcessManager.LaunchProcess(@".\Ribbon Controls.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Ribbon Controls.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case RibbonFeatureExamples.APPLICATIONMENU:
-                    ProcessManager.LaunchProcess(@".\Application Menu.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Application Menu.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case RibbonFeatureExamples.KRYPTONGALLERYEXAMPLES:
-                    ProcessManager.LaunchProcess(@".\Krypton Gallery Examples.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Krypton Gallery Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
@@ -930,28 +926,28 @@ namespace KryptonToolkitHub.Classes
             switch (ribbonUsageExample)
             {
                 case RibbonUsageExamples.OUTLOOKMAILCLONE:
-                    ProcessManager.LaunchProcess(@".\Outlook Mail Clone.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Outlook Mail Clone.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case RibbonUsageExamples.RIBBONPLUSNAVIGATORPLUSWORKSPACE:
-                    ProcessManager.LaunchProcess(@".\Ribbon And Navigator And Workspace.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Ribbon And Navigator And Workspace.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case RibbonUsageExamples.MDIRIBBON:
-                    ProcessManager.LaunchProcess(@".\MDI Ribbon.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\MDI Ribbon.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case RibbonUsageExamples.MEMOEDITOR:
-                    ProcessManager.LaunchProcess(@".\Memo Editor.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Memo Editor.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
@@ -979,14 +975,14 @@ namespace KryptonToolkitHub.Classes
             switch (kryptonApplication)
             {
                 case KryptonApplications.PALETTEDESIGNER:
-                    ProcessManager.LaunchProcess(@".\Palette Designer.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Palette Designer.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case KryptonApplications.PALETTEUPGRADETOOL:
-                    ProcessManager.LaunchProcess(@".\Palette Upgrade Tool.exe", useFullPath);
+                    ProcessManager.LaunchProcess(IOOperations.GetApplicationProcessExecutablePath() + "\\Palette Upgrade Tool.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
