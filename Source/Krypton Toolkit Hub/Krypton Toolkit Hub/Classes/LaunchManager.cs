@@ -6,6 +6,10 @@ namespace KryptonToolkitHub.Classes
 {
     public class LaunchManager
     {
+        #region Variables
+        private IOOperations _io = new IOOperations();
+        #endregion
+
         #region Constructor
         public LaunchManager()
         {
@@ -324,66 +328,77 @@ namespace KryptonToolkitHub.Classes
             switch (applicationExample)
             {
                 case ApplicationToolkitExamples.INPUTFORM:
+                    ProcessManager.LaunchProcess(@".\Input Form Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.THREEPANEAPPLICATIONBASIC:
+                    ProcessManager.LaunchProcess(@".\Three Pane Application Basic.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.THREEPANEAPPLICATIONEXTENDED:
+                    ProcessManager.LaunchProcess(@".\Three Pane Application Extended.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.EXPANDINGHEADERGROUPSSPLITTERS:
+                    ProcessManager.LaunchProcess(@".\Expanding Header Groups Splitters Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.EXPANDINGHEADERGROUPSDOCKSTYLE:
+                    ProcessManager.LaunchProcess(@".\Expanding Header Groups DockStyle Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.EXPANDINGHEADERGROUPSSTACK:
+                    ProcessManager.LaunchProcess(@".\Expanding Header Groups Stack Examples.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.MDIAPPLICATION:
+                    ProcessManager.LaunchProcess(@".\MDI Application.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.CHILDCONTROLSTACK:
+                    ProcessManager.LaunchProcess(@".\Child Control Stack.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.BUTTONSPECPLAYGROUND:
+                    ProcessManager.LaunchProcess(@".\Button Spec Playground.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.CUSTOMCONTROLUSINGPALETTES:
+                    ProcessManager.LaunchProcess(@".\Custom Control Using Palettes.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
                     UpdateStatus(statusLabel, statusText);
                     break;
                 case ApplicationToolkitExamples.CUSTOMCONTROLUSINGRENDERERS:
+                    ProcessManager.LaunchProcess(@".\Custom Control Using Renderers.exe", useFullPath);
 
                     statusText = ProcessManager.GetProcessFilePath();
 
@@ -411,14 +426,39 @@ namespace KryptonToolkitHub.Classes
             switch (applicationToolkitExample)
             {
                 case TestApplicationToolkitExamples.KRYPTONTREEVIEW:
+                    ProcessManager.LaunchProcess(@".\Krypton TreeView Examples.exe", useFullPath);
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case TestApplicationToolkitExamples.SYSTEMTHEMEDFORMS:
+                    ProcessManager.LaunchProcess(@".\System Themed Forms.exe", useFullPath);
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case TestApplicationToolkitExamples.TESTCLIPBASE:
+                    ProcessManager.LaunchProcess(@".\Test Clip Base.exe", useFullPath);
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case TestApplicationToolkitExamples.TESTMESSAGEBOXCLIPPING:
+                    ProcessManager.LaunchProcess(@".\Test MessageBox Clipping.exe", useFullPath);
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case TestApplicationToolkitExamples.TESTTEXTCLIPPING:
+                    ProcessManager.LaunchProcess(@".\Test Text Clipping.exe", useFullPath);
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case TestApplicationToolkitExamples.READY:
                     UpdateStatus(statusLabel, "Ready", useFullPath);
@@ -442,16 +482,42 @@ namespace KryptonToolkitHub.Classes
             switch (dockingFeatureExample)
             {
                 case DockingFeatureExamples.DOCKINGCUSTOMISED:
+                    ProcessManager.LaunchProcess(@".\Docking Customized.exe", useFullPath);
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case DockingFeatureExamples.DOCKINGPERSISTENCE:
+                    ProcessManager.LaunchProcess(@".\Docking Persistence.exe", useFullPath);
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case DockingFeatureExamples.DOCKINGFLAGS:
+                    ProcessManager.LaunchProcess(@".\Docking Flags.exe", useFullPath);
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case DockingFeatureExamples.MULTICONTROLDOCKING:
+                    ProcessManager.LaunchProcess(@".\Multi Control Docking.exe", useFullPath);
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case DockingFeatureExamples.EXTERNALDRAGTODOCKING:
+                    ProcessManager.LaunchProcess(@".\External Drag To Docking.exe", useFullPath);
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case DockingFeatureExamples.READY:
+                    UpdateStatus(statusLabel, "Ready", useFullPath);
                     break;
                 default:
                     break;
@@ -472,10 +538,21 @@ namespace KryptonToolkitHub.Classes
             switch (dockingUsageExample)
             {
                 case DockingUsageExamples.STANDARDDOCKING:
+                    ProcessManager.LaunchProcess(@".\Standard Docking.exe", useFullPath);
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case DockingUsageExamples.NAVICATORPLUSFLOATINGWINDOWS:
+                    ProcessManager.LaunchProcess(@".\Navigator And Floating Windows.exe", useFullPath);
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case DockingUsageExamples.READY:
+                    UpdateStatus(statusLabel, "Ready", useFullPath);
                     break;
                 default:
                     break;
@@ -496,18 +573,49 @@ namespace KryptonToolkitHub.Classes
             switch (workspaceFeatureExample)
             {
                 case WorkspaceFeatureExamples.WORKSPACECELLMODES:
+                    ProcessManager.LaunchProcess(@".\Workspace Cell Modes.exe", useFullPath);
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case WorkspaceFeatureExamples.WORKSPACECELLLAYOUT:
+                    ProcessManager.LaunchProcess(@".\Workspace Cell Layout.exe", useFullPath);
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case WorkspaceFeatureExamples.WORKSPACEPERSISTENCE:
+                    ProcessManager.LaunchProcess(@".\Workspace Persistence.exe", useFullPath);
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case WorkspaceFeatureExamples.CELLMAXIMISEPLUSRESTORE:
+                    ProcessManager.LaunchProcess(@".\Cell Maximize And Restore.exe", useFullPath);
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case WorkspaceFeatureExamples.BASICPAGEDRAGANDDROP:
+                    ProcessManager.LaunchProcess(@".\Basic Page Drag And Drop.exe", useFullPath);
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case WorkspaceFeatureExamples.ADVANCEDPAGEDRAGANDDROP:
+                    ProcessManager.LaunchProcess(@".\Advanced Page Drag And Drop.exe", useFullPath);
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case WorkspaceFeatureExamples.READY:
+                    UpdateStatus(statusLabel, "Ready", useFullPath);
                     break;
                 default:
                     break;
@@ -528,10 +636,21 @@ namespace KryptonToolkitHub.Classes
             switch (workspaceUsageExample)
             {
                 case WorkspaceUsageExamples.RIBBONPLUSNAVIGATORPLUSWORKSPACE:
+                    ProcessManager.LaunchProcess(@".\Ribbon And Navigator And Workspace.exe", useFullPath);
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case WorkspaceUsageExamples.MEMOEDITOR:
+                    ProcessManager.LaunchProcess(@".\Memo Editor.exe", useFullPath);
+
+                    statusText = ProcessManager.GetProcessFilePath();
+
+                    UpdateStatus(statusLabel, statusText);
                     break;
                 case WorkspaceUsageExamples.READY:
+                    UpdateStatus(statusLabel, "Ready", useFullPath);
                     break;
                 default:
                     break;

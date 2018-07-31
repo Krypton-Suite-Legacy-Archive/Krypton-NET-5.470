@@ -356,6 +356,32 @@ namespace KryptonToolkitHub.Classes
 
             return tempVersion;
         }
+
+        /// <summary>
+        /// Returns the application executable path.
+        /// </summary>
+        public void ReturnApplicationExecutablePath()
+        {
+            KryptonMessageBox.Show($"Application is located in: '{ Application.ExecutablePath }'", $"Debug Information - { DateTime.Today.ToLongDateString() }", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        /// <summary>
+        /// Gets the application executable path.
+        /// </summary>
+        /// <returns></returns>
+        public string GetApplicationExecutablePath()
+        {
+            return Application.ExecutablePath;
+        }
+
+        /// <summary>
+        /// Gets the application process executable path.
+        /// </summary>
+        /// <returns></returns>
+        public static string GetApplicationProcessExecutablePath()
+        {
+            return Application.ExecutablePath;
+        }
         #endregion
     }
 }

@@ -29,6 +29,11 @@ namespace KryptonToolkitHub.UX
 
             if (_settingsManager.GetBetaVersion())
             {
+                _io.ReturnApplicationExecutablePath();
+            }
+
+            if (_settingsManager.GetBetaVersion())
+            {
                 klblTitle.Values.ExtraText = $"Beta (Build: { _applicationVersion.Build.ToString() })";
             }
             else
@@ -78,7 +83,7 @@ namespace KryptonToolkitHub.UX
 
         private void SplashWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            Hide();
         }
     }
 }
