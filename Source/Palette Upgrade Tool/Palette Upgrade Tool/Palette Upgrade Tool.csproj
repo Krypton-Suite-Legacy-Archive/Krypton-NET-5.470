@@ -84,6 +84,12 @@
   <ItemGroup>
     <None Include="Resources\Krypton.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Square Design 64 x 64 New Green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Square Design 128 x 128 New Green.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(TargetDir)*.*" "$(ProjectDir)..\..\..\Binaries\" /D /R /Y /S</PostBuildEvent>

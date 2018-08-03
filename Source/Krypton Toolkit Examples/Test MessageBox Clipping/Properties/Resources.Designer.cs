@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Test_MessageBox_Clipping.Properties {
+namespace TestMessageBoxClipping.Properties {
     using System;
     
     

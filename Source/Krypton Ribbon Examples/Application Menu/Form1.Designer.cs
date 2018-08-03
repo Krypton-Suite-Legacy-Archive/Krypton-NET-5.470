@@ -45,6 +45,11 @@ namespace ApplicationMenu
             this.buttonSpecAppMenu2 = new ComponentFactory.Krypton.Ribbon.ButtonSpecAppMenu();
             this.kryptonRibbonTab1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
             this.kryptonRibbonGroup1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple4 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.button2010Blue = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.button2010Silver = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.button2010Black = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroupSeparator3 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupSeparator();
             this.kryptonRibbonGroupTriple1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.buttonBlue = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.buttonSilver = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
@@ -70,11 +75,6 @@ namespace ApplicationMenu
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.textBoxMinWidth = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonRibbonGroupSeparator3 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupSeparator();
-            this.kryptonRibbonGroupTriple4 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.button2010Blue = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.button2010Silver = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.button2010Black = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonRibbon1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
@@ -86,6 +86,8 @@ namespace ApplicationMenu
             // 
             // kryptonRibbon1
             // 
+            this.kryptonRibbon1.AllowFormIntegrate = true;
+            this.kryptonRibbon1.InDesignHelperMode = true;
             this.kryptonRibbon1.Name = "kryptonRibbon1";
             this.kryptonRibbon1.RibbonAppButton.AppButtonMenuItems.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kryptonContextMenuItem1,
@@ -105,8 +107,9 @@ namespace ApplicationMenu
             this.buttonSpecAppMenu2});
             this.kryptonRibbon1.RibbonTabs.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab[] {
             this.kryptonRibbonTab1});
+            this.kryptonRibbon1.SelectedContext = null;
             this.kryptonRibbon1.SelectedTab = this.kryptonRibbonTab1;
-            this.kryptonRibbon1.Size = new System.Drawing.Size(519, 114);
+            this.kryptonRibbon1.Size = new System.Drawing.Size(519, 115);
             this.kryptonRibbon1.TabIndex = 0;
             this.kryptonRibbon1.AppButtonMenuOpening += new System.ComponentModel.CancelEventHandler(this.kryptonRibbon1_AppButtonMenuOpening);
             // 
@@ -180,6 +183,41 @@ namespace ApplicationMenu
             this.kryptonRibbonGroupSeparator2,
             this.kryptonRibbonGroupTriple2});
             this.kryptonRibbonGroup1.TextLine1 = "Palettes";
+            // 
+            // kryptonRibbonGroupTriple4
+            // 
+            this.kryptonRibbonGroupTriple4.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.button2010Blue,
+            this.button2010Silver,
+            this.button2010Black});
+            // 
+            // button2010Blue
+            // 
+            this.button2010Blue.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.Check;
+            this.button2010Blue.Checked = true;
+            this.button2010Blue.ImageLarge = ((System.Drawing.Image)(resources.GetObject("button2010Blue.ImageLarge")));
+            this.button2010Blue.ImageSmall = ((System.Drawing.Image)(resources.GetObject("button2010Blue.ImageSmall")));
+            this.button2010Blue.TextLine1 = "2010";
+            this.button2010Blue.TextLine2 = "Blue";
+            this.button2010Blue.Click += new System.EventHandler(this.button2010Blue_Click);
+            // 
+            // button2010Silver
+            // 
+            this.button2010Silver.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.Check;
+            this.button2010Silver.ImageLarge = ((System.Drawing.Image)(resources.GetObject("button2010Silver.ImageLarge")));
+            this.button2010Silver.ImageSmall = ((System.Drawing.Image)(resources.GetObject("button2010Silver.ImageSmall")));
+            this.button2010Silver.TextLine1 = "2010";
+            this.button2010Silver.TextLine2 = "Silver";
+            this.button2010Silver.Click += new System.EventHandler(this.button2010Silver_Click);
+            // 
+            // button2010Black
+            // 
+            this.button2010Black.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.Check;
+            this.button2010Black.ImageLarge = ((System.Drawing.Image)(resources.GetObject("button2010Black.ImageLarge")));
+            this.button2010Black.ImageSmall = ((System.Drawing.Image)(resources.GetObject("button2010Black.ImageSmall")));
+            this.button2010Black.TextLine1 = "2010";
+            this.button2010Black.TextLine2 = "Black";
+            this.button2010Black.Click += new System.EventHandler(this.button2010Black_Click);
             // 
             // kryptonRibbonGroupTriple1
             // 
@@ -279,13 +317,17 @@ namespace ApplicationMenu
             this.buttonSystem.TextLine1 = "System";
             this.buttonSystem.Click += new System.EventHandler(this.buttonSystem_Click);
             // 
+            // kryptonManager1
+            // 
+            this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Silver;
+            // 
             // kryptonPanel1
             // 
             this.kryptonPanel1.Controls.Add(this.kryptonGroup1);
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonPanel1.Location = new System.Drawing.Point(0, 114);
+            this.kryptonPanel1.Location = new System.Drawing.Point(0, 115);
             this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Size = new System.Drawing.Size(519, 332);
+            this.kryptonPanel1.Size = new System.Drawing.Size(519, 331);
             this.kryptonPanel1.TabIndex = 1;
             // 
             // kryptonGroup1
@@ -313,17 +355,17 @@ namespace ApplicationMenu
             this.kryptonLabel5.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
             this.kryptonLabel5.Location = new System.Drawing.Point(10, 167);
             this.kryptonLabel5.Name = "kryptonLabel5";
-            this.kryptonLabel5.Size = new System.Drawing.Size(291, 34);
+            this.kryptonLabel5.Size = new System.Drawing.Size(308, 36);
             this.kryptonLabel5.TabIndex = 8;
             this.kryptonLabel5.Values.Text = "Change settings and then press the application button\r\nat the top left of the rib" +
-                "bon to see changes take effect.";
+    "bon to see changes take effect.";
             // 
             // kryptonLabel4
             // 
             this.kryptonLabel4.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitlePanel;
             this.kryptonLabel4.Location = new System.Drawing.Point(4, 4);
             this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(180, 28);
+            this.kryptonLabel4.Size = new System.Drawing.Size(187, 29);
             this.kryptonLabel4.TabIndex = 7;
             this.kryptonLabel4.Values.Text = "Recent Doc Settings";
             // 
@@ -334,7 +376,7 @@ namespace ApplicationMenu
             this.checkBoxShowRecentDocs.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
             this.checkBoxShowRecentDocs.Location = new System.Drawing.Point(163, 126);
             this.checkBoxShowRecentDocs.Name = "checkBoxShowRecentDocs";
-            this.checkBoxShowRecentDocs.Size = new System.Drawing.Size(145, 19);
+            this.checkBoxShowRecentDocs.Size = new System.Drawing.Size(152, 20);
             this.checkBoxShowRecentDocs.TabIndex = 0;
             this.checkBoxShowRecentDocs.Values.Text = "Show Recent Docs Area";
             // 
@@ -342,7 +384,7 @@ namespace ApplicationMenu
             // 
             this.textBoxMinHeight.Location = new System.Drawing.Point(163, 98);
             this.textBoxMinHeight.Name = "textBoxMinHeight";
-            this.textBoxMinHeight.Size = new System.Drawing.Size(50, 20);
+            this.textBoxMinHeight.Size = new System.Drawing.Size(50, 23);
             this.textBoxMinHeight.TabIndex = 6;
             this.textBoxMinHeight.Text = "kryptonTextBox3";
             // 
@@ -350,7 +392,7 @@ namespace ApplicationMenu
             // 
             this.textBoxDocsTitle.Location = new System.Drawing.Point(163, 50);
             this.textBoxDocsTitle.Name = "textBoxDocsTitle";
-            this.textBoxDocsTitle.Size = new System.Drawing.Size(141, 20);
+            this.textBoxDocsTitle.Size = new System.Drawing.Size(141, 23);
             this.textBoxDocsTitle.TabIndex = 1;
             this.textBoxDocsTitle.Text = "kryptonTextBox1";
             // 
@@ -359,7 +401,7 @@ namespace ApplicationMenu
             this.kryptonLabel3.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
             this.kryptonLabel3.Location = new System.Drawing.Point(18, 100);
             this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(135, 19);
+            this.kryptonLabel3.Size = new System.Drawing.Size(143, 20);
             this.kryptonLabel3.TabIndex = 5;
             this.kryptonLabel3.Values.Text = "Recent Docs Min Height";
             // 
@@ -368,7 +410,7 @@ namespace ApplicationMenu
             this.kryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
             this.kryptonLabel1.Location = new System.Drawing.Point(53, 50);
             this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(99, 19);
+            this.kryptonLabel1.Size = new System.Drawing.Size(104, 20);
             this.kryptonLabel1.TabIndex = 2;
             this.kryptonLabel1.Values.Text = "Recent Docs Title";
             // 
@@ -377,7 +419,7 @@ namespace ApplicationMenu
             this.kryptonLabel2.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
             this.kryptonLabel2.Location = new System.Drawing.Point(21, 75);
             this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(131, 19);
+            this.kryptonLabel2.Size = new System.Drawing.Size(139, 20);
             this.kryptonLabel2.TabIndex = 4;
             this.kryptonLabel2.Values.Text = "Recent Docs Min Width";
             // 
@@ -385,44 +427,9 @@ namespace ApplicationMenu
             // 
             this.textBoxMinWidth.Location = new System.Drawing.Point(163, 74);
             this.textBoxMinWidth.Name = "textBoxMinWidth";
-            this.textBoxMinWidth.Size = new System.Drawing.Size(50, 20);
+            this.textBoxMinWidth.Size = new System.Drawing.Size(50, 23);
             this.textBoxMinWidth.TabIndex = 3;
             this.textBoxMinWidth.Text = "kryptonTextBox2";
-            // 
-            // kryptonRibbonGroupTriple4
-            // 
-            this.kryptonRibbonGroupTriple4.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
-            this.button2010Blue,
-            this.button2010Silver,
-            this.button2010Black});
-            // 
-            // button2010Blue
-            // 
-            this.button2010Blue.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.Check;
-            this.button2010Blue.Checked = true;
-            this.button2010Blue.ImageLarge = ((System.Drawing.Image)(resources.GetObject("button2010Blue.ImageLarge")));
-            this.button2010Blue.ImageSmall = ((System.Drawing.Image)(resources.GetObject("button2010Blue.ImageSmall")));
-            this.button2010Blue.TextLine1 = "2010";
-            this.button2010Blue.TextLine2 = "Blue";
-            this.button2010Blue.Click += new System.EventHandler(this.button2010Blue_Click);
-            // 
-            // button2010Silver
-            // 
-            this.button2010Silver.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.Check;
-            this.button2010Silver.ImageLarge = ((System.Drawing.Image)(resources.GetObject("button2010Silver.ImageLarge")));
-            this.button2010Silver.ImageSmall = ((System.Drawing.Image)(resources.GetObject("button2010Silver.ImageSmall")));
-            this.button2010Silver.TextLine1 = "2010";
-            this.button2010Silver.TextLine2 = "Silver";
-            this.button2010Silver.Click += new System.EventHandler(this.button2010Silver_Click);
-            // 
-            // button2010Black
-            // 
-            this.button2010Black.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.Check;
-            this.button2010Black.ImageLarge = ((System.Drawing.Image)(resources.GetObject("button2010Black.ImageLarge")));
-            this.button2010Black.ImageSmall = ((System.Drawing.Image)(resources.GetObject("button2010Black.ImageSmall")));
-            this.button2010Black.TextLine1 = "2010";
-            this.button2010Black.TextLine2 = "Black";
-            this.button2010Black.Click += new System.EventHandler(this.button2010Black_Click);
             // 
             // Form1
             // 

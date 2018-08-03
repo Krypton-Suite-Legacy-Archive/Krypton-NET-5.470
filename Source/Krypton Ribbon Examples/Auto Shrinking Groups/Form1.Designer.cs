@@ -157,7 +157,9 @@ namespace AutoShrinkingGroups
             // 
             // kryptonRibbon
             // 
+            this.kryptonRibbon.AllowFormIntegrate = true;
             this.kryptonRibbon.HideRibbonSize = new System.Drawing.Size(100, 250);
+            this.kryptonRibbon.InDesignHelperMode = true;
             this.kryptonRibbon.Name = "kryptonRibbon";
             this.kryptonRibbon.RibbonAppButton.AppButtonMenuItems.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kryptonContextMenuItem1});
@@ -166,8 +168,9 @@ namespace AutoShrinkingGroups
             this.kryptonRibbonTab1,
             this.kryptonRibbonTab2,
             this.kryptonRibbonTab3});
+            this.kryptonRibbon.SelectedContext = null;
             this.kryptonRibbon.SelectedTab = this.kryptonRibbonTab1;
-            this.kryptonRibbon.Size = new System.Drawing.Size(772, 114);
+            this.kryptonRibbon.Size = new System.Drawing.Size(772, 115);
             this.kryptonRibbon.TabIndex = 0;
             // 
             // kryptonContextMenuItem1
@@ -549,9 +552,9 @@ namespace AutoShrinkingGroups
             // 
             this.panelFill.Controls.Add(this.groupShrinkInfo);
             this.panelFill.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelFill.Location = new System.Drawing.Point(0, 114);
+            this.panelFill.Location = new System.Drawing.Point(0, 115);
             this.panelFill.Name = "panelFill";
-            this.panelFill.Size = new System.Drawing.Size(772, 281);
+            this.panelFill.Size = new System.Drawing.Size(772, 280);
             this.panelFill.TabIndex = 1;
             // 
             // groupShrinkInfo
@@ -572,7 +575,7 @@ namespace AutoShrinkingGroups
             this.labelAutoShrinkage.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitlePanel;
             this.labelAutoShrinkage.Location = new System.Drawing.Point(4, 4);
             this.labelAutoShrinkage.Name = "labelAutoShrinkage";
-            this.labelAutoShrinkage.Size = new System.Drawing.Size(251, 28);
+            this.labelAutoShrinkage.Size = new System.Drawing.Size(260, 29);
             this.labelAutoShrinkage.TabIndex = 1;
             this.labelAutoShrinkage.Values.Text = "Automatic Shrinking Groups";
             // 
@@ -581,7 +584,7 @@ namespace AutoShrinkingGroups
             this.labelAutoInstructions.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
             this.labelAutoInstructions.Location = new System.Drawing.Point(4, 37);
             this.labelAutoInstructions.Name = "labelAutoInstructions";
-            this.labelAutoInstructions.Size = new System.Drawing.Size(262, 140);
+            this.labelAutoInstructions.Size = new System.Drawing.Size(277, 148);
             this.labelAutoInstructions.TabIndex = 2;
             this.labelAutoInstructions.Values.Text = resources.GetString("labelAutoInstructions.Values.Text");
             // 

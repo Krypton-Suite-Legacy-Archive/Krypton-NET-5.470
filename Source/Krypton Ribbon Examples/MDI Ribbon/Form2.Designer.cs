@@ -18,6 +18,9 @@ namespace MDIRibbon
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.radio2010Black = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
+            this.radio2010Silver = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
+            this.radio2010Blue = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.radioSparkleOrange = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.radioSparklePurple = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.radioSparkleBlue = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
@@ -27,9 +30,6 @@ namespace MDIRibbon
             this.radioOffice2003 = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.radioSystem = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
-            this.radio2010Black = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.radio2010Silver = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.radio2010Blue = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -53,92 +53,12 @@ namespace MDIRibbon
             this.kryptonPanel1.Size = new System.Drawing.Size(423, 152);
             this.kryptonPanel1.TabIndex = 0;
             // 
-            // radioSparkleOrange
-            // 
-            this.radioSparkleOrange.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
-            this.radioSparkleOrange.Location = new System.Drawing.Point(289, 41);
-            this.radioSparkleOrange.Name = "radioSparkleOrange";
-            this.radioSparkleOrange.Size = new System.Drawing.Size(110, 19);
-            this.radioSparkleOrange.TabIndex = 7;
-            this.radioSparkleOrange.Values.Text = "Sparkle - Orange";
-            this.radioSparkleOrange.CheckedChanged += new System.EventHandler(this.radioSparkleOrange_CheckedChanged);
-            // 
-            // radioSparklePurple
-            // 
-            this.radioSparklePurple.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
-            this.radioSparklePurple.Location = new System.Drawing.Point(289, 65);
-            this.radioSparklePurple.Name = "radioSparklePurple";
-            this.radioSparklePurple.Size = new System.Drawing.Size(104, 19);
-            this.radioSparklePurple.TabIndex = 8;
-            this.radioSparklePurple.Values.Text = "Sparkle - Purple";
-            this.radioSparklePurple.CheckedChanged += new System.EventHandler(this.radioSparklePurple_CheckedChanged);
-            // 
-            // radioSparkleBlue
-            // 
-            this.radioSparkleBlue.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
-            this.radioSparkleBlue.Location = new System.Drawing.Point(289, 17);
-            this.radioSparkleBlue.Name = "radioSparkleBlue";
-            this.radioSparkleBlue.Size = new System.Drawing.Size(93, 19);
-            this.radioSparkleBlue.TabIndex = 6;
-            this.radioSparkleBlue.Values.Text = "Sparkle - Blue";
-            this.radioSparkleBlue.CheckedChanged += new System.EventHandler(this.radioSparkleBlue_CheckedChanged);
-            // 
-            // radioBlack
-            // 
-            this.radioBlack.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
-            this.radioBlack.Location = new System.Drawing.Point(150, 65);
-            this.radioBlack.Name = "radioBlack";
-            this.radioBlack.Size = new System.Drawing.Size(119, 19);
-            this.radioBlack.TabIndex = 5;
-            this.radioBlack.Values.Text = "Office 2007 - Black";
-            this.radioBlack.CheckedChanged += new System.EventHandler(this.radioBlack_CheckedChanged);
-            // 
-            // radioSilver
-            // 
-            this.radioSilver.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
-            this.radioSilver.Location = new System.Drawing.Point(150, 41);
-            this.radioSilver.Name = "radioSilver";
-            this.radioSilver.Size = new System.Drawing.Size(120, 19);
-            this.radioSilver.TabIndex = 4;
-            this.radioSilver.Values.Text = "Office 2007 - Silver";
-            this.radioSilver.CheckedChanged += new System.EventHandler(this.radioSilver_CheckedChanged);
-            // 
-            // radioBlue
-            // 
-            this.radioBlue.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
-            this.radioBlue.Location = new System.Drawing.Point(150, 17);
-            this.radioBlue.Name = "radioBlue";
-            this.radioBlue.Size = new System.Drawing.Size(114, 19);
-            this.radioBlue.TabIndex = 3;
-            this.radioBlue.Values.Text = "Office 2007 - Blue";
-            this.radioBlue.CheckedChanged += new System.EventHandler(this.radioBlue_CheckedChanged);
-            // 
-            // radioOffice2003
-            // 
-            this.radioOffice2003.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
-            this.radioOffice2003.Location = new System.Drawing.Point(15, 103);
-            this.radioOffice2003.Name = "radioOffice2003";
-            this.radioOffice2003.Size = new System.Drawing.Size(81, 19);
-            this.radioOffice2003.TabIndex = 9;
-            this.radioOffice2003.Values.Text = "Office 2003";
-            this.radioOffice2003.CheckedChanged += new System.EventHandler(this.radioOffice2003_CheckedChanged);
-            // 
-            // radioSystem
-            // 
-            this.radioSystem.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
-            this.radioSystem.Location = new System.Drawing.Point(150, 103);
-            this.radioSystem.Name = "radioSystem";
-            this.radioSystem.Size = new System.Drawing.Size(59, 19);
-            this.radioSystem.TabIndex = 10;
-            this.radioSystem.Values.Text = "System";
-            this.radioSystem.CheckedChanged += new System.EventHandler(this.radioSystem_CheckedChanged);
-            // 
             // radio2010Black
             // 
             this.radio2010Black.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
             this.radio2010Black.Location = new System.Drawing.Point(15, 65);
             this.radio2010Black.Name = "radio2010Black";
-            this.radio2010Black.Size = new System.Drawing.Size(119, 19);
+            this.radio2010Black.Size = new System.Drawing.Size(125, 20);
             this.radio2010Black.TabIndex = 2;
             this.radio2010Black.Values.Text = "Office 2010 - Black";
             this.radio2010Black.CheckedChanged += new System.EventHandler(this.radio2010Black_CheckedChanged);
@@ -148,7 +68,7 @@ namespace MDIRibbon
             this.radio2010Silver.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
             this.radio2010Silver.Location = new System.Drawing.Point(15, 41);
             this.radio2010Silver.Name = "radio2010Silver";
-            this.radio2010Silver.Size = new System.Drawing.Size(120, 19);
+            this.radio2010Silver.Size = new System.Drawing.Size(126, 20);
             this.radio2010Silver.TabIndex = 1;
             this.radio2010Silver.Values.Text = "Office 2010 - Silver";
             this.radio2010Silver.CheckedChanged += new System.EventHandler(this.radio2010Silver_CheckedChanged);
@@ -159,10 +79,94 @@ namespace MDIRibbon
             this.radio2010Blue.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
             this.radio2010Blue.Location = new System.Drawing.Point(15, 17);
             this.radio2010Blue.Name = "radio2010Blue";
-            this.radio2010Blue.Size = new System.Drawing.Size(114, 19);
+            this.radio2010Blue.Size = new System.Drawing.Size(120, 20);
             this.radio2010Blue.TabIndex = 0;
             this.radio2010Blue.Values.Text = "Office 2010 - Blue";
             this.radio2010Blue.CheckedChanged += new System.EventHandler(this.radio2010Blue_CheckedChanged);
+            // 
+            // radioSparkleOrange
+            // 
+            this.radioSparkleOrange.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.radioSparkleOrange.Location = new System.Drawing.Point(289, 41);
+            this.radioSparkleOrange.Name = "radioSparkleOrange";
+            this.radioSparkleOrange.Size = new System.Drawing.Size(115, 20);
+            this.radioSparkleOrange.TabIndex = 7;
+            this.radioSparkleOrange.Values.Text = "Sparkle - Orange";
+            this.radioSparkleOrange.CheckedChanged += new System.EventHandler(this.radioSparkleOrange_CheckedChanged);
+            // 
+            // radioSparklePurple
+            // 
+            this.radioSparklePurple.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.radioSparklePurple.Location = new System.Drawing.Point(289, 65);
+            this.radioSparklePurple.Name = "radioSparklePurple";
+            this.radioSparklePurple.Size = new System.Drawing.Size(109, 20);
+            this.radioSparklePurple.TabIndex = 8;
+            this.radioSparklePurple.Values.Text = "Sparkle - Purple";
+            this.radioSparklePurple.CheckedChanged += new System.EventHandler(this.radioSparklePurple_CheckedChanged);
+            // 
+            // radioSparkleBlue
+            // 
+            this.radioSparkleBlue.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.radioSparkleBlue.Location = new System.Drawing.Point(289, 17);
+            this.radioSparkleBlue.Name = "radioSparkleBlue";
+            this.radioSparkleBlue.Size = new System.Drawing.Size(98, 20);
+            this.radioSparkleBlue.TabIndex = 6;
+            this.radioSparkleBlue.Values.Text = "Sparkle - Blue";
+            this.radioSparkleBlue.CheckedChanged += new System.EventHandler(this.radioSparkleBlue_CheckedChanged);
+            // 
+            // radioBlack
+            // 
+            this.radioBlack.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.radioBlack.Location = new System.Drawing.Point(150, 65);
+            this.radioBlack.Name = "radioBlack";
+            this.radioBlack.Size = new System.Drawing.Size(125, 20);
+            this.radioBlack.TabIndex = 5;
+            this.radioBlack.Values.Text = "Office 2007 - Black";
+            this.radioBlack.CheckedChanged += new System.EventHandler(this.radioBlack_CheckedChanged);
+            // 
+            // radioSilver
+            // 
+            this.radioSilver.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.radioSilver.Location = new System.Drawing.Point(150, 41);
+            this.radioSilver.Name = "radioSilver";
+            this.radioSilver.Size = new System.Drawing.Size(126, 20);
+            this.radioSilver.TabIndex = 4;
+            this.radioSilver.Values.Text = "Office 2007 - Silver";
+            this.radioSilver.CheckedChanged += new System.EventHandler(this.radioSilver_CheckedChanged);
+            // 
+            // radioBlue
+            // 
+            this.radioBlue.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.radioBlue.Location = new System.Drawing.Point(150, 17);
+            this.radioBlue.Name = "radioBlue";
+            this.radioBlue.Size = new System.Drawing.Size(120, 20);
+            this.radioBlue.TabIndex = 3;
+            this.radioBlue.Values.Text = "Office 2007 - Blue";
+            this.radioBlue.CheckedChanged += new System.EventHandler(this.radioBlue_CheckedChanged);
+            // 
+            // radioOffice2003
+            // 
+            this.radioOffice2003.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.radioOffice2003.Location = new System.Drawing.Point(15, 103);
+            this.radioOffice2003.Name = "radioOffice2003";
+            this.radioOffice2003.Size = new System.Drawing.Size(85, 20);
+            this.radioOffice2003.TabIndex = 9;
+            this.radioOffice2003.Values.Text = "Office 2003";
+            this.radioOffice2003.CheckedChanged += new System.EventHandler(this.radioOffice2003_CheckedChanged);
+            // 
+            // radioSystem
+            // 
+            this.radioSystem.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.radioSystem.Location = new System.Drawing.Point(150, 103);
+            this.radioSystem.Name = "radioSystem";
+            this.radioSystem.Size = new System.Drawing.Size(62, 20);
+            this.radioSystem.TabIndex = 10;
+            this.radioSystem.Values.Text = "System";
+            this.radioSystem.CheckedChanged += new System.EventHandler(this.radioSystem_CheckedChanged);
+            // 
+            // kryptonManager
+            // 
+            this.kryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2007Black;
             // 
             // Form2
             // 

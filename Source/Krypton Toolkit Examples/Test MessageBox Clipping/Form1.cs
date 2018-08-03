@@ -1,10 +1,10 @@
-﻿using System;
+﻿using ComponentFactory.Krypton.Toolkit;
+using System;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
 
-namespace Test_MessageBox_Clipping
+namespace TestMessageBoxClipping
 {
-    public partial class Form1 : Form
+    public partial class Form1 : KryptonForm
     {
         private const string SEED_TEXT =
             @"// *****************************************************************************
@@ -200,8 +200,8 @@ namespace Test_MessageBox_Clipping
             }
             catch (Exception ex)
             {
-                MessageBox.Show( "ex.StackTrace", ex.Message);
-                KryptonMessageBox.Show( "ex.StackTrace", ex.Message);
+                MessageBox.Show("ex.StackTrace", ex.Message);
+                KryptonMessageBox.Show("ex.StackTrace", ex.Message);
             }
         }
 
@@ -213,8 +213,8 @@ namespace Test_MessageBox_Clipping
             }
             catch (Exception ex)
             {
-                MessageBox.Show( ex.StackTrace, "ex.Message", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                KryptonMessageBox.Show( ex.StackTrace, "ex.Message", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show(ex.StackTrace, "ex.Message", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                KryptonMessageBox.Show(ex.StackTrace, "ex.Message", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
     }

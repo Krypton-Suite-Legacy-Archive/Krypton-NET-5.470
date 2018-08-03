@@ -70,17 +70,20 @@ namespace QuickAccessToolbar
             ((System.ComponentModel.ISupportInitialize)(this.groupQATLocation.Panel)).BeginInit();
             this.groupQATLocation.Panel.SuspendLayout();
             this.groupQATLocation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkSetQATPosition)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkSetQATUserChange)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonRibbon
             // 
+            this.kryptonRibbon.AllowFormIntegrate = true;
+            this.kryptonRibbon.InDesignHelperMode = true;
             this.kryptonRibbon.Name = "kryptonRibbon";
             this.kryptonRibbon.RibbonAppButton.AppButtonMenuItems.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kryptonContextMenuItem1});
             this.kryptonRibbon.RibbonAppButton.AppButtonShowRecentDocs = false;
             this.kryptonRibbon.RibbonTabs.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab[] {
             this.tabHome});
-            this.kryptonRibbon.SelectedContext = null;
             this.kryptonRibbon.SelectedTab = this.tabHome;
             this.kryptonRibbon.Size = new System.Drawing.Size(375, 115);
             this.kryptonRibbon.TabIndex = 0;
@@ -93,7 +96,6 @@ namespace QuickAccessToolbar
             // 
             // tabHome
             // 
-            this.tabHome.Tag = null;
             this.tabHome.Text = "Home";
             // 
             // kryptonManager
@@ -330,6 +332,8 @@ namespace QuickAccessToolbar
             this.groupQATLocation.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupQATLocation)).EndInit();
             this.groupQATLocation.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.checkSetQATPosition)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkSetQATUserChange)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -42,7 +43,9 @@
             // buttonSpecAny1
             // 
             this.buttonSpecAny1.ExtraText = "ExtraButton";
+            this.buttonSpecAny1.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
             this.buttonSpecAny1.Text = "Button";
+            this.buttonSpecAny1.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny1.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Next;
             this.buttonSpecAny1.UniqueName = "16A6E91058454CD77C97174C1594D930";
             // 
@@ -136,6 +139,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Silver;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

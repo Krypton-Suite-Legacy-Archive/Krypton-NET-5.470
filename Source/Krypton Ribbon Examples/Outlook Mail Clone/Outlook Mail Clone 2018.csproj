@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Krypton.ico" />
+    <None Include="Resources\Square Design 64 x 64 New Green.png" />
     <None Include="Resources\FollowUp.png" />
     <None Include="Resources\FollowUp.bmp" />
     <None Include="Resources\AppMenuPrintStyles.PNG" />

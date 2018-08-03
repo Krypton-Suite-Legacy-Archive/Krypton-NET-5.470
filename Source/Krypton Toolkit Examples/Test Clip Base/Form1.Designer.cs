@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -85,6 +86,7 @@
             this.Controls.Add(this.kryptonLabel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.kryptonLabel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);

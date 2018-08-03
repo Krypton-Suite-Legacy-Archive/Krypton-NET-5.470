@@ -1305,6 +1305,7 @@ namespace OutlookMailClone
             // 
             // kryptonRibbon
             // 
+            this.kryptonRibbon.AllowFormIntegrate = true;
             this.kryptonRibbon.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecHelp});
             this.kryptonRibbon.InDesignHelperMode = true;
@@ -1318,7 +1319,7 @@ namespace OutlookMailClone
             this.qatDelete});
             this.kryptonRibbon.RibbonAppButton.AppButtonBaseColorDark = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(162)))), ((int)(((byte)(9)))));
             this.kryptonRibbon.RibbonAppButton.AppButtonBaseColorLight = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(212)))), ((int)(((byte)(46)))));
-            this.kryptonRibbon.RibbonAppButton.AppButtonImage = ((System.Drawing.Image)(resources.GetObject("kryptonRibbon.RibbonAppButton.AppButtonImage")));
+            this.kryptonRibbon.RibbonAppButton.AppButtonImage = global::OutlookMailClone.Properties.Resources.Square_Design_64_x_64_New_Green;
             this.kryptonRibbon.RibbonAppButton.AppButtonMenuItems.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kryptonContextMenuItem1,
             this.kryptonContextMenuItem2,
@@ -2990,6 +2991,10 @@ namespace OutlookMailClone
             // 
             this.addReminderToolStripMenuItem.Image = global::OutlookMailClone.Properties.Resources.OptionsReminder;
             this.addReminderToolStripMenuItem.Text = "Add Reminder...";
+            // 
+            // kryptonManager1
+            // 
+            this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2007Black;
             // 
             // Form1
             // 

@@ -203,6 +203,10 @@
             this.buttonRemove.Values.Text = "Remove";
             this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
             // 
+            // kryptonManager1
+            // 
+            this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Blue;
+            // 
             // kryptonCheckSet
             // 
             this.kryptonCheckSet.CheckButtons.Add(this.checkSystem);

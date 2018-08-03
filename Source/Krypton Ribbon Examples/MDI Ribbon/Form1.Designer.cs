@@ -52,8 +52,10 @@ namespace MDIRibbon
             // 
             // ribbon
             // 
+            this.ribbon.AllowFormIntegrate = true;
             this.ribbon.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecHelp});
+            this.ribbon.InDesignHelperMode = true;
             this.ribbon.Name = "ribbon";
             this.ribbon.QATLocation = ComponentFactory.Krypton.Ribbon.QATLocation.Hidden;
             this.ribbon.RibbonAppButton.AppButtonMenuItems.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
@@ -61,8 +63,9 @@ namespace MDIRibbon
             this.ribbon.RibbonAppButton.AppButtonShowRecentDocs = false;
             this.ribbon.RibbonTabs.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab[] {
             this.tabHome});
+            this.ribbon.SelectedContext = null;
             this.ribbon.SelectedTab = this.tabHome;
-            this.ribbon.Size = new System.Drawing.Size(692, 114);
+            this.ribbon.Size = new System.Drawing.Size(692, 115);
             this.ribbon.TabIndex = 0;
             // 
             // buttonSpecHelp
@@ -176,6 +179,10 @@ namespace MDIRibbon
             this.buttonTileVertical.TextLine1 = "Tile";
             this.buttonTileVertical.TextLine2 = "Vertical";
             this.buttonTileVertical.Click += new System.EventHandler(this.buttonTileVertical_Click);
+            // 
+            // kryptonManager1
+            // 
+            this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2007Black;
             // 
             // Form1
             // 

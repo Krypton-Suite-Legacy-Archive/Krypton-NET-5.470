@@ -1,4 +1,4 @@
-﻿// *****************************************************************************
+﻿  // *****************************************************************************
 // BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
 //  © Component Factory Pty Ltd, 2006-2018, All rights reserved.
 // The software and associated documentation supplied hereunder are the 

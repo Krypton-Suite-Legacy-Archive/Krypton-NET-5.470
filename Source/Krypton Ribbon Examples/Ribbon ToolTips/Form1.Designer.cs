@@ -71,7 +71,9 @@ namespace RibbonToolTips
             // 
             // kryptonRibbon1
             // 
+            this.kryptonRibbon1.AllowFormIntegrate = true;
             this.kryptonRibbon1.HideRibbonSize = new System.Drawing.Size(300, 150);
+            this.kryptonRibbon1.InDesignHelperMode = true;
             this.kryptonRibbon1.Name = "kryptonRibbon1";
             this.kryptonRibbon1.QATButtons.AddRange(new System.ComponentModel.Component[] {
             this.qatSave,
@@ -81,10 +83,11 @@ namespace RibbonToolTips
             this.kryptonContextMenuItem1});
             this.kryptonRibbon1.RibbonAppButton.AppButtonShowRecentDocs = false;
             this.kryptonRibbon1.RibbonAppButton.AppButtonToolTipBody = "  Click here to open, save, or print,\r\n  and to see everything else you can\r\n  do" +
-                " with your document.";
+    " with your document.";
             this.kryptonRibbon1.RibbonAppButton.AppButtonToolTipTitle = "Office Button";
             this.kryptonRibbon1.RibbonTabs.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab[] {
             this.tabHome});
+            this.kryptonRibbon1.SelectedContext = null;
             this.kryptonRibbon1.SelectedTab = this.tabHome;
             this.kryptonRibbon1.Size = new System.Drawing.Size(408, 115);
             this.kryptonRibbon1.TabIndex = 0;
@@ -92,21 +95,18 @@ namespace RibbonToolTips
             // qatSave
             // 
             this.qatSave.Image = ((System.Drawing.Image)(resources.GetObject("qatSave.Image")));
-            this.qatSave.Tag = null;
             this.qatSave.Text = "Save";
             this.qatSave.ToolTipBody = "Save (Ctrl + S)";
             // 
             // qatUndo
             // 
             this.qatUndo.Image = ((System.Drawing.Image)(resources.GetObject("qatUndo.Image")));
-            this.qatUndo.Tag = null;
             this.qatUndo.Text = "Undo";
             this.qatUndo.ToolTipBody = "Undo (Ctrl + Z)";
             // 
             // qatRedo
             // 
             this.qatRedo.Image = ((System.Drawing.Image)(resources.GetObject("qatRedo.Image")));
-            this.qatRedo.Tag = null;
             this.qatRedo.Text = "Redo";
             this.qatRedo.ToolTipBody = "Redo (Ctrl + Y)";
             // 
@@ -122,7 +122,6 @@ namespace RibbonToolTips
             this.kryptonRibbonGroup1,
             this.kryptonRibbonGroup2});
             this.tabHome.KeyTip = "H";
-            this.tabHome.Tag = null;
             this.tabHome.Text = "Home";
             // 
             // kryptonRibbonGroup1
@@ -134,14 +133,12 @@ namespace RibbonToolTips
             this.kryptonRibbonGroupTriple1,
             this.kryptonRibbonGroupTriple2});
             this.kryptonRibbonGroup1.KeyTipDialogLauncher = "FO";
-            this.kryptonRibbonGroup1.Tag = null;
             this.kryptonRibbonGroup1.TextLine1 = "Clipboard";
             // 
             // kryptonRibbonGroupTriple1
             // 
             this.kryptonRibbonGroupTriple1.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.kryptonRibbonGroupButton1});
-            this.kryptonRibbonGroupTriple1.Tag = null;
             // 
             // kryptonRibbonGroupButton1
             // 
@@ -151,7 +148,6 @@ namespace RibbonToolTips
             this.kryptonRibbonGroupButton1.ImageSmall = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton1.ImageSmall")));
             this.kryptonRibbonGroupButton1.KeyTip = "V";
             this.kryptonRibbonGroupButton1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.kryptonRibbonGroupButton1.Tag = null;
             this.kryptonRibbonGroupButton1.TextLine1 = "Paste";
             this.kryptonRibbonGroupButton1.ToolTipBody = "  Paste the contents of the\r\n  Clipboard.";
             this.kryptonRibbonGroupButton1.ToolTipTitle = "Paste (Ctrl + V)";
@@ -167,6 +163,7 @@ namespace RibbonToolTips
             // 
             // pasteToolStripMenuItem
             // 
+            this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
             this.pasteToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.pasteToolStripMenuItem.Text = "Paste";
             // 
@@ -183,7 +180,6 @@ namespace RibbonToolTips
             this.kryptonRibbonGroupButton3,
             this.kryptonRibbonGroupButton4});
             this.kryptonRibbonGroupTriple2.MaximumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Medium;
-            this.kryptonRibbonGroupTriple2.Tag = null;
             // 
             // kryptonRibbonGroupButton2
             // 
@@ -191,7 +187,6 @@ namespace RibbonToolTips
             this.kryptonRibbonGroupButton2.ImageSmall = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton2.ImageSmall")));
             this.kryptonRibbonGroupButton2.KeyTip = "X";
             this.kryptonRibbonGroupButton2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.kryptonRibbonGroupButton2.Tag = null;
             this.kryptonRibbonGroupButton2.TextLine1 = "Cut";
             this.kryptonRibbonGroupButton2.ToolTipBody = "  Cut the selection from the\r\n  document and put it on the\r\n  Clipboard.";
             this.kryptonRibbonGroupButton2.ToolTipTitle = "Cut  (Ctrl + X)";
@@ -202,7 +197,6 @@ namespace RibbonToolTips
             this.kryptonRibbonGroupButton3.ImageSmall = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton3.ImageSmall")));
             this.kryptonRibbonGroupButton3.KeyTip = "C";
             this.kryptonRibbonGroupButton3.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.kryptonRibbonGroupButton3.Tag = null;
             this.kryptonRibbonGroupButton3.TextLine1 = "Copy";
             this.kryptonRibbonGroupButton3.ToolTipBody = "  Copy the selection and put it on\r\n  the Clipboard.";
             this.kryptonRibbonGroupButton3.ToolTipTitle = "Copy (Ctrl + C)";
@@ -212,12 +206,11 @@ namespace RibbonToolTips
             this.kryptonRibbonGroupButton4.ImageLarge = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton4.ImageLarge")));
             this.kryptonRibbonGroupButton4.ImageSmall = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton4.ImageSmall")));
             this.kryptonRibbonGroupButton4.KeyTip = "FP";
-            this.kryptonRibbonGroupButton4.Tag = null;
             this.kryptonRibbonGroupButton4.TextLine1 = "Format";
             this.kryptonRibbonGroupButton4.TextLine2 = "Painter";
             this.kryptonRibbonGroupButton4.ToolTipBody = "  Copy formatting from one place\r\n  and apply it to another.\r\n\r\n  Double-click th" +
-                "is button to apply\r\n  the same formatting to multiple\r\n  places in the document." +
-                "";
+    "is button to apply\r\n  the same formatting to multiple\r\n  places in the document." +
+    "";
             this.kryptonRibbonGroupButton4.ToolTipTitle = "Format Painter";
             // 
             // kryptonRibbonGroup2
@@ -230,7 +223,6 @@ namespace RibbonToolTips
             this.kryptonRibbonGroupTriple4});
             this.kryptonRibbonGroup2.KeyTipDialogLauncher = "AP";
             this.kryptonRibbonGroup2.KeyTipGroup = "ZC";
-            this.kryptonRibbonGroup2.Tag = null;
             this.kryptonRibbonGroup2.TextLine1 = "Include";
             // 
             // kryptonRibbonGroupTriple3
@@ -238,14 +230,12 @@ namespace RibbonToolTips
             this.kryptonRibbonGroupTriple3.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.kryptonRibbonGroupButton5,
             this.kryptonRibbonGroupButton7});
-            this.kryptonRibbonGroupTriple3.Tag = null;
             // 
             // kryptonRibbonGroupButton5
             // 
             this.kryptonRibbonGroupButton5.ImageLarge = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton5.ImageLarge")));
             this.kryptonRibbonGroupButton5.ImageSmall = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton5.ImageSmall")));
             this.kryptonRibbonGroupButton5.KeyTip = "AF";
-            this.kryptonRibbonGroupButton5.Tag = null;
             this.kryptonRibbonGroupButton5.TextLine1 = "Attach";
             this.kryptonRibbonGroupButton5.TextLine2 = "File";
             this.kryptonRibbonGroupButton5.ToolTipBody = "Attach a file to this item.";
@@ -257,7 +247,6 @@ namespace RibbonToolTips
             this.kryptonRibbonGroupButton7.ImageLarge = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton7.ImageLarge")));
             this.kryptonRibbonGroupButton7.ImageSmall = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton7.ImageSmall")));
             this.kryptonRibbonGroupButton7.KeyTip = "AM";
-            this.kryptonRibbonGroupButton7.Tag = null;
             this.kryptonRibbonGroupButton7.TextLine1 = "Attach";
             this.kryptonRibbonGroupButton7.TextLine2 = "Item";
             this.kryptonRibbonGroupButton7.ToolTipBody = " Attach another Outlook item to\r\n this item.";
@@ -270,7 +259,6 @@ namespace RibbonToolTips
             this.kryptonRibbonGroupButton6,
             this.kryptonRibbonGroupButton8,
             this.kryptonRibbonGroupButton9});
-            this.kryptonRibbonGroupTriple4.Tag = null;
             // 
             // kryptonRibbonGroupButton6
             // 
@@ -279,7 +267,6 @@ namespace RibbonToolTips
             this.kryptonRibbonGroupButton6.ImageLarge = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton6.ImageLarge")));
             this.kryptonRibbonGroupButton6.ImageSmall = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton6.ImageSmall")));
             this.kryptonRibbonGroupButton6.KeyTip = "AA";
-            this.kryptonRibbonGroupButton6.Tag = null;
             this.kryptonRibbonGroupButton6.TextLine1 = "Business";
             this.kryptonRibbonGroupButton6.TextLine2 = "Card";
             this.kryptonRibbonGroupButton6.ToolTipBody = " Attach an electronic business card\r\n to this message.";
@@ -305,7 +292,6 @@ namespace RibbonToolTips
             this.kryptonRibbonGroupButton8.ImageLarge = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton8.ImageLarge")));
             this.kryptonRibbonGroupButton8.ImageSmall = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton8.ImageSmall")));
             this.kryptonRibbonGroupButton8.KeyTip = "OC";
-            this.kryptonRibbonGroupButton8.Tag = null;
             this.kryptonRibbonGroupButton8.TextLine1 = "Calendar";
             this.kryptonRibbonGroupButton8.ToolTipBody = " Attach your calendar information\r\n to this message.";
             this.kryptonRibbonGroupButton8.ToolTipImage = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton8.ToolTipImage")));
@@ -318,7 +304,6 @@ namespace RibbonToolTips
             this.kryptonRibbonGroupButton9.ImageLarge = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton9.ImageLarge")));
             this.kryptonRibbonGroupButton9.ImageSmall = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton9.ImageSmall")));
             this.kryptonRibbonGroupButton9.KeyTip = "G";
-            this.kryptonRibbonGroupButton9.Tag = null;
             this.kryptonRibbonGroupButton9.TextLine1 = "Signature";
             this.kryptonRibbonGroupButton9.ToolTipBody = " Attach one of your e-mail\r\n signatures to this message.";
             this.kryptonRibbonGroupButton9.ToolTipImage = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton9.ToolTipImage")));
@@ -351,9 +336,13 @@ namespace RibbonToolTips
             // 
             this.kryptonLabel.Location = new System.Drawing.Point(12, 14);
             this.kryptonLabel.Name = "kryptonLabel";
-            this.kryptonLabel.Size = new System.Drawing.Size(391, 132);
+            this.kryptonLabel.Size = new System.Drawing.Size(390, 132);
             this.kryptonLabel.TabIndex = 0;
             this.kryptonLabel.Values.Text = resources.GetString("kryptonLabel.Values.Text");
+            // 
+            // kryptonManager
+            // 
+            this.kryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2007Blue;
             // 
             // Form1
             // 
