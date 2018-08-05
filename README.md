@@ -1,4 +1,4 @@
-# <img src="https://rawgit.com/Wagnerp/Krypton-NET-4.7/master/Help/Output/Logo.PNG">-NET-4.70
+# <img src="https://github.com/Wagnerp/Krypton-NET-4.70/blob/master/Assets/PNG/Square%20Design/Main%20Icon/64%20x%2064/Square%20Design%2064%20x%2064%20New%20Green.png">-NET-4.70
 
 =======
 
