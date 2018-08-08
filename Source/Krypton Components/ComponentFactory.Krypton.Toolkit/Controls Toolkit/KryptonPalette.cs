@@ -61,6 +61,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private readonly PaletteRedirect _redirector;
         private readonly PaletteRedirectCommon _redirectCommon;
         private readonly NeedPaintHandler _needTMSPaintDelegate;
+        private string _filePath;
         #endregion
 
         #region Events
@@ -2543,6 +2544,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Use the existing import overload that takes the target name
                     return Import(dialog.FileName, false);
                 }
+
+                SetFilePath(Path.GetFullPath(dialog.FileName));
             }
 
             return string.Empty;
@@ -2745,6 +2748,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Use the existing export overload that takes the target name
                     return Export(dialog.FileName, true, false);
                 }
+
+                SetFilePath(Path.GetFullPath(dialog.FileName));
             }
 
             return string.Empty;
@@ -3172,6 +3177,15 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Browsable(false)]
         public KryptonColorTable ColorTable => ToolMenuStatus.InternalKCT;
+
+        /// <summary>
+        /// Gets or sets the file path.
+        /// </summary>
+        /// <value>
+        /// The file path.
+        /// </value>
+        [Browsable(false)]
+        public string FilePath { get { return _filePath; } set { _filePath = value; } }
 
         #endregion
 
@@ -6127,6 +6141,26 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
+        #endregion
+
+        #region Setters and Getters
+        /// <summary>
+        /// Sets the FilePath to the value of value.
+        /// </summary>
+        /// <param name="value">The value of value.</param>
+        public void SetFilePath(string value)
+        {
+            FilePath = value;
+        }
+
+        /// <summary>
+        /// Gets the FilePath value.
+        /// </summary>
+        /// <returns>The value of value.</returns>
+        public string GetFilePath()
+        {
+            return FilePath;
+        }
         #endregion
     }
 }
