@@ -38,7 +38,7 @@ namespace ComponentFactory.Krypton.Toolkit.ControlsToolkit.Test
     [Description("Customisable palette component.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
-    public class KryptonPalette : Component, IPalette
+    public class KryptonPaletteTest : Component, IPalette
     {
         #region Type Definitions
         private class ImageDictionary : Dictionary<Image, string> { };
@@ -104,7 +104,7 @@ namespace ComponentFactory.Krypton.Toolkit.ControlsToolkit.Test
         /// <summary>
         /// Initialize a new instance of the KryptonPalette class.
         /// </summary>
-        public KryptonPalette()
+        public KryptonPaletteTest()
         {
             // Setup the need paint delegate
             NeedPaintDelegate = OnNeedPaint;
