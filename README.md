@@ -11,7 +11,7 @@
 =======
 
 ## 2018-09-16 `KryptonPalette` changes (build 641)
-* The `Import()` and `Export()` methods will now use the native `KryptonMessageBox` instead of a system one'
+* The `Import()` and `Export()` methods will now use the native `KryptonMessageBox` instead of a system one
 * Removed the phantom `KryptonPalette` component
 * Now you can access the full `FilePath` of the loaded palette XML file
 
