@@ -10,6 +10,13 @@
 
 =======
 
+## 2018-09-16 `KryptonPalette` changes (build 641)
+* The `Import()` and `Export()` methods will now use the native `KryptonMessageBox` instead of a system one'
+* Removed the phantom `KryptonPalette` component
+* Now you can access the full `FilePath` of the loaded palette XML file
+
+=======
+
 ## 2018-08-08 Build 633
 * Build 633 (build date Wedensday 8th August, 2018) is now available through the **releases** tab
 * New icon (not propagated through all the example applications yet)
