@@ -10,6 +10,15 @@
 
 =======
 
+## Help Wanted! If anyone has experience with the Nuget or any other packaging specifications, then please do not hesitate to come forward, as past implementations have not come to fruition.
+
+=======
+
+## 2018-09-17 Release of Build 641
+* Build 641 (build date Monday 17th September, 2018) is now available through the **releases** tab
+
+=======
+
 ## 2018-09-16 `KryptonPalette` changes (build 641)
 * The `Import()` and `Export()` methods will now use the native `KryptonMessageBox` instead of a system one
 * Removed the phantom `KryptonPalette` component
