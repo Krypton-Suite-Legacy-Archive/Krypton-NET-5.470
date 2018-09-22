@@ -9,7 +9,7 @@
     <ProjectGuid>{E00FF125-CB44-480B-847E-7B3D27E481EB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ComponentFactory.Krypton.Docking</RootNamespace>
+    <RootNamespace>Krypton.Docking</RootNamespace>
     <AssemblyName>Krypton Docking</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

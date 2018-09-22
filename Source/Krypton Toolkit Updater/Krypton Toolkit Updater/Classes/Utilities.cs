@@ -1,4 +1,4 @@
-﻿using ComponentFactory.Krypton.Toolkit;
+﻿using Krypton.Toolkit;
 using KryptonToolkitUpdater.Enumerations;
 using System;
 using System.Diagnostics;

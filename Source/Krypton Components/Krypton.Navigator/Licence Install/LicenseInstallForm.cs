@@ -13,7 +13,7 @@ using System.Reflection;
 using System.Xml;
 using Microsoft.Win32;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	/// <summary>
 	/// Provides a basic form for installing Infralution Encrypted Licenses that can be extended or modified using 

@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="ComponentFactory.Krypton.Toolkit.KryptonForm" />
+    /// <seealso cref="Krypton.Toolkit.KryptonForm" />
     partial class DownloadUpdateForm
     {
         /// <summary>
@@ -34,18 +34,18 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DownloadUpdateForm));
-            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
-            this.kpnlBackground = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kbtnInstallUpdate = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kbtnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kbtnStop = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.klblTotalAmountDownloaded = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.klblCurrentSpeed = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.klblDownloadProgressPercentage = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kryptonManager1 = new Krypton.Toolkit.KryptonManager(this.components);
+            this.kpnlBackground = new Krypton.Toolkit.KryptonPanel();
+            this.kbtnInstallUpdate = new Krypton.Toolkit.KryptonButton();
+            this.kbtnCancel = new Krypton.Toolkit.KryptonButton();
+            this.kbtnStop = new Krypton.Toolkit.KryptonButton();
+            this.klblTotalAmountDownloaded = new Krypton.Toolkit.KryptonLabel();
+            this.klblCurrentSpeed = new Krypton.Toolkit.KryptonLabel();
+            this.klblDownloadProgressPercentage = new Krypton.Toolkit.KryptonLabel();
             this.pbDownloadProgress = new System.Windows.Forms.ProgressBar();
-            this.kllDownloadingTo = new ComponentFactory.Krypton.Toolkit.KryptonLinkLabel();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.klblDownloadingFrom = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kllDownloadingTo = new Krypton.Toolkit.KryptonLinkLabel();
+            this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
+            this.klblDownloadingFrom = new Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.kpnlBackground)).BeginInit();
             this.kpnlBackground.SuspendLayout();
             this.SuspendLayout();
@@ -184,17 +184,17 @@
 
         #endregion
 
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager1;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kpnlBackground;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblDownloadingFrom;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblTotalAmountDownloaded;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblCurrentSpeed;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblDownloadProgressPercentage;
+        private Krypton.Toolkit.KryptonManager kryptonManager1;
+        private Krypton.Toolkit.KryptonPanel kpnlBackground;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private Krypton.Toolkit.KryptonLabel klblDownloadingFrom;
+        private Krypton.Toolkit.KryptonLabel klblTotalAmountDownloaded;
+        private Krypton.Toolkit.KryptonLabel klblCurrentSpeed;
+        private Krypton.Toolkit.KryptonLabel klblDownloadProgressPercentage;
         private System.Windows.Forms.ProgressBar pbDownloadProgress;
-        private ComponentFactory.Krypton.Toolkit.KryptonLinkLabel kllDownloadingTo;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnInstallUpdate;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnCancel;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnStop;
+        private Krypton.Toolkit.KryptonLinkLabel kllDownloadingTo;
+        private Krypton.Toolkit.KryptonButton kbtnInstallUpdate;
+        private Krypton.Toolkit.KryptonButton kbtnCancel;
+        private Krypton.Toolkit.KryptonButton kbtnStop;
     }
 }

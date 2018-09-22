@@ -9,7 +9,7 @@
     <ProjectGuid>{96ECAECC-54F8-4AA5-8591-B443C2D9565F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ComponentFactory.Krypton.Toolkit</RootNamespace>
+    <RootNamespace>Krypton.Toolkit</RootNamespace>
     <AssemblyName>Krypton Toolkit</AssemblyName>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>StrongKrypton.snk</AssemblyOriginatorKeyFile>

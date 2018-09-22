@@ -1,4 +1,4 @@
-﻿using ComponentFactory.Krypton.Toolkit;
+﻿using Krypton.Toolkit;
 using KryptonToolkitUpdater.Settings;
 using System;
 using System.IO;

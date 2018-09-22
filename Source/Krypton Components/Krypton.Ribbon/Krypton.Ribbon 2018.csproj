@@ -9,7 +9,7 @@
     <ProjectGuid>{E90FC375-453D-4FE4-9822-CE1DB85B6553}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ComponentFactory.Krypton.Ribbon</RootNamespace>
+    <RootNamespace>Krypton.Ribbon</RootNamespace>
     <AssemblyName>Krypton Ribbon</AssemblyName>
     <ApplicationIcon>Krypton.ico</ApplicationIcon>
     <SignAssembly>true</SignAssembly>

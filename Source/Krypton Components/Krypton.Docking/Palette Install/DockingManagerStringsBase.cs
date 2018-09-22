@@ -14,9 +14,9 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Reflection;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Docking
+namespace Krypton.Docking
 {
     /// <summary>
     /// Storage for docking managee strings.

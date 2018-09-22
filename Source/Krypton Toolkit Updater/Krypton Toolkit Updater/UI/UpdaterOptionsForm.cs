@@ -1,4 +1,4 @@
-﻿using ComponentFactory.Krypton.Toolkit;
+﻿using Krypton.Toolkit;
 using KryptonToolkitUpdater.Classes;
 using KryptonToolkitUpdater.Enumerations;
 using System;
@@ -10,7 +10,7 @@ namespace KryptonToolkitUpdater.UI
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="ComponentFactory.Krypton.Toolkit.KryptonForm" />
+    /// <seealso cref="Krypton.Toolkit.KryptonForm" />
     internal partial class UpdaterOptionsForm : KryptonForm
     {
         #region Variables

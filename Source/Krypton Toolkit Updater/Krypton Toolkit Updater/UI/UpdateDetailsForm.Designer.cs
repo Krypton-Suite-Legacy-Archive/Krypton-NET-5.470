@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
-            this.kpnlBackground = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kbtnRemindMeLater = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kbtnDownloadUpdate = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kbtnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonManager1 = new Krypton.Toolkit.KryptonManager(this.components);
+            this.kpnlBackground = new Krypton.Toolkit.KryptonPanel();
+            this.kbtnRemindMeLater = new Krypton.Toolkit.KryptonButton();
+            this.kbtnDownloadUpdate = new Krypton.Toolkit.KryptonButton();
+            this.kbtnCancel = new Krypton.Toolkit.KryptonButton();
             this.wbChangelog = new System.Windows.Forms.WebBrowser();
-            this.klblPackageInformation = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.klblVersionInformation = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.klblPackageInformation = new Krypton.Toolkit.KryptonLabel();
+            this.klblVersionInformation = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.kpnlBackground)).BeginInit();
             this.kpnlBackground.SuspendLayout();
@@ -157,15 +157,15 @@
 
         #endregion
 
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager1;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kpnlBackground;
+        private Krypton.Toolkit.KryptonManager kryptonManager1;
+        private Krypton.Toolkit.KryptonPanel kpnlBackground;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.WebBrowser wbChangelog;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblPackageInformation;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblVersionInformation;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnDownloadUpdate;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnCancel;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnRemindMeLater;
+        private Krypton.Toolkit.KryptonLabel klblPackageInformation;
+        private Krypton.Toolkit.KryptonLabel klblVersionInformation;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private Krypton.Toolkit.KryptonButton kbtnDownloadUpdate;
+        private Krypton.Toolkit.KryptonButton kbtnCancel;
+        private Krypton.Toolkit.KryptonButton kbtnRemindMeLater;
     }
 }

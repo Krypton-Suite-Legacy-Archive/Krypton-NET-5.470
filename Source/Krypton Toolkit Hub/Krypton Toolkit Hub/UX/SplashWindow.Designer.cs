@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SplashWindow));
-            this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.klblKryptonToolkitHubVersion = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.klblTitle = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
+            this.klblKryptonToolkitHubVersion = new Krypton.Toolkit.KryptonLabel();
+            this.klblTitle = new Krypton.Toolkit.KryptonLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbProgress = new System.Windows.Forms.ProgressBar();
             this.tmrSplash = new System.Windows.Forms.Timer(this.components);
@@ -55,23 +55,23 @@
             // 
             // klblKryptonToolkitHubVersion
             // 
-            this.klblKryptonToolkitHubVersion.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.klblKryptonToolkitHubVersion.LabelStyle = Krypton.Toolkit.LabelStyle.NormalPanel;
             this.klblKryptonToolkitHubVersion.Location = new System.Drawing.Point(114, 390);
             this.klblKryptonToolkitHubVersion.Name = "klblKryptonToolkitHubVersion";
             this.klblKryptonToolkitHubVersion.Size = new System.Drawing.Size(594, 30);
             this.klblKryptonToolkitHubVersion.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.klblKryptonToolkitHubVersion.StateCommon.ShortText.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.AntiAlias;
+            this.klblKryptonToolkitHubVersion.StateCommon.ShortText.Hint = Krypton.Toolkit.PaletteTextHint.AntiAlias;
             this.klblKryptonToolkitHubVersion.TabIndex = 31;
             this.klblKryptonToolkitHubVersion.Values.Text = "Peter Wagner (aka Wagnerp) && Simon  Coghlan (aka Smurf-IV)";
             // 
             // klblTitle
             // 
-            this.klblTitle.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.klblTitle.LabelStyle = Krypton.Toolkit.LabelStyle.NormalPanel;
             this.klblTitle.Location = new System.Drawing.Point(255, 351);
             this.klblTitle.Name = "klblTitle";
             this.klblTitle.Size = new System.Drawing.Size(311, 33);
             this.klblTitle.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.klblTitle.StateCommon.ShortText.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.AntiAlias;
+            this.klblTitle.StateCommon.ShortText.Hint = Krypton.Toolkit.PaletteTextHint.AntiAlias;
             this.klblTitle.TabIndex = 4;
             this.klblTitle.Values.ExtraText = "Beta (Build: {0})";
             this.klblTitle.Values.Text = "Krypton Toolkit Hub";
@@ -125,11 +125,11 @@
 
         #endregion
 
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
+        private Krypton.Toolkit.KryptonPanel kryptonPanel1;
         private System.Windows.Forms.ProgressBar pbProgress;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblTitle;
+        private Krypton.Toolkit.KryptonLabel klblTitle;
         private System.Windows.Forms.Timer tmrSplash;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblKryptonToolkitHubVersion;
+        private Krypton.Toolkit.KryptonLabel klblKryptonToolkitHubVersion;
     }
 }

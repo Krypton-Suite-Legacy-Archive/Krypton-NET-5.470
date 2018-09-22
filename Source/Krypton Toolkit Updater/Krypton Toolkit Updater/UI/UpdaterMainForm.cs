@@ -1,4 +1,4 @@
-﻿using ComponentFactory.Krypton.Toolkit;
+﻿using Krypton.Toolkit;
 using KryptonToolkitUpdater.Classes;
 using System;
 using System.Diagnostics;
@@ -68,7 +68,7 @@ namespace KryptonToolkitUpdater.UI
 
         private void kbtnCheckForUpdates_Click(object sender, EventArgs e)
         {
-            CheckForUpdates("https://github.com/Wagnerp/Krypton-NET-4.70/blob/master/Updates/update.xml");
+            CheckForUpdates("https://github.com/Wagnerp/Krypton-NET-4.700/blob/master/Updates/update.xml");
         }
 
         private void kbtnOptions_Click(object sender, EventArgs e)

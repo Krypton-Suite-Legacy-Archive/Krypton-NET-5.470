@@ -9,7 +9,7 @@
     <ProjectGuid>{DC0DD714-4D19-4F31-A6D0-EA209D4F0EA8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ComponentFactory.Krypton.Navigator</RootNamespace>
+    <RootNamespace>Krypton.Navigator</RootNamespace>
     <AssemblyName>Krypton Navigator</AssemblyName>
     <ApplicationIcon>Krypton.ico</ApplicationIcon>
     <SignAssembly>true</SignAssembly>

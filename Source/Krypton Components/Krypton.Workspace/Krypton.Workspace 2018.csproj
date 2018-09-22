@@ -9,7 +9,7 @@
     <ProjectGuid>{9144BA04-155B-4B66-B85A-9A89AA93F7D4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ComponentFactory.Krypton.Workspace</RootNamespace>
+    <RootNamespace>Krypton.Workspace</RootNamespace>
     <AssemblyName>Krypton Workspace</AssemblyName>
     <ApplicationIcon>Krypton.ico</ApplicationIcon>
     <SignAssembly>true</SignAssembly>
@@ -143,11 +143,11 @@
   <ItemGroup>
     <ProjectReference Include="..\Krypton.Navigator\Krypton.Navigator 2018.csproj">
       <Project>{dc0dd714-4d19-4f31-a6d0-ea209d4f0ea8}</Project>
-      <Name>ComponentFactory.Krypton.Navigator 2018</Name>
+      <Name>Krypton.Navigator 2018</Name>
     </ProjectReference>
     <ProjectReference Include="..\Krypton.Toolkit\Krypton.Toolkit 2018.csproj">
       <Project>{96ecaecc-54f8-4aa5-8591-b443c2d9565f}</Project>
-      <Name>ComponentFactory.Krypton.Toolkit 2018</Name>
+      <Name>Krypton.Toolkit 2018</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

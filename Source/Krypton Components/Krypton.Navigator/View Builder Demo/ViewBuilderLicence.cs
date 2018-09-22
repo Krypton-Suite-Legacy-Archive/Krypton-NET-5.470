@@ -14,9 +14,9 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Reflection;
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
-namespace ComponentFactory.Krypton.Navigator
+namespace Krypton.Navigator
 {
 	/// <summary>
     /// Extend the base class with licence checking.
