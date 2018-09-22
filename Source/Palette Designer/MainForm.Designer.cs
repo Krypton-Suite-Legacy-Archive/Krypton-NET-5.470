@@ -278,8 +278,12 @@ namespace PaletteDesigner
             this.borderDesignLabels = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonNavigatorDesignLabels = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
             this.pageLabelsNormalControl = new ComponentFactory.Krypton.Navigator.KryptonPage();
+            this.pageLabelsBoldControl = new ComponentFactory.Krypton.Navigator.KryptonPage();
+            this.pageLabelsItalicControl = new ComponentFactory.Krypton.Navigator.KryptonPage();
             this.pageLabelsTitleControl = new ComponentFactory.Krypton.Navigator.KryptonPage();
             this.pageLabelsNormalPanel = new ComponentFactory.Krypton.Navigator.KryptonPage();
+            this.pageLabelsBoldPanel = new ComponentFactory.Krypton.Navigator.KryptonPage();
+            this.pageLabelsItalicPanel = new ComponentFactory.Krypton.Navigator.KryptonPage();
             this.pageLabelsTitlePanel = new ComponentFactory.Krypton.Navigator.KryptonPage();
             this.pageLabelsGroupBoxCaption = new ComponentFactory.Krypton.Navigator.KryptonPage();
             this.pageLabelsToolTip = new ComponentFactory.Krypton.Navigator.KryptonPage();
@@ -394,10 +398,6 @@ namespace PaletteDesigner
             this.kryptonPage1 = new ComponentFactory.Krypton.Navigator.KryptonPage();
             this.kryptonCheckSetLabels = new ComponentFactory.Krypton.Toolkit.KryptonCheckSet(this.components);
             this.kryptonCheckSet1 = new ComponentFactory.Krypton.Toolkit.KryptonCheckSet(this.components);
-            this.pageLabelsBoldControl = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageLabelsItalicControl = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageLabelsBoldPanel = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageLabelsItalicPanel = new ComponentFactory.Krypton.Navigator.KryptonPage();
             this.mainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigatorTop)).BeginInit();
             this.kryptonNavigatorTop.SuspendLayout();
@@ -422,7 +422,9 @@ namespace PaletteDesigner
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanelMainFill)).BeginInit();
             this.kryptonPanelMainFill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainerMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainerMain.Panel1)).BeginInit();
             this.kryptonSplitContainerMain.Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainerMain.Panel2)).BeginInit();
             this.kryptonSplitContainerMain.Panel2.SuspendLayout();
             this.kryptonSplitContainerMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigatorDesign)).BeginInit();
@@ -459,8 +461,10 @@ namespace PaletteDesigner
             ((System.ComponentModel.ISupportInitialize)(this.pageDesignControls)).BeginInit();
             this.pageDesignControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.control1Normal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.control1Normal.Panel)).BeginInit();
             this.control1Normal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.control1Disabled)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.control1Disabled.Panel)).BeginInit();
             this.control1Disabled.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.borderDesignControls)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigatorDesignControls)).BeginInit();
@@ -485,8 +489,10 @@ namespace PaletteDesigner
             ((System.ComponentModel.ISupportInitialize)(this.pageDesignHeaderGroup)).BeginInit();
             this.pageDesignHeaderGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.headerGroup1Disabled)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.headerGroup1Disabled.Panel)).BeginInit();
             this.headerGroup1Disabled.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.headerGroup1Normal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.headerGroup1Normal.Panel)).BeginInit();
             this.headerGroup1Normal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pageDesignHeaders)).BeginInit();
             this.pageDesignHeaders.SuspendLayout();
@@ -521,8 +527,12 @@ namespace PaletteDesigner
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigatorDesignLabels)).BeginInit();
             this.kryptonNavigatorDesignLabels.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pageLabelsNormalControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pageLabelsBoldControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pageLabelsItalicControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pageLabelsTitleControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pageLabelsNormalPanel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pageLabelsBoldPanel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pageLabelsItalicPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pageLabelsTitlePanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pageLabelsGroupBoxCaption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pageLabelsToolTip)).BeginInit();
@@ -561,44 +571,64 @@ namespace PaletteDesigner
             ((System.ComponentModel.ISupportInitialize)(this.pageDesignSeparators)).BeginInit();
             this.pageDesignSeparators.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separator1Live)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.separator1Live.Panel1)).BeginInit();
             this.separator1Live.Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.separator1Live.Panel2)).BeginInit();
             this.separator1Live.Panel2.SuspendLayout();
             this.separator1Live.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup11.Panel)).BeginInit();
             this.kryptonGroup11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup12.Panel)).BeginInit();
             this.kryptonGroup12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separator1Pressed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.separator1Pressed.Panel1)).BeginInit();
             this.separator1Pressed.Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.separator1Pressed.Panel2)).BeginInit();
             this.separator1Pressed.Panel2.SuspendLayout();
             this.separator1Pressed.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup7.Panel)).BeginInit();
             this.kryptonGroup7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup8.Panel)).BeginInit();
             this.kryptonGroup8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separator1Tracking)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.separator1Tracking.Panel1)).BeginInit();
             this.separator1Tracking.Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.separator1Tracking.Panel2)).BeginInit();
             this.separator1Tracking.Panel2.SuspendLayout();
             this.separator1Tracking.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup5.Panel)).BeginInit();
             this.kryptonGroup5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup6.Panel)).BeginInit();
             this.kryptonGroup6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separator1Normal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.separator1Normal.Panel1)).BeginInit();
             this.separator1Normal.Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.separator1Normal.Panel2)).BeginInit();
             this.separator1Normal.Panel2.SuspendLayout();
             this.separator1Normal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup3.Panel)).BeginInit();
             this.kryptonGroup3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup4.Panel)).BeginInit();
             this.kryptonGroup4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separator1Disabled)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.separator1Disabled.Panel1)).BeginInit();
             this.separator1Disabled.Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.separator1Disabled.Panel2)).BeginInit();
             this.separator1Disabled.Panel2.SuspendLayout();
             this.separator1Disabled.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1.Panel)).BeginInit();
             this.kryptonGroup1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup2.Panel)).BeginInit();
             this.kryptonGroup2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.borderDesignSeparators)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigatorDesignSeparators)).BeginInit();
@@ -629,20 +659,19 @@ namespace PaletteDesigner
             ((System.ComponentModel.ISupportInitialize)(this.pageDesignTrackBar)).BeginInit();
             this.pageDesignTrackBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroupProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroupProperties.Panel)).BeginInit();
             this.kryptonHeaderGroupProperties.Panel.SuspendLayout();
             this.kryptonHeaderGroupProperties.SuspendLayout();
             this.mainToolStripContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup9.Panel)).BeginInit();
             this.kryptonGroup9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup10.Panel)).BeginInit();
             this.kryptonGroup10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPage1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonCheckSetLabels)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonCheckSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pageLabelsBoldControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pageLabelsItalicControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pageLabelsBoldPanel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pageLabelsItalicPanel)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenuStrip
@@ -1202,7 +1231,7 @@ namespace PaletteDesigner
             this.buttonSpecT4.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
             this.buttonSpecT4.Location = new System.Drawing.Point(18, 187);
             this.buttonSpecT4.Name = "buttonSpecT4";
-            this.buttonSpecT4.Size = new System.Drawing.Size(427, 30);
+            this.buttonSpecT4.Size = new System.Drawing.Size(427, 31);
             this.buttonSpecT4.TabIndex = 24;
             this.buttonSpecT4.Values.Description = "";
             this.buttonSpecT4.Values.Heading = "Disabled";
@@ -1420,7 +1449,7 @@ namespace PaletteDesigner
             this.buttonSpecT2.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
             this.buttonSpecT2.Location = new System.Drawing.Point(18, 99);
             this.buttonSpecT2.Name = "buttonSpecT2";
-            this.buttonSpecT2.Size = new System.Drawing.Size(427, 30);
+            this.buttonSpecT2.Size = new System.Drawing.Size(427, 31);
             this.buttonSpecT2.TabIndex = 22;
             this.buttonSpecT2.Values.Description = "";
             this.buttonSpecT2.Values.Heading = "Header2";
@@ -3059,7 +3088,7 @@ namespace PaletteDesigner
             // 
             this.textBoxActive.Location = new System.Drawing.Point(115, 222);
             this.textBoxActive.Name = "textBoxActive";
-            this.textBoxActive.Size = new System.Drawing.Size(88, 20);
+            this.textBoxActive.Size = new System.Drawing.Size(88, 23);
             this.textBoxActive.TabIndex = 4;
             this.textBoxActive.Text = "Active";
             // 
@@ -3067,7 +3096,7 @@ namespace PaletteDesigner
             // 
             this.textBoxNormal.Location = new System.Drawing.Point(115, 144);
             this.textBoxNormal.Name = "textBoxNormal";
-            this.textBoxNormal.Size = new System.Drawing.Size(88, 20);
+            this.textBoxNormal.Size = new System.Drawing.Size(88, 23);
             this.textBoxNormal.TabIndex = 3;
             this.textBoxNormal.Text = "Normal";
             // 
@@ -3076,7 +3105,7 @@ namespace PaletteDesigner
             this.textBoxDisabled.Enabled = false;
             this.textBoxDisabled.Location = new System.Drawing.Point(115, 66);
             this.textBoxDisabled.Name = "textBoxDisabled";
-            this.textBoxDisabled.Size = new System.Drawing.Size(88, 20);
+            this.textBoxDisabled.Size = new System.Drawing.Size(88, 23);
             this.textBoxDisabled.TabIndex = 2;
             this.textBoxDisabled.Text = "Disabled";
             // 
@@ -3446,6 +3475,32 @@ namespace PaletteDesigner
             this.pageLabelsNormalControl.ToolTipTitle = "Page ToolTip";
             this.pageLabelsNormalControl.UniqueName = "D99435D742664C78D99435D742664C78";
             // 
+            // pageLabelsBoldControl
+            // 
+            this.pageLabelsBoldControl.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
+            this.pageLabelsBoldControl.Flags = 65534;
+            this.pageLabelsBoldControl.LastVisibleSet = true;
+            this.pageLabelsBoldControl.MinimumSize = new System.Drawing.Size(50, 50);
+            this.pageLabelsBoldControl.Name = "pageLabelsBoldControl";
+            this.pageLabelsBoldControl.Size = new System.Drawing.Size(100, 100);
+            this.pageLabelsBoldControl.Text = "Bold (Control)";
+            this.pageLabelsBoldControl.TextDescription = "Bold is appropriate for a title labelling on control background.";
+            this.pageLabelsBoldControl.ToolTipTitle = "Page ToolTip";
+            this.pageLabelsBoldControl.UniqueName = "2655D77FAE1E43CEA580F88B6B5B847F";
+            // 
+            // pageLabelsItalicControl
+            // 
+            this.pageLabelsItalicControl.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
+            this.pageLabelsItalicControl.Flags = 65534;
+            this.pageLabelsItalicControl.LastVisibleSet = true;
+            this.pageLabelsItalicControl.MinimumSize = new System.Drawing.Size(50, 50);
+            this.pageLabelsItalicControl.Name = "pageLabelsItalicControl";
+            this.pageLabelsItalicControl.Size = new System.Drawing.Size(100, 100);
+            this.pageLabelsItalicControl.Text = "Italic (Control)";
+            this.pageLabelsItalicControl.TextDescription = "Italic is appropriate for emphasised labelling on control background.";
+            this.pageLabelsItalicControl.ToolTipTitle = "Page ToolTip";
+            this.pageLabelsItalicControl.UniqueName = "AEAB36C86860427109BD0A116BFAE079";
+            // 
             // pageLabelsTitleControl
             // 
             this.pageLabelsTitleControl.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
@@ -3473,6 +3528,32 @@ namespace PaletteDesigner
             this.pageLabelsNormalPanel.TextDescription = "Normal is appropriate for standard control labelling on panel background.";
             this.pageLabelsNormalPanel.ToolTipTitle = "Page ToolTip";
             this.pageLabelsNormalPanel.UniqueName = "B4348A5A020A4975B4348A5A020A4975";
+            // 
+            // pageLabelsBoldPanel
+            // 
+            this.pageLabelsBoldPanel.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
+            this.pageLabelsBoldPanel.Flags = 65534;
+            this.pageLabelsBoldPanel.LastVisibleSet = true;
+            this.pageLabelsBoldPanel.MinimumSize = new System.Drawing.Size(50, 50);
+            this.pageLabelsBoldPanel.Name = "pageLabelsBoldPanel";
+            this.pageLabelsBoldPanel.Size = new System.Drawing.Size(100, 100);
+            this.pageLabelsBoldPanel.Text = "Bold (Panel)";
+            this.pageLabelsBoldPanel.TextDescription = "Bold is appropriate for a title labelling on panel background.";
+            this.pageLabelsBoldPanel.ToolTipTitle = "Page ToolTip";
+            this.pageLabelsBoldPanel.UniqueName = "DDD2818C933545C40C9951BB2EB53236";
+            // 
+            // pageLabelsItalicPanel
+            // 
+            this.pageLabelsItalicPanel.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
+            this.pageLabelsItalicPanel.Flags = 65534;
+            this.pageLabelsItalicPanel.LastVisibleSet = true;
+            this.pageLabelsItalicPanel.MinimumSize = new System.Drawing.Size(50, 50);
+            this.pageLabelsItalicPanel.Name = "pageLabelsItalicPanel";
+            this.pageLabelsItalicPanel.Size = new System.Drawing.Size(100, 100);
+            this.pageLabelsItalicPanel.Text = "Italic (Panel)";
+            this.pageLabelsItalicPanel.TextDescription = "Bold is appropriate for emphasised labelling on panel background.";
+            this.pageLabelsItalicPanel.ToolTipTitle = "Page ToolTip";
+            this.pageLabelsItalicPanel.UniqueName = "A486542B05874C5B01A1CC57F04B5DDD";
             // 
             // pageLabelsTitlePanel
             // 
@@ -4948,58 +5029,6 @@ namespace PaletteDesigner
             this.kryptonCheckSetLabels.CheckedButton = this.labelsPanelClient;
             this.kryptonCheckSetLabels.CheckedButtonChanged += new System.EventHandler(this.kryptonCheckSetLabels_CheckedButtonChanged);
             // 
-            // pageLabelsBoldControl
-            // 
-            this.pageLabelsBoldControl.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
-            this.pageLabelsBoldControl.Flags = 65534;
-            this.pageLabelsBoldControl.LastVisibleSet = true;
-            this.pageLabelsBoldControl.MinimumSize = new System.Drawing.Size(50, 50);
-            this.pageLabelsBoldControl.Name = "pageLabelsBoldControl";
-            this.pageLabelsBoldControl.Size = new System.Drawing.Size(100, 100);
-            this.pageLabelsBoldControl.Text = "Bold (Control)";
-            this.pageLabelsBoldControl.TextDescription = "Bold is appropriate for a title labelling on control background.";
-            this.pageLabelsBoldControl.ToolTipTitle = "Page ToolTip";
-            this.pageLabelsBoldControl.UniqueName = "2655D77FAE1E43CEA580F88B6B5B847F";
-            // 
-            // pageLabelsItalicControl
-            // 
-            this.pageLabelsItalicControl.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
-            this.pageLabelsItalicControl.Flags = 65534;
-            this.pageLabelsItalicControl.LastVisibleSet = true;
-            this.pageLabelsItalicControl.MinimumSize = new System.Drawing.Size(50, 50);
-            this.pageLabelsItalicControl.Name = "pageLabelsItalicControl";
-            this.pageLabelsItalicControl.Size = new System.Drawing.Size(100, 100);
-            this.pageLabelsItalicControl.Text = "Italic (Control)";
-            this.pageLabelsItalicControl.TextDescription = "Italic is appropriate for emphasised labelling on control background.";
-            this.pageLabelsItalicControl.ToolTipTitle = "Page ToolTip";
-            this.pageLabelsItalicControl.UniqueName = "AEAB36C86860427109BD0A116BFAE079";
-            // 
-            // pageLabelsBoldPanel
-            // 
-            this.pageLabelsBoldPanel.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
-            this.pageLabelsBoldPanel.Flags = 65534;
-            this.pageLabelsBoldPanel.LastVisibleSet = true;
-            this.pageLabelsBoldPanel.MinimumSize = new System.Drawing.Size(50, 50);
-            this.pageLabelsBoldPanel.Name = "pageLabelsBoldPanel";
-            this.pageLabelsBoldPanel.Size = new System.Drawing.Size(100, 100);
-            this.pageLabelsBoldPanel.Text = "Bold (Panel)";
-            this.pageLabelsBoldPanel.TextDescription = "Bold is appropriate for a title labelling on panel background.";
-            this.pageLabelsBoldPanel.ToolTipTitle = "Page ToolTip";
-            this.pageLabelsBoldPanel.UniqueName = "DDD2818C933545C40C9951BB2EB53236";
-            // 
-            // pageLabelsItalicPanel
-            // 
-            this.pageLabelsItalicPanel.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
-            this.pageLabelsItalicPanel.Flags = 65534;
-            this.pageLabelsItalicPanel.LastVisibleSet = true;
-            this.pageLabelsItalicPanel.MinimumSize = new System.Drawing.Size(50, 50);
-            this.pageLabelsItalicPanel.Name = "pageLabelsItalicPanel";
-            this.pageLabelsItalicPanel.Size = new System.Drawing.Size(100, 100);
-            this.pageLabelsItalicPanel.Text = "Italic (Panel)";
-            this.pageLabelsItalicPanel.TextDescription = "Bold is appropriate for emphasised labelling on panel background.";
-            this.pageLabelsItalicPanel.ToolTipTitle = "Page ToolTip";
-            this.pageLabelsItalicPanel.UniqueName = "A486542B05874C5B01A1CC57F04B5DDD";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5040,7 +5069,9 @@ namespace PaletteDesigner
             ((System.ComponentModel.ISupportInitialize)(this.pageTopTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanelMainFill)).EndInit();
             this.kryptonPanelMainFill.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainerMain.Panel1)).EndInit();
             this.kryptonSplitContainerMain.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainerMain.Panel2)).EndInit();
             this.kryptonSplitContainerMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainerMain)).EndInit();
             this.kryptonSplitContainerMain.ResumeLayout(false);
@@ -5081,8 +5112,10 @@ namespace PaletteDesigner
             ((System.ComponentModel.ISupportInitialize)(this.pageDesignControls)).EndInit();
             this.pageDesignControls.ResumeLayout(false);
             this.pageDesignControls.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.control1Normal.Panel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.control1Normal)).EndInit();
             this.control1Normal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.control1Disabled.Panel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.control1Disabled)).EndInit();
             this.control1Disabled.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.borderDesignControls)).EndInit();
@@ -5109,8 +5142,10 @@ namespace PaletteDesigner
             ((System.ComponentModel.ISupportInitialize)(this.pageDesignHeaderGroup)).EndInit();
             this.pageDesignHeaderGroup.ResumeLayout(false);
             this.pageDesignHeaderGroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.headerGroup1Disabled.Panel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.headerGroup1Disabled)).EndInit();
             this.headerGroup1Disabled.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.headerGroup1Normal.Panel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.headerGroup1Normal)).EndInit();
             this.headerGroup1Normal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pageDesignHeaders)).EndInit();
@@ -5151,8 +5186,12 @@ namespace PaletteDesigner
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigatorDesignLabels)).EndInit();
             this.kryptonNavigatorDesignLabels.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pageLabelsNormalControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pageLabelsBoldControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pageLabelsItalicControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pageLabelsTitleControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pageLabelsNormalPanel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pageLabelsBoldPanel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pageLabelsItalicPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pageLabelsTitlePanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pageLabelsGroupBoxCaption)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pageLabelsToolTip)).EndInit();
@@ -5194,44 +5233,64 @@ namespace PaletteDesigner
             ((System.ComponentModel.ISupportInitialize)(this.pageDesignSeparators)).EndInit();
             this.pageDesignSeparators.ResumeLayout(false);
             this.pageDesignSeparators.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.separator1Live.Panel1)).EndInit();
             this.separator1Live.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.separator1Live.Panel2)).EndInit();
             this.separator1Live.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.separator1Live)).EndInit();
             this.separator1Live.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup11.Panel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup11)).EndInit();
             this.kryptonGroup11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup12.Panel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup12)).EndInit();
             this.kryptonGroup12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.separator1Pressed.Panel1)).EndInit();
             this.separator1Pressed.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.separator1Pressed.Panel2)).EndInit();
             this.separator1Pressed.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.separator1Pressed)).EndInit();
             this.separator1Pressed.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup7.Panel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup7)).EndInit();
             this.kryptonGroup7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup8.Panel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup8)).EndInit();
             this.kryptonGroup8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.separator1Tracking.Panel1)).EndInit();
             this.separator1Tracking.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.separator1Tracking.Panel2)).EndInit();
             this.separator1Tracking.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.separator1Tracking)).EndInit();
             this.separator1Tracking.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup5.Panel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup5)).EndInit();
             this.kryptonGroup5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup6.Panel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup6)).EndInit();
             this.kryptonGroup6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.separator1Normal.Panel1)).EndInit();
             this.separator1Normal.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.separator1Normal.Panel2)).EndInit();
             this.separator1Normal.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.separator1Normal)).EndInit();
             this.separator1Normal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup3.Panel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup3)).EndInit();
             this.kryptonGroup3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup4.Panel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup4)).EndInit();
             this.kryptonGroup4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.separator1Disabled.Panel1)).EndInit();
             this.separator1Disabled.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.separator1Disabled.Panel2)).EndInit();
             this.separator1Disabled.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.separator1Disabled)).EndInit();
             this.separator1Disabled.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1.Panel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1)).EndInit();
             this.kryptonGroup1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup2.Panel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup2)).EndInit();
             this.kryptonGroup2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.borderDesignSeparators)).EndInit();
@@ -5264,22 +5323,21 @@ namespace PaletteDesigner
             ((System.ComponentModel.ISupportInitialize)(this.pageDesignTrackBar)).EndInit();
             this.pageDesignTrackBar.ResumeLayout(false);
             this.pageDesignTrackBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroupProperties.Panel)).EndInit();
             this.kryptonHeaderGroupProperties.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroupProperties)).EndInit();
             this.kryptonHeaderGroupProperties.ResumeLayout(false);
             this.mainToolStripContainer.ResumeLayout(false);
             this.mainToolStripContainer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup9.Panel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup9)).EndInit();
             this.kryptonGroup9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup10.Panel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup10)).EndInit();
             this.kryptonGroup10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPage1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonCheckSetLabels)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonCheckSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pageLabelsBoldControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pageLabelsItalicControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pageLabelsBoldPanel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pageLabelsItalicPanel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

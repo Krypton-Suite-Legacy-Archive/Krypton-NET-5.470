@@ -244,7 +244,7 @@ namespace PopupPages
             this.kryptonPage3});
             this.kryptonNavigator.PopupPages.AllowPopupPages = ComponentFactory.Krypton.Navigator.PopupPageAllow.OnlyCompatibleModes;
             this.kryptonNavigator.SelectedIndex = 2;
-            this.kryptonNavigator.Size = new System.Drawing.Size(325, 31);
+            this.kryptonNavigator.Size = new System.Drawing.Size(325, 32);
             this.kryptonNavigator.TabIndex = 0;
             this.kryptonNavigator.Text = "kryptonNavigator1";
             // 
@@ -481,9 +481,9 @@ namespace PopupPages
             // 
             // panelHost
             // 
-            this.panelHost.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelHost.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelHost.Controls.Add(this.kryptonNavigator);
             this.panelHost.Location = new System.Drawing.Point(227, 19);
             this.panelHost.Name = "panelHost";
@@ -500,6 +500,10 @@ namespace PopupPages
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            // 
+            // kryptonManager1
+            // 
+            this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.ProfessionalSystem;
             // 
             // Form1
             // 

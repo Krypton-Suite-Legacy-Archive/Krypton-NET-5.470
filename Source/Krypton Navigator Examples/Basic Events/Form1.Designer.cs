@@ -69,8 +69,8 @@ namespace BasicEvents
             // 
             // kryptonNavigator1
             // 
-            this.kryptonNavigator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.kryptonNavigator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.kryptonNavigator1.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.ContextNextPrevious;
             this.kryptonNavigator1.Location = new System.Drawing.Point(18, 31);
             this.kryptonNavigator1.Name = "kryptonNavigator1";
@@ -83,15 +83,15 @@ namespace BasicEvents
             this.kryptonNavigator1.StateCommon.CheckButton.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.kryptonNavigator1.TabIndex = 0;
             this.kryptonNavigator1.Text = "kryptonNavigator1";
-            this.kryptonNavigator1.Selected += new System.EventHandler<ComponentFactory.Krypton.Navigator.KryptonPageEventArgs>(this.kryptonNavigator1_Selected);
-            this.kryptonNavigator1.Deselecting += new System.EventHandler<ComponentFactory.Krypton.Navigator.KryptonPageCancelEventArgs>(this.kryptonNavigator1_Deselecting);
-            this.kryptonNavigator1.CloseAction += new System.EventHandler<ComponentFactory.Krypton.Navigator.CloseActionEventArgs>(this.kryptonNavigator1_CloseAction);
-            this.kryptonNavigator1.ContextAction += new System.EventHandler<ComponentFactory.Krypton.Navigator.ContextActionEventArgs>(this.kryptonNavigator1_ContextAction);
-            this.kryptonNavigator1.NextAction += new System.EventHandler<ComponentFactory.Krypton.Navigator.DirectionActionEventArgs>(this.kryptonNavigator1_NextAction);
-            this.kryptonNavigator1.Deselected += new System.EventHandler<ComponentFactory.Krypton.Navigator.KryptonPageEventArgs>(this.kryptonNavigator1_Deselected);
-            this.kryptonNavigator1.PreviousAction += new System.EventHandler<ComponentFactory.Krypton.Navigator.DirectionActionEventArgs>(this.kryptonNavigator1_PreviousAction);
             this.kryptonNavigator1.SelectedPageChanged += new System.EventHandler(this.kryptonNavigator1_SelectedPageChanged);
             this.kryptonNavigator1.Selecting += new System.EventHandler<ComponentFactory.Krypton.Navigator.KryptonPageCancelEventArgs>(this.kryptonNavigator1_Selecting);
+            this.kryptonNavigator1.Selected += new System.EventHandler<ComponentFactory.Krypton.Navigator.KryptonPageEventArgs>(this.kryptonNavigator1_Selected);
+            this.kryptonNavigator1.Deselecting += new System.EventHandler<ComponentFactory.Krypton.Navigator.KryptonPageCancelEventArgs>(this.kryptonNavigator1_Deselecting);
+            this.kryptonNavigator1.Deselected += new System.EventHandler<ComponentFactory.Krypton.Navigator.KryptonPageEventArgs>(this.kryptonNavigator1_Deselected);
+            this.kryptonNavigator1.PreviousAction += new System.EventHandler<ComponentFactory.Krypton.Navigator.DirectionActionEventArgs>(this.kryptonNavigator1_PreviousAction);
+            this.kryptonNavigator1.NextAction += new System.EventHandler<ComponentFactory.Krypton.Navigator.DirectionActionEventArgs>(this.kryptonNavigator1_NextAction);
+            this.kryptonNavigator1.ContextAction += new System.EventHandler<ComponentFactory.Krypton.Navigator.ContextActionEventArgs>(this.kryptonNavigator1_ContextAction);
+            this.kryptonNavigator1.CloseAction += new System.EventHandler<ComponentFactory.Krypton.Navigator.CloseActionEventArgs>(this.kryptonNavigator1_CloseAction);
             // 
             // kryptonPage1
             // 
@@ -103,7 +103,7 @@ namespace BasicEvents
             this.kryptonPage1.LastVisibleSet = true;
             this.kryptonPage1.MinimumSize = new System.Drawing.Size(50, 50);
             this.kryptonPage1.Name = "kryptonPage1";
-            this.kryptonPage1.Size = new System.Drawing.Size(295, 329);
+            this.kryptonPage1.Size = new System.Drawing.Size(295, 328);
             this.kryptonPage1.Text = "Page 1";
             this.kryptonPage1.TextDescription = "Page 1 Description";
             this.kryptonPage1.TextTitle = "Page 1 Title";
@@ -179,9 +179,9 @@ namespace BasicEvents
             // 
             // groupBoxProperties
             // 
-            this.groupBoxProperties.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxProperties.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxProperties.Controls.Add(this.listBoxEvents);
             this.groupBoxProperties.Location = new System.Drawing.Point(328, 12);
             this.groupBoxProperties.Name = "groupBoxProperties";
@@ -199,7 +199,7 @@ namespace BasicEvents
             this.listBoxEvents.ItemHeight = 15;
             this.listBoxEvents.Location = new System.Drawing.Point(5, 19);
             this.listBoxEvents.Name = "listBoxEvents";
-            this.listBoxEvents.Size = new System.Drawing.Size(302, 439);
+            this.listBoxEvents.Size = new System.Drawing.Size(302, 440);
             this.listBoxEvents.TabIndex = 0;
             // 
             // buttonClose

@@ -1,6 +1,9 @@
 ﻿using ComponentFactory.Krypton.Toolkit;
 using KryptonToolkitUpdater.Classes;
 using System;
+using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace KryptonToolkitUpdater.UI
@@ -8,13 +11,11 @@ namespace KryptonToolkitUpdater.UI
     public partial class UpdaterMainForm : KryptonForm
     {
         #region Variables
-        bool _checkingForUpdates = false;
-
-        Utilities utilities = new Utilities();
-
-        XMLParser parser = new XMLParser();
-
-        UpdatePackageInformationSettingsHelper updatePackageInformation = new UpdatePackageInformationSettingsHelper();
+        private bool _checkingForUpdates = false;
+        private string _currentToolkitVersion;
+        private Utilities utilities = new Utilities();
+        private XMLParser parser = new XMLParser();
+        private UpdatePackageInformationSettingsHelper updatePackageInformation = new UpdatePackageInformationSettingsHelper();
         #endregion
 
         #region Properties        
@@ -25,6 +26,14 @@ namespace KryptonToolkitUpdater.UI
         ///   <c>true</c> if [checking for updates]; otherwise, <c>false</c>.
         /// </value>
         private bool CheckingForUpdates { get { return _checkingForUpdates; } set { _checkingForUpdates = value; } }
+
+        /// <summary>
+        /// Gets or sets the current toolkit version.
+        /// </summary>
+        /// <value>
+        /// The current toolkit version.
+        /// </value>
+        private string CurrentToolkitVersion { get { return _currentToolkitVersion; } set { _currentToolkitVersion = value; } }
         #endregion
 
         /// <summary>
@@ -71,7 +80,7 @@ namespace KryptonToolkitUpdater.UI
 
         private void UpdaterMainForm_Load(object sender, EventArgs e)
         {
-
+            SetCurrentToolkitVersion(GetFileVersionInformation(@".\Krypton Toolkit.dll").ToString());
         }
 
         private void UpdaterMainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -80,8 +89,14 @@ namespace KryptonToolkitUpdater.UI
         }
 
         #region Methods
+        /// <summary>
+        /// Checks for updates.
+        /// </summary>
+        /// <param name="updateXMLPath">The update XML path.</param>
         private void CheckForUpdates(string updateXMLPath)
         {
+            SetCheckingForUpdates(true);
+
             try
             {
                 if (utilities.CheckInternetConnectionState())
@@ -95,6 +110,8 @@ namespace KryptonToolkitUpdater.UI
                             kbtnCheckForUpdates.Visible = false;
 
                             klblCurrentStatus.Text = "A new update is now available!";
+
+                            SetCheckingForUpdates(false);
                         }
                     }
                 }
@@ -102,7 +119,39 @@ namespace KryptonToolkitUpdater.UI
             catch (Exception exc)
             {
                 KryptonMessageBox.Show($"Error: { exc.Message }", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                SetCheckingForUpdates(false);
             }
+        }
+
+        /// <summary>
+        /// Gets the file version information.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
+        /// <returns></returns>
+        private Version GetFileVersionInformation(string filePath)
+        {
+            Version tmpVersion;
+
+            try
+            {
+                if (File.Exists(filePath))
+                {
+                    tmpVersion = Version.Parse(FileVersionInfo.GetVersionInfo(filePath).FileVersion);
+
+                    return tmpVersion;
+                }
+            }
+            catch (Exception error)
+            {
+                KryptonMessageBox.Show($"An error has occurred: { error.Message }", "Unexpected Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                tmpVersion = Version.Parse("0.0.0.0");
+            }
+
+            tmpVersion = Assembly.GetExecutingAssembly().GetName().Version;
+
+            return tmpVersion;
         }
         #endregion
 
@@ -124,16 +173,36 @@ namespace KryptonToolkitUpdater.UI
         {
             return CheckingForUpdates;
         }
+
+        /// <summary>
+        /// Sets the CurrentToolkitVersion to the value of versionValue.
+        /// </summary>
+        /// <param name="versionValue">The value of versionValue.</param>
+        private void SetCurrentToolkitVersion(string versionValue)
+        {
+            CurrentToolkitVersion = versionValue;
+        }
+
+        /// <summary>
+        /// Gets the CurrentToolkitVersion value.
+        /// </summary>
+        /// <returns>The value of versionValue.</returns>
+        private string GetCurrentToolkitVersion()
+        {
+            return CurrentToolkitVersion;
+        }
         #endregion
 
-        private void kllHelp_LinkClicked(object sender, System.EventArgs e)
+        private void kllHelp_LinkClicked(object sender, EventArgs e)
         {
             KryptonMessageBox.Show("This utility will enable you to check for and download updates for Krypton .NET 4.70.", "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void kbtnDownloadUpdate_Click(object sender, EventArgs e)
         {
+            DownloadUpdateForm downloadUpdate = new DownloadUpdateForm(updatePackageInformation.GetDownloadURL(), updatePackageInformation.GetDownloadLocalLocation());
 
+            downloadUpdate.Show();
         }
     }
 }

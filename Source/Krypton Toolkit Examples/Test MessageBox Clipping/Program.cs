@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 using ComponentFactory.Krypton.Toolkit;
 
-namespace Test_MessageBox_Clipping
+namespace TestMessageBoxClipping
 {
     static class Program
     {

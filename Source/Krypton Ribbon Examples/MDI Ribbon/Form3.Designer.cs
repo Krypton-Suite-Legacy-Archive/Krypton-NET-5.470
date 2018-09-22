@@ -28,6 +28,7 @@ namespace MDIRibbon
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.labelMessage = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.buttonOK = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -72,6 +73,7 @@ namespace MDIRibbon
             this.ClientSize = new System.Drawing.Size(260, 91);
             this.Controls.Add(this.kryptonPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form3";

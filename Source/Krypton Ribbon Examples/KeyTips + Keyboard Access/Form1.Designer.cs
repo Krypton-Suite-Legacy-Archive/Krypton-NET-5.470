@@ -28,7 +28,6 @@ namespace KeyTipsAndKeyboardAccess
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelFill = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.groupKeyboardInfo = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
@@ -114,8 +113,8 @@ namespace KeyTipsAndKeyboardAccess
             this.kryptonRibbonGroupButton7 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.kryptonRibbonGroupButton8 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.kryptonRibbonGroupButton9 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.checkSetPalette = new ComponentFactory.Krypton.Toolkit.KryptonCheckSet(this.components);
-            this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.checkSetPalette = new ComponentFactory.Krypton.Toolkit.KryptonCheckSet();
+            this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager();
             ((System.ComponentModel.ISupportInitialize)(this.panelFill)).BeginInit();
             this.panelFill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupKeyboardInfo)).BeginInit();
@@ -330,6 +329,8 @@ namespace KeyTipsAndKeyboardAccess
             // 
             // kryptonRibbon
             // 
+            this.kryptonRibbon.AllowFormIntegrate = true;
+            this.kryptonRibbon.InDesignHelperMode = true;
             this.kryptonRibbon.Name = "kryptonRibbon";
             this.kryptonRibbon.QATButtons.AddRange(new System.ComponentModel.Component[] {
             this.qatUSA,
@@ -355,7 +356,6 @@ namespace KeyTipsAndKeyboardAccess
             this.kryptonRibbon.RibbonTabs.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab[] {
             this.tabHome,
             this.kryptonRibbonTab1});
-            this.kryptonRibbon.SelectedContext = null;
             this.kryptonRibbon.SelectedTab = this.tabHome;
             this.kryptonRibbon.Size = new System.Drawing.Size(478, 115);
             this.kryptonRibbon.TabIndex = 0;

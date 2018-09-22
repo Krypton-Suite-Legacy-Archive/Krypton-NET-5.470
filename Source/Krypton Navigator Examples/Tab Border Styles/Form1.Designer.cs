@@ -28,7 +28,6 @@ namespace TabBorderStyles
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBoxTabBorderStyles = new System.Windows.Forms.GroupBox();
             this.radioSO = new System.Windows.Forms.RadioButton();
@@ -65,7 +64,7 @@ namespace TabBorderStyles
             this.radioLP = new System.Windows.Forms.RadioButton();
             this.radioSP = new System.Windows.Forms.RadioButton();
             this.radioHP = new System.Windows.Forms.RadioButton();
-            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager();
             this.groupBoxTabBorderStyles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator)).BeginInit();
             this.kryptonNavigator.SuspendLayout();
@@ -364,9 +363,9 @@ namespace TabBorderStyles
             // 
             // kryptonNavigator
             // 
-            this.kryptonNavigator.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.kryptonNavigator.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonNavigator.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.None;
             this.kryptonNavigator.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
             this.kryptonNavigator.Location = new System.Drawing.Point(12, 271);
@@ -393,7 +392,7 @@ namespace TabBorderStyles
             this.kryptonPage1.LastVisibleSet = true;
             this.kryptonPage1.MinimumSize = new System.Drawing.Size(50, 50);
             this.kryptonPage1.Name = "kryptonPage1";
-            this.kryptonPage1.Size = new System.Drawing.Size(595, 78);
+            this.kryptonPage1.Size = new System.Drawing.Size(595, 77);
             this.kryptonPage1.Text = "Page 1";
             this.kryptonPage1.ToolTipTitle = "Page ToolTip";
             this.kryptonPage1.UniqueName = "A605A21768024BACA605A21768024BAC";
@@ -546,6 +545,10 @@ namespace TabBorderStyles
             this.radioHP.Text = "High Profile";
             this.radioHP.UseVisualStyleBackColor = true;
             this.radioHP.CheckedChanged += new System.EventHandler(this.tabStyles_CheckedChanged);
+            // 
+            // kryptonManager1
+            // 
+            this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.ProfessionalSystem;
             // 
             // Form1
             // 

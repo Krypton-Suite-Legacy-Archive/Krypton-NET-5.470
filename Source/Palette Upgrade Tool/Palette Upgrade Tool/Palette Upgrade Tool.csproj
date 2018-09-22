@@ -38,7 +38,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Krypton Toolkit">
-      <HintPath>A:\Developer DLLs\Krypton DLLs\Versions\4.70\Krypton Toolkit.dll</HintPath>
+      <HintPath>..\..\..\..\..\Developer DLLs\Krypton DLLs\Versions\4.70\Krypton Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -83,6 +83,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Krypton.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Square Design 64 x 64 New Green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Square Design 128 x 128 New Green.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

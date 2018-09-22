@@ -1,4 +1,4 @@
-# <img src="https://rawgit.com/Wagnerp/Krypton-NET-4.7/master/Help/Output/Logo.PNG">-NET-4.70
+# <img src="https://github.com/Wagnerp/Krypton-NET-4.70/blob/master/Assets/PNG/Square%20Design/Main%20Icon/64%20x%2064/Square%20Design%2064%20x%2064%20New%20Green.png">-NET-4.70
 
 =======
 
@@ -8,11 +8,38 @@
 
 ## NOTE: With the advent of Windows 10 1803 being released to the general public, I am pleased to announce the availability of a 4.72 release that will support the .NET 4.7.2 framework. You can follow the project [here](https://github.com/Wagnerp/Krypton-NET-4.72).
 
+=======
+
+## Help Wanted! If anyone has experience with the Nuget or any other packaging specifications, then please do not hesitate to come forward, as past implementations have not come to fruition.
+
+=======
+
+## 2018-09-17 Release of Build 641
+* Build 641 (build date Monday 17th September, 2018) is now available through the **releases** tab
+
+=======
+
+## 2018-09-16 `KryptonPalette` changes (build 641)
+* The `Import()` and `Export()` methods will now use the native `KryptonMessageBox` instead of a system one
+* Removed the phantom `KryptonPalette` component
+* Now you can access the full `FilePath` of the loaded palette XML file
+
+=======
+
+## 2018-08-08 Build 633
+* Build 633 (build date Wedensday 8th August, 2018) is now available through the **releases** tab
+* New icon (not propagated through all the example applications yet)
+* General bugfixes
+
+=======
+
+## 2018-07-17 Build 632
+* Build 632 (released Tuesday 17th July, 2018) is now available through the **releases** tab
 
 =======
 
 ## 2018-07-15 Fix KryptonForm does not respect Minimum Size set in designer #57
-* And sort out some spelling mistakes in the VisualForm.cs
+* And sort out some spelling mistakes in the `VisualForm.cs`
 
 =======
 

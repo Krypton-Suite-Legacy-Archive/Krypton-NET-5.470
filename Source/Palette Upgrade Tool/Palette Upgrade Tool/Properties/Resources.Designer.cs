@@ -71,6 +71,26 @@ namespace PaletteUpgradeTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Square_Design_128_x_128_New_Green {
+            get {
+                object obj = ResourceManager.GetObject("Square_Design_128_x_128_New_Green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Square_Design_64_x_64_New_Green {
+            get {
+                object obj = ResourceManager.GetObject("Square_Design_64_x_64_New_Green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
         ///&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; version=&quot;1.0&quot;&gt;
         ///  &lt;xsl:template match=&quot;KryptonPalette&quot;&gt;
