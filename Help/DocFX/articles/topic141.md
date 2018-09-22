@@ -106,7 +106,7 @@ compile.
 
  
 
-using ComponentFactory.Krypton.Toolkit;
+using Krypton.Toolkit;
 
  
 

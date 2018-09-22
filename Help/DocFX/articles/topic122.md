@@ -58,7 +58,7 @@ as can be seen in Figure 3.
 Place an additional 'using' statement at the top of the file so we can refer to
 the *KryptonPage* class.
 
-    using ComponentFactory.Krypton.Navigator;
+    using Krypton.Navigator;
 
  
 
@@ -82,7 +82,7 @@ looks like the following...
     using System;  
     using System.Collections.Generic;  
     using System.Text;  
-    using ComponentFactory.Krypton.Navigator;
+    using Krypton.Navigator;
 
     namespace TestWindow  
     {  

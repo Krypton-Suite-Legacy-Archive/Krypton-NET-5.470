@@ -76,8 +76,8 @@ private void Form1_Load(object sender, EventArgs e)
 Add the following simple code to create a new page add add it just before the
 'New Page' entry.  
   
-using ComponentFactory.Krypton.Toolkit;  
-using ComponentFactory.Krypton.Navigator;  
+using Krypton.Toolkit;  
+using Krypton.Navigator;  
   
 private void InsertNewPage()  
 {  
