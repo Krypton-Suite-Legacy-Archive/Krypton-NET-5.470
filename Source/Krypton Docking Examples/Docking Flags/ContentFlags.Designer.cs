@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.cbNavigator = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.cbClose = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.cbWorkspace = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.cbFloating = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.cbAutoHidden = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.cbDocked = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.cbDropDown = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
+            this.kryptonPanel = new  Krypton.Toolkit.KryptonPanel();
+            this.cbNavigator = new  Krypton.Toolkit.KryptonCheckBox();
+            this.cbClose = new  Krypton.Toolkit.KryptonCheckBox();
+            this.cbWorkspace = new  Krypton.Toolkit.KryptonCheckBox();
+            this.cbFloating = new  Krypton.Toolkit.KryptonCheckBox();
+            this.cbAutoHidden = new  Krypton.Toolkit.KryptonCheckBox();
+            this.cbDocked = new  Krypton.Toolkit.KryptonCheckBox();
+            this.cbDropDown = new  Krypton.Toolkit.KryptonCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +52,7 @@
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel.Name = "kryptonPanel";
-            this.kryptonPanel.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
+            this.kryptonPanel.PanelBackStyle =  Krypton.Toolkit.PaletteBackStyle.ControlClient;
             this.kryptonPanel.Size = new System.Drawing.Size(203, 192);
             this.kryptonPanel.TabIndex = 0;
             this.kryptonPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.kryptonPanel_MouseDown);
@@ -137,13 +137,13 @@
 
         #endregion
 
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbClose;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbWorkspace;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbFloating;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbAutoHidden;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbDocked;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbNavigator;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbDropDown;
+        private  Krypton.Toolkit.KryptonPanel kryptonPanel;
+        private  Krypton.Toolkit.KryptonCheckBox cbClose;
+        private  Krypton.Toolkit.KryptonCheckBox cbWorkspace;
+        private  Krypton.Toolkit.KryptonCheckBox cbFloating;
+        private  Krypton.Toolkit.KryptonCheckBox cbAutoHidden;
+        private  Krypton.Toolkit.KryptonCheckBox cbDocked;
+        private  Krypton.Toolkit.KryptonCheckBox cbNavigator;
+        private  Krypton.Toolkit.KryptonCheckBox cbDropDown;
     }
 }

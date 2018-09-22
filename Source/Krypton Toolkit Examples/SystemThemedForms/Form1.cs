@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Drawing;
-using ComponentFactory.Krypton.Toolkit;
+using  Krypton.Toolkit;
 
 namespace SystemThemedForms
 {
@@ -26,17 +26,17 @@ namespace SystemThemedForms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2007Blue;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
         }
     }
 }

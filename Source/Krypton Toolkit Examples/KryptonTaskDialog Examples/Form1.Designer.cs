@@ -37,14 +37,14 @@
             this.textBoxMainInstructions = new System.Windows.Forms.TextBox();
             this.textBoxContent = new System.Windows.Forms.TextBox();
             this.buttonShowTaskDialog = new System.Windows.Forms.Button();
-            this.kryptonTaskDialog = new ComponentFactory.Krypton.Toolkit.KryptonTaskDialog();
-            this.kryptonTaskDialogCommand4 = new ComponentFactory.Krypton.Toolkit.KryptonTaskDialogCommand();
-            this.kryptonTaskDialogCommand5 = new ComponentFactory.Krypton.Toolkit.KryptonTaskDialogCommand();
-            this.kryptonTaskDialogCommand6 = new ComponentFactory.Krypton.Toolkit.KryptonTaskDialogCommand();
-            this.kryptonTaskDialogCommand1 = new ComponentFactory.Krypton.Toolkit.KryptonTaskDialogCommand();
-            this.kryptonTaskDialogCommand2 = new ComponentFactory.Krypton.Toolkit.KryptonTaskDialogCommand();
-            this.kryptonTaskDialogCommand3 = new ComponentFactory.Krypton.Toolkit.KryptonTaskDialogCommand();
-            this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonTaskDialog = new  Krypton.Toolkit.KryptonTaskDialog();
+            this.kryptonTaskDialogCommand4 = new  Krypton.Toolkit.KryptonTaskDialogCommand();
+            this.kryptonTaskDialogCommand5 = new  Krypton.Toolkit.KryptonTaskDialogCommand();
+            this.kryptonTaskDialogCommand6 = new  Krypton.Toolkit.KryptonTaskDialogCommand();
+            this.kryptonTaskDialogCommand1 = new  Krypton.Toolkit.KryptonTaskDialogCommand();
+            this.kryptonTaskDialogCommand2 = new  Krypton.Toolkit.KryptonTaskDialogCommand();
+            this.kryptonTaskDialogCommand3 = new  Krypton.Toolkit.KryptonTaskDialogCommand();
+            this.kryptonManager = new  Krypton.Toolkit.KryptonManager(this.components);
             this.checkBoxOK = new System.Windows.Forms.CheckBox();
             this.checkBoxYes = new System.Windows.Forms.CheckBox();
             this.checkBoxNo = new System.Windows.Forms.CheckBox();
@@ -148,7 +148,7 @@
             // kryptonTaskDialog
             // 
             this.kryptonTaskDialog.CheckboxText = null;
-            this.kryptonTaskDialog.CommandButtons.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonTaskDialogCommand[] {
+            this.kryptonTaskDialog.CommandButtons.AddRange(new  Krypton.Toolkit.KryptonTaskDialogCommand[] {
             this.kryptonTaskDialogCommand4,
             this.kryptonTaskDialogCommand5,
             this.kryptonTaskDialogCommand6});
@@ -157,7 +157,7 @@
             this.kryptonTaskDialog.FooterHyperlink = null;
             this.kryptonTaskDialog.FooterText = null;
             this.kryptonTaskDialog.MainInstruction = null;
-            this.kryptonTaskDialog.RadioButtons.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonTaskDialogCommand[] {
+            this.kryptonTaskDialog.RadioButtons.AddRange(new  Krypton.Toolkit.KryptonTaskDialogCommand[] {
             this.kryptonTaskDialogCommand1,
             this.kryptonTaskDialogCommand2,
             this.kryptonTaskDialogCommand3});
@@ -589,8 +589,8 @@
         private System.Windows.Forms.TextBox textBoxMainInstructions;
         private System.Windows.Forms.TextBox textBoxContent;
         private System.Windows.Forms.Button buttonShowTaskDialog;
-        private ComponentFactory.Krypton.Toolkit.KryptonTaskDialog kryptonTaskDialog;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager;
+        private  Krypton.Toolkit.KryptonTaskDialog kryptonTaskDialog;
+        private  Krypton.Toolkit.KryptonManager kryptonManager;
         private System.Windows.Forms.CheckBox checkBoxOK;
         private System.Windows.Forms.CheckBox checkBoxYes;
         private System.Windows.Forms.CheckBox checkBoxNo;
@@ -614,12 +614,12 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox checkBoxCommandButtons;
         private System.Windows.Forms.CheckBox checkBoxRadioButtons;
-        private ComponentFactory.Krypton.Toolkit.KryptonTaskDialogCommand kryptonTaskDialogCommand1;
-        private ComponentFactory.Krypton.Toolkit.KryptonTaskDialogCommand kryptonTaskDialogCommand2;
-        private ComponentFactory.Krypton.Toolkit.KryptonTaskDialogCommand kryptonTaskDialogCommand3;
-        private ComponentFactory.Krypton.Toolkit.KryptonTaskDialogCommand kryptonTaskDialogCommand4;
-        private ComponentFactory.Krypton.Toolkit.KryptonTaskDialogCommand kryptonTaskDialogCommand5;
-        private ComponentFactory.Krypton.Toolkit.KryptonTaskDialogCommand kryptonTaskDialogCommand6;
+        private  Krypton.Toolkit.KryptonTaskDialogCommand kryptonTaskDialogCommand1;
+        private  Krypton.Toolkit.KryptonTaskDialogCommand kryptonTaskDialogCommand2;
+        private  Krypton.Toolkit.KryptonTaskDialogCommand kryptonTaskDialogCommand3;
+        private  Krypton.Toolkit.KryptonTaskDialogCommand kryptonTaskDialogCommand4;
+        private  Krypton.Toolkit.KryptonTaskDialogCommand kryptonTaskDialogCommand5;
+        private  Krypton.Toolkit.KryptonTaskDialogCommand kryptonTaskDialogCommand6;
         private System.Windows.Forms.GroupBox groupBoxPalette;
         private System.Windows.Forms.RadioButton paletteSparkleOrange;
         private System.Windows.Forms.RadioButton palette2010Black;

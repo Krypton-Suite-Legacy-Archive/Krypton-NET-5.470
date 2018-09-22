@@ -16,7 +16,7 @@
         private void InitializeComponent()
         {
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
-            this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonPanel = new  Krypton.Toolkit.KryptonPanel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             this.SuspendLayout();
@@ -39,8 +39,8 @@
             this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel.Name = "kryptonPanel";
             this.kryptonPanel.Padding = new System.Windows.Forms.Padding(5);
-            this.kryptonPanel.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Global;
-            this.kryptonPanel.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
+            this.kryptonPanel.PaletteMode =  Krypton.Toolkit.PaletteMode.Global;
+            this.kryptonPanel.PanelBackStyle =  Krypton.Toolkit.PaletteBackStyle.ControlClient;
             this.kryptonPanel.Size = new System.Drawing.Size(243, 161);
             this.kryptonPanel.TabIndex = 1;
             // 
@@ -61,6 +61,6 @@
         #endregion
 
         private System.Windows.Forms.PropertyGrid propertyGrid1;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel;
+        private  Krypton.Toolkit.KryptonPanel kryptonPanel;
     }
 }

@@ -29,12 +29,12 @@ namespace OneNoteTabs
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.kryptonNavigator1 = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
+            this.kryptonNavigator1 = new  Krypton.Navigator.KryptonNavigator();
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
             this.buttonClear = new System.Windows.Forms.Button();
-            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager();
+            this.kryptonManager1 = new  Krypton.Toolkit.KryptonManager();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator1)).BeginInit();
             this.kryptonNavigator1.SuspendLayout();
             this.SuspendLayout();
@@ -44,12 +44,12 @@ namespace OneNoteTabs
             this.kryptonNavigator1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonNavigator1.Bar.TabBorderStyle = ComponentFactory.Krypton.Toolkit.TabBorderStyle.OneNote;
-            this.kryptonNavigator1.Bar.TabStyle = ComponentFactory.Krypton.Toolkit.TabStyle.OneNote;
+            this.kryptonNavigator1.Bar.TabBorderStyle =  Krypton.Toolkit.TabBorderStyle.OneNote;
+            this.kryptonNavigator1.Bar.TabStyle =  Krypton.Toolkit.TabStyle.OneNote;
             this.kryptonNavigator1.Location = new System.Drawing.Point(12, 12);
             this.kryptonNavigator1.Name = "kryptonNavigator1";
             this.kryptonNavigator1.Size = new System.Drawing.Size(527, 350);
-            this.kryptonNavigator1.StateCommon.Panel.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
+            this.kryptonNavigator1.StateCommon.Panel.Draw =  Krypton.Toolkit.InheritBool.False;
             this.kryptonNavigator1.TabIndex = 0;
             this.kryptonNavigator1.Text = "kryptonNavigator1";
             // 
@@ -99,7 +99,7 @@ namespace OneNoteTabs
             // 
             // kryptonManager1
             // 
-            this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.ProfessionalSystem;
+            this.kryptonManager1.GlobalPaletteMode =  Krypton.Toolkit.PaletteModeManager.ProfessionalSystem;
             // 
             // Form1
             // 
@@ -127,12 +127,12 @@ namespace OneNoteTabs
 
         #endregion
 
-        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigator1;
+        private  Krypton.Navigator.KryptonNavigator kryptonNavigator1;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonRemove;
         private System.Windows.Forms.Button buttonClear;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager1;
+        private  Krypton.Toolkit.KryptonManager kryptonManager1;
     }
 }
 

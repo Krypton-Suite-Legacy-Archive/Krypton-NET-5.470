@@ -33,28 +33,28 @@ namespace KryptonSplitContainerExamples
             this.propertyGrid = new System.Windows.Forms.PropertyGrid();
             this.buttonClose = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.splitContainer2Office = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
-            this.splitContainer2OfficeLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.splitContainer2OfficeLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.splitContainer1Office = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
-            this.splitContainer1OfficeLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.splitContainer1OfficeLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.splitContainer2Office = new  Krypton.Toolkit.KryptonSplitContainer();
+            this.splitContainer2OfficeLabel1 = new  Krypton.Toolkit.KryptonLabel();
+            this.splitContainer2OfficeLabel2 = new  Krypton.Toolkit.KryptonLabel();
+            this.splitContainer1Office = new  Krypton.Toolkit.KryptonSplitContainer();
+            this.splitContainer1OfficeLabel1 = new  Krypton.Toolkit.KryptonLabel();
+            this.splitContainer1OfficeLabel2 = new  Krypton.Toolkit.KryptonLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.splitContainer2Blue = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
-            this.kryptonGroup2 = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.splitContainer2SystemLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonGroup1 = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.splitContainer2SystemLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.splitContainer1Blue = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
-            this.splitContainer1SystemLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.splitContainer1SystemLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.splitContainer2Blue = new  Krypton.Toolkit.KryptonSplitContainer();
+            this.kryptonGroup2 = new  Krypton.Toolkit.KryptonGroup();
+            this.splitContainer2SystemLabel2 = new  Krypton.Toolkit.KryptonLabel();
+            this.kryptonGroup1 = new  Krypton.Toolkit.KryptonGroup();
+            this.splitContainer2SystemLabel1 = new  Krypton.Toolkit.KryptonLabel();
+            this.splitContainer1Blue = new  Krypton.Toolkit.KryptonSplitContainer();
+            this.splitContainer1SystemLabel1 = new  Krypton.Toolkit.KryptonLabel();
+            this.splitContainer1SystemLabel2 = new  Krypton.Toolkit.KryptonLabel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.kryptonSplitContainer1 = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
-            this.splitContainer2CustomLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.splitContainer2CustomLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.splitContainer1Custom = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
-            this.splitContainer1CustomLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.splitContainer1CustomLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kryptonSplitContainer1 = new  Krypton.Toolkit.KryptonSplitContainer();
+            this.splitContainer2CustomLabel1 = new  Krypton.Toolkit.KryptonLabel();
+            this.splitContainer2CustomLabel2 = new  Krypton.Toolkit.KryptonLabel();
+            this.splitContainer1Custom = new  Krypton.Toolkit.KryptonSplitContainer();
+            this.splitContainer1CustomLabel1 = new  Krypton.Toolkit.KryptonLabel();
+            this.splitContainer1CustomLabel2 = new  Krypton.Toolkit.KryptonLabel();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2Office)).BeginInit();
@@ -154,24 +154,24 @@ namespace KryptonSplitContainerExamples
             this.splitContainer2Office.Location = new System.Drawing.Point(133, 23);
             this.splitContainer2Office.Name = "splitContainer2Office";
             this.splitContainer2Office.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.splitContainer2Office.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.splitContainer2Office.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             // 
             // splitContainer2Office.Panel1
             // 
             this.splitContainer2Office.Panel1.Controls.Add(this.splitContainer2OfficeLabel1);
-            this.splitContainer2Office.Panel1.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
-            this.splitContainer2Office.Panel1.StateNormal.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.splitContainer2Office.Panel1.StateNormal.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.splitContainer2Office.Panel1.PanelBackStyle =  Krypton.Toolkit.PaletteBackStyle.ControlClient;
+            this.splitContainer2Office.Panel1.StateNormal.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.splitContainer2Office.Panel1.StateNormal.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.splitContainer2Office.Panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainerPanel_MouseDown);
             // 
             // splitContainer2Office.Panel2
             // 
             this.splitContainer2Office.Panel2.Controls.Add(this.splitContainer2OfficeLabel2);
-            this.splitContainer2Office.Panel2.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
-            this.splitContainer2Office.Panel2.StateNormal.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.splitContainer2Office.Panel2.StateNormal.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.splitContainer2Office.Panel2.PanelBackStyle =  Krypton.Toolkit.PaletteBackStyle.ControlClient;
+            this.splitContainer2Office.Panel2.StateNormal.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.splitContainer2Office.Panel2.StateNormal.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.splitContainer2Office.Panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainerPanel_MouseDown);
-            this.splitContainer2Office.SeparatorStyle = ComponentFactory.Krypton.Toolkit.SeparatorStyle.HighProfile;
+            this.splitContainer2Office.SeparatorStyle =  Krypton.Toolkit.SeparatorStyle.HighProfile;
             this.splitContainer2Office.Size = new System.Drawing.Size(112, 111);
             this.splitContainer2Office.SplitterDistance = 35;
             this.splitContainer2Office.TabIndex = 1;
@@ -182,12 +182,12 @@ namespace KryptonSplitContainerExamples
             this.splitContainer2OfficeLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2OfficeLabel1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2OfficeLabel1.Name = "splitContainer2OfficeLabel1";
-            this.splitContainer2OfficeLabel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.splitContainer2OfficeLabel1.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.splitContainer2OfficeLabel1.Size = new System.Drawing.Size(112, 35);
-            this.splitContainer2OfficeLabel1.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.splitContainer2OfficeLabel1.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer2OfficeLabel1.StateCommon.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer2OfficeLabel1.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
+            this.splitContainer2OfficeLabel1.StateCommon.ShortText.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.splitContainer2OfficeLabel1.StateCommon.ShortText.TextH =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer2OfficeLabel1.StateCommon.ShortText.TextV =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer2OfficeLabel1.StateCommon.ShortText.Trim =  Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.splitContainer2OfficeLabel1.TabIndex = 0;
             this.splitContainer2OfficeLabel1.Values.Text = "Panel1";
             this.splitContainer2OfficeLabel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainerLabel_MouseDown);
@@ -197,12 +197,12 @@ namespace KryptonSplitContainerExamples
             this.splitContainer2OfficeLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2OfficeLabel2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2OfficeLabel2.Name = "splitContainer2OfficeLabel2";
-            this.splitContainer2OfficeLabel2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.splitContainer2OfficeLabel2.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.splitContainer2OfficeLabel2.Size = new System.Drawing.Size(112, 71);
-            this.splitContainer2OfficeLabel2.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.splitContainer2OfficeLabel2.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer2OfficeLabel2.StateCommon.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer2OfficeLabel2.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
+            this.splitContainer2OfficeLabel2.StateCommon.ShortText.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.splitContainer2OfficeLabel2.StateCommon.ShortText.TextH =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer2OfficeLabel2.StateCommon.ShortText.TextV =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer2OfficeLabel2.StateCommon.ShortText.Trim =  Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.splitContainer2OfficeLabel2.TabIndex = 0;
             this.splitContainer2OfficeLabel2.Values.Text = "Panel2";
             this.splitContainer2OfficeLabel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainerLabel_MouseDown);
@@ -212,22 +212,22 @@ namespace KryptonSplitContainerExamples
             this.splitContainer1Office.Cursor = System.Windows.Forms.Cursors.Default;
             this.splitContainer1Office.Location = new System.Drawing.Point(9, 23);
             this.splitContainer1Office.Name = "splitContainer1Office";
-            this.splitContainer1Office.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.splitContainer1Office.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             // 
             // splitContainer1Office.Panel1
             // 
             this.splitContainer1Office.Panel1.Controls.Add(this.splitContainer1OfficeLabel1);
-            this.splitContainer1Office.Panel1.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
-            this.splitContainer1Office.Panel1.StateNormal.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.splitContainer1Office.Panel1.StateNormal.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.splitContainer1Office.Panel1.PanelBackStyle =  Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
+            this.splitContainer1Office.Panel1.StateNormal.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.splitContainer1Office.Panel1.StateNormal.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.splitContainer1Office.Panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainerPanel_MouseDown);
             // 
             // splitContainer1Office.Panel2
             // 
             this.splitContainer1Office.Panel2.Controls.Add(this.splitContainer1OfficeLabel2);
-            this.splitContainer1Office.Panel2.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
-            this.splitContainer1Office.Panel2.StateNormal.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.splitContainer1Office.Panel2.StateNormal.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.splitContainer1Office.Panel2.PanelBackStyle =  Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
+            this.splitContainer1Office.Panel2.StateNormal.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.splitContainer1Office.Panel2.StateNormal.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.splitContainer1Office.Panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainerPanel_MouseDown);
             this.splitContainer1Office.Size = new System.Drawing.Size(112, 111);
             this.splitContainer1Office.SplitterDistance = 53;
@@ -239,12 +239,12 @@ namespace KryptonSplitContainerExamples
             this.splitContainer1OfficeLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1OfficeLabel1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1OfficeLabel1.Name = "splitContainer1OfficeLabel1";
-            this.splitContainer1OfficeLabel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.splitContainer1OfficeLabel1.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.splitContainer1OfficeLabel1.Size = new System.Drawing.Size(53, 111);
-            this.splitContainer1OfficeLabel1.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.splitContainer1OfficeLabel1.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer1OfficeLabel1.StateCommon.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer1OfficeLabel1.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
+            this.splitContainer1OfficeLabel1.StateCommon.ShortText.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.splitContainer1OfficeLabel1.StateCommon.ShortText.TextH =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer1OfficeLabel1.StateCommon.ShortText.TextV =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer1OfficeLabel1.StateCommon.ShortText.Trim =  Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.splitContainer1OfficeLabel1.TabIndex = 0;
             this.splitContainer1OfficeLabel1.Values.Text = "Panel1";
             this.splitContainer1OfficeLabel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainerLabel_MouseDown);
@@ -254,12 +254,12 @@ namespace KryptonSplitContainerExamples
             this.splitContainer1OfficeLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1OfficeLabel2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1OfficeLabel2.Name = "splitContainer1OfficeLabel2";
-            this.splitContainer1OfficeLabel2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.splitContainer1OfficeLabel2.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.splitContainer1OfficeLabel2.Size = new System.Drawing.Size(54, 111);
-            this.splitContainer1OfficeLabel2.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.splitContainer1OfficeLabel2.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer1OfficeLabel2.StateCommon.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer1OfficeLabel2.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
+            this.splitContainer1OfficeLabel2.StateCommon.ShortText.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.splitContainer1OfficeLabel2.StateCommon.ShortText.TextH =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer1OfficeLabel2.StateCommon.ShortText.TextV =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer1OfficeLabel2.StateCommon.ShortText.Trim =  Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.splitContainer1OfficeLabel2.TabIndex = 0;
             this.splitContainer1OfficeLabel2.Values.Text = "Panel2";
             this.splitContainer1OfficeLabel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainerLabel_MouseDown);
@@ -281,7 +281,7 @@ namespace KryptonSplitContainerExamples
             this.splitContainer2Blue.Location = new System.Drawing.Point(132, 23);
             this.splitContainer2Blue.Name = "splitContainer2Blue";
             this.splitContainer2Blue.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.splitContainer2Blue.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.splitContainer2Blue.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2007Blue;
             // 
             // splitContainer2Blue.Panel1
             // 
@@ -292,7 +292,7 @@ namespace KryptonSplitContainerExamples
             // 
             this.splitContainer2Blue.Panel2.Controls.Add(this.kryptonGroup1);
             this.splitContainer2Blue.Panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainerPanel_MouseDown);
-            this.splitContainer2Blue.SeparatorStyle = ComponentFactory.Krypton.Toolkit.SeparatorStyle.HighProfile;
+            this.splitContainer2Blue.SeparatorStyle =  Krypton.Toolkit.SeparatorStyle.HighProfile;
             this.splitContainer2Blue.Size = new System.Drawing.Size(112, 111);
             this.splitContainer2Blue.SplitterDistance = 35;
             this.splitContainer2Blue.TabIndex = 1;
@@ -315,12 +315,12 @@ namespace KryptonSplitContainerExamples
             this.splitContainer2SystemLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2SystemLabel2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2SystemLabel2.Name = "splitContainer2SystemLabel2";
-            this.splitContainer2SystemLabel2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.splitContainer2SystemLabel2.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2007Blue;
             this.splitContainer2SystemLabel2.Size = new System.Drawing.Size(110, 33);
-            this.splitContainer2SystemLabel2.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.splitContainer2SystemLabel2.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer2SystemLabel2.StateCommon.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer2SystemLabel2.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
+            this.splitContainer2SystemLabel2.StateCommon.ShortText.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.splitContainer2SystemLabel2.StateCommon.ShortText.TextH =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer2SystemLabel2.StateCommon.ShortText.TextV =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer2SystemLabel2.StateCommon.ShortText.Trim =  Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.splitContainer2SystemLabel2.TabIndex = 0;
             this.splitContainer2SystemLabel2.Values.Text = "Panel2";
             this.splitContainer2SystemLabel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainerGroupLabel_MouseDown);
@@ -342,12 +342,12 @@ namespace KryptonSplitContainerExamples
             this.splitContainer2SystemLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2SystemLabel1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2SystemLabel1.Name = "splitContainer2SystemLabel1";
-            this.splitContainer2SystemLabel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.splitContainer2SystemLabel1.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2007Blue;
             this.splitContainer2SystemLabel1.Size = new System.Drawing.Size(110, 69);
-            this.splitContainer2SystemLabel1.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.splitContainer2SystemLabel1.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer2SystemLabel1.StateCommon.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer2SystemLabel1.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
+            this.splitContainer2SystemLabel1.StateCommon.ShortText.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.splitContainer2SystemLabel1.StateCommon.ShortText.TextH =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer2SystemLabel1.StateCommon.ShortText.TextV =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer2SystemLabel1.StateCommon.ShortText.Trim =  Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.splitContainer2SystemLabel1.TabIndex = 0;
             this.splitContainer2SystemLabel1.Values.Text = "Panel1";
             this.splitContainer2SystemLabel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainerGroupLabel_MouseDown);
@@ -357,20 +357,20 @@ namespace KryptonSplitContainerExamples
             this.splitContainer1Blue.Cursor = System.Windows.Forms.Cursors.Default;
             this.splitContainer1Blue.Location = new System.Drawing.Point(8, 23);
             this.splitContainer1Blue.Name = "splitContainer1Blue";
-            this.splitContainer1Blue.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.splitContainer1Blue.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2007Blue;
             // 
             // splitContainer1Blue.Panel1
             // 
             this.splitContainer1Blue.Panel1.Controls.Add(this.splitContainer1SystemLabel1);
-            this.splitContainer1Blue.Panel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
-            this.splitContainer1Blue.Panel1.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
+            this.splitContainer1Blue.Panel1.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.splitContainer1Blue.Panel1.PanelBackStyle =  Krypton.Toolkit.PaletteBackStyle.ControlClient;
             this.splitContainer1Blue.Panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainerPanel_MouseDown);
             // 
             // splitContainer1Blue.Panel2
             // 
             this.splitContainer1Blue.Panel2.Controls.Add(this.splitContainer1SystemLabel2);
-            this.splitContainer1Blue.Panel2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.splitContainer1Blue.Panel2.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
+            this.splitContainer1Blue.Panel2.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.splitContainer1Blue.Panel2.PanelBackStyle =  Krypton.Toolkit.PaletteBackStyle.ControlClient;
             this.splitContainer1Blue.Panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainerPanel_MouseDown);
             this.splitContainer1Blue.Size = new System.Drawing.Size(112, 111);
             this.splitContainer1Blue.SplitterDistance = 55;
@@ -382,12 +382,12 @@ namespace KryptonSplitContainerExamples
             this.splitContainer1SystemLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1SystemLabel1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1SystemLabel1.Name = "splitContainer1SystemLabel1";
-            this.splitContainer1SystemLabel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.splitContainer1SystemLabel1.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2007Blue;
             this.splitContainer1SystemLabel1.Size = new System.Drawing.Size(55, 111);
-            this.splitContainer1SystemLabel1.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.splitContainer1SystemLabel1.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer1SystemLabel1.StateCommon.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer1SystemLabel1.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
+            this.splitContainer1SystemLabel1.StateCommon.ShortText.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.splitContainer1SystemLabel1.StateCommon.ShortText.TextH =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer1SystemLabel1.StateCommon.ShortText.TextV =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer1SystemLabel1.StateCommon.ShortText.Trim =  Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.splitContainer1SystemLabel1.TabIndex = 0;
             this.splitContainer1SystemLabel1.Values.Text = "Panel1";
             this.splitContainer1SystemLabel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainerLabel_MouseDown);
@@ -397,12 +397,12 @@ namespace KryptonSplitContainerExamples
             this.splitContainer1SystemLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1SystemLabel2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1SystemLabel2.Name = "splitContainer1SystemLabel2";
-            this.splitContainer1SystemLabel2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.splitContainer1SystemLabel2.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2007Blue;
             this.splitContainer1SystemLabel2.Size = new System.Drawing.Size(52, 111);
-            this.splitContainer1SystemLabel2.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.splitContainer1SystemLabel2.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer1SystemLabel2.StateCommon.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer1SystemLabel2.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
+            this.splitContainer1SystemLabel2.StateCommon.ShortText.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.splitContainer1SystemLabel2.StateCommon.ShortText.TextH =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer1SystemLabel2.StateCommon.ShortText.TextV =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer1SystemLabel2.StateCommon.ShortText.Trim =  Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.splitContainer1SystemLabel2.TabIndex = 0;
             this.splitContainer1SystemLabel2.Values.Text = "Panel2";
             this.splitContainer1SystemLabel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainerLabel_MouseDown);
@@ -424,7 +424,7 @@ namespace KryptonSplitContainerExamples
             this.kryptonSplitContainer1.Location = new System.Drawing.Point(9, 136);
             this.kryptonSplitContainer1.Name = "kryptonSplitContainer1";
             this.kryptonSplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.kryptonSplitContainer1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonSplitContainer1.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // kryptonSplitContainer1.Panel1
             // 
@@ -432,8 +432,8 @@ namespace KryptonSplitContainerExamples
             this.kryptonSplitContainer1.Panel1.StateNormal.Color1 = System.Drawing.Color.Gainsboro;
             this.kryptonSplitContainer1.Panel1.StateNormal.Color2 = System.Drawing.Color.WhiteSmoke;
             this.kryptonSplitContainer1.Panel1.StateNormal.ColorAngle = 30F;
-            this.kryptonSplitContainer1.Panel1.StateNormal.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Linear;
-            this.kryptonSplitContainer1.Panel1.StateNormal.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.kryptonSplitContainer1.Panel1.StateNormal.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Linear;
+            this.kryptonSplitContainer1.Panel1.StateNormal.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonSplitContainer1.Panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainerPanel_MouseDown);
             // 
             // kryptonSplitContainer1.Panel2
@@ -442,28 +442,28 @@ namespace KryptonSplitContainerExamples
             this.kryptonSplitContainer1.Panel2.StateNormal.Color1 = System.Drawing.Color.Gainsboro;
             this.kryptonSplitContainer1.Panel2.StateNormal.Color2 = System.Drawing.Color.WhiteSmoke;
             this.kryptonSplitContainer1.Panel2.StateNormal.ColorAngle = 30F;
-            this.kryptonSplitContainer1.Panel2.StateNormal.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Linear;
-            this.kryptonSplitContainer1.Panel2.StateNormal.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.kryptonSplitContainer1.Panel2.StateNormal.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Linear;
+            this.kryptonSplitContainer1.Panel2.StateNormal.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonSplitContainer1.Panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainerPanel_MouseDown);
             this.kryptonSplitContainer1.Size = new System.Drawing.Size(235, 110);
             this.kryptonSplitContainer1.SplitterDistance = 46;
             this.kryptonSplitContainer1.SplitterWidth = 8;
-            this.kryptonSplitContainer1.StateNormal.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.kryptonSplitContainer1.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.kryptonSplitContainer1.StateNormal.Back.Draw =  Krypton.Toolkit.InheritBool.False;
+            this.kryptonSplitContainer1.StateNormal.Back.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonSplitContainer1.StateNormal.Separator.Back.Color1 = System.Drawing.Color.LightGray;
-            this.kryptonSplitContainer1.StateNormal.Separator.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.kryptonSplitContainer1.StateNormal.Separator.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
-            this.kryptonSplitContainer1.StateNormal.Separator.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.kryptonSplitContainer1.StateNormal.Separator.Back.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonSplitContainer1.StateNormal.Separator.Back.Draw =  Krypton.Toolkit.InheritBool.True;
+            this.kryptonSplitContainer1.StateNormal.Separator.Back.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonSplitContainer1.StateNormal.Separator.Padding = new System.Windows.Forms.Padding(2);
             this.kryptonSplitContainer1.StatePressed.Back.Color1 = System.Drawing.Color.Maroon;
-            this.kryptonSplitContainer1.StatePressed.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.kryptonSplitContainer1.StatePressed.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
-            this.kryptonSplitContainer1.StatePressed.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.kryptonSplitContainer1.StatePressed.Back.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonSplitContainer1.StatePressed.Back.Draw =  Krypton.Toolkit.InheritBool.True;
+            this.kryptonSplitContainer1.StatePressed.Back.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonSplitContainer1.StatePressed.Padding = new System.Windows.Forms.Padding(2);
             this.kryptonSplitContainer1.StateTracking.Back.Color1 = System.Drawing.Color.Maroon;
-            this.kryptonSplitContainer1.StateTracking.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.kryptonSplitContainer1.StateTracking.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
-            this.kryptonSplitContainer1.StateTracking.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.kryptonSplitContainer1.StateTracking.Back.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonSplitContainer1.StateTracking.Back.Draw =  Krypton.Toolkit.InheritBool.True;
+            this.kryptonSplitContainer1.StateTracking.Back.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonSplitContainer1.StateTracking.Padding = new System.Windows.Forms.Padding(2);
             this.kryptonSplitContainer1.TabIndex = 1;
             this.kryptonSplitContainer1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainer_MouseDown);
@@ -474,10 +474,10 @@ namespace KryptonSplitContainerExamples
             this.splitContainer2CustomLabel1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2CustomLabel1.Name = "splitContainer2CustomLabel1";
             this.splitContainer2CustomLabel1.Size = new System.Drawing.Size(235, 46);
-            this.splitContainer2CustomLabel1.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.splitContainer2CustomLabel1.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer2CustomLabel1.StateCommon.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer2CustomLabel1.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
+            this.splitContainer2CustomLabel1.StateCommon.ShortText.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.splitContainer2CustomLabel1.StateCommon.ShortText.TextH =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer2CustomLabel1.StateCommon.ShortText.TextV =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer2CustomLabel1.StateCommon.ShortText.Trim =  Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.splitContainer2CustomLabel1.TabIndex = 0;
             this.splitContainer2CustomLabel1.Values.Text = "Panel1";
             this.splitContainer2CustomLabel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainerLabel_MouseDown);
@@ -488,10 +488,10 @@ namespace KryptonSplitContainerExamples
             this.splitContainer2CustomLabel2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2CustomLabel2.Name = "splitContainer2CustomLabel2";
             this.splitContainer2CustomLabel2.Size = new System.Drawing.Size(235, 56);
-            this.splitContainer2CustomLabel2.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.splitContainer2CustomLabel2.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer2CustomLabel2.StateCommon.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer2CustomLabel2.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
+            this.splitContainer2CustomLabel2.StateCommon.ShortText.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.splitContainer2CustomLabel2.StateCommon.ShortText.TextH =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer2CustomLabel2.StateCommon.ShortText.TextV =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer2CustomLabel2.StateCommon.ShortText.Trim =  Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.splitContainer2CustomLabel2.TabIndex = 0;
             this.splitContainer2CustomLabel2.Values.Text = "Panel2";
             this.splitContainer2CustomLabel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainerLabel_MouseDown);
@@ -501,49 +501,49 @@ namespace KryptonSplitContainerExamples
             this.splitContainer1Custom.Cursor = System.Windows.Forms.Cursors.Default;
             this.splitContainer1Custom.Location = new System.Drawing.Point(9, 19);
             this.splitContainer1Custom.Name = "splitContainer1Custom";
-            this.splitContainer1Custom.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.splitContainer1Custom.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             // 
             // splitContainer1Custom.Panel1
             // 
             this.splitContainer1Custom.Panel1.Controls.Add(this.splitContainer1CustomLabel1);
-            this.splitContainer1Custom.Panel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.splitContainer1Custom.Panel1.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
+            this.splitContainer1Custom.Panel1.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.splitContainer1Custom.Panel1.PanelBackStyle =  Krypton.Toolkit.PaletteBackStyle.ControlClient;
             this.splitContainer1Custom.Panel1.StateNormal.Color1 = System.Drawing.Color.LightBlue;
-            this.splitContainer1Custom.Panel1.StateNormal.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.splitContainer1Custom.Panel1.StateNormal.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.splitContainer1Custom.Panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainerPanel_MouseDown);
             // 
             // splitContainer1Custom.Panel2
             // 
             this.splitContainer1Custom.Panel2.Controls.Add(this.splitContainer1CustomLabel2);
-            this.splitContainer1Custom.Panel2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.splitContainer1Custom.Panel2.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
+            this.splitContainer1Custom.Panel2.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.splitContainer1Custom.Panel2.PanelBackStyle =  Krypton.Toolkit.PaletteBackStyle.ControlClient;
             this.splitContainer1Custom.Panel2.StateNormal.Color1 = System.Drawing.Color.LightBlue;
-            this.splitContainer1Custom.Panel2.StateNormal.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.splitContainer1Custom.Panel2.StateNormal.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.splitContainer1Custom.Panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainerPanel_MouseDown);
             this.splitContainer1Custom.Size = new System.Drawing.Size(236, 111);
             this.splitContainer1Custom.SplitterDistance = 83;
             this.splitContainer1Custom.SplitterIncrement = 16;
             this.splitContainer1Custom.SplitterWidth = 8;
-            this.splitContainer1Custom.StateNormal.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.splitContainer1Custom.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.splitContainer1Custom.StateNormal.Back.Draw =  Krypton.Toolkit.InheritBool.False;
+            this.splitContainer1Custom.StateNormal.Back.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.splitContainer1Custom.StateNormal.Separator.Back.Color1 = System.Drawing.Color.LightBlue;
             this.splitContainer1Custom.StateNormal.Separator.Back.Color2 = System.Drawing.Color.CornflowerBlue;
             this.splitContainer1Custom.StateNormal.Separator.Back.ColorAngle = 0F;
-            this.splitContainer1Custom.StateNormal.Separator.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Sigma;
-            this.splitContainer1Custom.StateNormal.Separator.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
-            this.splitContainer1Custom.StateNormal.Separator.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.splitContainer1Custom.StateNormal.Separator.Back.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Sigma;
+            this.splitContainer1Custom.StateNormal.Separator.Back.Draw =  Krypton.Toolkit.InheritBool.True;
+            this.splitContainer1Custom.StateNormal.Separator.Back.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.splitContainer1Custom.StateNormal.Separator.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.splitContainer1Custom.StatePressed.Back.Color1 = System.Drawing.Color.RoyalBlue;
             this.splitContainer1Custom.StatePressed.Back.Color2 = System.Drawing.Color.RoyalBlue;
-            this.splitContainer1Custom.StatePressed.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
-            this.splitContainer1Custom.StatePressed.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.splitContainer1Custom.StatePressed.Back.Draw =  Krypton.Toolkit.InheritBool.True;
+            this.splitContainer1Custom.StatePressed.Back.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.splitContainer1Custom.StatePressed.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.splitContainer1Custom.StateTracking.Back.Color1 = System.Drawing.Color.CornflowerBlue;
             this.splitContainer1Custom.StateTracking.Back.Color2 = System.Drawing.Color.RoyalBlue;
             this.splitContainer1Custom.StateTracking.Back.ColorAngle = 0F;
-            this.splitContainer1Custom.StateTracking.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Sigma;
-            this.splitContainer1Custom.StateTracking.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
-            this.splitContainer1Custom.StateTracking.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.splitContainer1Custom.StateTracking.Back.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Sigma;
+            this.splitContainer1Custom.StateTracking.Back.Draw =  Krypton.Toolkit.InheritBool.True;
+            this.splitContainer1Custom.StateTracking.Back.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.splitContainer1Custom.StateTracking.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.splitContainer1Custom.TabIndex = 0;
             this.splitContainer1Custom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainer_MouseDown);
@@ -554,10 +554,10 @@ namespace KryptonSplitContainerExamples
             this.splitContainer1CustomLabel1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1CustomLabel1.Name = "splitContainer1CustomLabel1";
             this.splitContainer1CustomLabel1.Size = new System.Drawing.Size(83, 111);
-            this.splitContainer1CustomLabel1.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.splitContainer1CustomLabel1.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer1CustomLabel1.StateCommon.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer1CustomLabel1.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
+            this.splitContainer1CustomLabel1.StateCommon.ShortText.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.splitContainer1CustomLabel1.StateCommon.ShortText.TextH =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer1CustomLabel1.StateCommon.ShortText.TextV =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer1CustomLabel1.StateCommon.ShortText.Trim =  Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.splitContainer1CustomLabel1.TabIndex = 0;
             this.splitContainer1CustomLabel1.Values.Text = "Panel1";
             this.splitContainer1CustomLabel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainerLabel_MouseDown);
@@ -568,10 +568,10 @@ namespace KryptonSplitContainerExamples
             this.splitContainer1CustomLabel2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1CustomLabel2.Name = "splitContainer1CustomLabel2";
             this.splitContainer1CustomLabel2.Size = new System.Drawing.Size(145, 111);
-            this.splitContainer1CustomLabel2.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.splitContainer1CustomLabel2.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer1CustomLabel2.StateCommon.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.splitContainer1CustomLabel2.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
+            this.splitContainer1CustomLabel2.StateCommon.ShortText.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.splitContainer1CustomLabel2.StateCommon.ShortText.TextH =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer1CustomLabel2.StateCommon.ShortText.TextV =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.splitContainer1CustomLabel2.StateCommon.ShortText.Trim =  Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.splitContainer1CustomLabel2.TabIndex = 0;
             this.splitContainer1CustomLabel2.Values.Text = "Panel2";
             this.splitContainer1CustomLabel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainerLabel_MouseDown);
@@ -666,26 +666,26 @@ namespace KryptonSplitContainerExamples
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer splitContainer2Office;
-        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer splitContainer1Office;
-        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer splitContainer2Blue;
-        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer splitContainer1Blue;
-        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer splitContainer1Custom;
-        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer kryptonSplitContainer1;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel splitContainer2OfficeLabel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel splitContainer1OfficeLabel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel splitContainer1OfficeLabel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel splitContainer2SystemLabel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel splitContainer2SystemLabel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel splitContainer1SystemLabel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel splitContainer1SystemLabel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel splitContainer2CustomLabel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel splitContainer2CustomLabel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel splitContainer1CustomLabel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel splitContainer1CustomLabel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel splitContainer2OfficeLabel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup kryptonGroup2;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup kryptonGroup1;
+        private  Krypton.Toolkit.KryptonSplitContainer splitContainer2Office;
+        private  Krypton.Toolkit.KryptonSplitContainer splitContainer1Office;
+        private  Krypton.Toolkit.KryptonSplitContainer splitContainer2Blue;
+        private  Krypton.Toolkit.KryptonSplitContainer splitContainer1Blue;
+        private  Krypton.Toolkit.KryptonSplitContainer splitContainer1Custom;
+        private  Krypton.Toolkit.KryptonSplitContainer kryptonSplitContainer1;
+        private  Krypton.Toolkit.KryptonLabel splitContainer2OfficeLabel2;
+        private  Krypton.Toolkit.KryptonLabel splitContainer1OfficeLabel1;
+        private  Krypton.Toolkit.KryptonLabel splitContainer1OfficeLabel2;
+        private  Krypton.Toolkit.KryptonLabel splitContainer2SystemLabel1;
+        private  Krypton.Toolkit.KryptonLabel splitContainer2SystemLabel2;
+        private  Krypton.Toolkit.KryptonLabel splitContainer1SystemLabel1;
+        private  Krypton.Toolkit.KryptonLabel splitContainer1SystemLabel2;
+        private  Krypton.Toolkit.KryptonLabel splitContainer2CustomLabel1;
+        private  Krypton.Toolkit.KryptonLabel splitContainer2CustomLabel2;
+        private  Krypton.Toolkit.KryptonLabel splitContainer1CustomLabel1;
+        private  Krypton.Toolkit.KryptonLabel splitContainer1CustomLabel2;
+        private  Krypton.Toolkit.KryptonLabel splitContainer2OfficeLabel1;
+        private  Krypton.Toolkit.KryptonGroup kryptonGroup2;
+        private  Krypton.Toolkit.KryptonGroup kryptonGroup1;
     }
 }
 

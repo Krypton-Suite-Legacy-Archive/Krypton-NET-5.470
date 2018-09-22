@@ -30,37 +30,37 @@ namespace RibbonToolTips
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.kryptonRibbon1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbon();
-            this.qatSave = new ComponentFactory.Krypton.Ribbon.KryptonRibbonQATButton();
-            this.qatUndo = new ComponentFactory.Krypton.Ribbon.KryptonRibbonQATButton();
-            this.qatRedo = new ComponentFactory.Krypton.Ribbon.KryptonRibbonQATButton();
-            this.kryptonContextMenuItem1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.tabHome = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
-            this.kryptonRibbonGroup1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
-            this.kryptonRibbonGroupTriple1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.kryptonRibbonGroupButton1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbon1 = new  Krypton.Ribbon.KryptonRibbon();
+            this.qatSave = new  Krypton.Ribbon.KryptonRibbonQATButton();
+            this.qatUndo = new  Krypton.Ribbon.KryptonRibbonQATButton();
+            this.qatRedo = new  Krypton.Ribbon.KryptonRibbonQATButton();
+            this.kryptonContextMenuItem1 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.tabHome = new  Krypton.Ribbon.KryptonRibbonTab();
+            this.kryptonRibbonGroup1 = new  Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple1 = new  Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.kryptonRibbonGroupButton1 = new  Krypton.Ribbon.KryptonRibbonGroupButton();
             this.cmsPaste = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteSpecialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kryptonRibbonGroupTriple2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.kryptonRibbonGroupButton2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroupButton3 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroupButton4 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroup2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
-            this.kryptonRibbonGroupTriple3 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.kryptonRibbonGroupButton5 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroupButton7 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroupTriple4 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.kryptonRibbonGroupButton6 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroupTriple2 = new  Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.kryptonRibbonGroupButton2 = new  Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroupButton3 = new  Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroupButton4 = new  Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroup2 = new  Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple3 = new  Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.kryptonRibbonGroupButton5 = new  Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroupButton7 = new  Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroupTriple4 = new  Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.kryptonRibbonGroupButton6 = new  Krypton.Ribbon.KryptonRibbonGroupButton();
             this.cmsBusinessCards = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.otherBusinessCardsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kryptonRibbonGroupButton8 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroupButton9 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroupButton8 = new  Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroupButton9 = new  Krypton.Ribbon.KryptonRibbonGroupButton();
             this.cmsSignatures = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.signaturesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonLabel = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonPanel = new  Krypton.Toolkit.KryptonPanel();
+            this.kryptonLabel = new  Krypton.Toolkit.KryptonLabel();
+            this.kryptonManager = new  Krypton.Toolkit.KryptonManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonRibbon1)).BeginInit();
             this.cmsPaste.SuspendLayout();
             this.cmsBusinessCards.SuspendLayout();
@@ -79,13 +79,13 @@ namespace RibbonToolTips
             this.qatSave,
             this.qatUndo,
             this.qatRedo});
-            this.kryptonRibbon1.RibbonAppButton.AppButtonMenuItems.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonRibbon1.RibbonAppButton.AppButtonMenuItems.AddRange(new  Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kryptonContextMenuItem1});
             this.kryptonRibbon1.RibbonAppButton.AppButtonShowRecentDocs = false;
             this.kryptonRibbon1.RibbonAppButton.AppButtonToolTipBody = "  Click here to open, save, or print,\r\n  and to see everything else you can\r\n  do" +
     " with your document.";
             this.kryptonRibbon1.RibbonAppButton.AppButtonToolTipTitle = "Office Button";
-            this.kryptonRibbon1.RibbonTabs.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab[] {
+            this.kryptonRibbon1.RibbonTabs.AddRange(new  Krypton.Ribbon.KryptonRibbonTab[] {
             this.tabHome});
             this.kryptonRibbon1.SelectedContext = null;
             this.kryptonRibbon1.SelectedTab = this.tabHome;
@@ -118,7 +118,7 @@ namespace RibbonToolTips
             // 
             // tabHome
             // 
-            this.tabHome.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
+            this.tabHome.Groups.AddRange(new  Krypton.Ribbon.KryptonRibbonGroup[] {
             this.kryptonRibbonGroup1,
             this.kryptonRibbonGroup2});
             this.tabHome.KeyTip = "H";
@@ -129,7 +129,7 @@ namespace RibbonToolTips
             this.kryptonRibbonGroup1.AllowCollapsed = false;
             this.kryptonRibbonGroup1.DialogBoxLauncher = false;
             this.kryptonRibbonGroup1.Image = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroup1.Image")));
-            this.kryptonRibbonGroup1.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.kryptonRibbonGroup1.Items.AddRange(new  Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupTriple1,
             this.kryptonRibbonGroupTriple2});
             this.kryptonRibbonGroup1.KeyTipDialogLauncher = "FO";
@@ -137,12 +137,12 @@ namespace RibbonToolTips
             // 
             // kryptonRibbonGroupTriple1
             // 
-            this.kryptonRibbonGroupTriple1.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple1.Items.AddRange(new  Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.kryptonRibbonGroupButton1});
             // 
             // kryptonRibbonGroupButton1
             // 
-            this.kryptonRibbonGroupButton1.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.Split;
+            this.kryptonRibbonGroupButton1.ButtonType =  Krypton.Ribbon.GroupButtonType.Split;
             this.kryptonRibbonGroupButton1.ContextMenuStrip = this.cmsPaste;
             this.kryptonRibbonGroupButton1.ImageLarge = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton1.ImageLarge")));
             this.kryptonRibbonGroupButton1.ImageSmall = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton1.ImageSmall")));
@@ -175,11 +175,11 @@ namespace RibbonToolTips
             // 
             // kryptonRibbonGroupTriple2
             // 
-            this.kryptonRibbonGroupTriple2.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple2.Items.AddRange(new  Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.kryptonRibbonGroupButton2,
             this.kryptonRibbonGroupButton3,
             this.kryptonRibbonGroupButton4});
-            this.kryptonRibbonGroupTriple2.MaximumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Medium;
+            this.kryptonRibbonGroupTriple2.MaximumSize =  Krypton.Ribbon.GroupItemSize.Medium;
             // 
             // kryptonRibbonGroupButton2
             // 
@@ -218,7 +218,7 @@ namespace RibbonToolTips
             this.kryptonRibbonGroup2.AllowCollapsed = false;
             this.kryptonRibbonGroup2.DialogBoxLauncher = false;
             this.kryptonRibbonGroup2.Image = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroup2.Image")));
-            this.kryptonRibbonGroup2.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.kryptonRibbonGroup2.Items.AddRange(new  Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupTriple3,
             this.kryptonRibbonGroupTriple4});
             this.kryptonRibbonGroup2.KeyTipDialogLauncher = "AP";
@@ -227,7 +227,7 @@ namespace RibbonToolTips
             // 
             // kryptonRibbonGroupTriple3
             // 
-            this.kryptonRibbonGroupTriple3.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple3.Items.AddRange(new  Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.kryptonRibbonGroupButton5,
             this.kryptonRibbonGroupButton7});
             // 
@@ -255,14 +255,14 @@ namespace RibbonToolTips
             // 
             // kryptonRibbonGroupTriple4
             // 
-            this.kryptonRibbonGroupTriple4.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple4.Items.AddRange(new  Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.kryptonRibbonGroupButton6,
             this.kryptonRibbonGroupButton8,
             this.kryptonRibbonGroupButton9});
             // 
             // kryptonRibbonGroupButton6
             // 
-            this.kryptonRibbonGroupButton6.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.DropDown;
+            this.kryptonRibbonGroupButton6.ButtonType =  Krypton.Ribbon.GroupButtonType.DropDown;
             this.kryptonRibbonGroupButton6.ContextMenuStrip = this.cmsBusinessCards;
             this.kryptonRibbonGroupButton6.ImageLarge = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton6.ImageLarge")));
             this.kryptonRibbonGroupButton6.ImageSmall = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton6.ImageSmall")));
@@ -299,7 +299,7 @@ namespace RibbonToolTips
             // 
             // kryptonRibbonGroupButton9
             // 
-            this.kryptonRibbonGroupButton9.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.DropDown;
+            this.kryptonRibbonGroupButton9.ButtonType =  Krypton.Ribbon.GroupButtonType.DropDown;
             this.kryptonRibbonGroupButton9.ContextMenuStrip = this.cmsSignatures;
             this.kryptonRibbonGroupButton9.ImageLarge = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton9.ImageLarge")));
             this.kryptonRibbonGroupButton9.ImageSmall = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton9.ImageSmall")));
@@ -342,7 +342,7 @@ namespace RibbonToolTips
             // 
             // kryptonManager
             // 
-            this.kryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2007Blue;
+            this.kryptonManager.GlobalPaletteMode =  Krypton.Toolkit.PaletteModeManager.Office2007Blue;
             // 
             // Form1
             // 
@@ -368,24 +368,24 @@ namespace RibbonToolTips
 
         #endregion
 
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbon kryptonRibbon1;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonTab tabHome;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup kryptonRibbonGroup1;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple1;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton1;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple2;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton2;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton3;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton4;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup kryptonRibbonGroup2;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple3;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton5;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton7;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple4;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton6;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton8;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton9;
+        private  Krypton.Ribbon.KryptonRibbon kryptonRibbon1;
+        private  Krypton.Ribbon.KryptonRibbonTab tabHome;
+        private  Krypton.Toolkit.KryptonPanel kryptonPanel;
+        private  Krypton.Ribbon.KryptonRibbonGroup kryptonRibbonGroup1;
+        private  Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple1;
+        private  Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton1;
+        private  Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple2;
+        private  Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton2;
+        private  Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton3;
+        private  Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton4;
+        private  Krypton.Ribbon.KryptonRibbonGroup kryptonRibbonGroup2;
+        private  Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple3;
+        private  Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton5;
+        private  Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton7;
+        private  Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple4;
+        private  Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton6;
+        private  Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton8;
+        private  Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton9;
         private System.Windows.Forms.ContextMenuStrip cmsPaste;
         private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pasteSpecialToolStripMenuItem;
@@ -393,12 +393,12 @@ namespace RibbonToolTips
         private System.Windows.Forms.ToolStripMenuItem otherBusinessCardsToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip cmsSignatures;
         private System.Windows.Forms.ToolStripMenuItem signaturesToolStripMenuItem;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonQATButton qatSave;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonQATButton qatUndo;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonQATButton qatRedo;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem1;
+        private  Krypton.Ribbon.KryptonRibbonQATButton qatSave;
+        private  Krypton.Ribbon.KryptonRibbonQATButton qatUndo;
+        private  Krypton.Ribbon.KryptonRibbonQATButton qatRedo;
+        private  Krypton.Toolkit.KryptonLabel kryptonLabel;
+        private  Krypton.Toolkit.KryptonManager kryptonManager;
+        private  Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem1;
     }
 }
 

@@ -33,14 +33,14 @@
             this.propertyGrid = new System.Windows.Forms.PropertyGrid();
             this.buttonClose = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.kryptonGroupBox4 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.kryptonGroupBox3 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.kryptonGroupBox4 = new  Krypton.Toolkit.KryptonGroupBox();
+            this.kryptonGroupBox3 = new  Krypton.Toolkit.KryptonGroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.kryptonGroupBox2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.kryptonGroupBox2 = new  Krypton.Toolkit.KryptonGroupBox();
+            this.kryptonGroupBox1 = new  Krypton.Toolkit.KryptonGroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.kryptonGroupBox5 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.kryptonGroupBox6 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.kryptonGroupBox5 = new  Krypton.Toolkit.KryptonGroupBox();
+            this.kryptonGroupBox6 = new  Krypton.Toolkit.KryptonGroupBox();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox4)).BeginInit();
@@ -109,10 +109,10 @@
             // 
             // kryptonGroupBox4
             // 
-            this.kryptonGroupBox4.CaptionEdge = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
+            this.kryptonGroupBox4.CaptionEdge =  Krypton.Toolkit.VisualOrientation.Left;
             this.kryptonGroupBox4.Location = new System.Drawing.Point(169, 32);
             this.kryptonGroupBox4.Name = "kryptonGroupBox4";
-            this.kryptonGroupBox4.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonGroupBox4.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // kryptonGroupBox4.Panel
             // 
@@ -127,7 +127,7 @@
             // 
             this.kryptonGroupBox3.Location = new System.Drawing.Point(17, 32);
             this.kryptonGroupBox3.Name = "kryptonGroupBox3";
-            this.kryptonGroupBox3.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonGroupBox3.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // kryptonGroupBox3.Panel
             // 
@@ -159,9 +159,9 @@
             // 
             this.kryptonGroupBox2.Panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             this.kryptonGroupBox2.Size = new System.Drawing.Size(133, 128);
-            this.kryptonGroupBox2.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonGroupBox2.StateCommon.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Left)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonGroupBox2.TabIndex = 1;
             this.kryptonGroupBox2.Text = "Caption";
             this.kryptonGroupBox2.Values.Image = global::KryptonGroupBoxExamples.Properties.Resources.angel1;
@@ -195,10 +195,10 @@
             // kryptonGroupBox5
             // 
             this.kryptonGroupBox5.CaptionOverlap = 1;
-            this.kryptonGroupBox5.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
+            this.kryptonGroupBox5.CaptionStyle =  Krypton.Toolkit.LabelStyle.ToolTip;
             this.kryptonGroupBox5.Location = new System.Drawing.Point(169, 30);
             this.kryptonGroupBox5.Name = "kryptonGroupBox5";
-            this.kryptonGroupBox5.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
+            this.kryptonGroupBox5.PaletteMode =  Krypton.Toolkit.PaletteMode.SparkleBlue;
             // 
             // kryptonGroupBox5.Panel
             // 
@@ -211,11 +211,11 @@
             // 
             // kryptonGroupBox6
             // 
-            this.kryptonGroupBox6.CaptionEdge = ComponentFactory.Krypton.Toolkit.VisualOrientation.Right;
+            this.kryptonGroupBox6.CaptionEdge =  Krypton.Toolkit.VisualOrientation.Right;
             this.kryptonGroupBox6.CaptionOverlap = 0;
             this.kryptonGroupBox6.Location = new System.Drawing.Point(17, 30);
             this.kryptonGroupBox6.Name = "kryptonGroupBox6";
-            this.kryptonGroupBox6.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
+            this.kryptonGroupBox6.PaletteMode =  Krypton.Toolkit.PaletteMode.SparkleBlue;
             // 
             // kryptonGroupBox6.Panel
             // 
@@ -280,12 +280,12 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox2;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox4;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox3;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox5;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox6;
+        private  Krypton.Toolkit.KryptonGroupBox kryptonGroupBox2;
+        private  Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
+        private  Krypton.Toolkit.KryptonGroupBox kryptonGroupBox4;
+        private  Krypton.Toolkit.KryptonGroupBox kryptonGroupBox3;
+        private  Krypton.Toolkit.KryptonGroupBox kryptonGroupBox5;
+        private  Krypton.Toolkit.KryptonGroupBox kryptonGroupBox6;
     }
 }
 

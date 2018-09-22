@@ -42,15 +42,15 @@ namespace PopupPages
             this.radioOrientationLeft = new System.Windows.Forms.RadioButton();
             this.radioOrientationBottom = new System.Windows.Forms.RadioButton();
             this.radioOrientationTop = new System.Windows.Forms.RadioButton();
-            this.kryptonNavigator = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
-            this.kryptonPage1 = new ComponentFactory.Krypton.Navigator.KryptonPage();
+            this.kryptonNavigator = new  Krypton.Navigator.KryptonNavigator();
+            this.kryptonPage1 = new  Krypton.Navigator.KryptonPage();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.kryptonPage2 = new ComponentFactory.Krypton.Navigator.KryptonPage();
+            this.kryptonPage2 = new  Krypton.Navigator.KryptonPage();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.kryptonPage3 = new ComponentFactory.Krypton.Navigator.KryptonPage();
+            this.kryptonPage3 = new  Krypton.Navigator.KryptonPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBoxPopupPageProperties = new System.Windows.Forms.GroupBox();
@@ -64,7 +64,7 @@ namespace PopupPages
             this.numericBorder = new System.Windows.Forms.NumericUpDown();
             this.panelHost = new System.Windows.Forms.Panel();
             this.buttonClose = new System.Windows.Forms.Button();
-            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonManager1 = new  Krypton.Toolkit.KryptonManager(this.components);
             this.groupBoxModes.SuspendLayout();
             this.groupBoxBarOrientation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator)).BeginInit();
@@ -233,16 +233,16 @@ namespace PopupPages
             // 
             this.kryptonNavigator.AutoSize = true;
             this.kryptonNavigator.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.kryptonNavigator.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigator.Button.CloseButtonDisplay =  Krypton.Navigator.ButtonDisplay.Hide;
             this.kryptonNavigator.Dock = System.Windows.Forms.DockStyle.Top;
             this.kryptonNavigator.Location = new System.Drawing.Point(0, 0);
             this.kryptonNavigator.Name = "kryptonNavigator";
-            this.kryptonNavigator.NavigatorMode = ComponentFactory.Krypton.Navigator.NavigatorMode.HeaderBarCheckButtonOnly;
-            this.kryptonNavigator.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
+            this.kryptonNavigator.NavigatorMode =  Krypton.Navigator.NavigatorMode.HeaderBarCheckButtonOnly;
+            this.kryptonNavigator.Pages.AddRange(new  Krypton.Navigator.KryptonPage[] {
             this.kryptonPage1,
             this.kryptonPage2,
             this.kryptonPage3});
-            this.kryptonNavigator.PopupPages.AllowPopupPages = ComponentFactory.Krypton.Navigator.PopupPageAllow.OnlyCompatibleModes;
+            this.kryptonNavigator.PopupPages.AllowPopupPages =  Krypton.Navigator.PopupPageAllow.OnlyCompatibleModes;
             this.kryptonNavigator.SelectedIndex = 2;
             this.kryptonNavigator.Size = new System.Drawing.Size(325, 32);
             this.kryptonNavigator.TabIndex = 0;
@@ -503,7 +503,7 @@ namespace PopupPages
             // 
             // kryptonManager1
             // 
-            this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.ProfessionalSystem;
+            this.kryptonManager1.GlobalPaletteMode =  Krypton.Toolkit.PaletteModeManager.ProfessionalSystem;
             // 
             // Form1
             // 
@@ -557,9 +557,9 @@ namespace PopupPages
         private System.Windows.Forms.RadioButton radioOutlookMini;
         private System.Windows.Forms.RadioButton radioHeaderBarCheckButtonOnly;
         private System.Windows.Forms.RadioButton radioBarCheckButtonOnly;
-        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigator;
-        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPage1;
-        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPage2;
+        private  Krypton.Navigator.KryptonNavigator kryptonNavigator;
+        private  Krypton.Navigator.KryptonPage kryptonPage1;
+        private  Krypton.Navigator.KryptonPage kryptonPage2;
         private System.Windows.Forms.GroupBox groupBoxPopupPageProperties;
         private System.Windows.Forms.Label labelElement;
         private System.Windows.Forms.Label labelGap;
@@ -569,7 +569,7 @@ namespace PopupPages
         private System.Windows.Forms.ComboBox comboBoxPosition;
         private System.Windows.Forms.ComboBox comboBoxElement;
         private System.Windows.Forms.Label labelPosition;
-        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPage3;
+        private  Krypton.Navigator.KryptonPage kryptonPage3;
         private System.Windows.Forms.Panel panelHost;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
@@ -579,7 +579,7 @@ namespace PopupPages
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button buttonClose;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager1;
+        private  Krypton.Toolkit.KryptonManager kryptonManager1;
     }
 }
 

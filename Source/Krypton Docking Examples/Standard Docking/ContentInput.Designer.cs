@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonNumericUpDown1 = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
-            this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonTextBox2 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kryptonPanel = new  Krypton.Toolkit.KryptonPanel();
+            this.kryptonButton1 = new  Krypton.Toolkit.KryptonButton();
+            this.kryptonNumericUpDown1 = new  Krypton.Toolkit.KryptonNumericUpDown();
+            this.kryptonLabel3 = new  Krypton.Toolkit.KryptonLabel();
+            this.kryptonTextBox2 = new  Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel2 = new  Krypton.Toolkit.KryptonLabel();
+            this.kryptonTextBox1 = new  Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel1 = new  Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +52,7 @@
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel.Name = "kryptonPanel";
-            this.kryptonPanel.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
+            this.kryptonPanel.PanelBackStyle =  Krypton.Toolkit.PaletteBackStyle.ControlClient;
             this.kryptonPanel.Size = new System.Drawing.Size(191, 154);
             this.kryptonPanel.TabIndex = 0;
             this.kryptonPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.kryptonPanel_MouseDown);
@@ -133,13 +133,13 @@
 
         #endregion
 
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
-        private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown kryptonNumericUpDown1;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel3;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox2;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox1;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private  Krypton.Toolkit.KryptonPanel kryptonPanel;
+        private  Krypton.Toolkit.KryptonButton kryptonButton1;
+        private  Krypton.Toolkit.KryptonNumericUpDown kryptonNumericUpDown1;
+        private  Krypton.Toolkit.KryptonLabel kryptonLabel3;
+        private  Krypton.Toolkit.KryptonTextBox kryptonTextBox2;
+        private  Krypton.Toolkit.KryptonLabel kryptonLabel2;
+        private  Krypton.Toolkit.KryptonTextBox kryptonTextBox1;
+        private  Krypton.Toolkit.KryptonLabel kryptonLabel1;
     }
 }

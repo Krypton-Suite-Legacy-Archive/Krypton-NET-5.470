@@ -33,7 +33,7 @@
             this.propertyGrid = new System.Windows.Forms.PropertyGrid();
             this.buttonClose = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.kryptonWrapLabel = new ComponentFactory.Krypton.Toolkit.KryptonWrapLabel();
+            this.kryptonWrapLabel = new  Krypton.Toolkit.KryptonWrapLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonNormal = new System.Windows.Forms.Button();
             this.buttonTitle = new System.Windows.Forms.Button();
@@ -157,7 +157,7 @@
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private ComponentFactory.Krypton.Toolkit.KryptonWrapLabel kryptonWrapLabel;
+        private  Krypton.Toolkit.KryptonWrapLabel kryptonWrapLabel;
         private System.Windows.Forms.Button buttonNormal;
         private System.Windows.Forms.Button buttonTitle;
     }

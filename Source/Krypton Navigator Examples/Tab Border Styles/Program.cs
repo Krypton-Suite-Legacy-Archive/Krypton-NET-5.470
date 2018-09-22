@@ -5,7 +5,7 @@
 //  proprietary information of Component Factory Pty Ltd, PO Box 1504, 
 //  Glen Waverley, Vic 3150, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.70.5000.0 	www.ComponentFactory.com
+//  Version 4.70.5000.0 	www. com
 // *****************************************************************************
 
 using System;
@@ -15,8 +15,8 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
-using ComponentFactory.Krypton.Navigator;
+using  Krypton.Toolkit;
+using  Krypton.Navigator;
 
 namespace TabBorderStyles
 {

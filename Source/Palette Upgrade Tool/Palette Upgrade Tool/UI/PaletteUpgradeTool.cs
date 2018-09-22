@@ -1,4 +1,4 @@
-﻿using ComponentFactory.Krypton.Toolkit;
+﻿using Krypton.Toolkit;
 using PaletteUpgradeTool.Properties;
 using System;
 using System.Drawing;

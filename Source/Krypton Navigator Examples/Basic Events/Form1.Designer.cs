@@ -31,19 +31,19 @@ namespace BasicEvents
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.kryptonNavigator1 = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
-            this.kryptonPage1 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonPage2 = new ComponentFactory.Krypton.Navigator.KryptonPage();
+            this.kryptonNavigator1 = new  Krypton.Navigator.KryptonNavigator();
+            this.kryptonPage1 = new  Krypton.Navigator.KryptonPage();
+            this.kryptonPage2 = new  Krypton.Navigator.KryptonPage();
             this.groupBoxPages = new System.Windows.Forms.GroupBox();
-            this.kryptonButtonEnable = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonButtonClear = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonButtonRemove = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonButtonAdd = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButtonEnable = new  Krypton.Toolkit.KryptonButton();
+            this.kryptonButtonClear = new  Krypton.Toolkit.KryptonButton();
+            this.kryptonButtonRemove = new  Krypton.Toolkit.KryptonButton();
+            this.kryptonButtonAdd = new  Krypton.Toolkit.KryptonButton();
             this.groupBoxProperties = new System.Windows.Forms.GroupBox();
             this.listBoxEvents = new System.Windows.Forms.ListBox();
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonClearEventList = new System.Windows.Forms.Button();
-            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonManager1 = new  Krypton.Toolkit.KryptonManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator1)).BeginInit();
             this.kryptonNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPage1)).BeginInit();
@@ -71,27 +71,27 @@ namespace BasicEvents
             // 
             this.kryptonNavigator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.kryptonNavigator1.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.ContextNextPrevious;
+            this.kryptonNavigator1.Button.ButtonDisplayLogic =  Krypton.Navigator.ButtonDisplayLogic.ContextNextPrevious;
             this.kryptonNavigator1.Location = new System.Drawing.Point(18, 31);
             this.kryptonNavigator1.Name = "kryptonNavigator1";
-            this.kryptonNavigator1.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
+            this.kryptonNavigator1.Pages.AddRange(new  Krypton.Navigator.KryptonPage[] {
             this.kryptonPage1,
             this.kryptonPage2});
             this.kryptonNavigator1.SelectedIndex = 0;
             this.kryptonNavigator1.Size = new System.Drawing.Size(297, 355);
-            this.kryptonNavigator1.StateCommon.CheckButton.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.kryptonNavigator1.StateCommon.CheckButton.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.kryptonNavigator1.StateCommon.CheckButton.Content.Image.ImageH =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.kryptonNavigator1.StateCommon.CheckButton.Content.Image.ImageV =  Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.kryptonNavigator1.TabIndex = 0;
             this.kryptonNavigator1.Text = "kryptonNavigator1";
             this.kryptonNavigator1.SelectedPageChanged += new System.EventHandler(this.kryptonNavigator1_SelectedPageChanged);
-            this.kryptonNavigator1.Selecting += new System.EventHandler<ComponentFactory.Krypton.Navigator.KryptonPageCancelEventArgs>(this.kryptonNavigator1_Selecting);
-            this.kryptonNavigator1.Selected += new System.EventHandler<ComponentFactory.Krypton.Navigator.KryptonPageEventArgs>(this.kryptonNavigator1_Selected);
-            this.kryptonNavigator1.Deselecting += new System.EventHandler<ComponentFactory.Krypton.Navigator.KryptonPageCancelEventArgs>(this.kryptonNavigator1_Deselecting);
-            this.kryptonNavigator1.Deselected += new System.EventHandler<ComponentFactory.Krypton.Navigator.KryptonPageEventArgs>(this.kryptonNavigator1_Deselected);
-            this.kryptonNavigator1.PreviousAction += new System.EventHandler<ComponentFactory.Krypton.Navigator.DirectionActionEventArgs>(this.kryptonNavigator1_PreviousAction);
-            this.kryptonNavigator1.NextAction += new System.EventHandler<ComponentFactory.Krypton.Navigator.DirectionActionEventArgs>(this.kryptonNavigator1_NextAction);
-            this.kryptonNavigator1.ContextAction += new System.EventHandler<ComponentFactory.Krypton.Navigator.ContextActionEventArgs>(this.kryptonNavigator1_ContextAction);
-            this.kryptonNavigator1.CloseAction += new System.EventHandler<ComponentFactory.Krypton.Navigator.CloseActionEventArgs>(this.kryptonNavigator1_CloseAction);
+            this.kryptonNavigator1.Selecting += new System.EventHandler< Krypton.Navigator.KryptonPageCancelEventArgs>(this.kryptonNavigator1_Selecting);
+            this.kryptonNavigator1.Selected += new System.EventHandler< Krypton.Navigator.KryptonPageEventArgs>(this.kryptonNavigator1_Selected);
+            this.kryptonNavigator1.Deselecting += new System.EventHandler< Krypton.Navigator.KryptonPageCancelEventArgs>(this.kryptonNavigator1_Deselecting);
+            this.kryptonNavigator1.Deselected += new System.EventHandler< Krypton.Navigator.KryptonPageEventArgs>(this.kryptonNavigator1_Deselected);
+            this.kryptonNavigator1.PreviousAction += new System.EventHandler< Krypton.Navigator.DirectionActionEventArgs>(this.kryptonNavigator1_PreviousAction);
+            this.kryptonNavigator1.NextAction += new System.EventHandler< Krypton.Navigator.DirectionActionEventArgs>(this.kryptonNavigator1_NextAction);
+            this.kryptonNavigator1.ContextAction += new System.EventHandler< Krypton.Navigator.ContextActionEventArgs>(this.kryptonNavigator1_ContextAction);
+            this.kryptonNavigator1.CloseAction += new System.EventHandler< Krypton.Navigator.CloseActionEventArgs>(this.kryptonNavigator1_CloseAction);
             // 
             // kryptonPage1
             // 
@@ -255,19 +255,19 @@ namespace BasicEvents
         #endregion
 
         private System.Windows.Forms.ImageList imageList1;
-        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigator1;
+        private  Krypton.Navigator.KryptonNavigator kryptonNavigator1;
         private System.Windows.Forms.GroupBox groupBoxPages;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonClear;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonRemove;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonAdd;
+        private  Krypton.Toolkit.KryptonButton kryptonButtonClear;
+        private  Krypton.Toolkit.KryptonButton kryptonButtonRemove;
+        private  Krypton.Toolkit.KryptonButton kryptonButtonAdd;
         private System.Windows.Forms.GroupBox groupBoxProperties;
         private System.Windows.Forms.Button buttonClose;
-        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPage1;
-        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPage2;
+        private  Krypton.Navigator.KryptonPage kryptonPage1;
+        private  Krypton.Navigator.KryptonPage kryptonPage2;
         private System.Windows.Forms.ListBox listBoxEvents;
         private System.Windows.Forms.Button buttonClearEventList;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonEnable;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager1;
+        private  Krypton.Toolkit.KryptonButton kryptonButtonEnable;
+        private  Krypton.Toolkit.KryptonManager kryptonManager1;
     }
 }
 

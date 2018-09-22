@@ -15,8 +15,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
-using ComponentFactory.Krypton.Toolkit;
-using ComponentFactory.Krypton.Ribbon;
+using Krypton.Toolkit;
+using Krypton.Ribbon;
 
 namespace PaletteDesigner
 {

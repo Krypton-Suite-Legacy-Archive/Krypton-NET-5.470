@@ -31,14 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.kryptonSeparator5 = new ComponentFactory.Krypton.Toolkit.KryptonSeparator();
-            this.kryptonSeparator6 = new ComponentFactory.Krypton.Toolkit.KryptonSeparator();
-            this.kryptonSeparator7 = new ComponentFactory.Krypton.Toolkit.KryptonSeparator();
-            this.kryptonSeparator8 = new ComponentFactory.Krypton.Toolkit.KryptonSeparator();
-            this.kryptonSeparator4 = new ComponentFactory.Krypton.Toolkit.KryptonSeparator();
-            this.kryptonSeparator3 = new ComponentFactory.Krypton.Toolkit.KryptonSeparator();
-            this.kryptonSeparator2 = new ComponentFactory.Krypton.Toolkit.KryptonSeparator();
-            this.kryptonSeparator1 = new ComponentFactory.Krypton.Toolkit.KryptonSeparator();
+            this.kryptonSeparator5 = new  Krypton.Toolkit.KryptonSeparator();
+            this.kryptonSeparator6 = new  Krypton.Toolkit.KryptonSeparator();
+            this.kryptonSeparator7 = new  Krypton.Toolkit.KryptonSeparator();
+            this.kryptonSeparator8 = new  Krypton.Toolkit.KryptonSeparator();
+            this.kryptonSeparator4 = new  Krypton.Toolkit.KryptonSeparator();
+            this.kryptonSeparator3 = new  Krypton.Toolkit.KryptonSeparator();
+            this.kryptonSeparator2 = new  Krypton.Toolkit.KryptonSeparator();
+            this.kryptonSeparator1 = new  Krypton.Toolkit.KryptonSeparator();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.system = new System.Windows.Forms.Button();
             this.office2003 = new System.Windows.Forms.Button();
@@ -46,7 +46,7 @@
             this.office2007Black = new System.Windows.Forms.Button();
             this.office2007Silver = new System.Windows.Forms.Button();
             this.office2007Blue = new System.Windows.Forms.Button();
-            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonManager1 = new  Krypton.Toolkit.KryptonManager(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.propertyGrid = new System.Windows.Forms.PropertyGrid();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -97,7 +97,7 @@
             this.kryptonSeparator5.TabIndex = 7;
             this.kryptonSeparator5.SplitterMoving += new System.Windows.Forms.SplitterCancelEventHandler(this.separator_Moving);
             this.kryptonSeparator5.SplitterNotMoved += new System.EventHandler(this.separator_NotMoved);
-            this.kryptonSeparator5.SplitterMoveRect += new System.EventHandler<ComponentFactory.Krypton.Toolkit.SplitterMoveRectMenuArgs>(this.separator_MoveRect);
+            this.kryptonSeparator5.SplitterMoveRect += new System.EventHandler< Krypton.Toolkit.SplitterMoveRectMenuArgs>(this.separator_MoveRect);
             this.kryptonSeparator5.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.separator_Moved);
             this.kryptonSeparator5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.separator_MouseDown);
             // 
@@ -112,7 +112,7 @@
             this.kryptonSeparator6.TabIndex = 6;
             this.kryptonSeparator6.SplitterMoving += new System.Windows.Forms.SplitterCancelEventHandler(this.separator_Moving);
             this.kryptonSeparator6.SplitterNotMoved += new System.EventHandler(this.separator_NotMoved);
-            this.kryptonSeparator6.SplitterMoveRect += new System.EventHandler<ComponentFactory.Krypton.Toolkit.SplitterMoveRectMenuArgs>(this.separator_MoveRect);
+            this.kryptonSeparator6.SplitterMoveRect += new System.EventHandler< Krypton.Toolkit.SplitterMoveRectMenuArgs>(this.separator_MoveRect);
             this.kryptonSeparator6.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.separator_Moved);
             this.kryptonSeparator6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.separator_MouseDown);
             // 
@@ -127,7 +127,7 @@
             this.kryptonSeparator7.TabIndex = 5;
             this.kryptonSeparator7.SplitterMoving += new System.Windows.Forms.SplitterCancelEventHandler(this.separator_Moving);
             this.kryptonSeparator7.SplitterNotMoved += new System.EventHandler(this.separator_NotMoved);
-            this.kryptonSeparator7.SplitterMoveRect += new System.EventHandler<ComponentFactory.Krypton.Toolkit.SplitterMoveRectMenuArgs>(this.separator_MoveRect);
+            this.kryptonSeparator7.SplitterMoveRect += new System.EventHandler< Krypton.Toolkit.SplitterMoveRectMenuArgs>(this.separator_MoveRect);
             this.kryptonSeparator7.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.separator_Moved);
             this.kryptonSeparator7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.separator_MouseDown);
             // 
@@ -141,7 +141,7 @@
             this.kryptonSeparator8.TabIndex = 4;
             this.kryptonSeparator8.SplitterMoving += new System.Windows.Forms.SplitterCancelEventHandler(this.separator_Moving);
             this.kryptonSeparator8.SplitterNotMoved += new System.EventHandler(this.separator_NotMoved);
-            this.kryptonSeparator8.SplitterMoveRect += new System.EventHandler<ComponentFactory.Krypton.Toolkit.SplitterMoveRectMenuArgs>(this.separator_MoveRect);
+            this.kryptonSeparator8.SplitterMoveRect += new System.EventHandler< Krypton.Toolkit.SplitterMoveRectMenuArgs>(this.separator_MoveRect);
             this.kryptonSeparator8.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.separator_Moved);
             this.kryptonSeparator8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.separator_MouseDown);
             // 
@@ -155,7 +155,7 @@
             this.kryptonSeparator4.TabIndex = 3;
             this.kryptonSeparator4.SplitterMoving += new System.Windows.Forms.SplitterCancelEventHandler(this.separator_Moving);
             this.kryptonSeparator4.SplitterNotMoved += new System.EventHandler(this.separator_NotMoved);
-            this.kryptonSeparator4.SplitterMoveRect += new System.EventHandler<ComponentFactory.Krypton.Toolkit.SplitterMoveRectMenuArgs>(this.separator_MoveRect);
+            this.kryptonSeparator4.SplitterMoveRect += new System.EventHandler< Krypton.Toolkit.SplitterMoveRectMenuArgs>(this.separator_MoveRect);
             this.kryptonSeparator4.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.separator_Moved);
             this.kryptonSeparator4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.separator_MouseDown);
             // 
@@ -169,7 +169,7 @@
             this.kryptonSeparator3.TabIndex = 2;
             this.kryptonSeparator3.SplitterMoving += new System.Windows.Forms.SplitterCancelEventHandler(this.separator_Moving);
             this.kryptonSeparator3.SplitterNotMoved += new System.EventHandler(this.separator_NotMoved);
-            this.kryptonSeparator3.SplitterMoveRect += new System.EventHandler<ComponentFactory.Krypton.Toolkit.SplitterMoveRectMenuArgs>(this.separator_MoveRect);
+            this.kryptonSeparator3.SplitterMoveRect += new System.EventHandler< Krypton.Toolkit.SplitterMoveRectMenuArgs>(this.separator_MoveRect);
             this.kryptonSeparator3.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.separator_Moved);
             this.kryptonSeparator3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.separator_MouseDown);
             // 
@@ -183,7 +183,7 @@
             this.kryptonSeparator2.TabIndex = 1;
             this.kryptonSeparator2.SplitterMoving += new System.Windows.Forms.SplitterCancelEventHandler(this.separator_Moving);
             this.kryptonSeparator2.SplitterNotMoved += new System.EventHandler(this.separator_NotMoved);
-            this.kryptonSeparator2.SplitterMoveRect += new System.EventHandler<ComponentFactory.Krypton.Toolkit.SplitterMoveRectMenuArgs>(this.separator_MoveRect);
+            this.kryptonSeparator2.SplitterMoveRect += new System.EventHandler< Krypton.Toolkit.SplitterMoveRectMenuArgs>(this.separator_MoveRect);
             this.kryptonSeparator2.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.separator_Moved);
             this.kryptonSeparator2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.separator_MouseDown);
             // 
@@ -196,7 +196,7 @@
             this.kryptonSeparator1.TabIndex = 0;
             this.kryptonSeparator1.SplitterMoving += new System.Windows.Forms.SplitterCancelEventHandler(this.separator_Moving);
             this.kryptonSeparator1.SplitterNotMoved += new System.EventHandler(this.separator_NotMoved);
-            this.kryptonSeparator1.SplitterMoveRect += new System.EventHandler<ComponentFactory.Krypton.Toolkit.SplitterMoveRectMenuArgs>(this.separator_MoveRect);
+            this.kryptonSeparator1.SplitterMoveRect += new System.EventHandler< Krypton.Toolkit.SplitterMoveRectMenuArgs>(this.separator_MoveRect);
             this.kryptonSeparator1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.separator_Moved);
             this.kryptonSeparator1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.separator_MouseDown);
             // 
@@ -280,7 +280,7 @@
             // 
             // kryptonManager1
             // 
-            this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2007Blue;
+            this.kryptonManager1.GlobalPaletteMode =  Krypton.Toolkit.PaletteModeManager.Office2007Blue;
             // 
             // groupBox4
             // 
@@ -408,14 +408,14 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private ComponentFactory.Krypton.Toolkit.KryptonSeparator kryptonSeparator5;
-        private ComponentFactory.Krypton.Toolkit.KryptonSeparator kryptonSeparator6;
-        private ComponentFactory.Krypton.Toolkit.KryptonSeparator kryptonSeparator7;
-        private ComponentFactory.Krypton.Toolkit.KryptonSeparator kryptonSeparator8;
-        private ComponentFactory.Krypton.Toolkit.KryptonSeparator kryptonSeparator4;
-        private ComponentFactory.Krypton.Toolkit.KryptonSeparator kryptonSeparator3;
-        private ComponentFactory.Krypton.Toolkit.KryptonSeparator kryptonSeparator2;
-        private ComponentFactory.Krypton.Toolkit.KryptonSeparator kryptonSeparator1;
+        private  Krypton.Toolkit.KryptonSeparator kryptonSeparator5;
+        private  Krypton.Toolkit.KryptonSeparator kryptonSeparator6;
+        private  Krypton.Toolkit.KryptonSeparator kryptonSeparator7;
+        private  Krypton.Toolkit.KryptonSeparator kryptonSeparator8;
+        private  Krypton.Toolkit.KryptonSeparator kryptonSeparator4;
+        private  Krypton.Toolkit.KryptonSeparator kryptonSeparator3;
+        private  Krypton.Toolkit.KryptonSeparator kryptonSeparator2;
+        private  Krypton.Toolkit.KryptonSeparator kryptonSeparator1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button system;
         private System.Windows.Forms.Button office2003;
@@ -423,7 +423,7 @@
         private System.Windows.Forms.Button office2007Black;
         private System.Windows.Forms.Button office2007Silver;
         private System.Windows.Forms.Button office2007Blue;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager1;
+        private  Krypton.Toolkit.KryptonManager kryptonManager1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.PropertyGrid propertyGrid;
         private System.Windows.Forms.GroupBox groupBox3;

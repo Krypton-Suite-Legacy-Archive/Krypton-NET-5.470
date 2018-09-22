@@ -30,11 +30,11 @@ namespace NavigatorPalettes
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.kryptonNavigator1 = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
-            this.kryptonPage1 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonPage2 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonPage3 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonPage4 = new ComponentFactory.Krypton.Navigator.KryptonPage();
+            this.kryptonNavigator1 = new  Krypton.Navigator.KryptonNavigator();
+            this.kryptonPage1 = new  Krypton.Navigator.KryptonPage();
+            this.kryptonPage2 = new  Krypton.Navigator.KryptonPage();
+            this.kryptonPage3 = new  Krypton.Navigator.KryptonPage();
+            this.kryptonPage4 = new  Krypton.Navigator.KryptonPage();
             this.groupBoxPalettes = new System.Windows.Forms.GroupBox();
             this.radioOffice2010Black = new System.Windows.Forms.RadioButton();
             this.radioOffice2010Silver = new System.Windows.Forms.RadioButton();
@@ -50,9 +50,9 @@ namespace NavigatorPalettes
             this.radioOffice2003 = new System.Windows.Forms.RadioButton();
             this.radioSystem = new System.Windows.Forms.RadioButton();
             this.buttonClose = new System.Windows.Forms.Button();
-            this.kryptonPaletteBlogger = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
-            this.kryptonPaletteLightweight = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
-            this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonPaletteBlogger = new  Krypton.Toolkit.KryptonPalette(this.components);
+            this.kryptonPaletteLightweight = new  Krypton.Toolkit.KryptonPalette(this.components);
+            this.kryptonManager = new  Krypton.Toolkit.KryptonManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator1)).BeginInit();
             this.kryptonNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPage1)).BeginInit();
@@ -64,22 +64,22 @@ namespace NavigatorPalettes
             // 
             // kryptonNavigator1
             // 
-            this.kryptonNavigator1.Button.CloseButtonAction = ComponentFactory.Krypton.Navigator.CloseButtonAction.None;
-            this.kryptonNavigator1.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigator1.Button.CloseButtonAction =  Krypton.Navigator.CloseButtonAction.None;
+            this.kryptonNavigator1.Button.CloseButtonDisplay =  Krypton.Navigator.ButtonDisplay.Hide;
             this.kryptonNavigator1.Location = new System.Drawing.Point(236, 18);
             this.kryptonNavigator1.Name = "kryptonNavigator1";
-            this.kryptonNavigator1.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
+            this.kryptonNavigator1.Pages.AddRange(new  Krypton.Navigator.KryptonPage[] {
             this.kryptonPage1,
             this.kryptonPage2,
             this.kryptonPage3,
             this.kryptonPage4});
-            this.kryptonNavigator1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
+            this.kryptonNavigator1.PaletteMode =  Krypton.Toolkit.PaletteMode.SparkleBlue;
             this.kryptonNavigator1.SelectedIndex = 0;
             this.kryptonNavigator1.Size = new System.Drawing.Size(378, 321);
-            this.kryptonNavigator1.StateCommon.CheckButton.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.kryptonNavigator1.StateCommon.CheckButton.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
-            this.kryptonNavigator1.StateCommon.CheckButton.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.kryptonNavigator1.StateCommon.CheckButton.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.kryptonNavigator1.StateCommon.CheckButton.Content.Image.ImageH =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.kryptonNavigator1.StateCommon.CheckButton.Content.Image.ImageV =  Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.kryptonNavigator1.StateCommon.CheckButton.Content.ShortText.TextH =  Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.kryptonNavigator1.StateCommon.CheckButton.Content.ShortText.TextV =  Krypton.Toolkit.PaletteRelativeAlign.Far;
             this.kryptonNavigator1.TabIndex = 1;
             this.kryptonNavigator1.Text = "kryptonNavigator1";
             // 
@@ -322,18 +322,18 @@ namespace NavigatorPalettes
             // 
             // kryptonPaletteBlogger
             // 
-            this.kryptonPaletteBlogger.AllowFormChrome = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.kryptonPaletteBlogger.BasePaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonPaletteBlogger.ButtonStyles.ButtonButtonSpec.StateDisabled.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.kryptonPaletteBlogger.ButtonStyles.ButtonButtonSpec.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonPaletteBlogger.ButtonStyles.ButtonButtonSpec.StateNormal.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
+            this.kryptonPaletteBlogger.AllowFormChrome =  Krypton.Toolkit.InheritBool.False;
+            this.kryptonPaletteBlogger.BasePaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.kryptonPaletteBlogger.ButtonStyles.ButtonButtonSpec.StateDisabled.Border.Draw =  Krypton.Toolkit.InheritBool.False;
+            this.kryptonPaletteBlogger.ButtonStyles.ButtonButtonSpec.StateDisabled.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Left) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteBlogger.ButtonStyles.ButtonButtonSpec.StateNormal.Back.Draw =  Krypton.Toolkit.InheritBool.False;
             this.kryptonPaletteBlogger.ButtonStyles.ButtonButtonSpec.StateNormal.Border.Color1 = System.Drawing.Color.Transparent;
-            this.kryptonPaletteBlogger.ButtonStyles.ButtonButtonSpec.StateNormal.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
-            this.kryptonPaletteBlogger.ButtonStyles.ButtonButtonSpec.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteBlogger.ButtonStyles.ButtonButtonSpec.StateNormal.Border.Draw =  Krypton.Toolkit.InheritBool.True;
+            this.kryptonPaletteBlogger.ButtonStyles.ButtonButtonSpec.StateNormal.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Left) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonPaletteBlogger.ButtonStyles.ButtonButtonSpec.StateNormal.Content.LongText.Color1 = System.Drawing.Color.Black;
             this.kryptonPaletteBlogger.ButtonStyles.ButtonButtonSpec.StateNormal.Content.Padding = new System.Windows.Forms.Padding(3);
             this.kryptonPaletteBlogger.ButtonStyles.ButtonButtonSpec.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.Black;
@@ -341,79 +341,79 @@ namespace NavigatorPalettes
             this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateCheckedPressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
             this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateCheckedPressed.Content.Padding = new System.Windows.Forms.Padding(5, 5, 1, 1);
             this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateCheckedTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
-            this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateCommon.Back.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
             this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateCommon.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateCommon.Border.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateCommon.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Left) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateCommon.Border.GraphicsHint =  Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
             this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateCommon.Border.Rounding = 3;
             this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateCommon.Border.Width = 2;
             this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateCommon.Content.LongText.Color1 = System.Drawing.Color.White;
-            this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateCommon.Content.LongText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateCommon.Content.LongText.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
             this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateCommon.Content.Padding = new System.Windows.Forms.Padding(3);
             this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateCommon.Content.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateCommon.Content.ShortText.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
             this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateDisabled.Border.Color1 = System.Drawing.Color.Silver;
-            this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateDisabled.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Left) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateDisabled.Content.LongText.Color1 = System.Drawing.Color.Silver;
             this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateDisabled.Content.ShortText.Color1 = System.Drawing.Color.Silver;
             this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StatePressed.Content.Padding = new System.Windows.Forms.Padding(5, 5, 1, 1);
             this.kryptonPaletteBlogger.ButtonStyles.ButtonCommon.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.kryptonPaletteBlogger.ButtonStyles.ButtonLowProfile.StateDisabled.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.kryptonPaletteBlogger.ButtonStyles.ButtonLowProfile.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonPaletteBlogger.ButtonStyles.ButtonLowProfile.StateNormal.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
+            this.kryptonPaletteBlogger.ButtonStyles.ButtonLowProfile.StateDisabled.Border.Draw =  Krypton.Toolkit.InheritBool.False;
+            this.kryptonPaletteBlogger.ButtonStyles.ButtonLowProfile.StateDisabled.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Left) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteBlogger.ButtonStyles.ButtonLowProfile.StateNormal.Back.Draw =  Krypton.Toolkit.InheritBool.False;
             this.kryptonPaletteBlogger.ButtonStyles.ButtonLowProfile.StateNormal.Border.Color1 = System.Drawing.Color.Transparent;
-            this.kryptonPaletteBlogger.ButtonStyles.ButtonLowProfile.StateNormal.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
-            this.kryptonPaletteBlogger.ButtonStyles.ButtonLowProfile.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteBlogger.ButtonStyles.ButtonLowProfile.StateNormal.Border.Draw =  Krypton.Toolkit.InheritBool.True;
+            this.kryptonPaletteBlogger.ButtonStyles.ButtonLowProfile.StateNormal.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Left) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonPaletteBlogger.ButtonStyles.ButtonLowProfile.StateNormal.Content.LongText.Color1 = System.Drawing.Color.Black;
             this.kryptonPaletteBlogger.ButtonStyles.ButtonLowProfile.StateNormal.Content.Padding = new System.Windows.Forms.Padding(3);
             this.kryptonPaletteBlogger.ButtonStyles.ButtonLowProfile.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.Black;
             this.kryptonPaletteBlogger.ButtonStyles.ButtonStandalone.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.kryptonPaletteBlogger.ButtonStyles.ButtonStandalone.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(227)))));
-            this.kryptonPaletteBlogger.ControlStyles.ControlCommon.StateCommon.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.kryptonPaletteBlogger.ControlStyles.ControlCommon.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonPaletteBlogger.ControlStyles.ControlCommon.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.kryptonPaletteBlogger.ControlStyles.ControlCommon.StateCommon.Border.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteBlogger.ControlStyles.ControlCommon.StateCommon.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Left) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteBlogger.ControlStyles.ControlCommon.StateCommon.Border.GraphicsHint =  Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
             this.kryptonPaletteBlogger.ControlStyles.ControlCommon.StateCommon.Border.Rounding = 9;
             this.kryptonPaletteBlogger.ControlStyles.ControlCommon.StateCommon.Border.Width = 3;
             this.kryptonPaletteBlogger.ControlStyles.ControlCommon.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.kryptonPaletteBlogger.ControlStyles.ControlCommon.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteBlogger.ControlStyles.ControlCommon.StateDisabled.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Left) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonPaletteBlogger.ControlStyles.ControlCommon.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(212)))), ((int)(((byte)(192)))));
-            this.kryptonPaletteBlogger.ControlStyles.ControlCommon.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonPaletteBlogger.HeaderGroup.StateCommon.OverlayHeaders = ComponentFactory.Krypton.Toolkit.InheritBool.False;
+            this.kryptonPaletteBlogger.ControlStyles.ControlCommon.StateNormal.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Left) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteBlogger.HeaderGroup.StateCommon.OverlayHeaders =  Krypton.Toolkit.InheritBool.False;
             this.kryptonPaletteBlogger.HeaderGroup.StateCommon.PrimaryHeaderPadding = new System.Windows.Forms.Padding(3);
             this.kryptonPaletteBlogger.HeaderGroup.StateCommon.SecondaryHeaderPadding = new System.Windows.Forms.Padding(3);
-            this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Linear;
-            this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateCommon.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateCommon.Back.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Linear;
+            this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateCommon.Back.GraphicsHint =  Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateCommon.Border.Draw =  Krypton.Toolkit.InheritBool.False;
+            this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateCommon.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Left) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateCommon.Border.Rounding = 7;
             this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateCommon.Border.Width = 3;
             this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateCommon.Content.AdjacentGap = 2;
             this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateCommon.Content.LongText.Color1 = System.Drawing.Color.Black;
-            this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateCommon.Content.LongText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateCommon.Content.LongText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateCommon.Content.LongText.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateCommon.Content.LongText.TextH =  Krypton.Toolkit.PaletteRelativeAlign.Far;
             this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 1, 10, 1);
             this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
-            this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateCommon.Content.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateCommon.Content.ShortText.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateCommon.Content.ShortText.TextH =  Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateDisabled.Content.LongText.Color1 = System.Drawing.Color.Silver;
             this.kryptonPaletteBlogger.HeaderStyles.HeaderCommon.StateDisabled.Content.ShortText.Color1 = System.Drawing.Color.Silver;
             this.kryptonPaletteBlogger.HeaderStyles.HeaderCustom1.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -434,54 +434,54 @@ namespace NavigatorPalettes
             this.kryptonPaletteBlogger.HeaderStyles.HeaderSecondary.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(213)))), ((int)(((byte)(194)))));
             this.kryptonPaletteBlogger.PanelStyles.PanelAlternate.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(212)))), ((int)(((byte)(192)))));
             this.kryptonPaletteBlogger.PanelStyles.PanelClient.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(227)))));
-            this.kryptonPaletteBlogger.PanelStyles.PanelCommon.StateCommon.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteBlogger.PanelStyles.PanelCommon.StateCommon.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
             this.kryptonPaletteBlogger.PanelStyles.PanelCustom1.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(237)))), ((int)(((byte)(227)))));
-            this.kryptonPaletteBlogger.TabStyles.TabCommon.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.kryptonPaletteBlogger.TabStyles.TabCommon.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteBlogger.TabStyles.TabCommon.StateCommon.Back.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteBlogger.TabStyles.TabCommon.StateCommon.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Left) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonPaletteBlogger.TabStyles.TabCommon.StateCommon.Border.Width = 2;
             this.kryptonPaletteBlogger.TabStyles.TabCommon.StateCommon.Content.LongText.Color1 = System.Drawing.Color.White;
-            this.kryptonPaletteBlogger.TabStyles.TabCommon.StateCommon.Content.LongText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteBlogger.TabStyles.TabCommon.StateCommon.Content.LongText.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
             this.kryptonPaletteBlogger.TabStyles.TabCommon.StateCommon.Content.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.kryptonPaletteBlogger.TabStyles.TabCommon.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonPaletteBlogger.TabStyles.TabCommon.StateCommon.Content.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteBlogger.TabStyles.TabCommon.StateCommon.Content.ShortText.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
             this.kryptonPaletteBlogger.TabStyles.TabCommon.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.kryptonPaletteBlogger.TabStyles.TabCommon.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.kryptonPaletteBlogger.TabStyles.TabCommon.StateNormal.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteBlogger.TabStyles.TabCommon.StateNormal.Back.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
             this.kryptonPaletteBlogger.TabStyles.TabCommon.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.kryptonPaletteBlogger.TabStyles.TabCommon.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.kryptonPaletteBlogger.TabStyles.TabCommon.StatePressed.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteBlogger.TabStyles.TabCommon.StatePressed.Back.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
             this.kryptonPaletteBlogger.TabStyles.TabCommon.StatePressed.Content.Padding = new System.Windows.Forms.Padding(4, 6, 2, 4);
             this.kryptonPaletteBlogger.TabStyles.TabCommon.StateSelected.Back.Color1 = System.Drawing.Color.White;
             this.kryptonPaletteBlogger.TabStyles.TabCommon.StateSelected.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.kryptonPaletteBlogger.TabStyles.TabCommon.StateSelected.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.QuarterPhase;
+            this.kryptonPaletteBlogger.TabStyles.TabCommon.StateSelected.Back.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.QuarterPhase;
             this.kryptonPaletteBlogger.TabStyles.TabCommon.StateSelected.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.kryptonPaletteBlogger.TabStyles.TabCommon.StateSelected.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteBlogger.TabStyles.TabCommon.StateSelected.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Left) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonPaletteBlogger.TabStyles.TabCommon.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.kryptonPaletteBlogger.TabStyles.TabCommon.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.kryptonPaletteBlogger.TabStyles.TabCommon.StateTracking.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteBlogger.TabStyles.TabCommon.StateTracking.Back.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
             this.kryptonPaletteBlogger.TabStyles.TabLowProfile.StateCommon.Content.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.kryptonPaletteBlogger.TabStyles.TabLowProfile.StateNormal.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
+            this.kryptonPaletteBlogger.TabStyles.TabLowProfile.StateNormal.Back.Draw =  Krypton.Toolkit.InheritBool.False;
             this.kryptonPaletteBlogger.TabStyles.TabLowProfile.StateNormal.Content.LongText.Color1 = System.Drawing.Color.Black;
             this.kryptonPaletteBlogger.TabStyles.TabLowProfile.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.Black;
-            this.kryptonPaletteBlogger.TabStyles.TabLowProfile.StatePressed.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
+            this.kryptonPaletteBlogger.TabStyles.TabLowProfile.StatePressed.Back.Draw =  Krypton.Toolkit.InheritBool.False;
             this.kryptonPaletteBlogger.TabStyles.TabLowProfile.StatePressed.Content.LongText.Color1 = System.Drawing.Color.Black;
             this.kryptonPaletteBlogger.TabStyles.TabLowProfile.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.Black;
             this.kryptonPaletteBlogger.TabStyles.TabLowProfile.StateSelected.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.kryptonPaletteBlogger.TabStyles.TabLowProfile.StateSelected.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.kryptonPaletteBlogger.TabStyles.TabLowProfile.StateSelected.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonPaletteBlogger.TabStyles.TabLowProfile.StateTracking.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
+            this.kryptonPaletteBlogger.TabStyles.TabLowProfile.StateSelected.Border.Draw =  Krypton.Toolkit.InheritBool.False;
+            this.kryptonPaletteBlogger.TabStyles.TabLowProfile.StateSelected.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Left) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteBlogger.TabStyles.TabLowProfile.StateTracking.Back.Draw =  Krypton.Toolkit.InheritBool.False;
             this.kryptonPaletteBlogger.TabStyles.TabLowProfile.StateTracking.Content.LongText.Color1 = System.Drawing.Color.Black;
             this.kryptonPaletteBlogger.TabStyles.TabLowProfile.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.Black;
-            this.kryptonPaletteBlogger.TabStyles.TabOneNote.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.OneNote;
+            this.kryptonPaletteBlogger.TabStyles.TabOneNote.StateCommon.Back.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.OneNote;
             this.kryptonPaletteBlogger.TabStyles.TabOneNote.StateSelected.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.kryptonPaletteBlogger.TabStyles.TabStandardProfile.StateSelected.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.kryptonPaletteBlogger.TabStyles.TabStandardProfile.StateSelected.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteBlogger.TabStyles.TabStandardProfile.StateSelected.Back.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
             this.kryptonPaletteBlogger.ToolMenuStatus.Button.ButtonCheckedGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
             this.kryptonPaletteBlogger.ToolMenuStatus.Button.ButtonCheckedGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
             this.kryptonPaletteBlogger.ToolMenuStatus.Button.ButtonCheckedGradientMiddle = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
@@ -542,88 +542,88 @@ namespace NavigatorPalettes
             this.kryptonPaletteBlogger.ToolMenuStatus.ToolStrip.ToolStripPanelGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.kryptonPaletteBlogger.ToolMenuStatus.ToolStrip.ToolStripPanelGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.kryptonPaletteBlogger.ToolMenuStatus.ToolStrip.ToolStripText = System.Drawing.Color.WhiteSmoke;
-            this.kryptonPaletteBlogger.ToolMenuStatus.UseRoundedEdges = ComponentFactory.Krypton.Toolkit.InheritBool.False;
+            this.kryptonPaletteBlogger.ToolMenuStatus.UseRoundedEdges =  Krypton.Toolkit.InheritBool.False;
             // 
             // kryptonPaletteLightweight
             // 
-            this.kryptonPaletteLightweight.AllowFormChrome = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.kryptonPaletteLightweight.BasePaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.kryptonPaletteLightweight.ButtonStyles.ButtonCommon.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonPaletteLightweight.ButtonStyles.ButtonCommon.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.kryptonPaletteLightweight.AllowFormChrome =  Krypton.Toolkit.InheritBool.False;
+            this.kryptonPaletteLightweight.BasePaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonPaletteLightweight.ButtonStyles.ButtonCommon.StateCommon.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Left) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteLightweight.ButtonStyles.ButtonCommon.StateCommon.Border.GraphicsHint =  Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
             this.kryptonPaletteLightweight.ButtonStyles.ButtonCommon.StateCommon.Border.Rounding = 4;
             this.kryptonPaletteLightweight.ButtonStyles.ButtonCommon.StateCommon.Border.Width = 1;
             this.kryptonPaletteLightweight.ButtonStyles.ButtonCommon.StateCommon.Content.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.kryptonPaletteLightweight.ButtonStyles.ButtonCommon.StateCommon.Content.LongText.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.ClearTypeGridFit;
+            this.kryptonPaletteLightweight.ButtonStyles.ButtonCommon.StateCommon.Content.LongText.Hint =  Krypton.Toolkit.PaletteTextHint.ClearTypeGridFit;
             this.kryptonPaletteLightweight.ButtonStyles.ButtonCommon.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.kryptonPaletteLightweight.ButtonStyles.ButtonCommon.StateCommon.Content.ShortText.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.ClearTypeGridFit;
+            this.kryptonPaletteLightweight.ButtonStyles.ButtonCommon.StateCommon.Content.ShortText.Hint =  Krypton.Toolkit.PaletteTextHint.ClearTypeGridFit;
             this.kryptonPaletteLightweight.ControlStyles.ControlAlternate.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
             this.kryptonPaletteLightweight.ControlStyles.ControlAlternate.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
             this.kryptonPaletteLightweight.ControlStyles.ControlClient.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(252)))), ((int)(((byte)(240)))));
             this.kryptonPaletteLightweight.ControlStyles.ControlClient.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(252)))), ((int)(((byte)(240)))));
             this.kryptonPaletteLightweight.ControlStyles.ControlCommon.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
-            this.kryptonPaletteLightweight.ControlStyles.ControlCommon.StateCommon.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.kryptonPaletteLightweight.ControlStyles.ControlCommon.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonPaletteLightweight.ControlStyles.ControlCommon.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.kryptonPaletteLightweight.ControlStyles.ControlCommon.StateCommon.Border.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteLightweight.ControlStyles.ControlCommon.StateCommon.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Left) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteLightweight.ControlStyles.ControlCommon.StateCommon.Border.GraphicsHint =  Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
             this.kryptonPaletteLightweight.ControlStyles.ControlCommon.StateCommon.Border.Rounding = 6;
             this.kryptonPaletteLightweight.ControlStyles.ControlCommon.StateCommon.Border.Width = 1;
             this.kryptonPaletteLightweight.ControlStyles.ControlCommon.StateDisabled.Back.Color1 = System.Drawing.Color.WhiteSmoke;
             this.kryptonPaletteLightweight.ControlStyles.ControlCommon.StateDisabled.Back.Color2 = System.Drawing.Color.WhiteSmoke;
             this.kryptonPaletteLightweight.ControlStyles.ControlCustom1.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(252)))), ((int)(((byte)(240)))));
-            this.kryptonPaletteLightweight.HeaderGroup.StateCommon.OverlayHeaders = ComponentFactory.Krypton.Toolkit.InheritBool.False;
+            this.kryptonPaletteLightweight.HeaderGroup.StateCommon.OverlayHeaders =  Krypton.Toolkit.InheritBool.False;
             this.kryptonPaletteLightweight.HeaderGroup.StateCommon.PrimaryHeaderPadding = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.kryptonPaletteLightweight.HeaderGroup.StateCommon.SecondaryHeaderPadding = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.kryptonPaletteLightweight.HeaderStyles.HeaderCommon.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(252)))), ((int)(((byte)(240)))));
-            this.kryptonPaletteLightweight.HeaderStyles.HeaderCommon.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.kryptonPaletteLightweight.HeaderStyles.HeaderCommon.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.kryptonPaletteLightweight.HeaderStyles.HeaderCommon.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteLightweight.HeaderStyles.HeaderCommon.StateCommon.Back.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteLightweight.HeaderStyles.HeaderCommon.StateCommon.Border.Draw =  Krypton.Toolkit.InheritBool.False;
+            this.kryptonPaletteLightweight.HeaderStyles.HeaderCommon.StateCommon.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Left) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonPaletteLightweight.HeaderStyles.HeaderCommon.StateCommon.Content.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.kryptonPaletteLightweight.HeaderStyles.HeaderCommon.StateCommon.Content.LongText.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.ClearTypeGridFit;
+            this.kryptonPaletteLightweight.HeaderStyles.HeaderCommon.StateCommon.Content.LongText.Hint =  Krypton.Toolkit.PaletteTextHint.ClearTypeGridFit;
             this.kryptonPaletteLightweight.HeaderStyles.HeaderCommon.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.kryptonPaletteLightweight.HeaderStyles.HeaderCommon.StateCommon.Content.ShortText.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.ClearTypeGridFit;
+            this.kryptonPaletteLightweight.HeaderStyles.HeaderCommon.StateCommon.Content.ShortText.Hint =  Krypton.Toolkit.PaletteTextHint.ClearTypeGridFit;
             this.kryptonPaletteLightweight.HeaderStyles.HeaderCommon.StateDisabled.Back.Color1 = System.Drawing.Color.WhiteSmoke;
-            this.kryptonPaletteLightweight.HeaderStyles.HeaderCommon.StateDisabled.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteLightweight.HeaderStyles.HeaderCommon.StateDisabled.Back.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
             this.kryptonPaletteLightweight.HeaderStyles.HeaderCommon.StateDisabled.Content.LongText.Color1 = System.Drawing.Color.Silver;
             this.kryptonPaletteLightweight.HeaderStyles.HeaderCommon.StateDisabled.Content.ShortText.Color1 = System.Drawing.Color.Silver;
             this.kryptonPaletteLightweight.HeaderStyles.HeaderCommon.StateNormal.Content.LongText.Color1 = System.Drawing.Color.Black;
             this.kryptonPaletteLightweight.HeaderStyles.HeaderCommon.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.Black;
-            this.kryptonPaletteLightweight.HeaderStyles.HeaderCommon.StateNormal.Content.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteLightweight.HeaderStyles.HeaderCommon.StateNormal.Content.ShortText.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
             this.kryptonPaletteLightweight.HeaderStyles.HeaderPrimary.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.kryptonPaletteLightweight.LabelStyles.LabelCommon.StateCommon.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.kryptonPaletteLightweight.LabelStyles.LabelCommon.StateCommon.LongText.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.ClearTypeGridFit;
+            this.kryptonPaletteLightweight.LabelStyles.LabelCommon.StateCommon.LongText.Hint =  Krypton.Toolkit.PaletteTextHint.ClearTypeGridFit;
             this.kryptonPaletteLightweight.LabelStyles.LabelCommon.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.kryptonPaletteLightweight.LabelStyles.LabelCommon.StateCommon.ShortText.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.ClearTypeGridFit;
+            this.kryptonPaletteLightweight.LabelStyles.LabelCommon.StateCommon.ShortText.Hint =  Krypton.Toolkit.PaletteTextHint.ClearTypeGridFit;
             this.kryptonPaletteLightweight.LabelStyles.LabelTitleControl.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.kryptonPaletteLightweight.PanelStyles.PanelAlternate.StateCommon.Color1 = System.Drawing.Color.WhiteSmoke;
             this.kryptonPaletteLightweight.PanelStyles.PanelClient.StateCommon.Color1 = System.Drawing.Color.White;
-            this.kryptonPaletteLightweight.PanelStyles.PanelCommon.StateCommon.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.kryptonPaletteLightweight.PanelStyles.PanelCommon.StateCommon.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Solid;
             this.kryptonPaletteLightweight.PanelStyles.PanelCustom1.StateCommon.Color1 = System.Drawing.Color.White;
             this.kryptonPaletteLightweight.TabStyles.TabCommon.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             this.kryptonPaletteLightweight.TabStyles.TabCommon.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
-            this.kryptonPaletteLightweight.TabStyles.TabCommon.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteLightweight.TabStyles.TabCommon.StateCommon.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Left) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonPaletteLightweight.TabStyles.TabCommon.StateSelected.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(252)))), ((int)(((byte)(240)))));
             this.kryptonPaletteLightweight.TabStyles.TabCommon.StateSelected.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(252)))), ((int)(((byte)(240)))));
             this.kryptonPaletteLightweight.TabStyles.TabHighProfile.StateSelected.Back.Color1 = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.kryptonPaletteLightweight.TabStyles.TabHighProfile.StateSelected.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.QuarterPhase;
-            this.kryptonPaletteLightweight.TabStyles.TabLowProfile.StateNormal.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.kryptonPaletteLightweight.TabStyles.TabLowProfile.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonPaletteLightweight.TabStyles.TabLowProfile.StateTracking.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.kryptonPaletteLightweight.TabStyles.TabLowProfile.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteLightweight.TabStyles.TabHighProfile.StateSelected.Back.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.QuarterPhase;
+            this.kryptonPaletteLightweight.TabStyles.TabLowProfile.StateNormal.Border.Draw =  Krypton.Toolkit.InheritBool.False;
+            this.kryptonPaletteLightweight.TabStyles.TabLowProfile.StateNormal.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Left) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteLightweight.TabStyles.TabLowProfile.StateTracking.Border.Draw =  Krypton.Toolkit.InheritBool.False;
+            this.kryptonPaletteLightweight.TabStyles.TabLowProfile.StateTracking.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Left) 
+            |  Krypton.Toolkit.PaletteDrawBorders.Right)));
             // 
             // kryptonManager
             // 
-            this.kryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.SparkleBlue;
+            this.kryptonManager.GlobalPaletteMode =  Krypton.Toolkit.PaletteModeManager.SparkleBlue;
             // 
             // Form1
             // 
@@ -655,23 +655,23 @@ namespace NavigatorPalettes
 
         #endregion
 
-        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigator1;
-        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPage1;
-        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPage2;
-        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPage3;
-        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPage4;
+        private  Krypton.Navigator.KryptonNavigator kryptonNavigator1;
+        private  Krypton.Navigator.KryptonPage kryptonPage1;
+        private  Krypton.Navigator.KryptonPage kryptonPage2;
+        private  Krypton.Navigator.KryptonPage kryptonPage3;
+        private  Krypton.Navigator.KryptonPage kryptonPage4;
         private System.Windows.Forms.GroupBox groupBoxPalettes;
         private System.Windows.Forms.RadioButton radioLightweight;
         private System.Windows.Forms.RadioButton radioBlogger;
         private System.Windows.Forms.RadioButton radioOffice2003;
         private System.Windows.Forms.RadioButton radioSystem;
         private System.Windows.Forms.Button buttonClose;
-        private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPaletteBlogger;
-        private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPaletteLightweight;
+        private  Krypton.Toolkit.KryptonPalette kryptonPaletteBlogger;
+        private  Krypton.Toolkit.KryptonPalette kryptonPaletteLightweight;
         private System.Windows.Forms.RadioButton radioOffice2007Black;
         private System.Windows.Forms.RadioButton radioOffice2007Silver;
         private System.Windows.Forms.RadioButton radioOffice2007Blue;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager;
+        private  Krypton.Toolkit.KryptonManager kryptonManager;
         private System.Windows.Forms.RadioButton radioSparkleBlue;
         private System.Windows.Forms.RadioButton radioSparklePurple;
         private System.Windows.Forms.RadioButton radioSparkleOrange;

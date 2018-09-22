@@ -30,60 +30,60 @@ namespace NavigatorContextMenus
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.kryptonNavigator1 = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
-            this.page1 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kcmDollar = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
-            this.kcmHeadingDollar = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
-            this.kcmItemsDollar = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
-            this.kcmDollar1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kcmDollar2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kcmDollar3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.page2 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kcmEuro = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
-            this.kcmHeadingEuro = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
-            this.kcmItemsEuro = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
-            this.kcmEuro1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kcmEuro2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kcmSeparatorEuro = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.kcmEuro3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kcmEuro4 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kcmEuro5 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.page3 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kcmYen = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
-            this.kcmHeadingYen = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
-            this.kcmItemsYen = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
-            this.kcmYen1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kcmYen2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kcmSeparatorYen = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.kcmHeadingYenMore = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
-            this.kcmItemsYenMore = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
-            this.kcmYen3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kcmYen4 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.page4 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kcmPound = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
-            this.kcmHeadingPound = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
-            this.kcmItemsPound = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
-            this.kcmPound1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kcmPound2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kcmPound3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kcmSeparatorPound = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.kcmPound4 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kcmPound5 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kcmPound6 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kcmNavigator = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
-            this.kcmHeadingNavigator = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
-            this.kcmItemsNavigator = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
-            this.kcmFirst = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kcmPrevious = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kcmNext = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kcmLast = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonNavigator1 = new  Krypton.Navigator.KryptonNavigator();
+            this.page1 = new  Krypton.Navigator.KryptonPage();
+            this.kryptonLabel1 = new  Krypton.Toolkit.KryptonLabel();
+            this.kcmDollar = new  Krypton.Toolkit.KryptonContextMenu();
+            this.kcmHeadingDollar = new  Krypton.Toolkit.KryptonContextMenuHeading();
+            this.kcmItemsDollar = new  Krypton.Toolkit.KryptonContextMenuItems();
+            this.kcmDollar1 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kcmDollar2 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kcmDollar3 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.page2 = new  Krypton.Navigator.KryptonPage();
+            this.kryptonLabel2 = new  Krypton.Toolkit.KryptonLabel();
+            this.kcmEuro = new  Krypton.Toolkit.KryptonContextMenu();
+            this.kcmHeadingEuro = new  Krypton.Toolkit.KryptonContextMenuHeading();
+            this.kcmItemsEuro = new  Krypton.Toolkit.KryptonContextMenuItems();
+            this.kcmEuro1 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kcmEuro2 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kcmSeparatorEuro = new  Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.kcmEuro3 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kcmEuro4 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kcmEuro5 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.page3 = new  Krypton.Navigator.KryptonPage();
+            this.kryptonLabel3 = new  Krypton.Toolkit.KryptonLabel();
+            this.kcmYen = new  Krypton.Toolkit.KryptonContextMenu();
+            this.kcmHeadingYen = new  Krypton.Toolkit.KryptonContextMenuHeading();
+            this.kcmItemsYen = new  Krypton.Toolkit.KryptonContextMenuItems();
+            this.kcmYen1 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kcmYen2 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kcmSeparatorYen = new  Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.kcmHeadingYenMore = new  Krypton.Toolkit.KryptonContextMenuHeading();
+            this.kcmItemsYenMore = new  Krypton.Toolkit.KryptonContextMenuItems();
+            this.kcmYen3 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kcmYen4 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.page4 = new  Krypton.Navigator.KryptonPage();
+            this.kryptonLabel4 = new  Krypton.Toolkit.KryptonLabel();
+            this.kcmPound = new  Krypton.Toolkit.KryptonContextMenu();
+            this.kcmHeadingPound = new  Krypton.Toolkit.KryptonContextMenuHeading();
+            this.kcmItemsPound = new  Krypton.Toolkit.KryptonContextMenuItems();
+            this.kcmPound1 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kcmPound2 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kcmPound3 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kcmSeparatorPound = new  Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.kcmPound4 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kcmPound5 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kcmPound6 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kcmNavigator = new  Krypton.Toolkit.KryptonContextMenu();
+            this.kcmHeadingNavigator = new  Krypton.Toolkit.KryptonContextMenuHeading();
+            this.kcmItemsNavigator = new  Krypton.Toolkit.KryptonContextMenuItems();
+            this.kcmFirst = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kcmPrevious = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kcmNext = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kcmLast = new  Krypton.Toolkit.KryptonContextMenuItem();
             this.buttonClose = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonManager1 = new  Krypton.Toolkit.KryptonManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator1)).BeginInit();
             this.kryptonNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.page1)).BeginInit();
@@ -98,11 +98,11 @@ namespace NavigatorContextMenus
             // 
             // kryptonNavigator1
             // 
-            this.kryptonNavigator1.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.None;
-            this.kryptonNavigator1.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigator1.Button.ButtonDisplayLogic =  Krypton.Navigator.ButtonDisplayLogic.None;
+            this.kryptonNavigator1.Button.CloseButtonDisplay =  Krypton.Navigator.ButtonDisplay.Hide;
             this.kryptonNavigator1.Location = new System.Drawing.Point(12, 12);
             this.kryptonNavigator1.Name = "kryptonNavigator1";
-            this.kryptonNavigator1.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
+            this.kryptonNavigator1.Pages.AddRange(new  Krypton.Navigator.KryptonPage[] {
             this.page1,
             this.page2,
             this.page3,
@@ -111,7 +111,7 @@ namespace NavigatorContextMenus
             this.kryptonNavigator1.Size = new System.Drawing.Size(302, 146);
             this.kryptonNavigator1.TabIndex = 0;
             this.kryptonNavigator1.Text = "kryptonNavigator1";
-            this.kryptonNavigator1.ShowContextMenu += new System.EventHandler<ComponentFactory.Krypton.Navigator.ShowContextMenuArgs>(this.kryptonNavigator1_ShowContextMenu);
+            this.kryptonNavigator1.ShowContextMenu += new System.EventHandler< Krypton.Navigator.ShowContextMenuArgs>(this.kryptonNavigator1_ShowContextMenu);
             // 
             // page1
             // 
@@ -138,7 +138,7 @@ namespace NavigatorContextMenus
             // 
             // kcmDollar
             // 
-            this.kcmDollar.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kcmDollar.Items.AddRange(new  Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kcmHeadingDollar,
             this.kcmItemsDollar});
             // 
@@ -149,7 +149,7 @@ namespace NavigatorContextMenus
             // 
             // kcmItemsDollar
             // 
-            this.kcmItemsDollar.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kcmItemsDollar.Items.AddRange(new  Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kcmDollar1,
             this.kcmDollar2,
             this.kcmDollar3});
@@ -194,7 +194,7 @@ namespace NavigatorContextMenus
             // 
             // kcmEuro
             // 
-            this.kcmEuro.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kcmEuro.Items.AddRange(new  Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kcmHeadingEuro,
             this.kcmItemsEuro});
             // 
@@ -205,7 +205,7 @@ namespace NavigatorContextMenus
             // 
             // kcmItemsEuro
             // 
-            this.kcmItemsEuro.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kcmItemsEuro.Items.AddRange(new  Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kcmEuro1,
             this.kcmEuro2,
             this.kcmSeparatorEuro,
@@ -263,7 +263,7 @@ namespace NavigatorContextMenus
             // 
             // kcmYen
             // 
-            this.kcmYen.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kcmYen.Items.AddRange(new  Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kcmHeadingYen,
             this.kcmItemsYen,
             this.kcmSeparatorYen,
@@ -277,7 +277,7 @@ namespace NavigatorContextMenus
             // 
             // kcmItemsYen
             // 
-            this.kcmItemsYen.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kcmItemsYen.Items.AddRange(new  Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kcmYen1,
             this.kcmYen2});
             // 
@@ -298,7 +298,7 @@ namespace NavigatorContextMenus
             // 
             // kcmItemsYenMore
             // 
-            this.kcmItemsYenMore.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kcmItemsYenMore.Items.AddRange(new  Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kcmYen3,
             this.kcmYen4});
             // 
@@ -337,7 +337,7 @@ namespace NavigatorContextMenus
             // 
             // kcmPound
             // 
-            this.kcmPound.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kcmPound.Items.AddRange(new  Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kcmHeadingPound,
             this.kcmItemsPound});
             // 
@@ -348,7 +348,7 @@ namespace NavigatorContextMenus
             // 
             // kcmItemsPound
             // 
-            this.kcmItemsPound.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kcmItemsPound.Items.AddRange(new  Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kcmPound1,
             this.kcmPound2,
             this.kcmPound3,
@@ -393,7 +393,7 @@ namespace NavigatorContextMenus
             // 
             // kcmNavigator
             // 
-            this.kcmNavigator.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kcmNavigator.Items.AddRange(new  Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kcmHeadingNavigator,
             this.kcmItemsNavigator});
             // 
@@ -404,7 +404,7 @@ namespace NavigatorContextMenus
             // 
             // kcmItemsNavigator
             // 
-            this.kcmItemsNavigator.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kcmItemsNavigator.Items.AddRange(new  Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kcmFirst,
             this.kcmPrevious,
             this.kcmNext,
@@ -490,60 +490,60 @@ namespace NavigatorContextMenus
 
         #endregion
 
-        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigator1;
-        private ComponentFactory.Krypton.Navigator.KryptonPage page1;
-        private ComponentFactory.Krypton.Navigator.KryptonPage page2;
-        private ComponentFactory.Krypton.Navigator.KryptonPage page3;
-        private ComponentFactory.Krypton.Navigator.KryptonPage page4;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu kcmDollar;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading kcmHeadingDollar;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kcmItemsDollar;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kcmDollar1;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kcmDollar2;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kcmDollar3;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu kcmEuro;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading kcmHeadingEuro;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kcmItemsEuro;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kcmEuro1;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kcmEuro2;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kcmEuro3;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kcmSeparatorEuro;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kcmEuro4;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kcmEuro5;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu kcmYen;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading kcmHeadingYen;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kcmItemsYen;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kcmYen1;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kcmYen2;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kcmSeparatorYen;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading kcmHeadingYenMore;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kcmItemsYenMore;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kcmYen3;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kcmYen4;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu kcmPound;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading kcmHeadingPound;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kcmItemsPound;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kcmPound1;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kcmPound2;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kcmPound3;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kcmSeparatorPound;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kcmPound4;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kcmPound5;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kcmPound6;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu kcmNavigator;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading kcmHeadingNavigator;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kcmItemsNavigator;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kcmFirst;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kcmPrevious;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kcmNext;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kcmLast;
+        private  Krypton.Navigator.KryptonNavigator kryptonNavigator1;
+        private  Krypton.Navigator.KryptonPage page1;
+        private  Krypton.Navigator.KryptonPage page2;
+        private  Krypton.Navigator.KryptonPage page3;
+        private  Krypton.Navigator.KryptonPage page4;
+        private  Krypton.Toolkit.KryptonContextMenu kcmDollar;
+        private  Krypton.Toolkit.KryptonContextMenuHeading kcmHeadingDollar;
+        private  Krypton.Toolkit.KryptonContextMenuItems kcmItemsDollar;
+        private  Krypton.Toolkit.KryptonContextMenuItem kcmDollar1;
+        private  Krypton.Toolkit.KryptonContextMenuItem kcmDollar2;
+        private  Krypton.Toolkit.KryptonContextMenuItem kcmDollar3;
+        private  Krypton.Toolkit.KryptonContextMenu kcmEuro;
+        private  Krypton.Toolkit.KryptonContextMenuHeading kcmHeadingEuro;
+        private  Krypton.Toolkit.KryptonContextMenuItems kcmItemsEuro;
+        private  Krypton.Toolkit.KryptonContextMenuItem kcmEuro1;
+        private  Krypton.Toolkit.KryptonContextMenuItem kcmEuro2;
+        private  Krypton.Toolkit.KryptonContextMenuItem kcmEuro3;
+        private  Krypton.Toolkit.KryptonContextMenuSeparator kcmSeparatorEuro;
+        private  Krypton.Toolkit.KryptonContextMenuItem kcmEuro4;
+        private  Krypton.Toolkit.KryptonContextMenuItem kcmEuro5;
+        private  Krypton.Toolkit.KryptonContextMenu kcmYen;
+        private  Krypton.Toolkit.KryptonContextMenuHeading kcmHeadingYen;
+        private  Krypton.Toolkit.KryptonContextMenuItems kcmItemsYen;
+        private  Krypton.Toolkit.KryptonContextMenuItem kcmYen1;
+        private  Krypton.Toolkit.KryptonContextMenuItem kcmYen2;
+        private  Krypton.Toolkit.KryptonContextMenuSeparator kcmSeparatorYen;
+        private  Krypton.Toolkit.KryptonContextMenuHeading kcmHeadingYenMore;
+        private  Krypton.Toolkit.KryptonContextMenuItems kcmItemsYenMore;
+        private  Krypton.Toolkit.KryptonContextMenuItem kcmYen3;
+        private  Krypton.Toolkit.KryptonContextMenuItem kcmYen4;
+        private  Krypton.Toolkit.KryptonContextMenu kcmPound;
+        private  Krypton.Toolkit.KryptonContextMenuHeading kcmHeadingPound;
+        private  Krypton.Toolkit.KryptonContextMenuItems kcmItemsPound;
+        private  Krypton.Toolkit.KryptonContextMenuItem kcmPound1;
+        private  Krypton.Toolkit.KryptonContextMenuItem kcmPound2;
+        private  Krypton.Toolkit.KryptonContextMenuItem kcmPound3;
+        private  Krypton.Toolkit.KryptonContextMenuSeparator kcmSeparatorPound;
+        private  Krypton.Toolkit.KryptonContextMenuItem kcmPound4;
+        private  Krypton.Toolkit.KryptonContextMenuItem kcmPound5;
+        private  Krypton.Toolkit.KryptonContextMenuItem kcmPound6;
+        private  Krypton.Toolkit.KryptonContextMenu kcmNavigator;
+        private  Krypton.Toolkit.KryptonContextMenuHeading kcmHeadingNavigator;
+        private  Krypton.Toolkit.KryptonContextMenuItems kcmItemsNavigator;
+        private  Krypton.Toolkit.KryptonContextMenuItem kcmFirst;
+        private  Krypton.Toolkit.KryptonContextMenuItem kcmPrevious;
+        private  Krypton.Toolkit.KryptonContextMenuItem kcmNext;
+        private  Krypton.Toolkit.KryptonContextMenuItem kcmLast;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Label label1;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel3;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel4;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager1;
+        private  Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private  Krypton.Toolkit.KryptonLabel kryptonLabel2;
+        private  Krypton.Toolkit.KryptonLabel kryptonLabel3;
+        private  Krypton.Toolkit.KryptonLabel kryptonLabel4;
+        private  Krypton.Toolkit.KryptonManager kryptonManager1;
     }
 }
 

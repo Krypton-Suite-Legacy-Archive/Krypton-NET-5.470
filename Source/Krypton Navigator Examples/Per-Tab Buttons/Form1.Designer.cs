@@ -36,25 +36,25 @@
             this.radioModeRibbonTabs = new System.Windows.Forms.RadioButton();
             this.radioModesCheckButton = new System.Windows.Forms.RadioButton();
             this.radioModeTabs = new System.Windows.Forms.RadioButton();
-            this.kryptonNavigator = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
-            this.kryptonPage1 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonPage2 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonPage3 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonPage4 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonContextMenu = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
-            this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
-            this.kryptonContextMenuItem1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuItem2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuItem3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuItem4 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonNavigator = new  Krypton.Navigator.KryptonNavigator();
+            this.kryptonPage1 = new  Krypton.Navigator.KryptonPage();
+            this.kryptonPage2 = new  Krypton.Navigator.KryptonPage();
+            this.kryptonPage3 = new  Krypton.Navigator.KryptonPage();
+            this.kryptonPage4 = new  Krypton.Navigator.KryptonPage();
+            this.kryptonContextMenu = new  Krypton.Toolkit.KryptonContextMenu();
+            this.kryptonContextMenuItems1 = new  Krypton.Toolkit.KryptonContextMenuItems();
+            this.kryptonContextMenuItem1 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItem2 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItem3 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItem4 = new  Krypton.Toolkit.KryptonContextMenuItem();
             this.buttonClose = new System.Windows.Forms.Button();
-            this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny1 = new  Krypton.Toolkit.ButtonSpecAny();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.clearButtons = new System.Windows.Forms.Button();
             this.addText = new System.Windows.Forms.Button();
             this.addContext = new System.Windows.Forms.Button();
             this.addArrow = new System.Windows.Forms.Button();
-            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonManager1 = new  Krypton.Toolkit.KryptonManager(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator)).BeginInit();
             this.kryptonNavigator.SuspendLayout();
@@ -145,11 +145,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonNavigator.Bar.ItemMaximumSize = new System.Drawing.Size(2000, 200);
-            this.kryptonNavigator.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.NextPrevious;
-            this.kryptonNavigator.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigator.Button.ButtonDisplayLogic =  Krypton.Navigator.ButtonDisplayLogic.NextPrevious;
+            this.kryptonNavigator.Button.CloseButtonDisplay =  Krypton.Navigator.ButtonDisplay.Hide;
             this.kryptonNavigator.Location = new System.Drawing.Point(176, 21);
             this.kryptonNavigator.Name = "kryptonNavigator";
-            this.kryptonNavigator.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
+            this.kryptonNavigator.Pages.AddRange(new  Krypton.Navigator.KryptonPage[] {
             this.kryptonPage1,
             this.kryptonPage2,
             this.kryptonPage3,
@@ -221,12 +221,12 @@
             // 
             // kryptonContextMenu
             // 
-            this.kryptonContextMenu.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenu.Items.AddRange(new  Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kryptonContextMenuItems1});
             // 
             // kryptonContextMenuItems1
             // 
-            this.kryptonContextMenuItems1.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuItems1.Items.AddRange(new  Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kryptonContextMenuItem1,
             this.kryptonContextMenuItem2,
             this.kryptonContextMenuItem3,
@@ -261,8 +261,8 @@
             // 
             // buttonSpecAny1
             // 
-            this.buttonSpecAny1.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Standalone;
-            this.buttonSpecAny1.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Context;
+            this.buttonSpecAny1.Style =  Krypton.Toolkit.PaletteButtonStyle.Standalone;
+            this.buttonSpecAny1.Type =  Krypton.Toolkit.PaletteButtonSpecStyle.Context;
             this.buttonSpecAny1.UniqueName = "6646CFE7A52E42FA6646CFE7A52E42FA";
             // 
             // groupBox2
@@ -324,7 +324,7 @@
             // 
             // kryptonManager1
             // 
-            this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.ProfessionalSystem;
+            this.kryptonManager1.GlobalPaletteMode =  Krypton.Toolkit.PaletteModeManager.ProfessionalSystem;
             // 
             // Form1
             // 
@@ -360,27 +360,27 @@
         private System.Windows.Forms.RadioButton radioModeRibbonTabs;
         private System.Windows.Forms.RadioButton radioModesCheckButton;
         private System.Windows.Forms.RadioButton radioModeTabs;
-        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigator;
-        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPage1;
-        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPage2;
-        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPage3;
-        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPage4;
+        private  Krypton.Navigator.KryptonNavigator kryptonNavigator;
+        private  Krypton.Navigator.KryptonPage kryptonPage1;
+        private  Krypton.Navigator.KryptonPage kryptonPage2;
+        private  Krypton.Navigator.KryptonPage kryptonPage3;
+        private  Krypton.Navigator.KryptonPage kryptonPage4;
         private System.Windows.Forms.RadioButton radioModesOutlook;
         private System.Windows.Forms.RadioButton radioModesStack;
         private System.Windows.Forms.Button buttonClose;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu kryptonContextMenu;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems1;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem1;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem2;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem3;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem4;
+        private  Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
+        private  Krypton.Toolkit.KryptonContextMenu kryptonContextMenu;
+        private  Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems1;
+        private  Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem1;
+        private  Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem2;
+        private  Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem3;
+        private  Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem4;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button addContext;
         private System.Windows.Forms.Button addArrow;
         private System.Windows.Forms.Button clearButtons;
         private System.Windows.Forms.Button addText;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager1;
+        private  Krypton.Toolkit.KryptonManager kryptonManager1;
     }
 }
 

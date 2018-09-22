@@ -39,168 +39,168 @@ namespace PaletteDesigner
             this.menuSaveAs = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSep2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.kryptonNavigatorTop = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
-            this.pageTopButtonSpecs = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTopButtons = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTopCheckBox = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTopChromeTMS = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTopControls = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTopGrids = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTopHeaderGroup = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTopHeaders = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTopInputControls = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTopDateTime = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTopLabels = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTopNavigator = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTopPanels = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTopRadioButton = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTopRibbon = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTopSeparators = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTopTabs = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTopTrackBar = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonPanelMainFill = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonSplitContainerMain = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
-            this.kryptonNavigatorDesign = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
-            this.pageDesignButtonSpecs = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.buttonSpecG4 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.buttonSpecGeneric1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecGeneric2 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecG3 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.buttonSpecG2 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.buttonSpecG1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.buttonSpecT4 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.buttonSpecAny32 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny31 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny30 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny29 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny13 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny14 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny15 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny16 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny63 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny64 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny48 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny49 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny50 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny51 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny55 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny56 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecT3 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.buttonSpecAny28 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny27 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny26 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny25 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny9 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny10 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny11 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny12 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny61 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny62 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny41 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny42 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny43 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny44 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny53 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny54 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecT2 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.buttonSpecAny24 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny23 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny22 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny21 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny5 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny6 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny7 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny8 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny59 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny60 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny33 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny38 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny39 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny40 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny47 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny52 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecT1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.buttonSpecAny20 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny19 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny18 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny17 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny4 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny3 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny2 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny57 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny58 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny34 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny35 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny36 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny37 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny46 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny45 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.labelButtonSpecsTyped = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.labelButtonSpecsGeneric = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.pageDesignButtons = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.buttonLive = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.borderDesignButtons = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonNavigatorDesignButtons = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
-            this.pageButtonsStandalone = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageButtonsAlternate = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageButtonsLowProfile = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageButtonsBreadCrumb = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageButtonCalendarDay = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageButtonsButtonSpec = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageButtonsRibbonCluster = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageButtonsNavigatorStack = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageButtonsNavigatorOverflow = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageButtonsNavigatorMini = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageButtonsInputControl = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageButtonsListItem = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageButtonsGallery = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageButtonsForm = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageButtonsFormClose = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageButtonsCommand = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageButtonsCustom1 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageButtonsCustom2 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageButtonsCustom3 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.buttonCheckedPressed = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.buttonCheckedTracking = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.buttonCheckedNormal = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.buttonDisabled = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.buttonPressed = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.buttonNormal = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.buttonTracking = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.buttonDefaultFocus = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.pageDesignCheckBox = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.cbLive = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.cbFocus = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.cbIndeterminateTracking = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.cbIndeterminatePressed = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.cbIndeterminateNormal = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.cbIndeterminateDisabled = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.cbCheckedTracking = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.cbCheckedPressed = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.cbCheckedNormal = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.cbCheckedDisabled = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.cbUncheckedTracking = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.cbUncheckedPressed = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.cbUncheckedNormal = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.cbUncheckedDisabled = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.kryptonCheckBox1 = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.pageDesignChromeTMS = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageDesignControls = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.labelControlsNormal = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.labelControlsDisabled = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.control1Normal = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.control1Disabled = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.borderDesignControls = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonNavigatorDesignControls = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
-            this.pageControlsClient = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageControlsAlternate = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageControlsGroupBox = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageControlsToolTip = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageControlsRibbon = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageControlsCustom1 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageDesignGrid = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.dataGridViewDisabled = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.kryptonNavigatorTop = new Krypton.Navigator.KryptonNavigator();
+            this.pageTopButtonSpecs = new Krypton.Navigator.KryptonPage();
+            this.pageTopButtons = new Krypton.Navigator.KryptonPage();
+            this.pageTopCheckBox = new Krypton.Navigator.KryptonPage();
+            this.pageTopChromeTMS = new Krypton.Navigator.KryptonPage();
+            this.pageTopControls = new Krypton.Navigator.KryptonPage();
+            this.pageTopGrids = new Krypton.Navigator.KryptonPage();
+            this.pageTopHeaderGroup = new Krypton.Navigator.KryptonPage();
+            this.pageTopHeaders = new Krypton.Navigator.KryptonPage();
+            this.pageTopInputControls = new Krypton.Navigator.KryptonPage();
+            this.pageTopDateTime = new Krypton.Navigator.KryptonPage();
+            this.pageTopLabels = new Krypton.Navigator.KryptonPage();
+            this.pageTopNavigator = new Krypton.Navigator.KryptonPage();
+            this.pageTopPanels = new Krypton.Navigator.KryptonPage();
+            this.pageTopRadioButton = new Krypton.Navigator.KryptonPage();
+            this.pageTopRibbon = new Krypton.Navigator.KryptonPage();
+            this.pageTopSeparators = new Krypton.Navigator.KryptonPage();
+            this.pageTopTabs = new Krypton.Navigator.KryptonPage();
+            this.pageTopTrackBar = new Krypton.Navigator.KryptonPage();
+            this.kryptonPanelMainFill = new Krypton.Toolkit.KryptonPanel();
+            this.kryptonSplitContainerMain = new Krypton.Toolkit.KryptonSplitContainer();
+            this.kryptonNavigatorDesign = new Krypton.Navigator.KryptonNavigator();
+            this.pageDesignButtonSpecs = new Krypton.Navigator.KryptonPage();
+            this.buttonSpecG4 = new Krypton.Toolkit.KryptonHeader();
+            this.buttonSpecGeneric1 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecGeneric2 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecG3 = new Krypton.Toolkit.KryptonHeader();
+            this.buttonSpecG2 = new Krypton.Toolkit.KryptonHeader();
+            this.buttonSpecG1 = new Krypton.Toolkit.KryptonHeader();
+            this.buttonSpecT4 = new Krypton.Toolkit.KryptonHeader();
+            this.buttonSpecAny32 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny31 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny30 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny29 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny13 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny14 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny15 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny16 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny63 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny64 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny48 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny49 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny50 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny51 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny55 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny56 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecT3 = new Krypton.Toolkit.KryptonHeader();
+            this.buttonSpecAny28 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny27 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny26 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny25 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny9 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny10 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny11 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny12 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny61 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny62 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny41 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny42 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny43 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny44 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny53 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny54 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecT2 = new Krypton.Toolkit.KryptonHeader();
+            this.buttonSpecAny24 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny23 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny22 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny21 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny5 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny6 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny7 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny8 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny59 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny60 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny33 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny38 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny39 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny40 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny47 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny52 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecT1 = new Krypton.Toolkit.KryptonHeader();
+            this.buttonSpecAny20 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny19 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny18 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny17 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny4 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny3 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny2 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny1 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny57 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny58 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny34 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny35 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny36 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny37 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny46 = new Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny45 = new Krypton.Toolkit.ButtonSpecAny();
+            this.labelButtonSpecsTyped = new Krypton.Toolkit.KryptonLabel();
+            this.labelButtonSpecsGeneric = new Krypton.Toolkit.KryptonLabel();
+            this.pageDesignButtons = new Krypton.Navigator.KryptonPage();
+            this.buttonLive = new Krypton.Toolkit.KryptonCheckButton();
+            this.borderDesignButtons = new Krypton.Toolkit.KryptonPanel();
+            this.kryptonNavigatorDesignButtons = new Krypton.Navigator.KryptonNavigator();
+            this.pageButtonsStandalone = new Krypton.Navigator.KryptonPage();
+            this.pageButtonsAlternate = new Krypton.Navigator.KryptonPage();
+            this.pageButtonsLowProfile = new Krypton.Navigator.KryptonPage();
+            this.pageButtonsBreadCrumb = new Krypton.Navigator.KryptonPage();
+            this.pageButtonCalendarDay = new Krypton.Navigator.KryptonPage();
+            this.pageButtonsButtonSpec = new Krypton.Navigator.KryptonPage();
+            this.pageButtonsRibbonCluster = new Krypton.Navigator.KryptonPage();
+            this.pageButtonsNavigatorStack = new Krypton.Navigator.KryptonPage();
+            this.pageButtonsNavigatorOverflow = new Krypton.Navigator.KryptonPage();
+            this.pageButtonsNavigatorMini = new Krypton.Navigator.KryptonPage();
+            this.pageButtonsInputControl = new Krypton.Navigator.KryptonPage();
+            this.pageButtonsListItem = new Krypton.Navigator.KryptonPage();
+            this.pageButtonsGallery = new Krypton.Navigator.KryptonPage();
+            this.pageButtonsForm = new Krypton.Navigator.KryptonPage();
+            this.pageButtonsFormClose = new Krypton.Navigator.KryptonPage();
+            this.pageButtonsCommand = new Krypton.Navigator.KryptonPage();
+            this.pageButtonsCustom1 = new Krypton.Navigator.KryptonPage();
+            this.pageButtonsCustom2 = new Krypton.Navigator.KryptonPage();
+            this.pageButtonsCustom3 = new Krypton.Navigator.KryptonPage();
+            this.buttonCheckedPressed = new Krypton.Toolkit.KryptonCheckButton();
+            this.buttonCheckedTracking = new Krypton.Toolkit.KryptonCheckButton();
+            this.buttonCheckedNormal = new Krypton.Toolkit.KryptonCheckButton();
+            this.buttonDisabled = new Krypton.Toolkit.KryptonCheckButton();
+            this.buttonPressed = new Krypton.Toolkit.KryptonCheckButton();
+            this.buttonNormal = new Krypton.Toolkit.KryptonCheckButton();
+            this.buttonTracking = new Krypton.Toolkit.KryptonCheckButton();
+            this.buttonDefaultFocus = new Krypton.Toolkit.KryptonCheckButton();
+            this.pageDesignCheckBox = new Krypton.Navigator.KryptonPage();
+            this.cbLive = new Krypton.Toolkit.KryptonCheckBox();
+            this.cbFocus = new Krypton.Toolkit.KryptonCheckBox();
+            this.cbIndeterminateTracking = new Krypton.Toolkit.KryptonCheckBox();
+            this.cbIndeterminatePressed = new Krypton.Toolkit.KryptonCheckBox();
+            this.cbIndeterminateNormal = new Krypton.Toolkit.KryptonCheckBox();
+            this.cbIndeterminateDisabled = new Krypton.Toolkit.KryptonCheckBox();
+            this.cbCheckedTracking = new Krypton.Toolkit.KryptonCheckBox();
+            this.cbCheckedPressed = new Krypton.Toolkit.KryptonCheckBox();
+            this.cbCheckedNormal = new Krypton.Toolkit.KryptonCheckBox();
+            this.cbCheckedDisabled = new Krypton.Toolkit.KryptonCheckBox();
+            this.cbUncheckedTracking = new Krypton.Toolkit.KryptonCheckBox();
+            this.cbUncheckedPressed = new Krypton.Toolkit.KryptonCheckBox();
+            this.cbUncheckedNormal = new Krypton.Toolkit.KryptonCheckBox();
+            this.cbUncheckedDisabled = new Krypton.Toolkit.KryptonCheckBox();
+            this.kryptonCheckBox1 = new Krypton.Toolkit.KryptonCheckBox();
+            this.pageDesignChromeTMS = new Krypton.Navigator.KryptonPage();
+            this.pageDesignControls = new Krypton.Navigator.KryptonPage();
+            this.labelControlsNormal = new Krypton.Toolkit.KryptonLabel();
+            this.labelControlsDisabled = new Krypton.Toolkit.KryptonLabel();
+            this.control1Normal = new Krypton.Toolkit.KryptonGroup();
+            this.control1Disabled = new Krypton.Toolkit.KryptonGroup();
+            this.borderDesignControls = new Krypton.Toolkit.KryptonPanel();
+            this.kryptonNavigatorDesignControls = new Krypton.Navigator.KryptonNavigator();
+            this.pageControlsClient = new Krypton.Navigator.KryptonPage();
+            this.pageControlsAlternate = new Krypton.Navigator.KryptonPage();
+            this.pageControlsGroupBox = new Krypton.Navigator.KryptonPage();
+            this.pageControlsToolTip = new Krypton.Navigator.KryptonPage();
+            this.pageControlsRibbon = new Krypton.Navigator.KryptonPage();
+            this.pageControlsCustom1 = new Krypton.Navigator.KryptonPage();
+            this.pageDesignGrid = new Krypton.Navigator.KryptonPage();
+            this.dataGridViewDisabled = new Krypton.Toolkit.KryptonDataGridView();
             this.column1DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column2DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column3DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -209,181 +209,181 @@ namespace PaletteDesigner
             this.dataColumn1 = new System.Data.DataColumn();
             this.dataColumn2 = new System.Data.DataColumn();
             this.dataColumn3 = new System.Data.DataColumn();
-            this.labelGridDisabled = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.dataGridViewNormal = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.labelGridDisabled = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
+            this.dataGridViewNormal = new Krypton.Toolkit.KryptonDataGridView();
             this.column1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kryptonNavigatorDesignGrids = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
-            this.kryptonGridList = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonGridSheet = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonGridCustom1 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageDesignHeaderGroup = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.labelHeaderGroupNormal = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.headerGroup1Disabled = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
-            this.labelHeaderGroupDisabled = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.headerGroup1Normal = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
-            this.pageDesignHeaders = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.header1Normal = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.header1Disabled = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.borderDesignHeaders = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonNavigatorDesignHeaders = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
-            this.pageHeadersPrimary = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageHeadersSecondary = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageHeadersDockActive = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageHeadersDockInactive = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageHeadersCalendar = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageHeadersForm = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageHeadersCustom1 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageHeadersCustom2 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageDesignInputControls = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.numericActive = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
-            this.numericNormal = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
-            this.numericDisabled = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
-            this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.comboBoxActive = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.comboBoxNormal = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.comboBoxDisabled = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.textBoxActive = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.textBoxNormal = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.textBoxDisabled = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonNavigatorDesignInputControls = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
-            this.kryptonPage2 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonPage5 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonPage6 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageDesignDateTime = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonLabel6 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel7 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.monthCalendarDisabled = new ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar();
-            this.monthCalendarEnabled = new ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar();
-            this.pageDesignLabels = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.labelsControlToolTip = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.labelsControlCustom1 = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.labelsControlAlternate = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.labelsControlClient = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.labelsPanelCustom1 = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.labelsPanelAlternate = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.labelsPanelClient = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.panelLabelsBackground = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.label1Disabled = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.label1Live = new ComponentFactory.Krypton.Toolkit.KryptonLinkLabel();
-            this.label1Normal = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.label1Pressed = new ComponentFactory.Krypton.Toolkit.KryptonLinkLabel();
-            this.label1NotVisited = new ComponentFactory.Krypton.Toolkit.KryptonLinkLabel();
-            this.label1Visited = new ComponentFactory.Krypton.Toolkit.KryptonLinkLabel();
-            this.borderDesignLabels = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonNavigatorDesignLabels = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
-            this.pageLabelsNormalControl = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageLabelsBoldControl = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageLabelsItalicControl = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageLabelsTitleControl = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageLabelsNormalPanel = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageLabelsBoldPanel = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageLabelsItalicPanel = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageLabelsTitlePanel = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageLabelsGroupBoxCaption = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageLabelsToolTip = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageLabelsSuperTip = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageLabelsKeyTip = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageLabelsCustom1 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageLabelsCustom2 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageLabelsCustom3 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageDesignNavigator = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.borderDesignNavigator = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonNavigatorDesignNavigator = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
-            this.pageNavigatorBarCheckButtonGroupOutside = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageNavigatorBarCheckButtonGroupInside = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageNavigatorBarCheckButtonGroupOnly = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonNavigator = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
-            this.navigatorPage1 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.navigatorPage2 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.navigatorPage3 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageDesignPanels = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.panel1Normal = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.panel1Disabled = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.labelPanelsNormal = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.labelPanelsDisabled = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.borderDesignPanels = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonNavigatorDesignPanels = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
-            this.pagePanelsClient = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pagePanelsAlternate = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pagePanelsRibbonInactive = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pagePanelsCustom1 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageDesignRadioButton = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.rbLive2 = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.kryptonRadioButton11 = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.rbLive1 = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.rbFocus = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.rbCheckedTracking = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.rbCheckedPressed = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.rbCheckedNormal = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.rbCheckedDisabled = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.rbUncheckedTracking = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.rbUncheckedPressed = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.rbUncheckedNormal = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.rbUncheckedDisabled = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.pageDesignRibbon = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageDesignSeparators = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.separator1Live = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
-            this.kryptonGroup11 = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.kryptonGroup12 = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.labelSeparatorsLive = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.separator1Pressed = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
-            this.kryptonGroup7 = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.kryptonGroup8 = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.separator1Tracking = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
-            this.kryptonGroup5 = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.kryptonGroup6 = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.labelSeparatorsPressed = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.labelSeparatorsTracking = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.separator1Normal = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
-            this.kryptonGroup3 = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.kryptonGroup4 = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.separator1Disabled = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
-            this.kryptonGroup1 = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.kryptonGroup2 = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.labelSeparatorsNormal = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.labelSeparatorsDisabled = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.borderDesignSeparators = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonNavigatorDesignSeparators = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
-            this.pageSeparatorLowProfile = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageSeparatorHighProfile = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageSeparatorHighInternalProfile = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageSeparatorCustom1 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageDesignTabs = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonNavigatorTabs = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
-            this.kryptonNavigatorTabs1 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonNavigatorTabs2 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonNavigatorTabs3 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.borderDesignTabs = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonNavigatorDesignTabs = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
-            this.pageTabHighProfile = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTabStandardProfile = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTabLowProfile = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTabOneNote = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTabDock = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTabDockAutoHidden = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTabCustom1 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTabCustom2 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageTabCustom3 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.pageDesignTrackBar = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonTrackBar8 = new ComponentFactory.Krypton.Toolkit.KryptonTrackBar();
-            this.kryptonTrackBar7 = new ComponentFactory.Krypton.Toolkit.KryptonTrackBar();
-            this.kryptonTrackBar6 = new ComponentFactory.Krypton.Toolkit.KryptonTrackBar();
-            this.kryptonTrackBar5 = new ComponentFactory.Krypton.Toolkit.KryptonTrackBar();
-            this.kryptonTrackBar4 = new ComponentFactory.Krypton.Toolkit.KryptonTrackBar();
-            this.kryptonTrackBar3 = new ComponentFactory.Krypton.Toolkit.KryptonTrackBar();
-            this.kryptonTrackBar2 = new ComponentFactory.Krypton.Toolkit.KryptonTrackBar();
-            this.kryptonTrackBar1 = new ComponentFactory.Krypton.Toolkit.KryptonTrackBar();
-            this.kryptonLabel11 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel10 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel9 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel8 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonHeaderGroupProperties = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
+            this.kryptonNavigatorDesignGrids = new Krypton.Navigator.KryptonNavigator();
+            this.kryptonGridList = new Krypton.Navigator.KryptonPage();
+            this.kryptonGridSheet = new Krypton.Navigator.KryptonPage();
+            this.kryptonGridCustom1 = new Krypton.Navigator.KryptonPage();
+            this.pageDesignHeaderGroup = new Krypton.Navigator.KryptonPage();
+            this.labelHeaderGroupNormal = new Krypton.Toolkit.KryptonLabel();
+            this.headerGroup1Disabled = new Krypton.Toolkit.KryptonHeaderGroup();
+            this.labelHeaderGroupDisabled = new Krypton.Toolkit.KryptonLabel();
+            this.headerGroup1Normal = new Krypton.Toolkit.KryptonHeaderGroup();
+            this.pageDesignHeaders = new Krypton.Navigator.KryptonPage();
+            this.header1Normal = new Krypton.Toolkit.KryptonHeader();
+            this.header1Disabled = new Krypton.Toolkit.KryptonHeader();
+            this.borderDesignHeaders = new Krypton.Toolkit.KryptonPanel();
+            this.kryptonNavigatorDesignHeaders = new Krypton.Navigator.KryptonNavigator();
+            this.pageHeadersPrimary = new Krypton.Navigator.KryptonPage();
+            this.pageHeadersSecondary = new Krypton.Navigator.KryptonPage();
+            this.pageHeadersDockActive = new Krypton.Navigator.KryptonPage();
+            this.pageHeadersDockInactive = new Krypton.Navigator.KryptonPage();
+            this.pageHeadersCalendar = new Krypton.Navigator.KryptonPage();
+            this.pageHeadersForm = new Krypton.Navigator.KryptonPage();
+            this.pageHeadersCustom1 = new Krypton.Navigator.KryptonPage();
+            this.pageHeadersCustom2 = new Krypton.Navigator.KryptonPage();
+            this.pageDesignInputControls = new Krypton.Navigator.KryptonPage();
+            this.numericActive = new Krypton.Toolkit.KryptonNumericUpDown();
+            this.numericNormal = new Krypton.Toolkit.KryptonNumericUpDown();
+            this.numericDisabled = new Krypton.Toolkit.KryptonNumericUpDown();
+            this.kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
+            this.comboBoxActive = new Krypton.Toolkit.KryptonComboBox();
+            this.comboBoxNormal = new Krypton.Toolkit.KryptonComboBox();
+            this.comboBoxDisabled = new Krypton.Toolkit.KryptonComboBox();
+            this.textBoxActive = new Krypton.Toolkit.KryptonTextBox();
+            this.textBoxNormal = new Krypton.Toolkit.KryptonTextBox();
+            this.textBoxDisabled = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonNavigatorDesignInputControls = new Krypton.Navigator.KryptonNavigator();
+            this.kryptonPage2 = new Krypton.Navigator.KryptonPage();
+            this.kryptonPage5 = new Krypton.Navigator.KryptonPage();
+            this.kryptonPage6 = new Krypton.Navigator.KryptonPage();
+            this.pageDesignDateTime = new Krypton.Navigator.KryptonPage();
+            this.kryptonLabel6 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
+            this.monthCalendarDisabled = new Krypton.Toolkit.KryptonMonthCalendar();
+            this.monthCalendarEnabled = new Krypton.Toolkit.KryptonMonthCalendar();
+            this.pageDesignLabels = new Krypton.Navigator.KryptonPage();
+            this.labelsControlToolTip = new Krypton.Toolkit.KryptonCheckButton();
+            this.labelsControlCustom1 = new Krypton.Toolkit.KryptonCheckButton();
+            this.labelsControlAlternate = new Krypton.Toolkit.KryptonCheckButton();
+            this.labelsControlClient = new Krypton.Toolkit.KryptonCheckButton();
+            this.labelsPanelCustom1 = new Krypton.Toolkit.KryptonCheckButton();
+            this.labelsPanelAlternate = new Krypton.Toolkit.KryptonCheckButton();
+            this.labelsPanelClient = new Krypton.Toolkit.KryptonCheckButton();
+            this.panelLabelsBackground = new Krypton.Toolkit.KryptonPanel();
+            this.label1Disabled = new Krypton.Toolkit.KryptonLabel();
+            this.label1Live = new Krypton.Toolkit.KryptonLinkLabel();
+            this.label1Normal = new Krypton.Toolkit.KryptonLabel();
+            this.label1Pressed = new Krypton.Toolkit.KryptonLinkLabel();
+            this.label1NotVisited = new Krypton.Toolkit.KryptonLinkLabel();
+            this.label1Visited = new Krypton.Toolkit.KryptonLinkLabel();
+            this.borderDesignLabels = new Krypton.Toolkit.KryptonPanel();
+            this.kryptonNavigatorDesignLabels = new Krypton.Navigator.KryptonNavigator();
+            this.pageLabelsNormalControl = new Krypton.Navigator.KryptonPage();
+            this.pageLabelsBoldControl = new Krypton.Navigator.KryptonPage();
+            this.pageLabelsItalicControl = new Krypton.Navigator.KryptonPage();
+            this.pageLabelsTitleControl = new Krypton.Navigator.KryptonPage();
+            this.pageLabelsNormalPanel = new Krypton.Navigator.KryptonPage();
+            this.pageLabelsBoldPanel = new Krypton.Navigator.KryptonPage();
+            this.pageLabelsItalicPanel = new Krypton.Navigator.KryptonPage();
+            this.pageLabelsTitlePanel = new Krypton.Navigator.KryptonPage();
+            this.pageLabelsGroupBoxCaption = new Krypton.Navigator.KryptonPage();
+            this.pageLabelsToolTip = new Krypton.Navigator.KryptonPage();
+            this.pageLabelsSuperTip = new Krypton.Navigator.KryptonPage();
+            this.pageLabelsKeyTip = new Krypton.Navigator.KryptonPage();
+            this.pageLabelsCustom1 = new Krypton.Navigator.KryptonPage();
+            this.pageLabelsCustom2 = new Krypton.Navigator.KryptonPage();
+            this.pageLabelsCustom3 = new Krypton.Navigator.KryptonPage();
+            this.pageDesignNavigator = new Krypton.Navigator.KryptonPage();
+            this.borderDesignNavigator = new Krypton.Toolkit.KryptonPanel();
+            this.kryptonNavigatorDesignNavigator = new Krypton.Navigator.KryptonNavigator();
+            this.pageNavigatorBarCheckButtonGroupOutside = new Krypton.Navigator.KryptonPage();
+            this.pageNavigatorBarCheckButtonGroupInside = new Krypton.Navigator.KryptonPage();
+            this.pageNavigatorBarCheckButtonGroupOnly = new Krypton.Navigator.KryptonPage();
+            this.kryptonNavigator = new Krypton.Navigator.KryptonNavigator();
+            this.navigatorPage1 = new Krypton.Navigator.KryptonPage();
+            this.navigatorPage2 = new Krypton.Navigator.KryptonPage();
+            this.navigatorPage3 = new Krypton.Navigator.KryptonPage();
+            this.pageDesignPanels = new Krypton.Navigator.KryptonPage();
+            this.panel1Normal = new Krypton.Toolkit.KryptonPanel();
+            this.panel1Disabled = new Krypton.Toolkit.KryptonPanel();
+            this.labelPanelsNormal = new Krypton.Toolkit.KryptonLabel();
+            this.labelPanelsDisabled = new Krypton.Toolkit.KryptonLabel();
+            this.borderDesignPanels = new Krypton.Toolkit.KryptonPanel();
+            this.kryptonNavigatorDesignPanels = new Krypton.Navigator.KryptonNavigator();
+            this.pagePanelsClient = new Krypton.Navigator.KryptonPage();
+            this.pagePanelsAlternate = new Krypton.Navigator.KryptonPage();
+            this.pagePanelsRibbonInactive = new Krypton.Navigator.KryptonPage();
+            this.pagePanelsCustom1 = new Krypton.Navigator.KryptonPage();
+            this.pageDesignRadioButton = new Krypton.Navigator.KryptonPage();
+            this.rbLive2 = new Krypton.Toolkit.KryptonRadioButton();
+            this.kryptonRadioButton11 = new Krypton.Toolkit.KryptonRadioButton();
+            this.rbLive1 = new Krypton.Toolkit.KryptonRadioButton();
+            this.rbFocus = new Krypton.Toolkit.KryptonRadioButton();
+            this.rbCheckedTracking = new Krypton.Toolkit.KryptonRadioButton();
+            this.rbCheckedPressed = new Krypton.Toolkit.KryptonRadioButton();
+            this.rbCheckedNormal = new Krypton.Toolkit.KryptonRadioButton();
+            this.rbCheckedDisabled = new Krypton.Toolkit.KryptonRadioButton();
+            this.rbUncheckedTracking = new Krypton.Toolkit.KryptonRadioButton();
+            this.rbUncheckedPressed = new Krypton.Toolkit.KryptonRadioButton();
+            this.rbUncheckedNormal = new Krypton.Toolkit.KryptonRadioButton();
+            this.rbUncheckedDisabled = new Krypton.Toolkit.KryptonRadioButton();
+            this.pageDesignRibbon = new Krypton.Navigator.KryptonPage();
+            this.pageDesignSeparators = new Krypton.Navigator.KryptonPage();
+            this.separator1Live = new Krypton.Toolkit.KryptonSplitContainer();
+            this.kryptonGroup11 = new Krypton.Toolkit.KryptonGroup();
+            this.kryptonGroup12 = new Krypton.Toolkit.KryptonGroup();
+            this.labelSeparatorsLive = new Krypton.Toolkit.KryptonLabel();
+            this.separator1Pressed = new Krypton.Toolkit.KryptonSplitContainer();
+            this.kryptonGroup7 = new Krypton.Toolkit.KryptonGroup();
+            this.kryptonGroup8 = new Krypton.Toolkit.KryptonGroup();
+            this.separator1Tracking = new Krypton.Toolkit.KryptonSplitContainer();
+            this.kryptonGroup5 = new Krypton.Toolkit.KryptonGroup();
+            this.kryptonGroup6 = new Krypton.Toolkit.KryptonGroup();
+            this.labelSeparatorsPressed = new Krypton.Toolkit.KryptonLabel();
+            this.labelSeparatorsTracking = new Krypton.Toolkit.KryptonLabel();
+            this.separator1Normal = new Krypton.Toolkit.KryptonSplitContainer();
+            this.kryptonGroup3 = new Krypton.Toolkit.KryptonGroup();
+            this.kryptonGroup4 = new Krypton.Toolkit.KryptonGroup();
+            this.separator1Disabled = new Krypton.Toolkit.KryptonSplitContainer();
+            this.kryptonGroup1 = new Krypton.Toolkit.KryptonGroup();
+            this.kryptonGroup2 = new Krypton.Toolkit.KryptonGroup();
+            this.labelSeparatorsNormal = new Krypton.Toolkit.KryptonLabel();
+            this.labelSeparatorsDisabled = new Krypton.Toolkit.KryptonLabel();
+            this.borderDesignSeparators = new Krypton.Toolkit.KryptonPanel();
+            this.kryptonNavigatorDesignSeparators = new Krypton.Navigator.KryptonNavigator();
+            this.pageSeparatorLowProfile = new Krypton.Navigator.KryptonPage();
+            this.pageSeparatorHighProfile = new Krypton.Navigator.KryptonPage();
+            this.pageSeparatorHighInternalProfile = new Krypton.Navigator.KryptonPage();
+            this.pageSeparatorCustom1 = new Krypton.Navigator.KryptonPage();
+            this.pageDesignTabs = new Krypton.Navigator.KryptonPage();
+            this.kryptonNavigatorTabs = new Krypton.Navigator.KryptonNavigator();
+            this.kryptonNavigatorTabs1 = new Krypton.Navigator.KryptonPage();
+            this.kryptonNavigatorTabs2 = new Krypton.Navigator.KryptonPage();
+            this.kryptonNavigatorTabs3 = new Krypton.Navigator.KryptonPage();
+            this.borderDesignTabs = new Krypton.Toolkit.KryptonPanel();
+            this.kryptonNavigatorDesignTabs = new Krypton.Navigator.KryptonNavigator();
+            this.pageTabHighProfile = new Krypton.Navigator.KryptonPage();
+            this.pageTabStandardProfile = new Krypton.Navigator.KryptonPage();
+            this.pageTabLowProfile = new Krypton.Navigator.KryptonPage();
+            this.pageTabOneNote = new Krypton.Navigator.KryptonPage();
+            this.pageTabDock = new Krypton.Navigator.KryptonPage();
+            this.pageTabDockAutoHidden = new Krypton.Navigator.KryptonPage();
+            this.pageTabCustom1 = new Krypton.Navigator.KryptonPage();
+            this.pageTabCustom2 = new Krypton.Navigator.KryptonPage();
+            this.pageTabCustom3 = new Krypton.Navigator.KryptonPage();
+            this.pageDesignTrackBar = new Krypton.Navigator.KryptonPage();
+            this.kryptonTrackBar8 = new Krypton.Toolkit.KryptonTrackBar();
+            this.kryptonTrackBar7 = new Krypton.Toolkit.KryptonTrackBar();
+            this.kryptonTrackBar6 = new Krypton.Toolkit.KryptonTrackBar();
+            this.kryptonTrackBar5 = new Krypton.Toolkit.KryptonTrackBar();
+            this.kryptonTrackBar4 = new Krypton.Toolkit.KryptonTrackBar();
+            this.kryptonTrackBar3 = new Krypton.Toolkit.KryptonTrackBar();
+            this.kryptonTrackBar2 = new Krypton.Toolkit.KryptonTrackBar();
+            this.kryptonTrackBar1 = new Krypton.Toolkit.KryptonTrackBar();
+            this.kryptonLabel11 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel10 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel9 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel8 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonHeaderGroupProperties = new Krypton.Toolkit.KryptonHeaderGroup();
             this.labelGridNormal = new System.Windows.Forms.PropertyGrid();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -392,12 +392,12 @@ namespace PaletteDesigner
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mainToolStripContainer = new System.Windows.Forms.ToolStripContainer();
-            this.kryptonGroup9 = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.kryptonGroup10 = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
-            this.kryptonPage1 = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.kryptonCheckSetLabels = new ComponentFactory.Krypton.Toolkit.KryptonCheckSet(this.components);
-            this.kryptonCheckSet1 = new ComponentFactory.Krypton.Toolkit.KryptonCheckSet(this.components);
+            this.kryptonGroup9 = new Krypton.Toolkit.KryptonGroup();
+            this.kryptonGroup10 = new Krypton.Toolkit.KryptonGroup();
+            this.kryptonManager = new Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonPage1 = new Krypton.Navigator.KryptonPage();
+            this.kryptonCheckSetLabels = new Krypton.Toolkit.KryptonCheckSet(this.components);
+            this.kryptonCheckSet1 = new Krypton.Toolkit.KryptonCheckSet(this.components);
             this.mainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigatorTop)).BeginInit();
             this.kryptonNavigatorTop.SuspendLayout();
@@ -753,13 +753,13 @@ namespace PaletteDesigner
             // kryptonNavigatorTop
             // 
             this.kryptonNavigatorTop.AutoSize = true;
-            this.kryptonNavigatorTop.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.NextPrevious;
-            this.kryptonNavigatorTop.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorTop.Button.ButtonDisplayLogic = Krypton.Navigator.ButtonDisplayLogic.NextPrevious;
+            this.kryptonNavigatorTop.Button.CloseButtonDisplay = Krypton.Navigator.ButtonDisplay.Hide;
             this.kryptonNavigatorTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.kryptonNavigatorTop.Location = new System.Drawing.Point(0, 24);
             this.kryptonNavigatorTop.Name = "kryptonNavigatorTop";
-            this.kryptonNavigatorTop.NavigatorMode = ComponentFactory.Krypton.Navigator.NavigatorMode.BarCheckButtonOnly;
-            this.kryptonNavigatorTop.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
+            this.kryptonNavigatorTop.NavigatorMode = Krypton.Navigator.NavigatorMode.BarCheckButtonOnly;
+            this.kryptonNavigatorTop.Pages.AddRange(new Krypton.Navigator.KryptonPage[] {
             this.pageTopButtonSpecs,
             this.pageTopButtons,
             this.pageTopCheckBox,
@@ -781,10 +781,10 @@ namespace PaletteDesigner
             this.kryptonNavigatorTop.SelectedIndex = 0;
             this.kryptonNavigatorTop.Size = new System.Drawing.Size(834, 53);
             this.kryptonNavigatorTop.StateCommon.Bar.BarPaddingOnly = new System.Windows.Forms.Padding(5, 5, 5, 0);
-            this.kryptonNavigatorTop.StateCommon.CheckButton.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.kryptonNavigatorTop.StateCommon.CheckButton.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
-            this.kryptonNavigatorTop.StateCommon.CheckButton.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.kryptonNavigatorTop.StateCommon.CheckButton.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.kryptonNavigatorTop.StateCommon.CheckButton.Content.Image.ImageH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.kryptonNavigatorTop.StateCommon.CheckButton.Content.Image.ImageV = Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.kryptonNavigatorTop.StateCommon.CheckButton.Content.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.kryptonNavigatorTop.StateCommon.CheckButton.Content.ShortText.TextV = Krypton.Toolkit.PaletteRelativeAlign.Far;
             this.kryptonNavigatorTop.TabIndex = 1;
             this.kryptonNavigatorTop.Text = "kryptonNavigator1";
             this.kryptonNavigatorTop.SelectedPageChanged += new System.EventHandler(this.kryptonNavigatorTop_SelectedPageChanged);
@@ -1077,15 +1077,15 @@ namespace PaletteDesigner
             // 
             // kryptonNavigatorDesign
             // 
-            this.kryptonNavigatorDesign.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorDesign.Button.CloseButtonDisplay = Krypton.Navigator.ButtonDisplay.Hide;
             this.kryptonNavigatorDesign.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonNavigatorDesign.Header.HeaderPositionSecondary = ComponentFactory.Krypton.Toolkit.VisualOrientation.Top;
-            this.kryptonNavigatorDesign.Header.HeaderValuesPrimary.MapDescription = ComponentFactory.Krypton.Navigator.MapKryptonPageText.Title;
-            this.kryptonNavigatorDesign.Header.HeaderValuesPrimary.MapHeading = ComponentFactory.Krypton.Navigator.MapKryptonPageText.Text;
+            this.kryptonNavigatorDesign.Header.HeaderPositionSecondary = Krypton.Toolkit.VisualOrientation.Top;
+            this.kryptonNavigatorDesign.Header.HeaderValuesPrimary.MapDescription = Krypton.Navigator.MapKryptonPageText.Title;
+            this.kryptonNavigatorDesign.Header.HeaderValuesPrimary.MapHeading = Krypton.Navigator.MapKryptonPageText.Text;
             this.kryptonNavigatorDesign.Location = new System.Drawing.Point(0, 0);
             this.kryptonNavigatorDesign.Name = "kryptonNavigatorDesign";
-            this.kryptonNavigatorDesign.NavigatorMode = ComponentFactory.Krypton.Navigator.NavigatorMode.HeaderGroup;
-            this.kryptonNavigatorDesign.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
+            this.kryptonNavigatorDesign.NavigatorMode = Krypton.Navigator.NavigatorMode.HeaderGroup;
+            this.kryptonNavigatorDesign.Pages.AddRange(new Krypton.Navigator.KryptonPage[] {
             this.pageDesignButtonSpecs,
             this.pageDesignButtons,
             this.pageDesignCheckBox,
@@ -1140,11 +1140,11 @@ namespace PaletteDesigner
             // buttonSpecG4
             // 
             this.buttonSpecG4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
-            this.buttonSpecG4.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecG4.ButtonSpecs.AddRange(new Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecGeneric1,
             this.buttonSpecGeneric2});
             this.buttonSpecG4.Enabled = false;
-            this.buttonSpecG4.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
+            this.buttonSpecG4.HeaderStyle = Krypton.Toolkit.HeaderStyle.Secondary;
             this.buttonSpecG4.Location = new System.Drawing.Point(18, 407);
             this.buttonSpecG4.Name = "buttonSpecG4";
             this.buttonSpecG4.Size = new System.Drawing.Size(263, 28);
@@ -1166,7 +1166,7 @@ namespace PaletteDesigner
             // buttonSpecG3
             // 
             this.buttonSpecG3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
-            this.buttonSpecG3.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecG3.ButtonSpecs.AddRange(new Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecGeneric1,
             this.buttonSpecGeneric2});
             this.buttonSpecG3.Enabled = false;
@@ -1181,10 +1181,10 @@ namespace PaletteDesigner
             // buttonSpecG2
             // 
             this.buttonSpecG2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
-            this.buttonSpecG2.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecG2.ButtonSpecs.AddRange(new Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecGeneric1,
             this.buttonSpecGeneric2});
-            this.buttonSpecG2.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
+            this.buttonSpecG2.HeaderStyle = Krypton.Toolkit.HeaderStyle.Secondary;
             this.buttonSpecG2.Location = new System.Drawing.Point(18, 319);
             this.buttonSpecG2.Name = "buttonSpecG2";
             this.buttonSpecG2.Size = new System.Drawing.Size(263, 28);
@@ -1196,7 +1196,7 @@ namespace PaletteDesigner
             // buttonSpecG1
             // 
             this.buttonSpecG1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
-            this.buttonSpecG1.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecG1.ButtonSpecs.AddRange(new Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecGeneric1,
             this.buttonSpecGeneric2});
             this.buttonSpecG1.Location = new System.Drawing.Point(18, 275);
@@ -1210,7 +1210,7 @@ namespace PaletteDesigner
             // buttonSpecT4
             // 
             this.buttonSpecT4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
-            this.buttonSpecT4.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecT4.ButtonSpecs.AddRange(new Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny32,
             this.buttonSpecAny31,
             this.buttonSpecAny30,
@@ -1228,7 +1228,7 @@ namespace PaletteDesigner
             this.buttonSpecAny55,
             this.buttonSpecAny56});
             this.buttonSpecT4.Enabled = false;
-            this.buttonSpecT4.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
+            this.buttonSpecT4.HeaderStyle = Krypton.Toolkit.HeaderStyle.Secondary;
             this.buttonSpecT4.Location = new System.Drawing.Point(18, 187);
             this.buttonSpecT4.Name = "buttonSpecT4";
             this.buttonSpecT4.Size = new System.Drawing.Size(427, 31);
@@ -1239,88 +1239,88 @@ namespace PaletteDesigner
             // 
             // buttonSpecAny32
             // 
-            this.buttonSpecAny32.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowDown;
+            this.buttonSpecAny32.Type = Krypton.Toolkit.PaletteButtonSpecStyle.ArrowDown;
             this.buttonSpecAny32.UniqueName = "D966DA3688534126D966DA3688534126";
             // 
             // buttonSpecAny31
             // 
-            this.buttonSpecAny31.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
+            this.buttonSpecAny31.Type = Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
             this.buttonSpecAny31.UniqueName = "24881A5C3CD7484F24881A5C3CD7484F";
             // 
             // buttonSpecAny30
             // 
-            this.buttonSpecAny30.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowRight;
+            this.buttonSpecAny30.Type = Krypton.Toolkit.PaletteButtonSpecStyle.ArrowRight;
             this.buttonSpecAny30.UniqueName = "9E75280CB89B46CA9E75280CB89B46CA";
             // 
             // buttonSpecAny29
             // 
-            this.buttonSpecAny29.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowLeft;
+            this.buttonSpecAny29.Type = Krypton.Toolkit.PaletteButtonSpecStyle.ArrowLeft;
             this.buttonSpecAny29.UniqueName = "AA43031B0FEC4AF8AA43031B0FEC4AF8";
             // 
             // buttonSpecAny13
             // 
-            this.buttonSpecAny13.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Previous;
+            this.buttonSpecAny13.Type = Krypton.Toolkit.PaletteButtonSpecStyle.Previous;
             this.buttonSpecAny13.UniqueName = "7846E1DEE7074BB27846E1DEE7074BB2";
             // 
             // buttonSpecAny14
             // 
-            this.buttonSpecAny14.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Next;
+            this.buttonSpecAny14.Type = Krypton.Toolkit.PaletteButtonSpecStyle.Next;
             this.buttonSpecAny14.UniqueName = "3AB250A5C5A345C13AB250A5C5A345C1";
             // 
             // buttonSpecAny15
             // 
-            this.buttonSpecAny15.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Context;
+            this.buttonSpecAny15.Type = Krypton.Toolkit.PaletteButtonSpecStyle.Context;
             this.buttonSpecAny15.UniqueName = "441CC54390784327441CC54390784327";
             // 
             // buttonSpecAny16
             // 
-            this.buttonSpecAny16.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
+            this.buttonSpecAny16.Type = Krypton.Toolkit.PaletteButtonSpecStyle.Close;
             this.buttonSpecAny16.UniqueName = "277B00322C984668277B00322C984668";
             // 
             // buttonSpecAny63
             // 
-            this.buttonSpecAny63.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.RibbonExpand;
+            this.buttonSpecAny63.Type = Krypton.Toolkit.PaletteButtonSpecStyle.RibbonExpand;
             this.buttonSpecAny63.UniqueName = "4870673740E54FC3508C587FBCC6C0B5";
             // 
             // buttonSpecAny64
             // 
-            this.buttonSpecAny64.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.RibbonMinimize;
+            this.buttonSpecAny64.Type = Krypton.Toolkit.PaletteButtonSpecStyle.RibbonMinimize;
             this.buttonSpecAny64.UniqueName = "20657E8FABC04EEED2AF1A185670DE36";
             // 
             // buttonSpecAny48
             // 
-            this.buttonSpecAny48.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormMin;
+            this.buttonSpecAny48.Type = Krypton.Toolkit.PaletteButtonSpecStyle.FormMin;
             this.buttonSpecAny48.UniqueName = "D382E33950F648BFD382E33950F648BF";
             // 
             // buttonSpecAny49
             // 
-            this.buttonSpecAny49.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormMax;
+            this.buttonSpecAny49.Type = Krypton.Toolkit.PaletteButtonSpecStyle.FormMax;
             this.buttonSpecAny49.UniqueName = "DDB1428C84944F88DDB1428C84944F88";
             // 
             // buttonSpecAny50
             // 
-            this.buttonSpecAny50.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormRestore;
+            this.buttonSpecAny50.Type = Krypton.Toolkit.PaletteButtonSpecStyle.FormRestore;
             this.buttonSpecAny50.UniqueName = "0DEC427FE55A40100DEC427FE55A4010";
             // 
             // buttonSpecAny51
             // 
-            this.buttonSpecAny51.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormClose;
+            this.buttonSpecAny51.Type = Krypton.Toolkit.PaletteButtonSpecStyle.FormClose;
             this.buttonSpecAny51.UniqueName = "D8FD73FF3B1144CED8FD73FF3B1144CE";
             // 
             // buttonSpecAny55
             // 
-            this.buttonSpecAny55.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.PinVertical;
+            this.buttonSpecAny55.Type = Krypton.Toolkit.PaletteButtonSpecStyle.PinVertical;
             this.buttonSpecAny55.UniqueName = "ADE166B708AA4F7DADE166B708AA4F7D";
             // 
             // buttonSpecAny56
             // 
-            this.buttonSpecAny56.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.PinHorizontal;
+            this.buttonSpecAny56.Type = Krypton.Toolkit.PaletteButtonSpecStyle.PinHorizontal;
             this.buttonSpecAny56.UniqueName = "D1A2751D743A4671D1A2751D743A4671";
             // 
             // buttonSpecT3
             // 
             this.buttonSpecT3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
-            this.buttonSpecT3.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecT3.ButtonSpecs.AddRange(new Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny28,
             this.buttonSpecAny27,
             this.buttonSpecAny26,
@@ -1348,88 +1348,88 @@ namespace PaletteDesigner
             // 
             // buttonSpecAny28
             // 
-            this.buttonSpecAny28.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowDown;
+            this.buttonSpecAny28.Type = Krypton.Toolkit.PaletteButtonSpecStyle.ArrowDown;
             this.buttonSpecAny28.UniqueName = "5C9E40DBFF67470B5C9E40DBFF67470B";
             // 
             // buttonSpecAny27
             // 
-            this.buttonSpecAny27.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
+            this.buttonSpecAny27.Type = Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
             this.buttonSpecAny27.UniqueName = "D083298345F74B62D083298345F74B62";
             // 
             // buttonSpecAny26
             // 
-            this.buttonSpecAny26.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowRight;
+            this.buttonSpecAny26.Type = Krypton.Toolkit.PaletteButtonSpecStyle.ArrowRight;
             this.buttonSpecAny26.UniqueName = "18769F9D74FB47A118769F9D74FB47A1";
             // 
             // buttonSpecAny25
             // 
-            this.buttonSpecAny25.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowLeft;
+            this.buttonSpecAny25.Type = Krypton.Toolkit.PaletteButtonSpecStyle.ArrowLeft;
             this.buttonSpecAny25.UniqueName = "3E7909E2B5C64C4A3E7909E2B5C64C4A";
             // 
             // buttonSpecAny9
             // 
-            this.buttonSpecAny9.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Previous;
+            this.buttonSpecAny9.Type = Krypton.Toolkit.PaletteButtonSpecStyle.Previous;
             this.buttonSpecAny9.UniqueName = "9C7B8F356F214F419C7B8F356F214F41";
             // 
             // buttonSpecAny10
             // 
-            this.buttonSpecAny10.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Next;
+            this.buttonSpecAny10.Type = Krypton.Toolkit.PaletteButtonSpecStyle.Next;
             this.buttonSpecAny10.UniqueName = "8BF5656D58804D618BF5656D58804D61";
             // 
             // buttonSpecAny11
             // 
-            this.buttonSpecAny11.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Context;
+            this.buttonSpecAny11.Type = Krypton.Toolkit.PaletteButtonSpecStyle.Context;
             this.buttonSpecAny11.UniqueName = "D9FC19B53D634F19D9FC19B53D634F19";
             // 
             // buttonSpecAny12
             // 
-            this.buttonSpecAny12.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
+            this.buttonSpecAny12.Type = Krypton.Toolkit.PaletteButtonSpecStyle.Close;
             this.buttonSpecAny12.UniqueName = "C34EAD69BFAF4CD4C34EAD69BFAF4CD4";
             // 
             // buttonSpecAny61
             // 
-            this.buttonSpecAny61.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.RibbonExpand;
+            this.buttonSpecAny61.Type = Krypton.Toolkit.PaletteButtonSpecStyle.RibbonExpand;
             this.buttonSpecAny61.UniqueName = "B14387545DF641EEFEA7734ED77BAFA2";
             // 
             // buttonSpecAny62
             // 
-            this.buttonSpecAny62.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.RibbonMinimize;
+            this.buttonSpecAny62.Type = Krypton.Toolkit.PaletteButtonSpecStyle.RibbonMinimize;
             this.buttonSpecAny62.UniqueName = "7F6783F61FEF4D2F01BC70A81AF20DF4";
             // 
             // buttonSpecAny41
             // 
-            this.buttonSpecAny41.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormMin;
+            this.buttonSpecAny41.Type = Krypton.Toolkit.PaletteButtonSpecStyle.FormMin;
             this.buttonSpecAny41.UniqueName = "28C3C35837724C5E28C3C35837724C5E";
             // 
             // buttonSpecAny42
             // 
-            this.buttonSpecAny42.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormMax;
+            this.buttonSpecAny42.Type = Krypton.Toolkit.PaletteButtonSpecStyle.FormMax;
             this.buttonSpecAny42.UniqueName = "33FE2E62F13B445E33FE2E62F13B445E";
             // 
             // buttonSpecAny43
             // 
-            this.buttonSpecAny43.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormRestore;
+            this.buttonSpecAny43.Type = Krypton.Toolkit.PaletteButtonSpecStyle.FormRestore;
             this.buttonSpecAny43.UniqueName = "4E04DE795D1C43FF4E04DE795D1C43FF";
             // 
             // buttonSpecAny44
             // 
-            this.buttonSpecAny44.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormClose;
+            this.buttonSpecAny44.Type = Krypton.Toolkit.PaletteButtonSpecStyle.FormClose;
             this.buttonSpecAny44.UniqueName = "DCFF5679445B46E0DCFF5679445B46E0";
             // 
             // buttonSpecAny53
             // 
-            this.buttonSpecAny53.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.PinVertical;
+            this.buttonSpecAny53.Type = Krypton.Toolkit.PaletteButtonSpecStyle.PinVertical;
             this.buttonSpecAny53.UniqueName = "3C6A9576CC634DA73C6A9576CC634DA7";
             // 
             // buttonSpecAny54
             // 
-            this.buttonSpecAny54.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.PinHorizontal;
+            this.buttonSpecAny54.Type = Krypton.Toolkit.PaletteButtonSpecStyle.PinHorizontal;
             this.buttonSpecAny54.UniqueName = "697C060DC92C491D697C060DC92C491D";
             // 
             // buttonSpecT2
             // 
             this.buttonSpecT2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
-            this.buttonSpecT2.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecT2.ButtonSpecs.AddRange(new Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny24,
             this.buttonSpecAny23,
             this.buttonSpecAny22,
@@ -1446,7 +1446,7 @@ namespace PaletteDesigner
             this.buttonSpecAny40,
             this.buttonSpecAny47,
             this.buttonSpecAny52});
-            this.buttonSpecT2.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
+            this.buttonSpecT2.HeaderStyle = Krypton.Toolkit.HeaderStyle.Secondary;
             this.buttonSpecT2.Location = new System.Drawing.Point(18, 99);
             this.buttonSpecT2.Name = "buttonSpecT2";
             this.buttonSpecT2.Size = new System.Drawing.Size(427, 31);
@@ -1457,88 +1457,88 @@ namespace PaletteDesigner
             // 
             // buttonSpecAny24
             // 
-            this.buttonSpecAny24.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowDown;
+            this.buttonSpecAny24.Type = Krypton.Toolkit.PaletteButtonSpecStyle.ArrowDown;
             this.buttonSpecAny24.UniqueName = "DCE3DBB8ECB948C9DCE3DBB8ECB948C9";
             // 
             // buttonSpecAny23
             // 
-            this.buttonSpecAny23.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
+            this.buttonSpecAny23.Type = Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
             this.buttonSpecAny23.UniqueName = "E3137CCE36FF4E11E3137CCE36FF4E11";
             // 
             // buttonSpecAny22
             // 
-            this.buttonSpecAny22.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowRight;
+            this.buttonSpecAny22.Type = Krypton.Toolkit.PaletteButtonSpecStyle.ArrowRight;
             this.buttonSpecAny22.UniqueName = "1DD7F90A3C0A494C1DD7F90A3C0A494C";
             // 
             // buttonSpecAny21
             // 
-            this.buttonSpecAny21.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowLeft;
+            this.buttonSpecAny21.Type = Krypton.Toolkit.PaletteButtonSpecStyle.ArrowLeft;
             this.buttonSpecAny21.UniqueName = "2E2FC7337157478F2E2FC7337157478F";
             // 
             // buttonSpecAny5
             // 
-            this.buttonSpecAny5.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Previous;
+            this.buttonSpecAny5.Type = Krypton.Toolkit.PaletteButtonSpecStyle.Previous;
             this.buttonSpecAny5.UniqueName = "064B5F1CCCC24795064B5F1CCCC24795";
             // 
             // buttonSpecAny6
             // 
-            this.buttonSpecAny6.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Next;
+            this.buttonSpecAny6.Type = Krypton.Toolkit.PaletteButtonSpecStyle.Next;
             this.buttonSpecAny6.UniqueName = "519EBD952A024210519EBD952A024210";
             // 
             // buttonSpecAny7
             // 
-            this.buttonSpecAny7.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Context;
+            this.buttonSpecAny7.Type = Krypton.Toolkit.PaletteButtonSpecStyle.Context;
             this.buttonSpecAny7.UniqueName = "C7D28483934446A6C7D28483934446A6";
             // 
             // buttonSpecAny8
             // 
-            this.buttonSpecAny8.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
+            this.buttonSpecAny8.Type = Krypton.Toolkit.PaletteButtonSpecStyle.Close;
             this.buttonSpecAny8.UniqueName = "1B2D8870C92F453F1B2D8870C92F453F";
             // 
             // buttonSpecAny59
             // 
-            this.buttonSpecAny59.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.RibbonExpand;
+            this.buttonSpecAny59.Type = Krypton.Toolkit.PaletteButtonSpecStyle.RibbonExpand;
             this.buttonSpecAny59.UniqueName = "B2E349E046DE4EFDE0A61BF0F55DF83C";
             // 
             // buttonSpecAny60
             // 
-            this.buttonSpecAny60.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.RibbonMinimize;
+            this.buttonSpecAny60.Type = Krypton.Toolkit.PaletteButtonSpecStyle.RibbonMinimize;
             this.buttonSpecAny60.UniqueName = "E11D4FD39CFF46FEC3859CFE529C0B20";
             // 
             // buttonSpecAny33
             // 
-            this.buttonSpecAny33.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormMin;
+            this.buttonSpecAny33.Type = Krypton.Toolkit.PaletteButtonSpecStyle.FormMin;
             this.buttonSpecAny33.UniqueName = "D8799F9F897E4AE4D8799F9F897E4AE4";
             // 
             // buttonSpecAny38
             // 
-            this.buttonSpecAny38.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormMax;
+            this.buttonSpecAny38.Type = Krypton.Toolkit.PaletteButtonSpecStyle.FormMax;
             this.buttonSpecAny38.UniqueName = "B6D5E93171BF47A4B6D5E93171BF47A4";
             // 
             // buttonSpecAny39
             // 
-            this.buttonSpecAny39.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormRestore;
+            this.buttonSpecAny39.Type = Krypton.Toolkit.PaletteButtonSpecStyle.FormRestore;
             this.buttonSpecAny39.UniqueName = "72C99E766FCF4E2072C99E766FCF4E20";
             // 
             // buttonSpecAny40
             // 
-            this.buttonSpecAny40.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormClose;
+            this.buttonSpecAny40.Type = Krypton.Toolkit.PaletteButtonSpecStyle.FormClose;
             this.buttonSpecAny40.UniqueName = "2C9A72BD23954DD82C9A72BD23954DD8";
             // 
             // buttonSpecAny47
             // 
-            this.buttonSpecAny47.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.PinVertical;
+            this.buttonSpecAny47.Type = Krypton.Toolkit.PaletteButtonSpecStyle.PinVertical;
             this.buttonSpecAny47.UniqueName = "B5F9E4469C2846FDB5F9E4469C2846FD";
             // 
             // buttonSpecAny52
             // 
-            this.buttonSpecAny52.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.PinHorizontal;
+            this.buttonSpecAny52.Type = Krypton.Toolkit.PaletteButtonSpecStyle.PinHorizontal;
             this.buttonSpecAny52.UniqueName = "0EFF1D41CC604FD00EFF1D41CC604FD0";
             // 
             // buttonSpecT1
             // 
             this.buttonSpecT1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
-            this.buttonSpecT1.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecT1.ButtonSpecs.AddRange(new Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny20,
             this.buttonSpecAny19,
             this.buttonSpecAny18,
@@ -1565,87 +1565,87 @@ namespace PaletteDesigner
             // 
             // buttonSpecAny20
             // 
-            this.buttonSpecAny20.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowDown;
+            this.buttonSpecAny20.Type = Krypton.Toolkit.PaletteButtonSpecStyle.ArrowDown;
             this.buttonSpecAny20.UniqueName = "AF08F29D8981468DAF08F29D8981468D";
             // 
             // buttonSpecAny19
             // 
-            this.buttonSpecAny19.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
+            this.buttonSpecAny19.Type = Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
             this.buttonSpecAny19.UniqueName = "F74ABC1CB84F4403F74ABC1CB84F4403";
             // 
             // buttonSpecAny18
             // 
-            this.buttonSpecAny18.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowRight;
+            this.buttonSpecAny18.Type = Krypton.Toolkit.PaletteButtonSpecStyle.ArrowRight;
             this.buttonSpecAny18.UniqueName = "DB5F0890BC944C98DB5F0890BC944C98";
             // 
             // buttonSpecAny17
             // 
-            this.buttonSpecAny17.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowLeft;
+            this.buttonSpecAny17.Type = Krypton.Toolkit.PaletteButtonSpecStyle.ArrowLeft;
             this.buttonSpecAny17.UniqueName = "F53F319649A04B9AF53F319649A04B9A";
             // 
             // buttonSpecAny4
             // 
-            this.buttonSpecAny4.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Previous;
+            this.buttonSpecAny4.Type = Krypton.Toolkit.PaletteButtonSpecStyle.Previous;
             this.buttonSpecAny4.UniqueName = "FF0A19FAD5324D8DFF0A19FAD5324D8D";
             // 
             // buttonSpecAny3
             // 
-            this.buttonSpecAny3.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Next;
+            this.buttonSpecAny3.Type = Krypton.Toolkit.PaletteButtonSpecStyle.Next;
             this.buttonSpecAny3.UniqueName = "F73579B2DA6348C5F73579B2DA6348C5";
             // 
             // buttonSpecAny2
             // 
-            this.buttonSpecAny2.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Context;
+            this.buttonSpecAny2.Type = Krypton.Toolkit.PaletteButtonSpecStyle.Context;
             this.buttonSpecAny2.UniqueName = "30AB8A391A3D474930AB8A391A3D4749";
             // 
             // buttonSpecAny1
             // 
-            this.buttonSpecAny1.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
+            this.buttonSpecAny1.Type = Krypton.Toolkit.PaletteButtonSpecStyle.Close;
             this.buttonSpecAny1.UniqueName = "AF4C13CF1AA14B78AF4C13CF1AA14B78";
             // 
             // buttonSpecAny57
             // 
-            this.buttonSpecAny57.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.RibbonExpand;
+            this.buttonSpecAny57.Type = Krypton.Toolkit.PaletteButtonSpecStyle.RibbonExpand;
             this.buttonSpecAny57.UniqueName = "7D09362B81C6477B638F653E2A5E0A75";
             // 
             // buttonSpecAny58
             // 
-            this.buttonSpecAny58.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.RibbonMinimize;
+            this.buttonSpecAny58.Type = Krypton.Toolkit.PaletteButtonSpecStyle.RibbonMinimize;
             this.buttonSpecAny58.UniqueName = "98A4817C07FE4AC3E2A1235FA4CD6FD8";
             // 
             // buttonSpecAny34
             // 
-            this.buttonSpecAny34.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormMin;
+            this.buttonSpecAny34.Type = Krypton.Toolkit.PaletteButtonSpecStyle.FormMin;
             this.buttonSpecAny34.UniqueName = "0318BFE0697946700318BFE069794670";
             // 
             // buttonSpecAny35
             // 
-            this.buttonSpecAny35.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormMax;
+            this.buttonSpecAny35.Type = Krypton.Toolkit.PaletteButtonSpecStyle.FormMax;
             this.buttonSpecAny35.UniqueName = "2161BA5EA78E40872161BA5EA78E4087";
             // 
             // buttonSpecAny36
             // 
-            this.buttonSpecAny36.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormRestore;
+            this.buttonSpecAny36.Type = Krypton.Toolkit.PaletteButtonSpecStyle.FormRestore;
             this.buttonSpecAny36.UniqueName = "6576F4A3796842596576F4A379684259";
             // 
             // buttonSpecAny37
             // 
-            this.buttonSpecAny37.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormClose;
+            this.buttonSpecAny37.Type = Krypton.Toolkit.PaletteButtonSpecStyle.FormClose;
             this.buttonSpecAny37.UniqueName = "6869A67401AF4E146869A67401AF4E14";
             // 
             // buttonSpecAny46
             // 
-            this.buttonSpecAny46.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.PinHorizontal;
+            this.buttonSpecAny46.Type = Krypton.Toolkit.PaletteButtonSpecStyle.PinHorizontal;
             this.buttonSpecAny46.UniqueName = "633E45685BE04C5C633E45685BE04C5C";
             // 
             // buttonSpecAny45
             // 
-            this.buttonSpecAny45.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.PinVertical;
+            this.buttonSpecAny45.Type = Krypton.Toolkit.PaletteButtonSpecStyle.PinVertical;
             this.buttonSpecAny45.UniqueName = "800E16C661F74C02800E16C661F74C02";
             // 
             // labelButtonSpecsTyped
             // 
-            this.labelButtonSpecsTyped.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.labelButtonSpecsTyped.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.labelButtonSpecsTyped.Location = new System.Drawing.Point(18, 24);
             this.labelButtonSpecsTyped.Name = "labelButtonSpecsTyped";
             this.labelButtonSpecsTyped.Size = new System.Drawing.Size(172, 29);
@@ -1654,7 +1654,7 @@ namespace PaletteDesigner
             // 
             // labelButtonSpecsGeneric
             // 
-            this.labelButtonSpecsGeneric.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.labelButtonSpecsGeneric.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.labelButtonSpecsGeneric.Location = new System.Drawing.Point(18, 244);
             this.labelButtonSpecsGeneric.Name = "labelButtonSpecsGeneric";
             this.labelButtonSpecsGeneric.Size = new System.Drawing.Size(184, 29);
@@ -1705,24 +1705,24 @@ namespace PaletteDesigner
             this.borderDesignButtons.Dock = System.Windows.Forms.DockStyle.Left;
             this.borderDesignButtons.Location = new System.Drawing.Point(94, 0);
             this.borderDesignButtons.Name = "borderDesignButtons";
-            this.borderDesignButtons.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
+            this.borderDesignButtons.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
             this.borderDesignButtons.Size = new System.Drawing.Size(1, 534);
             this.borderDesignButtons.TabIndex = 1;
             // 
             // kryptonNavigatorDesignButtons
             // 
             this.kryptonNavigatorDesignButtons.AutoSize = true;
-            this.kryptonNavigatorDesignButtons.Bar.BarOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
-            this.kryptonNavigatorDesignButtons.Bar.CheckButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile;
-            this.kryptonNavigatorDesignButtons.Bar.ItemOrientation = ComponentFactory.Krypton.Toolkit.ButtonOrientation.FixedTop;
-            this.kryptonNavigatorDesignButtons.Bar.ItemSizing = ComponentFactory.Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
-            this.kryptonNavigatorDesignButtons.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.None;
-            this.kryptonNavigatorDesignButtons.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorDesignButtons.Bar.BarOrientation = Krypton.Toolkit.VisualOrientation.Left;
+            this.kryptonNavigatorDesignButtons.Bar.CheckButtonStyle = Krypton.Toolkit.ButtonStyle.LowProfile;
+            this.kryptonNavigatorDesignButtons.Bar.ItemOrientation = Krypton.Toolkit.ButtonOrientation.FixedTop;
+            this.kryptonNavigatorDesignButtons.Bar.ItemSizing = Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
+            this.kryptonNavigatorDesignButtons.Button.ButtonDisplayLogic = Krypton.Navigator.ButtonDisplayLogic.None;
+            this.kryptonNavigatorDesignButtons.Button.CloseButtonDisplay = Krypton.Navigator.ButtonDisplay.Hide;
             this.kryptonNavigatorDesignButtons.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonNavigatorDesignButtons.Location = new System.Drawing.Point(0, 0);
             this.kryptonNavigatorDesignButtons.Name = "kryptonNavigatorDesignButtons";
-            this.kryptonNavigatorDesignButtons.NavigatorMode = ComponentFactory.Krypton.Navigator.NavigatorMode.BarCheckButtonOnly;
-            this.kryptonNavigatorDesignButtons.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
+            this.kryptonNavigatorDesignButtons.NavigatorMode = Krypton.Navigator.NavigatorMode.BarCheckButtonOnly;
+            this.kryptonNavigatorDesignButtons.Pages.AddRange(new Krypton.Navigator.KryptonPage[] {
             this.pageButtonsStandalone,
             this.pageButtonsAlternate,
             this.pageButtonsLowProfile,
@@ -1742,7 +1742,7 @@ namespace PaletteDesigner
             this.pageButtonsCustom1,
             this.pageButtonsCustom2,
             this.pageButtonsCustom3});
-            this.kryptonNavigatorDesignButtons.Panel.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
+            this.kryptonNavigatorDesignButtons.Panel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
             this.kryptonNavigatorDesignButtons.SelectedIndex = 0;
             this.kryptonNavigatorDesignButtons.Size = new System.Drawing.Size(94, 534);
             this.kryptonNavigatorDesignButtons.StateCommon.Bar.BarPaddingOnly = new System.Windows.Forms.Padding(5);
@@ -2317,11 +2317,11 @@ namespace PaletteDesigner
             this.labelControlsNormal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControlsNormal.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.labelControlsNormal.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.labelControlsNormal.Location = new System.Drawing.Point(283, 30);
             this.labelControlsNormal.Name = "labelControlsNormal";
             this.labelControlsNormal.Size = new System.Drawing.Size(78, 29);
-            this.labelControlsNormal.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelControlsNormal.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.labelControlsNormal.TabIndex = 0;
             this.labelControlsNormal.Values.Text = "Normal";
             // 
@@ -2330,11 +2330,11 @@ namespace PaletteDesigner
             this.labelControlsDisabled.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControlsDisabled.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.labelControlsDisabled.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.labelControlsDisabled.Location = new System.Drawing.Point(119, 30);
             this.labelControlsDisabled.Name = "labelControlsDisabled";
             this.labelControlsDisabled.Size = new System.Drawing.Size(88, 29);
-            this.labelControlsDisabled.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelControlsDisabled.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.labelControlsDisabled.TabIndex = 1;
             this.labelControlsDisabled.Values.Text = "Disabled";
             // 
@@ -2357,31 +2357,31 @@ namespace PaletteDesigner
             this.borderDesignControls.Dock = System.Windows.Forms.DockStyle.Left;
             this.borderDesignControls.Location = new System.Drawing.Point(75, 0);
             this.borderDesignControls.Name = "borderDesignControls";
-            this.borderDesignControls.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
+            this.borderDesignControls.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
             this.borderDesignControls.Size = new System.Drawing.Size(1, 524);
             this.borderDesignControls.TabIndex = 2;
             // 
             // kryptonNavigatorDesignControls
             // 
             this.kryptonNavigatorDesignControls.AutoSize = true;
-            this.kryptonNavigatorDesignControls.Bar.BarOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
-            this.kryptonNavigatorDesignControls.Bar.CheckButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile;
-            this.kryptonNavigatorDesignControls.Bar.ItemOrientation = ComponentFactory.Krypton.Toolkit.ButtonOrientation.FixedTop;
-            this.kryptonNavigatorDesignControls.Bar.ItemSizing = ComponentFactory.Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
-            this.kryptonNavigatorDesignControls.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.None;
-            this.kryptonNavigatorDesignControls.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorDesignControls.Bar.BarOrientation = Krypton.Toolkit.VisualOrientation.Left;
+            this.kryptonNavigatorDesignControls.Bar.CheckButtonStyle = Krypton.Toolkit.ButtonStyle.LowProfile;
+            this.kryptonNavigatorDesignControls.Bar.ItemOrientation = Krypton.Toolkit.ButtonOrientation.FixedTop;
+            this.kryptonNavigatorDesignControls.Bar.ItemSizing = Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
+            this.kryptonNavigatorDesignControls.Button.ButtonDisplayLogic = Krypton.Navigator.ButtonDisplayLogic.None;
+            this.kryptonNavigatorDesignControls.Button.CloseButtonDisplay = Krypton.Navigator.ButtonDisplay.Hide;
             this.kryptonNavigatorDesignControls.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonNavigatorDesignControls.Location = new System.Drawing.Point(0, 0);
             this.kryptonNavigatorDesignControls.Name = "kryptonNavigatorDesignControls";
-            this.kryptonNavigatorDesignControls.NavigatorMode = ComponentFactory.Krypton.Navigator.NavigatorMode.BarCheckButtonOnly;
-            this.kryptonNavigatorDesignControls.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
+            this.kryptonNavigatorDesignControls.NavigatorMode = Krypton.Navigator.NavigatorMode.BarCheckButtonOnly;
+            this.kryptonNavigatorDesignControls.Pages.AddRange(new Krypton.Navigator.KryptonPage[] {
             this.pageControlsClient,
             this.pageControlsAlternate,
             this.pageControlsGroupBox,
             this.pageControlsToolTip,
             this.pageControlsRibbon,
             this.pageControlsCustom1});
-            this.kryptonNavigatorDesignControls.Panel.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
+            this.kryptonNavigatorDesignControls.Panel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
             this.kryptonNavigatorDesignControls.SelectedIndex = 0;
             this.kryptonNavigatorDesignControls.Size = new System.Drawing.Size(75, 524);
             this.kryptonNavigatorDesignControls.StateCommon.Bar.BarPaddingOnly = new System.Windows.Forms.Padding(5);
@@ -2561,11 +2561,11 @@ namespace PaletteDesigner
             this.labelGridDisabled.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelGridDisabled.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.labelGridDisabled.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.labelGridDisabled.Location = new System.Drawing.Point(100, 220);
             this.labelGridDisabled.Name = "labelGridDisabled";
             this.labelGridDisabled.Size = new System.Drawing.Size(88, 29);
-            this.labelGridDisabled.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelGridDisabled.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.labelGridDisabled.TabIndex = 22;
             this.labelGridDisabled.Values.Text = "Disabled";
             // 
@@ -2574,11 +2574,11 @@ namespace PaletteDesigner
             this.kryptonLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonLabel2.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.kryptonLabel2.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.kryptonLabel2.Location = new System.Drawing.Point(999, 401);
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.Size = new System.Drawing.Size(78, 29);
-            this.kryptonLabel2.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.kryptonLabel2.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.kryptonLabel2.TabIndex = 23;
             this.kryptonLabel2.Values.Text = "Normal";
             // 
@@ -2587,11 +2587,11 @@ namespace PaletteDesigner
             this.kryptonLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.kryptonLabel1.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.kryptonLabel1.Location = new System.Drawing.Point(100, 25);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.Size = new System.Drawing.Size(78, 29);
-            this.kryptonLabel1.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.kryptonLabel1.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.kryptonLabel1.TabIndex = 24;
             this.kryptonLabel1.Values.Text = "Normal";
             // 
@@ -2633,21 +2633,21 @@ namespace PaletteDesigner
             // kryptonNavigatorDesignGrids
             // 
             this.kryptonNavigatorDesignGrids.AutoSize = true;
-            this.kryptonNavigatorDesignGrids.Bar.BarOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
-            this.kryptonNavigatorDesignGrids.Bar.CheckButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile;
-            this.kryptonNavigatorDesignGrids.Bar.ItemOrientation = ComponentFactory.Krypton.Toolkit.ButtonOrientation.FixedTop;
-            this.kryptonNavigatorDesignGrids.Bar.ItemSizing = ComponentFactory.Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
-            this.kryptonNavigatorDesignGrids.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.None;
-            this.kryptonNavigatorDesignGrids.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorDesignGrids.Bar.BarOrientation = Krypton.Toolkit.VisualOrientation.Left;
+            this.kryptonNavigatorDesignGrids.Bar.CheckButtonStyle = Krypton.Toolkit.ButtonStyle.LowProfile;
+            this.kryptonNavigatorDesignGrids.Bar.ItemOrientation = Krypton.Toolkit.ButtonOrientation.FixedTop;
+            this.kryptonNavigatorDesignGrids.Bar.ItemSizing = Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
+            this.kryptonNavigatorDesignGrids.Button.ButtonDisplayLogic = Krypton.Navigator.ButtonDisplayLogic.None;
+            this.kryptonNavigatorDesignGrids.Button.CloseButtonDisplay = Krypton.Navigator.ButtonDisplay.Hide;
             this.kryptonNavigatorDesignGrids.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonNavigatorDesignGrids.Location = new System.Drawing.Point(0, 0);
             this.kryptonNavigatorDesignGrids.Name = "kryptonNavigatorDesignGrids";
-            this.kryptonNavigatorDesignGrids.NavigatorMode = ComponentFactory.Krypton.Navigator.NavigatorMode.BarCheckButtonOnly;
-            this.kryptonNavigatorDesignGrids.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
+            this.kryptonNavigatorDesignGrids.NavigatorMode = Krypton.Navigator.NavigatorMode.BarCheckButtonOnly;
+            this.kryptonNavigatorDesignGrids.Pages.AddRange(new Krypton.Navigator.KryptonPage[] {
             this.kryptonGridList,
             this.kryptonGridSheet,
             this.kryptonGridCustom1});
-            this.kryptonNavigatorDesignGrids.Panel.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
+            this.kryptonNavigatorDesignGrids.Panel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
             this.kryptonNavigatorDesignGrids.SelectedIndex = 0;
             this.kryptonNavigatorDesignGrids.Size = new System.Drawing.Size(73, 524);
             this.kryptonNavigatorDesignGrids.StateCommon.Bar.BarPaddingOnly = new System.Windows.Forms.Padding(5);
@@ -2723,11 +2723,11 @@ namespace PaletteDesigner
             // 
             // labelHeaderGroupNormal
             // 
-            this.labelHeaderGroupNormal.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.labelHeaderGroupNormal.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.labelHeaderGroupNormal.Location = new System.Drawing.Point(229, 23);
             this.labelHeaderGroupNormal.Name = "labelHeaderGroupNormal";
             this.labelHeaderGroupNormal.Size = new System.Drawing.Size(78, 29);
-            this.labelHeaderGroupNormal.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelHeaderGroupNormal.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.labelHeaderGroupNormal.TabIndex = 0;
             this.labelHeaderGroupNormal.Values.Text = "Normal";
             // 
@@ -2741,11 +2741,11 @@ namespace PaletteDesigner
             // 
             // labelHeaderGroupDisabled
             // 
-            this.labelHeaderGroupDisabled.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.labelHeaderGroupDisabled.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.labelHeaderGroupDisabled.Location = new System.Drawing.Point(28, 23);
             this.labelHeaderGroupDisabled.Name = "labelHeaderGroupDisabled";
             this.labelHeaderGroupDisabled.Size = new System.Drawing.Size(88, 29);
-            this.labelHeaderGroupDisabled.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelHeaderGroupDisabled.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.labelHeaderGroupDisabled.TabIndex = 15;
             this.labelHeaderGroupDisabled.Values.Text = "Disabled";
             // 
@@ -2781,7 +2781,7 @@ namespace PaletteDesigner
             // header1Normal
             // 
             this.header1Normal.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
-            this.header1Normal.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
+            this.header1Normal.HeaderStyle = Krypton.Toolkit.HeaderStyle.Secondary;
             this.header1Normal.Location = new System.Drawing.Point(125, 97);
             this.header1Normal.Name = "header1Normal";
             this.header1Normal.Size = new System.Drawing.Size(220, 28);
@@ -2806,24 +2806,24 @@ namespace PaletteDesigner
             this.borderDesignHeaders.Dock = System.Windows.Forms.DockStyle.Left;
             this.borderDesignHeaders.Location = new System.Drawing.Point(93, 0);
             this.borderDesignHeaders.Name = "borderDesignHeaders";
-            this.borderDesignHeaders.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
+            this.borderDesignHeaders.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
             this.borderDesignHeaders.Size = new System.Drawing.Size(1, 524);
             this.borderDesignHeaders.TabIndex = 2;
             // 
             // kryptonNavigatorDesignHeaders
             // 
             this.kryptonNavigatorDesignHeaders.AutoSize = true;
-            this.kryptonNavigatorDesignHeaders.Bar.BarOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
-            this.kryptonNavigatorDesignHeaders.Bar.CheckButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile;
-            this.kryptonNavigatorDesignHeaders.Bar.ItemOrientation = ComponentFactory.Krypton.Toolkit.ButtonOrientation.FixedTop;
-            this.kryptonNavigatorDesignHeaders.Bar.ItemSizing = ComponentFactory.Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
-            this.kryptonNavigatorDesignHeaders.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.None;
-            this.kryptonNavigatorDesignHeaders.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorDesignHeaders.Bar.BarOrientation = Krypton.Toolkit.VisualOrientation.Left;
+            this.kryptonNavigatorDesignHeaders.Bar.CheckButtonStyle = Krypton.Toolkit.ButtonStyle.LowProfile;
+            this.kryptonNavigatorDesignHeaders.Bar.ItemOrientation = Krypton.Toolkit.ButtonOrientation.FixedTop;
+            this.kryptonNavigatorDesignHeaders.Bar.ItemSizing = Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
+            this.kryptonNavigatorDesignHeaders.Button.ButtonDisplayLogic = Krypton.Navigator.ButtonDisplayLogic.None;
+            this.kryptonNavigatorDesignHeaders.Button.CloseButtonDisplay = Krypton.Navigator.ButtonDisplay.Hide;
             this.kryptonNavigatorDesignHeaders.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonNavigatorDesignHeaders.Location = new System.Drawing.Point(0, 0);
             this.kryptonNavigatorDesignHeaders.Name = "kryptonNavigatorDesignHeaders";
-            this.kryptonNavigatorDesignHeaders.NavigatorMode = ComponentFactory.Krypton.Navigator.NavigatorMode.BarCheckButtonOnly;
-            this.kryptonNavigatorDesignHeaders.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
+            this.kryptonNavigatorDesignHeaders.NavigatorMode = Krypton.Navigator.NavigatorMode.BarCheckButtonOnly;
+            this.kryptonNavigatorDesignHeaders.Pages.AddRange(new Krypton.Navigator.KryptonPage[] {
             this.pageHeadersPrimary,
             this.pageHeadersSecondary,
             this.pageHeadersDockActive,
@@ -2832,7 +2832,7 @@ namespace PaletteDesigner
             this.pageHeadersForm,
             this.pageHeadersCustom1,
             this.pageHeadersCustom2});
-            this.kryptonNavigatorDesignHeaders.Panel.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
+            this.kryptonNavigatorDesignHeaders.Panel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
             this.kryptonNavigatorDesignHeaders.SelectedIndex = 7;
             this.kryptonNavigatorDesignHeaders.Size = new System.Drawing.Size(93, 524);
             this.kryptonNavigatorDesignHeaders.StateCommon.Bar.BarPaddingOnly = new System.Windows.Forms.Padding(5);
@@ -3017,7 +3017,7 @@ namespace PaletteDesigner
             // 
             // kryptonLabel5
             // 
-            this.kryptonLabel5.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.kryptonLabel5.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.kryptonLabel5.Location = new System.Drawing.Point(115, 189);
             this.kryptonLabel5.Name = "kryptonLabel5";
             this.kryptonLabel5.Size = new System.Drawing.Size(67, 29);
@@ -3026,7 +3026,7 @@ namespace PaletteDesigner
             // 
             // kryptonLabel4
             // 
-            this.kryptonLabel4.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.kryptonLabel4.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.kryptonLabel4.Location = new System.Drawing.Point(115, 111);
             this.kryptonLabel4.Name = "kryptonLabel4";
             this.kryptonLabel4.Size = new System.Drawing.Size(78, 29);
@@ -3035,7 +3035,7 @@ namespace PaletteDesigner
             // 
             // kryptonLabel3
             // 
-            this.kryptonLabel3.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.kryptonLabel3.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.kryptonLabel3.Location = new System.Drawing.Point(115, 33);
             this.kryptonLabel3.Name = "kryptonLabel3";
             this.kryptonLabel3.Size = new System.Drawing.Size(88, 29);
@@ -3112,21 +3112,21 @@ namespace PaletteDesigner
             // kryptonNavigatorDesignInputControls
             // 
             this.kryptonNavigatorDesignInputControls.AutoSize = true;
-            this.kryptonNavigatorDesignInputControls.Bar.BarOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
-            this.kryptonNavigatorDesignInputControls.Bar.CheckButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile;
-            this.kryptonNavigatorDesignInputControls.Bar.ItemOrientation = ComponentFactory.Krypton.Toolkit.ButtonOrientation.FixedTop;
-            this.kryptonNavigatorDesignInputControls.Bar.ItemSizing = ComponentFactory.Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
-            this.kryptonNavigatorDesignInputControls.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.None;
-            this.kryptonNavigatorDesignInputControls.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorDesignInputControls.Bar.BarOrientation = Krypton.Toolkit.VisualOrientation.Left;
+            this.kryptonNavigatorDesignInputControls.Bar.CheckButtonStyle = Krypton.Toolkit.ButtonStyle.LowProfile;
+            this.kryptonNavigatorDesignInputControls.Bar.ItemOrientation = Krypton.Toolkit.ButtonOrientation.FixedTop;
+            this.kryptonNavigatorDesignInputControls.Bar.ItemSizing = Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
+            this.kryptonNavigatorDesignInputControls.Button.ButtonDisplayLogic = Krypton.Navigator.ButtonDisplayLogic.None;
+            this.kryptonNavigatorDesignInputControls.Button.CloseButtonDisplay = Krypton.Navigator.ButtonDisplay.Hide;
             this.kryptonNavigatorDesignInputControls.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonNavigatorDesignInputControls.Location = new System.Drawing.Point(0, 0);
             this.kryptonNavigatorDesignInputControls.Name = "kryptonNavigatorDesignInputControls";
-            this.kryptonNavigatorDesignInputControls.NavigatorMode = ComponentFactory.Krypton.Navigator.NavigatorMode.BarCheckButtonOnly;
-            this.kryptonNavigatorDesignInputControls.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
+            this.kryptonNavigatorDesignInputControls.NavigatorMode = Krypton.Navigator.NavigatorMode.BarCheckButtonOnly;
+            this.kryptonNavigatorDesignInputControls.Pages.AddRange(new Krypton.Navigator.KryptonPage[] {
             this.kryptonPage2,
             this.kryptonPage5,
             this.kryptonPage6});
-            this.kryptonNavigatorDesignInputControls.Panel.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
+            this.kryptonNavigatorDesignInputControls.Panel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
             this.kryptonNavigatorDesignInputControls.SelectedIndex = 0;
             this.kryptonNavigatorDesignInputControls.Size = new System.Drawing.Size(82, 524);
             this.kryptonNavigatorDesignInputControls.StateCommon.Bar.BarPaddingOnly = new System.Windows.Forms.Padding(5);
@@ -3200,11 +3200,11 @@ namespace PaletteDesigner
             this.kryptonLabel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonLabel6.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.kryptonLabel6.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.kryptonLabel6.Location = new System.Drawing.Point(24, 21);
             this.kryptonLabel6.Name = "kryptonLabel6";
             this.kryptonLabel6.Size = new System.Drawing.Size(78, 29);
-            this.kryptonLabel6.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.kryptonLabel6.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.kryptonLabel6.TabIndex = 0;
             this.kryptonLabel6.Values.Text = "Normal";
             // 
@@ -3213,11 +3213,11 @@ namespace PaletteDesigner
             this.kryptonLabel7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonLabel7.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.kryptonLabel7.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.kryptonLabel7.Location = new System.Drawing.Point(24, 268);
             this.kryptonLabel7.Name = "kryptonLabel7";
             this.kryptonLabel7.Size = new System.Drawing.Size(88, 29);
-            this.kryptonLabel7.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.kryptonLabel7.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.kryptonLabel7.TabIndex = 1;
             this.kryptonLabel7.Values.Text = "Disabled";
             // 
@@ -3419,24 +3419,24 @@ namespace PaletteDesigner
             this.borderDesignLabels.Dock = System.Windows.Forms.DockStyle.Left;
             this.borderDesignLabels.Location = new System.Drawing.Point(113, 0);
             this.borderDesignLabels.Name = "borderDesignLabels";
-            this.borderDesignLabels.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
+            this.borderDesignLabels.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
             this.borderDesignLabels.Size = new System.Drawing.Size(1, 534);
             this.borderDesignLabels.TabIndex = 2;
             // 
             // kryptonNavigatorDesignLabels
             // 
             this.kryptonNavigatorDesignLabels.AutoSize = true;
-            this.kryptonNavigatorDesignLabels.Bar.BarOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
-            this.kryptonNavigatorDesignLabels.Bar.CheckButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile;
-            this.kryptonNavigatorDesignLabels.Bar.ItemOrientation = ComponentFactory.Krypton.Toolkit.ButtonOrientation.FixedTop;
-            this.kryptonNavigatorDesignLabels.Bar.ItemSizing = ComponentFactory.Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
-            this.kryptonNavigatorDesignLabels.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.None;
-            this.kryptonNavigatorDesignLabels.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorDesignLabels.Bar.BarOrientation = Krypton.Toolkit.VisualOrientation.Left;
+            this.kryptonNavigatorDesignLabels.Bar.CheckButtonStyle = Krypton.Toolkit.ButtonStyle.LowProfile;
+            this.kryptonNavigatorDesignLabels.Bar.ItemOrientation = Krypton.Toolkit.ButtonOrientation.FixedTop;
+            this.kryptonNavigatorDesignLabels.Bar.ItemSizing = Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
+            this.kryptonNavigatorDesignLabels.Button.ButtonDisplayLogic = Krypton.Navigator.ButtonDisplayLogic.None;
+            this.kryptonNavigatorDesignLabels.Button.CloseButtonDisplay = Krypton.Navigator.ButtonDisplay.Hide;
             this.kryptonNavigatorDesignLabels.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonNavigatorDesignLabels.Location = new System.Drawing.Point(0, 0);
             this.kryptonNavigatorDesignLabels.Name = "kryptonNavigatorDesignLabels";
-            this.kryptonNavigatorDesignLabels.NavigatorMode = ComponentFactory.Krypton.Navigator.NavigatorMode.BarCheckButtonOnly;
-            this.kryptonNavigatorDesignLabels.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
+            this.kryptonNavigatorDesignLabels.NavigatorMode = Krypton.Navigator.NavigatorMode.BarCheckButtonOnly;
+            this.kryptonNavigatorDesignLabels.Pages.AddRange(new Krypton.Navigator.KryptonPage[] {
             this.pageLabelsNormalControl,
             this.pageLabelsBoldControl,
             this.pageLabelsItalicControl,
@@ -3452,7 +3452,7 @@ namespace PaletteDesigner
             this.pageLabelsCustom1,
             this.pageLabelsCustom2,
             this.pageLabelsCustom3});
-            this.kryptonNavigatorDesignLabels.Panel.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
+            this.kryptonNavigatorDesignLabels.Panel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
             this.kryptonNavigatorDesignLabels.SelectedIndex = 0;
             this.kryptonNavigatorDesignLabels.Size = new System.Drawing.Size(113, 534);
             this.kryptonNavigatorDesignLabels.StateCommon.Bar.BarPaddingOnly = new System.Windows.Forms.Padding(5);
@@ -3691,28 +3691,28 @@ namespace PaletteDesigner
             this.borderDesignNavigator.Dock = System.Windows.Forms.DockStyle.Left;
             this.borderDesignNavigator.Location = new System.Drawing.Point(84, 0);
             this.borderDesignNavigator.Name = "borderDesignNavigator";
-            this.borderDesignNavigator.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
+            this.borderDesignNavigator.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
             this.borderDesignNavigator.Size = new System.Drawing.Size(1, 524);
             this.borderDesignNavigator.TabIndex = 2;
             // 
             // kryptonNavigatorDesignNavigator
             // 
             this.kryptonNavigatorDesignNavigator.AutoSize = true;
-            this.kryptonNavigatorDesignNavigator.Bar.BarOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
-            this.kryptonNavigatorDesignNavigator.Bar.CheckButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile;
-            this.kryptonNavigatorDesignNavigator.Bar.ItemOrientation = ComponentFactory.Krypton.Toolkit.ButtonOrientation.FixedTop;
-            this.kryptonNavigatorDesignNavigator.Bar.ItemSizing = ComponentFactory.Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
-            this.kryptonNavigatorDesignNavigator.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.None;
-            this.kryptonNavigatorDesignNavigator.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorDesignNavigator.Bar.BarOrientation = Krypton.Toolkit.VisualOrientation.Left;
+            this.kryptonNavigatorDesignNavigator.Bar.CheckButtonStyle = Krypton.Toolkit.ButtonStyle.LowProfile;
+            this.kryptonNavigatorDesignNavigator.Bar.ItemOrientation = Krypton.Toolkit.ButtonOrientation.FixedTop;
+            this.kryptonNavigatorDesignNavigator.Bar.ItemSizing = Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
+            this.kryptonNavigatorDesignNavigator.Button.ButtonDisplayLogic = Krypton.Navigator.ButtonDisplayLogic.None;
+            this.kryptonNavigatorDesignNavigator.Button.CloseButtonDisplay = Krypton.Navigator.ButtonDisplay.Hide;
             this.kryptonNavigatorDesignNavigator.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonNavigatorDesignNavigator.Location = new System.Drawing.Point(0, 0);
             this.kryptonNavigatorDesignNavigator.Name = "kryptonNavigatorDesignNavigator";
-            this.kryptonNavigatorDesignNavigator.NavigatorMode = ComponentFactory.Krypton.Navigator.NavigatorMode.BarCheckButtonOnly;
-            this.kryptonNavigatorDesignNavigator.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
+            this.kryptonNavigatorDesignNavigator.NavigatorMode = Krypton.Navigator.NavigatorMode.BarCheckButtonOnly;
+            this.kryptonNavigatorDesignNavigator.Pages.AddRange(new Krypton.Navigator.KryptonPage[] {
             this.pageNavigatorBarCheckButtonGroupOutside,
             this.pageNavigatorBarCheckButtonGroupInside,
             this.pageNavigatorBarCheckButtonGroupOnly});
-            this.kryptonNavigatorDesignNavigator.Panel.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
+            this.kryptonNavigatorDesignNavigator.Panel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
             this.kryptonNavigatorDesignNavigator.SelectedIndex = 0;
             this.kryptonNavigatorDesignNavigator.Size = new System.Drawing.Size(84, 524);
             this.kryptonNavigatorDesignNavigator.StateCommon.Bar.BarPaddingOnly = new System.Windows.Forms.Padding(5);
@@ -3767,11 +3767,11 @@ namespace PaletteDesigner
             // 
             // kryptonNavigator
             // 
-            this.kryptonNavigator.Button.CloseButtonAction = ComponentFactory.Krypton.Navigator.CloseButtonAction.None;
-            this.kryptonNavigator.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.ShowEnabled;
+            this.kryptonNavigator.Button.CloseButtonAction = Krypton.Navigator.CloseButtonAction.None;
+            this.kryptonNavigator.Button.CloseButtonDisplay = Krypton.Navigator.ButtonDisplay.ShowEnabled;
             this.kryptonNavigator.Location = new System.Drawing.Point(102, 28);
             this.kryptonNavigator.Name = "kryptonNavigator";
-            this.kryptonNavigator.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
+            this.kryptonNavigator.Pages.AddRange(new Krypton.Navigator.KryptonPage[] {
             this.navigatorPage1,
             this.navigatorPage2,
             this.navigatorPage3});
@@ -3873,11 +3873,11 @@ namespace PaletteDesigner
             this.labelPanelsNormal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelPanelsNormal.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.labelPanelsNormal.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.labelPanelsNormal.Location = new System.Drawing.Point(311, 30);
             this.labelPanelsNormal.Name = "labelPanelsNormal";
             this.labelPanelsNormal.Size = new System.Drawing.Size(78, 29);
-            this.labelPanelsNormal.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelPanelsNormal.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.labelPanelsNormal.TabIndex = 20;
             this.labelPanelsNormal.Values.Text = "Normal";
             // 
@@ -3886,11 +3886,11 @@ namespace PaletteDesigner
             this.labelPanelsDisabled.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelPanelsDisabled.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.labelPanelsDisabled.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.labelPanelsDisabled.Location = new System.Drawing.Point(147, 30);
             this.labelPanelsDisabled.Name = "labelPanelsDisabled";
             this.labelPanelsDisabled.Size = new System.Drawing.Size(88, 29);
-            this.labelPanelsDisabled.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelPanelsDisabled.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.labelPanelsDisabled.TabIndex = 21;
             this.labelPanelsDisabled.Values.Text = "Disabled";
             // 
@@ -3899,29 +3899,29 @@ namespace PaletteDesigner
             this.borderDesignPanels.Dock = System.Windows.Forms.DockStyle.Left;
             this.borderDesignPanels.Location = new System.Drawing.Point(105, 0);
             this.borderDesignPanels.Name = "borderDesignPanels";
-            this.borderDesignPanels.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
+            this.borderDesignPanels.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
             this.borderDesignPanels.Size = new System.Drawing.Size(1, 534);
             this.borderDesignPanels.TabIndex = 3;
             // 
             // kryptonNavigatorDesignPanels
             // 
             this.kryptonNavigatorDesignPanels.AutoSize = true;
-            this.kryptonNavigatorDesignPanels.Bar.BarOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
-            this.kryptonNavigatorDesignPanels.Bar.CheckButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile;
-            this.kryptonNavigatorDesignPanels.Bar.ItemOrientation = ComponentFactory.Krypton.Toolkit.ButtonOrientation.FixedTop;
-            this.kryptonNavigatorDesignPanels.Bar.ItemSizing = ComponentFactory.Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
-            this.kryptonNavigatorDesignPanels.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.None;
-            this.kryptonNavigatorDesignPanels.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorDesignPanels.Bar.BarOrientation = Krypton.Toolkit.VisualOrientation.Left;
+            this.kryptonNavigatorDesignPanels.Bar.CheckButtonStyle = Krypton.Toolkit.ButtonStyle.LowProfile;
+            this.kryptonNavigatorDesignPanels.Bar.ItemOrientation = Krypton.Toolkit.ButtonOrientation.FixedTop;
+            this.kryptonNavigatorDesignPanels.Bar.ItemSizing = Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
+            this.kryptonNavigatorDesignPanels.Button.ButtonDisplayLogic = Krypton.Navigator.ButtonDisplayLogic.None;
+            this.kryptonNavigatorDesignPanels.Button.CloseButtonDisplay = Krypton.Navigator.ButtonDisplay.Hide;
             this.kryptonNavigatorDesignPanels.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonNavigatorDesignPanels.Location = new System.Drawing.Point(0, 0);
             this.kryptonNavigatorDesignPanels.Name = "kryptonNavigatorDesignPanels";
-            this.kryptonNavigatorDesignPanels.NavigatorMode = ComponentFactory.Krypton.Navigator.NavigatorMode.BarCheckButtonOnly;
-            this.kryptonNavigatorDesignPanels.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
+            this.kryptonNavigatorDesignPanels.NavigatorMode = Krypton.Navigator.NavigatorMode.BarCheckButtonOnly;
+            this.kryptonNavigatorDesignPanels.Pages.AddRange(new Krypton.Navigator.KryptonPage[] {
             this.pagePanelsClient,
             this.pagePanelsAlternate,
             this.pagePanelsRibbonInactive,
             this.pagePanelsCustom1});
-            this.kryptonNavigatorDesignPanels.Panel.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
+            this.kryptonNavigatorDesignPanels.Panel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
             this.kryptonNavigatorDesignPanels.SelectedIndex = 0;
             this.kryptonNavigatorDesignPanels.Size = new System.Drawing.Size(105, 534);
             this.kryptonNavigatorDesignPanels.StateCommon.Bar.BarPaddingOnly = new System.Windows.Forms.Padding(5);
@@ -4209,11 +4209,11 @@ namespace PaletteDesigner
             this.labelSeparatorsLive.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelSeparatorsLive.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.labelSeparatorsLive.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.labelSeparatorsLive.Location = new System.Drawing.Point(209, 300);
             this.labelSeparatorsLive.Name = "labelSeparatorsLive";
             this.labelSeparatorsLive.Size = new System.Drawing.Size(88, 29);
-            this.labelSeparatorsLive.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelSeparatorsLive.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.labelSeparatorsLive.TabIndex = 25;
             this.labelSeparatorsLive.Values.Text = "Tracking";
             // 
@@ -4290,11 +4290,11 @@ namespace PaletteDesigner
             this.labelSeparatorsPressed.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelSeparatorsPressed.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.labelSeparatorsPressed.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.labelSeparatorsPressed.Location = new System.Drawing.Point(295, 162);
             this.labelSeparatorsPressed.Name = "labelSeparatorsPressed";
             this.labelSeparatorsPressed.Size = new System.Drawing.Size(79, 29);
-            this.labelSeparatorsPressed.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelSeparatorsPressed.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.labelSeparatorsPressed.TabIndex = 26;
             this.labelSeparatorsPressed.Values.Text = "Pressed";
             // 
@@ -4303,11 +4303,11 @@ namespace PaletteDesigner
             this.labelSeparatorsTracking.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelSeparatorsTracking.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.labelSeparatorsTracking.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.labelSeparatorsTracking.Location = new System.Drawing.Point(130, 162);
             this.labelSeparatorsTracking.Name = "labelSeparatorsTracking";
             this.labelSeparatorsTracking.Size = new System.Drawing.Size(88, 29);
-            this.labelSeparatorsTracking.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelSeparatorsTracking.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.labelSeparatorsTracking.TabIndex = 27;
             this.labelSeparatorsTracking.Values.Text = "Tracking";
             // 
@@ -4385,11 +4385,11 @@ namespace PaletteDesigner
             this.labelSeparatorsNormal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelSeparatorsNormal.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.labelSeparatorsNormal.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.labelSeparatorsNormal.Location = new System.Drawing.Point(298, 30);
             this.labelSeparatorsNormal.Name = "labelSeparatorsNormal";
             this.labelSeparatorsNormal.Size = new System.Drawing.Size(78, 29);
-            this.labelSeparatorsNormal.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelSeparatorsNormal.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.labelSeparatorsNormal.TabIndex = 28;
             this.labelSeparatorsNormal.Values.Text = "Normal";
             // 
@@ -4398,11 +4398,11 @@ namespace PaletteDesigner
             this.labelSeparatorsDisabled.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelSeparatorsDisabled.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.labelSeparatorsDisabled.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.labelSeparatorsDisabled.Location = new System.Drawing.Point(129, 30);
             this.labelSeparatorsDisabled.Name = "labelSeparatorsDisabled";
             this.labelSeparatorsDisabled.Size = new System.Drawing.Size(88, 29);
-            this.labelSeparatorsDisabled.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelSeparatorsDisabled.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.labelSeparatorsDisabled.TabIndex = 29;
             this.labelSeparatorsDisabled.Values.Text = "Disabled";
             // 
@@ -4411,29 +4411,29 @@ namespace PaletteDesigner
             this.borderDesignSeparators.Dock = System.Windows.Forms.DockStyle.Left;
             this.borderDesignSeparators.Location = new System.Drawing.Point(91, 0);
             this.borderDesignSeparators.Name = "borderDesignSeparators";
-            this.borderDesignSeparators.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
+            this.borderDesignSeparators.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
             this.borderDesignSeparators.Size = new System.Drawing.Size(1, 490);
             this.borderDesignSeparators.TabIndex = 4;
             // 
             // kryptonNavigatorDesignSeparators
             // 
             this.kryptonNavigatorDesignSeparators.AutoSize = true;
-            this.kryptonNavigatorDesignSeparators.Bar.BarOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
-            this.kryptonNavigatorDesignSeparators.Bar.CheckButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile;
-            this.kryptonNavigatorDesignSeparators.Bar.ItemOrientation = ComponentFactory.Krypton.Toolkit.ButtonOrientation.FixedTop;
-            this.kryptonNavigatorDesignSeparators.Bar.ItemSizing = ComponentFactory.Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
-            this.kryptonNavigatorDesignSeparators.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.None;
-            this.kryptonNavigatorDesignSeparators.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorDesignSeparators.Bar.BarOrientation = Krypton.Toolkit.VisualOrientation.Left;
+            this.kryptonNavigatorDesignSeparators.Bar.CheckButtonStyle = Krypton.Toolkit.ButtonStyle.LowProfile;
+            this.kryptonNavigatorDesignSeparators.Bar.ItemOrientation = Krypton.Toolkit.ButtonOrientation.FixedTop;
+            this.kryptonNavigatorDesignSeparators.Bar.ItemSizing = Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
+            this.kryptonNavigatorDesignSeparators.Button.ButtonDisplayLogic = Krypton.Navigator.ButtonDisplayLogic.None;
+            this.kryptonNavigatorDesignSeparators.Button.CloseButtonDisplay = Krypton.Navigator.ButtonDisplay.Hide;
             this.kryptonNavigatorDesignSeparators.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonNavigatorDesignSeparators.Location = new System.Drawing.Point(0, 0);
             this.kryptonNavigatorDesignSeparators.Name = "kryptonNavigatorDesignSeparators";
-            this.kryptonNavigatorDesignSeparators.NavigatorMode = ComponentFactory.Krypton.Navigator.NavigatorMode.BarCheckButtonOnly;
-            this.kryptonNavigatorDesignSeparators.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
+            this.kryptonNavigatorDesignSeparators.NavigatorMode = Krypton.Navigator.NavigatorMode.BarCheckButtonOnly;
+            this.kryptonNavigatorDesignSeparators.Pages.AddRange(new Krypton.Navigator.KryptonPage[] {
             this.pageSeparatorLowProfile,
             this.pageSeparatorHighProfile,
             this.pageSeparatorHighInternalProfile,
             this.pageSeparatorCustom1});
-            this.kryptonNavigatorDesignSeparators.Panel.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
+            this.kryptonNavigatorDesignSeparators.Panel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
             this.kryptonNavigatorDesignSeparators.SelectedIndex = 0;
             this.kryptonNavigatorDesignSeparators.Size = new System.Drawing.Size(91, 490);
             this.kryptonNavigatorDesignSeparators.StateCommon.Bar.BarPaddingOnly = new System.Windows.Forms.Padding(5);
@@ -4523,11 +4523,11 @@ namespace PaletteDesigner
             // 
             // kryptonNavigatorTabs
             // 
-            this.kryptonNavigatorTabs.Button.CloseButtonAction = ComponentFactory.Krypton.Navigator.CloseButtonAction.None;
-            this.kryptonNavigatorTabs.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.ShowEnabled;
+            this.kryptonNavigatorTabs.Button.CloseButtonAction = Krypton.Navigator.CloseButtonAction.None;
+            this.kryptonNavigatorTabs.Button.CloseButtonDisplay = Krypton.Navigator.ButtonDisplay.ShowEnabled;
             this.kryptonNavigatorTabs.Location = new System.Drawing.Point(141, 32);
             this.kryptonNavigatorTabs.Name = "kryptonNavigatorTabs";
-            this.kryptonNavigatorTabs.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
+            this.kryptonNavigatorTabs.Pages.AddRange(new Krypton.Navigator.KryptonPage[] {
             this.kryptonNavigatorTabs1,
             this.kryptonNavigatorTabs2,
             this.kryptonNavigatorTabs3});
@@ -4586,7 +4586,7 @@ namespace PaletteDesigner
             this.borderDesignTabs.Dock = System.Windows.Forms.DockStyle.Left;
             this.borderDesignTabs.Location = new System.Drawing.Point(118, 0);
             this.borderDesignTabs.Name = "borderDesignTabs";
-            this.borderDesignTabs.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
+            this.borderDesignTabs.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
             this.borderDesignTabs.Size = new System.Drawing.Size(1, 524);
             this.borderDesignTabs.TabIndex = 3;
             // 
@@ -4594,18 +4594,18 @@ namespace PaletteDesigner
             // 
             this.kryptonNavigatorDesignTabs.AutoSize = true;
             this.kryptonNavigatorDesignTabs.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.kryptonNavigatorDesignTabs.Bar.BarOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
-            this.kryptonNavigatorDesignTabs.Bar.CheckButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile;
-            this.kryptonNavigatorDesignTabs.Bar.ItemOrientation = ComponentFactory.Krypton.Toolkit.ButtonOrientation.FixedTop;
-            this.kryptonNavigatorDesignTabs.Bar.ItemSizing = ComponentFactory.Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
-            this.kryptonNavigatorDesignTabs.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.None;
-            this.kryptonNavigatorDesignTabs.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorDesignTabs.Bar.BarOrientation = Krypton.Toolkit.VisualOrientation.Left;
+            this.kryptonNavigatorDesignTabs.Bar.CheckButtonStyle = Krypton.Toolkit.ButtonStyle.LowProfile;
+            this.kryptonNavigatorDesignTabs.Bar.ItemOrientation = Krypton.Toolkit.ButtonOrientation.FixedTop;
+            this.kryptonNavigatorDesignTabs.Bar.ItemSizing = Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
+            this.kryptonNavigatorDesignTabs.Button.ButtonDisplayLogic = Krypton.Navigator.ButtonDisplayLogic.None;
+            this.kryptonNavigatorDesignTabs.Button.CloseButtonDisplay = Krypton.Navigator.ButtonDisplay.Hide;
             this.kryptonNavigatorDesignTabs.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonNavigatorDesignTabs.Location = new System.Drawing.Point(0, 0);
             this.kryptonNavigatorDesignTabs.Name = "kryptonNavigatorDesignTabs";
-            this.kryptonNavigatorDesignTabs.NavigatorMode = ComponentFactory.Krypton.Navigator.NavigatorMode.BarCheckButtonOnly;
-            this.kryptonNavigatorDesignTabs.PageBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlAlternate;
-            this.kryptonNavigatorDesignTabs.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
+            this.kryptonNavigatorDesignTabs.NavigatorMode = Krypton.Navigator.NavigatorMode.BarCheckButtonOnly;
+            this.kryptonNavigatorDesignTabs.PageBackStyle = Krypton.Toolkit.PaletteBackStyle.ControlAlternate;
+            this.kryptonNavigatorDesignTabs.Pages.AddRange(new Krypton.Navigator.KryptonPage[] {
             this.pageTabHighProfile,
             this.pageTabStandardProfile,
             this.pageTabLowProfile,
@@ -4615,7 +4615,7 @@ namespace PaletteDesigner
             this.pageTabCustom1,
             this.pageTabCustom2,
             this.pageTabCustom3});
-            this.kryptonNavigatorDesignTabs.Panel.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
+            this.kryptonNavigatorDesignTabs.Panel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
             this.kryptonNavigatorDesignTabs.SelectedIndex = 0;
             this.kryptonNavigatorDesignTabs.Size = new System.Drawing.Size(118, 524);
             this.kryptonNavigatorDesignTabs.StateCommon.Bar.BarPaddingOnly = new System.Windows.Forms.Padding(5);
@@ -4876,7 +4876,7 @@ namespace PaletteDesigner
             // 
             // kryptonLabel11
             // 
-            this.kryptonLabel11.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.kryptonLabel11.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.kryptonLabel11.Location = new System.Drawing.Point(358, 135);
             this.kryptonLabel11.Name = "kryptonLabel11";
             this.kryptonLabel11.Size = new System.Drawing.Size(79, 29);
@@ -4885,7 +4885,7 @@ namespace PaletteDesigner
             // 
             // kryptonLabel10
             // 
-            this.kryptonLabel10.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.kryptonLabel10.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.kryptonLabel10.Location = new System.Drawing.Point(358, 78);
             this.kryptonLabel10.Name = "kryptonLabel10";
             this.kryptonLabel10.Size = new System.Drawing.Size(88, 29);
@@ -4894,7 +4894,7 @@ namespace PaletteDesigner
             // 
             // kryptonLabel9
             // 
-            this.kryptonLabel9.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.kryptonLabel9.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.kryptonLabel9.Location = new System.Drawing.Point(358, 193);
             this.kryptonLabel9.Name = "kryptonLabel9";
             this.kryptonLabel9.Size = new System.Drawing.Size(88, 29);
@@ -4903,7 +4903,7 @@ namespace PaletteDesigner
             // 
             // kryptonLabel8
             // 
-            this.kryptonLabel8.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.kryptonLabel8.LabelStyle = Krypton.Toolkit.LabelStyle.TitleControl;
             this.kryptonLabel8.Location = new System.Drawing.Point(358, 23);
             this.kryptonLabel8.Name = "kryptonLabel8";
             this.kryptonLabel8.Size = new System.Drawing.Size(78, 29);
@@ -5345,42 +5345,42 @@ namespace PaletteDesigner
 
         #endregion
 
-        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigatorTop;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTopButtonSpecs;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTopButtons;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTopControls;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTopHeaderGroup;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTopHeaders;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTopLabels;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTopNavigator;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTopPanels;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTopSeparators;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTopChromeTMS;
-        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigatorDesign;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageDesignButtonSpecs;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageDesignButtons;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageDesignControls;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageDesignHeaderGroup;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageDesignHeaders;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageDesignLabels;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageDesignNavigator;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageDesignPanels;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageDesignSeparators;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageDesignChromeTMS;
-        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigatorDesignButtons;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageButtonsStandalone;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageButtonsLowProfile;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageButtonsButtonSpec;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageButtonsCustom1;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageButtonsCustom2;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageButtonsCustom3;
-        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigatorDesignControls;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageControlsClient;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageControlsAlternate;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageControlsCustom1;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanelMainFill;
-        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer kryptonSplitContainerMain;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderGroupProperties;
+        private Krypton.Navigator.KryptonNavigator kryptonNavigatorTop;
+        private Krypton.Navigator.KryptonPage pageTopButtonSpecs;
+        private Krypton.Navigator.KryptonPage pageTopButtons;
+        private Krypton.Navigator.KryptonPage pageTopControls;
+        private Krypton.Navigator.KryptonPage pageTopHeaderGroup;
+        private Krypton.Navigator.KryptonPage pageTopHeaders;
+        private Krypton.Navigator.KryptonPage pageTopLabels;
+        private Krypton.Navigator.KryptonPage pageTopNavigator;
+        private Krypton.Navigator.KryptonPage pageTopPanels;
+        private Krypton.Navigator.KryptonPage pageTopSeparators;
+        private Krypton.Navigator.KryptonPage pageTopChromeTMS;
+        private Krypton.Navigator.KryptonNavigator kryptonNavigatorDesign;
+        private Krypton.Navigator.KryptonPage pageDesignButtonSpecs;
+        private Krypton.Navigator.KryptonPage pageDesignButtons;
+        private Krypton.Navigator.KryptonPage pageDesignControls;
+        private Krypton.Navigator.KryptonPage pageDesignHeaderGroup;
+        private Krypton.Navigator.KryptonPage pageDesignHeaders;
+        private Krypton.Navigator.KryptonPage pageDesignLabels;
+        private Krypton.Navigator.KryptonPage pageDesignNavigator;
+        private Krypton.Navigator.KryptonPage pageDesignPanels;
+        private Krypton.Navigator.KryptonPage pageDesignSeparators;
+        private Krypton.Navigator.KryptonPage pageDesignChromeTMS;
+        private Krypton.Navigator.KryptonNavigator kryptonNavigatorDesignButtons;
+        private Krypton.Navigator.KryptonPage pageButtonsStandalone;
+        private Krypton.Navigator.KryptonPage pageButtonsLowProfile;
+        private Krypton.Navigator.KryptonPage pageButtonsButtonSpec;
+        private Krypton.Navigator.KryptonPage pageButtonsCustom1;
+        private Krypton.Navigator.KryptonPage pageButtonsCustom2;
+        private Krypton.Navigator.KryptonPage pageButtonsCustom3;
+        private Krypton.Navigator.KryptonNavigator kryptonNavigatorDesignControls;
+        private Krypton.Navigator.KryptonPage pageControlsClient;
+        private Krypton.Navigator.KryptonPage pageControlsAlternate;
+        private Krypton.Navigator.KryptonPage pageControlsCustom1;
+        private Krypton.Toolkit.KryptonPanel kryptonPanelMainFill;
+        private Krypton.Toolkit.KryptonSplitContainer kryptonSplitContainerMain;
+        private Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderGroupProperties;
         private System.Windows.Forms.ToolStripContainer mainToolStripContainer;
         private System.Windows.Forms.MenuStrip mainMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem menuFile;
@@ -5392,234 +5392,234 @@ namespace PaletteDesigner
         private System.Windows.Forms.ToolStripSeparator menuSep2;
         private System.Windows.Forms.ToolStripMenuItem menuExit;
         private System.Windows.Forms.PropertyGrid labelGridNormal;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel borderDesignControls;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel borderDesignButtons;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton buttonCheckedPressed;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton buttonCheckedTracking;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton buttonCheckedNormal;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton buttonDisabled;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton buttonPressed;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton buttonNormal;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton buttonTracking;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton buttonDefaultFocus;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelControlsNormal;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelControlsDisabled;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup control1Normal;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup control1Disabled;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelHeaderGroupNormal;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelHeaderGroupDisabled;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup headerGroup1Disabled;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup headerGroup1Normal;
-        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigatorDesignPanels;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pagePanelsClient;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pagePanelsAlternate;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel borderDesignPanels;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pagePanelsCustom1;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel panel1Normal;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel panel1Disabled;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelPanelsNormal;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelPanelsDisabled;
-        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigatorDesignHeaders;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageHeadersPrimary;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageHeadersSecondary;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel borderDesignHeaders;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeader header1Normal;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeader header1Disabled;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageHeadersCustom1;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageHeadersCustom2;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel borderDesignLabels;
-        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigatorDesignLabels;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageLabelsNormalControl;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageLabelsTitleControl;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageLabelsCustom1;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageLabelsCustom2;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageLabelsCustom3;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel label1Normal;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel label1Disabled;
-        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigatorDesignSeparators;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageSeparatorLowProfile;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageSeparatorHighProfile;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel borderDesignSeparators;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageSeparatorCustom1;
-        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer separator1Disabled;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup kryptonGroup1;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup kryptonGroup2;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelSeparatorsNormal;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelSeparatorsDisabled;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelSeparatorsPressed;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelSeparatorsTracking;
-        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer separator1Normal;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup kryptonGroup3;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup kryptonGroup4;
-        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer separator1Pressed;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup kryptonGroup7;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup kryptonGroup8;
-        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer separator1Tracking;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup kryptonGroup5;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup kryptonGroup6;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeader buttonSpecG4;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecGeneric1;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecGeneric2;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeader buttonSpecG3;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeader buttonSpecG2;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeader buttonSpecG1;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeader buttonSpecT4;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny13;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny14;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny15;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny16;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeader buttonSpecT3;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny9;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny10;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny11;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny12;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeader buttonSpecT2;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny5;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny6;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny7;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny8;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeader buttonSpecT1;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny4;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny3;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny2;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelButtonSpecsTyped;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelButtonSpecsGeneric;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel borderDesignNavigator;
-        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigatorDesignNavigator;
-        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigator;
-        private ComponentFactory.Krypton.Navigator.KryptonPage navigatorPage1;
-        private ComponentFactory.Krypton.Navigator.KryptonPage navigatorPage2;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageNavigatorBarCheckButtonGroupOutside;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageNavigatorBarCheckButtonGroupInside;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageNavigatorBarCheckButtonGroupOnly;
-        private ComponentFactory.Krypton.Navigator.KryptonPage navigatorPage3;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny32;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny31;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny30;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny29;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny28;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny27;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny26;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny25;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny24;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny23;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny22;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny21;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny20;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny19;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny18;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny17;
-        private ComponentFactory.Krypton.Toolkit.KryptonLinkLabel label1NotVisited;
-        private ComponentFactory.Krypton.Toolkit.KryptonLinkLabel label1Pressed;
-        private ComponentFactory.Krypton.Toolkit.KryptonLinkLabel label1Visited;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton buttonLive;
-        private ComponentFactory.Krypton.Toolkit.KryptonLinkLabel label1Live;
-        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer separator1Live;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup kryptonGroup11;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup kryptonGroup12;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelSeparatorsLive;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup kryptonGroup9;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup kryptonGroup10;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTopTabs;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageDesignTabs;
-        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigatorDesignTabs;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTabHighProfile;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTabStandardProfile;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel borderDesignTabs;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTabLowProfile;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTabOneNote;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTabCustom1;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTabCustom2;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTabCustom3;
-        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigatorTabs;
-        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonNavigatorTabs1;
-        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonNavigatorTabs2;
-        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonNavigatorTabs3;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageButtonsNavigatorStack;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageButtonsForm;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny48;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny49;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny50;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny51;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny41;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny42;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny43;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny44;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny33;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny38;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny39;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny40;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny34;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny35;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny36;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny37;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageHeadersForm;
-        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPage1;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageLabelsNormalPanel;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageLabelsTitlePanel;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel panelLabelsBackground;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton labelsPanelCustom1;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton labelsPanelAlternate;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton labelsPanelClient;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckSet kryptonCheckSetLabels;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton labelsControlCustom1;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton labelsControlAlternate;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton labelsControlClient;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageButtonsAlternate;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageButtonsRibbonCluster;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageControlsToolTip;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageLabelsToolTip;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton labelsControlToolTip;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTopRibbon;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageDesignRibbon;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageControlsRibbon;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageButtonsNavigatorMini;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageLabelsKeyTip;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTopCheckBox;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageDesignCheckBox;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbUncheckedTracking;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbUncheckedPressed;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbUncheckedNormal;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbUncheckedDisabled;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox kryptonCheckBox1;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbIndeterminateTracking;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbIndeterminatePressed;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbIndeterminateNormal;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbIndeterminateDisabled;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbCheckedTracking;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbCheckedPressed;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbCheckedNormal;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbCheckedDisabled;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbLive;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbFocus;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTopRadioButton;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageDesignRadioButton;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rbUncheckedDisabled;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rbUncheckedTracking;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rbUncheckedPressed;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rbUncheckedNormal;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rbCheckedTracking;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rbCheckedPressed;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rbCheckedNormal;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rbCheckedDisabled;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton kryptonRadioButton11;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rbLive1;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rbFocus;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rbLive2;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageDesignGrid;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTopGrids;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckSet kryptonCheckSet1;
-        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigatorDesignGrids;
-        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonGridList;
-        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonGridSheet;
-        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonGridCustom1;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dataGridViewNormal;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dataGridViewDisabled;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelGridDisabled;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private Krypton.Toolkit.KryptonPanel borderDesignControls;
+        private Krypton.Toolkit.KryptonPanel borderDesignButtons;
+        private Krypton.Toolkit.KryptonCheckButton buttonCheckedPressed;
+        private Krypton.Toolkit.KryptonCheckButton buttonCheckedTracking;
+        private Krypton.Toolkit.KryptonCheckButton buttonCheckedNormal;
+        private Krypton.Toolkit.KryptonCheckButton buttonDisabled;
+        private Krypton.Toolkit.KryptonCheckButton buttonPressed;
+        private Krypton.Toolkit.KryptonCheckButton buttonNormal;
+        private Krypton.Toolkit.KryptonCheckButton buttonTracking;
+        private Krypton.Toolkit.KryptonCheckButton buttonDefaultFocus;
+        private Krypton.Toolkit.KryptonLabel labelControlsNormal;
+        private Krypton.Toolkit.KryptonLabel labelControlsDisabled;
+        private Krypton.Toolkit.KryptonGroup control1Normal;
+        private Krypton.Toolkit.KryptonGroup control1Disabled;
+        private Krypton.Toolkit.KryptonLabel labelHeaderGroupNormal;
+        private Krypton.Toolkit.KryptonLabel labelHeaderGroupDisabled;
+        private Krypton.Toolkit.KryptonHeaderGroup headerGroup1Disabled;
+        private Krypton.Toolkit.KryptonHeaderGroup headerGroup1Normal;
+        private Krypton.Navigator.KryptonNavigator kryptonNavigatorDesignPanels;
+        private Krypton.Navigator.KryptonPage pagePanelsClient;
+        private Krypton.Navigator.KryptonPage pagePanelsAlternate;
+        private Krypton.Toolkit.KryptonPanel borderDesignPanels;
+        private Krypton.Navigator.KryptonPage pagePanelsCustom1;
+        private Krypton.Toolkit.KryptonPanel panel1Normal;
+        private Krypton.Toolkit.KryptonPanel panel1Disabled;
+        private Krypton.Toolkit.KryptonLabel labelPanelsNormal;
+        private Krypton.Toolkit.KryptonLabel labelPanelsDisabled;
+        private Krypton.Navigator.KryptonNavigator kryptonNavigatorDesignHeaders;
+        private Krypton.Navigator.KryptonPage pageHeadersPrimary;
+        private Krypton.Navigator.KryptonPage pageHeadersSecondary;
+        private Krypton.Toolkit.KryptonPanel borderDesignHeaders;
+        private Krypton.Toolkit.KryptonHeader header1Normal;
+        private Krypton.Toolkit.KryptonHeader header1Disabled;
+        private Krypton.Navigator.KryptonPage pageHeadersCustom1;
+        private Krypton.Navigator.KryptonPage pageHeadersCustom2;
+        private Krypton.Toolkit.KryptonPanel borderDesignLabels;
+        private Krypton.Navigator.KryptonNavigator kryptonNavigatorDesignLabels;
+        private Krypton.Navigator.KryptonPage pageLabelsNormalControl;
+        private Krypton.Navigator.KryptonPage pageLabelsTitleControl;
+        private Krypton.Navigator.KryptonPage pageLabelsCustom1;
+        private Krypton.Navigator.KryptonPage pageLabelsCustom2;
+        private Krypton.Navigator.KryptonPage pageLabelsCustom3;
+        private Krypton.Toolkit.KryptonLabel label1Normal;
+        private Krypton.Toolkit.KryptonLabel label1Disabled;
+        private Krypton.Navigator.KryptonNavigator kryptonNavigatorDesignSeparators;
+        private Krypton.Navigator.KryptonPage pageSeparatorLowProfile;
+        private Krypton.Navigator.KryptonPage pageSeparatorHighProfile;
+        private Krypton.Toolkit.KryptonPanel borderDesignSeparators;
+        private Krypton.Navigator.KryptonPage pageSeparatorCustom1;
+        private Krypton.Toolkit.KryptonSplitContainer separator1Disabled;
+        private Krypton.Toolkit.KryptonGroup kryptonGroup1;
+        private Krypton.Toolkit.KryptonGroup kryptonGroup2;
+        private Krypton.Toolkit.KryptonLabel labelSeparatorsNormal;
+        private Krypton.Toolkit.KryptonLabel labelSeparatorsDisabled;
+        private Krypton.Toolkit.KryptonLabel labelSeparatorsPressed;
+        private Krypton.Toolkit.KryptonLabel labelSeparatorsTracking;
+        private Krypton.Toolkit.KryptonSplitContainer separator1Normal;
+        private Krypton.Toolkit.KryptonGroup kryptonGroup3;
+        private Krypton.Toolkit.KryptonGroup kryptonGroup4;
+        private Krypton.Toolkit.KryptonSplitContainer separator1Pressed;
+        private Krypton.Toolkit.KryptonGroup kryptonGroup7;
+        private Krypton.Toolkit.KryptonGroup kryptonGroup8;
+        private Krypton.Toolkit.KryptonSplitContainer separator1Tracking;
+        private Krypton.Toolkit.KryptonGroup kryptonGroup5;
+        private Krypton.Toolkit.KryptonGroup kryptonGroup6;
+        private Krypton.Toolkit.KryptonHeader buttonSpecG4;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecGeneric1;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecGeneric2;
+        private Krypton.Toolkit.KryptonHeader buttonSpecG3;
+        private Krypton.Toolkit.KryptonHeader buttonSpecG2;
+        private Krypton.Toolkit.KryptonHeader buttonSpecG1;
+        private Krypton.Toolkit.KryptonHeader buttonSpecT4;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny13;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny14;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny15;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny16;
+        private Krypton.Toolkit.KryptonHeader buttonSpecT3;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny9;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny10;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny11;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny12;
+        private Krypton.Toolkit.KryptonHeader buttonSpecT2;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny5;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny6;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny7;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny8;
+        private Krypton.Toolkit.KryptonHeader buttonSpecT1;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny4;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny3;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny2;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
+        private Krypton.Toolkit.KryptonLabel labelButtonSpecsTyped;
+        private Krypton.Toolkit.KryptonLabel labelButtonSpecsGeneric;
+        private Krypton.Toolkit.KryptonPanel borderDesignNavigator;
+        private Krypton.Navigator.KryptonNavigator kryptonNavigatorDesignNavigator;
+        private Krypton.Navigator.KryptonNavigator kryptonNavigator;
+        private Krypton.Navigator.KryptonPage navigatorPage1;
+        private Krypton.Navigator.KryptonPage navigatorPage2;
+        private Krypton.Navigator.KryptonPage pageNavigatorBarCheckButtonGroupOutside;
+        private Krypton.Navigator.KryptonPage pageNavigatorBarCheckButtonGroupInside;
+        private Krypton.Navigator.KryptonPage pageNavigatorBarCheckButtonGroupOnly;
+        private Krypton.Navigator.KryptonPage navigatorPage3;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny32;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny31;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny30;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny29;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny28;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny27;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny26;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny25;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny24;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny23;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny22;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny21;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny20;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny19;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny18;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny17;
+        private Krypton.Toolkit.KryptonLinkLabel label1NotVisited;
+        private Krypton.Toolkit.KryptonLinkLabel label1Pressed;
+        private Krypton.Toolkit.KryptonLinkLabel label1Visited;
+        private Krypton.Toolkit.KryptonCheckButton buttonLive;
+        private Krypton.Toolkit.KryptonLinkLabel label1Live;
+        private Krypton.Toolkit.KryptonSplitContainer separator1Live;
+        private Krypton.Toolkit.KryptonGroup kryptonGroup11;
+        private Krypton.Toolkit.KryptonGroup kryptonGroup12;
+        private Krypton.Toolkit.KryptonLabel labelSeparatorsLive;
+        private Krypton.Toolkit.KryptonGroup kryptonGroup9;
+        private Krypton.Toolkit.KryptonGroup kryptonGroup10;
+        private Krypton.Navigator.KryptonPage pageTopTabs;
+        private Krypton.Navigator.KryptonPage pageDesignTabs;
+        private Krypton.Navigator.KryptonNavigator kryptonNavigatorDesignTabs;
+        private Krypton.Navigator.KryptonPage pageTabHighProfile;
+        private Krypton.Navigator.KryptonPage pageTabStandardProfile;
+        private Krypton.Toolkit.KryptonPanel borderDesignTabs;
+        private Krypton.Navigator.KryptonPage pageTabLowProfile;
+        private Krypton.Navigator.KryptonPage pageTabOneNote;
+        private Krypton.Navigator.KryptonPage pageTabCustom1;
+        private Krypton.Navigator.KryptonPage pageTabCustom2;
+        private Krypton.Navigator.KryptonPage pageTabCustom3;
+        private Krypton.Navigator.KryptonNavigator kryptonNavigatorTabs;
+        private Krypton.Navigator.KryptonPage kryptonNavigatorTabs1;
+        private Krypton.Navigator.KryptonPage kryptonNavigatorTabs2;
+        private Krypton.Navigator.KryptonPage kryptonNavigatorTabs3;
+        private Krypton.Toolkit.KryptonManager kryptonManager;
+        private Krypton.Navigator.KryptonPage pageButtonsNavigatorStack;
+        private Krypton.Navigator.KryptonPage pageButtonsForm;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny48;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny49;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny50;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny51;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny41;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny42;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny43;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny44;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny33;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny38;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny39;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny40;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny34;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny35;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny36;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny37;
+        private Krypton.Navigator.KryptonPage pageHeadersForm;
+        private Krypton.Navigator.KryptonPage kryptonPage1;
+        private Krypton.Navigator.KryptonPage pageLabelsNormalPanel;
+        private Krypton.Navigator.KryptonPage pageLabelsTitlePanel;
+        private Krypton.Toolkit.KryptonPanel panelLabelsBackground;
+        private Krypton.Toolkit.KryptonCheckButton labelsPanelCustom1;
+        private Krypton.Toolkit.KryptonCheckButton labelsPanelAlternate;
+        private Krypton.Toolkit.KryptonCheckButton labelsPanelClient;
+        private Krypton.Toolkit.KryptonCheckSet kryptonCheckSetLabels;
+        private Krypton.Toolkit.KryptonCheckButton labelsControlCustom1;
+        private Krypton.Toolkit.KryptonCheckButton labelsControlAlternate;
+        private Krypton.Toolkit.KryptonCheckButton labelsControlClient;
+        private Krypton.Navigator.KryptonPage pageButtonsAlternate;
+        private Krypton.Navigator.KryptonPage pageButtonsRibbonCluster;
+        private Krypton.Navigator.KryptonPage pageControlsToolTip;
+        private Krypton.Navigator.KryptonPage pageLabelsToolTip;
+        private Krypton.Toolkit.KryptonCheckButton labelsControlToolTip;
+        private Krypton.Navigator.KryptonPage pageTopRibbon;
+        private Krypton.Navigator.KryptonPage pageDesignRibbon;
+        private Krypton.Navigator.KryptonPage pageControlsRibbon;
+        private Krypton.Navigator.KryptonPage pageButtonsNavigatorMini;
+        private Krypton.Navigator.KryptonPage pageLabelsKeyTip;
+        private Krypton.Navigator.KryptonPage pageTopCheckBox;
+        private Krypton.Navigator.KryptonPage pageDesignCheckBox;
+        private Krypton.Toolkit.KryptonCheckBox cbUncheckedTracking;
+        private Krypton.Toolkit.KryptonCheckBox cbUncheckedPressed;
+        private Krypton.Toolkit.KryptonCheckBox cbUncheckedNormal;
+        private Krypton.Toolkit.KryptonCheckBox cbUncheckedDisabled;
+        private Krypton.Toolkit.KryptonCheckBox kryptonCheckBox1;
+        private Krypton.Toolkit.KryptonCheckBox cbIndeterminateTracking;
+        private Krypton.Toolkit.KryptonCheckBox cbIndeterminatePressed;
+        private Krypton.Toolkit.KryptonCheckBox cbIndeterminateNormal;
+        private Krypton.Toolkit.KryptonCheckBox cbIndeterminateDisabled;
+        private Krypton.Toolkit.KryptonCheckBox cbCheckedTracking;
+        private Krypton.Toolkit.KryptonCheckBox cbCheckedPressed;
+        private Krypton.Toolkit.KryptonCheckBox cbCheckedNormal;
+        private Krypton.Toolkit.KryptonCheckBox cbCheckedDisabled;
+        private Krypton.Toolkit.KryptonCheckBox cbLive;
+        private Krypton.Toolkit.KryptonCheckBox cbFocus;
+        private Krypton.Navigator.KryptonPage pageTopRadioButton;
+        private Krypton.Navigator.KryptonPage pageDesignRadioButton;
+        private Krypton.Toolkit.KryptonRadioButton rbUncheckedDisabled;
+        private Krypton.Toolkit.KryptonRadioButton rbUncheckedTracking;
+        private Krypton.Toolkit.KryptonRadioButton rbUncheckedPressed;
+        private Krypton.Toolkit.KryptonRadioButton rbUncheckedNormal;
+        private Krypton.Toolkit.KryptonRadioButton rbCheckedTracking;
+        private Krypton.Toolkit.KryptonRadioButton rbCheckedPressed;
+        private Krypton.Toolkit.KryptonRadioButton rbCheckedNormal;
+        private Krypton.Toolkit.KryptonRadioButton rbCheckedDisabled;
+        private Krypton.Toolkit.KryptonRadioButton kryptonRadioButton11;
+        private Krypton.Toolkit.KryptonRadioButton rbLive1;
+        private Krypton.Toolkit.KryptonRadioButton rbFocus;
+        private Krypton.Toolkit.KryptonRadioButton rbLive2;
+        private Krypton.Navigator.KryptonPage pageDesignGrid;
+        private Krypton.Navigator.KryptonPage pageTopGrids;
+        private Krypton.Toolkit.KryptonCheckSet kryptonCheckSet1;
+        private Krypton.Navigator.KryptonNavigator kryptonNavigatorDesignGrids;
+        private Krypton.Navigator.KryptonPage kryptonGridList;
+        private Krypton.Navigator.KryptonPage kryptonGridSheet;
+        private Krypton.Navigator.KryptonPage kryptonGridCustom1;
+        private Krypton.Toolkit.KryptonDataGridView dataGridViewNormal;
+        private Krypton.Toolkit.KryptonDataGridView dataGridViewDisabled;
+        private Krypton.Toolkit.KryptonLabel labelGridDisabled;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel2;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private System.Data.DataSet dataSetGrid;
         private System.Data.DataTable dataTable1;
         private System.Data.DataColumn dataColumn1;
@@ -5631,87 +5631,87 @@ namespace PaletteDesigner
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageLabelsSuperTip;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageButtonsInputControl;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTopInputControls;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageDesignInputControls;
-        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigatorDesignInputControls;
-        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPage2;
-        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPage5;
-        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPage6;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox comboBoxNormal;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox comboBoxDisabled;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxActive;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxNormal;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxDisabled;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox comboBoxActive;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel3;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel4;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel5;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageSeparatorHighInternalProfile;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageButtonsListItem;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageButtonsGallery;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageButtonsNavigatorOverflow;
-        private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown numericActive;
-        private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown numericNormal;
-        private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown numericDisabled;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageButtonsBreadCrumb;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageButtonCalendarDay;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageHeadersCalendar;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTopDateTime;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageDesignDateTime;
-        private ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar monthCalendarDisabled;
-        private ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar monthCalendarEnabled;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel6;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel7;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny55;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny56;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny53;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny54;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny47;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny52;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny45;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny46;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageHeadersDockActive;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageHeadersDockInactive;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTabDock;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTabDockAutoHidden;
+        private Krypton.Navigator.KryptonPage pageLabelsSuperTip;
+        private Krypton.Navigator.KryptonPage pageButtonsInputControl;
+        private Krypton.Navigator.KryptonPage pageTopInputControls;
+        private Krypton.Navigator.KryptonPage pageDesignInputControls;
+        private Krypton.Navigator.KryptonNavigator kryptonNavigatorDesignInputControls;
+        private Krypton.Navigator.KryptonPage kryptonPage2;
+        private Krypton.Navigator.KryptonPage kryptonPage5;
+        private Krypton.Navigator.KryptonPage kryptonPage6;
+        private Krypton.Toolkit.KryptonComboBox comboBoxNormal;
+        private Krypton.Toolkit.KryptonComboBox comboBoxDisabled;
+        private Krypton.Toolkit.KryptonTextBox textBoxActive;
+        private Krypton.Toolkit.KryptonTextBox textBoxNormal;
+        private Krypton.Toolkit.KryptonTextBox textBoxDisabled;
+        private Krypton.Toolkit.KryptonComboBox comboBoxActive;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel3;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel4;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel5;
+        private Krypton.Navigator.KryptonPage pageSeparatorHighInternalProfile;
+        private Krypton.Navigator.KryptonPage pageButtonsListItem;
+        private Krypton.Navigator.KryptonPage pageButtonsGallery;
+        private Krypton.Navigator.KryptonPage pageButtonsNavigatorOverflow;
+        private Krypton.Toolkit.KryptonNumericUpDown numericActive;
+        private Krypton.Toolkit.KryptonNumericUpDown numericNormal;
+        private Krypton.Toolkit.KryptonNumericUpDown numericDisabled;
+        private Krypton.Navigator.KryptonPage pageButtonsBreadCrumb;
+        private Krypton.Navigator.KryptonPage pageButtonCalendarDay;
+        private Krypton.Navigator.KryptonPage pageHeadersCalendar;
+        private Krypton.Navigator.KryptonPage pageTopDateTime;
+        private Krypton.Navigator.KryptonPage pageDesignDateTime;
+        private Krypton.Toolkit.KryptonMonthCalendar monthCalendarDisabled;
+        private Krypton.Toolkit.KryptonMonthCalendar monthCalendarEnabled;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel6;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel7;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny55;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny56;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny53;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny54;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny47;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny52;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny45;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny46;
+        private Krypton.Navigator.KryptonPage pageHeadersDockActive;
+        private Krypton.Navigator.KryptonPage pageHeadersDockInactive;
+        private Krypton.Navigator.KryptonPage pageTabDock;
+        private Krypton.Navigator.KryptonPage pageTabDockAutoHidden;
         private System.Windows.Forms.DataGridViewTextBoxColumn column1DataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn column2DataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn column3DataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn column1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn column2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn column3DataGridViewTextBoxColumn;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageControlsGroupBox;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageLabelsGroupBoxCaption;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageButtonsFormClose;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pagePanelsRibbonInactive;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny63;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny64;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny61;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny62;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny59;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny60;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny57;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny58;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageTopTrackBar;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageDesignTrackBar;
-        private ComponentFactory.Krypton.Toolkit.KryptonTrackBar kryptonTrackBar4;
-        private ComponentFactory.Krypton.Toolkit.KryptonTrackBar kryptonTrackBar3;
-        private ComponentFactory.Krypton.Toolkit.KryptonTrackBar kryptonTrackBar2;
-        private ComponentFactory.Krypton.Toolkit.KryptonTrackBar kryptonTrackBar1;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel11;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel10;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel9;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel8;
-        private ComponentFactory.Krypton.Toolkit.KryptonTrackBar kryptonTrackBar8;
-        private ComponentFactory.Krypton.Toolkit.KryptonTrackBar kryptonTrackBar7;
-        private ComponentFactory.Krypton.Toolkit.KryptonTrackBar kryptonTrackBar6;
-        private ComponentFactory.Krypton.Toolkit.KryptonTrackBar kryptonTrackBar5;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageButtonsCommand;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageLabelsBoldControl;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageLabelsItalicControl;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageLabelsBoldPanel;
-        private ComponentFactory.Krypton.Navigator.KryptonPage pageLabelsItalicPanel;
+        private Krypton.Navigator.KryptonPage pageControlsGroupBox;
+        private Krypton.Navigator.KryptonPage pageLabelsGroupBoxCaption;
+        private Krypton.Navigator.KryptonPage pageButtonsFormClose;
+        private Krypton.Navigator.KryptonPage pagePanelsRibbonInactive;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny63;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny64;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny61;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny62;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny59;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny60;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny57;
+        private Krypton.Toolkit.ButtonSpecAny buttonSpecAny58;
+        private Krypton.Navigator.KryptonPage pageTopTrackBar;
+        private Krypton.Navigator.KryptonPage pageDesignTrackBar;
+        private Krypton.Toolkit.KryptonTrackBar kryptonTrackBar4;
+        private Krypton.Toolkit.KryptonTrackBar kryptonTrackBar3;
+        private Krypton.Toolkit.KryptonTrackBar kryptonTrackBar2;
+        private Krypton.Toolkit.KryptonTrackBar kryptonTrackBar1;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel11;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel10;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel9;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel8;
+        private Krypton.Toolkit.KryptonTrackBar kryptonTrackBar8;
+        private Krypton.Toolkit.KryptonTrackBar kryptonTrackBar7;
+        private Krypton.Toolkit.KryptonTrackBar kryptonTrackBar6;
+        private Krypton.Toolkit.KryptonTrackBar kryptonTrackBar5;
+        private Krypton.Navigator.KryptonPage pageButtonsCommand;
+        private Krypton.Navigator.KryptonPage pageLabelsBoldControl;
+        private Krypton.Navigator.KryptonPage pageLabelsItalicControl;
+        private Krypton.Navigator.KryptonPage pageLabelsBoldPanel;
+        private Krypton.Navigator.KryptonPage pageLabelsItalicPanel;
     }
 }

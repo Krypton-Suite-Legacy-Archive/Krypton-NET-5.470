@@ -39,23 +39,23 @@ namespace ExpandingHeaderGroupsSplitters
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonSplitContainerHorizontal = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
-            this.kryptonHeaderGroupLeft = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
-            this.buttonSpecLeftRight = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
-            this.textBoxLeft = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonSplitContainerVertical = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
-            this.kryptonHeaderGroupRightTop = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
-            this.textBoxRightTop = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonHeaderGroupRightBottom = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
-            this.buttonSpecUpDown = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
-            this.textBoxRightBottom = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.kryptonPanel1 = new  Krypton.Toolkit.KryptonPanel();
+            this.kryptonSplitContainerHorizontal = new  Krypton.Toolkit.KryptonSplitContainer();
+            this.kryptonHeaderGroupLeft = new  Krypton.Toolkit.KryptonHeaderGroup();
+            this.buttonSpecLeftRight = new  Krypton.Toolkit.ButtonSpecHeaderGroup();
+            this.textBoxLeft = new  Krypton.Toolkit.KryptonTextBox();
+            this.kryptonSplitContainerVertical = new  Krypton.Toolkit.KryptonSplitContainer();
+            this.kryptonHeaderGroupRightTop = new  Krypton.Toolkit.KryptonHeaderGroup();
+            this.textBoxRightTop = new  Krypton.Toolkit.KryptonTextBox();
+            this.kryptonHeaderGroupRightBottom = new  Krypton.Toolkit.KryptonHeaderGroup();
+            this.buttonSpecUpDown = new  Krypton.Toolkit.ButtonSpecHeaderGroup();
+            this.textBoxRightBottom = new  Krypton.Toolkit.KryptonTextBox();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolOffice2010 = new System.Windows.Forms.ToolStripButton();
             this.toolOffice2007 = new System.Windows.Forms.ToolStripButton();
             this.toolSparkle = new System.Windows.Forms.ToolStripButton();
             this.toolSystem = new System.Windows.Forms.ToolStripButton();
-            this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonManager = new  Krypton.Toolkit.KryptonManager(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
@@ -206,7 +206,7 @@ namespace ExpandingHeaderGroupsSplitters
             // 
             // kryptonHeaderGroupLeft
             // 
-            this.kryptonHeaderGroupLeft.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup[] {
+            this.kryptonHeaderGroupLeft.ButtonSpecs.AddRange(new  Krypton.Toolkit.ButtonSpecHeaderGroup[] {
             this.buttonSpecLeftRight});
             this.kryptonHeaderGroupLeft.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonHeaderGroupLeft.HeaderVisibleSecondary = false;
@@ -225,7 +225,7 @@ namespace ExpandingHeaderGroupsSplitters
             // buttonSpecLeftRight
             // 
             this.buttonSpecLeftRight.ColorMap = System.Drawing.Color.Black;
-            this.buttonSpecLeftRight.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowLeft;
+            this.buttonSpecLeftRight.Type =  Krypton.Toolkit.PaletteButtonSpecStyle.ArrowLeft;
             this.buttonSpecLeftRight.UniqueName = "F83F8E4720614585F83F8E4720614585";
             // 
             // textBoxLeft
@@ -237,10 +237,10 @@ namespace ExpandingHeaderGroupsSplitters
             this.textBoxLeft.Name = "textBoxLeft";
             this.textBoxLeft.ReadOnly = true;
             this.textBoxLeft.Size = new System.Drawing.Size(155, 258);
-            this.textBoxLeft.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.textBoxLeft.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.textBoxLeft.StateCommon.Border.Draw =  Krypton.Toolkit.InheritBool.False;
+            this.textBoxLeft.StateCommon.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Left)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.textBoxLeft.TabIndex = 0;
             this.textBoxLeft.Text = resources.GetString("textBoxLeft.Text");
             // 
@@ -290,10 +290,10 @@ namespace ExpandingHeaderGroupsSplitters
             this.textBoxRightTop.Name = "textBoxRightTop";
             this.textBoxRightTop.ReadOnly = true;
             this.textBoxRightTop.Size = new System.Drawing.Size(266, 92);
-            this.textBoxRightTop.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.textBoxRightTop.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.textBoxRightTop.StateCommon.Border.Draw =  Krypton.Toolkit.InheritBool.False;
+            this.textBoxRightTop.StateCommon.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Left)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.textBoxRightTop.TabIndex = 0;
             this.textBoxRightTop.Text = "Use the arrow buttons on the headers to toggle the expanded/collapsed state.\r\n\r\nA" +
                 " step by step tutorial on building this kind of expanding/collapsing layout can " +
@@ -301,7 +301,7 @@ namespace ExpandingHeaderGroupsSplitters
             // 
             // kryptonHeaderGroupRightBottom
             // 
-            this.kryptonHeaderGroupRightBottom.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup[] {
+            this.kryptonHeaderGroupRightBottom.ButtonSpecs.AddRange(new  Krypton.Toolkit.ButtonSpecHeaderGroup[] {
             this.buttonSpecUpDown});
             this.kryptonHeaderGroupRightBottom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonHeaderGroupRightBottom.HeaderVisibleSecondary = false;
@@ -320,7 +320,7 @@ namespace ExpandingHeaderGroupsSplitters
             // buttonSpecUpDown
             // 
             this.buttonSpecUpDown.ColorMap = System.Drawing.Color.Black;
-            this.buttonSpecUpDown.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowDown;
+            this.buttonSpecUpDown.Type =  Krypton.Toolkit.PaletteButtonSpecStyle.ArrowDown;
             this.buttonSpecUpDown.UniqueName = "0A33A54B77ED443B0A33A54B77ED443B";
             // 
             // textBoxRightBottom
@@ -332,10 +332,10 @@ namespace ExpandingHeaderGroupsSplitters
             this.textBoxRightBottom.Name = "textBoxRightBottom";
             this.textBoxRightBottom.ReadOnly = true;
             this.textBoxRightBottom.Size = new System.Drawing.Size(266, 120);
-            this.textBoxRightBottom.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.textBoxRightBottom.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.textBoxRightBottom.StateCommon.Border.Draw =  Krypton.Toolkit.InheritBool.False;
+            this.textBoxRightBottom.StateCommon.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Left)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.textBoxRightBottom.TabIndex = 0;
             this.textBoxRightBottom.Text = resources.GetString("textBoxRightBottom.Text");
             // 
@@ -465,21 +465,21 @@ namespace ExpandingHeaderGroupsSplitters
 
         #endregion
 
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxRightTop;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxLeft;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxRightBottom;
+        private  Krypton.Toolkit.KryptonTextBox textBoxRightTop;
+        private  Krypton.Toolkit.KryptonTextBox textBoxLeft;
+        private  Krypton.Toolkit.KryptonTextBox textBoxRightBottom;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager;
-        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer kryptonSplitContainerHorizontal;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderGroupLeft;
-        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer kryptonSplitContainerVertical;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderGroupRightTop;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderGroupRightBottom;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup buttonSpecUpDown;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup buttonSpecLeftRight;
+        private  Krypton.Toolkit.KryptonPanel kryptonPanel1;
+        private  Krypton.Toolkit.KryptonManager kryptonManager;
+        private  Krypton.Toolkit.KryptonSplitContainer kryptonSplitContainerHorizontal;
+        private  Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderGroupLeft;
+        private  Krypton.Toolkit.KryptonSplitContainer kryptonSplitContainerVertical;
+        private  Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderGroupRightTop;
+        private  Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderGroupRightBottom;
+        private  Krypton.Toolkit.ButtonSpecHeaderGroup buttonSpecUpDown;
+        private  Krypton.Toolkit.ButtonSpecHeaderGroup buttonSpecLeftRight;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuSystem;

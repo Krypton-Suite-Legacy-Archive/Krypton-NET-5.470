@@ -36,38 +36,38 @@
             this.buttonSparkleBlue = new System.Windows.Forms.Button();
             this.buttonOffice2010Blue = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dud7 = new ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown();
-            this.dud12 = new ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown();
-            this.buttonSpecAny4 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny5 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.kryptonContextMenu1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
-            this.kryptonContextMenuHeading1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
-            this.kryptonContextMenuItems3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
-            this.kryptonContextMenuItem6 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuItem7 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuItem8 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuItem9 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuItem10 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuItem11 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.dud8 = new ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown();
-            this.dud11 = new ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown();
-            this.buttonSpecAny6 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.dud9 = new ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown();
-            this.dud10 = new ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown();
+            this.dud7 = new  Krypton.Toolkit.KryptonDomainUpDown();
+            this.dud12 = new  Krypton.Toolkit.KryptonDomainUpDown();
+            this.buttonSpecAny4 = new  Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny5 = new  Krypton.Toolkit.ButtonSpecAny();
+            this.kryptonContextMenu1 = new  Krypton.Toolkit.KryptonContextMenu();
+            this.kryptonContextMenuHeading1 = new  Krypton.Toolkit.KryptonContextMenuHeading();
+            this.kryptonContextMenuItems3 = new  Krypton.Toolkit.KryptonContextMenuItems();
+            this.kryptonContextMenuItem6 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItem7 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItem8 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItem9 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItem10 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItem11 = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.dud8 = new  Krypton.Toolkit.KryptonDomainUpDown();
+            this.dud11 = new  Krypton.Toolkit.KryptonDomainUpDown();
+            this.buttonSpecAny6 = new  Krypton.Toolkit.ButtonSpecAny();
+            this.dud9 = new  Krypton.Toolkit.KryptonDomainUpDown();
+            this.dud10 = new  Krypton.Toolkit.KryptonDomainUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dud1 = new ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown();
-            this.dud6 = new ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown();
-            this.buttonSpecAny2 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny3 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.dud2 = new ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown();
-            this.dud5 = new ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown();
-            this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.dud3 = new ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown();
-            this.dud4 = new ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown();
+            this.dud1 = new  Krypton.Toolkit.KryptonDomainUpDown();
+            this.dud6 = new  Krypton.Toolkit.KryptonDomainUpDown();
+            this.buttonSpecAny2 = new  Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny3 = new  Krypton.Toolkit.ButtonSpecAny();
+            this.dud2 = new  Krypton.Toolkit.KryptonDomainUpDown();
+            this.dud5 = new  Krypton.Toolkit.KryptonDomainUpDown();
+            this.buttonSpecAny1 = new  Krypton.Toolkit.ButtonSpecAny();
+            this.dud3 = new  Krypton.Toolkit.KryptonDomainUpDown();
+            this.dud4 = new  Krypton.Toolkit.KryptonDomainUpDown();
             this.buttonClose = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.propertyGrid = new System.Windows.Forms.PropertyGrid();
-            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonManager1 = new  Krypton.Toolkit.KryptonManager(this.components);
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -145,7 +145,7 @@
             // dud7
             // 
             this.dud7.AlwaysActive = false;
-            this.dud7.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
+            this.dud7.InputControlStyle =  Krypton.Toolkit.InputControlStyle.Ribbon;
             this.dud7.Items.Add("first");
             this.dud7.Items.Add("second");
             this.dud7.Items.Add("third");
@@ -162,10 +162,10 @@
             // dud12
             // 
             this.dud12.AlwaysActive = false;
-            this.dud12.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.dud12.ButtonSpecs.AddRange(new  Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny4,
             this.buttonSpecAny5});
-            this.dud12.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
+            this.dud12.InputControlStyle =  Krypton.Toolkit.InputControlStyle.Ribbon;
             this.dud12.Items.Add("first");
             this.dud12.Items.Add("second");
             this.dud12.Items.Add("third");
@@ -183,21 +183,21 @@
             // 
             // buttonSpecAny4
             // 
-            this.buttonSpecAny4.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Standalone;
-            this.buttonSpecAny4.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
+            this.buttonSpecAny4.Style =  Krypton.Toolkit.PaletteButtonStyle.Standalone;
+            this.buttonSpecAny4.Type =  Krypton.Toolkit.PaletteButtonSpecStyle.Close;
             this.buttonSpecAny4.UniqueName = "65211BA9781346D365211BA9781346D3";
             this.buttonSpecAny4.Click += new System.EventHandler(this.buttonSpecAny4_Click);
             // 
             // buttonSpecAny5
             // 
             this.buttonSpecAny5.KryptonContextMenu = this.kryptonContextMenu1;
-            this.buttonSpecAny5.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Standalone;
-            this.buttonSpecAny5.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.DropDown;
+            this.buttonSpecAny5.Style =  Krypton.Toolkit.PaletteButtonStyle.Standalone;
+            this.buttonSpecAny5.Type =  Krypton.Toolkit.PaletteButtonSpecStyle.DropDown;
             this.buttonSpecAny5.UniqueName = "55BDC4B174064C5F55BDC4B174064C5F";
             // 
             // kryptonContextMenu1
             // 
-            this.kryptonContextMenu1.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenu1.Items.AddRange(new  Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kryptonContextMenuHeading1,
             this.kryptonContextMenuItems3});
             // 
@@ -208,7 +208,7 @@
             // 
             // kryptonContextMenuItems3
             // 
-            this.kryptonContextMenuItems3.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuItems3.Items.AddRange(new  Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kryptonContextMenuItem6,
             this.kryptonContextMenuItem7,
             this.kryptonContextMenuItem8,
@@ -249,7 +249,7 @@
             // dud8
             // 
             this.dud8.AlwaysActive = false;
-            this.dud8.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
+            this.dud8.InputControlStyle =  Krypton.Toolkit.InputControlStyle.Ribbon;
             this.dud8.Items.Add("first");
             this.dud8.Items.Add("second");
             this.dud8.Items.Add("third");
@@ -267,9 +267,9 @@
             // dud11
             // 
             this.dud11.AlwaysActive = false;
-            this.dud11.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.dud11.ButtonSpecs.AddRange(new  Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny6});
-            this.dud11.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
+            this.dud11.InputControlStyle =  Krypton.Toolkit.InputControlStyle.Ribbon;
             this.dud11.Items.Add("first");
             this.dud11.Items.Add("second");
             this.dud11.Items.Add("third");
@@ -287,15 +287,15 @@
             // 
             // buttonSpecAny6
             // 
-            this.buttonSpecAny6.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Standalone;
-            this.buttonSpecAny6.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
+            this.buttonSpecAny6.Style =  Krypton.Toolkit.PaletteButtonStyle.Standalone;
+            this.buttonSpecAny6.Type =  Krypton.Toolkit.PaletteButtonSpecStyle.Close;
             this.buttonSpecAny6.UniqueName = "65211BA9781346D365211BA9781346D3";
             this.buttonSpecAny6.Click += new System.EventHandler(this.buttonSpecAny6_Click);
             // 
             // dud9
             // 
             this.dud9.AlwaysActive = false;
-            this.dud9.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
+            this.dud9.InputControlStyle =  Krypton.Toolkit.InputControlStyle.Ribbon;
             this.dud9.Items.Add("first");
             this.dud9.Items.Add("second");
             this.dud9.Items.Add("third");
@@ -313,7 +313,7 @@
             // dud10
             // 
             this.dud10.AlwaysActive = false;
-            this.dud10.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
+            this.dud10.InputControlStyle =  Krypton.Toolkit.InputControlStyle.Ribbon;
             this.dud10.Items.Add("first");
             this.dud10.Items.Add("second");
             this.dud10.Items.Add("third");
@@ -360,7 +360,7 @@
             // 
             // dud6
             // 
-            this.dud6.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.dud6.ButtonSpecs.AddRange(new  Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny2,
             this.buttonSpecAny3});
             this.dud6.Items.Add("first");
@@ -380,16 +380,16 @@
             // 
             // buttonSpecAny2
             // 
-            this.buttonSpecAny2.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Standalone;
-            this.buttonSpecAny2.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
+            this.buttonSpecAny2.Style =  Krypton.Toolkit.PaletteButtonStyle.Standalone;
+            this.buttonSpecAny2.Type =  Krypton.Toolkit.PaletteButtonSpecStyle.Close;
             this.buttonSpecAny2.UniqueName = "65211BA9781346D365211BA9781346D3";
             this.buttonSpecAny2.Click += new System.EventHandler(this.buttonSpecAny2_Click);
             // 
             // buttonSpecAny3
             // 
             this.buttonSpecAny3.KryptonContextMenu = this.kryptonContextMenu1;
-            this.buttonSpecAny3.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Standalone;
-            this.buttonSpecAny3.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.DropDown;
+            this.buttonSpecAny3.Style =  Krypton.Toolkit.PaletteButtonStyle.Standalone;
+            this.buttonSpecAny3.Type =  Krypton.Toolkit.PaletteButtonSpecStyle.DropDown;
             this.buttonSpecAny3.UniqueName = "55BDC4B174064C5F55BDC4B174064C5F";
             // 
             // dud2
@@ -410,7 +410,7 @@
             // 
             // dud5
             // 
-            this.dud5.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.dud5.ButtonSpecs.AddRange(new  Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny1});
             this.dud5.Items.Add("first");
             this.dud5.Items.Add("second");
@@ -429,8 +429,8 @@
             // 
             // buttonSpecAny1
             // 
-            this.buttonSpecAny1.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Standalone;
-            this.buttonSpecAny1.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
+            this.buttonSpecAny1.Style =  Krypton.Toolkit.PaletteButtonStyle.Standalone;
+            this.buttonSpecAny1.Type =  Krypton.Toolkit.PaletteButtonSpecStyle.Close;
             this.buttonSpecAny1.UniqueName = "65211BA9781346D365211BA9781346D3";
             this.buttonSpecAny1.Click += new System.EventHandler(this.buttonSpecAny1_Click);
             // 
@@ -536,34 +536,34 @@
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.PropertyGrid propertyGrid;
-        private ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown dud1;
-        private ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown dud6;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny2;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny3;
-        private ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown dud2;
-        private ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown dud5;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
-        private ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown dud3;
-        private ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown dud4;
-        private ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown dud7;
-        private ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown dud12;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny4;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny5;
-        private ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown dud8;
-        private ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown dud11;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny6;
-        private ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown dud9;
-        private ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown dud10;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager1;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu kryptonContextMenu1;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading kryptonContextMenuHeading1;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems3;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem6;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem7;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem8;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem9;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem10;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem11;
+        private  Krypton.Toolkit.KryptonDomainUpDown dud1;
+        private  Krypton.Toolkit.KryptonDomainUpDown dud6;
+        private  Krypton.Toolkit.ButtonSpecAny buttonSpecAny2;
+        private  Krypton.Toolkit.ButtonSpecAny buttonSpecAny3;
+        private  Krypton.Toolkit.KryptonDomainUpDown dud2;
+        private  Krypton.Toolkit.KryptonDomainUpDown dud5;
+        private  Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
+        private  Krypton.Toolkit.KryptonDomainUpDown dud3;
+        private  Krypton.Toolkit.KryptonDomainUpDown dud4;
+        private  Krypton.Toolkit.KryptonDomainUpDown dud7;
+        private  Krypton.Toolkit.KryptonDomainUpDown dud12;
+        private  Krypton.Toolkit.ButtonSpecAny buttonSpecAny4;
+        private  Krypton.Toolkit.ButtonSpecAny buttonSpecAny5;
+        private  Krypton.Toolkit.KryptonDomainUpDown dud8;
+        private  Krypton.Toolkit.KryptonDomainUpDown dud11;
+        private  Krypton.Toolkit.ButtonSpecAny buttonSpecAny6;
+        private  Krypton.Toolkit.KryptonDomainUpDown dud9;
+        private  Krypton.Toolkit.KryptonDomainUpDown dud10;
+        private  Krypton.Toolkit.KryptonManager kryptonManager1;
+        private  Krypton.Toolkit.KryptonContextMenu kryptonContextMenu1;
+        private  Krypton.Toolkit.KryptonContextMenuHeading kryptonContextMenuHeading1;
+        private  Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems3;
+        private  Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem6;
+        private  Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem7;
+        private  Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem8;
+        private  Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem9;
+        private  Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem10;
+        private  Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem11;
     }
 }
 

@@ -29,9 +29,9 @@ namespace MDIRibbon
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
-            this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.labelMessage = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.buttonOK = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonPanel1 = new  Krypton.Toolkit.KryptonPanel();
+            this.labelMessage = new  Krypton.Toolkit.KryptonLabel();
+            this.buttonOK = new  Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -48,7 +48,7 @@ namespace MDIRibbon
             // 
             // labelMessage
             // 
-            this.labelMessage.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.labelMessage.LabelStyle =  Krypton.Toolkit.LabelStyle.NormalPanel;
             this.labelMessage.Location = new System.Drawing.Point(15, 13);
             this.labelMessage.Name = "labelMessage";
             this.labelMessage.Size = new System.Drawing.Size(236, 20);
@@ -90,8 +90,8 @@ namespace MDIRibbon
 
         #endregion
 
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelMessage;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton buttonOK;
+        private  Krypton.Toolkit.KryptonPanel kryptonPanel1;
+        private  Krypton.Toolkit.KryptonLabel labelMessage;
+        private  Krypton.Toolkit.KryptonButton buttonOK;
     }
 }

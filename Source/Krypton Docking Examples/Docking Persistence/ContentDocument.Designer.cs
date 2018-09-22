@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.richTextBox = new ComponentFactory.Krypton.Toolkit.KryptonRichTextBox();
-            this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.richTextBox = new  Krypton.Toolkit.KryptonRichTextBox();
+            this.kryptonPanel = new  Krypton.Toolkit.KryptonPanel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             this.SuspendLayout();
@@ -40,10 +40,10 @@
             this.richTextBox.Location = new System.Drawing.Point(5, 5);
             this.richTextBox.Name = "richTextBox";
             this.richTextBox.Size = new System.Drawing.Size(229, 161);
-            this.richTextBox.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.richTextBox.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.richTextBox.StateCommon.Border.Draw =  Krypton.Toolkit.InheritBool.False;
+            this.richTextBox.StateCommon.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Left)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.richTextBox.TabIndex = 0;
             this.richTextBox.Text = "1) Use one of the save options to store the starting layout.\n\n2) Alter the layout" +
                 " with drag and drop operations.\n\n3) Restore the original layout with the matchin" +
@@ -56,7 +56,7 @@
             this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel.Name = "kryptonPanel";
             this.kryptonPanel.Padding = new System.Windows.Forms.Padding(5);
-            this.kryptonPanel.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
+            this.kryptonPanel.PanelBackStyle =  Krypton.Toolkit.PaletteBackStyle.ControlClient;
             this.kryptonPanel.Size = new System.Drawing.Size(239, 171);
             this.kryptonPanel.TabIndex = 1;
             // 
@@ -75,7 +75,7 @@
 
         #endregion
 
-        private ComponentFactory.Krypton.Toolkit.KryptonRichTextBox richTextBox;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel;
+        private  Krypton.Toolkit.KryptonRichTextBox richTextBox;
+        private  Krypton.Toolkit.KryptonPanel kryptonPanel;
     }
 }

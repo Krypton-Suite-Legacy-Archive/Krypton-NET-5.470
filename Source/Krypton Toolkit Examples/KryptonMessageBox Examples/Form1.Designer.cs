@@ -48,7 +48,7 @@
             this.radioButtonYesNo = new System.Windows.Forms.RadioButton();
             this.radioButtonRetryCancel = new System.Windows.Forms.RadioButton();
             this.buttonShow = new System.Windows.Forms.Button();
-            this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonManager = new  Krypton.Toolkit.KryptonManager(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.radioButtonSystem = new System.Windows.Forms.RadioButton();
             this.radioButtonOffice2003 = new System.Windows.Forms.RadioButton();
@@ -480,7 +480,7 @@
         private System.Windows.Forms.RadioButton radioButtonYesNo;
         private System.Windows.Forms.RadioButton radioButtonRetryCancel;
         private System.Windows.Forms.Button buttonShow;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager;
+        private  Krypton.Toolkit.KryptonManager kryptonManager;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RadioButton radioButtonSystem;
         private System.Windows.Forms.RadioButton radioButtonOffice2003;

@@ -42,17 +42,17 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.propertyGrid = new System.Windows.Forms.PropertyGrid();
             this.buttonClose = new System.Windows.Forms.Button();
-            this.kryptonPalette = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
+            this.kryptonPalette = new  Krypton.Toolkit.KryptonPalette(this.components);
             this.groupBoxRibbon = new System.Windows.Forms.GroupBox();
-            this.dtpRibbonTime = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.buttonSpecAny2 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.dtpRibbonShort = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.dtpRibbonLong = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.dtpRibbonTime = new  Krypton.Toolkit.KryptonDateTimePicker();
+            this.buttonSpecAny2 = new  Krypton.Toolkit.ButtonSpecAny();
+            this.dtpRibbonShort = new  Krypton.Toolkit.KryptonDateTimePicker();
+            this.dtpRibbonLong = new  Krypton.Toolkit.KryptonDateTimePicker();
             this.groupBoxNormal = new System.Windows.Forms.GroupBox();
-            this.dtpNormalTime = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.dtpNormalShort = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.dtpNormalLong = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.dtpNormalTime = new  Krypton.Toolkit.KryptonDateTimePicker();
+            this.buttonSpecAny1 = new  Krypton.Toolkit.ButtonSpecAny();
+            this.dtpNormalShort = new  Krypton.Toolkit.KryptonDateTimePicker();
+            this.dtpNormalLong = new  Krypton.Toolkit.KryptonDateTimePicker();
             this.rbOffice2010Black = new System.Windows.Forms.RadioButton();
             this.rbOffice2010Silver = new System.Windows.Forms.RadioButton();
             this.rbOffice2010Blue = new System.Windows.Forms.RadioButton();
@@ -221,14 +221,14 @@
             // dtpRibbonTime
             // 
             this.dtpRibbonTime.AlwaysActive = false;
-            this.dtpRibbonTime.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.dtpRibbonTime.ButtonSpecs.AddRange(new  Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny2});
             this.dtpRibbonTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpRibbonTime.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
+            this.dtpRibbonTime.InputControlStyle =  Krypton.Toolkit.InputControlStyle.Ribbon;
             this.dtpRibbonTime.Location = new System.Drawing.Point(24, 92);
             this.dtpRibbonTime.Name = "dtpRibbonTime";
             this.dtpRibbonTime.Palette = this.kryptonPalette;
-            this.dtpRibbonTime.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+            this.dtpRibbonTime.PaletteMode =  Krypton.Toolkit.PaletteMode.Custom;
             this.dtpRibbonTime.ShowUpDown = true;
             this.dtpRibbonTime.Size = new System.Drawing.Size(204, 23);
             this.dtpRibbonTime.TabIndex = 2;
@@ -236,8 +236,8 @@
             // 
             // buttonSpecAny2
             // 
-            this.buttonSpecAny2.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Standalone;
-            this.buttonSpecAny2.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
+            this.buttonSpecAny2.Style =  Krypton.Toolkit.PaletteButtonStyle.Standalone;
+            this.buttonSpecAny2.Type =  Krypton.Toolkit.PaletteButtonSpecStyle.Close;
             this.buttonSpecAny2.UniqueName = "711F5E5D57D243B7711F5E5D57D243B7";
             this.buttonSpecAny2.Click += new System.EventHandler(this.buttonSpecAny2_Click);
             // 
@@ -245,11 +245,11 @@
             // 
             this.dtpRibbonShort.AlwaysActive = false;
             this.dtpRibbonShort.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpRibbonShort.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
+            this.dtpRibbonShort.InputControlStyle =  Krypton.Toolkit.InputControlStyle.Ribbon;
             this.dtpRibbonShort.Location = new System.Drawing.Point(24, 63);
             this.dtpRibbonShort.Name = "dtpRibbonShort";
             this.dtpRibbonShort.Palette = this.kryptonPalette;
-            this.dtpRibbonShort.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+            this.dtpRibbonShort.PaletteMode =  Krypton.Toolkit.PaletteMode.Custom;
             this.dtpRibbonShort.Size = new System.Drawing.Size(204, 21);
             this.dtpRibbonShort.TabIndex = 1;
             this.dtpRibbonShort.Enter += new System.EventHandler(this.dtp_Enter);
@@ -258,11 +258,11 @@
             // 
             this.dtpRibbonLong.AlwaysActive = false;
             this.dtpRibbonLong.CustomNullText = "<Custom Text When Null>";
-            this.dtpRibbonLong.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
+            this.dtpRibbonLong.InputControlStyle =  Krypton.Toolkit.InputControlStyle.Ribbon;
             this.dtpRibbonLong.Location = new System.Drawing.Point(24, 34);
             this.dtpRibbonLong.Name = "dtpRibbonLong";
             this.dtpRibbonLong.Palette = this.kryptonPalette;
-            this.dtpRibbonLong.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+            this.dtpRibbonLong.PaletteMode =  Krypton.Toolkit.PaletteMode.Custom;
             this.dtpRibbonLong.ShowCheckBox = true;
             this.dtpRibbonLong.Size = new System.Drawing.Size(204, 21);
             this.dtpRibbonLong.TabIndex = 0;
@@ -282,13 +282,13 @@
             // 
             // dtpNormalTime
             // 
-            this.dtpNormalTime.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.dtpNormalTime.ButtonSpecs.AddRange(new  Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny1});
             this.dtpNormalTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpNormalTime.Location = new System.Drawing.Point(24, 93);
             this.dtpNormalTime.Name = "dtpNormalTime";
             this.dtpNormalTime.Palette = this.kryptonPalette;
-            this.dtpNormalTime.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+            this.dtpNormalTime.PaletteMode =  Krypton.Toolkit.PaletteMode.Custom;
             this.dtpNormalTime.ShowUpDown = true;
             this.dtpNormalTime.Size = new System.Drawing.Size(204, 23);
             this.dtpNormalTime.TabIndex = 2;
@@ -296,8 +296,8 @@
             // 
             // buttonSpecAny1
             // 
-            this.buttonSpecAny1.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Standalone;
-            this.buttonSpecAny1.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
+            this.buttonSpecAny1.Style =  Krypton.Toolkit.PaletteButtonStyle.Standalone;
+            this.buttonSpecAny1.Type =  Krypton.Toolkit.PaletteButtonSpecStyle.Close;
             this.buttonSpecAny1.UniqueName = "529C8C7BCFA94ED8529C8C7BCFA94ED8";
             this.buttonSpecAny1.Click += new System.EventHandler(this.buttonSpecAny1_Click);
             // 
@@ -307,7 +307,7 @@
             this.dtpNormalShort.Location = new System.Drawing.Point(24, 64);
             this.dtpNormalShort.Name = "dtpNormalShort";
             this.dtpNormalShort.Palette = this.kryptonPalette;
-            this.dtpNormalShort.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+            this.dtpNormalShort.PaletteMode =  Krypton.Toolkit.PaletteMode.Custom;
             this.dtpNormalShort.Size = new System.Drawing.Size(204, 21);
             this.dtpNormalShort.TabIndex = 1;
             this.dtpNormalShort.Enter += new System.EventHandler(this.dtp_Enter);
@@ -318,7 +318,7 @@
             this.dtpNormalLong.Location = new System.Drawing.Point(24, 35);
             this.dtpNormalLong.Name = "dtpNormalLong";
             this.dtpNormalLong.Palette = this.kryptonPalette;
-            this.dtpNormalLong.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+            this.dtpNormalLong.PaletteMode =  Krypton.Toolkit.PaletteMode.Custom;
             this.dtpNormalLong.ShowCheckBox = true;
             this.dtpNormalLong.Size = new System.Drawing.Size(204, 21);
             this.dtpNormalLong.TabIndex = 0;
@@ -399,17 +399,17 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.PropertyGrid propertyGrid;
         private System.Windows.Forms.Button buttonClose;
-        private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette;
+        private  Krypton.Toolkit.KryptonPalette kryptonPalette;
         private System.Windows.Forms.GroupBox groupBoxRibbon;
         private System.Windows.Forms.GroupBox groupBoxNormal;
-        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtpRibbonTime;
-        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtpRibbonShort;
-        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtpRibbonLong;
-        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtpNormalTime;
-        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtpNormalShort;
-        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtpNormalLong;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny2;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
+        private  Krypton.Toolkit.KryptonDateTimePicker dtpRibbonTime;
+        private  Krypton.Toolkit.KryptonDateTimePicker dtpRibbonShort;
+        private  Krypton.Toolkit.KryptonDateTimePicker dtpRibbonLong;
+        private  Krypton.Toolkit.KryptonDateTimePicker dtpNormalTime;
+        private  Krypton.Toolkit.KryptonDateTimePicker dtpNormalShort;
+        private  Krypton.Toolkit.KryptonDateTimePicker dtpNormalLong;
+        private  Krypton.Toolkit.ButtonSpecAny buttonSpecAny2;
+        private  Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
         private System.Windows.Forms.RadioButton rbOffice2010Black;
         private System.Windows.Forms.RadioButton rbOffice2010Silver;
         private System.Windows.Forms.RadioButton rbOffice2010Blue;

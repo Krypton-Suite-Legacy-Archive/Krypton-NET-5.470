@@ -5,7 +5,7 @@
 //  proprietary information of Component Factory Pty Ltd, PO Box 1504, 
 //  Glen Waverley, Vic 3150, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.70.0.0 	www.ComponentFactory.com
+//  Version 4.70.0.0 	www. com
 // *****************************************************************************
 
 using System;
@@ -33,5 +33,5 @@ using System.Runtime.InteropServices;
 [assembly: Dependency("System", LoadHint.Always)]
 [assembly: Dependency("System.Drawing", LoadHint.Always)]
 [assembly: Dependency("System.Windows.Forms", LoadHint.Always)]
-[assembly: Dependency("ComponentFactory.Krypton.Toolkit", LoadHint.Always)]
+[assembly: Dependency(" Krypton.Toolkit", LoadHint.Always)]
 

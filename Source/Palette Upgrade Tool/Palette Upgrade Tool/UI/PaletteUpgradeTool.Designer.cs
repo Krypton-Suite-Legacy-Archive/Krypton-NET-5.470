@@ -30,21 +30,21 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaletteUpgradeTool));
-            this.kpnlBackground = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.klblStatus = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kbtnClose = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kbtnExport = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kbtnUpgrade = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.krtbOutput = new ComponentFactory.Krypton.Toolkit.KryptonRichTextBox();
-            this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kbtnBrowse = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.krtbInput = new ComponentFactory.Krypton.Toolkit.KryptonRichTextBox();
-            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kpnlBackground = new Krypton.Toolkit.KryptonPanel();
+            this.klblStatus = new Krypton.Toolkit.KryptonLabel();
+            this.kbtnClose = new Krypton.Toolkit.KryptonButton();
+            this.kbtnExport = new Krypton.Toolkit.KryptonButton();
+            this.kbtnUpgrade = new Krypton.Toolkit.KryptonButton();
+            this.krtbOutput = new Krypton.Toolkit.KryptonRichTextBox();
+            this.kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
+            this.kbtnBrowse = new Krypton.Toolkit.KryptonButton();
+            this.krtbInput = new Krypton.Toolkit.KryptonRichTextBox();
+            this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             this.tmrDetectModification = new System.Windows.Forms.Timer(this.components);
-            this.kpnlTop = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kpnlTop = new Krypton.Toolkit.KryptonPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.kMan = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kMan = new Krypton.Toolkit.KryptonManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kpnlBackground)).BeginInit();
             this.kpnlBackground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kpnlTop)).BeginInit();
@@ -180,7 +180,7 @@
             this.kpnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.kpnlTop.Location = new System.Drawing.Point(0, 0);
             this.kpnlTop.Name = "kpnlTop";
-            this.kpnlTop.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlCustom1;
+            this.kpnlTop.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.ControlCustom1;
             this.kpnlTop.Size = new System.Drawing.Size(800, 113);
             this.kpnlTop.TabIndex = 1;
             // 
@@ -225,20 +225,20 @@
 
         #endregion
 
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kpnlBackground;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnExport;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnUpgrade;
-        private ComponentFactory.Krypton.Toolkit.KryptonRichTextBox krtbOutput;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel3;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnBrowse;
-        private ComponentFactory.Krypton.Toolkit.KryptonRichTextBox krtbInput;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnClose;
+        private Krypton.Toolkit.KryptonPanel kpnlBackground;
+        private Krypton.Toolkit.KryptonButton kbtnExport;
+        private Krypton.Toolkit.KryptonButton kbtnUpgrade;
+        private Krypton.Toolkit.KryptonRichTextBox krtbOutput;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel3;
+        private Krypton.Toolkit.KryptonButton kbtnBrowse;
+        private Krypton.Toolkit.KryptonRichTextBox krtbInput;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel2;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private Krypton.Toolkit.KryptonButton kbtnClose;
         private System.Windows.Forms.Timer tmrDetectModification;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblStatus;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kpnlTop;
+        private Krypton.Toolkit.KryptonLabel klblStatus;
+        private Krypton.Toolkit.KryptonPanel kpnlTop;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kMan;
+        private Krypton.Toolkit.KryptonManager kMan;
     }
 }

@@ -33,20 +33,20 @@ namespace KryptonGroupExamples
             this.propertyGrid = new System.Windows.Forms.PropertyGrid();
             this.buttonClose = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.group4Office = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.group3Office = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.group2Office = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.group1Office = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
+            this.group4Office = new  Krypton.Toolkit.KryptonGroup();
+            this.group3Office = new  Krypton.Toolkit.KryptonGroup();
+            this.group2Office = new  Krypton.Toolkit.KryptonGroup();
+            this.group1Office = new  Krypton.Toolkit.KryptonGroup();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.group3System = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.group4System = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.group2System = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.group1System = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
+            this.group3System = new  Krypton.Toolkit.KryptonGroup();
+            this.group4System = new  Krypton.Toolkit.KryptonGroup();
+            this.group2System = new  Krypton.Toolkit.KryptonGroup();
+            this.group1System = new  Krypton.Toolkit.KryptonGroup();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.group4Custom = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.group3Custom = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.group2Custom = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.group1Custom = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
+            this.group4Custom = new  Krypton.Toolkit.KryptonGroup();
+            this.group3Custom = new  Krypton.Toolkit.KryptonGroup();
+            this.group2Custom = new  Krypton.Toolkit.KryptonGroup();
+            this.group1Custom = new  Krypton.Toolkit.KryptonGroup();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.group4Office)).BeginInit();
@@ -137,7 +137,7 @@ namespace KryptonGroupExamples
             // 
             this.group4Office.Location = new System.Drawing.Point(138, 84);
             this.group4Office.Name = "group4Office";
-            this.group4Office.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.group4Office.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2007Blue;
             // 
             // group4Office.Panel
             // 
@@ -148,11 +148,11 @@ namespace KryptonGroupExamples
             // 
             // group3Office
             // 
-            this.group3Office.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderSecondary;
-            this.group3Office.GroupBorderStyle = ComponentFactory.Krypton.Toolkit.PaletteBorderStyle.HeaderSecondary;
+            this.group3Office.GroupBackStyle =  Krypton.Toolkit.PaletteBackStyle.HeaderSecondary;
+            this.group3Office.GroupBorderStyle =  Krypton.Toolkit.PaletteBorderStyle.HeaderSecondary;
             this.group3Office.Location = new System.Drawing.Point(20, 84);
             this.group3Office.Name = "group3Office";
-            this.group3Office.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.group3Office.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2007Blue;
             // 
             // group3Office.Panel
             // 
@@ -163,11 +163,11 @@ namespace KryptonGroupExamples
             // 
             // group2Office
             // 
-            this.group2Office.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
-            this.group2Office.GroupBorderStyle = ComponentFactory.Krypton.Toolkit.PaletteBorderStyle.HeaderPrimary;
+            this.group2Office.GroupBackStyle =  Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
+            this.group2Office.GroupBorderStyle =  Krypton.Toolkit.PaletteBorderStyle.HeaderPrimary;
             this.group2Office.Location = new System.Drawing.Point(138, 29);
             this.group2Office.Name = "group2Office";
-            this.group2Office.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.group2Office.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2007Blue;
             // 
             // group2Office.Panel
             // 
@@ -178,10 +178,10 @@ namespace KryptonGroupExamples
             // 
             // group1Office
             // 
-            this.group1Office.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelClient;
+            this.group1Office.GroupBackStyle =  Krypton.Toolkit.PaletteBackStyle.PanelClient;
             this.group1Office.Location = new System.Drawing.Point(20, 29);
             this.group1Office.Name = "group1Office";
-            this.group1Office.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.group1Office.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2007Blue;
             // 
             // group1Office.Panel
             // 
@@ -205,11 +205,11 @@ namespace KryptonGroupExamples
             // 
             // group3System
             // 
-            this.group3System.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderSecondary;
-            this.group3System.GroupBorderStyle = ComponentFactory.Krypton.Toolkit.PaletteBorderStyle.HeaderSecondary;
+            this.group3System.GroupBackStyle =  Krypton.Toolkit.PaletteBackStyle.HeaderSecondary;
+            this.group3System.GroupBorderStyle =  Krypton.Toolkit.PaletteBorderStyle.HeaderSecondary;
             this.group3System.Location = new System.Drawing.Point(20, 84);
             this.group3System.Name = "group3System";
-            this.group3System.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.group3System.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // group3System.Panel
             // 
@@ -222,7 +222,7 @@ namespace KryptonGroupExamples
             // 
             this.group4System.Location = new System.Drawing.Point(138, 84);
             this.group4System.Name = "group4System";
-            this.group4System.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.group4System.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // group4System.Panel
             // 
@@ -233,11 +233,11 @@ namespace KryptonGroupExamples
             // 
             // group2System
             // 
-            this.group2System.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
-            this.group2System.GroupBorderStyle = ComponentFactory.Krypton.Toolkit.PaletteBorderStyle.HeaderPrimary;
+            this.group2System.GroupBackStyle =  Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
+            this.group2System.GroupBorderStyle =  Krypton.Toolkit.PaletteBorderStyle.HeaderPrimary;
             this.group2System.Location = new System.Drawing.Point(138, 29);
             this.group2System.Name = "group2System";
-            this.group2System.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.group2System.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // group2System.Panel
             // 
@@ -248,10 +248,10 @@ namespace KryptonGroupExamples
             // 
             // group1System
             // 
-            this.group1System.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelClient;
+            this.group1System.GroupBackStyle =  Krypton.Toolkit.PaletteBackStyle.PanelClient;
             this.group1System.Location = new System.Drawing.Point(20, 29);
             this.group1System.Name = "group1System";
-            this.group1System.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.group1System.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // group1System.Panel
             // 
@@ -275,10 +275,10 @@ namespace KryptonGroupExamples
             // 
             // group4Custom
             // 
-            this.group4Custom.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelClient;
+            this.group4Custom.GroupBackStyle =  Krypton.Toolkit.PaletteBackStyle.PanelClient;
             this.group4Custom.Location = new System.Drawing.Point(138, 138);
             this.group4Custom.Name = "group4Custom";
-            this.group4Custom.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.group4Custom.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // group4Custom.Panel
             // 
@@ -286,41 +286,41 @@ namespace KryptonGroupExamples
             this.group4Custom.Size = new System.Drawing.Size(100, 89);
             this.group4Custom.StateNormal.Back.Color1 = System.Drawing.SystemColors.Info;
             this.group4Custom.StateNormal.Back.Color2 = System.Drawing.SystemColors.Window;
-            this.group4Custom.StateNormal.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Linear;
+            this.group4Custom.StateNormal.Back.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Linear;
             this.group4Custom.StateNormal.Back.Image = ((System.Drawing.Image)(resources.GetObject("group4Custom.StateNormal.Back.Image")));
-            this.group4Custom.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
+            this.group4Custom.StateNormal.Back.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
             this.group4Custom.StateNormal.Border.Color1 = System.Drawing.SystemColors.Info;
-            this.group4Custom.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.group4Custom.StateNormal.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.group4Custom.StateNormal.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Left)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.group4Custom.StateNormal.Border.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.group4Custom.StateNormal.Border.Width = 1;
             this.group4Custom.TabIndex = 3;
             this.group4Custom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.group_MouseDown);
             // 
             // group3Custom
             // 
-            this.group3Custom.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelClient;
+            this.group3Custom.GroupBackStyle =  Krypton.Toolkit.PaletteBackStyle.PanelClient;
             this.group3Custom.Location = new System.Drawing.Point(20, 138);
             this.group3Custom.Name = "group3Custom";
-            this.group3Custom.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.group3Custom.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // group3Custom.Panel
             // 
             this.group3Custom.Panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             this.group3Custom.Size = new System.Drawing.Size(100, 89);
             this.group3Custom.StateNormal.Back.Image = global::KryptonGroupExamples.Properties.Resources.sidebar_icon;
-            this.group3Custom.StateNormal.Back.ImageAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Control;
-            this.group3Custom.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.group3Custom.StateNormal.Back.ImageAlign =  Krypton.Toolkit.PaletteRectangleAlign.Control;
+            this.group3Custom.StateNormal.Back.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.group3Custom.StateNormal.Border.Color1 = System.Drawing.Color.Honeydew;
             this.group3Custom.StateNormal.Border.Color2 = System.Drawing.Color.Lime;
-            this.group3Custom.StateNormal.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Linear;
-            this.group3Custom.StateNormal.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
-            this.group3Custom.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.group3Custom.StateNormal.Border.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Linear;
+            this.group3Custom.StateNormal.Border.Draw =  Krypton.Toolkit.InheritBool.True;
+            this.group3Custom.StateNormal.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Left)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.group3Custom.StateNormal.Border.Image = global::KryptonGroupExamples.Properties.Resources.sidebar_icon;
-            this.group3Custom.StateNormal.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.group3Custom.StateNormal.Border.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.group3Custom.StateNormal.Border.Rounding = 20;
             this.group3Custom.StateNormal.Border.Width = 6;
             this.group3Custom.TabIndex = 1;
@@ -328,10 +328,10 @@ namespace KryptonGroupExamples
             // 
             // group2Custom
             // 
-            this.group2Custom.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelClient;
+            this.group2Custom.GroupBackStyle =  Krypton.Toolkit.PaletteBackStyle.PanelClient;
             this.group2Custom.Location = new System.Drawing.Point(138, 32);
             this.group2Custom.Name = "group2Custom";
-            this.group2Custom.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.group2Custom.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // group2Custom.Panel
             // 
@@ -340,18 +340,18 @@ namespace KryptonGroupExamples
             this.group2Custom.StateNormal.Back.Color1 = System.Drawing.Color.PaleTurquoise;
             this.group2Custom.StateNormal.Back.Color2 = System.Drawing.Color.Teal;
             this.group2Custom.StateNormal.Back.ColorAngle = 60F;
-            this.group2Custom.StateNormal.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Linear;
-            this.group2Custom.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.group2Custom.StateNormal.Back.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Linear;
+            this.group2Custom.StateNormal.Back.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.group2Custom.StateNormal.Border.Color1 = System.Drawing.Color.Teal;
             this.group2Custom.StateNormal.Border.Color2 = System.Drawing.Color.PaleTurquoise;
             this.group2Custom.StateNormal.Border.ColorAngle = 60F;
-            this.group2Custom.StateNormal.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Sigma;
-            this.group2Custom.StateNormal.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
-            this.group2Custom.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.group2Custom.StateNormal.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.group2Custom.StateNormal.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.group2Custom.StateNormal.Border.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Sigma;
+            this.group2Custom.StateNormal.Border.Draw =  Krypton.Toolkit.InheritBool.True;
+            this.group2Custom.StateNormal.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Left)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.group2Custom.StateNormal.Border.GraphicsHint =  Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.group2Custom.StateNormal.Border.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.group2Custom.StateNormal.Border.Rounding = 20;
             this.group2Custom.StateNormal.Border.Width = 3;
             this.group2Custom.TabIndex = 2;
@@ -359,24 +359,24 @@ namespace KryptonGroupExamples
             // 
             // group1Custom
             // 
-            this.group1Custom.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelClient;
+            this.group1Custom.GroupBackStyle =  Krypton.Toolkit.PaletteBackStyle.PanelClient;
             this.group1Custom.Location = new System.Drawing.Point(20, 32);
             this.group1Custom.Name = "group1Custom";
-            this.group1Custom.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.group1Custom.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // group1Custom.Panel
             // 
             this.group1Custom.Panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             this.group1Custom.Size = new System.Drawing.Size(100, 88);
             this.group1Custom.StateNormal.Back.Color1 = System.Drawing.Color.LightCoral;
-            this.group1Custom.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.group1Custom.StateNormal.Back.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.group1Custom.StateNormal.Border.Color1 = System.Drawing.Color.Firebrick;
-            this.group1Custom.StateNormal.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
-            this.group1Custom.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.group1Custom.StateNormal.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.group1Custom.StateNormal.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.group1Custom.StateNormal.Border.Draw =  Krypton.Toolkit.InheritBool.True;
+            this.group1Custom.StateNormal.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Left)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.group1Custom.StateNormal.Border.GraphicsHint =  Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.group1Custom.StateNormal.Border.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.group1Custom.StateNormal.Border.Rounding = 0;
             this.group1Custom.StateNormal.Border.Width = 3;
             this.group1Custom.TabIndex = 0;
@@ -452,18 +452,18 @@ namespace KryptonGroupExamples
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.PropertyGrid propertyGrid;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup group1Office;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup group2Office;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup group3Office;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup group4Office;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup group4System;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup group2System;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup group1System;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup group3System;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup group1Custom;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup group4Custom;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup group3Custom;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup group2Custom;
+        private  Krypton.Toolkit.KryptonGroup group1Office;
+        private  Krypton.Toolkit.KryptonGroup group2Office;
+        private  Krypton.Toolkit.KryptonGroup group3Office;
+        private  Krypton.Toolkit.KryptonGroup group4Office;
+        private  Krypton.Toolkit.KryptonGroup group4System;
+        private  Krypton.Toolkit.KryptonGroup group2System;
+        private  Krypton.Toolkit.KryptonGroup group1System;
+        private  Krypton.Toolkit.KryptonGroup group3System;
+        private  Krypton.Toolkit.KryptonGroup group1Custom;
+        private  Krypton.Toolkit.KryptonGroup group4Custom;
+        private  Krypton.Toolkit.KryptonGroup group3Custom;
+        private  Krypton.Toolkit.KryptonGroup group2Custom;
 
     }
 }

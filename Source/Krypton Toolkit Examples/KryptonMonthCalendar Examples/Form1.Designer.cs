@@ -42,12 +42,12 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.propertyGrid = new System.Windows.Forms.PropertyGrid();
-            this.kryptonMonthCalendar1 = new ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar();
-            this.kryptonPalette = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
+            this.kryptonMonthCalendar1 = new  Krypton.Toolkit.KryptonMonthCalendar();
+            this.kryptonPalette = new  Krypton.Toolkit.KryptonPalette(this.components);
             this.rbOffice2010Black = new System.Windows.Forms.RadioButton();
             this.rbOffice2010Silver = new System.Windows.Forms.RadioButton();
             this.rbOffice2010Blue = new System.Windows.Forms.RadioButton();
-            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonManager1 = new  Krypton.Toolkit.KryptonManager(this.components);
             this.groupBoxPalette.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
@@ -203,13 +203,13 @@
             this.kryptonMonthCalendar1.Location = new System.Drawing.Point(15, 18);
             this.kryptonMonthCalendar1.Name = "kryptonMonthCalendar1";
             this.kryptonMonthCalendar1.Palette = this.kryptonPalette;
-            this.kryptonMonthCalendar1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+            this.kryptonMonthCalendar1.PaletteMode =  Krypton.Toolkit.PaletteMode.Custom;
             this.kryptonMonthCalendar1.Size = new System.Drawing.Size(428, 321);
             this.kryptonMonthCalendar1.TabIndex = 0;
             // 
             // kryptonPalette
             // 
-            this.kryptonPalette.BasePaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            this.kryptonPalette.BasePaletteMode =  Krypton.Toolkit.PaletteMode.Office2010Blue;
             // 
             // rbOffice2010Black
             // 
@@ -248,7 +248,7 @@
             // kryptonManager1
             // 
             this.kryptonManager1.GlobalPalette = this.kryptonPalette;
-            this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Custom;
+            this.kryptonManager1.GlobalPaletteMode =  Krypton.Toolkit.PaletteModeManager.Custom;
             // 
             // Form1
             // 
@@ -287,12 +287,12 @@
         private System.Windows.Forms.PropertyGrid propertyGrid;
         private System.Windows.Forms.RadioButton rbSparklePurple;
         private System.Windows.Forms.RadioButton rbSparkleOrange;
-        private ComponentFactory.Krypton.Toolkit.KryptonMonthCalendar kryptonMonthCalendar1;
-        private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette;
+        private  Krypton.Toolkit.KryptonMonthCalendar kryptonMonthCalendar1;
+        private  Krypton.Toolkit.KryptonPalette kryptonPalette;
         private System.Windows.Forms.RadioButton rbOffice2010Black;
         private System.Windows.Forms.RadioButton rbOffice2010Silver;
         private System.Windows.Forms.RadioButton rbOffice2010Blue;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager1;
+        private  Krypton.Toolkit.KryptonManager kryptonManager1;
     }
 }
 

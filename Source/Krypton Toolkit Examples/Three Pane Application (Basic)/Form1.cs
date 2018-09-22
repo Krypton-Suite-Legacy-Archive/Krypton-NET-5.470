@@ -5,11 +5,11 @@
 //  proprietary information of Component Factory Pty Ltd, PO Box 1504, 
 //  Glen Waverley, Vic 3150, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.70.0.0 	www.ComponentFactory.com
+//  Version 4.70.0.0 	www. com
 // *****************************************************************************
 
 using System;
-using ComponentFactory.Krypton.Toolkit;
+using  Krypton.Toolkit;
 
 namespace ThreePaneApplication
 {

@@ -33,20 +33,20 @@ namespace KryptonPanelExamples
             this.propertyGrid = new System.Windows.Forms.PropertyGrid();
             this.buttonClose = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel4Office = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.panel3Office = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.panel2Office = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.panel1Office = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.panel4Office = new  Krypton.Toolkit.KryptonPanel();
+            this.panel3Office = new  Krypton.Toolkit.KryptonPanel();
+            this.panel2Office = new  Krypton.Toolkit.KryptonPanel();
+            this.panel1Office = new  Krypton.Toolkit.KryptonPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.panel4Blue = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.panel3Blue = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.panel2Blue = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.panel1Blue = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.panel4Blue = new  Krypton.Toolkit.KryptonPanel();
+            this.panel3Blue = new  Krypton.Toolkit.KryptonPanel();
+            this.panel2Blue = new  Krypton.Toolkit.KryptonPanel();
+            this.panel1Blue = new  Krypton.Toolkit.KryptonPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.panel4Custom = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.panel2Custom = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.panel3Custom = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.panel1Custom = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.panel4Custom = new  Krypton.Toolkit.KryptonPanel();
+            this.panel2Custom = new  Krypton.Toolkit.KryptonPanel();
+            this.panel3Custom = new  Krypton.Toolkit.KryptonPanel();
+            this.panel1Custom = new  Krypton.Toolkit.KryptonPanel();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panel4Office)).BeginInit();
@@ -114,8 +114,8 @@ namespace KryptonPanelExamples
             // 
             this.panel4Office.Location = new System.Drawing.Point(138, 84);
             this.panel4Office.Name = "panel4Office";
-            this.panel4Office.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.panel4Office.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
+            this.panel4Office.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.panel4Office.PanelBackStyle =  Krypton.Toolkit.PaletteBackStyle.ControlClient;
             this.panel4Office.Size = new System.Drawing.Size(100, 49);
             this.panel4Office.TabIndex = 3;
             this.panel4Office.MouseDown += new System.Windows.Forms.MouseEventHandler(this.kryptonPanel_MouseDown);
@@ -124,8 +124,8 @@ namespace KryptonPanelExamples
             // 
             this.panel3Office.Location = new System.Drawing.Point(20, 84);
             this.panel3Office.Name = "panel3Office";
-            this.panel3Office.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.panel3Office.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderSecondary;
+            this.panel3Office.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.panel3Office.PanelBackStyle =  Krypton.Toolkit.PaletteBackStyle.HeaderSecondary;
             this.panel3Office.Size = new System.Drawing.Size(100, 49);
             this.panel3Office.TabIndex = 1;
             this.panel3Office.MouseDown += new System.Windows.Forms.MouseEventHandler(this.kryptonPanel_MouseDown);
@@ -134,8 +134,8 @@ namespace KryptonPanelExamples
             // 
             this.panel2Office.Location = new System.Drawing.Point(138, 29);
             this.panel2Office.Name = "panel2Office";
-            this.panel2Office.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.panel2Office.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
+            this.panel2Office.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.panel2Office.PanelBackStyle =  Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
             this.panel2Office.Size = new System.Drawing.Size(100, 49);
             this.panel2Office.TabIndex = 2;
             this.panel2Office.MouseDown += new System.Windows.Forms.MouseEventHandler(this.kryptonPanel_MouseDown);
@@ -144,7 +144,7 @@ namespace KryptonPanelExamples
             // 
             this.panel1Office.Location = new System.Drawing.Point(20, 29);
             this.panel1Office.Name = "panel1Office";
-            this.panel1Office.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.panel1Office.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.panel1Office.Size = new System.Drawing.Size(100, 49);
             this.panel1Office.TabIndex = 0;
             this.panel1Office.MouseDown += new System.Windows.Forms.MouseEventHandler(this.kryptonPanel_MouseDown);
@@ -166,8 +166,8 @@ namespace KryptonPanelExamples
             // 
             this.panel4Blue.Location = new System.Drawing.Point(138, 84);
             this.panel4Blue.Name = "panel4Blue";
-            this.panel4Blue.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
-            this.panel4Blue.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
+            this.panel4Blue.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.panel4Blue.PanelBackStyle =  Krypton.Toolkit.PaletteBackStyle.ControlClient;
             this.panel4Blue.Size = new System.Drawing.Size(100, 49);
             this.panel4Blue.TabIndex = 3;
             this.panel4Blue.MouseDown += new System.Windows.Forms.MouseEventHandler(this.kryptonPanel_MouseDown);
@@ -176,8 +176,8 @@ namespace KryptonPanelExamples
             // 
             this.panel3Blue.Location = new System.Drawing.Point(20, 84);
             this.panel3Blue.Name = "panel3Blue";
-            this.panel3Blue.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
-            this.panel3Blue.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderSecondary;
+            this.panel3Blue.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.panel3Blue.PanelBackStyle =  Krypton.Toolkit.PaletteBackStyle.HeaderSecondary;
             this.panel3Blue.Size = new System.Drawing.Size(100, 49);
             this.panel3Blue.TabIndex = 1;
             this.panel3Blue.MouseDown += new System.Windows.Forms.MouseEventHandler(this.kryptonPanel_MouseDown);
@@ -186,8 +186,8 @@ namespace KryptonPanelExamples
             // 
             this.panel2Blue.Location = new System.Drawing.Point(138, 29);
             this.panel2Blue.Name = "panel2Blue";
-            this.panel2Blue.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
-            this.panel2Blue.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
+            this.panel2Blue.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.panel2Blue.PanelBackStyle =  Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
             this.panel2Blue.Size = new System.Drawing.Size(100, 49);
             this.panel2Blue.TabIndex = 2;
             this.panel2Blue.MouseDown += new System.Windows.Forms.MouseEventHandler(this.kryptonPanel_MouseDown);
@@ -196,7 +196,7 @@ namespace KryptonPanelExamples
             // 
             this.panel1Blue.Location = new System.Drawing.Point(20, 29);
             this.panel1Blue.Name = "panel1Blue";
-            this.panel1Blue.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.panel1Blue.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2007Blue;
             this.panel1Blue.Size = new System.Drawing.Size(100, 49);
             this.panel1Blue.TabIndex = 0;
             this.panel1Blue.MouseDown += new System.Windows.Forms.MouseEventHandler(this.kryptonPanel_MouseDown);
@@ -218,15 +218,15 @@ namespace KryptonPanelExamples
             // 
             this.panel4Custom.Location = new System.Drawing.Point(138, 138);
             this.panel4Custom.Name = "panel4Custom";
-            this.panel4Custom.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.panel4Custom.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.panel4Custom.Size = new System.Drawing.Size(100, 100);
             this.panel4Custom.StateNormal.Color1 = System.Drawing.Color.White;
             this.panel4Custom.StateNormal.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.panel4Custom.StateNormal.ColorAngle = 45F;
-            this.panel4Custom.StateNormal.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Sigma;
+            this.panel4Custom.StateNormal.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Sigma;
             this.panel4Custom.StateNormal.Image = ((System.Drawing.Image)(resources.GetObject("panel4Custom.StateNormal.Image")));
-            this.panel4Custom.StateNormal.ImageAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
-            this.panel4Custom.StateNormal.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.panel4Custom.StateNormal.ImageAlign =  Krypton.Toolkit.PaletteRectangleAlign.Local;
+            this.panel4Custom.StateNormal.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.panel4Custom.TabIndex = 3;
             this.panel4Custom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.kryptonPanel_MouseDown);
             // 
@@ -234,13 +234,13 @@ namespace KryptonPanelExamples
             // 
             this.panel2Custom.Location = new System.Drawing.Point(138, 32);
             this.panel2Custom.Name = "panel2Custom";
-            this.panel2Custom.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.panel2Custom.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.panel2Custom.Size = new System.Drawing.Size(100, 100);
             this.panel2Custom.StateNormal.Color1 = System.Drawing.Color.White;
             this.panel2Custom.StateNormal.Color2 = System.Drawing.Color.Maroon;
             this.panel2Custom.StateNormal.ColorAngle = 10F;
-            this.panel2Custom.StateNormal.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Sigma;
-            this.panel2Custom.StateNormal.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.panel2Custom.StateNormal.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Sigma;
+            this.panel2Custom.StateNormal.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.panel2Custom.TabIndex = 2;
             this.panel2Custom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.kryptonPanel_MouseDown);
             // 
@@ -248,14 +248,14 @@ namespace KryptonPanelExamples
             // 
             this.panel3Custom.Location = new System.Drawing.Point(20, 138);
             this.panel3Custom.Name = "panel3Custom";
-            this.panel3Custom.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.panel3Custom.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.panel3Custom.Size = new System.Drawing.Size(100, 100);
             this.panel3Custom.StateNormal.Color1 = System.Drawing.Color.White;
             this.panel3Custom.StateNormal.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel3Custom.StateNormal.ColorAngle = 45F;
-            this.panel3Custom.StateNormal.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Linear;
+            this.panel3Custom.StateNormal.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Linear;
             this.panel3Custom.StateNormal.Image = ((System.Drawing.Image)(resources.GetObject("panel3Custom.StateNormal.Image")));
-            this.panel3Custom.StateNormal.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
+            this.panel3Custom.StateNormal.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
             this.panel3Custom.TabIndex = 1;
             this.panel3Custom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.kryptonPanel_MouseDown);
             // 
@@ -263,13 +263,13 @@ namespace KryptonPanelExamples
             // 
             this.panel1Custom.Location = new System.Drawing.Point(20, 32);
             this.panel1Custom.Name = "panel1Custom";
-            this.panel1Custom.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.panel1Custom.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.panel1Custom.Size = new System.Drawing.Size(100, 100);
             this.panel1Custom.StateNormal.Color1 = System.Drawing.Color.White;
             this.panel1Custom.StateNormal.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.panel1Custom.StateNormal.ColorAngle = 60F;
-            this.panel1Custom.StateNormal.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Rounded;
-            this.panel1Custom.StateNormal.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+            this.panel1Custom.StateNormal.ColorStyle =  Krypton.Toolkit.PaletteColorStyle.Rounded;
+            this.panel1Custom.StateNormal.ImageStyle =  Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.panel1Custom.TabIndex = 0;
             this.panel1Custom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.kryptonPanel_MouseDown);
             // 
@@ -319,18 +319,18 @@ namespace KryptonPanelExamples
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel panel1Office;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel panel2Office;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel panel3Office;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel panel4Office;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel panel1Blue;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel panel2Blue;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel panel3Blue;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel panel4Blue;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel panel1Custom;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel panel2Custom;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel panel3Custom;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel panel4Custom;
+        private  Krypton.Toolkit.KryptonPanel panel1Office;
+        private  Krypton.Toolkit.KryptonPanel panel2Office;
+        private  Krypton.Toolkit.KryptonPanel panel3Office;
+        private  Krypton.Toolkit.KryptonPanel panel4Office;
+        private  Krypton.Toolkit.KryptonPanel panel1Blue;
+        private  Krypton.Toolkit.KryptonPanel panel2Blue;
+        private  Krypton.Toolkit.KryptonPanel panel3Blue;
+        private  Krypton.Toolkit.KryptonPanel panel4Blue;
+        private  Krypton.Toolkit.KryptonPanel panel1Custom;
+        private  Krypton.Toolkit.KryptonPanel panel2Custom;
+        private  Krypton.Toolkit.KryptonPanel panel3Custom;
+        private  Krypton.Toolkit.KryptonPanel panel4Custom;
     }
 }
 

@@ -31,21 +31,21 @@ namespace KryptonCheckedListBoxExamples
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkSystem = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.checkSparkle = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.check2010Blue = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.check2007Blue = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.buttonAppend = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.buttonInsert = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.buttonClear = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.buttonRemove = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonCheckedListBox = new ComponentFactory.Krypton.Toolkit.KryptonCheckedListBox();
+            this.checkSystem = new  Krypton.Toolkit.KryptonCheckButton();
+            this.checkSparkle = new  Krypton.Toolkit.KryptonCheckButton();
+            this.check2010Blue = new  Krypton.Toolkit.KryptonCheckButton();
+            this.check2007Blue = new  Krypton.Toolkit.KryptonCheckButton();
+            this.buttonAppend = new  Krypton.Toolkit.KryptonButton();
+            this.buttonInsert = new  Krypton.Toolkit.KryptonButton();
+            this.buttonClear = new  Krypton.Toolkit.KryptonButton();
+            this.buttonRemove = new  Krypton.Toolkit.KryptonButton();
+            this.kryptonCheckedListBox = new  Krypton.Toolkit.KryptonCheckedListBox();
             this.buttonClose = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.propertyGrid = new System.Windows.Forms.PropertyGrid();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
-            this.kryptonCheckSet = new ComponentFactory.Krypton.Toolkit.KryptonCheckSet(this.components);
-            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonCheckSet = new  Krypton.Toolkit.KryptonCheckSet(this.components);
+            this.kryptonManager1 = new  Krypton.Toolkit.KryptonManager(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonCheckSet)).BeginInit();
@@ -245,21 +245,21 @@ namespace KryptonCheckedListBoxExamples
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton checkSystem;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton checkSparkle;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton check2010Blue;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton check2007Blue;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton buttonAppend;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton buttonInsert;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton buttonClear;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton buttonRemove;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckedListBox kryptonCheckedListBox;
+        private  Krypton.Toolkit.KryptonCheckButton checkSystem;
+        private  Krypton.Toolkit.KryptonCheckButton checkSparkle;
+        private  Krypton.Toolkit.KryptonCheckButton check2010Blue;
+        private  Krypton.Toolkit.KryptonCheckButton check2007Blue;
+        private  Krypton.Toolkit.KryptonButton buttonAppend;
+        private  Krypton.Toolkit.KryptonButton buttonInsert;
+        private  Krypton.Toolkit.KryptonButton buttonClear;
+        private  Krypton.Toolkit.KryptonButton buttonRemove;
+        private  Krypton.Toolkit.KryptonCheckedListBox kryptonCheckedListBox;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.PropertyGrid propertyGrid;
         private System.Windows.Forms.ImageList imageList;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckSet kryptonCheckSet;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager1;
+        private  Krypton.Toolkit.KryptonCheckSet kryptonCheckSet;
+        private  Krypton.Toolkit.KryptonManager kryptonManager1;
     }
 }
 

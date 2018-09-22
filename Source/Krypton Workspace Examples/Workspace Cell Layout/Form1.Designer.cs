@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.kryptonWorkspace = new ComponentFactory.Krypton.Workspace.KryptonWorkspace();
+            this.kryptonWorkspace = new Krypton.Workspace.KryptonWorkspace();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,7 +51,7 @@
             this.buttonApplySingleRow = new System.Windows.Forms.Button();
             this.buttonApplyGrid = new System.Windows.Forms.Button();
             this.buttonApplySingleCell = new System.Windows.Forms.Button();
-            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonManager1 = new Krypton.Toolkit.KryptonManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonWorkspace)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -71,7 +71,7 @@
             this.kryptonWorkspace.Size = new System.Drawing.Size(497, 463);
             this.kryptonWorkspace.TabIndex = 5;
             this.kryptonWorkspace.TabStop = true;
-            this.kryptonWorkspace.WorkspaceCellAdding += new System.EventHandler<ComponentFactory.Krypton.Workspace.WorkspaceCellEventArgs>(this.kryptonWorkspace_WorkspaceCellAdding);
+            this.kryptonWorkspace.WorkspaceCellAdding += new System.EventHandler<Krypton.Workspace.WorkspaceCellEventArgs>(this.kryptonWorkspace_WorkspaceCellAdding);
             // 
             // groupBox1
             // 
@@ -306,7 +306,7 @@
 
         #endregion
 
-        private ComponentFactory.Krypton.Workspace.KryptonWorkspace kryptonWorkspace;
+        private Krypton.Workspace.KryptonWorkspace kryptonWorkspace;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonAddPage;
@@ -327,7 +327,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager1;
+        private Krypton.Toolkit.KryptonManager kryptonManager1;
     }
 }
 

@@ -44,31 +44,31 @@ namespace InputForm
             this.toolStripSparkle = new System.Windows.Forms.ToolStripButton();
             this.toolStripSystem = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonPanel1 = new  Krypton.Toolkit.KryptonPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.labelName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.labelAddress = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.labelTelephone = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.labelStatus = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.labelAge = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.labelDOB = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.labelGender = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.labelEmployed = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.textBoxName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.richTextBoxAddress = new ComponentFactory.Krypton.Toolkit.KryptonRichTextBox();
-            this.maskedTextBoxTelephone = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
-            this.clearTelephone = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.comboStatus = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.numericAge = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
-            this.dtpDOB = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.labelName = new  Krypton.Toolkit.KryptonLabel();
+            this.labelAddress = new  Krypton.Toolkit.KryptonLabel();
+            this.labelTelephone = new  Krypton.Toolkit.KryptonLabel();
+            this.labelStatus = new  Krypton.Toolkit.KryptonLabel();
+            this.labelAge = new  Krypton.Toolkit.KryptonLabel();
+            this.labelDOB = new  Krypton.Toolkit.KryptonLabel();
+            this.labelGender = new  Krypton.Toolkit.KryptonLabel();
+            this.labelEmployed = new  Krypton.Toolkit.KryptonLabel();
+            this.textBoxName = new  Krypton.Toolkit.KryptonTextBox();
+            this.richTextBoxAddress = new  Krypton.Toolkit.KryptonRichTextBox();
+            this.maskedTextBoxTelephone = new  Krypton.Toolkit.KryptonMaskedTextBox();
+            this.clearTelephone = new  Krypton.Toolkit.ButtonSpecAny();
+            this.comboStatus = new  Krypton.Toolkit.KryptonComboBox();
+            this.numericAge = new  Krypton.Toolkit.KryptonNumericUpDown();
+            this.dtpDOB = new  Krypton.Toolkit.KryptonDateTimePicker();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.radioButtonMale = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.radioButtonFemale = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.checkBoxEmployed = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
+            this.radioButtonMale = new  Krypton.Toolkit.KryptonRadioButton();
+            this.radioButtonFemale = new  Krypton.Toolkit.KryptonRadioButton();
+            this.checkBoxEmployed = new  Krypton.Toolkit.KryptonCheckBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonOK = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.buttonCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.buttonOK = new  Krypton.Toolkit.KryptonButton();
+            this.buttonCancel = new  Krypton.Toolkit.KryptonButton();
+            this.kryptonManager1 = new  Krypton.Toolkit.KryptonManager(this.components);
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
@@ -281,95 +281,95 @@ namespace InputForm
             // labelName
             // 
             this.labelName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelName.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.labelName.LabelStyle =  Krypton.Toolkit.LabelStyle.NormalPanel;
             this.labelName.Location = new System.Drawing.Point(3, 3);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(68, 20);
-            this.labelName.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.labelName.StateCommon.ShortText.TextH =  Krypton.Toolkit.PaletteRelativeAlign.Far;
             this.labelName.TabIndex = 4;
             this.labelName.Values.Text = "Name";
             // 
             // labelAddress
             // 
             this.labelAddress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelAddress.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.labelAddress.LabelStyle =  Krypton.Toolkit.LabelStyle.NormalPanel;
             this.labelAddress.Location = new System.Drawing.Point(3, 29);
             this.labelAddress.Name = "labelAddress";
             this.labelAddress.Size = new System.Drawing.Size(68, 96);
-            this.labelAddress.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
-            this.labelAddress.StateCommon.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.labelAddress.StateCommon.ShortText.TextH =  Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.labelAddress.StateCommon.ShortText.TextV =  Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.labelAddress.TabIndex = 5;
             this.labelAddress.Values.Text = "Address";
             // 
             // labelTelephone
             // 
-            this.labelTelephone.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.labelTelephone.LabelStyle =  Krypton.Toolkit.LabelStyle.NormalPanel;
             this.labelTelephone.Location = new System.Drawing.Point(3, 131);
             this.labelTelephone.Name = "labelTelephone";
             this.labelTelephone.Size = new System.Drawing.Size(68, 20);
-            this.labelTelephone.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.labelTelephone.StateCommon.ShortText.TextH =  Krypton.Toolkit.PaletteRelativeAlign.Far;
             this.labelTelephone.TabIndex = 6;
             this.labelTelephone.Values.Text = "Telephone";
             // 
             // labelStatus
             // 
             this.labelStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelStatus.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.labelStatus.LabelStyle =  Krypton.Toolkit.LabelStyle.NormalPanel;
             this.labelStatus.Location = new System.Drawing.Point(3, 158);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(68, 21);
-            this.labelStatus.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.labelStatus.StateCommon.ShortText.TextH =  Krypton.Toolkit.PaletteRelativeAlign.Far;
             this.labelStatus.TabIndex = 7;
             this.labelStatus.Values.Text = "Status";
             // 
             // labelAge
             // 
             this.labelAge.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelAge.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.labelAge.LabelStyle =  Krypton.Toolkit.LabelStyle.NormalPanel;
             this.labelAge.Location = new System.Drawing.Point(3, 185);
             this.labelAge.Name = "labelAge";
             this.labelAge.Size = new System.Drawing.Size(68, 22);
-            this.labelAge.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.labelAge.StateCommon.ShortText.TextH =  Krypton.Toolkit.PaletteRelativeAlign.Far;
             this.labelAge.TabIndex = 13;
             this.labelAge.Values.Text = "Age";
             // 
             // labelDOB
             // 
             this.labelDOB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelDOB.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.labelDOB.LabelStyle =  Krypton.Toolkit.LabelStyle.NormalPanel;
             this.labelDOB.Location = new System.Drawing.Point(3, 213);
             this.labelDOB.Name = "labelDOB";
             this.labelDOB.Size = new System.Drawing.Size(68, 21);
-            this.labelDOB.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.labelDOB.StateCommon.ShortText.TextH =  Krypton.Toolkit.PaletteRelativeAlign.Far;
             this.labelDOB.TabIndex = 15;
             this.labelDOB.Values.Text = "D.O.B";
             // 
             // labelGender
             // 
             this.labelGender.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelGender.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.labelGender.LabelStyle =  Krypton.Toolkit.LabelStyle.NormalPanel;
             this.labelGender.Location = new System.Drawing.Point(3, 240);
             this.labelGender.Name = "labelGender";
             this.labelGender.Size = new System.Drawing.Size(68, 20);
-            this.labelGender.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.labelGender.StateCommon.ShortText.TextH =  Krypton.Toolkit.PaletteRelativeAlign.Far;
             this.labelGender.TabIndex = 8;
             this.labelGender.Values.Text = "Gender";
             // 
             // labelEmployed
             // 
             this.labelEmployed.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelEmployed.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.labelEmployed.LabelStyle =  Krypton.Toolkit.LabelStyle.NormalPanel;
             this.labelEmployed.Location = new System.Drawing.Point(3, 266);
             this.labelEmployed.Name = "labelEmployed";
             this.labelEmployed.Size = new System.Drawing.Size(68, 20);
-            this.labelEmployed.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.labelEmployed.StateCommon.ShortText.TextH =  Krypton.Toolkit.PaletteRelativeAlign.Far;
             this.labelEmployed.TabIndex = 9;
             this.labelEmployed.Values.Text = "Employed";
             // 
             // textBoxName
             // 
             this.textBoxName.AlwaysActive = false;
-            this.textBoxName.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
+            this.textBoxName.InputControlStyle =  Krypton.Toolkit.InputControlStyle.Ribbon;
             this.textBoxName.Location = new System.Drawing.Point(77, 3);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(189, 20);
@@ -378,7 +378,7 @@ namespace InputForm
             // richTextBoxAddress
             // 
             this.richTextBoxAddress.AlwaysActive = false;
-            this.richTextBoxAddress.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
+            this.richTextBoxAddress.InputControlStyle =  Krypton.Toolkit.InputControlStyle.Ribbon;
             this.richTextBoxAddress.Location = new System.Drawing.Point(77, 29);
             this.richTextBoxAddress.Name = "richTextBoxAddress";
             this.richTextBoxAddress.Size = new System.Drawing.Size(189, 96);
@@ -388,9 +388,9 @@ namespace InputForm
             // maskedTextBoxTelephone
             // 
             this.maskedTextBoxTelephone.AlwaysActive = false;
-            this.maskedTextBoxTelephone.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.maskedTextBoxTelephone.ButtonSpecs.AddRange(new  Krypton.Toolkit.ButtonSpecAny[] {
             this.clearTelephone});
-            this.maskedTextBoxTelephone.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
+            this.maskedTextBoxTelephone.InputControlStyle =  Krypton.Toolkit.InputControlStyle.Ribbon;
             this.maskedTextBoxTelephone.Location = new System.Drawing.Point(77, 131);
             this.maskedTextBoxTelephone.Mask = "(000) 000-000";
             this.maskedTextBoxTelephone.Name = "maskedTextBoxTelephone";
@@ -401,8 +401,8 @@ namespace InputForm
             // 
             // clearTelephone
             // 
-            this.clearTelephone.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Standalone;
-            this.clearTelephone.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
+            this.clearTelephone.Style =  Krypton.Toolkit.PaletteButtonStyle.Standalone;
+            this.clearTelephone.Type =  Krypton.Toolkit.PaletteButtonSpecStyle.Close;
             this.clearTelephone.UniqueName = "C1E393B3D313481AC1E393B3D313481A";
             this.clearTelephone.Click += new System.EventHandler(this.clearTelephone_Click);
             // 
@@ -410,7 +410,7 @@ namespace InputForm
             // 
             this.comboStatus.AlwaysActive = false;
             this.comboStatus.DropDownWidth = 150;
-            this.comboStatus.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
+            this.comboStatus.InputControlStyle =  Krypton.Toolkit.InputControlStyle.Ribbon;
             this.comboStatus.Items.AddRange(new object[] {
             "Single",
             "Married",
@@ -424,7 +424,7 @@ namespace InputForm
             // numericAge
             // 
             this.numericAge.AlwaysActive = false;
-            this.numericAge.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
+            this.numericAge.InputControlStyle =  Krypton.Toolkit.InputControlStyle.Ribbon;
             this.numericAge.Location = new System.Drawing.Point(77, 185);
             this.numericAge.Maximum = new decimal(new int[] {
             120,
@@ -449,7 +449,7 @@ namespace InputForm
             // 
             this.dtpDOB.AlwaysActive = false;
             this.dtpDOB.CalendarTodayDate = new System.DateTime(2009, 8, 23, 0, 0, 0, 0);
-            this.dtpDOB.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
+            this.dtpDOB.InputControlStyle =  Krypton.Toolkit.InputControlStyle.Ribbon;
             this.dtpDOB.Location = new System.Drawing.Point(77, 213);
             this.dtpDOB.Name = "dtpDOB";
             this.dtpDOB.Size = new System.Drawing.Size(186, 21);
@@ -468,7 +468,7 @@ namespace InputForm
             // 
             // radioButtonMale
             // 
-            this.radioButtonMale.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.radioButtonMale.LabelStyle =  Krypton.Toolkit.LabelStyle.NormalPanel;
             this.radioButtonMale.Location = new System.Drawing.Point(3, 3);
             this.radioButtonMale.Name = "radioButtonMale";
             this.radioButtonMale.Size = new System.Drawing.Size(49, 20);
@@ -477,7 +477,7 @@ namespace InputForm
             // 
             // radioButtonFemale
             // 
-            this.radioButtonFemale.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.radioButtonFemale.LabelStyle =  Krypton.Toolkit.LabelStyle.NormalPanel;
             this.radioButtonFemale.Location = new System.Drawing.Point(58, 3);
             this.radioButtonFemale.Name = "radioButtonFemale";
             this.radioButtonFemale.Size = new System.Drawing.Size(61, 20);
@@ -486,7 +486,7 @@ namespace InputForm
             // 
             // checkBoxEmployed
             // 
-            this.checkBoxEmployed.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.checkBoxEmployed.LabelStyle =  Krypton.Toolkit.LabelStyle.NormalPanel;
             this.checkBoxEmployed.Location = new System.Drawing.Point(77, 266);
             this.checkBoxEmployed.Name = "checkBoxEmployed";
             this.checkBoxEmployed.Size = new System.Drawing.Size(78, 20);
@@ -568,40 +568,40 @@ namespace InputForm
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
+        private  Krypton.Toolkit.KryptonPanel kryptonPanel1;
         private System.Windows.Forms.ToolStripButton toolStripOffice2010;
         private System.Windows.Forms.ToolStripButton toolStripOffice2007;
         private System.Windows.Forms.ToolStripButton toolStripSystem;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager1;
+        private  Krypton.Toolkit.KryptonManager kryptonManager1;
         private System.Windows.Forms.ToolStripMenuItem office2010MenuItem;
         private System.Windows.Forms.ToolStripMenuItem office2007MenuItem;
         private System.Windows.Forms.ToolStripMenuItem systemMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelName;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelAddress;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxName;
-        private ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox maskedTextBoxTelephone;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelTelephone;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox comboStatus;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelStatus;
+        private  Krypton.Toolkit.KryptonLabel labelName;
+        private  Krypton.Toolkit.KryptonLabel labelAddress;
+        private  Krypton.Toolkit.KryptonTextBox textBoxName;
+        private  Krypton.Toolkit.KryptonMaskedTextBox maskedTextBoxTelephone;
+        private  Krypton.Toolkit.KryptonLabel labelTelephone;
+        private  Krypton.Toolkit.KryptonComboBox comboStatus;
+        private  Krypton.Toolkit.KryptonLabel labelStatus;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton buttonOK;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton buttonCancel;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelEmployed;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox checkBoxEmployed;
+        private  Krypton.Toolkit.KryptonButton buttonOK;
+        private  Krypton.Toolkit.KryptonButton buttonCancel;
+        private  Krypton.Toolkit.KryptonLabel labelEmployed;
+        private  Krypton.Toolkit.KryptonCheckBox checkBoxEmployed;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton radioButtonMale;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton radioButtonFemale;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelGender;
-        private ComponentFactory.Krypton.Toolkit.KryptonRichTextBox richTextBoxAddress;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny clearTelephone;
+        private  Krypton.Toolkit.KryptonRadioButton radioButtonMale;
+        private  Krypton.Toolkit.KryptonRadioButton radioButtonFemale;
+        private  Krypton.Toolkit.KryptonLabel labelGender;
+        private  Krypton.Toolkit.KryptonRichTextBox richTextBoxAddress;
+        private  Krypton.Toolkit.ButtonSpecAny clearTelephone;
         private System.Windows.Forms.ToolStripMenuItem sparkleMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripSparkle;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelAge;
-        private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown numericAge;
-        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtpDOB;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelDOB;
+        private  Krypton.Toolkit.KryptonLabel labelAge;
+        private  Krypton.Toolkit.KryptonNumericUpDown numericAge;
+        private  Krypton.Toolkit.KryptonDateTimePicker dtpDOB;
+        private  Krypton.Toolkit.KryptonLabel labelDOB;
     }
 }
 

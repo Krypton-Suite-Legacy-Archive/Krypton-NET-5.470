@@ -33,24 +33,24 @@ namespace KryptonCheckBoxExamples
             this.propertyGrid = new System.Windows.Forms.PropertyGrid();
             this.buttonClose = new System.Windows.Forms.Button();
             this.groupBoxOffice2003 = new System.Windows.Forms.GroupBox();
-            this.kryptonCheckBox8 = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.kryptonCheckBox9 = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.kryptonCheckBox10 = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.kryptonCheckBox11 = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.kryptonCheckBox12 = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.kryptonCheckBox13 = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.kryptonCheckBox14 = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
+            this.kryptonCheckBox8 = new  Krypton.Toolkit.KryptonCheckBox();
+            this.kryptonCheckBox9 = new  Krypton.Toolkit.KryptonCheckBox();
+            this.kryptonCheckBox10 = new  Krypton.Toolkit.KryptonCheckBox();
+            this.kryptonCheckBox11 = new  Krypton.Toolkit.KryptonCheckBox();
+            this.kryptonCheckBox12 = new  Krypton.Toolkit.KryptonCheckBox();
+            this.kryptonCheckBox13 = new  Krypton.Toolkit.KryptonCheckBox();
+            this.kryptonCheckBox14 = new  Krypton.Toolkit.KryptonCheckBox();
             this.groupBoxOffice2007Blue = new System.Windows.Forms.GroupBox();
-            this.kryptonCheckBox7 = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.kryptonCheckBox6 = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.kryptonCheckBox5 = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.kryptonCheckBox4 = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.kryptonCheckBox3 = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.kryptonCheckBox1 = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.kryptonCheckBox2 = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
+            this.kryptonCheckBox7 = new  Krypton.Toolkit.KryptonCheckBox();
+            this.kryptonCheckBox6 = new  Krypton.Toolkit.KryptonCheckBox();
+            this.kryptonCheckBox5 = new  Krypton.Toolkit.KryptonCheckBox();
+            this.kryptonCheckBox4 = new  Krypton.Toolkit.KryptonCheckBox();
+            this.kryptonCheckBox3 = new  Krypton.Toolkit.KryptonCheckBox();
+            this.kryptonCheckBox1 = new  Krypton.Toolkit.KryptonCheckBox();
+            this.kryptonCheckBox2 = new  Krypton.Toolkit.KryptonCheckBox();
             this.groupBoxCustom = new System.Windows.Forms.GroupBox();
-            this.kryptonCheckBox16 = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.kryptonCheckBox15 = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
+            this.kryptonCheckBox16 = new  Krypton.Toolkit.KryptonCheckBox();
+            this.kryptonCheckBox15 = new  Krypton.Toolkit.KryptonCheckBox();
             this.groupBox4.SuspendLayout();
             this.groupBoxOffice2003.SuspendLayout();
             this.groupBoxOffice2007Blue.SuspendLayout();
@@ -113,8 +113,8 @@ namespace KryptonCheckBoxExamples
             // 
             this.kryptonCheckBox8.Location = new System.Drawing.Point(164, 20);
             this.kryptonCheckBox8.Name = "kryptonCheckBox8";
-            this.kryptonCheckBox8.Orientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
-            this.kryptonCheckBox8.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonCheckBox8.Orientation =  Krypton.Toolkit.VisualOrientation.Left;
+            this.kryptonCheckBox8.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.kryptonCheckBox8.Size = new System.Drawing.Size(22, 90);
             this.kryptonCheckBox8.TabIndex = 4;
             this.kryptonCheckBox8.ThreeState = true;
@@ -123,10 +123,10 @@ namespace KryptonCheckBoxExamples
             // 
             // kryptonCheckBox9
             // 
-            this.kryptonCheckBox9.CheckPosition = ComponentFactory.Krypton.Toolkit.VisualOrientation.Bottom;
+            this.kryptonCheckBox9.CheckPosition =  Krypton.Toolkit.VisualOrientation.Bottom;
             this.kryptonCheckBox9.Location = new System.Drawing.Point(68, 106);
             this.kryptonCheckBox9.Name = "kryptonCheckBox9";
-            this.kryptonCheckBox9.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonCheckBox9.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.kryptonCheckBox9.Size = new System.Drawing.Size(43, 35);
             this.kryptonCheckBox9.TabIndex = 6;
             this.kryptonCheckBox9.ThreeState = true;
@@ -135,10 +135,10 @@ namespace KryptonCheckBoxExamples
             // 
             // kryptonCheckBox10
             // 
-            this.kryptonCheckBox10.CheckPosition = ComponentFactory.Krypton.Toolkit.VisualOrientation.Top;
+            this.kryptonCheckBox10.CheckPosition =  Krypton.Toolkit.VisualOrientation.Top;
             this.kryptonCheckBox10.Location = new System.Drawing.Point(15, 110);
             this.kryptonCheckBox10.Name = "kryptonCheckBox10";
-            this.kryptonCheckBox10.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonCheckBox10.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.kryptonCheckBox10.Size = new System.Drawing.Size(45, 35);
             this.kryptonCheckBox10.TabIndex = 5;
             this.kryptonCheckBox10.ThreeState = true;
@@ -149,8 +149,8 @@ namespace KryptonCheckBoxExamples
             // 
             this.kryptonCheckBox11.Location = new System.Drawing.Point(139, 20);
             this.kryptonCheckBox11.Name = "kryptonCheckBox11";
-            this.kryptonCheckBox11.Orientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Right;
-            this.kryptonCheckBox11.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonCheckBox11.Orientation =  Krypton.Toolkit.VisualOrientation.Right;
+            this.kryptonCheckBox11.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.kryptonCheckBox11.Size = new System.Drawing.Size(22, 99);
             this.kryptonCheckBox11.TabIndex = 3;
             this.kryptonCheckBox11.ThreeState = true;
@@ -163,7 +163,7 @@ namespace KryptonCheckBoxExamples
             this.kryptonCheckBox12.CheckState = System.Windows.Forms.CheckState.Checked;
             this.kryptonCheckBox12.Location = new System.Drawing.Point(18, 76);
             this.kryptonCheckBox12.Name = "kryptonCheckBox12";
-            this.kryptonCheckBox12.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonCheckBox12.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.kryptonCheckBox12.Size = new System.Drawing.Size(70, 22);
             this.kryptonCheckBox12.TabIndex = 2;
             this.kryptonCheckBox12.ThreeState = true;
@@ -174,7 +174,7 @@ namespace KryptonCheckBoxExamples
             // 
             this.kryptonCheckBox13.Location = new System.Drawing.Point(18, 26);
             this.kryptonCheckBox13.Name = "kryptonCheckBox13";
-            this.kryptonCheckBox13.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonCheckBox13.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.kryptonCheckBox13.Size = new System.Drawing.Size(84, 22);
             this.kryptonCheckBox13.TabIndex = 0;
             this.kryptonCheckBox13.ThreeState = true;
@@ -187,7 +187,7 @@ namespace KryptonCheckBoxExamples
             this.kryptonCheckBox14.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.kryptonCheckBox14.Location = new System.Drawing.Point(18, 51);
             this.kryptonCheckBox14.Name = "kryptonCheckBox14";
-            this.kryptonCheckBox14.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonCheckBox14.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.kryptonCheckBox14.Size = new System.Drawing.Size(100, 22);
             this.kryptonCheckBox14.TabIndex = 1;
             this.kryptonCheckBox14.ThreeState = true;
@@ -214,8 +214,8 @@ namespace KryptonCheckBoxExamples
             // 
             this.kryptonCheckBox7.Location = new System.Drawing.Point(164, 20);
             this.kryptonCheckBox7.Name = "kryptonCheckBox7";
-            this.kryptonCheckBox7.Orientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
-            this.kryptonCheckBox7.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            this.kryptonCheckBox7.Orientation =  Krypton.Toolkit.VisualOrientation.Left;
+            this.kryptonCheckBox7.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2010Blue;
             this.kryptonCheckBox7.Size = new System.Drawing.Size(19, 86);
             this.kryptonCheckBox7.TabIndex = 4;
             this.kryptonCheckBox7.ThreeState = true;
@@ -224,10 +224,10 @@ namespace KryptonCheckBoxExamples
             // 
             // kryptonCheckBox6
             // 
-            this.kryptonCheckBox6.CheckPosition = ComponentFactory.Krypton.Toolkit.VisualOrientation.Bottom;
+            this.kryptonCheckBox6.CheckPosition =  Krypton.Toolkit.VisualOrientation.Bottom;
             this.kryptonCheckBox6.Location = new System.Drawing.Point(68, 106);
             this.kryptonCheckBox6.Name = "kryptonCheckBox6";
-            this.kryptonCheckBox6.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            this.kryptonCheckBox6.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2010Blue;
             this.kryptonCheckBox6.Size = new System.Drawing.Size(41, 32);
             this.kryptonCheckBox6.TabIndex = 6;
             this.kryptonCheckBox6.ThreeState = true;
@@ -236,10 +236,10 @@ namespace KryptonCheckBoxExamples
             // 
             // kryptonCheckBox5
             // 
-            this.kryptonCheckBox5.CheckPosition = ComponentFactory.Krypton.Toolkit.VisualOrientation.Top;
+            this.kryptonCheckBox5.CheckPosition =  Krypton.Toolkit.VisualOrientation.Top;
             this.kryptonCheckBox5.Location = new System.Drawing.Point(15, 110);
             this.kryptonCheckBox5.Name = "kryptonCheckBox5";
-            this.kryptonCheckBox5.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            this.kryptonCheckBox5.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2010Blue;
             this.kryptonCheckBox5.Size = new System.Drawing.Size(43, 32);
             this.kryptonCheckBox5.TabIndex = 5;
             this.kryptonCheckBox5.ThreeState = true;
@@ -250,8 +250,8 @@ namespace KryptonCheckBoxExamples
             // 
             this.kryptonCheckBox4.Location = new System.Drawing.Point(139, 20);
             this.kryptonCheckBox4.Name = "kryptonCheckBox4";
-            this.kryptonCheckBox4.Orientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Right;
-            this.kryptonCheckBox4.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            this.kryptonCheckBox4.Orientation =  Krypton.Toolkit.VisualOrientation.Right;
+            this.kryptonCheckBox4.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2010Blue;
             this.kryptonCheckBox4.Size = new System.Drawing.Size(19, 94);
             this.kryptonCheckBox4.TabIndex = 3;
             this.kryptonCheckBox4.ThreeState = true;
@@ -264,7 +264,7 @@ namespace KryptonCheckBoxExamples
             this.kryptonCheckBox3.CheckState = System.Windows.Forms.CheckState.Checked;
             this.kryptonCheckBox3.Location = new System.Drawing.Point(18, 76);
             this.kryptonCheckBox3.Name = "kryptonCheckBox3";
-            this.kryptonCheckBox3.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            this.kryptonCheckBox3.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2010Blue;
             this.kryptonCheckBox3.Size = new System.Drawing.Size(67, 19);
             this.kryptonCheckBox3.TabIndex = 2;
             this.kryptonCheckBox3.ThreeState = true;
@@ -275,7 +275,7 @@ namespace KryptonCheckBoxExamples
             // 
             this.kryptonCheckBox1.Location = new System.Drawing.Point(18, 26);
             this.kryptonCheckBox1.Name = "kryptonCheckBox1";
-            this.kryptonCheckBox1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            this.kryptonCheckBox1.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2010Blue;
             this.kryptonCheckBox1.Size = new System.Drawing.Size(80, 19);
             this.kryptonCheckBox1.TabIndex = 0;
             this.kryptonCheckBox1.ThreeState = true;
@@ -288,7 +288,7 @@ namespace KryptonCheckBoxExamples
             this.kryptonCheckBox2.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.kryptonCheckBox2.Location = new System.Drawing.Point(18, 51);
             this.kryptonCheckBox2.Name = "kryptonCheckBox2";
-            this.kryptonCheckBox2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            this.kryptonCheckBox2.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2010Blue;
             this.kryptonCheckBox2.Size = new System.Drawing.Size(96, 19);
             this.kryptonCheckBox2.TabIndex = 1;
             this.kryptonCheckBox2.ThreeState = true;
@@ -308,7 +308,7 @@ namespace KryptonCheckBoxExamples
             // 
             // kryptonCheckBox16
             // 
-            this.kryptonCheckBox16.CheckPosition = ComponentFactory.Krypton.Toolkit.VisualOrientation.Top;
+            this.kryptonCheckBox16.CheckPosition =  Krypton.Toolkit.VisualOrientation.Top;
             this.kryptonCheckBox16.Images.CheckedNormal = ((System.Drawing.Image)(resources.GetObject("kryptonCheckBox16.Images.CheckedNormal")));
             this.kryptonCheckBox16.Images.CheckedPressed = ((System.Drawing.Image)(resources.GetObject("kryptonCheckBox16.Images.CheckedPressed")));
             this.kryptonCheckBox16.Images.CheckedTracking = ((System.Drawing.Image)(resources.GetObject("kryptonCheckBox16.Images.CheckedTracking")));
@@ -317,7 +317,7 @@ namespace KryptonCheckBoxExamples
             this.kryptonCheckBox16.Images.UncheckedTracking = ((System.Drawing.Image)(resources.GetObject("kryptonCheckBox16.Images.UncheckedTracking")));
             this.kryptonCheckBox16.Location = new System.Drawing.Point(54, 86);
             this.kryptonCheckBox16.Name = "kryptonCheckBox16";
-            this.kryptonCheckBox16.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Black;
+            this.kryptonCheckBox16.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2007Black;
             this.kryptonCheckBox16.Size = new System.Drawing.Size(107, 44);
             this.kryptonCheckBox16.TabIndex = 1;
             this.kryptonCheckBox16.Values.Text = "Database Locking";
@@ -333,7 +333,7 @@ namespace KryptonCheckBoxExamples
             this.kryptonCheckBox15.Images.UncheckedTracking = ((System.Drawing.Image)(resources.GetObject("kryptonCheckBox15.Images.UncheckedTracking")));
             this.kryptonCheckBox15.Location = new System.Drawing.Point(32, 34);
             this.kryptonCheckBox15.Name = "kryptonCheckBox15";
-            this.kryptonCheckBox15.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Black;
+            this.kryptonCheckBox15.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2007Black;
             this.kryptonCheckBox15.Size = new System.Drawing.Size(154, 24);
             this.kryptonCheckBox15.TabIndex = 0;
             this.kryptonCheckBox15.Values.ExtraText = "(Extra Text)";
@@ -377,22 +377,22 @@ namespace KryptonCheckBoxExamples
         private System.Windows.Forms.GroupBox groupBoxOffice2003;
         private System.Windows.Forms.GroupBox groupBoxOffice2007Blue;
         private System.Windows.Forms.GroupBox groupBoxCustom;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox kryptonCheckBox3;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox kryptonCheckBox1;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox kryptonCheckBox2;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox kryptonCheckBox5;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox kryptonCheckBox4;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox kryptonCheckBox6;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox kryptonCheckBox8;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox kryptonCheckBox9;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox kryptonCheckBox10;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox kryptonCheckBox11;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox kryptonCheckBox12;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox kryptonCheckBox13;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox kryptonCheckBox14;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox kryptonCheckBox7;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox kryptonCheckBox15;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox kryptonCheckBox16;
+        private  Krypton.Toolkit.KryptonCheckBox kryptonCheckBox3;
+        private  Krypton.Toolkit.KryptonCheckBox kryptonCheckBox1;
+        private  Krypton.Toolkit.KryptonCheckBox kryptonCheckBox2;
+        private  Krypton.Toolkit.KryptonCheckBox kryptonCheckBox5;
+        private  Krypton.Toolkit.KryptonCheckBox kryptonCheckBox4;
+        private  Krypton.Toolkit.KryptonCheckBox kryptonCheckBox6;
+        private  Krypton.Toolkit.KryptonCheckBox kryptonCheckBox8;
+        private  Krypton.Toolkit.KryptonCheckBox kryptonCheckBox9;
+        private  Krypton.Toolkit.KryptonCheckBox kryptonCheckBox10;
+        private  Krypton.Toolkit.KryptonCheckBox kryptonCheckBox11;
+        private  Krypton.Toolkit.KryptonCheckBox kryptonCheckBox12;
+        private  Krypton.Toolkit.KryptonCheckBox kryptonCheckBox13;
+        private  Krypton.Toolkit.KryptonCheckBox kryptonCheckBox14;
+        private  Krypton.Toolkit.KryptonCheckBox kryptonCheckBox7;
+        private  Krypton.Toolkit.KryptonCheckBox kryptonCheckBox15;
+        private  Krypton.Toolkit.KryptonCheckBox kryptonCheckBox16;
     }
 }
 

@@ -71,168 +71,168 @@
             treeNode9,
             treeNode20});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.kryptonBreadCrumbItem1 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem2 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem3 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem4 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem5 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem6 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem7 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem8 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem9 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem10 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem11 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem12 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem13 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem14 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem15 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem16 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem17 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem18 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem19 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem20 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem21 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem22 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem23 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem24 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem25 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem26 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem27 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem28 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem29 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem30 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem31 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem32 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem33 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem34 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem35 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem36 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem37 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem38 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem39 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem40 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem41 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem42 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem43 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem44 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem45 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem46 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem47 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem48 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem49 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem50 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem51 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem52 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem53 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem54 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem55 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem56 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem57 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem58 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem59 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem60 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem61 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem62 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem63 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem64 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem65 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem66 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem67 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem68 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem69 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem70 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem71 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem72 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem73 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem74 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem75 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem76 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem77 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem78 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem79 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem80 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem81 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem82 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem83 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem84 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem85 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem86 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem87 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem88 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem89 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem90 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem91 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem92 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem93 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem94 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem95 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem96 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem97 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem98 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem99 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem100 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem101 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem102 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem103 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem104 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem105 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem106 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem107 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem108 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem109 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem110 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem111 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem112 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem113 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem114 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem115 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem116 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem117 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem118 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem119 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem120 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem121 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem122 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem123 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem124 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem125 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem126 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem127 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem128 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem129 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem130 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem131 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem132 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem133 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem134 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem135 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem136 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem137 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem138 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem139 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem140 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem141 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem142 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumbItem143 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem();
-            this.kryptonBreadCrumb1 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumb();
-            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
-            this.kryptonPaletteOffice2007Blue = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
+            this.kryptonBreadCrumbItem1 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem2 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem3 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem4 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem5 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem6 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem7 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem8 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem9 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem10 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem11 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem12 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem13 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem14 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem15 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem16 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem17 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem18 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem19 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem20 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem21 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem22 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem23 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem24 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem25 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem26 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem27 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem28 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem29 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem30 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem31 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem32 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem33 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem34 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem35 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem36 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem37 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem38 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem39 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem40 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem41 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem42 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem43 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem44 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem45 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem46 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem47 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem48 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem49 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem50 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem51 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem52 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem53 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem54 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem55 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem56 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem57 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem58 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem59 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem60 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem61 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem62 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem63 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem64 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem65 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem66 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem67 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem68 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem69 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem70 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem71 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem72 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem73 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem74 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem75 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem76 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem77 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem78 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem79 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem80 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem81 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem82 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem83 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem84 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem85 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem86 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem87 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem88 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem89 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem90 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem91 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem92 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem93 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem94 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem95 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem96 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem97 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem98 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem99 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem100 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem101 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem102 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem103 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem104 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem105 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem106 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem107 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem108 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem109 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem110 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem111 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem112 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem113 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem114 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem115 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem116 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem117 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem118 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem119 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem120 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem121 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem122 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem123 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem124 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem125 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem126 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem127 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem128 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem129 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem130 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem131 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem132 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem133 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem134 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem135 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem136 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem137 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem138 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem139 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem140 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem141 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem142 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumbItem143 = new  Krypton.Toolkit.KryptonBreadCrumbItem();
+            this.kryptonBreadCrumb1 = new  Krypton.Toolkit.KryptonBreadCrumb();
+            this.kryptonManager1 = new  Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonPaletteOffice2007Blue = new  Krypton.Toolkit.KryptonPalette(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.kryptonBreadCrumb3 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumb();
-            this.buttonSpecAny2 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.kryptonContextMenu1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
-            this.kryptonContextMenuHeading1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
-            this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
-            this.menuSpider = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.menuKangeroo = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.menuFern = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonBreadCrumb2 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumb();
-            this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.kryptonBreadCrumb3 = new  Krypton.Toolkit.KryptonBreadCrumb();
+            this.buttonSpecAny2 = new  Krypton.Toolkit.ButtonSpecAny();
+            this.kryptonContextMenu1 = new  Krypton.Toolkit.KryptonContextMenu();
+            this.kryptonContextMenuHeading1 = new  Krypton.Toolkit.KryptonContextMenuHeading();
+            this.kryptonContextMenuItems1 = new  Krypton.Toolkit.KryptonContextMenuItems();
+            this.menuSpider = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.menuKangeroo = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.menuFern = new  Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonBreadCrumb2 = new  Krypton.Toolkit.KryptonBreadCrumb();
+            this.buttonSpecAny1 = new  Krypton.Toolkit.ButtonSpecAny();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.propertyGrid = new System.Windows.Forms.PropertyGrid();
             this.buttonClose = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.kryptonBreadCrumb4 = new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumb();
+            this.kryptonBreadCrumb4 = new  Krypton.Toolkit.KryptonBreadCrumb();
             this.treeView1 = new System.Windows.Forms.TreeView();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonBreadCrumb1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -245,14 +245,14 @@
             // 
             // kryptonBreadCrumbItem1
             // 
-            this.kryptonBreadCrumbItem1.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem1.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem2,
             this.kryptonBreadCrumbItem20});
             this.kryptonBreadCrumbItem1.ShortText = "Animals";
             // 
             // kryptonBreadCrumbItem2
             // 
-            this.kryptonBreadCrumbItem2.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem2.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem3,
             this.kryptonBreadCrumbItem7,
             this.kryptonBreadCrumbItem11,
@@ -261,7 +261,7 @@
             // 
             // kryptonBreadCrumbItem3
             // 
-            this.kryptonBreadCrumbItem3.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem3.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem4,
             this.kryptonBreadCrumbItem5,
             this.kryptonBreadCrumbItem6});
@@ -281,7 +281,7 @@
             // 
             // kryptonBreadCrumbItem7
             // 
-            this.kryptonBreadCrumbItem7.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem7.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem8,
             this.kryptonBreadCrumbItem9,
             this.kryptonBreadCrumbItem10});
@@ -301,7 +301,7 @@
             // 
             // kryptonBreadCrumbItem11
             // 
-            this.kryptonBreadCrumbItem11.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem11.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem12,
             this.kryptonBreadCrumbItem13,
             this.kryptonBreadCrumbItem14});
@@ -321,7 +321,7 @@
             // 
             // kryptonBreadCrumbItem15
             // 
-            this.kryptonBreadCrumbItem15.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem15.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem16,
             this.kryptonBreadCrumbItem17,
             this.kryptonBreadCrumbItem18,
@@ -346,7 +346,7 @@
             // 
             // kryptonBreadCrumbItem20
             // 
-            this.kryptonBreadCrumbItem20.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem20.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem21,
             this.kryptonBreadCrumbItem25,
             this.kryptonBreadCrumbItem29,
@@ -355,7 +355,7 @@
             // 
             // kryptonBreadCrumbItem21
             // 
-            this.kryptonBreadCrumbItem21.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem21.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem22,
             this.kryptonBreadCrumbItem23,
             this.kryptonBreadCrumbItem24});
@@ -375,7 +375,7 @@
             // 
             // kryptonBreadCrumbItem25
             // 
-            this.kryptonBreadCrumbItem25.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem25.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem26,
             this.kryptonBreadCrumbItem27,
             this.kryptonBreadCrumbItem28});
@@ -395,7 +395,7 @@
             // 
             // kryptonBreadCrumbItem29
             // 
-            this.kryptonBreadCrumbItem29.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem29.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem30,
             this.kryptonBreadCrumbItem31,
             this.kryptonBreadCrumbItem32});
@@ -415,7 +415,7 @@
             // 
             // kryptonBreadCrumbItem33
             // 
-            this.kryptonBreadCrumbItem33.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem33.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem34,
             this.kryptonBreadCrumbItem35,
             this.kryptonBreadCrumbItem36});
@@ -435,13 +435,13 @@
             // 
             // kryptonBreadCrumbItem37
             // 
-            this.kryptonBreadCrumbItem37.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem37.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem38});
             this.kryptonBreadCrumbItem37.ShortText = "Plants";
             // 
             // kryptonBreadCrumbItem38
             // 
-            this.kryptonBreadCrumbItem38.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem38.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem39,
             this.kryptonBreadCrumbItem40,
             this.kryptonBreadCrumbItem41});
@@ -461,14 +461,14 @@
             // 
             // kryptonBreadCrumbItem42
             // 
-            this.kryptonBreadCrumbItem42.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem42.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem43,
             this.kryptonBreadCrumbItem61});
             this.kryptonBreadCrumbItem42.ShortText = "Animals";
             // 
             // kryptonBreadCrumbItem43
             // 
-            this.kryptonBreadCrumbItem43.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem43.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem44,
             this.kryptonBreadCrumbItem48,
             this.kryptonBreadCrumbItem52,
@@ -477,7 +477,7 @@
             // 
             // kryptonBreadCrumbItem44
             // 
-            this.kryptonBreadCrumbItem44.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem44.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem45,
             this.kryptonBreadCrumbItem46,
             this.kryptonBreadCrumbItem47});
@@ -497,7 +497,7 @@
             // 
             // kryptonBreadCrumbItem48
             // 
-            this.kryptonBreadCrumbItem48.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem48.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem49,
             this.kryptonBreadCrumbItem50,
             this.kryptonBreadCrumbItem51});
@@ -517,7 +517,7 @@
             // 
             // kryptonBreadCrumbItem52
             // 
-            this.kryptonBreadCrumbItem52.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem52.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem53,
             this.kryptonBreadCrumbItem54,
             this.kryptonBreadCrumbItem55});
@@ -537,7 +537,7 @@
             // 
             // kryptonBreadCrumbItem56
             // 
-            this.kryptonBreadCrumbItem56.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem56.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem57,
             this.kryptonBreadCrumbItem58,
             this.kryptonBreadCrumbItem59,
@@ -562,7 +562,7 @@
             // 
             // kryptonBreadCrumbItem61
             // 
-            this.kryptonBreadCrumbItem61.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem61.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem62,
             this.kryptonBreadCrumbItem66,
             this.kryptonBreadCrumbItem70,
@@ -571,7 +571,7 @@
             // 
             // kryptonBreadCrumbItem62
             // 
-            this.kryptonBreadCrumbItem62.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem62.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem63,
             this.kryptonBreadCrumbItem64,
             this.kryptonBreadCrumbItem65});
@@ -591,7 +591,7 @@
             // 
             // kryptonBreadCrumbItem66
             // 
-            this.kryptonBreadCrumbItem66.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem66.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem67,
             this.kryptonBreadCrumbItem68,
             this.kryptonBreadCrumbItem69});
@@ -611,7 +611,7 @@
             // 
             // kryptonBreadCrumbItem70
             // 
-            this.kryptonBreadCrumbItem70.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem70.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem71,
             this.kryptonBreadCrumbItem72,
             this.kryptonBreadCrumbItem73});
@@ -631,7 +631,7 @@
             // 
             // kryptonBreadCrumbItem74
             // 
-            this.kryptonBreadCrumbItem74.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem74.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem75,
             this.kryptonBreadCrumbItem76,
             this.kryptonBreadCrumbItem77});
@@ -651,13 +651,13 @@
             // 
             // kryptonBreadCrumbItem78
             // 
-            this.kryptonBreadCrumbItem78.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem78.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem79});
             this.kryptonBreadCrumbItem78.ShortText = "Plants";
             // 
             // kryptonBreadCrumbItem79
             // 
-            this.kryptonBreadCrumbItem79.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem79.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem80,
             this.kryptonBreadCrumbItem81,
             this.kryptonBreadCrumbItem82});
@@ -677,14 +677,14 @@
             // 
             // kryptonBreadCrumbItem83
             // 
-            this.kryptonBreadCrumbItem83.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem83.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem84,
             this.kryptonBreadCrumbItem102});
             this.kryptonBreadCrumbItem83.ShortText = "Animals";
             // 
             // kryptonBreadCrumbItem84
             // 
-            this.kryptonBreadCrumbItem84.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem84.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem85,
             this.kryptonBreadCrumbItem89,
             this.kryptonBreadCrumbItem93,
@@ -693,7 +693,7 @@
             // 
             // kryptonBreadCrumbItem85
             // 
-            this.kryptonBreadCrumbItem85.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem85.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem86,
             this.kryptonBreadCrumbItem87,
             this.kryptonBreadCrumbItem88});
@@ -713,7 +713,7 @@
             // 
             // kryptonBreadCrumbItem89
             // 
-            this.kryptonBreadCrumbItem89.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem89.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem90,
             this.kryptonBreadCrumbItem91,
             this.kryptonBreadCrumbItem92});
@@ -733,7 +733,7 @@
             // 
             // kryptonBreadCrumbItem93
             // 
-            this.kryptonBreadCrumbItem93.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem93.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem94,
             this.kryptonBreadCrumbItem95,
             this.kryptonBreadCrumbItem96});
@@ -753,7 +753,7 @@
             // 
             // kryptonBreadCrumbItem97
             // 
-            this.kryptonBreadCrumbItem97.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem97.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem98,
             this.kryptonBreadCrumbItem99,
             this.kryptonBreadCrumbItem100,
@@ -778,7 +778,7 @@
             // 
             // kryptonBreadCrumbItem102
             // 
-            this.kryptonBreadCrumbItem102.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem102.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem103,
             this.kryptonBreadCrumbItem107,
             this.kryptonBreadCrumbItem111,
@@ -787,7 +787,7 @@
             // 
             // kryptonBreadCrumbItem103
             // 
-            this.kryptonBreadCrumbItem103.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem103.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem104,
             this.kryptonBreadCrumbItem105,
             this.kryptonBreadCrumbItem106});
@@ -807,7 +807,7 @@
             // 
             // kryptonBreadCrumbItem107
             // 
-            this.kryptonBreadCrumbItem107.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem107.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem108,
             this.kryptonBreadCrumbItem109,
             this.kryptonBreadCrumbItem110});
@@ -827,7 +827,7 @@
             // 
             // kryptonBreadCrumbItem111
             // 
-            this.kryptonBreadCrumbItem111.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem111.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem112,
             this.kryptonBreadCrumbItem113,
             this.kryptonBreadCrumbItem114});
@@ -847,7 +847,7 @@
             // 
             // kryptonBreadCrumbItem115
             // 
-            this.kryptonBreadCrumbItem115.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem115.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem116,
             this.kryptonBreadCrumbItem117,
             this.kryptonBreadCrumbItem118});
@@ -867,13 +867,13 @@
             // 
             // kryptonBreadCrumbItem119
             // 
-            this.kryptonBreadCrumbItem119.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem119.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem120});
             this.kryptonBreadCrumbItem119.ShortText = "Plants";
             // 
             // kryptonBreadCrumbItem120
             // 
-            this.kryptonBreadCrumbItem120.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem120.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem121,
             this.kryptonBreadCrumbItem122,
             this.kryptonBreadCrumbItem123});
@@ -893,21 +893,21 @@
             // 
             // kryptonBreadCrumbItem124
             // 
-            this.kryptonBreadCrumbItem124.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem124.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem125,
             this.kryptonBreadCrumbItem130});
             this.kryptonBreadCrumbItem124.ShortText = "Top";
             // 
             // kryptonBreadCrumbItem125
             // 
-            this.kryptonBreadCrumbItem125.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem125.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem126,
             this.kryptonBreadCrumbItem128});
             this.kryptonBreadCrumbItem125.ShortText = "Red";
             // 
             // kryptonBreadCrumbItem126
             // 
-            this.kryptonBreadCrumbItem126.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem126.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem127});
             this.kryptonBreadCrumbItem126.ShortText = "Up";
             // 
@@ -917,7 +917,7 @@
             // 
             // kryptonBreadCrumbItem128
             // 
-            this.kryptonBreadCrumbItem128.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem128.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem129});
             this.kryptonBreadCrumbItem128.ShortText = "Down";
             // 
@@ -927,7 +927,7 @@
             // 
             // kryptonBreadCrumbItem130
             // 
-            this.kryptonBreadCrumbItem130.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem130.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem131,
             this.kryptonBreadCrumbItem132});
             this.kryptonBreadCrumbItem130.ShortText = "Green";
@@ -942,21 +942,21 @@
             // 
             // kryptonBreadCrumbItem133
             // 
-            this.kryptonBreadCrumbItem133.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem133.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem134,
             this.kryptonBreadCrumbItem139});
             this.kryptonBreadCrumbItem133.ShortText = "Bottom";
             // 
             // kryptonBreadCrumbItem134
             // 
-            this.kryptonBreadCrumbItem134.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem134.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem135,
             this.kryptonBreadCrumbItem137});
             this.kryptonBreadCrumbItem134.ShortText = "Tall";
             // 
             // kryptonBreadCrumbItem135
             // 
-            this.kryptonBreadCrumbItem135.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem135.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem136});
             this.kryptonBreadCrumbItem135.ShortText = "Fast";
             // 
@@ -966,7 +966,7 @@
             // 
             // kryptonBreadCrumbItem137
             // 
-            this.kryptonBreadCrumbItem137.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem137.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem138});
             this.kryptonBreadCrumbItem137.ShortText = "Slow";
             // 
@@ -976,14 +976,14 @@
             // 
             // kryptonBreadCrumbItem139
             // 
-            this.kryptonBreadCrumbItem139.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem139.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem140,
             this.kryptonBreadCrumbItem142});
             this.kryptonBreadCrumbItem139.ShortText = "Short";
             // 
             // kryptonBreadCrumbItem140
             // 
-            this.kryptonBreadCrumbItem140.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem140.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem141});
             this.kryptonBreadCrumbItem140.ShortText = "Strong";
             // 
@@ -993,7 +993,7 @@
             // 
             // kryptonBreadCrumbItem142
             // 
-            this.kryptonBreadCrumbItem142.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumbItem142.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem143});
             this.kryptonBreadCrumbItem142.ShortText = "Weak";
             // 
@@ -1006,11 +1006,11 @@
             this.kryptonBreadCrumb1.AutoSize = false;
             this.kryptonBreadCrumb1.Location = new System.Drawing.Point(20, 27);
             this.kryptonBreadCrumb1.Name = "kryptonBreadCrumb1";
-            this.kryptonBreadCrumb1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonBreadCrumb1.PaletteMode =  Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // 
             // 
-            this.kryptonBreadCrumb1.RootItem.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumb1.RootItem.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem1,
             this.kryptonBreadCrumbItem37});
             this.kryptonBreadCrumb1.RootItem.ShortText = "Root";
@@ -1022,7 +1022,7 @@
             // kryptonManager1
             // 
             this.kryptonManager1.GlobalPalette = this.kryptonPaletteOffice2007Blue;
-            this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Custom;
+            this.kryptonManager1.GlobalPaletteMode =  Krypton.Toolkit.PaletteModeManager.Custom;
             // 
             // groupBox1
             // 
@@ -1039,15 +1039,15 @@
             // kryptonBreadCrumb3
             // 
             this.kryptonBreadCrumb3.AutoSize = false;
-            this.kryptonBreadCrumb3.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.kryptonBreadCrumb3.ButtonSpecs.AddRange(new  Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny2});
             this.kryptonBreadCrumb3.Location = new System.Drawing.Point(20, 101);
             this.kryptonBreadCrumb3.Name = "kryptonBreadCrumb3";
-            this.kryptonBreadCrumb3.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
+            this.kryptonBreadCrumb3.PaletteMode =  Krypton.Toolkit.PaletteMode.SparkleBlue;
             // 
             // 
             // 
-            this.kryptonBreadCrumb3.RootItem.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumb3.RootItem.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem42,
             this.kryptonBreadCrumbItem78});
             this.kryptonBreadCrumb3.RootItem.ShortText = "Root";
@@ -1059,12 +1059,12 @@
             // buttonSpecAny2
             // 
             this.buttonSpecAny2.KryptonContextMenu = this.kryptonContextMenu1;
-            this.buttonSpecAny2.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.DropDown;
+            this.buttonSpecAny2.Type =  Krypton.Toolkit.PaletteButtonSpecStyle.DropDown;
             this.buttonSpecAny2.UniqueName = "BF2ABC476E114B81BF2ABC476E114B81";
             // 
             // kryptonContextMenu1
             // 
-            this.kryptonContextMenu1.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenu1.Items.AddRange(new  Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kryptonContextMenuHeading1,
             this.kryptonContextMenuItems1});
             // 
@@ -1075,7 +1075,7 @@
             // 
             // kryptonContextMenuItems1
             // 
-            this.kryptonContextMenuItems1.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuItems1.Items.AddRange(new  Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.menuSpider,
             this.menuKangeroo,
             this.menuFern});
@@ -1098,15 +1098,15 @@
             // kryptonBreadCrumb2
             // 
             this.kryptonBreadCrumb2.AutoSize = false;
-            this.kryptonBreadCrumb2.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.kryptonBreadCrumb2.ButtonSpecs.AddRange(new  Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny1});
             this.kryptonBreadCrumb2.Location = new System.Drawing.Point(20, 64);
             this.kryptonBreadCrumb2.Name = "kryptonBreadCrumb2";
-            this.kryptonBreadCrumb2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            this.kryptonBreadCrumb2.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2010Blue;
             // 
             // 
             // 
-            this.kryptonBreadCrumb2.RootItem.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumb2.RootItem.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem83,
             this.kryptonBreadCrumbItem119});
             this.kryptonBreadCrumb2.RootItem.ShortText = "Root";
@@ -1117,7 +1117,7 @@
             // 
             // buttonSpecAny1
             // 
-            this.buttonSpecAny1.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
+            this.buttonSpecAny1.Type =  Krypton.Toolkit.PaletteButtonSpecStyle.Close;
             this.buttonSpecAny1.UniqueName = "DD50F0F9917A4145DD50F0F9917A4145";
             this.buttonSpecAny1.Click += new System.EventHandler(this.buttonSpecAny1_Click);
             // 
@@ -1172,7 +1172,7 @@
             // 
             // 
             // 
-            this.kryptonBreadCrumb4.RootItem.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem[] {
+            this.kryptonBreadCrumb4.RootItem.Items.AddRange(new  Krypton.Toolkit.KryptonBreadCrumbItem[] {
             this.kryptonBreadCrumbItem124,
             this.kryptonBreadCrumbItem133});
             this.kryptonBreadCrumb4.RootItem.ShortText = "Root";
@@ -1265,169 +1265,169 @@
 
         #endregion
 
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumb kryptonBreadCrumb1;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager1;
+        private  Krypton.Toolkit.KryptonBreadCrumb kryptonBreadCrumb1;
+        private  Krypton.Toolkit.KryptonManager kryptonManager1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumb kryptonBreadCrumb3;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumb kryptonBreadCrumb2;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny2;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu kryptonContextMenu1;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading kryptonContextMenuHeading1;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems1;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem menuSpider;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem menuKangeroo;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem menuFern;
-        private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPaletteOffice2007Blue;
+        private  Krypton.Toolkit.KryptonBreadCrumb kryptonBreadCrumb3;
+        private  Krypton.Toolkit.KryptonBreadCrumb kryptonBreadCrumb2;
+        private  Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
+        private  Krypton.Toolkit.ButtonSpecAny buttonSpecAny2;
+        private  Krypton.Toolkit.KryptonContextMenu kryptonContextMenu1;
+        private  Krypton.Toolkit.KryptonContextMenuHeading kryptonContextMenuHeading1;
+        private  Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems1;
+        private  Krypton.Toolkit.KryptonContextMenuItem menuSpider;
+        private  Krypton.Toolkit.KryptonContextMenuItem menuKangeroo;
+        private  Krypton.Toolkit.KryptonContextMenuItem menuFern;
+        private  Krypton.Toolkit.KryptonPalette kryptonPaletteOffice2007Blue;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.PropertyGrid propertyGrid;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.GroupBox groupBox2;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumb kryptonBreadCrumb4;
+        private  Krypton.Toolkit.KryptonBreadCrumb kryptonBreadCrumb4;
         private System.Windows.Forms.TreeView treeView1;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem1;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem2;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem3;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem4;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem5;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem6;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem7;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem8;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem9;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem10;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem11;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem12;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem13;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem14;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem15;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem16;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem17;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem18;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem19;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem20;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem21;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem22;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem23;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem24;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem25;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem26;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem27;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem28;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem29;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem30;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem31;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem32;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem33;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem34;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem35;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem36;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem37;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem38;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem39;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem40;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem41;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem42;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem43;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem44;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem45;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem46;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem47;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem48;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem49;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem50;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem51;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem52;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem53;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem54;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem55;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem56;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem57;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem58;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem59;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem60;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem61;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem62;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem63;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem64;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem65;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem66;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem67;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem68;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem69;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem70;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem71;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem72;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem73;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem74;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem75;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem76;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem77;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem78;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem79;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem80;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem81;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem82;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem83;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem84;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem85;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem86;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem87;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem88;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem89;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem90;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem91;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem92;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem93;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem94;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem95;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem96;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem97;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem98;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem99;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem100;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem101;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem102;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem103;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem104;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem105;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem106;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem107;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem108;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem109;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem110;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem111;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem112;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem113;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem114;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem115;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem116;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem117;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem118;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem119;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem120;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem121;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem122;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem123;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem124;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem125;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem126;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem127;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem128;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem129;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem130;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem131;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem132;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem133;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem134;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem135;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem136;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem137;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem138;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem139;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem140;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem141;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem142;
-        private ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem143;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem1;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem2;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem3;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem4;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem5;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem6;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem7;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem8;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem9;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem10;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem11;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem12;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem13;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem14;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem15;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem16;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem17;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem18;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem19;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem20;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem21;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem22;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem23;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem24;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem25;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem26;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem27;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem28;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem29;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem30;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem31;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem32;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem33;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem34;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem35;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem36;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem37;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem38;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem39;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem40;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem41;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem42;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem43;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem44;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem45;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem46;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem47;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem48;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem49;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem50;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem51;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem52;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem53;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem54;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem55;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem56;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem57;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem58;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem59;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem60;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem61;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem62;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem63;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem64;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem65;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem66;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem67;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem68;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem69;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem70;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem71;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem72;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem73;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem74;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem75;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem76;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem77;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem78;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem79;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem80;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem81;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem82;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem83;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem84;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem85;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem86;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem87;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem88;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem89;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem90;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem91;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem92;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem93;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem94;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem95;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem96;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem97;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem98;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem99;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem100;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem101;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem102;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem103;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem104;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem105;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem106;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem107;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem108;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem109;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem110;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem111;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem112;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem113;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem114;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem115;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem116;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem117;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem118;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem119;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem120;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem121;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem122;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem123;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem124;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem125;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem126;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem127;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem128;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem129;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem130;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem131;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem132;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem133;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem134;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem135;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem136;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem137;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem138;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem139;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem140;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem141;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem142;
+        private  Krypton.Toolkit.KryptonBreadCrumbItem kryptonBreadCrumbItem143;
     }
 }
 

@@ -6,14 +6,14 @@
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
 // 
 //  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
-//  Version 4.7.0.0  www.ComponentFactory.com
+//  Version 4.7.0.0  www. com
 // *************************************************************************
 
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
 
-using ComponentFactory.Krypton.Toolkit;
+using  Krypton.Toolkit;
 
 namespace KryptonExplorer
 {

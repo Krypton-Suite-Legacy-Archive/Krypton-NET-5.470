@@ -44,28 +44,28 @@ namespace ExpandingHeaderGroupsStack
             this.toolSparkle = new System.Windows.Forms.ToolStripButton();
             this.toolSystem = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.kryptonPanelMain = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonGroupFiller = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.textBoxFiller = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonBorderEdgeBottom = new ComponentFactory.Krypton.Toolkit.KryptonBorderEdge();
-            this.kryptonHeaderBottom = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
-            this.buttonSpecBottom = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
-            this.kryptonButtonPrevious = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.textBoxFind = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonButtonNext = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.labelFind = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonBorderEdgeTop = new ComponentFactory.Krypton.Toolkit.KryptonBorderEdge();
-            this.kryptonHeaderTop = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
-            this.buttonSpecHeaderGroup1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
-            this.textBox3 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.textBox2 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.labelPosition = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.labelAge = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.textBox1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.textBoxFirstName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.labelLastName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.labelFirstName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonPanelMain = new  Krypton.Toolkit.KryptonPanel();
+            this.kryptonGroupFiller = new  Krypton.Toolkit.KryptonGroup();
+            this.textBoxFiller = new  Krypton.Toolkit.KryptonTextBox();
+            this.kryptonBorderEdgeBottom = new  Krypton.Toolkit.KryptonBorderEdge();
+            this.kryptonHeaderBottom = new  Krypton.Toolkit.KryptonHeaderGroup();
+            this.buttonSpecBottom = new  Krypton.Toolkit.ButtonSpecHeaderGroup();
+            this.kryptonButtonPrevious = new  Krypton.Toolkit.KryptonButton();
+            this.textBoxFind = new  Krypton.Toolkit.KryptonTextBox();
+            this.kryptonButtonNext = new  Krypton.Toolkit.KryptonButton();
+            this.labelFind = new  Krypton.Toolkit.KryptonLabel();
+            this.kryptonBorderEdgeTop = new  Krypton.Toolkit.KryptonBorderEdge();
+            this.kryptonHeaderTop = new  Krypton.Toolkit.KryptonHeaderGroup();
+            this.buttonSpecHeaderGroup1 = new  Krypton.Toolkit.ButtonSpecHeaderGroup();
+            this.textBox3 = new  Krypton.Toolkit.KryptonTextBox();
+            this.textBox2 = new  Krypton.Toolkit.KryptonTextBox();
+            this.labelPosition = new  Krypton.Toolkit.KryptonLabel();
+            this.labelAge = new  Krypton.Toolkit.KryptonLabel();
+            this.textBox1 = new  Krypton.Toolkit.KryptonTextBox();
+            this.textBoxFirstName = new  Krypton.Toolkit.KryptonTextBox();
+            this.labelLastName = new  Krypton.Toolkit.KryptonLabel();
+            this.labelFirstName = new  Krypton.Toolkit.KryptonLabel();
+            this.kryptonManager = new  Krypton.Toolkit.KryptonManager(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
@@ -252,8 +252,8 @@ namespace ExpandingHeaderGroupsStack
             this.kryptonGroupFiller.Panel.Controls.Add(this.textBoxFiller);
             this.kryptonGroupFiller.Panel.Padding = new System.Windows.Forms.Padding(3);
             this.kryptonGroupFiller.Size = new System.Drawing.Size(342, 120);
-            this.kryptonGroupFiller.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonGroupFiller.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.None;
+            this.kryptonGroupFiller.StateCommon.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(( Krypton.Toolkit.PaletteDrawBorders.Left |  Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonGroupFiller.StateCommon.Border.GraphicsHint =  Krypton.Toolkit.PaletteGraphicsHint.None;
             this.kryptonGroupFiller.TabIndex = 1;
             // 
             // textBoxFiller
@@ -263,10 +263,10 @@ namespace ExpandingHeaderGroupsStack
             this.textBoxFiller.Multiline = true;
             this.textBoxFiller.Name = "textBoxFiller";
             this.textBoxFiller.Size = new System.Drawing.Size(334, 114);
-            this.textBoxFiller.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.textBoxFiller.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.textBoxFiller.StateCommon.Border.Draw =  Krypton.Toolkit.InheritBool.False;
+            this.textBoxFiller.StateCommon.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Left)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.textBoxFiller.TabIndex = 0;
             this.textBoxFiller.Text = resources.GetString("textBoxFiller.Text");
             // 
@@ -276,18 +276,18 @@ namespace ExpandingHeaderGroupsStack
             this.kryptonBorderEdgeBottom.Location = new System.Drawing.Point(5, 218);
             this.kryptonBorderEdgeBottom.Name = "kryptonBorderEdgeBottom";
             this.kryptonBorderEdgeBottom.Size = new System.Drawing.Size(342, 1);
-            this.kryptonBorderEdgeBottom.StateCommon.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.None;
+            this.kryptonBorderEdgeBottom.StateCommon.GraphicsHint =  Krypton.Toolkit.PaletteGraphicsHint.None;
             this.kryptonBorderEdgeBottom.Text = "kryptonBorderEdge1";
             // 
             // kryptonHeaderBottom
             // 
             this.kryptonHeaderBottom.AutoSize = true;
-            this.kryptonHeaderBottom.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup[] {
+            this.kryptonHeaderBottom.ButtonSpecs.AddRange(new  Krypton.Toolkit.ButtonSpecHeaderGroup[] {
             this.buttonSpecBottom});
-            this.kryptonHeaderBottom.CollapseTarget = ComponentFactory.Krypton.Toolkit.HeaderGroupCollapsedTarget.CollapsedToSecondary;
+            this.kryptonHeaderBottom.CollapseTarget =  Krypton.Toolkit.HeaderGroupCollapsedTarget.CollapsedToSecondary;
             this.kryptonHeaderBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.kryptonHeaderBottom.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
-            this.kryptonHeaderBottom.HeaderStyleSecondary = ComponentFactory.Krypton.Toolkit.HeaderStyle.Primary;
+            this.kryptonHeaderBottom.GroupBackStyle =  Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
+            this.kryptonHeaderBottom.HeaderStyleSecondary =  Krypton.Toolkit.HeaderStyle.Primary;
             this.kryptonHeaderBottom.HeaderVisiblePrimary = false;
             this.kryptonHeaderBottom.Location = new System.Drawing.Point(5, 219);
             this.kryptonHeaderBottom.Name = "kryptonHeaderBottom";
@@ -300,8 +300,8 @@ namespace ExpandingHeaderGroupsStack
             this.kryptonHeaderBottom.Panel.Controls.Add(this.labelFind);
             this.kryptonHeaderBottom.Panel.Padding = new System.Windows.Forms.Padding(5);
             this.kryptonHeaderBottom.Size = new System.Drawing.Size(342, 71);
-            this.kryptonHeaderBottom.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonHeaderBottom.StateCommon.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)((( Krypton.Toolkit.PaletteDrawBorders.Bottom |  Krypton.Toolkit.PaletteDrawBorders.Left)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonHeaderBottom.TabIndex = 2;
             this.kryptonHeaderBottom.ValuesPrimary.Heading = "";
             this.kryptonHeaderBottom.ValuesPrimary.Image = null;
@@ -311,8 +311,8 @@ namespace ExpandingHeaderGroupsStack
             // 
             // buttonSpecBottom
             // 
-            this.buttonSpecBottom.HeaderLocation = ComponentFactory.Krypton.Toolkit.HeaderLocation.SecondaryHeader;
-            this.buttonSpecBottom.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowDown;
+            this.buttonSpecBottom.HeaderLocation =  Krypton.Toolkit.HeaderLocation.SecondaryHeader;
+            this.buttonSpecBottom.Type =  Krypton.Toolkit.PaletteButtonSpecStyle.ArrowDown;
             this.buttonSpecBottom.UniqueName = "A07748CCD08E4E46A07748CCD08E4E46";
             // 
             // kryptonButtonPrevious
@@ -345,7 +345,7 @@ namespace ExpandingHeaderGroupsStack
             // 
             // labelFind
             // 
-            this.labelFind.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.labelFind.LabelStyle =  Krypton.Toolkit.LabelStyle.NormalPanel;
             this.labelFind.Location = new System.Drawing.Point(11, 11);
             this.labelFind.Name = "labelFind";
             this.labelFind.Size = new System.Drawing.Size(32, 19);
@@ -358,16 +358,16 @@ namespace ExpandingHeaderGroupsStack
             this.kryptonBorderEdgeTop.Location = new System.Drawing.Point(5, 97);
             this.kryptonBorderEdgeTop.Name = "kryptonBorderEdgeTop";
             this.kryptonBorderEdgeTop.Size = new System.Drawing.Size(342, 1);
-            this.kryptonBorderEdgeTop.StateCommon.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.None;
+            this.kryptonBorderEdgeTop.StateCommon.GraphicsHint =  Krypton.Toolkit.PaletteGraphicsHint.None;
             this.kryptonBorderEdgeTop.Text = "kryptonBorderEdge1";
             // 
             // kryptonHeaderTop
             // 
             this.kryptonHeaderTop.AutoSize = true;
-            this.kryptonHeaderTop.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup[] {
+            this.kryptonHeaderTop.ButtonSpecs.AddRange(new  Krypton.Toolkit.ButtonSpecHeaderGroup[] {
             this.buttonSpecHeaderGroup1});
             this.kryptonHeaderTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kryptonHeaderTop.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
+            this.kryptonHeaderTop.GroupBackStyle =  Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
             this.kryptonHeaderTop.HeaderVisibleSecondary = false;
             this.kryptonHeaderTop.Location = new System.Drawing.Point(5, 5);
             this.kryptonHeaderTop.Name = "kryptonHeaderTop";
@@ -384,8 +384,8 @@ namespace ExpandingHeaderGroupsStack
             this.kryptonHeaderTop.Panel.Controls.Add(this.labelFirstName);
             this.kryptonHeaderTop.Panel.Padding = new System.Windows.Forms.Padding(5);
             this.kryptonHeaderTop.Size = new System.Drawing.Size(342, 92);
-            this.kryptonHeaderTop.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonHeaderTop.StateCommon.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Left)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonHeaderTop.TabIndex = 0;
             this.kryptonHeaderTop.ValuesPrimary.Heading = "Top HeaderGroup";
             this.kryptonHeaderTop.ValuesPrimary.Image = ((System.Drawing.Image)(resources.GetObject("kryptonHeaderTop.ValuesPrimary.Image")));
@@ -393,7 +393,7 @@ namespace ExpandingHeaderGroupsStack
             // 
             // buttonSpecHeaderGroup1
             // 
-            this.buttonSpecHeaderGroup1.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
+            this.buttonSpecHeaderGroup1.Type =  Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
             this.buttonSpecHeaderGroup1.UniqueName = "A07748CCD08E4E46A07748CCD08E4E46";
             // 
             // textBox3
@@ -414,7 +414,7 @@ namespace ExpandingHeaderGroupsStack
             // 
             // labelPosition
             // 
-            this.labelPosition.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.labelPosition.LabelStyle =  Krypton.Toolkit.LabelStyle.NormalPanel;
             this.labelPosition.Location = new System.Drawing.Point(183, 35);
             this.labelPosition.Name = "labelPosition";
             this.labelPosition.Size = new System.Drawing.Size(52, 19);
@@ -423,7 +423,7 @@ namespace ExpandingHeaderGroupsStack
             // 
             // labelAge
             // 
-            this.labelAge.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.labelAge.LabelStyle =  Krypton.Toolkit.LabelStyle.NormalPanel;
             this.labelAge.Location = new System.Drawing.Point(182, 10);
             this.labelAge.Name = "labelAge";
             this.labelAge.Size = new System.Drawing.Size(31, 19);
@@ -448,7 +448,7 @@ namespace ExpandingHeaderGroupsStack
             // 
             // labelLastName
             // 
-            this.labelLastName.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.labelLastName.LabelStyle =  Krypton.Toolkit.LabelStyle.NormalPanel;
             this.labelLastName.Location = new System.Drawing.Point(11, 35);
             this.labelLastName.Name = "labelLastName";
             this.labelLastName.Size = new System.Drawing.Size(65, 19);
@@ -457,7 +457,7 @@ namespace ExpandingHeaderGroupsStack
             // 
             // labelFirstName
             // 
-            this.labelFirstName.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.labelFirstName.LabelStyle =  Krypton.Toolkit.LabelStyle.NormalPanel;
             this.labelFirstName.Location = new System.Drawing.Point(11, 10);
             this.labelFirstName.Name = "labelFirstName";
             this.labelFirstName.Size = new System.Drawing.Size(66, 19);
@@ -527,26 +527,26 @@ namespace ExpandingHeaderGroupsStack
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanelMain;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroup kryptonGroupFiller;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderTop;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup buttonSpecHeaderGroup1;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderBottom;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup buttonSpecBottom;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxFiller;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBox3;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBox2;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelPosition;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelAge;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBox1;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxFirstName;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelLastName;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelFirstName;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonPrevious;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxFind;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonNext;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel labelFind;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager;
+        private  Krypton.Toolkit.KryptonPanel kryptonPanelMain;
+        private  Krypton.Toolkit.KryptonGroup kryptonGroupFiller;
+        private  Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderTop;
+        private  Krypton.Toolkit.ButtonSpecHeaderGroup buttonSpecHeaderGroup1;
+        private  Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderBottom;
+        private  Krypton.Toolkit.ButtonSpecHeaderGroup buttonSpecBottom;
+        private  Krypton.Toolkit.KryptonTextBox textBoxFiller;
+        private  Krypton.Toolkit.KryptonTextBox textBox3;
+        private  Krypton.Toolkit.KryptonTextBox textBox2;
+        private  Krypton.Toolkit.KryptonLabel labelPosition;
+        private  Krypton.Toolkit.KryptonLabel labelAge;
+        private  Krypton.Toolkit.KryptonTextBox textBox1;
+        private  Krypton.Toolkit.KryptonTextBox textBoxFirstName;
+        private  Krypton.Toolkit.KryptonLabel labelLastName;
+        private  Krypton.Toolkit.KryptonLabel labelFirstName;
+        private  Krypton.Toolkit.KryptonButton kryptonButtonPrevious;
+        private  Krypton.Toolkit.KryptonTextBox textBoxFind;
+        private  Krypton.Toolkit.KryptonButton kryptonButtonNext;
+        private  Krypton.Toolkit.KryptonLabel labelFind;
+        private  Krypton.Toolkit.KryptonManager kryptonManager;
         private System.Windows.Forms.ToolStripButton toolSystem;
         private System.Windows.Forms.ToolStripButton toolSparkle;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
@@ -554,8 +554,8 @@ namespace ExpandingHeaderGroupsStack
         private System.Windows.Forms.ToolStripMenuItem menuSparkle;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private ComponentFactory.Krypton.Toolkit.KryptonBorderEdge kryptonBorderEdgeBottom;
-        private ComponentFactory.Krypton.Toolkit.KryptonBorderEdge kryptonBorderEdgeTop;
+        private  Krypton.Toolkit.KryptonBorderEdge kryptonBorderEdgeBottom;
+        private  Krypton.Toolkit.KryptonBorderEdge kryptonBorderEdgeTop;
         private System.Windows.Forms.ToolStripMenuItem menuOffice2010;
         private System.Windows.Forms.ToolStripMenuItem menuOffice2007;
         private System.Windows.Forms.ToolStripButton toolOffice2010;

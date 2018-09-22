@@ -32,17 +32,17 @@ namespace KryptonCommandExamples
             this.buttonClose = new System.Windows.Forms.Button();
             this.groupBoxProperties = new System.Windows.Forms.GroupBox();
             this.propertyGrid = new System.Windows.Forms.PropertyGrid();
-            this.kryptonCommand = new ComponentFactory.Krypton.Toolkit.KryptonCommand();
+            this.kryptonCommand = new  Krypton.Toolkit.KryptonCommand();
             this.groupBoxControls = new System.Windows.Forms.GroupBox();
-            this.kryptonDropButton1 = new ComponentFactory.Krypton.Toolkit.KryptonDropButton();
-            this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.kryptonColorButton1 = new ComponentFactory.Krypton.Toolkit.KryptonColorButton();
-            this.kryptonLinkLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLinkLabel();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonCheckBox1 = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.kryptonCheckButton1 = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonDropButton1 = new  Krypton.Toolkit.KryptonDropButton();
+            this.kryptonHeader1 = new  Krypton.Toolkit.KryptonHeader();
+            this.buttonSpecAny1 = new  Krypton.Toolkit.ButtonSpecAny();
+            this.kryptonColorButton1 = new  Krypton.Toolkit.KryptonColorButton();
+            this.kryptonLinkLabel1 = new  Krypton.Toolkit.KryptonLinkLabel();
+            this.kryptonLabel1 = new  Krypton.Toolkit.KryptonLabel();
+            this.kryptonCheckBox1 = new  Krypton.Toolkit.KryptonCheckBox();
+            this.kryptonCheckButton1 = new  Krypton.Toolkit.KryptonCheckButton();
+            this.kryptonButton1 = new  Krypton.Toolkit.KryptonButton();
             this.buttonAttach = new System.Windows.Forms.Button();
             this.buttonUnattach = new System.Windows.Forms.Button();
             this.groupBoxProperties.SuspendLayout();
@@ -122,7 +122,7 @@ namespace KryptonCommandExamples
             // kryptonHeader1
             // 
             this.kryptonHeader1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
-            this.kryptonHeader1.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.kryptonHeader1.ButtonSpecs.AddRange(new  Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny1});
             this.kryptonHeader1.Location = new System.Drawing.Point(19, 165);
             this.kryptonHeader1.Name = "kryptonHeader1";
@@ -237,16 +237,16 @@ namespace KryptonCommandExamples
         private System.Windows.Forms.GroupBox groupBoxProperties;
         private System.Windows.Forms.PropertyGrid propertyGrid;
         private System.Windows.Forms.GroupBox groupBoxControls;
-        private ComponentFactory.Krypton.Toolkit.KryptonLinkLabel kryptonLinkLabel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox kryptonCheckBox1;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton kryptonCheckButton1;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
-        private ComponentFactory.Krypton.Toolkit.KryptonCommand kryptonCommand;
-        private ComponentFactory.Krypton.Toolkit.KryptonDropButton kryptonDropButton1;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeader kryptonHeader1;
-        private ComponentFactory.Krypton.Toolkit.KryptonColorButton kryptonColorButton1;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
+        private  Krypton.Toolkit.KryptonLinkLabel kryptonLinkLabel1;
+        private  Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private  Krypton.Toolkit.KryptonCheckBox kryptonCheckBox1;
+        private  Krypton.Toolkit.KryptonCheckButton kryptonCheckButton1;
+        private  Krypton.Toolkit.KryptonButton kryptonButton1;
+        private  Krypton.Toolkit.KryptonCommand kryptonCommand;
+        private  Krypton.Toolkit.KryptonDropButton kryptonDropButton1;
+        private  Krypton.Toolkit.KryptonHeader kryptonHeader1;
+        private  Krypton.Toolkit.KryptonColorButton kryptonColorButton1;
+        private  Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
         private System.Windows.Forms.Button buttonAttach;
         private System.Windows.Forms.Button buttonUnattach;
     }

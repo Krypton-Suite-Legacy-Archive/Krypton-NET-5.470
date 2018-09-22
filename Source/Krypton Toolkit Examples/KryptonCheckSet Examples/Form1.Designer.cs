@@ -32,23 +32,23 @@ namespace KryptonCheckSetExamples
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.buttonClose = new System.Windows.Forms.Button();
             this.groupBoxSparkle = new System.Windows.Forms.GroupBox();
-            this.thetaSparkle = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.gammaSparkle = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.betaSparkle = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.alphaSparkle = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
+            this.thetaSparkle = new  Krypton.Toolkit.KryptonCheckButton();
+            this.gammaSparkle = new  Krypton.Toolkit.KryptonCheckButton();
+            this.betaSparkle = new  Krypton.Toolkit.KryptonCheckButton();
+            this.alphaSparkle = new  Krypton.Toolkit.KryptonCheckButton();
             this.groupBoxBlue = new System.Windows.Forms.GroupBox();
-            this.thetaSystem = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.gammaSystem = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.betaSystem = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.alphaSystem = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.kryptonCheckSetOffice = new ComponentFactory.Krypton.Toolkit.KryptonCheckSet(this.components);
-            this.kryptonCheckSetSystem = new ComponentFactory.Krypton.Toolkit.KryptonCheckSet(this.components);
+            this.thetaSystem = new  Krypton.Toolkit.KryptonCheckButton();
+            this.gammaSystem = new  Krypton.Toolkit.KryptonCheckButton();
+            this.betaSystem = new  Krypton.Toolkit.KryptonCheckButton();
+            this.alphaSystem = new  Krypton.Toolkit.KryptonCheckButton();
+            this.kryptonCheckSetOffice = new  Krypton.Toolkit.KryptonCheckSet(this.components);
+            this.kryptonCheckSetSystem = new  Krypton.Toolkit.KryptonCheckSet(this.components);
             this.groupBoxCustom = new System.Windows.Forms.GroupBox();
-            this.forwardCheckButton = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.playCheckButton = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.rewindCheckButton = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.pauseCheckButton = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.kryptonCheckSetCustom = new ComponentFactory.Krypton.Toolkit.KryptonCheckSet(this.components);
+            this.forwardCheckButton = new  Krypton.Toolkit.KryptonCheckButton();
+            this.playCheckButton = new  Krypton.Toolkit.KryptonCheckButton();
+            this.rewindCheckButton = new  Krypton.Toolkit.KryptonCheckButton();
+            this.pauseCheckButton = new  Krypton.Toolkit.KryptonCheckButton();
+            this.kryptonCheckSetCustom = new  Krypton.Toolkit.KryptonCheckSet(this.components);
             this.groupBoxSparkle.SuspendLayout();
             this.groupBoxBlue.SuspendLayout();
             this.groupBoxCustom.SuspendLayout();
@@ -83,7 +83,7 @@ namespace KryptonCheckSetExamples
             // 
             this.thetaSparkle.Location = new System.Drawing.Point(241, 30);
             this.thetaSparkle.Name = "thetaSparkle";
-            this.thetaSparkle.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
+            this.thetaSparkle.PaletteMode =  Krypton.Toolkit.PaletteMode.SparkleBlue;
             this.thetaSparkle.Size = new System.Drawing.Size(69, 25);
             this.thetaSparkle.TabIndex = 3;
             this.thetaSparkle.Values.Text = "Theta";
@@ -92,7 +92,7 @@ namespace KryptonCheckSetExamples
             // 
             this.gammaSparkle.Location = new System.Drawing.Point(166, 30);
             this.gammaSparkle.Name = "gammaSparkle";
-            this.gammaSparkle.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
+            this.gammaSparkle.PaletteMode =  Krypton.Toolkit.PaletteMode.SparkleBlue;
             this.gammaSparkle.Size = new System.Drawing.Size(69, 25);
             this.gammaSparkle.TabIndex = 2;
             this.gammaSparkle.Values.Text = "Gamma";
@@ -101,7 +101,7 @@ namespace KryptonCheckSetExamples
             // 
             this.betaSparkle.Location = new System.Drawing.Point(91, 30);
             this.betaSparkle.Name = "betaSparkle";
-            this.betaSparkle.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
+            this.betaSparkle.PaletteMode =  Krypton.Toolkit.PaletteMode.SparkleBlue;
             this.betaSparkle.Size = new System.Drawing.Size(69, 25);
             this.betaSparkle.TabIndex = 1;
             this.betaSparkle.Values.Text = "Beta";
@@ -112,7 +112,7 @@ namespace KryptonCheckSetExamples
             this.alphaSparkle.Checked = true;
             this.alphaSparkle.Location = new System.Drawing.Point(16, 30);
             this.alphaSparkle.Name = "alphaSparkle";
-            this.alphaSparkle.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
+            this.alphaSparkle.PaletteMode =  Krypton.Toolkit.PaletteMode.SparkleBlue;
             this.alphaSparkle.Size = new System.Drawing.Size(69, 25);
             this.alphaSparkle.TabIndex = 0;
             this.alphaSparkle.Values.Text = "Alpha";
@@ -135,7 +135,7 @@ namespace KryptonCheckSetExamples
             this.thetaSystem.AutoSize = true;
             this.thetaSystem.Location = new System.Drawing.Point(241, 31);
             this.thetaSystem.Name = "thetaSystem";
-            this.thetaSystem.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.thetaSystem.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2007Blue;
             this.thetaSystem.Size = new System.Drawing.Size(69, 27);
             this.thetaSystem.TabIndex = 3;
             this.thetaSystem.Values.Text = "Theta";
@@ -145,7 +145,7 @@ namespace KryptonCheckSetExamples
             this.gammaSystem.AutoSize = true;
             this.gammaSystem.Location = new System.Drawing.Point(166, 31);
             this.gammaSystem.Name = "gammaSystem";
-            this.gammaSystem.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.gammaSystem.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2007Blue;
             this.gammaSystem.Size = new System.Drawing.Size(69, 27);
             this.gammaSystem.TabIndex = 2;
             this.gammaSystem.Values.Text = "Gamma";
@@ -155,7 +155,7 @@ namespace KryptonCheckSetExamples
             this.betaSystem.AutoSize = true;
             this.betaSystem.Location = new System.Drawing.Point(91, 31);
             this.betaSystem.Name = "betaSystem";
-            this.betaSystem.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.betaSystem.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2007Blue;
             this.betaSystem.Size = new System.Drawing.Size(69, 27);
             this.betaSystem.TabIndex = 1;
             this.betaSystem.Values.Text = "Beta";
@@ -166,7 +166,7 @@ namespace KryptonCheckSetExamples
             this.alphaSystem.Checked = true;
             this.alphaSystem.Location = new System.Drawing.Point(16, 31);
             this.alphaSystem.Name = "alphaSystem";
-            this.alphaSystem.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.alphaSystem.PaletteMode =  Krypton.Toolkit.PaletteMode.Office2007Blue;
             this.alphaSystem.Size = new System.Drawing.Size(69, 27);
             this.alphaSystem.TabIndex = 0;
             this.alphaSystem.Values.Text = "Alpha";
@@ -209,13 +209,13 @@ namespace KryptonCheckSetExamples
             this.forwardCheckButton.StateCheckedNormal.Content.Padding = new System.Windows.Forms.Padding(4, 4, 2, 2);
             this.forwardCheckButton.StateCheckedPressed.Content.Padding = new System.Windows.Forms.Padding(4, 4, 2, 2);
             this.forwardCheckButton.StateCheckedTracking.Content.Padding = new System.Windows.Forms.Padding(4, 4, 2, 2);
-            this.forwardCheckButton.StateCommon.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.forwardCheckButton.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.forwardCheckButton.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.forwardCheckButton.StateCommon.Back.Draw =  Krypton.Toolkit.InheritBool.False;
+            this.forwardCheckButton.StateCommon.Border.Draw =  Krypton.Toolkit.InheritBool.False;
+            this.forwardCheckButton.StateCommon.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Left)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.forwardCheckButton.StateCommon.Content.Padding = new System.Windows.Forms.Padding(2);
-            this.forwardCheckButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.forwardCheckButton.StateCommon.Content.ShortText.TextV =  Krypton.Toolkit.PaletteRelativeAlign.Far;
             this.forwardCheckButton.StatePressed.Content.Padding = new System.Windows.Forms.Padding(4, 4, 2, 2);
             this.forwardCheckButton.TabIndex = 3;
             this.forwardCheckButton.Values.Image = ((System.Drawing.Image)(resources.GetObject("forwardCheckButton.Values.Image")));
@@ -236,13 +236,13 @@ namespace KryptonCheckSetExamples
             this.playCheckButton.StateCheckedNormal.Content.Padding = new System.Windows.Forms.Padding(4, 4, 2, 2);
             this.playCheckButton.StateCheckedPressed.Content.Padding = new System.Windows.Forms.Padding(4, 4, 2, 2);
             this.playCheckButton.StateCheckedTracking.Content.Padding = new System.Windows.Forms.Padding(4, 4, 2, 2);
-            this.playCheckButton.StateCommon.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.playCheckButton.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.playCheckButton.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.playCheckButton.StateCommon.Back.Draw =  Krypton.Toolkit.InheritBool.False;
+            this.playCheckButton.StateCommon.Border.Draw =  Krypton.Toolkit.InheritBool.False;
+            this.playCheckButton.StateCommon.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Left)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.playCheckButton.StateCommon.Content.Padding = new System.Windows.Forms.Padding(2);
-            this.playCheckButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.playCheckButton.StateCommon.Content.ShortText.TextV =  Krypton.Toolkit.PaletteRelativeAlign.Far;
             this.playCheckButton.StatePressed.Content.Padding = new System.Windows.Forms.Padding(4, 4, 2, 2);
             this.playCheckButton.TabIndex = 2;
             this.playCheckButton.Values.Image = ((System.Drawing.Image)(resources.GetObject("playCheckButton.Values.Image")));
@@ -262,13 +262,13 @@ namespace KryptonCheckSetExamples
             this.rewindCheckButton.StateCheckedNormal.Content.Padding = new System.Windows.Forms.Padding(4, 4, 2, 2);
             this.rewindCheckButton.StateCheckedPressed.Content.Padding = new System.Windows.Forms.Padding(4, 4, 2, 2);
             this.rewindCheckButton.StateCheckedTracking.Content.Padding = new System.Windows.Forms.Padding(4, 4, 2, 2);
-            this.rewindCheckButton.StateCommon.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.rewindCheckButton.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.rewindCheckButton.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.rewindCheckButton.StateCommon.Back.Draw =  Krypton.Toolkit.InheritBool.False;
+            this.rewindCheckButton.StateCommon.Border.Draw =  Krypton.Toolkit.InheritBool.False;
+            this.rewindCheckButton.StateCommon.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Left)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.rewindCheckButton.StateCommon.Content.Padding = new System.Windows.Forms.Padding(2);
-            this.rewindCheckButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.rewindCheckButton.StateCommon.Content.ShortText.TextV =  Krypton.Toolkit.PaletteRelativeAlign.Far;
             this.rewindCheckButton.StatePressed.Content.Padding = new System.Windows.Forms.Padding(4, 4, 2, 2);
             this.rewindCheckButton.TabIndex = 0;
             this.rewindCheckButton.Values.Image = ((System.Drawing.Image)(resources.GetObject("rewindCheckButton.Values.Image")));
@@ -288,13 +288,13 @@ namespace KryptonCheckSetExamples
             this.pauseCheckButton.StateCheckedNormal.Content.Padding = new System.Windows.Forms.Padding(4, 4, 2, 2);
             this.pauseCheckButton.StateCheckedPressed.Content.Padding = new System.Windows.Forms.Padding(4, 4, 2, 2);
             this.pauseCheckButton.StateCheckedTracking.Content.Padding = new System.Windows.Forms.Padding(4, 4, 2, 2);
-            this.pauseCheckButton.StateCommon.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.pauseCheckButton.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.pauseCheckButton.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.pauseCheckButton.StateCommon.Back.Draw =  Krypton.Toolkit.InheritBool.False;
+            this.pauseCheckButton.StateCommon.Border.Draw =  Krypton.Toolkit.InheritBool.False;
+            this.pauseCheckButton.StateCommon.Border.DrawBorders = (( Krypton.Toolkit.PaletteDrawBorders)(((( Krypton.Toolkit.PaletteDrawBorders.Top |  Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Left)
+                        |  Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.pauseCheckButton.StateCommon.Content.Padding = new System.Windows.Forms.Padding(2);
-            this.pauseCheckButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.pauseCheckButton.StateCommon.Content.ShortText.TextV =  Krypton.Toolkit.PaletteRelativeAlign.Far;
             this.pauseCheckButton.StatePressed.Content.Padding = new System.Windows.Forms.Padding(4, 4, 2, 2);
             this.pauseCheckButton.TabIndex = 1;
             this.pauseCheckButton.Values.Image = ((System.Drawing.Image)(resources.GetObject("pauseCheckButton.Values.Image")));
@@ -344,21 +344,21 @@ namespace KryptonCheckSetExamples
         private System.Windows.Forms.GroupBox groupBoxSparkle;
         private System.Windows.Forms.GroupBox groupBoxBlue;
         private System.Windows.Forms.GroupBox groupBoxCustom;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckSet kryptonCheckSetOffice;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckSet kryptonCheckSetSystem;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckSet kryptonCheckSetCustom;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton thetaSparkle;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton gammaSparkle;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton betaSparkle;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton alphaSparkle;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton thetaSystem;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton gammaSystem;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton betaSystem;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton alphaSystem;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton forwardCheckButton;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton playCheckButton;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton rewindCheckButton;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton pauseCheckButton;
+        private  Krypton.Toolkit.KryptonCheckSet kryptonCheckSetOffice;
+        private  Krypton.Toolkit.KryptonCheckSet kryptonCheckSetSystem;
+        private  Krypton.Toolkit.KryptonCheckSet kryptonCheckSetCustom;
+        private  Krypton.Toolkit.KryptonCheckButton thetaSparkle;
+        private  Krypton.Toolkit.KryptonCheckButton gammaSparkle;
+        private  Krypton.Toolkit.KryptonCheckButton betaSparkle;
+        private  Krypton.Toolkit.KryptonCheckButton alphaSparkle;
+        private  Krypton.Toolkit.KryptonCheckButton thetaSystem;
+        private  Krypton.Toolkit.KryptonCheckButton gammaSystem;
+        private  Krypton.Toolkit.KryptonCheckButton betaSystem;
+        private  Krypton.Toolkit.KryptonCheckButton alphaSystem;
+        private  Krypton.Toolkit.KryptonCheckButton forwardCheckButton;
+        private  Krypton.Toolkit.KryptonCheckButton playCheckButton;
+        private  Krypton.Toolkit.KryptonCheckButton rewindCheckButton;
+        private  Krypton.Toolkit.KryptonCheckButton pauseCheckButton;
     }
 }
 
