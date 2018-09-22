@@ -14,7 +14,7 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
 	/// Storage for button content value information.
@@ -182,7 +182,7 @@ namespace Krypton.Toolkit
 		[Description("Button text.")]
 		[RefreshPropertiesAttribute(RefreshProperties.All)]
 		[Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
-		public string Text
+        public string Text
 		{
 			get => _text;
 

@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content=" | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>Navigator Bar Modes  </p>
+<p>Applicable Modes:<br>        Bar - Tab - Group<br>        Bar - Tab - Only<br>        Bar - RibbonTab - Group<br>        Bar - RibbonTab - Only<br>        Bar - CheckButton - Group - Outside<br>        Bar - CheckButton - Group - Inside<br>        Bar - CheckButton - Group - Only<br>        Bar - CheckButton - Only  </p>
+<p><strong>Bar Mode Properties</strong><br>The set of properties associated with <em>Bar</em> and <em>HeaderBar</em> modes can be seen
+below as they appear in the properties window.</p>
+<ul>
+<li>Figure 1 - Button Mode Properties*</li>
+</ul>
+<p><strong>BarAnimation</strong><br>When the user selects a page that is not fully visible on the bar the page can
+be scrolled into view using a short animation effect. This is turned on by
+default and gives a smooth movement to the bar that makes it easier to see how
+the bar is organized. If you prefer to turn off this feature then set the
+<em>BarAnimation</em> property to <em>False</em> and the transition will be instant instead of
+animated.</p>
+<p><strong>BarFirstItemInset + BarLastItemInset</strong><br>The inset distance from the near edge of the bar to the first item is controlled
+using the BarFirstItemInset property. It defaults to a value of 0 which places
+the first edge against the control edge. Figure 2 shows two pictures, the left
+is with the default value of 0 and the right hand picture with a value of 10.
+Use this property when you need to add the extra spacing gap to improve the look
+of your application. BarLastItemInset is likewise used to set the inset distance
+on the far edge and allows you to specify a minimum distance between the last
+tab and the buttons/control edge.  </p>
+<ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+<li>Figure 2 - BarFirstItemInset = 0 &amp; 10*</li>
+</ul>
+<p><strong>BarMapExtraText + BarMapText + BarMapImage</strong><br>Each visible <em>KrytonPage</em> is represented by a single bar header item, but the
+<em>KryptonPage</em> has three different text properties and three image properties.
+The mapping properties are used to describe how to map the bar item contents
+from the values stored in each <em>KrytonPage</em> instance.  </p>
+<p><em>BarMapImage *is used to recover an image from the page. To prevent any image
+from being shown assign the *None</em> value. To show the <em>ImageSmall</em> form the page
+assign <em>Small</em> to the <em>MapImage</em>. More complex mappings are possible, for
+example a value of <em>LargeMediumSmall</em> indicates that the <em>ImageLarge</em> property
+of the page should be used unless it is null, in that case use the <em>ImageMedium</em>
+property instead but if that is also null then use the <em>ImageSmall</em> page
+property.  </p>
+<p>Use <em>BarMapText</em> to map from the <em>Text</em>, <em>TextTitle</em>, <em>TextDescription</em> and
+<em>TextTooltip</em> properties of the page to the main bar item text. The default
+value is <em>TextTitle</em> indicating that the <em>Text</em> property of the page is used
+unless it is empty in which case the <em>TextTitle</em> property is used. Other
+variations exist so you can specify a preference for what text is shown.
+<em>BarMapExtraText</em> works in the same way but maps to the secondary bar item
+text and defaults to <em>None</em>.</p>
+<p><strong>BarMinimumHeight</strong><br>The height of the bar area is calculated by discovering the height of the
+tallest item on the bar. This could be an individual tab header or one of the
+action buttons. If there are no items on the bar then the size would become zero
+height and in order to prevent this from happening you can set the
+<em>BarMinimumHeight</em> property to the smallest height you require.</p>
+<p><strong>BarMultiline</strong><br>Five possible enumeration values determine how items are positioned on lines.
+The default <em>Singleline</em> places all items on a single line that extends beyond
+the visible area if needed. You can use the <em>Next/Prev</em> scroll buttons in order
+to bring items out of view back into the displayed area. The <em>Multiline</em> option
+will ensure all items are visible by creating as many lines as are required. Use
+<em>Exactline</em> when you need the items to exactly match the line area size, it will
+expand or shrink the individual items to enforce this. <em>Shrinkline</em> will place
+all items on a single line but also shrink the size of the items if necessary to
+ensure they are all visible. Finally <em>Expandline</em> will only expand the size of
+items if they do not fill up the entire line display area. Figure 3 shows all
+five options for the same set of items.</p>
+<ul>
+<li>Figure 3 - All possible BarMultiline settings*  </li>
+</ul>
+<p><strong>BarOrientation</strong><br>By default the bar is positioned at the top of the navigator control as can be
+seen in Figure 4. You can alter the orientation to any of the three other values
+<em>Left</em>, <em>Right</em> and <em>Bottom</em>. Figure 5 shows the orientation changed to each of
+the other options for a range of different <em>Bar</em> modes.  </p>
+<ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+<li><p>Figure 4 - BarOrientation = Top*  </p>
+</li>
+<li><ul>
+<li></li>
+</ul>
+</li>
+<li>Figure 5 - BarOrientation = Left, Bottom and Right*</li>
+</ul>
+<p><strong>CheckButtonStyle</strong><br>When showing the page headers as <em>CheckButton</em> items this property is used to
+specify the button style that should be used for the appearance of each item.
+The default is the <em>Standalone</em> button style but you can change this to any of
+the other styles such as <em>LowProfile</em>, as can be seen in Figure 6.</p>
+<ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+<li>Figure 6 - CheckButtonStyle = LowProfile*</li>
+</ul>
+<p><strong>ItemAlignment</strong><br>By default the alignment of items on the bar is to the <em>Near</em> side. On a
+standard western machine this equates to the left hand side of the control. You
+can see in Figure 7 and 8 the alternative property values of <em>Center</em> and <em>Far</em>.
+The navigator does honor the <em>RightToLeft</em> setting and so when defined the
+<em>Near</em> and <em>Far</em> values will produce the opposite arrangement.  </p>
+<ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+<li><p>Figure 7 - ItemAlignment = Center*  </p>
+</li>
+<li><ul>
+<li></li>
+</ul>
+</li>
+<li>Figure 8 - ItemAlignment = Far*</li>
+</ul>
+<p><strong>ItemMaximumSize + ItemMinimumSize</strong><br>Use these two properties to prevent strange looking items under two scenarios.
+If a header item does not find any text or image to show for a page then
+it would become sized extremely small, just a few pixels in width and height. To
+prevent very small items from being created you should use the <em>ItemMinimumSize</em>
+to set a lower limit on header items. The opposite case is where the text and/or
+image for a page are very large and would create an extremely large header item.
+Use the <em>ItemMaximumSize</em> to set an upper limit on header items.</p>
+<p><strong>ItemOrientation</strong><br>In most cases you will want the orientation of header items to automatically
+reflect the orientation of the bar itself. So if the bar is at the top then you
+would want the header items to be orientated as seen in Figure 3. If the bar is
+placed on the left side then you would want the headers items orientation to
+show vertical text as seen in Figure 4. This is the purpose of the default
+<em>Auto</em> property value. You can change the property to fix the header
+orientation. Figure 9 shows the the bar at the top but with the item orientation
+defined as <em>FixedLeft</em>, <em>FixedBottom</em> and <em>FixedRight.</em></p>
+<ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+<li>Figure 9 - ItemOrientation = FixedLeft + FixedBottom + FixedRight*</li>
+</ul>
+<p><strong>ItemSizing</strong><br>Each bar item is sizing according to the width and height needed to display the
+contents of that item. The calculated size then has an upper and lower limit
+applied using the <em>ItemMaximumSize</em> and <em>ItemMinimumSize</em> properties. The
+<em>ItemSizing</em> property specifies the algorithm to apply across all the bar header
+items.</p>
+<ul>
+<li><p><em>Individual Sizing</em><br>Every bar item is left to be whatever size it needs.</p>
+</li>
+<li><p><em>All Same Height</em><br>Once the size of every item has been calculated all of them are set to the
+same height as the tallest item.</p>
+</li>
+<li><p><em>All Same Width</em><br>Once the size of every item has been calculated all of them are set to the
+same width as the widest item.</p>
+</li>
+<li><p><em>All Same Width + Height</em><br>Combines the <em>All Same Width</em> and <em>All Same Height</em> options.</p>
+</li>
+</ul>
+<p><strong>TabBorderStyle</strong><br>Showing the page headers as <em>Tab</em> items this property is used to specify the
+shape of the tab header. The default is the <em>Rounded Outsize Medium * style but
+you can change this to any of the other styles such as *OneNote</em>, as can be seen
+in Figure 10.  </p>
+<ul>
+<li>Figure 10 - TabBorderStyle = OneNote*  </li>
+</ul>
+<p><strong>TabStyle</strong><br>When showing the page headers as <em>Tab</em> header items this property is used to
+specify the tab style that should be used for the appearance of each item. The
+default is the <em>High Profile</em> style but you can change this to any of the other
+styles such as <em>Low Profile,</em> as can be seen in Figure 11.  </p>
+<ul>
+<li>Figure 11 - TabStyle = Low Profile*</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

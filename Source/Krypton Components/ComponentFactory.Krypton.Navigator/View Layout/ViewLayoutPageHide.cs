@@ -11,9 +11,9 @@
 
 using System.Drawing;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
 	/// View element that positions the selected page so it cannot be seen.
@@ -27,14 +27,14 @@ namespace Krypton.Navigator
 	    #endregion
 
 		#region Instance Fields
-		private readonly Krypton.Navigator _navigator;
+		private readonly KryptonNavigator _navigator;
 		#endregion
 
 		#region Identity
 		/// <summary>
         /// Initialize a new instance of the ViewLayoutPageHide class.
 		/// </summary>
-        public ViewLayoutPageHide(Krypton.Navigator navigator)
+        public ViewLayoutPageHide(KryptonNavigator navigator)
 		{
 			Debug.Assert(navigator != null);
 

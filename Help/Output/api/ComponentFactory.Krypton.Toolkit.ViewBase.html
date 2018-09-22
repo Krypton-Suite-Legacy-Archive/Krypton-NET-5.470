@@ -1,0 +1,2705 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ViewBase
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ViewBase
+   | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase">
+  <h1 id="ComponentFactory_Krypton_Toolkit_ViewBase" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase">Class ViewBase
+  </h1>
+  <div class="markdown level0 summary"><p>Base class from which all view types derive.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="ComponentFactory.Krypton.Toolkit.GlobalId.html">GlobalId</a></div>
+    <div class="level2"><span class="xref">ViewBase</span></div>
+  </div>
+  
+      <div class="level3"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewComposite.html">ViewComposite</a></div>
+      <div class="level3"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewDecorator.html">ViewDecorator</a></div>
+      <div class="level3"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLeaf.html">ViewLeaf</a></div>
+  
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.GlobalId.html#ComponentFactory_Krypton_Toolkit_GlobalId_Id">GlobalId.Id</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
+  <h6><strong>Assembly</strong>: ComponentFactory.Krypton.Toolkit.dll</h6>
+  
+  <h5 id="ComponentFactory_Krypton_Toolkit_ViewBase_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class ViewBase : GlobalId, IDisposable, IList&lt;ViewBase&gt;, ICollection&lt;ViewBase&gt;, IEnumerable&lt;ViewBase&gt;, IEnumerable</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase__ctor_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.#ctor*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase__ctor" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.#ctor"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase__ctor" class="expander" data-toggle="collapse">ViewBase()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase__ctor" class="collapse in">
+  <div class="markdown level1 summary"><p>Initialize a new instance of the ViewBase class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ViewBase()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_ClientHeight_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClientHeight*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_ClientHeight" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClientHeight"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_ClientHeight" class="expander" data-toggle="collapse">ClientHeight</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_ClientHeight" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets the height of the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual int ClientHeight { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_ClientLocation_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClientLocation*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_ClientLocation" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClientLocation"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_ClientLocation" class="expander" data-toggle="collapse">ClientLocation</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_ClientLocation" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets the location of the view inside the parent view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Point ClientLocation { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Point</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_ClientRectangle_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClientRectangle*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_ClientRectangle" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClientRectangle"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_ClientRectangle" class="expander" data-toggle="collapse">ClientRectangle</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_ClientRectangle" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets the rectangle bounding the client area.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Rectangle ClientRectangle { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Rectangle</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_ClientSize_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClientSize*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_ClientSize" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClientSize"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_ClientSize" class="expander" data-toggle="collapse">ClientSize</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_ClientSize" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets the size of the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Size ClientSize { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Size</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_ClientWidth_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClientWidth*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_ClientWidth" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClientWidth"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_ClientWidth" class="expander" data-toggle="collapse">ClientWidth</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_ClientWidth" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets the width of the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual int ClientWidth { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Component_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Component*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Component" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Component"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Component" class="expander" data-toggle="collapse">Component</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Component" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the component associated with the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Component Component { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.ComponentModel.Component</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Count_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Count*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Count" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Count"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Count" class="expander" data-toggle="collapse">Count</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Count" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the number of views in collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract int Count { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.Generic.ICollection&lt;T&gt;.Count</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_DependantEnabledState_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.DependantEnabledState*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_DependantEnabledState" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.DependantEnabledState"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_DependantEnabledState" class="expander" data-toggle="collapse">DependantEnabledState</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_DependantEnabledState" class="collapse in">
+  <div class="markdown level1 summary"><p>Get and set the view the enabled state of this view element is dependant on.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ViewBase DependantEnabledState { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_ElementState_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ElementState*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_ElementState" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ElementState"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_ElementState" class="expander" data-toggle="collapse">ElementState</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_ElementState" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets the visual state of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual PaletteState ElementState { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Enabled_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Enabled*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Enabled" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Enabled"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Enabled" class="expander" data-toggle="collapse">Enabled</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Enabled" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets the enabled state of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool Enabled { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_FactorDpiX_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.FactorDpiX*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_FactorDpiX" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.FactorDpiX"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_FactorDpiX" class="expander" data-toggle="collapse">FactorDpiX</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_FactorDpiX" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the DpiX of the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float FactorDpiX { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_FactorDpiY_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.FactorDpiY*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_FactorDpiY" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.FactorDpiY"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_FactorDpiY" class="expander" data-toggle="collapse">FactorDpiY</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_FactorDpiY" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the DpiY of the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float FactorDpiY { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_FixedState_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.FixedState*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_FixedState" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.FixedState"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_FixedState" class="expander" data-toggle="collapse">FixedState</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_FixedState" class="collapse in">
+  <div class="markdown level1 summary"><p>Set a fixed state to override usual behavior and appearance</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual PaletteState FixedState { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_IsDisposed_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.IsDisposed*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_IsDisposed" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.IsDisposed"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_IsDisposed" class="expander" data-toggle="collapse">IsDisposed</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_IsDisposed" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a value indicating if the view has been disposed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsDisposed { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_IsEnableDependant_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.IsEnableDependant*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_IsEnableDependant" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.IsEnableDependant"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_IsEnableDependant" class="expander" data-toggle="collapse">IsEnableDependant</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_IsEnableDependant" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a value indicating if view enabled state is depedant on another view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool IsEnableDependant { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_IsFixed_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.IsFixed*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_IsFixed" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.IsFixed"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_IsFixed" class="expander" data-toggle="collapse">IsFixed</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_IsFixed" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a value indicating if view is using a fixed state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool IsFixed { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_IsReadOnly_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.IsReadOnly*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_IsReadOnly" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.IsReadOnly"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_IsReadOnly" class="expander" data-toggle="collapse">IsReadOnly</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_IsReadOnly" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the collection is read-only.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsReadOnly { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.Generic.ICollection&lt;T&gt;.IsReadOnly</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Item_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Item*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Item_System_Int32_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Item(System.Int32)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Item_System_Int32_" class="expander" data-toggle="collapse">Item[Int32]</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Item_System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the view at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ViewBase this[int index] { get; set; }</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">index</span>
+        <p><p>ViewBase index.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>
+        <p><p>ViewBase at specified index.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.Generic.IList&lt;T&gt;.Item[System.Int32]</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_KeyController_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.KeyController*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_KeyController" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.KeyController"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_KeyController" class="expander" data-toggle="collapse">KeyController</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_KeyController" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets the associated key controller.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IKeyController KeyController { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.IKeyController.html">IKeyController</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseController_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseController*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseController" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseController"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_MouseController" class="expander" data-toggle="collapse">MouseController</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_MouseController" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets the associated mouse controller.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IMouseController MouseController { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.IMouseController.html">IMouseController</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_OwningControl_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.OwningControl*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_OwningControl" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.OwningControl"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_OwningControl" class="expander" data-toggle="collapse">OwningControl</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_OwningControl" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets a reference to the control instance that contains this view element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Control OwningControl { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Windows.Forms.Control</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Parent_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Parent*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Parent" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Parent"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Parent" class="expander" data-toggle="collapse">Parent</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Parent" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the parent view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ViewBase Parent { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_SourceController_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.SourceController*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_SourceController" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.SourceController"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_SourceController" class="expander" data-toggle="collapse">SourceController</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_SourceController" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets the associated source controller.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ISourceController SourceController { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.ISourceController.html">ISourceController</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_State_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.State*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_State" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.State"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_State" class="expander" data-toggle="collapse">State</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_State" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the visual state taking into account the owning controls state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual PaletteState State { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.PaletteState.html">PaletteState</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Visible_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Visible*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Visible" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Visible"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Visible" class="expander" data-toggle="collapse">Visible</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Visible" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets and sets the enabled state of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool Visible { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Add_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Add*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Add_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Add(ComponentFactory.Krypton.Toolkit.ViewBase)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Add_ComponentFactory_Krypton_Toolkit_ViewBase_" class="expander" data-toggle="collapse">Add(ViewBase)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Add_ComponentFactory_Krypton_Toolkit_ViewBase_" class="collapse in">
+  <div class="markdown level1 summary"><p>Append a view to the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Add(ViewBase item)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></span>
+        <span class="parametername">item</span>
+        <p><p>ViewBase reference.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.Generic.ICollection&lt;T&gt;.Add(T)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Clear_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Clear*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Clear" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Clear"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Clear" class="expander" data-toggle="collapse">Clear()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Clear" class="collapse in">
+  <div class="markdown level1 summary"><p>Remove all views from the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Clear()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.Generic.ICollection&lt;T&gt;.Clear()</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_ClearFixedState_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClearFixedState*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_ClearFixedState" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ClearFixedState"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_ClearFixedState" class="expander" data-toggle="collapse">ClearFixedState()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_ClearFixedState" class="collapse in">
+  <div class="markdown level1 summary"><p>Clear down the use of the fixed state</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void ClearFixedState()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Contains_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Contains*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Contains_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Contains(ComponentFactory.Krypton.Toolkit.ViewBase)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Contains_ComponentFactory_Krypton_Toolkit_ViewBase_" class="expander" data-toggle="collapse">Contains(ViewBase)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Contains_ComponentFactory_Krypton_Toolkit_ViewBase_" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether the collection contains the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool Contains(ViewBase item)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></span>
+        <span class="parametername">item</span>
+        <p><p>ViewBase reference.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if view found; otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.Generic.ICollection&lt;T&gt;.Contains(T)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_ContainsRecurse_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ContainsRecurse*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_ContainsRecurse_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ContainsRecurse(ComponentFactory.Krypton.Toolkit.ViewBase)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_ContainsRecurse_ComponentFactory_Krypton_Toolkit_ViewBase_" class="expander" data-toggle="collapse">ContainsRecurse(ViewBase)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_ContainsRecurse_ComponentFactory_Krypton_Toolkit_ViewBase_" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether any part of the view hierarchy is the specified view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool ContainsRecurse(ViewBase item)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></span>
+        <span class="parametername">item</span>
+        <p><p>ViewBase reference.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if view found; otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_CopyTo_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.CopyTo*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_CopyTo_ComponentFactory_Krypton_Toolkit_ViewBase___System_Int32_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.CopyTo(ComponentFactory.Krypton.Toolkit.ViewBase[],System.Int32)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_CopyTo_ComponentFactory_Krypton_Toolkit_ViewBase___System_Int32_" class="expander" data-toggle="collapse">CopyTo(ViewBase[], Int32)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_CopyTo_ComponentFactory_Krypton_Toolkit_ViewBase___System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Copies views to specified array starting at particular index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void CopyTo(ViewBase[] array, int arrayIndex)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>[]</span>
+        <span class="parametername">array</span>
+        <p><p>Target array.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">arrayIndex</span>
+        <p><p>Starting array index.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.Generic.ICollection&lt;T&gt;.CopyTo(T[], System.Int32)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Dispose_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Dispose*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Dispose" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Dispose"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Dispose" class="expander" data-toggle="collapse">Dispose()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Dispose" class="collapse in">
+  <div class="markdown level1 summary"><p>Release managed and unmanaged resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.IDisposable.Dispose()</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Dispose_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Dispose*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Dispose_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Dispose(System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Dispose_System_Boolean_" class="expander" data-toggle="collapse">Dispose(Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Dispose_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Release unmanaged and optionally managed resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">disposing</span>
+        <p><p>Called from Dispose method.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_DoubleClick_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.DoubleClick*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_DoubleClick_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.DoubleClick(System.Drawing.Point)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_DoubleClick_System_Drawing_Point_" class="expander" data-toggle="collapse">DoubleClick(Point)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_DoubleClick_System_Drawing_Point_" class="collapse in">
+  <div class="markdown level1 summary"><p>Left mouse button has been double clicked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void DoubleClick(Point pt)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">pt</span>
+        <p><p>Mouse position relative to control.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_EvalTransparentPaint_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.EvalTransparentPaint*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_EvalTransparentPaint_ComponentFactory_Krypton_Toolkit_ViewContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.EvalTransparentPaint(ComponentFactory.Krypton.Toolkit.ViewContext)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_EvalTransparentPaint_ComponentFactory_Krypton_Toolkit_ViewContext_" class="expander" data-toggle="collapse">EvalTransparentPaint(ViewContext)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_EvalTransparentPaint_ComponentFactory_Krypton_Toolkit_ViewContext_" class="collapse in">
+  <div class="markdown level1 summary"><p>Evaluate the need for drawing transparent areas.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool EvalTransparentPaint(ViewContext context)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewContext.html">ViewContext</a></span>
+        <span class="parametername">context</span>
+        <p><p>Evaluation context.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if transparent areas exist; otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Finalize_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Finalize*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Finalize" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Finalize"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Finalize" class="expander" data-toggle="collapse">Finalize()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Finalize" class="collapse in">
+  <div class="markdown level1 summary"><p>Release resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void Finalize()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_FindMouseController_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.FindMouseController*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_FindMouseController" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.FindMouseController"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_FindMouseController" class="expander" data-toggle="collapse">FindMouseController()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_FindMouseController" class="collapse in">
+  <div class="markdown level1 summary"><p>Mouse has entered the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IMouseController FindMouseController()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.IMouseController.html">IMouseController</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_GetEnumerator_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.GetEnumerator*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_GetEnumerator" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.GetEnumerator"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_GetEnumerator" class="expander" data-toggle="collapse">GetEnumerator()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_GetEnumerator" class="collapse in">
+  <div class="markdown level1 summary"><p>Shallow enumerate forward over children of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IEnumerator&lt;ViewBase&gt; GetEnumerator()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.IEnumerator</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;
+        <p><p>Enumerator instance.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;.GetEnumerator()</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_GetPreferredSize_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.GetPreferredSize*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_GetPreferredSize_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.GetPreferredSize(ComponentFactory.Krypton.Toolkit.ViewLayoutContext)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_GetPreferredSize_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" class="expander" data-toggle="collapse">GetPreferredSize(ViewLayoutContext)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_GetPreferredSize_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" class="collapse in">
+  <div class="markdown level1 summary"><p>Discover the preferred size of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Size GetPreferredSize(ViewLayoutContext context)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></span>
+        <span class="parametername">context</span>
+        <p><p>Layout context.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Drawing.Size</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_GotFocus_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.GotFocus*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_GotFocus_System_Windows_Forms_Control_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.GotFocus(System.Windows.Forms.Control)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_GotFocus_System_Windows_Forms_Control_" class="expander" data-toggle="collapse">GotFocus(Control)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_GotFocus_System_Windows_Forms_Control_" class="collapse in">
+  <div class="markdown level1 summary"><p>Source control has got the focus.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void GotFocus(Control c)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Control</span></span>
+        <span class="parametername">c</span>
+        <p><p>Reference to the source control instance.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_IndexOf_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.IndexOf*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_IndexOf_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.IndexOf(ComponentFactory.Krypton.Toolkit.ViewBase)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_IndexOf_ComponentFactory_Krypton_Toolkit_ViewBase_" class="expander" data-toggle="collapse">IndexOf(ViewBase)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_IndexOf_ComponentFactory_Krypton_Toolkit_ViewBase_" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines the index of the specified view in the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract int IndexOf(ViewBase item)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></span>
+        <span class="parametername">item</span>
+        <p><p>ViewBase reference.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p><p>-1 if not found; otherwise index position.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.Generic.IList&lt;T&gt;.IndexOf(T)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Insert_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Insert*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Insert_System_Int32_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Insert(System.Int32,ComponentFactory.Krypton.Toolkit.ViewBase)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Insert_System_Int32_ComponentFactory_Krypton_Toolkit_ViewBase_" class="expander" data-toggle="collapse">Insert(Int32, ViewBase)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Insert_System_Int32_ComponentFactory_Krypton_Toolkit_ViewBase_" class="collapse in">
+  <div class="markdown level1 summary"><p>Inserts a view to the collection at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Insert(int index, ViewBase item)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">index</span>
+        <p><p>Insert index.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></span>
+        <span class="parametername">item</span>
+        <p><p>ViewBase reference.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.Generic.IList&lt;T&gt;.Insert(System.Int32, T)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_KeyDown_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.KeyDown*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_KeyDown_System_Windows_Forms_KeyEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.KeyDown(System.Windows.Forms.KeyEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_KeyDown_System_Windows_Forms_KeyEventArgs_" class="expander" data-toggle="collapse">KeyDown(KeyEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_KeyDown_System_Windows_Forms_KeyEventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Key has been pressed down.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void KeyDown(KeyEventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.KeyEventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>A KeyEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_KeyPress_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.KeyPress*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_KeyPress_System_Windows_Forms_KeyPressEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.KeyPress(System.Windows.Forms.KeyPressEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_KeyPress_System_Windows_Forms_KeyPressEventArgs_" class="expander" data-toggle="collapse">KeyPress(KeyPressEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_KeyPress_System_Windows_Forms_KeyPressEventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Key has been pressed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void KeyPress(KeyPressEventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.KeyPressEventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>A KeyPressEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_KeyUp_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.KeyUp*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_KeyUp_System_Windows_Forms_KeyEventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.KeyUp(System.Windows.Forms.KeyEventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_KeyUp_System_Windows_Forms_KeyEventArgs_" class="expander" data-toggle="collapse">KeyUp(KeyEventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_KeyUp_System_Windows_Forms_KeyEventArgs_" class="collapse in">
+  <div class="markdown level1 summary"><p>Key has been released.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool KeyUp(KeyEventArgs e)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.KeyEventArgs</span></span>
+        <span class="parametername">e</span>
+        <p><p>A KeyEventArgs that contains the event data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if capturing input; otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Layout_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Layout*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Layout_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Layout(ComponentFactory.Krypton.Toolkit.ViewLayoutContext)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Layout_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" class="expander" data-toggle="collapse">Layout(ViewLayoutContext)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Layout_ComponentFactory_Krypton_Toolkit_ViewLayoutContext_" class="collapse in">
+  <div class="markdown level1 summary"><p>Perform a layout of the elements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Layout(ViewLayoutContext context)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewLayoutContext.html">ViewLayoutContext</a></span>
+        <span class="parametername">context</span>
+        <p><p>Layout context.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_LostFocus_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.LostFocus*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_LostFocus_System_Windows_Forms_Control_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.LostFocus(System.Windows.Forms.Control)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_LostFocus_System_Windows_Forms_Control_" class="expander" data-toggle="collapse">LostFocus(Control)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_LostFocus_System_Windows_Forms_Control_" class="collapse in">
+  <div class="markdown level1 summary"><p>Source control has lost the focus.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void LostFocus(Control c)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Control</span></span>
+        <span class="parametername">c</span>
+        <p><p>Reference to the source control instance.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseDown_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseDown*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseDown_System_Drawing_Point_System_Windows_Forms_MouseButtons_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseDown(System.Drawing.Point,System.Windows.Forms.MouseButtons)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_MouseDown_System_Drawing_Point_System_Windows_Forms_MouseButtons_" class="expander" data-toggle="collapse">MouseDown(Point, MouseButtons)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_MouseDown_System_Drawing_Point_System_Windows_Forms_MouseButtons_" class="collapse in">
+  <div class="markdown level1 summary"><p>Mouse button has been pressed in the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool MouseDown(Point pt, MouseButtons button)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">pt</span>
+        <p><p>Mouse position relative to control.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.MouseButtons</span></span>
+        <span class="parametername">button</span>
+        <p><p>Mouse button pressed down.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if capturing input; otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseEnter_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseEnter*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseEnter" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseEnter"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_MouseEnter" class="expander" data-toggle="collapse">MouseEnter()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_MouseEnter" class="collapse in">
+  <div class="markdown level1 summary"><p>Mouse has entered the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void MouseEnter()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseLeave_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseLeave*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseLeave_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseLeave(ComponentFactory.Krypton.Toolkit.ViewBase)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_MouseLeave_ComponentFactory_Krypton_Toolkit_ViewBase_" class="expander" data-toggle="collapse">MouseLeave(ViewBase)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_MouseLeave_ComponentFactory_Krypton_Toolkit_ViewBase_" class="collapse in">
+  <div class="markdown level1 summary"><p>Mouse has left the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void MouseLeave(ViewBase next)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></span>
+        <span class="parametername">next</span>
+        <p><p>Reference to view that is next to have the mouse.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseMove_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseMove*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseMove_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseMove(System.Drawing.Point)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_MouseMove_System_Drawing_Point_" class="expander" data-toggle="collapse">MouseMove(Point)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_MouseMove_System_Drawing_Point_" class="collapse in">
+  <div class="markdown level1 summary"><p>Mouse has moved inside the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void MouseMove(Point pt)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">pt</span>
+        <p><p>Mouse position relative to control.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseUp_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseUp*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_MouseUp_System_Drawing_Point_System_Windows_Forms_MouseButtons_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.MouseUp(System.Drawing.Point,System.Windows.Forms.MouseButtons)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_MouseUp_System_Drawing_Point_System_Windows_Forms_MouseButtons_" class="expander" data-toggle="collapse">MouseUp(Point, MouseButtons)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_MouseUp_System_Drawing_Point_System_Windows_Forms_MouseButtons_" class="collapse in">
+  <div class="markdown level1 summary"><p>Mouse button has been released in the view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void MouseUp(Point pt, MouseButtons button)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">pt</span>
+        <p><p>Mouse position relative to control.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.MouseButtons</span></span>
+        <span class="parametername">button</span>
+        <p><p>Mouse button released.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Recurse_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Recurse*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Recurse" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Recurse"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Recurse" class="expander" data-toggle="collapse">Recurse()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Recurse" class="collapse in">
+  <div class="markdown level1 summary"><p>Deep enumerate forward over children of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IEnumerable&lt;ViewBase&gt; Recurse()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;
+        <p><p>Enumerator instance.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Remove_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Remove*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Remove_ComponentFactory_Krypton_Toolkit_ViewBase_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Remove(ComponentFactory.Krypton.Toolkit.ViewBase)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Remove_ComponentFactory_Krypton_Toolkit_ViewBase_" class="expander" data-toggle="collapse">Remove(ViewBase)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Remove_ComponentFactory_Krypton_Toolkit_ViewBase_" class="collapse in">
+  <div class="markdown level1 summary"><p>Removes first occurance of specified view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool Remove(ViewBase item)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a></span>
+        <span class="parametername">item</span>
+        <p><p>ViewBase reference.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if removed; otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.Generic.ICollection&lt;T&gt;.Remove(T)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_RemoveAt_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.RemoveAt*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_RemoveAt_System_Int32_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.RemoveAt(System.Int32)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_RemoveAt_System_Int32_" class="expander" data-toggle="collapse">RemoveAt(Int32)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_RemoveAt_System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Removes the view at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void RemoveAt(int index)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">index</span>
+        <p><p>Remove index.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.Generic.IList&lt;T&gt;.RemoveAt(System.Int32)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Render_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Render*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Render_ComponentFactory_Krypton_Toolkit_RenderContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Render(ComponentFactory.Krypton.Toolkit.RenderContext)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Render_ComponentFactory_Krypton_Toolkit_RenderContext_" class="expander" data-toggle="collapse">Render(RenderContext)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Render_ComponentFactory_Krypton_Toolkit_RenderContext_" class="collapse in">
+  <div class="markdown level1 summary"><p>Perform a render of the elements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Render(RenderContext context)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></span>
+        <span class="parametername">context</span>
+        <p><p>Rendering context.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_RenderAfter_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.RenderAfter*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_RenderAfter_ComponentFactory_Krypton_Toolkit_RenderContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.RenderAfter(ComponentFactory.Krypton.Toolkit.RenderContext)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_RenderAfter_ComponentFactory_Krypton_Toolkit_RenderContext_" class="expander" data-toggle="collapse">RenderAfter(RenderContext)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_RenderAfter_ComponentFactory_Krypton_Toolkit_RenderContext_" class="collapse in">
+  <div class="markdown level1 summary"><p>Perform rendering after child elements are rendered.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void RenderAfter(RenderContext context)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></span>
+        <span class="parametername">context</span>
+        <p><p>Rendering context.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_RenderBefore_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.RenderBefore*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_RenderBefore_ComponentFactory_Krypton_Toolkit_RenderContext_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.RenderBefore(ComponentFactory.Krypton.Toolkit.RenderContext)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_RenderBefore_ComponentFactory_Krypton_Toolkit_RenderContext_" class="expander" data-toggle="collapse">RenderBefore(RenderContext)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_RenderBefore_ComponentFactory_Krypton_Toolkit_RenderContext_" class="collapse in">
+  <div class="markdown level1 summary"><p>Perform rendering before child elements are rendered.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void RenderBefore(RenderContext context)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.RenderContext.html">RenderContext</a></span>
+        <span class="parametername">context</span>
+        <p><p>Rendering context.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_Reverse_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Reverse*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_Reverse" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.Reverse"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Reverse" class="expander" data-toggle="collapse">Reverse()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_Reverse" class="collapse in">
+  <div class="markdown level1 summary"><p>Shallow enumerate backwards over children of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IEnumerable&lt;ViewBase&gt; Reverse()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;
+        <p><p>Enumerator instance.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_ReverseRecurse_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ReverseRecurse*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_ReverseRecurse" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ReverseRecurse"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_ReverseRecurse" class="expander" data-toggle="collapse">ReverseRecurse()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_ReverseRecurse" class="collapse in">
+  <div class="markdown level1 summary"><p>Deep enumerate backwards over children of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IEnumerable&lt;ViewBase&gt; ReverseRecurse()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>&gt;
+        <p><p>Enumerator instance.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_ToString_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ToString*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_ToString" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ToString"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_ToString" class="expander" data-toggle="collapse">ToString()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_ToString" class="collapse in">
+  <div class="markdown level1 summary"><p>Obtains the String representation of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p><p>User readable name of the instance.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.ToString()</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_ViewFromPoint_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ViewFromPoint*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_ViewFromPoint_System_Drawing_Point_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.ViewFromPoint(System.Drawing.Point)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_ViewFromPoint_System_Drawing_Point_" class="expander" data-toggle="collapse">ViewFromPoint(Point)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_ViewFromPoint_System_Drawing_Point_" class="collapse in">
+  <div class="markdown level1 summary"><p>Find the view that contains the specified point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ViewBase ViewFromPoint(Point pt)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Point</span></span>
+        <span class="parametername">pt</span>
+        <p><p>Point in view coordinates.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ComponentFactory.Krypton.Toolkit.ViewBase.html">ViewBase</a>
+        <p><p>ViewBase if a match is found; otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_ViewBase_System_Collections_IEnumerable_GetEnumerator_" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.System#Collections#IEnumerable#GetEnumerator*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_ViewBase_System_Collections_IEnumerable_GetEnumerator" data-uid="ComponentFactory.Krypton.Toolkit.ViewBase.System#Collections#IEnumerable#GetEnumerator"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_System_Collections_IEnumerable_GetEnumerator" class="expander" data-toggle="collapse">IEnumerable.GetEnumerator()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_ViewBase_System_Collections_IEnumerable_GetEnumerator" class="collapse in">
+  <div class="markdown level1 summary"><p>Enumerate using non-generic interface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.IEnumerator</span>
+        <p><p>Enumerator instance.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.Collections.IEnumerable.GetEnumerator()</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -14,10 +14,10 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Krypton.Toolkit;
-using Krypton.Navigator;
-using Krypton.Workspace;
-using Krypton.Docking;
+using ComponentFactory.Krypton.Toolkit;
+using ComponentFactory.Krypton.Navigator;
+using ComponentFactory.Krypton.Workspace;
+using ComponentFactory.Krypton.Docking;
 
 namespace ExternalDragToDocking
 {

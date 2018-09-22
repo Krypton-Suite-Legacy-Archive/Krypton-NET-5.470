@@ -12,7 +12,7 @@
 using System.Drawing;
 using System.ComponentModel;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Stores a text/extraText/Image triple of values as a content values source.

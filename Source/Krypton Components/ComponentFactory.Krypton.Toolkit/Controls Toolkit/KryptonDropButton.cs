@@ -16,7 +16,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
     /// Combines drop down button functionality with the styling features of the Krypton Toolkit.
@@ -25,7 +25,7 @@ namespace Krypton.Toolkit
     [ToolboxBitmap(typeof(KryptonDropButton), "ToolboxBitmaps.KryptonDropButton.bmp")]
     [DefaultEvent("Click")]
 	[DefaultProperty("Text")]
-    [Designer("Krypton.Toolkit.KryptonDropButtonDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonDropButtonDesigner))]
     [DesignerCategory("code")]
     [Description("Raises an event when the user clicks it.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
@@ -167,12 +167,12 @@ namespace Krypton.Toolkit
             get => base.Padding;
             set => base.Padding = value;
         }
-        
+
         /// <summary>
-		/// Gets or sets the text associated with this control. 
-		/// </summary>
-		[Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
-		public override string Text
+        /// Gets or sets the text associated with this control. 
+        /// </summary>
+        [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
+        public override string Text
 		{
 			get => Values.Text;
 

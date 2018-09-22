@@ -11,7 +11,7 @@
 
 using System.ComponentModel;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
 	/// Implement storage for GroupBox states.

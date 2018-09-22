@@ -12,7 +12,7 @@
 using System.Drawing;
 using System.Diagnostics;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Draws a small image from a group cluster button.
@@ -25,7 +25,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.RibbonGroupClusterButton _ribbonButton;
+        private readonly KryptonRibbonGroupClusterButton _ribbonButton;
         #endregion
 
         #region Identity
@@ -34,8 +34,8 @@ namespace Krypton.Ribbon
 		/// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonButton">Reference to ribbon group button definition.</param>
-        public ViewDrawRibbonGroupClusterButtonImage(Krypton.Ribbon ribbon,
-                                                     Krypton.RibbonGroupClusterButton ribbonButton)
+        public ViewDrawRibbonGroupClusterButtonImage(KryptonRibbon ribbon,
+                                                     KryptonRibbonGroupClusterButton ribbonButton)
             : base(ribbon)
         {
             Debug.Assert(ribbonButton != null);

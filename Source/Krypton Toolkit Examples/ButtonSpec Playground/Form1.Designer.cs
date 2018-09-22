@@ -33,29 +33,29 @@ namespace ButtonSpecPlayground
             this.groupBoxProperties = new System.Windows.Forms.GroupBox();
             this.propertyGrid = new System.Windows.Forms.PropertyGrid();
             this.buttonClose = new System.Windows.Forms.Button();
-            this.kryptonHeaderGroup1 = new Krypton.Toolkit.KryptonHeaderGroup();
-            this.kryptonManager1 = new Krypton.Toolkit.KryptonManager(this.components);
-            this.kryptonButtonAdd = new Krypton.Toolkit.KryptonButton();
-            this.kryptonButtonRemove = new Krypton.Toolkit.KryptonButton();
-            this.kryptonButtonClear = new Krypton.Toolkit.KryptonButton();
+            this.kryptonHeaderGroup1 = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
+            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonButtonAdd = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButtonRemove = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButtonClear = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.groupBoxExample = new System.Windows.Forms.GroupBox();
             this.groupBoxButtonSpecs = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelInstructions = new System.Windows.Forms.Label();
             this.groupBoxPrimary = new System.Windows.Forms.GroupBox();
-            this.kryptonButtonBottomP = new Krypton.Toolkit.KryptonButton();
+            this.kryptonButtonBottomP = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.kryptonButton1 = new Krypton.Toolkit.KryptonButton();
-            this.kryptonButton2 = new Krypton.Toolkit.KryptonButton();
-            this.kryptonButton3 = new Krypton.Toolkit.KryptonButton();
-            this.kryptonButtonTopP = new Krypton.Toolkit.KryptonButton();
-            this.kryptonButtonRightP = new Krypton.Toolkit.KryptonButton();
-            this.kryptonButtonLeftP = new Krypton.Toolkit.KryptonButton();
+            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButton3 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButtonTopP = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButtonRightP = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButtonLeftP = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.groupBoxSecondary = new System.Windows.Forms.GroupBox();
-            this.kryptonButtonBottomS = new Krypton.Toolkit.KryptonButton();
-            this.kryptonButtonTopS = new Krypton.Toolkit.KryptonButton();
-            this.kryptonButtonRightS = new Krypton.Toolkit.KryptonButton();
-            this.kryptonButtonLeftS = new Krypton.Toolkit.KryptonButton();
+            this.kryptonButtonBottomS = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButtonTopS = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButtonRightS = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButtonLeftS = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.groupBoxProperties.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroup1.Panel)).BeginInit();
@@ -80,9 +80,9 @@ namespace ButtonSpecPlayground
             // 
             // propertyGrid
             // 
-            this.propertyGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.propertyGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.propertyGrid.Location = new System.Drawing.Point(6, 19);
             this.propertyGrid.Name = "propertyGrid";
             this.propertyGrid.Size = new System.Drawing.Size(282, 411);
@@ -101,28 +101,20 @@ namespace ButtonSpecPlayground
             // 
             // kryptonHeaderGroup1
             // 
-            this.kryptonHeaderGroup1.CollapseTarget = Krypton.Toolkit.HeaderGroupCollapsedTarget.CollapsedToPrimary;
-            this.kryptonHeaderGroup1.GroupBackStyle = Krypton.Toolkit.PaletteBackStyle.ControlClient;
-            this.kryptonHeaderGroup1.GroupBorderStyle = Krypton.Toolkit.PaletteBorderStyle.ControlClient;
-            this.kryptonHeaderGroup1.HeaderStylePrimary = Krypton.Toolkit.HeaderStyle.Primary;
-            this.kryptonHeaderGroup1.HeaderStyleSecondary = Krypton.Toolkit.HeaderStyle.Secondary;
             this.kryptonHeaderGroup1.Location = new System.Drawing.Point(11, 23);
             this.kryptonHeaderGroup1.Name = "kryptonHeaderGroup1";
-            this.kryptonHeaderGroup1.PaletteMode = Krypton.Toolkit.PaletteMode.Global;
             this.kryptonHeaderGroup1.Size = new System.Drawing.Size(246, 165);
             this.kryptonHeaderGroup1.TabIndex = 0;
             // 
             // kryptonManager1
             // 
-            this.kryptonManager1.GlobalPaletteMode = Krypton.Toolkit.PaletteModeManager.Office2007Blue;
+            this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2007Blue;
             // 
             // kryptonButtonAdd
             // 
             this.kryptonButtonAdd.AutoSize = true;
-            this.kryptonButtonAdd.ButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             this.kryptonButtonAdd.Location = new System.Drawing.Point(10, 25);
             this.kryptonButtonAdd.Name = "kryptonButtonAdd";
-            this.kryptonButtonAdd.PaletteMode = Krypton.Toolkit.PaletteMode.Global;
             this.kryptonButtonAdd.Size = new System.Drawing.Size(65, 27);
             this.kryptonButtonAdd.TabIndex = 0;
             this.kryptonButtonAdd.Values.Text = "Add";
@@ -131,11 +123,9 @@ namespace ButtonSpecPlayground
             // kryptonButtonRemove
             // 
             this.kryptonButtonRemove.AutoSize = true;
-            this.kryptonButtonRemove.ButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             this.kryptonButtonRemove.Enabled = false;
             this.kryptonButtonRemove.Location = new System.Drawing.Point(11, 56);
             this.kryptonButtonRemove.Name = "kryptonButtonRemove";
-            this.kryptonButtonRemove.PaletteMode = Krypton.Toolkit.PaletteMode.Global;
             this.kryptonButtonRemove.Size = new System.Drawing.Size(64, 27);
             this.kryptonButtonRemove.TabIndex = 1;
             this.kryptonButtonRemove.Values.Text = "Remove";
@@ -144,11 +134,9 @@ namespace ButtonSpecPlayground
             // kryptonButtonClear
             // 
             this.kryptonButtonClear.AutoSize = true;
-            this.kryptonButtonClear.ButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             this.kryptonButtonClear.Enabled = false;
             this.kryptonButtonClear.Location = new System.Drawing.Point(11, 87);
             this.kryptonButtonClear.Name = "kryptonButtonClear";
-            this.kryptonButtonClear.PaletteMode = Krypton.Toolkit.PaletteMode.Global;
             this.kryptonButtonClear.Size = new System.Drawing.Size(64, 27);
             this.kryptonButtonClear.TabIndex = 2;
             this.kryptonButtonClear.Values.Text = "Clear";
@@ -193,7 +181,7 @@ namespace ButtonSpecPlayground
             this.labelInstructions.Size = new System.Drawing.Size(250, 50);
             this.labelInstructions.TabIndex = 0;
             this.labelInstructions.Text = "Use the Add/Remove buttons to create/delete ButtonSpec instances.  Click the butt" +
-                "on in order to display its properties in the property window.";
+    "on in order to display its properties in the property window.";
             // 
             // groupBoxPrimary
             // 
@@ -212,10 +200,8 @@ namespace ButtonSpecPlayground
             // kryptonButtonBottomP
             // 
             this.kryptonButtonBottomP.AutoSize = true;
-            this.kryptonButtonBottomP.ButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             this.kryptonButtonBottomP.Location = new System.Drawing.Point(11, 118);
             this.kryptonButtonBottomP.Name = "kryptonButtonBottomP";
-            this.kryptonButtonBottomP.PaletteMode = Krypton.Toolkit.PaletteMode.Global;
             this.kryptonButtonBottomP.Size = new System.Drawing.Size(64, 27);
             this.kryptonButtonBottomP.TabIndex = 5;
             this.kryptonButtonBottomP.Values.Text = "Bottom";
@@ -236,10 +222,8 @@ namespace ButtonSpecPlayground
             // kryptonButton1
             // 
             this.kryptonButton1.AutoSize = true;
-            this.kryptonButton1.ButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             this.kryptonButton1.Location = new System.Drawing.Point(10, 28);
             this.kryptonButton1.Name = "kryptonButton1";
-            this.kryptonButton1.PaletteMode = Krypton.Toolkit.PaletteMode.Global;
             this.kryptonButton1.Size = new System.Drawing.Size(65, 27);
             this.kryptonButton1.TabIndex = 0;
             this.kryptonButton1.Values.Text = "Top";
@@ -247,11 +231,9 @@ namespace ButtonSpecPlayground
             // kryptonButton2
             // 
             this.kryptonButton2.AutoSize = true;
-            this.kryptonButton2.ButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             this.kryptonButton2.Enabled = false;
             this.kryptonButton2.Location = new System.Drawing.Point(11, 90);
             this.kryptonButton2.Name = "kryptonButton2";
-            this.kryptonButton2.PaletteMode = Krypton.Toolkit.PaletteMode.Global;
             this.kryptonButton2.Size = new System.Drawing.Size(64, 27);
             this.kryptonButton2.TabIndex = 2;
             this.kryptonButton2.Values.Text = "Right";
@@ -259,11 +241,9 @@ namespace ButtonSpecPlayground
             // kryptonButton3
             // 
             this.kryptonButton3.AutoSize = true;
-            this.kryptonButton3.ButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             this.kryptonButton3.Enabled = false;
             this.kryptonButton3.Location = new System.Drawing.Point(11, 59);
             this.kryptonButton3.Name = "kryptonButton3";
-            this.kryptonButton3.PaletteMode = Krypton.Toolkit.PaletteMode.Global;
             this.kryptonButton3.Size = new System.Drawing.Size(64, 27);
             this.kryptonButton3.TabIndex = 1;
             this.kryptonButton3.Values.Text = "Left";
@@ -271,10 +251,8 @@ namespace ButtonSpecPlayground
             // kryptonButtonTopP
             // 
             this.kryptonButtonTopP.AutoSize = true;
-            this.kryptonButtonTopP.ButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             this.kryptonButtonTopP.Location = new System.Drawing.Point(10, 25);
             this.kryptonButtonTopP.Name = "kryptonButtonTopP";
-            this.kryptonButtonTopP.PaletteMode = Krypton.Toolkit.PaletteMode.Global;
             this.kryptonButtonTopP.Size = new System.Drawing.Size(65, 27);
             this.kryptonButtonTopP.TabIndex = 0;
             this.kryptonButtonTopP.Values.Text = "Top";
@@ -283,10 +261,8 @@ namespace ButtonSpecPlayground
             // kryptonButtonRightP
             // 
             this.kryptonButtonRightP.AutoSize = true;
-            this.kryptonButtonRightP.ButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             this.kryptonButtonRightP.Location = new System.Drawing.Point(11, 87);
             this.kryptonButtonRightP.Name = "kryptonButtonRightP";
-            this.kryptonButtonRightP.PaletteMode = Krypton.Toolkit.PaletteMode.Global;
             this.kryptonButtonRightP.Size = new System.Drawing.Size(64, 27);
             this.kryptonButtonRightP.TabIndex = 2;
             this.kryptonButtonRightP.Values.Text = "Right";
@@ -295,10 +271,8 @@ namespace ButtonSpecPlayground
             // kryptonButtonLeftP
             // 
             this.kryptonButtonLeftP.AutoSize = true;
-            this.kryptonButtonLeftP.ButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             this.kryptonButtonLeftP.Location = new System.Drawing.Point(11, 56);
             this.kryptonButtonLeftP.Name = "kryptonButtonLeftP";
-            this.kryptonButtonLeftP.PaletteMode = Krypton.Toolkit.PaletteMode.Global;
             this.kryptonButtonLeftP.Size = new System.Drawing.Size(64, 27);
             this.kryptonButtonLeftP.TabIndex = 1;
             this.kryptonButtonLeftP.Values.Text = "Left";
@@ -320,10 +294,8 @@ namespace ButtonSpecPlayground
             // kryptonButtonBottomS
             // 
             this.kryptonButtonBottomS.AutoSize = true;
-            this.kryptonButtonBottomS.ButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             this.kryptonButtonBottomS.Location = new System.Drawing.Point(11, 118);
             this.kryptonButtonBottomS.Name = "kryptonButtonBottomS";
-            this.kryptonButtonBottomS.PaletteMode = Krypton.Toolkit.PaletteMode.Global;
             this.kryptonButtonBottomS.Size = new System.Drawing.Size(64, 27);
             this.kryptonButtonBottomS.TabIndex = 6;
             this.kryptonButtonBottomS.Values.Text = "Bottom";
@@ -332,10 +304,8 @@ namespace ButtonSpecPlayground
             // kryptonButtonTopS
             // 
             this.kryptonButtonTopS.AutoSize = true;
-            this.kryptonButtonTopS.ButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             this.kryptonButtonTopS.Location = new System.Drawing.Point(10, 25);
             this.kryptonButtonTopS.Name = "kryptonButtonTopS";
-            this.kryptonButtonTopS.PaletteMode = Krypton.Toolkit.PaletteMode.Global;
             this.kryptonButtonTopS.Size = new System.Drawing.Size(65, 27);
             this.kryptonButtonTopS.TabIndex = 0;
             this.kryptonButtonTopS.Values.Text = "Top";
@@ -344,10 +314,8 @@ namespace ButtonSpecPlayground
             // kryptonButtonRightS
             // 
             this.kryptonButtonRightS.AutoSize = true;
-            this.kryptonButtonRightS.ButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             this.kryptonButtonRightS.Location = new System.Drawing.Point(11, 87);
             this.kryptonButtonRightS.Name = "kryptonButtonRightS";
-            this.kryptonButtonRightS.PaletteMode = Krypton.Toolkit.PaletteMode.Global;
             this.kryptonButtonRightS.Size = new System.Drawing.Size(64, 27);
             this.kryptonButtonRightS.TabIndex = 2;
             this.kryptonButtonRightS.Values.Text = "Right";
@@ -356,10 +324,8 @@ namespace ButtonSpecPlayground
             // kryptonButtonLeftS
             // 
             this.kryptonButtonLeftS.AutoSize = true;
-            this.kryptonButtonLeftS.ButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             this.kryptonButtonLeftS.Location = new System.Drawing.Point(11, 56);
             this.kryptonButtonLeftS.Name = "kryptonButtonLeftS";
-            this.kryptonButtonLeftS.PaletteMode = Krypton.Toolkit.PaletteMode.Global;
             this.kryptonButtonLeftS.Size = new System.Drawing.Size(64, 27);
             this.kryptonButtonLeftS.TabIndex = 1;
             this.kryptonButtonLeftS.Values.Text = "Left";
@@ -407,29 +373,29 @@ namespace ButtonSpecPlayground
         private System.Windows.Forms.GroupBox groupBoxProperties;
         private System.Windows.Forms.PropertyGrid propertyGrid;
         private System.Windows.Forms.Button buttonClose;
-        private Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderGroup1;
-        private Krypton.Toolkit.KryptonManager kryptonManager1;
-        private Krypton.Toolkit.KryptonButton kryptonButtonAdd;
-        private Krypton.Toolkit.KryptonButton kryptonButtonRemove;
-        private Krypton.Toolkit.KryptonButton kryptonButtonClear;
+        private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderGroup1;
+        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager1;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonAdd;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonRemove;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonClear;
         private System.Windows.Forms.GroupBox groupBoxExample;
         private System.Windows.Forms.GroupBox groupBoxButtonSpecs;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label labelInstructions;
         private System.Windows.Forms.GroupBox groupBoxPrimary;
         private System.Windows.Forms.GroupBox groupBox2;
-        private Krypton.Toolkit.KryptonButton kryptonButton1;
-        private Krypton.Toolkit.KryptonButton kryptonButton2;
-        private Krypton.Toolkit.KryptonButton kryptonButton3;
-        private Krypton.Toolkit.KryptonButton kryptonButtonTopP;
-        private Krypton.Toolkit.KryptonButton kryptonButtonRightP;
-        private Krypton.Toolkit.KryptonButton kryptonButtonLeftP;
-        private Krypton.Toolkit.KryptonButton kryptonButtonBottomP;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton2;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton3;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonTopP;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonRightP;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonLeftP;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonBottomP;
         private System.Windows.Forms.GroupBox groupBoxSecondary;
-        private Krypton.Toolkit.KryptonButton kryptonButtonBottomS;
-        private Krypton.Toolkit.KryptonButton kryptonButtonTopS;
-        private Krypton.Toolkit.KryptonButton kryptonButtonRightS;
-        private Krypton.Toolkit.KryptonButton kryptonButtonLeftS;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonBottomS;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonTopS;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonRightS;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonLeftS;
     }
 }
 

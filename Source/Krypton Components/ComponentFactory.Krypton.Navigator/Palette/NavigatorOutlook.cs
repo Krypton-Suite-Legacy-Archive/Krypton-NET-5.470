@@ -12,9 +12,9 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
 	/// Storage for outlook mode related properties.
@@ -30,7 +30,7 @@ namespace Krypton.Navigator
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Navigator _navigator;
+        private readonly KryptonNavigator _navigator;
         private ButtonStyle _checkButtonStyle;
         private ButtonStyle _overflowButtonStyle;
         private PaletteBorderStyle _borderEdgeStyle;
@@ -46,7 +46,7 @@ namespace Krypton.Navigator
 		/// </summary>
         /// <param name="navigator">Reference to owning navigator instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public NavigatorOutlook(Krypton.Navigator navigator,
+        public NavigatorOutlook(KryptonNavigator navigator,
                                 NeedPaintHandler needPaint)
 		{
             Debug.Assert(navigator != null);

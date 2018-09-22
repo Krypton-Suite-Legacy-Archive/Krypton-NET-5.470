@@ -16,7 +16,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Defines state and events for a single command.
@@ -26,7 +26,7 @@ namespace Krypton.Toolkit
     [DefaultEvent("Click")]
     [DefaultProperty("Text")]
     [DesignerCategory("code")]
-    [Designer("Krypton.Toolkit.KryptonCommandDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonCommandDesigner))]
     [Description("Defines state and events for a single command.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
@@ -239,12 +239,12 @@ namespace Krypton.Toolkit
         }
 
         /// <summary>
-        /// Gets and sets the command text line 1 for use in Krypton.Ribbon.
+        /// Gets and sets the command text line 1 for use in KryptonRibbon.
         /// </summary>
         [Bindable(true)]
         [Localizable(true)]
         [Category("Appearance")]
-        [Description("Command text line 1 for use in Krypton.Ribbon.")]
+        [Description("Command text line 1 for use in KryptonRibbon.")]
         public string TextLine1
         {
             get => _textLine1;
@@ -270,12 +270,12 @@ namespace Krypton.Toolkit
         }
 
         /// <summary>
-        /// Gets and sets the command text line 2 for use in Krypton.Ribbon.
+        /// Gets and sets the command text line 2 for use in KryptonRibbon.
         /// </summary>
         [Bindable(true)]
         [Localizable(true)]
         [Category("Appearance")]
-        [Description("Command text line 2 for use in Krypton.Ribbon.")]
+        [Description("Command text line 2 for use in KryptonRibbon.")]
         public string TextLine2
         {
             get => _textLine2;

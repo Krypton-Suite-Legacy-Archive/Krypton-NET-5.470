@@ -30,21 +30,21 @@ namespace OutlookMockup
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Deleted Items");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Drafts");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Family");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Friends");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Work");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Inbox", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6,
-            treeNode7});
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Outbox");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Sent Items");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Drafts");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Family");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Deleted Items");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Drafts");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Family");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Friends");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Work");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Inbox", new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode4,
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Outbox");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Sent Items");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Drafts");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Family");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -120,6 +120,9 @@ namespace OutlookMockup
             this.imageListLarge = new System.Windows.Forms.ImageList(this.components);
             this.kryptonButtonGroup = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
             this.kryptonGroupInner = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
+            this.radioOffice2010Black = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
+            this.radioOffice2010Silver = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
+            this.radioOffice2010Blue = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.radioSparkle = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.radioSystem = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.radioOffice2003 = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
@@ -168,9 +171,6 @@ namespace OutlookMockup
             this.dataColumn30 = new System.Data.DataColumn();
             this.dataColumn31 = new System.Data.DataColumn();
             this.dataColumn32 = new System.Data.DataColumn();
-            this.radioOffice2010Black = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.radioOffice2010Silver = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.radioOffice2010Blue = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
@@ -227,7 +227,7 @@ namespace OutlookMockup
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
@@ -405,7 +405,7 @@ namespace OutlookMockup
             this.customizeToolStripMenuItem,
             this.optionsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
             // 
             // customizeToolStripMenuItem
@@ -464,7 +464,7 @@ namespace OutlookMockup
             // toolStrip1
             // 
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripButton,
             this.openToolStripButton,
@@ -656,7 +656,7 @@ namespace OutlookMockup
             this.kryptonPageMail.LastVisibleSet = true;
             this.kryptonPageMail.MinimumSize = new System.Drawing.Size(180, 230);
             this.kryptonPageMail.Name = "kryptonPageMail";
-            this.kryptonPageMail.Size = new System.Drawing.Size(181, 295);
+            this.kryptonPageMail.Size = new System.Drawing.Size(181, 293);
             this.kryptonPageMail.Text = "Mail";
             this.kryptonPageMail.TextTitle = "Mail";
             this.kryptonPageMail.ToolTipTitle = "Page ToolTip";
@@ -669,38 +669,38 @@ namespace OutlookMockup
             this.treeViewMailFolders.HideSelection = false;
             this.treeViewMailFolders.ImageIndex = 0;
             this.treeViewMailFolders.ImageList = this.imageListSmall;
-            this.treeViewMailFolders.Location = new System.Drawing.Point(0, 89);
+            this.treeViewMailFolders.Location = new System.Drawing.Point(0, 87);
             this.treeViewMailFolders.Name = "treeViewMailFolders";
-            treeNode3.Name = "nodeDeletedItems";
-            treeNode3.Tag = "0";
-            treeNode3.Text = "Deleted Items";
-            treeNode4.Name = "nodeDrafts";
-            treeNode4.Tag = "1";
-            treeNode4.Text = "Drafts";
-            treeNode5.Name = "nodeFamily";
-            treeNode5.Tag = "3";
-            treeNode5.Text = "Family";
-            treeNode6.Name = "nodeFriends";
-            treeNode6.Tag = "4";
-            treeNode6.Text = "Friends";
-            treeNode7.Name = "nodeWork";
-            treeNode7.Tag = "5";
-            treeNode7.Text = "Work";
-            treeNode8.Name = "nodeInbox";
-            treeNode8.Tag = "2";
-            treeNode8.Text = "Inbox";
-            treeNode9.Name = "nodeOutbox";
-            treeNode9.Tag = "6";
-            treeNode9.Text = "Outbox";
-            treeNode10.Name = "nodeSentItems";
-            treeNode10.Tag = "7";
-            treeNode10.Text = "Sent Items";
+            treeNode1.Name = "nodeDeletedItems";
+            treeNode1.Tag = "0";
+            treeNode1.Text = "Deleted Items";
+            treeNode2.Name = "nodeDrafts";
+            treeNode2.Tag = "1";
+            treeNode2.Text = "Drafts";
+            treeNode3.Name = "nodeFamily";
+            treeNode3.Tag = "3";
+            treeNode3.Text = "Family";
+            treeNode4.Name = "nodeFriends";
+            treeNode4.Tag = "4";
+            treeNode4.Text = "Friends";
+            treeNode5.Name = "nodeWork";
+            treeNode5.Tag = "5";
+            treeNode5.Text = "Work";
+            treeNode6.Name = "nodeInbox";
+            treeNode6.Tag = "2";
+            treeNode6.Text = "Inbox";
+            treeNode7.Name = "nodeOutbox";
+            treeNode7.Tag = "6";
+            treeNode7.Text = "Outbox";
+            treeNode8.Name = "nodeSentItems";
+            treeNode8.Tag = "7";
+            treeNode8.Text = "Sent Items";
             this.treeViewMailFolders.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode4,
-            treeNode8,
-            treeNode9,
-            treeNode10});
+            treeNode1,
+            treeNode2,
+            treeNode6,
+            treeNode7,
+            treeNode8});
             this.treeViewMailFolders.SelectedImageIndex = 0;
             this.treeViewMailFolders.Size = new System.Drawing.Size(181, 206);
             this.treeViewMailFolders.TabIndex = 1;
@@ -718,7 +718,7 @@ namespace OutlookMockup
             // 
             this.panelFoldersSep.BackColor = System.Drawing.SystemColors.Window;
             this.panelFoldersSep.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelFoldersSep.Location = new System.Drawing.Point(0, 84);
+            this.panelFoldersSep.Location = new System.Drawing.Point(0, 82);
             this.panelFoldersSep.Name = "panelFoldersSep";
             this.panelFoldersSep.Size = new System.Drawing.Size(181, 5);
             this.panelFoldersSep.TabIndex = 5;
@@ -727,9 +727,9 @@ namespace OutlookMockup
             // 
             this.kryptonHeaderFolders.Dock = System.Windows.Forms.DockStyle.Top;
             this.kryptonHeaderFolders.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
-            this.kryptonHeaderFolders.Location = new System.Drawing.Point(0, 63);
+            this.kryptonHeaderFolders.Location = new System.Drawing.Point(0, 62);
             this.kryptonHeaderFolders.Name = "kryptonHeaderFolders";
-            this.kryptonHeaderFolders.Size = new System.Drawing.Size(181, 21);
+            this.kryptonHeaderFolders.Size = new System.Drawing.Size(181, 20);
             this.kryptonHeaderFolders.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)));
             this.kryptonHeaderFolders.TabIndex = 2;
             this.kryptonHeaderFolders.Values.Description = "";
@@ -743,17 +743,17 @@ namespace OutlookMockup
             this.treeViewMailFavs.HideSelection = false;
             this.treeViewMailFavs.ImageIndex = 0;
             this.treeViewMailFavs.ImageList = this.imageListSmall;
-            this.treeViewMailFavs.Location = new System.Drawing.Point(0, 25);
+            this.treeViewMailFavs.Location = new System.Drawing.Point(0, 24);
             this.treeViewMailFavs.Name = "treeViewMailFavs";
-            treeNode11.Name = "nodeDrafts";
-            treeNode11.Tag = "1";
-            treeNode11.Text = "Drafts";
-            treeNode12.Name = "nodeFamily";
-            treeNode12.Tag = "3";
-            treeNode12.Text = "Family";
+            treeNode9.Name = "nodeDrafts";
+            treeNode9.Tag = "1";
+            treeNode9.Text = "Drafts";
+            treeNode10.Name = "nodeFamily";
+            treeNode10.Tag = "3";
+            treeNode10.Text = "Family";
             this.treeViewMailFavs.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode11,
-            treeNode12});
+            treeNode9,
+            treeNode10});
             this.treeViewMailFavs.SelectedImageIndex = 0;
             this.treeViewMailFavs.Size = new System.Drawing.Size(181, 38);
             this.treeViewMailFavs.TabIndex = 0;
@@ -763,7 +763,7 @@ namespace OutlookMockup
             // 
             this.panelFavoriteSep.BackColor = System.Drawing.SystemColors.Window;
             this.panelFavoriteSep.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelFavoriteSep.Location = new System.Drawing.Point(0, 20);
+            this.panelFavoriteSep.Location = new System.Drawing.Point(0, 19);
             this.panelFavoriteSep.Name = "panelFavoriteSep";
             this.panelFavoriteSep.Size = new System.Drawing.Size(181, 5);
             this.panelFavoriteSep.TabIndex = 4;
@@ -774,7 +774,7 @@ namespace OutlookMockup
             this.kryptonHeaderFavorites.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
             this.kryptonHeaderFavorites.Location = new System.Drawing.Point(0, 0);
             this.kryptonHeaderFavorites.Name = "kryptonHeaderFavorites";
-            this.kryptonHeaderFavorites.Size = new System.Drawing.Size(181, 20);
+            this.kryptonHeaderFavorites.Size = new System.Drawing.Size(181, 19);
             this.kryptonHeaderFavorites.StateCommon.Border.DrawBorders = ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom;
             this.kryptonHeaderFavorites.TabIndex = 1;
             this.kryptonHeaderFavorites.Values.Description = "";
@@ -831,7 +831,7 @@ namespace OutlookMockup
             // 
             this.radioFriends.Location = new System.Drawing.Point(23, 73);
             this.radioFriends.Name = "radioFriends";
-            this.radioFriends.Size = new System.Drawing.Size(62, 20);
+            this.radioFriends.Size = new System.Drawing.Size(61, 18);
             this.radioFriends.TabIndex = 8;
             this.radioFriends.Values.Text = "Friends";
             this.radioFriends.CheckedChanged += new System.EventHandler(this.radioNotes_CheckedChanged);
@@ -840,7 +840,7 @@ namespace OutlookMockup
             // 
             this.radioFamily.Location = new System.Drawing.Point(23, 48);
             this.radioFamily.Name = "radioFamily";
-            this.radioFamily.Size = new System.Drawing.Size(57, 20);
+            this.radioFamily.Size = new System.Drawing.Size(57, 18);
             this.radioFamily.TabIndex = 7;
             this.radioFamily.Values.Text = "Family";
             this.radioFamily.CheckedChanged += new System.EventHandler(this.radioNotes_CheckedChanged);
@@ -850,7 +850,7 @@ namespace OutlookMockup
             this.radioProject.Checked = true;
             this.radioProject.Location = new System.Drawing.Point(23, 23);
             this.radioProject.Name = "radioProject";
-            this.radioProject.Size = new System.Drawing.Size(60, 20);
+            this.radioProject.Size = new System.Drawing.Size(58, 18);
             this.radioProject.TabIndex = 6;
             this.radioProject.Values.Text = "Project";
             this.radioProject.CheckedChanged += new System.EventHandler(this.radioNotes_CheckedChanged);
@@ -955,8 +955,8 @@ namespace OutlookMockup
             // dgReceived
             // 
             this.dgReceived.DataPropertyName = "Received";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dgReceived.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dgReceived.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgReceived.HeaderText = "Received";
             this.dgReceived.MinimumWidth = 100;
             this.dgReceived.Name = "dgReceived";
@@ -965,8 +965,8 @@ namespace OutlookMockup
             // dgSize
             // 
             this.dgSize.DataPropertyName = "Size";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dgSize.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dgSize.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgSize.HeaderText = "Size";
             this.dgSize.MinimumWidth = 50;
             this.dgSize.Name = "dgSize";
@@ -1024,6 +1024,7 @@ namespace OutlookMockup
             // 
             this.listViewNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listViewNotes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewNotes.HideSelection = false;
             this.listViewNotes.LargeImageList = this.imageListLarge;
             this.listViewNotes.Location = new System.Drawing.Point(3, 6);
             this.listViewNotes.Name = "listViewNotes";
@@ -1072,11 +1073,39 @@ namespace OutlookMockup
             this.kryptonGroupInner.Size = new System.Drawing.Size(504, 192);
             this.kryptonGroupInner.TabIndex = 0;
             // 
+            // radioOffice2010Black
+            // 
+            this.radioOffice2010Black.Location = new System.Drawing.Point(17, 68);
+            this.radioOffice2010Black.Name = "radioOffice2010Black";
+            this.radioOffice2010Black.Size = new System.Drawing.Size(119, 18);
+            this.radioOffice2010Black.TabIndex = 2;
+            this.radioOffice2010Black.Values.Text = "Office 2010 - Black";
+            this.radioOffice2010Black.CheckedChanged += new System.EventHandler(this.radioOffice2010Black_CheckedChanged);
+            // 
+            // radioOffice2010Silver
+            // 
+            this.radioOffice2010Silver.Location = new System.Drawing.Point(17, 45);
+            this.radioOffice2010Silver.Name = "radioOffice2010Silver";
+            this.radioOffice2010Silver.Size = new System.Drawing.Size(119, 18);
+            this.radioOffice2010Silver.TabIndex = 1;
+            this.radioOffice2010Silver.Values.Text = "Office 2010 - Silver";
+            this.radioOffice2010Silver.CheckedChanged += new System.EventHandler(this.radioOffice2010Silver_CheckedChanged);
+            // 
+            // radioOffice2010Blue
+            // 
+            this.radioOffice2010Blue.Checked = true;
+            this.radioOffice2010Blue.Location = new System.Drawing.Point(17, 20);
+            this.radioOffice2010Blue.Name = "radioOffice2010Blue";
+            this.radioOffice2010Blue.Size = new System.Drawing.Size(114, 18);
+            this.radioOffice2010Blue.TabIndex = 0;
+            this.radioOffice2010Blue.Values.Text = "Office 2010 - Blue";
+            this.radioOffice2010Blue.CheckedChanged += new System.EventHandler(this.radioOffice2010Blue_CheckedChanged);
+            // 
             // radioSparkle
             // 
             this.radioSparkle.Location = new System.Drawing.Point(288, 44);
             this.radioSparkle.Name = "radioSparkle";
-            this.radioSparkle.Size = new System.Drawing.Size(60, 19);
+            this.radioSparkle.Size = new System.Drawing.Size(62, 18);
             this.radioSparkle.TabIndex = 7;
             this.radioSparkle.Values.Text = "Sparkle";
             this.radioSparkle.CheckedChanged += new System.EventHandler(this.radioSparkle_CheckedChanged);
@@ -1085,7 +1114,7 @@ namespace OutlookMockup
             // 
             this.radioSystem.Location = new System.Drawing.Point(288, 68);
             this.radioSystem.Name = "radioSystem";
-            this.radioSystem.Size = new System.Drawing.Size(59, 19);
+            this.radioSystem.Size = new System.Drawing.Size(61, 18);
             this.radioSystem.TabIndex = 8;
             this.radioSystem.Values.Text = "System";
             this.radioSystem.CheckedChanged += new System.EventHandler(this.radioSystem_CheckedChanged);
@@ -1094,7 +1123,7 @@ namespace OutlookMockup
             // 
             this.radioOffice2003.Location = new System.Drawing.Point(288, 20);
             this.radioOffice2003.Name = "radioOffice2003";
-            this.radioOffice2003.Size = new System.Drawing.Size(81, 19);
+            this.radioOffice2003.Size = new System.Drawing.Size(81, 18);
             this.radioOffice2003.TabIndex = 6;
             this.radioOffice2003.Values.Text = "Office 2003";
             this.radioOffice2003.CheckedChanged += new System.EventHandler(this.radioOffice2003_CheckedChanged);
@@ -1103,7 +1132,7 @@ namespace OutlookMockup
             // 
             this.radioOffice2007Black.Location = new System.Drawing.Point(153, 68);
             this.radioOffice2007Black.Name = "radioOffice2007Black";
-            this.radioOffice2007Black.Size = new System.Drawing.Size(119, 19);
+            this.radioOffice2007Black.Size = new System.Drawing.Size(119, 18);
             this.radioOffice2007Black.TabIndex = 5;
             this.radioOffice2007Black.Values.Text = "Office 2007 - Black";
             this.radioOffice2007Black.CheckedChanged += new System.EventHandler(this.radioOffice2007Black_CheckedChanged);
@@ -1112,7 +1141,7 @@ namespace OutlookMockup
             // 
             this.radioOffice2007Silver.Location = new System.Drawing.Point(153, 45);
             this.radioOffice2007Silver.Name = "radioOffice2007Silver";
-            this.radioOffice2007Silver.Size = new System.Drawing.Size(120, 19);
+            this.radioOffice2007Silver.Size = new System.Drawing.Size(119, 18);
             this.radioOffice2007Silver.TabIndex = 4;
             this.radioOffice2007Silver.Values.Text = "Office 2007 - Silver";
             this.radioOffice2007Silver.CheckedChanged += new System.EventHandler(this.radioOffice2007Silver_CheckedChanged);
@@ -1121,10 +1150,14 @@ namespace OutlookMockup
             // 
             this.radioOffice2007Blue.Location = new System.Drawing.Point(153, 20);
             this.radioOffice2007Blue.Name = "radioOffice2007Blue";
-            this.radioOffice2007Blue.Size = new System.Drawing.Size(114, 19);
+            this.radioOffice2007Blue.Size = new System.Drawing.Size(114, 18);
             this.radioOffice2007Blue.TabIndex = 3;
             this.radioOffice2007Blue.Values.Text = "Office 2007 - Blue";
             this.radioOffice2007Blue.CheckedChanged += new System.EventHandler(this.radioOffice2007Blue_CheckedChanged);
+            // 
+            // kryptonManager
+            // 
+            this.kryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.ProfessionalSystem;
             // 
             // dataSet
             // 
@@ -1338,34 +1371,6 @@ namespace OutlookMockup
             // dataColumn32
             // 
             this.dataColumn32.ColumnName = "Size";
-            // 
-            // radioOffice2010Black
-            // 
-            this.radioOffice2010Black.Location = new System.Drawing.Point(17, 68);
-            this.radioOffice2010Black.Name = "radioOffice2010Black";
-            this.radioOffice2010Black.Size = new System.Drawing.Size(119, 19);
-            this.radioOffice2010Black.TabIndex = 2;
-            this.radioOffice2010Black.Values.Text = "Office 2010 - Black";
-            this.radioOffice2010Black.CheckedChanged += new System.EventHandler(this.radioOffice2010Black_CheckedChanged);
-            // 
-            // radioOffice2010Silver
-            // 
-            this.radioOffice2010Silver.Location = new System.Drawing.Point(17, 45);
-            this.radioOffice2010Silver.Name = "radioOffice2010Silver";
-            this.radioOffice2010Silver.Size = new System.Drawing.Size(120, 19);
-            this.radioOffice2010Silver.TabIndex = 1;
-            this.radioOffice2010Silver.Values.Text = "Office 2010 - Silver";
-            this.radioOffice2010Silver.CheckedChanged += new System.EventHandler(this.radioOffice2010Silver_CheckedChanged);
-            // 
-            // radioOffice2010Blue
-            // 
-            this.radioOffice2010Blue.Checked = true;
-            this.radioOffice2010Blue.Location = new System.Drawing.Point(17, 20);
-            this.radioOffice2010Blue.Name = "radioOffice2010Blue";
-            this.radioOffice2010Blue.Size = new System.Drawing.Size(114, 19);
-            this.radioOffice2010Blue.TabIndex = 0;
-            this.radioOffice2010Blue.Values.Text = "Office 2010 - Blue";
-            this.radioOffice2010Blue.CheckedChanged += new System.EventHandler(this.radioOffice2010Blue_CheckedChanged);
             // 
             // Form1
             // 

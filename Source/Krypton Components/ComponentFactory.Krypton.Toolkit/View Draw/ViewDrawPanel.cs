@@ -13,7 +13,7 @@ using System;
 using System.Drawing.Drawing2D;
 using System.Diagnostics;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
 	/// View element that can draw a panel (background but no border)

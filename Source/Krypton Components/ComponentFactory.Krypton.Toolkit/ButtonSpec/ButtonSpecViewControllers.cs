@@ -11,7 +11,7 @@
 
 using System.Diagnostics;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Stores a triple of controller references.

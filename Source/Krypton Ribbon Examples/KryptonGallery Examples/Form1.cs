@@ -8,18 +8,15 @@
 //  Version 4.70.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
+using ComponentFactory.Krypton.Ribbon;
+using ComponentFactory.Krypton.Toolkit;
 using System;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
-using System.ComponentModel;
-using System.Collections.Generic;
-using Krypton.Ribbon;
-using Krypton.Toolkit;
 
 namespace KryptonGalleryExamples
 {
-    public partial class Form1 : Form
+    public partial class Form1 : KryptonForm
     {
         public Form1()
         {
@@ -71,7 +68,7 @@ namespace KryptonGalleryExamples
             {
                 KryptonContextMenuHeading h = new KryptonContextMenuHeading();
                 h.Text = "Customize Drop Menu";
-                
+
                 KryptonContextMenuItems items1 = new KryptonContextMenuItems();
                 KryptonContextMenuItem item1 = new KryptonContextMenuItem();
                 item1.Text = "Custom Entry 1";

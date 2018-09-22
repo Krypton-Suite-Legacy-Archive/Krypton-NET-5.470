@@ -11,9 +11,9 @@
 
 using System.Drawing;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a short vertical cluster separator.
@@ -25,7 +25,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private readonly bool _start;
         #endregion
 
@@ -35,7 +35,7 @@ namespace Krypton.Ribbon
 		/// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="start">Is this is cluster start separator.</param>
-        public ViewDrawRibbonGroupClusterSeparator(Krypton.Ribbon ribbon, bool start)
+        public ViewDrawRibbonGroupClusterSeparator(KryptonRibbon ribbon, bool start)
         {
             Debug.Assert(ribbon != null);
             _ribbon = ribbon;

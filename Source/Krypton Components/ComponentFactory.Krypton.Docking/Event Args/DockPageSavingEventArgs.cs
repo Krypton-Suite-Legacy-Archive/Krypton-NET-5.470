@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.Xml;
-using Krypton.Navigator;
+using ComponentFactory.Krypton.Navigator;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
 	/// <summary>
     /// Event data for saving docking page configuration.
@@ -30,7 +30,7 @@ namespace Krypton.Docking
         /// <param name="manager">Reference to owning docking manager instance.</param>
         /// <param name="xmlWriter">Xml writer for persisting custom data.</param>
         /// <param name="page">Reference to page being saved.</param>
-        public DockPageSavingEventArgs(Krypton.DockingManager manager,
+        public DockPageSavingEventArgs(KryptonDockingManager manager,
                                        XmlWriter xmlWriter,
                                        KryptonPage page)
             : base(manager, xmlWriter)

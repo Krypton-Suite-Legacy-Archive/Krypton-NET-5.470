@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.ComponentModel;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
 	/// Storage and mapping for primary header.
@@ -29,7 +29,7 @@ namespace Krypton.Navigator
         /// </summary>
         /// <param name="navigator">Reference to owning navogator instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public HeaderGroupMappingPrimary(Krypton.Navigator navigator,
+        public HeaderGroupMappingPrimary(KryptonNavigator navigator,
                                          NeedPaintHandler needPaint)
             : base(navigator, needPaint)
         {

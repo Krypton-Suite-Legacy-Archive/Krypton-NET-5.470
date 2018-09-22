@@ -9,7 +9,7 @@
     <ProjectGuid>{9144BA04-155B-4B66-B85A-9A89AA93F7D4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Krypton.Workspace</RootNamespace>
+    <RootNamespace>ComponentFactory.Krypton.Workspace</RootNamespace>
     <AssemblyName>Krypton Workspace</AssemblyName>
     <ApplicationIcon>Krypton.ico</ApplicationIcon>
     <SignAssembly>true</SignAssembly>
@@ -72,17 +72,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls Workspace\Krypton.WorkspaceSequenceConverter.cs" />
-    <Compile Include="Controls Workspace\Krypton.WorkspaceCollection.cs">
+    <Compile Include="Controls Workspace\KryptonWorkspaceSequenceConverter.cs" />
+    <Compile Include="Controls Workspace\KryptonWorkspaceCollection.cs">
     </Compile>
-    <Compile Include="Controls Workspace\Krypton.WorkspaceCell.cs" />
-    <Compile Include="Controls Workspace\Krypton.WorkspaceSequence.cs" />
-    <Compile Include="Controls Workspace\Krypton.Workspace.cs" />
+    <Compile Include="Controls Workspace\KryptonWorkspaceCell.cs" />
+    <Compile Include="Controls Workspace\KryptonWorkspaceSequence.cs" />
+    <Compile Include="Controls Workspace\KryptonWorkspace.cs" />
     <Compile Include="Dragging\DragTargetWorkspace.cs" />
     <Compile Include="Dragging\DragTargetWorkspaceCellTransfer.cs" />
     <Compile Include="Dragging\DragTargetWorkspaceCellEdge.cs" />
@@ -110,6 +111,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="View Draw\ViewDrawWorkspaceSeparator.cs" />
+    <Compile Include="Workspace\KryptonWorkspaceActionList.cs" />
+    <Compile Include="Workspace\KryptonWorkspaceCellDesigner.cs" />
+    <Compile Include="Workspace\KryptonWorkspaceCollectionEditor.cs" />
+    <Compile Include="Workspace\KryptonWorkspaceDesigner.cs" />
+    <Compile Include="Workspace\KryptonWorkspaceSequenceDesigner.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
@@ -127,21 +133,21 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.WorkspaceSequence.bmp" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.WorkspaceCell.bmp" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.Workspace.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonWorkspaceSequence.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonWorkspaceCell.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonWorkspace.bmp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="StrongKrypton.snk" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Krypton.Navigator\Krypton.Navigator 2018.csproj">
+    <ProjectReference Include="..\ComponentFactory.Krypton.Navigator\ComponentFactory.Krypton.Navigator 2018.csproj">
       <Project>{dc0dd714-4d19-4f31-a6d0-ea209d4f0ea8}</Project>
-      <Name>Krypton.Navigator 2018</Name>
+      <Name>ComponentFactory.Krypton.Navigator 2018</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Krypton.Toolkit\Krypton.Toolkit 2018.csproj">
+    <ProjectReference Include="..\ComponentFactory.Krypton.Toolkit\ComponentFactory.Krypton.Toolkit 2018.csproj">
       <Project>{96ecaecc-54f8-4aa5-8591-b443c2d9565f}</Project>
-      <Name>Krypton.Toolkit 2018</Name>
+      <Name>ComponentFactory.Krypton.Toolkit 2018</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

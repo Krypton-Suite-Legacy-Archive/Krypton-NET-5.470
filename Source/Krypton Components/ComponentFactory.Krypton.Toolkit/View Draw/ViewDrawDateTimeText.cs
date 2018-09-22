@@ -18,7 +18,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.ComponentModel;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Draw the date time picker text.
@@ -694,7 +694,7 @@ namespace Krypton.Toolkit
                 // Push return values into the individual fragment entries
                 for (int i = 0; i < _fragments.Count; i++)
                 {
-                    _fragments[i].TotalWidth = (int)Math.Ceiling((double)charRegion[i].GetBounds(g).Width);
+                    _fragments[i].TotalWidth = (int)Math.Ceiling(charRegion[i].GetBounds(g).Width);
                 }
             }
 

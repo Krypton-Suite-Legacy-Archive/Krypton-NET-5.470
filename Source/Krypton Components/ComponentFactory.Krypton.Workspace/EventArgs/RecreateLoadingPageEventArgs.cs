@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.ComponentModel;
-using Krypton.Navigator;
+using ComponentFactory.Krypton.Navigator;
 
-namespace Krypton.Workspace
+namespace ComponentFactory.Krypton.Workspace
 {
 	/// <summary>
     /// Event arguments for events that need to request a KryptonPage from a provided unique name.

@@ -11,9 +11,9 @@
 
 using System.Drawing;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
     /// <summary>
     /// Map tooltip values from a source page.

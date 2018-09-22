@@ -14,9 +14,9 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a ribbon group check box.
@@ -31,7 +31,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private ViewLayoutRibbonCheckBox _viewLarge;
         private ViewDrawRibbonGroupCheckBoxImage _viewLargeImage;
         private ViewDrawRibbonGroupCheckBoxText _viewLargeText1;
@@ -56,8 +56,8 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonCheckBox">Reference to source check box definition.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonGroupCheckBox(Krypton.Ribbon ribbon,
-                                           Krypton.RibbonGroupCheckBox ribbonCheckBox,
+        public ViewDrawRibbonGroupCheckBox(KryptonRibbon ribbon,
+                                           KryptonRibbonGroupCheckBox ribbonCheckBox,
                                            NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);
@@ -127,7 +127,7 @@ namespace Krypton.Ribbon
         /// <summary>
         /// Gets access to the connected check box definition.
         /// </summary>
-        public Krypton.RibbonGroupCheckBox GroupCheckBox { get; private set; }
+        public KryptonRibbonGroupCheckBox GroupCheckBox { get; private set; }
 
         #endregion
 

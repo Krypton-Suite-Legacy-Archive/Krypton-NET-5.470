@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.kpnlBackdrop = new Krypton.Toolkit.KryptonPanel();
-            this.kryptonNavigator1 = new Krypton.Navigator.KryptonNavigator();
-            this.kryptonPage1 = new Krypton.Navigator.KryptonPage();
-            this.kryptonPage2 = new Krypton.Navigator.KryptonPage();
-            this.kbtnCancel = new Krypton.Toolkit.KryptonButton();
-            this.kMan = new Krypton.Toolkit.KryptonManager(this.components);
-            this.klblFileName = new Krypton.Toolkit.KryptonLabel();
-            this.klblFileSize = new Krypton.Toolkit.KryptonLabel();
-            this.klblFileReleaseDate = new Krypton.Toolkit.KryptonLabel();
-            this.klblUpdateType = new Krypton.Toolkit.KryptonLabel();
-            this.klblImageType = new Krypton.Toolkit.KryptonLabel();
-            this.klblFileVersion = new Krypton.Toolkit.KryptonLabel();
-            this.klblSHA384CheckSum = new Krypton.Toolkit.KryptonLabel();
-            this.klblSHA512CheckSum = new Krypton.Toolkit.KryptonLabel();
-            this.klblSHA256CheckSum = new Krypton.Toolkit.KryptonLabel();
-            this.klblSHA1CheckSum = new Krypton.Toolkit.KryptonLabel();
-            this.klblMD5CheckSum = new Krypton.Toolkit.KryptonLabel();
-            this.klblRIPEMD160CheckSum = new Krypton.Toolkit.KryptonLabel();
+            this.kpnlBackdrop = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonNavigator1 = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
+            this.kryptonPage1 = new ComponentFactory.Krypton.Navigator.KryptonPage();
+            this.kryptonPage2 = new ComponentFactory.Krypton.Navigator.KryptonPage();
+            this.kbtnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kMan = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.klblFileName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.klblFileSize = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.klblFileReleaseDate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.klblUpdateType = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.klblImageType = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.klblFileVersion = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.klblSHA384CheckSum = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.klblSHA512CheckSum = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.klblSHA256CheckSum = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.klblSHA1CheckSum = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.klblMD5CheckSum = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.klblRIPEMD160CheckSum = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.kpnlBackdrop)).BeginInit();
             this.kpnlBackdrop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator1)).BeginInit();
@@ -71,7 +71,7 @@
             // 
             this.kryptonNavigator1.Location = new System.Drawing.Point(12, 12);
             this.kryptonNavigator1.Name = "kryptonNavigator1";
-            this.kryptonNavigator1.Pages.AddRange(new Krypton.Navigator.KryptonPage[] {
+            this.kryptonNavigator1.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
             this.kryptonPage1,
             this.kryptonPage2});
             this.kryptonNavigator1.SelectedIndex = 1;
@@ -264,23 +264,23 @@
 
         #endregion
 
-        private Krypton.Toolkit.KryptonPanel kpnlBackdrop;
-        private Krypton.Toolkit.KryptonManager kMan;
-        private Krypton.Toolkit.KryptonButton kbtnCancel;
-        private Krypton.Navigator.KryptonNavigator kryptonNavigator1;
-        private Krypton.Navigator.KryptonPage kryptonPage1;
-        private Krypton.Navigator.KryptonPage kryptonPage2;
-        private Krypton.Toolkit.KryptonLabel klblFileVersion;
-        private Krypton.Toolkit.KryptonLabel klblImageType;
-        private Krypton.Toolkit.KryptonLabel klblUpdateType;
-        private Krypton.Toolkit.KryptonLabel klblFileReleaseDate;
-        private Krypton.Toolkit.KryptonLabel klblFileSize;
-        private Krypton.Toolkit.KryptonLabel klblFileName;
-        private Krypton.Toolkit.KryptonLabel klblSHA384CheckSum;
-        private Krypton.Toolkit.KryptonLabel klblSHA512CheckSum;
-        private Krypton.Toolkit.KryptonLabel klblSHA256CheckSum;
-        private Krypton.Toolkit.KryptonLabel klblSHA1CheckSum;
-        private Krypton.Toolkit.KryptonLabel klblMD5CheckSum;
-        private Krypton.Toolkit.KryptonLabel klblRIPEMD160CheckSum;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel kpnlBackdrop;
+        private ComponentFactory.Krypton.Toolkit.KryptonManager kMan;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnCancel;
+        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigator1;
+        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPage1;
+        private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPage2;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblFileVersion;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblImageType;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblUpdateType;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblFileReleaseDate;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblFileSize;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblFileName;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblSHA384CheckSum;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblSHA512CheckSum;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblSHA256CheckSum;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblSHA1CheckSum;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblMD5CheckSum;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblRIPEMD160CheckSum;
     }
 }

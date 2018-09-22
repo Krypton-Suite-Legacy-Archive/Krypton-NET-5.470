@@ -14,10 +14,10 @@ using System.Xml;
 using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
-using Krypton.Toolkit;
-using Krypton.Navigator;
+using ComponentFactory.Krypton.Toolkit;
+using ComponentFactory.Krypton.Navigator;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
     /// <summary>
     /// Provides auto hidden docking funtionality against a specific control edge.
@@ -25,7 +25,7 @@ namespace Krypton.Docking
     [ToolboxItem(false)]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
-    public class Krypton.DockingEdgeAutoHidden : DockingElementClosedCollection
+    public class KryptonDockingEdgeAutoHidden : DockingElementClosedCollection
     {
         #region Static Fields
 
@@ -42,12 +42,12 @@ namespace Krypton.Docking
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the Krypton.DockingEdgeAutoHidden class.
+        /// Initialize a new instance of the KryptonDockingEdgeAutoHidden class.
         /// </summary>
         /// <param name="name">Initial name of the element.</param>
         /// <param name="control">Reference to control that is being managed.</param>
         /// <param name="edge">Docking edge being managed.</param>
-        public Krypton.DockingEdgeAutoHidden(string name, Control control, DockingEdge edge)
+        public KryptonDockingEdgeAutoHidden(string name, Control control, DockingEdge edge)
             : base(name)
         {
             Control = control ?? throw new ArgumentNullException(nameof(control));
@@ -93,7 +93,7 @@ namespace Krypton.Docking
         /// Create and add a new auto hidden group instance to the correct edge of the owning control.
         /// </summary>
         /// <returns>Reference to docking element that handles the new auto hidden group.</returns>
-        public Krypton.DockingAutoHiddenGroup AppendAutoHiddenGroup()
+        public KryptonDockingAutoHiddenGroup AppendAutoHiddenGroup()
         {
             // Generate a unique string by creating a GUID
             return AppendAutoHiddenGroup(CommonHelper.UniqueString);
@@ -104,7 +104,7 @@ namespace Krypton.Docking
         /// </summary>
         /// <param name="name">Initial name of the group element.</param>
         /// <returns>Reference to docking element that handles the new auto hidden group.</returns>
-        public Krypton.DockingAutoHiddenGroup AppendAutoHiddenGroup(string name)
+        public KryptonDockingAutoHiddenGroup AppendAutoHiddenGroup(string name)
         {
             return CreateAndInsertAutoHiddenGroup(Count, name);
         }
@@ -114,7 +114,7 @@ namespace Krypton.Docking
         /// </summary>
         /// <param name="index">Insertion index.</param>
         /// <returns>Reference to docking element that handles the new auto hidden group.</returns>
-        public Krypton.DockingAutoHiddenGroup InsertAutoHiddenGroup(int index)
+        public KryptonDockingAutoHiddenGroup InsertAutoHiddenGroup(int index)
         {
             // Generate a unique string by creating a GUID
             return CreateAndInsertAutoHiddenGroup(index, CommonHelper.UniqueString);
@@ -126,7 +126,7 @@ namespace Krypton.Docking
         /// <param name="index">Insertion index.</param>
         /// <param name="name">Initial name of the group element.</param>
         /// <returns>Reference to docking element that handles the new auto hidden group.</returns>
-        public Krypton.DockingAutoHiddenGroup InsertAutoHiddenGroup(int index, string name)
+        public KryptonDockingAutoHiddenGroup InsertAutoHiddenGroup(int index, string name)
         {
             return CreateAndInsertAutoHiddenGroup(index, name);
         }
@@ -161,7 +161,7 @@ namespace Krypton.Docking
                     break;
                 case DockingPropogateAction.StringChanged:
                     // Pushed changed strings to the tooltips
-                    Krypton.DockingManager dockingManager = DockingManager;
+                    KryptonDockingManager dockingManager = DockingManager;
                     if (dockingManager?.Strings != null)
                     {
                         _slidePanel.DockspaceControl.PinTooltip = dockingManager.Strings.TextDock;
@@ -202,8 +202,8 @@ namespace Krypton.Docking
         /// Find a edge auto hidden element by searching the hierarchy.
         /// </summary>
         /// <param name="uniqueName">Named page for which a suitable auto hidden edge element is required.</param>
-        /// <returns>Krypton.DockingEdgeAutoHidden reference if found; otherwise false.</returns>
-        public override Krypton.DockingEdgeAutoHidden FindDockingEdgeAutoHidden(string uniqueName)
+        /// <returns>KryptonDockingEdgeAutoHidden reference if found; otherwise false.</returns>
+        public override KryptonDockingEdgeAutoHidden FindDockingEdgeAutoHidden(string uniqueName)
         {
             return this;
         }
@@ -228,7 +228,7 @@ namespace Krypton.Docking
             // Search each of our AutoHiddenGroup entries
             for (int i = 0; i < Count; i++)
             {
-                if (this[i] is Krypton.DockingAutoHiddenGroup ahg)
+                if (this[i] is KryptonDockingAutoHiddenGroup ahg)
                 {
                     // If the target page is inside this group
                     KryptonPage page = ahg.AutoHiddenGroupControl.Pages[uniqueName];
@@ -267,17 +267,17 @@ namespace Krypton.Docking
             else
             {
                 // Create a new auto hidden group and then reload it
-                Krypton.DockingAutoHiddenGroup autoHiddenGroup = AppendAutoHiddenGroup(xmlReader.GetAttribute("N"));
+                KryptonDockingAutoHiddenGroup autoHiddenGroup = AppendAutoHiddenGroup(xmlReader.GetAttribute("N"));
                 autoHiddenGroup.LoadElementFromXml(xmlReader, pages);
             }
         }
         #endregion
 
         #region Implementation
-        private Krypton.DockingAutoHiddenGroup CreateAndInsertAutoHiddenGroup(int index, string name)
+        private KryptonDockingAutoHiddenGroup CreateAndInsertAutoHiddenGroup(int index, string name)
         {
             // Create the new auto hidden group instance and add into our collection
-            Krypton.DockingAutoHiddenGroup groupElement = new Krypton.DockingAutoHiddenGroup(name, Edge);
+            KryptonDockingAutoHiddenGroup groupElement = new KryptonDockingAutoHiddenGroup(name, Edge);
             groupElement.PageClicked += OnDockingAutoHiddenGroupClicked;
             groupElement.PageHoverStart += OnDockingAutoHiddenGroupHoverStart;
             groupElement.PageHoverEnd += OnDockingAutoHiddenGroupHoverEnd;
@@ -285,7 +285,7 @@ namespace Krypton.Docking
             InternalInsert(index, groupElement);
 
             // Events are generated from the parent docking manager
-            Krypton.DockingManager dockingManager = DockingManager;
+            KryptonDockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {
                 // The hosting panel/sliding panel dockspace/separator are not shown until the first group is added, so only 
@@ -320,7 +320,7 @@ namespace Krypton.Docking
         private void OnDockingAutoHiddenGroupDisposed(object sender, EventArgs e)
         {
             // Cast to correct type and unhook event handlers so garbage collection can occur
-            Krypton.DockingAutoHiddenGroup groupElement = (Krypton.DockingAutoHiddenGroup)sender;
+            KryptonDockingAutoHiddenGroup groupElement = (KryptonDockingAutoHiddenGroup)sender;
             groupElement.PageClicked -= OnDockingAutoHiddenGroupClicked;
             groupElement.PageHoverStart -= OnDockingAutoHiddenGroupHoverStart;
             groupElement.PageHoverEnd -= OnDockingAutoHiddenGroupHoverEnd;
@@ -336,7 +336,7 @@ namespace Krypton.Docking
             _panel.Disposed -= OnPanelDisposed;
 
             // Events are generated from the parent docking manager
-            Krypton.DockingManager dockingManager = DockingManager;
+            KryptonDockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {
                 // Only generate the removed event if we have already fired the adding event.
@@ -366,7 +366,7 @@ namespace Krypton.Docking
             _slidePanel.Disposed -= OnPanelDisposed;
 
             // Events are generated from the parent docking manager
-            Krypton.DockingManager dockingManager = DockingManager;
+            KryptonDockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {
                 // Only generate the removed event if we have already fired the adding event.
@@ -389,14 +389,14 @@ namespace Krypton.Docking
         private void OnDockingAutoHiddenGroupClicked(object sender, KryptonPageEventArgs e)
         {
             // Request the sliding panel slide itself into view with the provided page
-            Krypton.DockingAutoHiddenGroup dockingGroup = (Krypton.DockingAutoHiddenGroup)sender;
+            KryptonDockingAutoHiddenGroup dockingGroup = (KryptonDockingAutoHiddenGroup)sender;
             _slidePanel.SlideOut(e.Item, dockingGroup.AutoHiddenGroupControl, true);
         }
 
         private void OnDockingAutoHiddenGroupHoverStart(object sender, KryptonPageEventArgs e)
         {
             // Request the sliding panel slide itself into view with the provided page
-            Krypton.DockingAutoHiddenGroup dockingGroup = (Krypton.DockingAutoHiddenGroup)sender;
+            KryptonDockingAutoHiddenGroup dockingGroup = (KryptonDockingAutoHiddenGroup)sender;
             _slidePanel.SlideOut(e.Item, dockingGroup.AutoHiddenGroupControl, false);
         }
 
@@ -425,7 +425,7 @@ namespace Krypton.Docking
             KryptonPage page = _slidePanel.Page;
 
             // Events are generated from the parent docking manager
-            Krypton.DockingManager dockingManager = DockingManager;
+            KryptonDockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {
                 // Allow the movement rectangle to be modified by event handlers
@@ -438,21 +438,21 @@ namespace Krypton.Docking
         private void OnSlidePanelPageCloseClicked(object sender, UniqueNameEventArgs e)
         {
             // Generate event so that the close action is handled for the named page
-            Krypton.DockingManager dockingManager = DockingManager;
+            KryptonDockingManager dockingManager = DockingManager;
             dockingManager?.CloseRequest(new string[] { e.UniqueName });
         }
 
         private void OnSlidePanelPageAutoHiddenClicked(object sender, UniqueNameEventArgs e)
         {
             // Generate event so that the auto hidden is switched to docked is handled for the group that contains the named page
-            Krypton.DockingManager dockingManager = DockingManager;
+            KryptonDockingManager dockingManager = DockingManager;
             dockingManager?.SwitchAutoHiddenGroupToDockedCellRequest(e.UniqueName);
         }
 
         private void OnSlidePanelPageDropDownClicked(object sender, CancelDropDownEventArgs e)
         {
             // Generate event so that the appropriate context menu options are preseted and actioned
-            Krypton.DockingManager dockingManager = DockingManager;
+            KryptonDockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {
                 e.Cancel = !dockingManager.ShowPageContextMenuRequest(e.Page, e.KryptonContextMenu);
@@ -462,7 +462,7 @@ namespace Krypton.Docking
         private void OnSlidePanelAutoHiddenShowingStateChanged(object sender, AutoHiddenShowingStateEventArgs e)
         {
             // Generate event so that the appropriate context menu options are preseted and actioned
-            Krypton.DockingManager dockingManager = DockingManager;
+            KryptonDockingManager dockingManager = DockingManager;
             dockingManager?.RaiseAutoHiddenShowingStateChanged(e);
         }
 

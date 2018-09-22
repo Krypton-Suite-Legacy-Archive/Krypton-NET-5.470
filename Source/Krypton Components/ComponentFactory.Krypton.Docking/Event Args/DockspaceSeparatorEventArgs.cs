@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
 	/// <summary>
     /// Event arguments for a DockspaceSeparatorAdding/DockspaceSeparatorRemoved event.
@@ -30,7 +30,7 @@ namespace Krypton.Docking
         /// <param name="separator">Reference to separator control instance.</param>
         /// <param name="element">Reference to dockspace docking element that is managing the separator.</param>
         public DockspaceSeparatorEventArgs(KryptonSeparator separator,
-                                           Krypton.DockingDockspace element)
+                                           KryptonDockingDockspace element)
 		{
             SeparatorControl = separator;
             DockspaceElement = element;
@@ -44,9 +44,9 @@ namespace Krypton.Docking
         public KryptonSeparator SeparatorControl { get; }
 
 	    /// <summary>
-        /// Gets a reference to the Krypton.DockingDockspace that is managing the dockspace.
+        /// Gets a reference to the KryptonDockingDockspace that is managing the dockspace.
         /// </summary>
-        public Krypton.DockingDockspace DockspaceElement { get; }
+        public KryptonDockingDockspace DockspaceElement { get; }
 
 	    #endregion
 	}

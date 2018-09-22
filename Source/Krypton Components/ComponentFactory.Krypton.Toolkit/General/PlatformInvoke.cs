@@ -13,7 +13,7 @@ using System;
 using System.Text;
 using System.Runtime.InteropServices;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     internal class PI
     {

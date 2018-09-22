@@ -15,7 +15,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
     /// Control the sizing of two panels.
@@ -25,7 +25,7 @@ namespace Krypton.Toolkit
     [DefaultEvent("SplitterMoved")]
 	[DefaultProperty("Orientation")]
 	[DesignerCategory("code")]
-    [Designer("Krypton.Toolkit.KryptonSplitContainerDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonSplitContainerDesigner))]
     [Description("Divide the container inside two resizable panels.")]
     [Docking(DockingBehavior.AutoDock)]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
@@ -1258,7 +1258,7 @@ namespace Krypton.Toolkit
 
                                     // Update the splitter distance and percentage to reflect new positions
                                     _splitterDistance = Panel1.Width;
-                                    _splitterPercent = (double)Panel1.Width / (double)Width;
+                                    _splitterPercent = Panel1.Width / (double)Width;
                                     break;
                                 case FixedPanel.Panel2:
                                     // Set the fixed size of second panel, and fill remaining space with 
@@ -1280,7 +1280,7 @@ namespace Krypton.Toolkit
 
                                     // Update the splitter distance and percentage to reflect new positions
                                     _splitterDistance = Panel1.Width;
-                                    _splitterPercent = (double)Panel1.Width / (double)Width;
+                                    _splitterPercent = Panel1.Width / (double)Width;
                                     break;
                                 default:
                                     // Find the maximum allowed panel width
@@ -1311,7 +1311,7 @@ namespace Krypton.Toolkit
                                     // Update the percentage but not if this occurs because of a resize operation
                                     if (!_resizing)
                                     {
-                                        _splitterPercent = (double)panel1Width / (double)Width;
+                                        _splitterPercent = panel1Width / (double)Width;
                                     }
                                     break;
                             }
@@ -1337,7 +1337,7 @@ namespace Krypton.Toolkit
 
                                     // Update the splitter distance and percentage to reflect new positions
                                     _splitterDistance = Panel1.Height;
-                                    _splitterPercent = (double)Panel1.Height / (double)Height;
+                                    _splitterPercent = Panel1.Height / (double)Height;
                                     break;
                                 case FixedPanel.Panel2:
                                     // Set the fixed size of second panel, and fill remaining space with 
@@ -1350,7 +1350,7 @@ namespace Krypton.Toolkit
 
                                     // Update the splitter distance and percentage to reflect new positions
                                     _splitterDistance = Panel1.Height;
-                                    _splitterPercent = (double)Panel1.Height / (double)Height;
+                                    _splitterPercent = Panel1.Height / (double)Height;
                                     break;
                                 default:
                                     // Find the maximum allowed panel1 height
@@ -1372,7 +1372,7 @@ namespace Krypton.Toolkit
                                     // Update the percentage but not if this occurs because of a resize operation
                                     if (!_resizing)
                                     {
-                                        _splitterPercent = (double)panel1Height / (double)Height;
+                                        _splitterPercent = panel1Height / (double)Height;
                                     }
                                     break;
                             }

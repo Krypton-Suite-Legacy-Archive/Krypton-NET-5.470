@@ -11,9 +11,9 @@
 
 using System.Drawing;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Positions the quick access toolbar extra button for the minibar in the caption.
@@ -33,7 +33,7 @@ namespace Krypton.Ribbon
 		/// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonQATExtraButtonMini(Krypton.Ribbon ribbon,
+        public ViewDrawRibbonQATExtraButtonMini(KryptonRibbon ribbon,
                                                 NeedPaintHandler needPaint)
             : base(ribbon, needPaint)
         {

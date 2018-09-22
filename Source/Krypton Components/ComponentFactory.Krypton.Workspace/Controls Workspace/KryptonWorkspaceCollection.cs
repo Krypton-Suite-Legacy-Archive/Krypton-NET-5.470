@@ -11,22 +11,22 @@
 
 using System;
 using System.ComponentModel;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Workspace
+namespace ComponentFactory.Krypton.Workspace
 {
     /// <summary>
     /// Collection of workspace items.
     /// </summary>
-    public class Krypton.WorkspaceCollection : TypedRestrictCollection<Component>
+    public class KryptonWorkspaceCollection : TypedRestrictCollection<Component>
     {
         #region Instance Fields
-        private readonly Krypton.WorkspaceSequence _sequence;
+        private readonly KryptonWorkspaceSequence _sequence;
         #endregion
 
         #region Static Fields
-        private static readonly Type[] _types = { typeof(Krypton.WorkspaceCell),
-                                                             typeof(Krypton.WorkspaceSequence)};
+        private static readonly Type[] _types = { typeof(KryptonWorkspaceCell),
+                                                             typeof(KryptonWorkspaceSequence)};
         #endregion
 
         #region Events
@@ -43,10 +43,10 @@ namespace Krypton.Workspace
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the Krypton.WorkspaceCollection class.
+        /// Initialize a new instance of the KryptonWorkspaceCollection class.
         /// </summary>
         /// <param name="sequence">Reference to the owning sequence.</param>
-        public Krypton.WorkspaceCollection(Krypton.WorkspaceSequence sequence)
+        public KryptonWorkspaceCollection(KryptonWorkspaceSequence sequence)
         {
             _sequence = sequence;
         }
@@ -77,14 +77,14 @@ namespace Krypton.Workspace
                 foreach (Component c in this)
                 {
                     // If we have a cell and that cell wants to be visible then we are done
-                    if ((c is Krypton.WorkspaceCell cell) && cell.WorkspaceVisible)
+                    if ((c is KryptonWorkspaceCell cell) && cell.WorkspaceVisible)
                     {
                         return true;
                     }
                     else
                     {
                         // If we have a sequence and it is visible and contains a visible cell then we are done
-                        if ((c is Krypton.WorkspaceSequence sequence) && sequence.WorkspaceVisible && sequence.Children.ContainsVisibleCell)
+                        if ((c is KryptonWorkspaceSequence sequence) && sequence.WorkspaceVisible && sequence.Children.ContainsVisibleCell)
                         {
                             return true;
                         }
@@ -111,12 +111,12 @@ namespace Krypton.Workspace
                 workspaceItem.MaximizeRestoreClicked += OnChildMaximizeRestoreClicked;
             }
 
-            if (e.Item is Krypton.WorkspaceCell cell)
+            if (e.Item is KryptonWorkspaceCell cell)
             {
                 cell.WorkspaceParent = _sequence;
             }
 
-            if (e.Item is Krypton.WorkspaceSequence sequence)
+            if (e.Item is KryptonWorkspaceSequence sequence)
             {
                 sequence.WorkspaceParent = _sequence;
             }
@@ -138,12 +138,12 @@ namespace Krypton.Workspace
                 workspaceItem.MaximizeRestoreClicked -= OnChildMaximizeRestoreClicked;
             }
 
-            if (e.Item is Krypton.WorkspaceCell cell)
+            if (e.Item is KryptonWorkspaceCell cell)
             {
                 cell.WorkspaceParent = null;
             }
 
-            if (e.Item is Krypton.WorkspaceSequence sequence)
+            if (e.Item is KryptonWorkspaceSequence sequence)
             {
                 sequence.WorkspaceParent = null;
             }
@@ -168,12 +168,12 @@ namespace Krypton.Workspace
                     workspaceItem.MaximizeRestoreClicked -= OnChildMaximizeRestoreClicked;
                 }
 
-                if (c is Krypton.WorkspaceCell cell)
+                if (c is KryptonWorkspaceCell cell)
                 {
                     cell.WorkspaceParent = null;
                 }
 
-                if (c is Krypton.WorkspaceSequence sequence)
+                if (c is KryptonWorkspaceSequence sequence)
                 {
                     sequence.WorkspaceParent = null;
                 }

@@ -11,7 +11,7 @@
 
 using System;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
     /// <summary>
     /// Helper class used inside a 'using' statement to notify start and end of a multi-part update.

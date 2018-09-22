@@ -14,9 +14,9 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     internal class VisualPopupGroup : VisualPopup
     {
@@ -27,8 +27,8 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
-        private readonly Krypton.RibbonGroup _ribbonGroup;
+        private readonly KryptonRibbon _ribbon;
+        private readonly KryptonRibbonGroup _ribbonGroup;
         private readonly ViewDrawRibbonGroupsBorder _viewBackground;
         private readonly Button _hiddenFocusTarget;
         #endregion
@@ -40,8 +40,8 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonGroup">Reference to ribbon group for display.</param>
         /// <param name="renderer">Drawing renderer.</param>
-        public VisualPopupGroup(Krypton.Ribbon ribbon,
-                                Krypton.RibbonGroup ribbonGroup,
+        public VisualPopupGroup(KryptonRibbon ribbon,
+                                KryptonRibbonGroup ribbonGroup,
                                 IRenderer renderer)
             : base(renderer, true)
         {

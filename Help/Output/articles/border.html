@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Border | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Border | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="border">Border</h2>
+
+<p>The majority of <em>Krypton</em> controls allow a border to be drawn and so provide a
+set of properties that allow customization of the border appearance. Each
+control will provide the same set of properties for this task and so once you
+are familiar with how they operate you can use this knowledge when dealing with
+any of the controls. Figure 1 shows the standard set of properties from the
+<em>KryptonGroup</em> control.</p>
+<p><img src="images/BorderProperties.png" alt="*Figure 1 –Border display properties*"></p>
+<p><em>Figure 1 –Border display properties</em></p>
+<h3 id="color-properties">Color Properties</h3>
+<p>The <em>ColorStyle</em> property determines how to make use of the <em>Color1</em>, <em>Color2</em>,
+<em>ColorAlign</em> and <em>ColorAngle</em> set properties. When <em>ColorStyle</em> is defined as
+<em>Solid</em> the border will be drawn using the <em>Color1</em> value and the other color
+properties are ignored as not relevant. Figure 2 shows some <em>KryptonGroup</em>
+instances with <em>Solid</em> defined and with a border <em>Width</em> of 7 pixels.</p>
+<p><img src="images/BorderSolid.png" alt="*Figure 2 – ColorStyle = Solid, Width = 7*"></p>
+<p><em>Figure 2 – ColorStyle = Solid, Width = 7</em></p>
+<p>All other <em>ColorStyle</em> values such as <em>Linear</em> and <em>Rounded</em> allow a gradient
+effect between two colors, where <em>Color1</em> is the starting color and <em>Color2</em> is
+the ending color. Now the <em>ColorAngle</em> property becomes important as it
+determines the direction in which the transition occurs. Figure 3 shows the same
+<em>Linear</em> style and same starting and ending colors but with different angles.</p>
+<p><img src="images/BorderAngle.png" alt="*Figure 3 – ColorStyle = Linear*"></p>
+<p><em>Figure 3 – ColorStyle = Linear</em></p>
+<p><em>ColorAlign</em> is used to decide how to calculate the starting and ending points
+for the gradient effect. By default it will always start at the top left of the
+control and ends at the bottom right of the control which gives appearance as
+seen already in figure 3. If instead you choose the <em>Form</em> level alignment then
+it will use the top left of the enclosing form and bottom right of the enclosing
+form as the total area of the gradient. Figure 4 shows four controls all with
+exactly the same <em>ColorAngle</em> of 45 degrees, <em>ColorAlign</em> of <em>Form</em> and
+<em>ColorStyle</em> of <em>Sigma</em>.</p>
+<p><img src="images/BorderAlign.png" alt="*Figure 4 – ColorStyle =Sigma, ColorAlign = Form, ColorAngle = 45*"></p>
+<p><em>Figure 4 – ColorStyle =Sigma, ColorAlign = Form, ColorAngle = 45</em></p>
+<h3 id="draw--drawborders-properties">Draw &amp; DrawBorders Properties</h3>
+<p>Use the <em>DrawBorders</em> to specify the combination of four borders that should be
+allocated space. In the properties window you can use the drop down control that
+appears when pressing the property edit button to alter the setup. You
+can specify no border edges, just one border edge, two border edges, three
+border edges or all four. See figure 5 for just four examples of different
+border drawing settings.  </p>
+<p><img src="images/BackgroundBorders1.png" alt="*Figure 5 – DrawBorders with a variety of options*"></p>
+<p><em>Figure 5 – DrawBorders with a variety of options</em>  </p>
+<p>As you expect, the <em>Draw</em> property is used to indicate if the border edges
+specified in <em>DrawBorders</em> should be drawn. It is important to note that if you
+use <em>False,</em> and so prevent drawing of the border edges, it will still allocate
+space for the borders and clip the background that is drawn underneath the
+border. You can see this in figure 6 where the same controls as figure 5 are
+used but with the <em>Draw</em> property set to <em>False</em>. If you no border space to be
+allocated on any edge and no borders to be drawn then you should set the
+<em>DrawBorders</em> property to none.  </p>
+<p><img src="images/BackgroundBorders2.png" alt="*Figure 6 – Draw = False*"></p>
+<p><em>Figure 6 – Draw = False</em></p>
+<h3 id="image-properties">Image Properties</h3>
+<p>The image is always drawn after the color has been drawn. This ensures that any
+alpha channel in the image will show through with the correct back color.
+Providing an <em>Image</em> is optional and the related <em>ImageAlign</em> and <em>ImageEffect</em>
+are only used when an <em>Image</em> has been specified. Figure 7 shows a
+<em>KryptonGroup</em> with an <em>Image</em> of a red cross with an alpha channel so that the
+<em>Color1</em> value of <em>Yellow</em> shows through the transparent areas.</p>
+<p><img src="images/BorderImage.png" alt="*Figure 7 – Color1 = Yellow, Image contains alpha channel*"></p>
+<p><em>Figure 7 – Color1 = Yellow, Image contains alpha channel</em></p>
+<p>The <em>ImageAlign</em> property allows the image to be draw aligned against the <em>Form</em>
+and not just the control instance. Figure 8 shows the use of four <em>KryptonPanel</em>
+controls that are all assigned the same <em>Image</em>, <em>ImageAlign</em> and <em>ImageEffect</em>.</p>
+<p><img src="images/BorderEffect.png" alt="*Figure 8 – ImageAlign = Form, ImageEffect = Stretch*"></p>
+<p><em>Figure 8 – ImageAlign = Form, ImageEffect = Stretch</em></p>
+<p>The <em>ImageEffect</em> property describes how to draw the <em>Image</em> over the required
+area. Figure 6 shows the example where <em>Stretch</em> is used to ensure the <em>Image</em>
+exactly covers the entire area. Tiling options include <em>Tile</em>, <em>TileFlipX</em>,
+<em>TileFlipY</em> and <em>TileFlipXY</em> that repeat over and over again until the entire
+area is filled. Positioning options such as <em>TopLeft</em> and <em>BottomMiddle</em> allow
+the image to be placed relative to both the vertical and horizontal edges.</p>
+<h3 id="width-and-rounding">Width and Rounding</h3>
+<p><em>Width</em> is used to determine the pixel width of the border. A value of -1 is
+used to indicate that the value should be inherited from the next highest level
+of settings. <em>Rounding</em> is used to decide how rounded the four corners of the
+border will be. Again a value of -1 will cause inheritance from the next highest
+level of settings. Figure 9 shows some examples of different <em>Rounding</em> values.</p>
+<p><img src="images/BorderRounding.png" alt="*Figure 9 – Rounding property*"></p>
+<p><em>Figure 9 – Rounding property</em></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

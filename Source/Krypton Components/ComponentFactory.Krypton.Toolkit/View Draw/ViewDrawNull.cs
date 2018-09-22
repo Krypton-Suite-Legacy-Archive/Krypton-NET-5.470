@@ -11,7 +11,7 @@
 
 using System.Drawing;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Draw a red rectangle in the location of the null element.

@@ -11,9 +11,9 @@
 
 using System;
 using System.Collections.Generic;
-using Krypton.Navigator;
+using ComponentFactory.Krypton.Navigator;
 
-namespace Krypton.Workspace
+namespace ComponentFactory.Krypton.Workspace
 {
 	/// <summary>
 	/// Event data for listing pages unmatched during the load process.
@@ -30,7 +30,7 @@ namespace Krypton.Workspace
 		/// </summary>
         /// <param name="workspace">Reference to owning workspace control.</param>
         /// <param name="unmatched">List of pages unmatched during the load process.</param>
-        public PagesUnmatchedEventArgs(Krypton.Workspace workspace,
+        public PagesUnmatchedEventArgs(KryptonWorkspace workspace,
                                        List<KryptonPage> unmatched)
 		{
             Workspace = workspace;
@@ -42,7 +42,7 @@ namespace Krypton.Workspace
 		/// <summary>
         /// Gets the workspace reference.
 		/// </summary>
-        public Krypton.Workspace Workspace { get; }
+        public KryptonWorkspace Workspace { get; }
 
 	    /// <summary>
         /// Gets the xml reader.

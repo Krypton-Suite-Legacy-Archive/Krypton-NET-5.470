@@ -12,7 +12,7 @@
 using System.ComponentModel;
 
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
 	/// Expose a global set of strings used within Krypton and that are localizable.

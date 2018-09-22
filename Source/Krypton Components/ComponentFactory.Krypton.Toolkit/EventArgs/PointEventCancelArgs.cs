@@ -12,7 +12,7 @@
 using System.ComponentModel;
 using System.Drawing;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
 	/// Details for an cancellable event that provides a Point value.

@@ -14,9 +14,9 @@ using System.Drawing;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Extends the ViewComposite by creating and laying out elements to represent individual QAT entries.
@@ -42,7 +42,7 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Owning ribbon control instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         /// <param name="showExtraButton">Should the extra button be shown.</param>
-        public ViewLayoutRibbonQATContents(Krypton.Ribbon ribbon,
+        public ViewLayoutRibbonQATContents(KryptonRibbon ribbon,
                                            NeedPaintHandler needPaint,
                                            bool showExtraButton)
         {
@@ -105,7 +105,7 @@ namespace Krypton.Ribbon
         /// <summary>
         /// Gets access to the ribbon control instance.
         /// </summary>
-        public Krypton.Ribbon Ribbon { get; }
+        public KryptonRibbon Ribbon { get; }
 
         #endregion
 
@@ -556,7 +556,7 @@ namespace Krypton.Ribbon
             // Add child elements appropriate for each qat button
             for (int i = 0; i < qatButtons.Length; i++)
             {
-                IQuickAccessToolbarButton qatButton = (IQuickAccessToolbarButton)qatButtons[i];
+                IQuickAccessToolbarButton qatButton = qatButtons[i];
 
                 // Does the layout processing require the view to be updated
                 if (layout)

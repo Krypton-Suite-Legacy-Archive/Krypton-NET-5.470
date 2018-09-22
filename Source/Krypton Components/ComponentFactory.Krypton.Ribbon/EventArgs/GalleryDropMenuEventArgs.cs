@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.ComponentModel;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Event arguments for the drop down menu of a gallery.

@@ -12,7 +12,7 @@
 using System;
 using System.Diagnostics;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
 	/// Allow a palette to be overriden optionally.

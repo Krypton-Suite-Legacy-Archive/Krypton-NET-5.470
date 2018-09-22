@@ -15,7 +15,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	#region IContentValues
 	/// <summary>
@@ -453,12 +453,12 @@ namespace Krypton.Toolkit
         string ExtraText { get; set; }
 
         /// <summary>
-        /// Gets and sets the command text line 1 for use in Krypton.Ribbon.
+        /// Gets and sets the command text line 1 for use in KryptonRibbon.
         /// </summary>
         string TextLine1 { get; set; }
 
         /// <summary>
-        /// Gets and sets the command text line 2 for use in Krypton.Ribbon.
+        /// Gets and sets the command text line 2 for use in KryptonRibbon.
         /// </summary>
         string TextLine2 { get; set; }
 
@@ -706,11 +706,11 @@ namespace Krypton.Toolkit
     }
     #endregion
 
-    #region IKrypton.DesignerSelect
+    #region IKryptonDesignerSelect
     /// <summary>
 	/// Exposes design time selection of parent control.
 	/// </summary>
-    public interface IKrypton.DesignerSelect
+    public interface IKryptonDesignerSelect
     {
         /// <summary>
         /// Should painting be performed for the selection glyph.
@@ -758,11 +758,11 @@ namespace Krypton.Toolkit
     }
     #endregion
 
-    #region IKrypton.DesignObject
+    #region IKryptonDesignObject
     /// <summary>
     /// Exposes interface for visual form to cooperate with a view for composition.
     /// </summary>
-    public interface IKrypton.DesignObject
+    public interface IKryptonDesignObject
     {
         /// <summary>
         /// Gets and sets if the object is enabled.

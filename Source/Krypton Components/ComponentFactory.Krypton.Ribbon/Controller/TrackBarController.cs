@@ -11,9 +11,9 @@
 
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Process mouse events for a ribbon group track bar.
@@ -24,8 +24,8 @@ namespace Krypton.Ribbon
                                         IRibbonKeyTipTarget
 	{
 		#region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
-        private readonly Krypton.RibbonGroupTrackBar _trackBar;
+        private readonly KryptonRibbon _ribbon;
+        private readonly KryptonRibbonGroupTrackBar _trackBar;
         private readonly ViewDrawRibbonGroupTrackBar _target;
         #endregion
 
@@ -36,8 +36,8 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         /// <param name="trackBar">Source definition.</param>
         /// <param name="target">Target view element.</param>
-        public TrackBarController(Krypton.Ribbon ribbon,
-                                  Krypton.RibbonGroupTrackBar trackBar,
+        public TrackBarController(KryptonRibbon ribbon,
+                                  KryptonRibbonGroupTrackBar trackBar,
                                   ViewDrawRibbonGroupTrackBar target)
 		{
             Debug.Assert(ribbon != null);
@@ -87,7 +87,7 @@ namespace Krypton.Ribbon
 
             switch (c)
             {
-                case Krypton.Ribbon rib:
+                case KryptonRibbon rib:
                     KeyDownRibbon(rib, e);
                     break;
                 case VisualPopupGroup pop:
@@ -125,7 +125,7 @@ namespace Krypton.Ribbon
         /// Perform actual selection of the item.
         /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
-        public void KeyTipSelect(Krypton.Ribbon ribbon)
+        public void KeyTipSelect(KryptonRibbon ribbon)
         {
             // Can the trackbar take the focus
             if (_trackBar.LastTrackBar.CanFocus)
@@ -155,7 +155,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Implementation
-        private void KeyDownRibbon(Krypton.Ribbon ribbon, KeyEventArgs e)
+        private void KeyDownRibbon(KryptonRibbon ribbon, KeyEventArgs e)
         {
             ViewBase newView = null;
 

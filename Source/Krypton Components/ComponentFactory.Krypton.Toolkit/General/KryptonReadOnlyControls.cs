@@ -13,7 +13,7 @@ using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Restrict a controls collection of child controls.

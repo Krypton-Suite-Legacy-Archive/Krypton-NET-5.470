@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.ComponentModel;
-using Krypton.Navigator;
+using ComponentFactory.Krypton.Navigator;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
     /// <summary>
     /// Acts as a placeholder for a KryptonPage so that it can be restored to this location at a later time.

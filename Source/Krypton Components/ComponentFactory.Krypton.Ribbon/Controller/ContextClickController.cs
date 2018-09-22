@@ -11,9 +11,9 @@
 
 using System.Drawing;
 using System.Windows.Forms;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Process mouse events looking for a context click.

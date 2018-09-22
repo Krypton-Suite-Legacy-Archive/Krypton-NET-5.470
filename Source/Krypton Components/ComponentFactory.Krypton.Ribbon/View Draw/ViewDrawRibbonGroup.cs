@@ -16,9 +16,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws an individual RibbonGroup.
@@ -44,8 +44,8 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
-        private readonly Krypton.RibbonGroup _ribbonGroup;
+        private readonly KryptonRibbon _ribbon;
+        private readonly KryptonRibbonGroup _ribbonGroup;
         private VisualPopupGroup _popupGroup;
         private ViewLayoutDocker _layoutCollapsedMain;
         private ViewDrawRibbonGroupText _viewCollapsedText1;
@@ -78,8 +78,8 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonGroup">Reference to ribbon group this represents.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonGroup(Krypton.Ribbon ribbon,
-                                   Krypton.RibbonGroup ribbonGroup,
+        public ViewDrawRibbonGroup(KryptonRibbon ribbon,
+                                   KryptonRibbonGroup ribbonGroup,
                                    NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);
@@ -325,7 +325,7 @@ namespace Krypton.Ribbon
             UpdateShapeValues();
 
             // Ask the normal group content for its possible sizes
-            IRibbonViewGroupSize viewSize = (IRibbonViewGroupSize)_layoutNormalContent;
+            IRibbonViewGroupSize viewSize = _layoutNormalContent;
 
             // Get the permutations from the content area
             List<GroupSizeWidth> retWidths = new List<GroupSizeWidth>();
@@ -471,7 +471,7 @@ namespace Krypton.Ribbon
             Collapsed = (size == null);
 
             // Pass solution onto the contained view
-            IRibbonViewGroupSize viewSize = (IRibbonViewGroupSize)_layoutNormalContent;
+            IRibbonViewGroupSize viewSize = _layoutNormalContent;
             viewSize.SetSolutionSize(size);
         }
 

@@ -17,7 +17,7 @@ using System.Diagnostics;
 using System.Windows.Forms.VisualStyles;
 using System.Runtime.InteropServices;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Provide accurate text measuring and drawing capability.

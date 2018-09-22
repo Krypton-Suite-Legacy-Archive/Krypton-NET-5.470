@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.Drawing;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     internal class ContextToContent : RibbonToContent
     {

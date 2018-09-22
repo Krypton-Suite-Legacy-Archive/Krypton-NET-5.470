@@ -14,9 +14,9 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a ribbon group radio button.
@@ -31,7 +31,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private ViewLayoutRibbonRadioButton _viewLarge;
         private ViewDrawRibbonGroupRadioButtonImage _viewLargeImage;
         private ViewDrawRibbonGroupRadioButtonText _viewLargeText1;
@@ -56,8 +56,8 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonRadioButton">Reference to source radio button definition.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonGroupRadioButton(Krypton.Ribbon ribbon,
-                                              Krypton.RibbonGroupRadioButton ribbonRadioButton,
+        public ViewDrawRibbonGroupRadioButton(KryptonRibbon ribbon,
+                                              KryptonRibbonGroupRadioButton ribbonRadioButton,
                                               NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);
@@ -127,7 +127,7 @@ namespace Krypton.Ribbon
         /// <summary>
         /// Gets access to the connected radio button definition.
         /// </summary>
-        public Krypton.RibbonGroupRadioButton GroupRadioButton { get; private set; }
+        public KryptonRibbonGroupRadioButton GroupRadioButton { get; private set; }
 
         #endregion
 

@@ -9,9 +9,9 @@
 //  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Manage a collection of button specs for placing within a collection of ViewLayoutDocker instances.
@@ -32,7 +32,7 @@ namespace Krypton.Ribbon
         /// <param name="viewMetricPaddings">Array of target metrics for button padding.</param>
         /// <param name="getRenderer">Delegate for returning a tool strip renderer.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ButtonSpecManagerLayoutRibbon(Krypton.Ribbon ribbon,
+        public ButtonSpecManagerLayoutRibbon(KryptonRibbon ribbon,
                                              PaletteRedirect redirector,
                                              ButtonSpecCollectionBase variableSpecs,
                                              ButtonSpecCollectionBase fixedSpecs,

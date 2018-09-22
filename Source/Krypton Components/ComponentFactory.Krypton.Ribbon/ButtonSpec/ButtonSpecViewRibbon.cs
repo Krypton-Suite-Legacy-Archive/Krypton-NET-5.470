@@ -11,9 +11,9 @@
 
 using System;
 using System.Windows.Forms;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Create and manage the view for a ribbon specific ButtonSpec definition.
@@ -63,7 +63,7 @@ namespace Krypton.Ribbon
             _controller.Click += clickHandler;
 
             // If associated with a tooltip manager then pass mouse messages onto tooltip manager
-            IMouseController mouseController = (IMouseController)_controller;
+            IMouseController mouseController = _controller;
             if (Manager.ToolTipManager != null)
             {
                 mouseController = new ToolTipController(Manager.ToolTipManager, viewButton, _controller);

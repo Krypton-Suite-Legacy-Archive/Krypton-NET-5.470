@@ -12,9 +12,9 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a border edge but with a lighter inside area.
@@ -22,7 +22,7 @@ namespace Krypton.Ribbon
     internal class ViewDrawRibbonGroupClusterEdge : ViewDrawBorderEdge
     {
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private readonly PaletteBorderEdge _palette;
         #endregion
 
@@ -32,7 +32,7 @@ namespace Krypton.Ribbon
         /// </summary>
         /// <param name="ribbon">Reference to owning ribbon..</param>
         /// <param name="palette">Palette source for drawing details.</param>
-        public ViewDrawRibbonGroupClusterEdge(Krypton.Ribbon ribbon,
+        public ViewDrawRibbonGroupClusterEdge(KryptonRibbon ribbon,
                                               PaletteBorderEdge palette)
             : base(palette, Orientation.Vertical)
         {

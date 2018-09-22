@@ -12,9 +12,9 @@
 using System;
 using System.Drawing;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws the text string for a group gallery.
@@ -23,8 +23,8 @@ namespace Krypton.Ribbon
                                                    IContentValues
     {
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
-        private readonly Krypton.RibbonGroupGallery _ribbonGallery;
+        private readonly KryptonRibbon _ribbon;
+        private readonly KryptonRibbonGroupGallery _ribbonGallery;
         private readonly RibbonGroupNormalDisabledTextToContent _contentProvider;
         private IDisposable _memento;
         private readonly bool _firstText;
@@ -43,8 +43,8 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Source ribbon control.</param>
         /// <param name="ribbonGallery">Group gallery button to display title for.</param>
         /// <param name="firstText">Should show the first button text.</param>
-        public ViewDrawRibbonGroupGalleryText(Krypton.Ribbon ribbon,
-                                              Krypton.RibbonGroupGallery ribbonGallery,
+        public ViewDrawRibbonGroupGalleryText(KryptonRibbon ribbon,
+                                              KryptonRibbonGroupGallery ribbonGallery,
                                               bool firstText)
         {
             Debug.Assert(ribbon != null);

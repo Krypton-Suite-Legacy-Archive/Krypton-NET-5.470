@@ -14,9 +14,9 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Reflection;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Workspace
+namespace ComponentFactory.Krypton.Workspace
 {
     /// <summary>
     /// Storage for workspace context menu for pages.
@@ -34,7 +34,7 @@ namespace Krypton.Workspace
         /// Initialize a new instance of the WorkspacePageMenuBase class.
         /// </summary>
         /// <param name="workspace">Reference to owning workspace.</param>
-        public WorkspacePageMenuBase(Krypton.Workspace workspace)
+        public WorkspacePageMenuBase(KryptonWorkspace workspace)
         {
             // Define the encryted licence information
             EncryptedLicenseProvider.SetParameters(_licenseParameters);
@@ -45,7 +45,7 @@ namespace Krypton.Workspace
             {
                 // Is there a valid license registered?
                 License license = null;
-                validated = LicenseManager.IsValid(typeof(Krypton.Workspace), this, out license);
+                validated = LicenseManager.IsValid(typeof(KryptonWorkspace), this, out license);
 
                 // Valid license is not enough!
                 if (validated)
@@ -105,7 +105,7 @@ namespace Krypton.Workspace
                     else
                     {
                         LicenseInstallForm form = new LicenseInstallForm();
-                        form.ShowDialog(typeof(Krypton.Workspace));
+                        form.ShowDialog(typeof(KryptonWorkspace));
                     }
                 }
             }

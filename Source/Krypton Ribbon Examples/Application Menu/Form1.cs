@@ -14,8 +14,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
-using Krypton.Ribbon;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Ribbon;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace ApplicationMenu
 {

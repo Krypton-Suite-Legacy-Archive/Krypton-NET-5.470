@@ -16,7 +16,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
     /// Provide a DomainUpDown with Krypton styling applied.
@@ -26,7 +26,7 @@ namespace Krypton.Toolkit
     [DefaultEvent("SelectedItemChanged")]
 	[DefaultProperty("Items")]
     [DefaultBindingProperty("SelectedItem")]
-    [Designer("Krypton.Toolkit.KryptonDomainUpDownDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonDomainUpDownDesigner))]
     [DesignerCategory("code")]
     [Description("Represents a Windows spin box (also known as an up-down control) that displays string values.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]

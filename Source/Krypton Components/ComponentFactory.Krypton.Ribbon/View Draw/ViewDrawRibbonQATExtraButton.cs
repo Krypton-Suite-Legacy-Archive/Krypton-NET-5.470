@@ -14,9 +14,9 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws the extra quick access button used for customization or overflowing.
@@ -29,7 +29,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private IDisposable _mementoBack;
         private readonly EventHandler _finishDelegate;
 
@@ -48,7 +48,7 @@ namespace Krypton.Ribbon
 		/// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonQATExtraButton(Krypton.Ribbon ribbon,
+        public ViewDrawRibbonQATExtraButton(KryptonRibbon ribbon,
                                             NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);

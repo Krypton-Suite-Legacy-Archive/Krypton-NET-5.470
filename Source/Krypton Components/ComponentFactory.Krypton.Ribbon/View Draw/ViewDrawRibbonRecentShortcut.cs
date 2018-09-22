@@ -11,9 +11,9 @@
 
 using System;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Draw the shortcut associated with a recent document entry in an application menu.

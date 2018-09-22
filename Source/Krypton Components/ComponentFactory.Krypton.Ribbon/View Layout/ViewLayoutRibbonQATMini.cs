@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Layout area containing a quick access toolbar border and extra button.
@@ -29,7 +29,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private readonly ViewDrawRibbonQATBorder _border;
         private readonly ViewLayoutRibbonQATFromRibbon _borderContents;
         private readonly ViewDrawRibbonQATExtraButtonMini _extraButton;
@@ -42,7 +42,7 @@ namespace Krypton.Ribbon
 		/// </summary>
         /// <param name="ribbon">Owning control instance.</param>
         /// <param name="needPaintDelegate">Delegate for notifying paint/layout changes.</param>
-        public ViewLayoutRibbonQATMini(Krypton.Ribbon ribbon,
+        public ViewLayoutRibbonQATMini(KryptonRibbon ribbon,
                                        NeedPaintHandler needPaintDelegate)
         {
             Debug.Assert(ribbon != null);

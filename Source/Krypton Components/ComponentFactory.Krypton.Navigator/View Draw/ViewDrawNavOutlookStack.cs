@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.Drawing;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
 	/// Navigator view element for drawing a stack check button for the Outlook mode.
@@ -30,7 +30,7 @@ namespace Krypton.Navigator
         /// <param name="navigator">Owning navigator instance.</param>
         /// <param name="page">Page this check button represents.</param>
         /// <param name="orientation">Orientation for the check button.</param>
-        public ViewDrawNavOutlookStack(Krypton.Navigator navigator,
+        public ViewDrawNavOutlookStack(KryptonNavigator navigator,
                                        KryptonPage page,
                                        VisualOrientation orientation)
             : base(navigator, page, orientation)

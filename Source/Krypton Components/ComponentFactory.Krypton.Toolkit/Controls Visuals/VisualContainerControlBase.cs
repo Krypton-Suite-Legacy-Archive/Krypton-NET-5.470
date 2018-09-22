@@ -18,7 +18,7 @@ using System.Runtime.InteropServices;
 using System.Reflection;
 using Microsoft.Win32;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
 	/// Base class used for implementation of actual container controls.

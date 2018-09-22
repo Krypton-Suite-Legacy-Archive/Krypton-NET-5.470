@@ -15,22 +15,22 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
 using System.Windows.Forms;
-using Krypton.Navigator;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Navigator;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Workspace
+namespace ComponentFactory.Krypton.Workspace
 {
     /// <summary>
     /// Represents a sequence of workspace items.
     /// </summary>
     [ToolboxItem(false)]
-    [ToolboxBitmap(typeof(Krypton.WorkspaceSequence), "ToolboxBitmaps.Krypton.WorkspaceSequence.bmp")]
-    [TypeConverter(typeof(Krypton.WorkspaceSequenceConverter))]
-    [Designer("Krypton.Workspace.Krypton.WorkspaceSequenceDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [ToolboxBitmap(typeof(KryptonWorkspaceSequence), "ToolboxBitmaps.KryptonWorkspaceSequence.bmp")]
+    [TypeConverter(typeof(KryptonWorkspaceSequenceConverter))]
+    [Designer(typeof(ComponentFactory.Krypton.Workspace.KryptonWorkspaceSequenceDesigner))]
     [DesignTimeVisible(false)]
     [DesignerCategory("code")]
     [DefaultProperty("Children")]
-    public class Krypton.WorkspaceSequence : Component,
+    public class KryptonWorkspaceSequence : Component,
                                             IWorkspaceItem
     {
         #region Instance Fields
@@ -56,23 +56,23 @@ namespace Krypton.Workspace
 
         #region Identity
         /// <summary>
-        /// Initialise a new instance of the Krypton.WorkspaceSequence class.
+        /// Initialise a new instance of the KryptonWorkspaceSequence class.
         /// </summary>
-        public Krypton.WorkspaceSequence()
+        public KryptonWorkspaceSequence()
             : this(Orientation.Horizontal)
         {
         }
 
         /// <summary>
-        /// Initialise a new instance of the Krypton.WorkspaceSequence class.
+        /// Initialise a new instance of the KryptonWorkspaceSequence class.
         /// </summary>
         /// <param name="orientation">Initial orientation of the children.</param>
-        public Krypton.WorkspaceSequence(Orientation orientation)
+        public KryptonWorkspaceSequence(Orientation orientation)
         {
             _orientation = orientation;
 
             // Create the child collection for holding items
-            Children = new Krypton.WorkspaceCollection(this);
+            Children = new KryptonWorkspaceCollection(this);
             Children.PropertyChanged += OnChildrenPropertyChanged;
             Children.MaximizeRestoreClicked += OnChildrenMaximizeRestoreClicked;
 
@@ -123,9 +123,9 @@ namespace Krypton.Workspace
         [Category("Workspace")]
         [Description("Collection of child workspace items.")]
         [MergableProperty(false)]
-        [Editor("Krypton.Workspace.Krypton.WorkspaceCollectionEditor, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
+        [Editor(typeof(ComponentFactory.Krypton.Workspace.KryptonWorkspaceCollectionEditor), typeof(UITypeEditor))]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public Krypton.WorkspaceCollection Children { get; }
+        public KryptonWorkspaceCollection Children { get; }
 
         /// <summary>
         /// Gets and sets the orientation for laying out the child entries.
@@ -473,7 +473,7 @@ namespace Krypton.Workspace
 		/// </summary>
         /// <param name="workspace">Reference to owning workspace instance.</param>
         /// <param name="xmlWriter">Xml writer to save information into.</param>
-        public void SaveToXml(Krypton.Workspace workspace, XmlWriter xmlWriter)
+        public void SaveToXml(KryptonWorkspace workspace, XmlWriter xmlWriter)
         {
             // Output standard values appropriate for all Sequence instances
             xmlWriter.WriteStartElement("WS");
@@ -482,12 +482,12 @@ namespace Krypton.Workspace
             // Persist each child sequence/cell in turn
             foreach (object child in Children)
             {
-                if (child is Krypton.WorkspaceSequence sequence)
+                if (child is KryptonWorkspaceSequence sequence)
                 {
                     sequence.SaveToXml(workspace, xmlWriter);
                 }
 
-                if (child is Krypton.WorkspaceCell cell)
+                if (child is KryptonWorkspaceCell cell)
                 {
                     cell.SaveToXml(workspace, xmlWriter);
                 }
@@ -503,7 +503,7 @@ namespace Krypton.Workspace
         /// <param name="workspace">Reference to owning workspace instance.</param>
         /// <param name="xmlReader">Xml reader for loading information.</param>
         /// <param name="existingPages">Dictionary on existing pages before load.</param>
-        public void LoadFromXml(Krypton.Workspace workspace, 
+        public void LoadFromXml(KryptonWorkspace workspace, 
                                 XmlReader xmlReader,
                                 UniqueNameToPage existingPages)
         {
@@ -531,12 +531,12 @@ namespace Krypton.Workspace
                     switch (xmlReader.Name)
                     {
                         case "WS":
-                            Krypton.WorkspaceSequence sequence = new Krypton.WorkspaceSequence();
+                            KryptonWorkspaceSequence sequence = new KryptonWorkspaceSequence();
                             sequence.LoadFromXml(workspace, xmlReader, existingPages);
                             Children.Add(sequence);
                             break;
                         case "WC":
-                            Krypton.WorkspaceCell cell = new Krypton.WorkspaceCell();
+                            KryptonWorkspaceCell cell = new KryptonWorkspaceCell();
                             cell.LoadFromXml(workspace, xmlReader, existingPages);
                             Children.Add(cell);
                             break;
@@ -553,7 +553,7 @@ namespace Krypton.Workspace
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public Krypton.Workspace WorkspaceControl { get; set; }
+        public KryptonWorkspace WorkspaceControl { get; set; }
 
         /// <summary>
         /// Output debug information about the workspace hierarchy.
@@ -566,12 +566,12 @@ namespace Krypton.Workspace
 
             foreach (object child in Children)
             {
-                if (child is Krypton.WorkspaceSequence sequence)
+                if (child is KryptonWorkspaceSequence sequence)
                 {
                     sequence.DebugOutput(indent + 1);
                 }
 
-                if (child is Krypton.WorkspaceCell cell)
+                if (child is KryptonWorkspaceCell cell)
                 {
                     cell.DebugOutput(indent + 1);
                 }
@@ -628,7 +628,7 @@ namespace Krypton.Workspace
                 for (int i = Children.Count - 1; i >= 0; i--)
                 {
                     // If a cell and that cell does not have any pages
-                    if ((Children[i] is Krypton.WorkspaceCell cell) && (cell.Pages.Count == 0))
+                    if ((Children[i] is KryptonWorkspaceCell cell) && (cell.Pages.Count == 0))
                     {
                         Children.RemoveAt(i);
 
@@ -652,7 +652,7 @@ namespace Krypton.Workspace
                 for (int i = Children.Count - 1; i >= 0; i--)
                 {
                     // If a sequence and that sequence does not have any children
-                    if ((Children[i] is Krypton.WorkspaceSequence sequence) && (sequence.Children.Count == 0))
+                    if ((Children[i] is KryptonWorkspaceSequence sequence) && (sequence.Children.Count == 0))
                     {
                         Children.RemoveAt(i);
                     }
@@ -668,19 +668,19 @@ namespace Krypton.Workspace
                 for (int i = Children.Count - 1; i >= 0; i--)
                 {
                     // If a sequence and that sequence has just a single child
-                    if ((Children[i] is Krypton.WorkspaceSequence sequence) && (sequence.Children.Count == 1))
+                    if ((Children[i] is KryptonWorkspaceSequence sequence) && (sequence.Children.Count == 1))
                     {
                         // Extract the leaf
                         Component leaf = sequence.Children[0];
                         sequence.Children.RemoveAt(0);
 
                         // Use the sequence size in the promoted child so the display remains constant
-                        if (leaf is Krypton.WorkspaceCell cell)
+                        if (leaf is KryptonWorkspaceCell cell)
                         {
                             cell.StarSize = sequence.StarSize;
                         }
 
-                        if (leaf is Krypton.WorkspaceSequence workspaceSequence)
+                        if (leaf is KryptonWorkspaceSequence workspaceSequence)
                         {
                             workspaceSequence.StarSize = sequence.StarSize;
                         }

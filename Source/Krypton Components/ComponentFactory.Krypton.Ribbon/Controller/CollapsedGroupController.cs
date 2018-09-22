@@ -12,9 +12,9 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Process mouse events for a collapsed group.
@@ -26,7 +26,7 @@ namespace Krypton.Ribbon
                                               IRibbonKeyTipTarget
     {
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private bool _mouseOver;
         private readonly NeedPaintHandler _needPaint;
         private readonly ViewLayoutDocker _target;
@@ -46,7 +46,7 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning control instance.</param>
         /// <param name="target">View element that owns this controller.</param>
         /// <param name="needPaint">Paint delegate for notifying visual changes.</param>
-        public CollapsedGroupController(Krypton.Ribbon ribbon,
+        public CollapsedGroupController(KryptonRibbon ribbon,
                                         ViewLayoutDocker target,
                                         NeedPaintHandler needPaint)
         {
@@ -156,7 +156,7 @@ namespace Krypton.Ribbon
 
             switch (c)
             {
-                case Krypton.Ribbon ribbon:
+                case KryptonRibbon ribbon:
                     KeyDownRibbon(ribbon, e);
                     break;
                 case VisualPopupGroup popGroup:
@@ -216,7 +216,7 @@ namespace Krypton.Ribbon
         /// Perform actual selection of the item.
         /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
-        public void KeyTipSelect(Krypton.Ribbon ribbon)
+        public void KeyTipSelect(KryptonRibbon ribbon)
         {
             OnClick(new MouseEventArgs(MouseButtons.Left, 1, 0, 0, 0));
 
@@ -261,7 +261,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Implementation
-        private void KeyDownRibbon(Krypton.Ribbon ribbon, KeyEventArgs e)
+        private void KeyDownRibbon(KryptonRibbon ribbon, KeyEventArgs e)
         {
             ViewBase newView = null;
 

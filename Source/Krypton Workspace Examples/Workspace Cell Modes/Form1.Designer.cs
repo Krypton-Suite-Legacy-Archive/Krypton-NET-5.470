@@ -46,11 +46,11 @@
             this.radioBarCheckButtonGroupInside = new System.Windows.Forms.RadioButton();
             this.radioBarCheckButtonGroupOutside = new System.Windows.Forms.RadioButton();
             this.buttonClose = new System.Windows.Forms.Button();
-            this.kryptonWorkspace = new Krypton.Workspace.KryptonWorkspace();
+            this.kryptonWorkspace = new ComponentFactory.Krypton.Workspace.KryptonWorkspace();
             this.buttonAddPage = new System.Windows.Forms.Button();
             this.buttonClearPages = new System.Windows.Forms.Button();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
-            this.kryptonManager1 = new Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonWorkspace)).BeginInit();
             this.SuspendLayout();
@@ -257,7 +257,7 @@
             this.kryptonWorkspace.Size = new System.Drawing.Size(477, 475);
             this.kryptonWorkspace.TabIndex = 4;
             this.kryptonWorkspace.TabStop = true;
-            this.kryptonWorkspace.WorkspaceCellAdding += new System.EventHandler<Krypton.Workspace.WorkspaceCellEventArgs>(this.kryptonWorkspace_WorkspaceCellAdding);
+            this.kryptonWorkspace.WorkspaceCellAdding += new System.EventHandler<ComponentFactory.Krypton.Workspace.WorkspaceCellEventArgs>(this.kryptonWorkspace_WorkspaceCellAdding);
             // 
             // buttonAddPage
             // 
@@ -335,11 +335,11 @@
         private System.Windows.Forms.RadioButton radioBarCheckButtonGroupOutside;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonClose;
-        private Krypton.Workspace.KryptonWorkspace kryptonWorkspace;
+        private ComponentFactory.Krypton.Workspace.KryptonWorkspace kryptonWorkspace;
         private System.Windows.Forms.Button buttonAddPage;
         private System.Windows.Forms.Button buttonClearPages;
         private System.Windows.Forms.ImageList imageList;
-        private Krypton.Toolkit.KryptonManager kryptonManager1;
+        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager1;
     }
 }
 

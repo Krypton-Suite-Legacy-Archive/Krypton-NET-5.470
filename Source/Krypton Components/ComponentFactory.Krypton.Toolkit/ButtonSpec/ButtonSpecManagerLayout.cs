@@ -11,7 +11,7 @@
 
 using System.Windows.Forms;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Manage a collection of button specs for placing within a collection of ViewLayoutDocker instances.

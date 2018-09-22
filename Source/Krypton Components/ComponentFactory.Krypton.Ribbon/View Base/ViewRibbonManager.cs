@@ -13,14 +13,14 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     internal class ViewRibbonManager : ViewManager
     {
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private readonly ViewDrawRibbonGroupsBorderSynch _viewGroups;
         private ViewDrawRibbonGroup _activeGroup;
         private readonly NeedPaintHandler _needPaintDelegate;
@@ -38,7 +38,7 @@ namespace Krypton.Ribbon
         /// <param name="root">Root of the view hierarchy.</param>
         /// <param name="minimizedMode">Is this manager for handling the minimized mode popup.</param>
         /// <param name="needPaintDelegate">Delegate for requesting paint changes.</param>
-        public ViewRibbonManager(Krypton.Ribbon control,
+        public ViewRibbonManager(KryptonRibbon control,
                                  ViewDrawRibbonGroupsBorderSynch viewGroups,
                                  ViewBase root,
                                  bool minimizedMode,

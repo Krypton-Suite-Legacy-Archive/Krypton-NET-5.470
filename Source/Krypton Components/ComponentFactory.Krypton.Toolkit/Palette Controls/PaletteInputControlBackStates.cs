@@ -13,7 +13,7 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Diagnostics;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
 	/// Implement storage for input control palette background details.

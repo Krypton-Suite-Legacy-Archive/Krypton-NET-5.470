@@ -14,11 +14,11 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Krypton.Toolkit;
-using Krypton.Navigator;
-using Krypton.Workspace;
+using ComponentFactory.Krypton.Toolkit;
+using ComponentFactory.Krypton.Navigator;
+using ComponentFactory.Krypton.Workspace;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
     /// <summary>
     /// Extends the KryptonForm to act as a floating window within the docking framework.
@@ -106,14 +106,14 @@ namespace Krypton.Docking
                 case PI.WM_NCLBUTTONDOWN:
                     {
                         // Perform a hit test to determine which area the mouse press is over at the moment
-                        uint result = PI.SendMessage(Handle, (int)PI.WM_NCHITTEST, 0, (uint)m.LParam);
+                        uint result = PI.SendMessage(Handle, PI.WM_NCHITTEST, 0, (uint)m.LParam);
 
                         // Only want to override the behaviour of moving the window via the caption bar
                         if (result == PI.HITTEST_CAPTION)
                         {
                             // Extract screen position of the mouse from the message LPARAM
                             Point screenPos = new Point((short)((uint)m.LParam & 0x0000FFFFU),
-                                                        (short)(uint)(((uint)m.LParam & 0xFFFF0000U) >> 16));
+                                                        (short)(((uint)m.LParam & 0xFFFF0000U) >> 16));
 
                             // Find the mouse offset relative to the top left of the window
                             Point offset = new Point(screenPos.X - Location.X, screenPos.Y - Location.Y);
@@ -267,7 +267,7 @@ namespace Krypton.Docking
 
         private void UpdateCellSettings()
         {
-            Krypton.WorkspaceCell cell = FloatspaceControl.FirstVisibleCell();
+            KryptonWorkspaceCell cell = FloatspaceControl.FirstVisibleCell();
             if (cell != null)
             {
                 // If there is only a single cell inside the floating window
@@ -295,7 +295,7 @@ namespace Krypton.Docking
         private string[] VisibleCloseableUniqueNames()
         {
             List<string> uniqueNames = new List<string>();
-            Krypton.WorkspaceCell cell = FloatspaceControl.FirstVisibleCell();
+            KryptonWorkspaceCell cell = FloatspaceControl.FirstVisibleCell();
             while (cell != null)
             {
                 // Create a list of all the visible page names in the floatspace that are allowed to be closed

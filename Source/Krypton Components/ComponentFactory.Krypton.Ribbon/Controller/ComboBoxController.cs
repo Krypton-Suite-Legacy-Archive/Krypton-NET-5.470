@@ -11,9 +11,9 @@
 
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Process mouse events for a ribbon group combobox.
@@ -24,8 +24,8 @@ namespace Krypton.Ribbon
                                         IRibbonKeyTipTarget
 	{
 		#region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
-        private readonly Krypton.RibbonGroupComboBox _comboBox;
+        private readonly KryptonRibbon _ribbon;
+        private readonly KryptonRibbonGroupComboBox _comboBox;
         private readonly ViewDrawRibbonGroupComboBox _target;
         #endregion
 
@@ -36,8 +36,8 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         /// <param name="comboBox">Source definition.</param>
         /// <param name="target">Target view element.</param>
-        public ComboBoxController(Krypton.Ribbon ribbon,
-                                  Krypton.RibbonGroupComboBox comboBox,
+        public ComboBoxController(KryptonRibbon ribbon,
+                                  KryptonRibbonGroupComboBox comboBox,
                                   ViewDrawRibbonGroupComboBox target)
 		{
             Debug.Assert(ribbon != null);
@@ -86,7 +86,7 @@ namespace Krypton.Ribbon
 
             switch (c)
             {
-                case Krypton.Ribbon rib:
+                case KryptonRibbon rib:
                     KeyDownRibbon(rib, e);
                     break;
                 case VisualPopupGroup pop:
@@ -124,7 +124,7 @@ namespace Krypton.Ribbon
         /// Perform actual selection of the item.
         /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
-        public void KeyTipSelect(Krypton.Ribbon ribbon)
+        public void KeyTipSelect(KryptonRibbon ribbon)
         {
             // Can the combobox take the focus
             if (_comboBox.LastComboBox.CanFocus)
@@ -154,7 +154,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Implementation
-        private void KeyDownRibbon(Krypton.Ribbon ribbon, KeyEventArgs e)
+        private void KeyDownRibbon(KryptonRibbon ribbon, KeyEventArgs e)
         {
             ViewBase newView = null;
 

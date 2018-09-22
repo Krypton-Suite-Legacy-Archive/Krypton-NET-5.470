@@ -11,7 +11,7 @@
 
 using System.Drawing;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
 	/// Override the contained child to present a fixed size.

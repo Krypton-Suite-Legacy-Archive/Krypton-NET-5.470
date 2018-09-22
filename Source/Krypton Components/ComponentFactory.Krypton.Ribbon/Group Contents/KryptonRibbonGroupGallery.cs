@@ -14,20 +14,20 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
 using System.Windows.Forms;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Represents a ribbon group separator.
     /// </summary>
     [ToolboxItem(false)]
-    [ToolboxBitmap(typeof(Krypton.RibbonGroupGallery), "ToolboxBitmaps.KryptonGallery.bmp")]
-    [Designer("Krypton.Ribbon.Krypton.RibbonGroupGalleryDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [ToolboxBitmap(typeof(KryptonRibbonGroupGallery), "ToolboxBitmaps.KryptonGallery.bmp")]
+    [Designer(typeof(ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupGalleryDesigner))]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
     [DefaultProperty("Visible")]
-    public class Krypton.RibbonGroupGallery : Krypton.RibbonGroupContainer
+    public class KryptonRibbonGroupGallery : KryptonRibbonGroupContainer
     {
         #region Static Fields
         private static readonly Image _defaultButtonImageLarge = Properties.Resources.ButtonImageLarge;
@@ -112,9 +112,9 @@ namespace Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialise a new instance of the Krypton.RibbonGroupGallery class.
+        /// Initialise a new instance of the KryptonRibbonGroupGallery class.
         /// </summary>
-        public Krypton.RibbonGroupGallery()
+        public KryptonRibbonGroupGallery()
         {
             // Default fields
             _visible = true;
@@ -689,7 +689,7 @@ namespace Krypton.Ribbon
         /// <param name="needPaint">Delegate for notifying changes in display.</param>
         /// <returns>ViewBase derived instance.</returns>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override ViewBase CreateView(Krypton.Ribbon ribbon,
+        public override ViewBase CreateView(KryptonRibbon ribbon,
                                             NeedPaintHandler needPaint)
         {
             return new ViewDrawRibbonGroupGallery(ribbon, this, needPaint);
@@ -701,7 +701,7 @@ namespace Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public IKrypton.DesignObject GalleryDesigner { get; set; }
+        public IKryptonDesignObject GalleryDesigner { get; set; }
 
         /// <summary>
         /// Internal design time properties.

@@ -13,20 +13,20 @@ using System;
 using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Represents a single ribbon tab.
     /// </summary>
     [ToolboxItem(false)]
-    [ToolboxBitmap(typeof(Krypton.RibbonTab), "ToolboxBitmaps.Krypton.RibbonTab.bmp")]
-    [Designer("Krypton.Ribbon.Krypton.RibbonTabDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [ToolboxBitmap(typeof(KryptonRibbonTab), "ToolboxBitmaps.KryptonRibbonTab.bmp")]
+    [Designer(typeof(ComponentFactory.Krypton.Ribbon.KryptonRibbonTabDesigner))]
     [DefaultProperty("Text")]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
-    public class Krypton.RibbonTab : Component
+    public class KryptonRibbonTab : Component
     {
         #region Instance Fields
         private object _tag;
@@ -34,7 +34,7 @@ namespace Krypton.Ribbon
         private string _keyTip;
         private string _contextName;
         private bool _visible;
-        private Krypton.Ribbon _ribbon;
+        private KryptonRibbon _ribbon;
 
         #endregion
 
@@ -63,9 +63,9 @@ namespace Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialise a new instance of the Krypton.RibbonTab class.
+        /// Initialise a new instance of the KryptonRibbonTab class.
         /// </summary>
-        public Krypton.RibbonTab()
+        public KryptonRibbonTab()
         {
             // Default fields
             _text = "Tab";
@@ -74,7 +74,7 @@ namespace Krypton.Ribbon
             _visible = true;
 
             // Create the collection for defining groups
-            Groups = new Krypton.RibbonGroupCollection();
+            Groups = new KryptonRibbonGroupCollection();
             Groups.Clearing += OnRibbonGroupsClearing;
             Groups.Cleared += OnRibbonGroupsCleared;
             Groups.Inserted += OnRibbonGroupsInserted;
@@ -90,7 +90,7 @@ namespace Krypton.Ribbon
             if (disposing)
             {
                 // Dispose of per-group resources
-                foreach (Krypton.RibbonGroup group in Groups)
+                foreach (KryptonRibbonGroup group in Groups)
                 {
                     @group.Dispose();
                 }
@@ -107,7 +107,7 @@ namespace Krypton.Ribbon
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public Krypton.Ribbon Ribbon
+        public KryptonRibbon Ribbon
         {
             get => _ribbon;
 
@@ -118,7 +118,7 @@ namespace Krypton.Ribbon
                 // Forward the reference to all children (just in case the children
                 // are added before the group is added to the tab, in which case the
                 // reference will not be set as yet)
-                foreach (Krypton.RibbonGroup group in Groups)
+                foreach (KryptonRibbonGroup group in Groups)
                 {
                     @group.Ribbon = value;
                 }
@@ -285,7 +285,7 @@ namespace Krypton.Ribbon
         [Description("Collection of ribbon tab groups.")]
         [MergableProperty(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public Krypton.RibbonGroupCollection Groups { get; }
+        public KryptonRibbonGroupCollection Groups { get; }
 
         /// <summary>
         /// Gets and sets user-defined data associated with the object.
@@ -353,7 +353,7 @@ namespace Krypton.Ribbon
         internal bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             // Ask the groups to check for command key processing
-            foreach (Krypton.RibbonGroup group in Groups)
+            foreach (KryptonRibbonGroup group in Groups)
             {
                 if (@group.Visible && @group.ProcessCmdKey(ref msg, keyData))
                 {
@@ -369,7 +369,7 @@ namespace Krypton.Ribbon
         private void OnRibbonGroupsClearing(object sender, EventArgs e)
         {
             // Remove the back references
-            foreach (Krypton.RibbonGroup group in Groups)
+            foreach (KryptonRibbonGroup group in Groups)
             {
                 group.Ribbon = null;
                 group.RibbonTab = null;
@@ -385,7 +385,7 @@ namespace Krypton.Ribbon
             }
         }
 
-        private void OnRibbonGroupsInserted(object sender, TypedCollectionEventArgs<Krypton.RibbonGroup> e)
+        private void OnRibbonGroupsInserted(object sender, TypedCollectionEventArgs<KryptonRibbonGroup> e)
         {
             // Setup the back references
             e.Item.Ribbon = _ribbon;
@@ -398,7 +398,7 @@ namespace Krypton.Ribbon
             }
         }
 
-        private void OnRibbonGroupsRemoved(object sender, TypedCollectionEventArgs<Krypton.RibbonGroup> e)
+        private void OnRibbonGroupsRemoved(object sender, TypedCollectionEventArgs<KryptonRibbonGroup> e)
         {
             // Remove the back references
             e.Item.Ribbon = null;

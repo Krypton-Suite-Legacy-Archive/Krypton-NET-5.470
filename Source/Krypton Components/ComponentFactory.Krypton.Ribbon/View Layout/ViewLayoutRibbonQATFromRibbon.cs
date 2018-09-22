@@ -9,9 +9,9 @@
 //  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
     /// Extends the ViewLayoutRibbonQATContents by providing the definitions from the ribbon control itself.
@@ -25,7 +25,7 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Owning ribbon control instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         /// <param name="showExtraButton">Should the extra button be shown.</param>
-        public ViewLayoutRibbonQATFromRibbon(Krypton.Ribbon ribbon,
+        public ViewLayoutRibbonQATFromRibbon(KryptonRibbon ribbon,
                                              NeedPaintHandler needPaint,
                                              bool showExtraButton)
             : base(ribbon, needPaint, showExtraButton)

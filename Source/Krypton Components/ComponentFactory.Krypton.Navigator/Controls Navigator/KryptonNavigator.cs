@@ -18,24 +18,24 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Reflection;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
 	/// Navigator control allows a variety of methods for moving around a collection of pages.
 	/// </summary>
 	[ToolboxItem(true)]
-	[ToolboxBitmap(typeof(Krypton.Navigator), "ToolboxBitmaps.Krypton.Navigator.bmp")]
+	[ToolboxBitmap(typeof(KryptonNavigator), "ToolboxBitmaps.KryptonNavigator.bmp")]
 	[DefaultEvent("SelectedIndexChanged")]
 	[DefaultProperty("Pages")]
-    [Designer("Krypton.Navigator.Krypton.NavigatorDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Navigator.KryptonNavigatorDesigner))]
     [DesignerCategory("code")]
     [Description("Allows navigation between pages.")]
     [Docking(DockingBehavior.Ask)]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
-    public class Krypton.Navigator : VisualSimple,
+    public class KryptonNavigator : VisualSimple,
                                     IDragTargetProvider
     {
         #region Static Fields
@@ -268,7 +268,7 @@ namespace Krypton.Navigator
 		#endregion
 
 		#region Identity
-        static Krypton.Navigator()
+        static KryptonNavigator()
         {
             // Cache access to the internal 'Select' method of the ContainerControl
             _containerSelect = typeof(ContainerControl).GetMethod("Select",
@@ -277,9 +277,9 @@ namespace Krypton.Navigator
         }
 
 		/// <summary>
-		/// Initialize a new instance of the Krypton.Navigator class.
+		/// Initialize a new instance of the KryptonNavigator class.
 		/// </summary>
-		public Krypton.Navigator()
+		public KryptonNavigator()
 		{
             // We act as a container for child controls
             SetStyle(ControlStyles.ContainerControl, true);
@@ -369,8 +369,8 @@ namespace Krypton.Navigator
 		[Category("Visuals")]
 		[Description("Collection of pages in the navigator control.")]
 		[MergableProperty(false)]
-        [Editor("Krypton.Navigator.NavigatorPageCollectionEditor, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [Editor(typeof(ComponentFactory.Krypton.Navigator.NavigatorPageCollectionEditor), typeof(UITypeEditor))]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
 		public KryptonPageCollection Pages { get; private set; }
 
         /// <summary>
@@ -1178,7 +1178,7 @@ namespace Krypton.Navigator
 		/// <summary>
 		/// Creates a new instance of the control collection for the control.
 		/// </summary>
-		/// <returns>A new instance of Krypton.NavigatorControlCollection assigned to the control.</returns>
+		/// <returns>A new instance of KryptonNavigatorControlCollection assigned to the control.</returns>
 		protected override ControlCollection CreateControlsInstance()
 		{
             //  User should never adds controls directly to collection, only via the pages collection
@@ -3268,7 +3268,7 @@ namespace Krypton.Navigator
                 {
 
                     // If the page is inside a krypton container that is a navigator instance
-                    if (page.KryptonParentContainer is Krypton.Navigator nav)
+                    if (page.KryptonParentContainer is KryptonNavigator nav)
                     {
                         // Cast to correct type
 

@@ -12,10 +12,10 @@
 using System.Xml;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Krypton.Navigator;
-using Krypton.Workspace;
+using ComponentFactory.Krypton.Navigator;
+using ComponentFactory.Krypton.Workspace;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
     #region Interface IDockingElement
     /// <summary>
@@ -111,7 +111,7 @@ namespace Krypton.Docking
         /// </summary>
         /// <param name="state">Request that should result in the cells collection being modified.</param>
         /// <param name="cells">Cells collection for modification by the docking elements.</param>
-        void PropogateCellList(DockingPropogateCellList state, Krypton.WorkspaceCellList cells);
+        void PropogateCellList(DockingPropogateCellList state, KryptonWorkspaceCellList cells);
 
         /// <summary>
         /// Find the docking location of the named page.
@@ -139,36 +139,36 @@ namespace Krypton.Docking
         /// Find a floating docking element by searching the hierarchy.
         /// </summary>
         /// <param name="uniqueName">Named page for which a suitable floating element is required.</param>
-        /// <returns>Krypton.DockingFloating reference if found; otherwise false.</returns>
-        Krypton.DockingFloating FindDockingFloating(string uniqueName);
+        /// <returns>KryptonDockingFloating reference if found; otherwise false.</returns>
+        KryptonDockingFloating FindDockingFloating(string uniqueName);
 
         /// <summary>
         /// Find a edge docked element by searching the hierarchy.
         /// </summary>
         /// <param name="uniqueName">Named page for which a suitable docking edge element is required.</param>
-        /// <returns>Krypton.DockingEdgeDocked reference if found; otherwise false.</returns>
-        Krypton.DockingEdgeDocked FindDockingEdgeDocked(string uniqueName);
+        /// <returns>KryptonDockingEdgeDocked reference if found; otherwise false.</returns>
+        KryptonDockingEdgeDocked FindDockingEdgeDocked(string uniqueName);
 
         /// <summary>
         /// Find a edge auto hidden element by searching the hierarchy.
         /// </summary>
         /// <param name="uniqueName">Named page for which a suitable auto hidden edge element is required.</param>
-        /// <returns>Krypton.DockingEdgeAutoHidden reference if found; otherwise false.</returns>
-        Krypton.DockingEdgeAutoHidden FindDockingEdgeAutoHidden(string uniqueName);
+        /// <returns>KryptonDockingEdgeAutoHidden reference if found; otherwise false.</returns>
+        KryptonDockingEdgeAutoHidden FindDockingEdgeAutoHidden(string uniqueName);
 
         /// <summary>
         /// Find a workspace element by searching the hierarchy.
         /// </summary>
         /// <param name="uniqueName">Named page for which a suitable workspace element is required.</param>
-        /// <returns>Krypton.DockingWorkspace reference if found; otherwise false.</returns>
-        Krypton.DockingWorkspace FindDockingWorkspace(string uniqueName);
+        /// <returns>KryptonDockingWorkspace reference if found; otherwise false.</returns>
+        KryptonDockingWorkspace FindDockingWorkspace(string uniqueName);
 
         /// <summary>
         /// Find a navigator element by searching the hierarchy.
         /// </summary>
         /// <param name="uniqueName">Named page for which a suitable navigator element is required.</param>
-        /// <returns>Krypton.DockingNavigator reference if found; otherwise false.</returns>
-        Krypton.DockingNavigator FindDockingNavigator(string uniqueName);
+        /// <returns>KryptonDockingNavigator reference if found; otherwise false.</returns>
+        KryptonDockingNavigator FindDockingNavigator(string uniqueName);
         
         /// <summary>
         /// Saves docking configuration information using a provider xml writer.

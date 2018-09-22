@@ -12,7 +12,7 @@
 using System.Drawing;
 using System.Diagnostics;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Draws a small image from a group cluster color button.
@@ -25,7 +25,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.RibbonGroupClusterColorButton _ribbonColorButton;
+        private readonly KryptonRibbonGroupClusterColorButton _ribbonColorButton;
         private Image _compositeImage;
         private Color _selectedColor;
         private Color _emptyBorderColor;
@@ -38,8 +38,8 @@ namespace Krypton.Ribbon
 		/// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonColorButton">Reference to ribbon group color button definition.</param>
-        public ViewDrawRibbonGroupClusterColorButtonImage(Krypton.Ribbon ribbon,
-                                                          Krypton.RibbonGroupClusterColorButton ribbonColorButton)
+        public ViewDrawRibbonGroupClusterColorButtonImage(KryptonRibbon ribbon,
+                                                          KryptonRibbonGroupClusterColorButton ribbonColorButton)
             : base(ribbon)
         {
             Debug.Assert(ribbonColorButton != null);

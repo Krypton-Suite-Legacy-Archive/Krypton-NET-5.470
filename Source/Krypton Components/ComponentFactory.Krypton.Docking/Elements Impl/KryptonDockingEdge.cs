@@ -13,7 +13,7 @@ using System;
 using System.Windows.Forms;
 using System.ComponentModel;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
     /// <summary>
     /// Provides docking functionality for a specific edge of a control.
@@ -21,7 +21,7 @@ namespace Krypton.Docking
     [ToolboxItem(false)]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
-    public class Krypton.DockingEdge : DockingElementClosedCollection
+    public class KryptonDockingEdge : DockingElementClosedCollection
     {
         #region Instance Fields
 
@@ -29,20 +29,20 @@ namespace Krypton.Docking
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the Krypton.DockingEdge class.
+        /// Initialize a new instance of the KryptonDockingEdge class.
         /// </summary>
         /// <param name="name">Initial name of the element.</param>
         /// <param name="control">Reference to control that is being managed.</param>
         /// <param name="edge">Docking edge being managed.</param>
-        public Krypton.DockingEdge(string name, Control control, DockingEdge edge)
+        public KryptonDockingEdge(string name, Control control, DockingEdge edge)
             : base(name)
         {
             Control = control ?? throw new ArgumentNullException(nameof(control));
             Edge = edge;
 
             // Auto create elements for handling standard docked content and auto hidden content
-            InternalAdd(new Krypton.DockingEdgeAutoHidden("AutoHidden", control, edge));
-            InternalAdd(new Krypton.DockingEdgeDocked("Docked", control, edge));
+            InternalAdd(new KryptonDockingEdgeAutoHidden("AutoHidden", control, edge));
+            InternalAdd(new KryptonDockingEdgeDocked("Docked", control, edge));
         }
         #endregion
 

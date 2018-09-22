@@ -17,9 +17,9 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Reflection;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
     /// Implements base functionality for NavigatorMode.Outlook modes.
@@ -40,7 +40,7 @@ namespace Krypton.Navigator
             /// Initialize a new instance of the OutlookButtonSpecCollection class.
             /// </summary>
             /// <param name="owner">Reference to owning object.</param>
-            public OutlookButtonSpecCollection(Krypton.Navigator owner)
+            public OutlookButtonSpecCollection(KryptonNavigator owner)
                 : base(owner)
             {
             }
@@ -87,8 +87,8 @@ namespace Krypton.Navigator
             Assembly myAssembly = Assembly.GetAssembly(typeof(ViewBuilderOutlookBase));
 
             // Get the resource streams containing the images
-            Stream streamBlueUp = myAssembly.GetManifestResourceStream("Krypton.Navigator.Resources.BlueUp.bmp");
-            Stream streamBlueDown= myAssembly.GetManifestResourceStream("Krypton.Navigator.Resources.BlueDown.bmp");
+            Stream streamBlueUp = myAssembly.GetManifestResourceStream("ComponentFactory.Krypton.Navigator.Resources.BlueUp.bmp");
+            Stream streamBlueDown= myAssembly.GetManifestResourceStream("ComponentFactory.Krypton.Navigator.Resources.BlueDown.bmp");
 
             // Load the bitmap from stream
             _moreButtons = new Bitmap(streamBlueUp, true);
@@ -281,7 +281,7 @@ namespace Krypton.Navigator
 		/// <param name="navigator">Reference to navigator instance.</param>
 		/// <param name="manager">Reference to current manager.</param>
 		/// <param name="redirector">Palette redirector.</param>
-		public override void Construct(Krypton.Navigator navigator, 
+		public override void Construct(KryptonNavigator navigator, 
 									   ViewManager manager,
 									   PaletteRedirect redirector)
 		{
@@ -2402,7 +2402,7 @@ namespace Krypton.Navigator
             {
                 // Grab the page associated view elements
                 ViewDrawNavOutlookStack checkButton = (ViewDrawNavOutlookStack)_pageStackLookup[page];
-                ViewDrawBorderEdge buttonEdge = (ViewDrawBorderEdge)_buttonEdgeLookup[page];
+                ViewDrawBorderEdge buttonEdge = _buttonEdgeLookup[page];
                 
                 // Add to the end of the collection
                 _viewLayout.Add(buttonEdge, dockFar);

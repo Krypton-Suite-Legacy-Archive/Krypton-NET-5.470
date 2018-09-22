@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.Xml;
-using Krypton.Navigator;
+using ComponentFactory.Krypton.Navigator;
 
-namespace Krypton.Workspace
+namespace ComponentFactory.Krypton.Workspace
 {
 	/// <summary>
 	/// Event data for persisting extra data for a workspace cell page.
@@ -30,7 +30,7 @@ namespace Krypton.Workspace
         /// <param name="workspace">Reference to owning workspace control.</param>
         /// <param name="page">Reference to owning workspace cell page.</param>
         /// <param name="xmlReader">Xml reader for persisting custom data.</param>
-        public PageLoadingEventArgs(Krypton.Workspace workspace,
+        public PageLoadingEventArgs(KryptonWorkspace workspace,
                                     KryptonPage page,
                                     XmlReader xmlReader)
             : base(workspace, xmlReader)

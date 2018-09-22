@@ -11,9 +11,9 @@
 
 using System.Drawing;
 using System.Windows.Forms;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Process mouse events for a ribbon based button spec button.
@@ -46,7 +46,7 @@ namespace Krypton.Ribbon
         public override void KeyDown(Control c, KeyEventArgs e)
         {
             ViewBase newView = null;
-            Krypton.Ribbon ribbon = (Krypton.Ribbon)c;
+            KryptonRibbon ribbon = (KryptonRibbon)c;
 
             // Get the button spec associated with this controller
             ViewDrawButton viewButton = (ViewDrawButton)Target;

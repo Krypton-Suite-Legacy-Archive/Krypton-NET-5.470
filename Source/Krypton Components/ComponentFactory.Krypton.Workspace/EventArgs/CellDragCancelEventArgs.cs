@@ -11,9 +11,9 @@
 
 using System.Windows.Forms;
 using System.Drawing;
-using Krypton.Navigator;
+using ComponentFactory.Krypton.Navigator;
 
-namespace Krypton.Workspace
+namespace ComponentFactory.Krypton.Workspace
 {
 	/// <summary>
 	/// Details for an cancellable event that provides pages and cell associated with a page dragging event.
@@ -37,7 +37,7 @@ namespace Krypton.Workspace
                                        Point screenOffset,
                                        Control c,
                                        KryptonPage[] pages,
-                                       Krypton.WorkspaceCell cell)
+                                       KryptonWorkspaceCell cell)
             : base(screenPoint, screenOffset, c, pages)
 		{
             Cell = cell;
@@ -49,7 +49,7 @@ namespace Krypton.Workspace
         /// <param name="e">Event to upgrade to this event.</param>
         /// <param name="cell">Workspace cell associated with pages.</param>
         public CellDragCancelEventArgs(PageDragCancelEventArgs e,
-                                       Krypton.WorkspaceCell cell)
+                                       KryptonWorkspaceCell cell)
             : base(e.ScreenPoint, e.ElementOffset, e.Control, e.Pages)
         {
             Cell = cell;
@@ -60,7 +60,7 @@ namespace Krypton.Workspace
         /// <summary>
         /// Gets access to associated workspace cell.
         /// </summary>
-        public Krypton.WorkspaceCell Cell { get; }
+        public KryptonWorkspaceCell Cell { get; }
 
 	    #endregion
     }

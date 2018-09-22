@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Generate click events whilst mouse pressed.
@@ -24,7 +24,7 @@ namespace Krypton.Ribbon
                                             IMouseController
     {
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private bool _captured;
         private bool _mouseOver;
         private readonly ViewBase _target;
@@ -46,7 +46,7 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning control.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         /// <param name="target">Target for state changes.</param>
-        public RepeatButtonController(Krypton.Ribbon ribbon,
+        public RepeatButtonController(KryptonRibbon ribbon,
                                       ViewBase target,
                                       NeedPaintHandler needPaint)
 		{

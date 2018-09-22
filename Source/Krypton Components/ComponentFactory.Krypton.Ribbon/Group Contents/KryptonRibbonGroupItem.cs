@@ -12,9 +12,9 @@
 using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Represents the base class for all ribbon group items.
@@ -22,7 +22,7 @@ namespace Krypton.Ribbon
     [ToolboxItem(false)]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
-    public abstract class Krypton.RibbonGroupItem : Component,
+    public abstract class KryptonRibbonGroupItem : Component,
                                                    IRibbonGroupItem
     {
         #region Instance Fields
@@ -32,9 +32,9 @@ namespace Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialise a new instance of the Krypton.RibbonGroupItem class.
+        /// Initialise a new instance of the KryptonRibbonGroupItem class.
         /// </summary>
-        public Krypton.RibbonGroupItem()
+        public KryptonRibbonGroupItem()
         {
         }
         #endregion
@@ -46,7 +46,7 @@ namespace Krypton.Ribbon
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public virtual Krypton.Ribbon Ribbon { get; set; }
+        public virtual KryptonRibbon Ribbon { get; set; }
 
         /// <summary>
         /// Gets access to the owning ribbon tab.
@@ -54,7 +54,7 @@ namespace Krypton.Ribbon
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public virtual Krypton.RibbonTab RibbonTab { get; set; }
+        public virtual KryptonRibbonTab RibbonTab { get; set; }
 
         /// <summary>
         /// Gets and sets the owning ribbon container instance.
@@ -62,7 +62,7 @@ namespace Krypton.Ribbon
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public virtual Krypton.RibbonGroupContainer RibbonContainer { get; set; }
+        public virtual KryptonRibbonGroupContainer RibbonContainer { get; set; }
 
         /// <summary>
         /// Gets the visible state of the item.
@@ -105,7 +105,7 @@ namespace Krypton.Ribbon
         public virtual int ItemGap(IRibbonGroupItem previousItem)
         {
             // If the previous item is a group button cluster then we want 3 pixels
-            return previousItem is Krypton.RibbonGroupCluster ? 3 : 1;
+            return previousItem is KryptonRibbonGroupCluster ? 3 : 1;
 
             // By default we just want a single pixel gap
         }
@@ -117,7 +117,7 @@ namespace Krypton.Ribbon
         /// <param name="needPaint">Delegate for notifying changes in display.</param>
         /// <returns>ViewBase derived instance.</returns>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public abstract ViewBase CreateView(Krypton.Ribbon ribbon, NeedPaintHandler needPaint);
+        public abstract ViewBase CreateView(KryptonRibbon ribbon, NeedPaintHandler needPaint);
 
         /// <summary>
         /// Gets and sets user-defined data associated with the object.
@@ -158,7 +158,7 @@ namespace Krypton.Ribbon
         {
             get
             {
-                Krypton.RibbonGroupContainer parent = RibbonContainer;
+                KryptonRibbonGroupContainer parent = RibbonContainer;
 
                 // Search up chain until we find the top
                 while (parent != null)

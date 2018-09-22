@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Ribbon layout that creates and positions context title drawing elements.
@@ -27,7 +27,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private readonly ViewDrawRibbonContextTitleList _contextTitlesCache;
         private readonly ViewDrawRibbonCaptionArea _captionArea;
         #endregion
@@ -38,7 +38,7 @@ namespace Krypton.Ribbon
         /// </summary>
         /// <param name="ribbon">Reference to source ribbon control.</param>
         /// <param name="captionArea">Reference to view element that tracks the top level form.</param>
-        public ViewLayoutRibbonContextTitles(Krypton.Ribbon ribbon,
+        public ViewLayoutRibbonContextTitles(KryptonRibbon ribbon,
                                              ViewDrawRibbonCaptionArea captionArea)
         {
             Debug.Assert(captionArea != null);
@@ -257,7 +257,7 @@ namespace Krypton.Ribbon
             if (!string.IsNullOrEmpty(_ribbon.SelectedTab?.ContextName))
             {
                 // Find the context definition for this context
-                Krypton.RibbonContext ribbonContext = _ribbon.RibbonContexts[_ribbon.SelectedTab.ContextName];
+                KryptonRibbonContext ribbonContext = _ribbon.RibbonContexts[_ribbon.SelectedTab.ContextName];
 
                 // Should always work, but you never know!
                 if (ribbonContext != null)

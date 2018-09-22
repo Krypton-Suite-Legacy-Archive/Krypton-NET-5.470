@@ -11,10 +11,10 @@
 
 using System.ComponentModel;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
     /// <summary>
-    /// Extends the Krypton.Workspace to work within the docking floating window.
+    /// Extends the KryptonWorkspace to work within the docking floating window.
     /// </summary>
     [ToolboxItem(false)]
     [DesignerCategory("code")]

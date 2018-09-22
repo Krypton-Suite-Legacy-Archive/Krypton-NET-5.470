@@ -17,7 +17,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Manage the filtering of message for popup controls.

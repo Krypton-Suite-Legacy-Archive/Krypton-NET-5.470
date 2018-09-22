@@ -12,9 +12,9 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Process mouse events for the ribbon tabs area.
@@ -23,7 +23,7 @@ namespace Krypton.Ribbon
                                           IMouseController
 	{
 		#region Instance Fields
-        private Krypton.Ribbon _ribbon;
+        private KryptonRibbon _ribbon;
         private bool _rightButtonDown;
 		#endregion
 
@@ -39,7 +39,7 @@ namespace Krypton.Ribbon
         /// Initialize a new instance of the RibbonTabsController class.
 		/// </summary>
         /// <param name="ribbon">Reference to owning control.</param>
-        public RibbonTabsController(Krypton.Ribbon ribbon)
+        public RibbonTabsController(KryptonRibbon ribbon)
 		{
             Debug.Assert(ribbon != null);
             _ribbon = ribbon;

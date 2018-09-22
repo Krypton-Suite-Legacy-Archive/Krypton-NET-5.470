@@ -11,7 +11,7 @@
 
 using System.ComponentModel;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// KryptonHeaderGroup specific implementation of a button specification.

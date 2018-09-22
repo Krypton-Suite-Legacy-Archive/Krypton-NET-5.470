@@ -9,14 +9,14 @@
 //  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Specialise the generic collection with type specific rules for tab item accessor.
     /// </summary>
-    public class Krypton.RibbonTabCollection : TypedCollection<Krypton.RibbonTab>
+    public class KryptonRibbonTabCollection : TypedCollection<KryptonRibbonTab>
     {
         #region Public
         /// <summary>
@@ -24,12 +24,12 @@ namespace Krypton.Ribbon
         /// </summary>
         /// <param name="name">Name of the ribbon tab instance.</param>
         /// <returns>Item at specified index.</returns>
-        public override Krypton.RibbonTab this[string name]
+        public override KryptonRibbonTab this[string name]
         {
             get
             {
                 // Search for a tab with the same text as that requested.
-                foreach(Krypton.RibbonTab tab in this)
+                foreach(KryptonRibbonTab tab in this)
                 {
                     if (tab.Text == name)
                     {

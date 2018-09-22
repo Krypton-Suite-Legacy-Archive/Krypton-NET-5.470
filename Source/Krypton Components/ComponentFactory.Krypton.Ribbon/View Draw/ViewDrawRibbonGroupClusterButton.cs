@@ -14,9 +14,9 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a ribbon group cluster button.
@@ -29,7 +29,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private readonly NeedPaintHandler _needPaint;
         private PaletteBackInheritForced _backForced;
         private PaletteBorderInheritForced _borderForced;
@@ -50,8 +50,8 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonButton">Reference to source button definition.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonGroupClusterButton(Krypton.Ribbon ribbon,
-                                                Krypton.RibbonGroupClusterButton ribbonButton,
+        public ViewDrawRibbonGroupClusterButton(KryptonRibbon ribbon,
+                                                KryptonRibbonGroupClusterButton ribbonButton,
                                                 NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);
@@ -117,7 +117,7 @@ namespace Krypton.Ribbon
         /// <summary>
         /// Gets access to the connected button definition.
         /// </summary>
-        public Krypton.RibbonGroupClusterButton GroupClusterButton { get; private set; }
+        public KryptonRibbonGroupClusterButton GroupClusterButton { get; private set; }
 
         #endregion
 

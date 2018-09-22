@@ -11,9 +11,9 @@
 
 using System;
 using System.Drawing;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
 	/// Navigator view element for drawing a selected check button for the Outlook mini mode.
@@ -32,7 +32,7 @@ namespace Krypton.Navigator
         /// <param name="navigator">Owning navigator instance.</param>
         /// <param name="page">Page this check button represents.</param>
         /// <param name="orientation">Orientation for the check button.</param>
-        public ViewDrawNavOutlookMini(Krypton.Navigator navigator,
+        public ViewDrawNavOutlookMini(KryptonNavigator navigator,
                                       KryptonPage page,
                                       VisualOrientation orientation)
             : base(navigator, page, orientation,

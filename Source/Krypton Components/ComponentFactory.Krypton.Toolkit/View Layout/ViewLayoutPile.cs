@@ -11,7 +11,7 @@
 
 using System.Diagnostics;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
 	/// Extends the ViewComposite by laying out children to all fill the total area.

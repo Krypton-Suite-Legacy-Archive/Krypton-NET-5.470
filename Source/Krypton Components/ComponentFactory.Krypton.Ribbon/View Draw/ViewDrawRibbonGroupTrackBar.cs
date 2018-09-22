@@ -14,9 +14,9 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a ribbon group track bar.
@@ -31,7 +31,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private ViewDrawRibbonGroup _activeGroup;
         private readonly TrackBarController _controller;
         private readonly NeedPaintHandler _needPaint;
@@ -45,8 +45,8 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonTrackBar">Reference to source track bar.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonGroupTrackBar(Krypton.Ribbon ribbon,
-                                           Krypton.RibbonGroupTrackBar ribbonTrackBar,
+        public ViewDrawRibbonGroupTrackBar(KryptonRibbon ribbon,
+                                           KryptonRibbonGroupTrackBar ribbonTrackBar,
                                            NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);
@@ -135,7 +135,7 @@ namespace Krypton.Ribbon
         /// <summary>
         /// Gets access to the owning group track bar instance.
         /// </summary>
-        public Krypton.RibbonGroupTrackBar GroupTrackBar { get; private set; }
+        public KryptonRibbonGroupTrackBar GroupTrackBar { get; private set; }
 
         #endregion
 
@@ -577,7 +577,7 @@ namespace Krypton.Ribbon
                         {
                             // Check that the group is not collapsed
                             if ((GroupTrackBar.RibbonContainer.RibbonGroup.IsCollapsed) &&
-                                ((_ribbon.GetControllerControl(GroupTrackBar.TrackBar) is Krypton.Ribbon) ||
+                                ((_ribbon.GetControllerControl(GroupTrackBar.TrackBar) is KryptonRibbon) ||
                                  (_ribbon.GetControllerControl(GroupTrackBar.TrackBar) is VisualPopupMinimized))
                                 )
                             {
@@ -586,7 +586,7 @@ namespace Krypton.Ribbon
                             else
                             {
                                 // Check that the hierarchy of containers are all visible
-                                Krypton.RibbonGroupContainer container = GroupTrackBar.RibbonContainer;
+                                KryptonRibbonGroupContainer container = GroupTrackBar.RibbonContainer;
 
                                 // Keep going until we have searched the entire parent chain of containers
                                 while (container != null)

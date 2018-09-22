@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Draws the border around the overflow popup of the quick access toolbar.
@@ -29,7 +29,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private NeedPaintHandler _needPaintDelegate;
         private IDisposable _memento;
         #endregion
@@ -40,7 +40,7 @@ namespace Krypton.Ribbon
         /// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="needPaintDelegate">Delegate for notifying paint/layout changes.</param>
-        public ViewDrawRibbonQATOverflow(Krypton.Ribbon ribbon,
+        public ViewDrawRibbonQATOverflow(KryptonRibbon ribbon,
                                          NeedPaintHandler needPaintDelegate)
         {
             Debug.Assert(ribbon != null);

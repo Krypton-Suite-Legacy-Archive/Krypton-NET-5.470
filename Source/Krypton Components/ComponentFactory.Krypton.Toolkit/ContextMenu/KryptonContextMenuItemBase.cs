@@ -12,7 +12,7 @@
 using System.Windows.Forms;
 using System.ComponentModel;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Base class that all menu types must derive from and implement.

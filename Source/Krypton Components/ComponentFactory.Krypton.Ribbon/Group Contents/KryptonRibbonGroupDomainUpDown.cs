@@ -14,21 +14,21 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
 using System.Windows.Forms;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Represents a ribbon group domain up-down.
     /// </summary>
     [ToolboxItem(false)]
-    [ToolboxBitmap(typeof(Krypton.RibbonGroupDomainUpDown), "ToolboxBitmaps.Krypton.RibbonGroupDomainUpDown.bmp")]
-    [Designer("Krypton.Ribbon.Krypton.RibbonGroupDomainUpDownDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [ToolboxBitmap(typeof(KryptonRibbonGroupDomainUpDown), "ToolboxBitmaps.KryptonRibbonGroupDomainUpDown.bmp")]
+    [Designer(typeof(ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupDomainUpDownDesigner))]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
     [DefaultEvent("SelectedItemChanged")]
     [DefaultProperty("Items")]
-    public class Krypton.RibbonGroupDomainUpDown : Krypton.RibbonGroupItem
+    public class KryptonRibbonGroupDomainUpDown : KryptonRibbonGroupItem
     {
         #region Instance Fields
         private bool _visible;
@@ -120,9 +120,9 @@ namespace Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialise a new instance of the Krypton.RibbonGroupDomainUpDown class.
+        /// Initialise a new instance of the KryptonRibbonGroupDomainUpDown class.
         /// </summary>
-        public Krypton.RibbonGroupDomainUpDown()
+        public KryptonRibbonGroupDomainUpDown()
         {
             // Default fields
             _visible = true;
@@ -183,7 +183,7 @@ namespace Krypton.Ribbon
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public override Krypton.Ribbon Ribbon
+        public override KryptonRibbon Ribbon
         {
             set
             {
@@ -550,7 +550,7 @@ namespace Krypton.Ribbon
         /// <param name="needPaint">Delegate for notifying changes in display.</param>
         /// <returns>ViewBase derived instance.</returns>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override ViewBase CreateView(Krypton.Ribbon ribbon, 
+        public override ViewBase CreateView(KryptonRibbon ribbon, 
                                             NeedPaintHandler needPaint)
         {
             return new ViewDrawRibbonGroupDomainUpDown(ribbon, this, needPaint);
@@ -562,7 +562,7 @@ namespace Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public IKrypton.DesignObject DomainUpDownDesigner { get; set; }
+        public IKryptonDesignObject DomainUpDownDesigner { get; set; }
 
         /// <summary>
         /// Internal design time properties.

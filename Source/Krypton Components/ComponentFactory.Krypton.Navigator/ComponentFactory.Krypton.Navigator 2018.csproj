@@ -9,7 +9,7 @@
     <ProjectGuid>{DC0DD714-4D19-4F31-A6D0-EA209D4F0EA8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Krypton.Navigator</RootNamespace>
+    <RootNamespace>ComponentFactory.Krypton.Navigator</RootNamespace>
     <AssemblyName>Krypton Navigator</AssemblyName>
     <ApplicationIcon>Krypton.ico</ApplicationIcon>
     <SignAssembly>true</SignAssembly>
@@ -74,6 +74,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
@@ -147,6 +148,15 @@
     <Compile Include="EventArgs\KryptonPageFlagsEventArgs.cs" />
     <Compile Include="General\PageToToolTipMapping.cs" />
     <Compile Include="General\PlatformInvoke.cs" />
+    <Compile Include="Navigator\KryptonNavigatorActionList.cs" />
+    <Compile Include="Navigator\KryptonNavigatorDesigner.cs" />
+    <Compile Include="Navigator\KryptonPageActionList.cs" />
+    <Compile Include="Navigator\KryptonPageDesigner.cs" />
+    <Compile Include="Navigator\KryptonPageFormEditFlags.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Navigator\KryptonPageFormEditFlags.Designer.cs" />
+    <Compile Include="Navigator\NavigatorPageCollectionEditor.cs" />
     <Compile Include="Page\KryptonPage.cs" />
     <Compile Include="EventArgs\KryptonPageCancelEventArgs.cs" />
     <Compile Include="Page\KryptonPageCollection.cs" />
@@ -216,8 +226,8 @@
     <Compile Include="View Builder\ViewBuilderGroup.cs" />
     <Compile Include="View Builder\ViewBuilderPanel.cs" />
     <Compile Include="General\Definitions.cs" />
-    <Compile Include="Controls Navigator\Krypton.Navigator.cs" />
-    <Compile Include="Controls Navigator\Krypton.NavigatorControlCollection.cs">
+    <Compile Include="Controls Navigator\KryptonNavigator.cs" />
+    <Compile Include="Controls Navigator\KryptonNavigatorControlCollection.cs">
     </Compile>
     <Compile Include="View Builder\ViewBuilderBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -241,7 +251,8 @@
     <Compile Include="View Layout\ViewLayoutOutlookFull.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.Navigator.bmp" />
+    <EmbeddedResource Include="Navigator\KryptonPageFormEditFlags.resx" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonNavigator.bmp" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
@@ -266,9 +277,9 @@
     <None Include="StrongKrypton.snk" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Krypton.Toolkit\Krypton.Toolkit 2018.csproj">
+    <ProjectReference Include="..\ComponentFactory.Krypton.Toolkit\ComponentFactory.Krypton.Toolkit 2018.csproj">
       <Project>{96ecaecc-54f8-4aa5-8591-b443c2d9565f}</Project>
-      <Name>Krypton.Toolkit 2018</Name>
+      <Name>ComponentFactory.Krypton.Toolkit 2018</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

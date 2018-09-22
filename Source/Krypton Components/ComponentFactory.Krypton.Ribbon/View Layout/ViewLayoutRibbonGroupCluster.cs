@@ -15,9 +15,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Extends the ViewComposite by creating and laying out elements to represent a ribbon group button cluster.
@@ -33,8 +33,8 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
-        private readonly Krypton.RibbonGroupCluster _ribbonCluster;
+        private readonly KryptonRibbon _ribbon;
+        private readonly KryptonRibbonGroupCluster _ribbonCluster;
         private ViewDrawRibbonDesignCluster _viewAddItem;
         private readonly ViewDrawRibbonGroupClusterSeparator _startSep;
         private readonly ViewDrawRibbonGroupClusterSeparator _endSep;
@@ -57,8 +57,8 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Owning ribbon control instance.</param>
         /// <param name="ribbonCluster">Reference to cluster definition.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewLayoutRibbonGroupCluster(Krypton.Ribbon ribbon,
-                                            Krypton.RibbonGroupCluster ribbonCluster,
+        public ViewLayoutRibbonGroupCluster(KryptonRibbon ribbon,
+                                            KryptonRibbonGroupCluster ribbonCluster,
                                             NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);
@@ -322,7 +322,7 @@ namespace Krypton.Ribbon
             // Sync child elements to the current group items
             SyncChildrenToRibbonGroupItems();
 
-            foreach (Krypton.RibbonGroupItem item in _ribbonCluster.Items)
+            foreach (KryptonRibbonGroupItem item in _ribbonCluster.Items)
             {
                 IRibbonViewGroupItemView viewItemSize = _itemToView[item] as IRibbonViewGroupItemView;
                 viewItemSize?.SetGroupItemSize(size);
@@ -336,7 +336,7 @@ namespace Krypton.Ribbon
         /// </summary>
         public void ResetGroupItemSize()
         {
-            foreach (Krypton.RibbonGroupItem item in _ribbonCluster.Items)
+            foreach (KryptonRibbonGroupItem item in _ribbonCluster.Items)
             {
                 IRibbonViewGroupItemView viewItemSize = _itemToView[item] as IRibbonViewGroupItemView;
                 viewItemSize?.ResetGroupItemSize();

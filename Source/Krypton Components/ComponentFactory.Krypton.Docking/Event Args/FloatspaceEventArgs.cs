@@ -11,7 +11,7 @@
 
 using System;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
 	/// <summary>
     /// Event arguments for a FloatspaceAdding/FloatspaceRemoved event.
@@ -29,7 +29,7 @@ namespace Krypton.Docking
         /// <param name="floatspace">Reference to new floatspace control instance.</param>
         /// <param name="element">Reference to docking floatspace element that is managing the floatspace control.</param>
         public FloatspaceEventArgs(KryptonFloatspace floatspace,
-                                   Krypton.DockingFloatspace element)
+                                   KryptonDockingFloatspace element)
 		{
             FloatspaceControl = floatspace;
             FloatspaceElement = element;
@@ -43,9 +43,9 @@ namespace Krypton.Docking
         public KryptonFloatspace FloatspaceControl { get; }
 
 	    /// <summary>
-        /// Gets a reference to the Krypton.DockingFloatspace that is managing the space control.
+        /// Gets a reference to the KryptonDockingFloatspace that is managing the space control.
         /// </summary>
-        public Krypton.DockingFloatspace FloatspaceElement { get; }
+        public KryptonDockingFloatspace FloatspaceElement { get; }
 
 	    #endregion
 	}

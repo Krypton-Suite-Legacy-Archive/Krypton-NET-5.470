@@ -1,4 +1,4 @@
-﻿// *****************************************************************************
+﻿  // *****************************************************************************
 // BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
 //  © Component Factory Pty Ltd, 2006-2018, All rights reserved.
 // The software and associated documentation supplied hereunder are the 
@@ -17,7 +17,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
     /// Combines color button functionality with the styling features of the Krypton Toolkit.
@@ -26,7 +26,7 @@ namespace Krypton.Toolkit
     [ToolboxBitmap(typeof(KryptonColorButton), "ToolboxBitmaps.KryptonColorButton.bmp")]
     [DefaultEvent("SelectedColorChanged")]
     [DefaultProperty("SelectedColor")]
-    [Designer("Krypton.Toolkit.KryptonColorButtonDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonColorButtonDesigner))]
     [DesignerCategory("code")]
     [Description("Raises an event when the user clicks it.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
@@ -251,12 +251,12 @@ namespace Krypton.Toolkit
             get => base.Padding;
             set => base.Padding = value;
         }
-        
+
         /// <summary>
-		/// Gets or sets the text associated with this control. 
-		/// </summary>
-		[Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
-		public override string Text
+        /// Gets or sets the text associated with this control. 
+        /// </summary>
+        [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
+        public override string Text
 		{
 			get => Values.Text;
 

@@ -15,7 +15,7 @@ using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Diagnostics;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
 	/// Draws all the month grid entries including the column names and day values

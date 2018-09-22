@@ -14,9 +14,9 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a ribbon group color button.
@@ -30,7 +30,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private readonly NeedPaintHandler _needPaint;
         private ViewDrawRibbonGroupButtonBackBorder _viewLarge;
         private ViewLayoutRibbonRowCenter _viewLargeCenter;
@@ -58,8 +58,8 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonColorButton">Reference to source color button definition.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonGroupColorButton(Krypton.Ribbon ribbon,
-                                              Krypton.RibbonGroupColorButton ribbonColorButton,
+        public ViewDrawRibbonGroupColorButton(KryptonRibbon ribbon,
+                                              KryptonRibbonGroupColorButton ribbonColorButton,
                                               NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);
@@ -126,7 +126,7 @@ namespace Krypton.Ribbon
         /// <summary>
         /// Gets access to the connected color button definition.
         /// </summary>
-        public Krypton.RibbonGroupColorButton GroupColorButton { get; private set; }
+        public KryptonRibbonGroupColorButton GroupColorButton { get; private set; }
 
         #endregion
 

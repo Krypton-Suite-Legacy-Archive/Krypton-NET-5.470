@@ -11,9 +11,9 @@
 
 using System.Drawing;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
 	/// View element that can track the size and position of the selected page.
@@ -21,7 +21,7 @@ namespace Krypton.Navigator
     internal class ViewLayoutPageShow : ViewLayoutNull
     {
         #region Instance Fields
-        private readonly Krypton.Navigator _navigator;
+        private readonly KryptonNavigator _navigator;
         private bool _minimumAsPreferred;
 		#endregion
 
@@ -29,7 +29,7 @@ namespace Krypton.Navigator
 		/// <summary>
         /// Initialize a new instance of the ViewLayoutPageShow class.
 		/// </summary>
-        public ViewLayoutPageShow(Krypton.Navigator navigator)
+        public ViewLayoutPageShow(KryptonNavigator navigator)
 		{
 			Debug.Assert(navigator != null);
 

@@ -13,7 +13,7 @@ using System;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Helper routines for interacting with the Desktop Window Manager.

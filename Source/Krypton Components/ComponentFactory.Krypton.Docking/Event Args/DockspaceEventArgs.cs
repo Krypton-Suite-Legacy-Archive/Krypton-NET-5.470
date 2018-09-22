@@ -11,7 +11,7 @@
 
 using System;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
 	/// <summary>
     /// Event arguments for a DockspaceAdding/DockspaceRemoved events.
@@ -29,7 +29,7 @@ namespace Krypton.Docking
         /// <param name="dockspace">Reference to new dockspace control instance.</param>
         /// <param name="element">Reference to docking dockspace element that is managing the dockspace control.</param>
         public DockspaceEventArgs(KryptonDockspace dockspace,
-                                  Krypton.DockingDockspace element)
+                                  KryptonDockingDockspace element)
 		{
             DockspaceControl = dockspace;
             DockspaceElement = element;
@@ -43,9 +43,9 @@ namespace Krypton.Docking
         public KryptonDockspace DockspaceControl { get; }
 
 	    /// <summary>
-        /// Gets a reference to the Krypton.DockingDockspace that is managing the dockspace control.
+        /// Gets a reference to the KryptonDockingDockspace that is managing the dockspace control.
         /// </summary>
-        public Krypton.DockingDockspace DockspaceElement { get; }
+        public KryptonDockingDockspace DockspaceElement { get; }
 
 	    #endregion
 	}

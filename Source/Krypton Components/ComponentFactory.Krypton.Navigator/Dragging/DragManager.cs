@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
     /// <summary>
     /// Specialise the generic collection with type specific rules for item accessor.
@@ -354,7 +354,7 @@ namespace Krypton.Navigator
         /// <param name="sender">Source of the page drag; can be null.</param>
         /// <param name="navigator">Navigator instance associated with source; can be null.</param>
         /// <param name="e">Event arguments indicating list of pages being dragged.</param>
-        public virtual void PageDragStart(object sender, Krypton.Navigator navigator, PageDragCancelEventArgs e)
+        public virtual void PageDragStart(object sender, KryptonNavigator navigator, PageDragCancelEventArgs e)
         {
             e.Cancel = !DragStart(e.ScreenPoint, new PageDragEndData(sender, navigator, e.Pages));
         }

@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.Xml;
-using Krypton.Navigator;
+using ComponentFactory.Krypton.Navigator;
 
-namespace Krypton.Workspace
+namespace ComponentFactory.Krypton.Workspace
 {
 	/// <summary>
 	/// Event data for persisting extra data for a workspace cell page.
@@ -30,7 +30,7 @@ namespace Krypton.Workspace
         /// <param name="workspace">Reference to owning workspace control.</param>
         /// <param name="page">Reference to owning workspace cell page.</param>
         /// <param name="xmlWriter">Xml writer for persisting custom data.</param>
-        public PageSavingEventArgs(Krypton.Workspace workspace,
+        public PageSavingEventArgs(KryptonWorkspace workspace,
                                    KryptonPage page,
                                    XmlWriter xmlWriter)
             : base(workspace, xmlWriter)

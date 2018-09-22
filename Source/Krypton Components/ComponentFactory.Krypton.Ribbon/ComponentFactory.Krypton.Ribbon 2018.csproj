@@ -9,7 +9,7 @@
     <ProjectGuid>{E90FC375-453D-4FE4-9822-CE1DB85B6553}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Krypton.Ribbon</RootNamespace>
+    <RootNamespace>ComponentFactory.Krypton.Ribbon</RootNamespace>
     <AssemblyName>Krypton Ribbon</AssemblyName>
     <ApplicationIcon>Krypton.ico</ApplicationIcon>
     <SignAssembly>true</SignAssembly>
@@ -72,6 +72,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
@@ -123,8 +124,8 @@
     <Compile Include="Controls Ribbon\KryptonGalleryRange.cs" />
     <Compile Include="Controls Ribbon\KryptonGalleryRangeCollection.cs" />
     <Compile Include="Controls Ribbon\KryptonGallery.cs" />
-    <Compile Include="Controls Ribbon\Krypton.RibbonRecentDocCollection.cs" />
-    <Compile Include="Controls Ribbon\Krypton.RibbonRecentDoc.cs" />
+    <Compile Include="Controls Ribbon\KryptonRibbonRecentDocCollection.cs" />
+    <Compile Include="Controls Ribbon\KryptonRibbonRecentDoc.cs" />
     <Compile Include="Controls Visuals\VisualPopupAppMenu.cs" />
     <Compile Include="Controls Visuals\VisualPopupQATOverflow.cs" />
     <Compile Include="Controller\AppButtonController.cs" />
@@ -144,20 +145,20 @@
     <Compile Include="EventArgs\GalleryDropMenuEventArgs.cs" />
     <Compile Include="General\AppButtonMenuProvider.cs" />
     <Compile Include="General\DesignTimeDraw.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupTrackBar.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupDateTimePicker.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupDomainUpDown.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupNumericUpDown.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupGallery.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupColorButton.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupClusterColorButton.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupMaskedTextBox.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupComboBox.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupRichTextBox.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupTextBox.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupCustomControl.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupRadioButton.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupCheckBox.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupTrackBar.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupDateTimePicker.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupDomainUpDown.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupNumericUpDown.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupGallery.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupColorButton.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupClusterColorButton.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupMaskedTextBox.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupComboBox.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupRichTextBox.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupTextBox.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupCustomControl.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupRadioButton.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupCheckBox.cs" />
     <Compile Include="Palette\AppButtonToolTipToContent.cs" />
     <Compile Include="Palette\ContextToContent.cs" />
     <Compile Include="Palette\ApplicationTabToContent.cs" />
@@ -180,23 +181,23 @@
     </Compile>
     <Compile Include="General\KeyTipInfo.cs" />
     <Compile Include="General\Definitions.cs" />
-    <Compile Include="Controls Ribbon\Krypton.RibbonQATButton.cs" />
-    <Compile Include="Controls Ribbon\Krypton.RibbonQATButtonCollection.cs" />
+    <Compile Include="Controls Ribbon\KryptonRibbonQATButton.cs" />
+    <Compile Include="Controls Ribbon\KryptonRibbonQATButtonCollection.cs" />
     <Compile Include="General\PlatformInvoke.cs" />
     <Compile Include="Controls Visuals\VisualPopupMinimized.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupButton.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupCluster.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupClusterButton.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupClusterCollection.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupContainer.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupContainerCollection.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupItem.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupLabel.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupLines.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupLinesCollection.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupSeparator.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupTriple.cs" />
-    <Compile Include="Group Contents\Krypton.RibbonGroupTripleCollection.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupButton.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupCluster.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupClusterButton.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupClusterCollection.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupContainer.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupContainerCollection.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupItem.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupLabel.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupLines.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupLinesCollection.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupSeparator.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupTriple.cs" />
+    <Compile Include="Group Contents\KryptonRibbonGroupTripleCollection.cs" />
     <Compile Include="Palette\ContextTabSet.cs" />
     <Compile Include="Palette\DesignTextToContent.cs" />
     <Compile Include="Palette\PaletteRibbonFocus.cs" />
@@ -209,13 +210,13 @@
     <Compile Include="Palette\RibbonShortcuts.cs" />
     <Compile Include="Palette\RibbonStrings.cs" />
     <Compile Include="Palette\RibbonGroupTextToContent.cs" />
-    <Compile Include="Controls Ribbon\Krypton.RibbonContextCollection.cs" />
-    <Compile Include="Controls Ribbon\Krypton.RibbonContext.cs" />
-    <Compile Include="Controls Ribbon\Krypton.RibbonGroupCollection.cs" />
-    <Compile Include="Controls Ribbon\Krypton.Ribbon.cs" />
-    <Compile Include="Controls Ribbon\Krypton.RibbonTab.cs" />
-    <Compile Include="Controls Ribbon\Krypton.RibbonGroup.cs" />
-    <Compile Include="Controls Ribbon\Krypton.RibbonTabCollection.cs" />
+    <Compile Include="Controls Ribbon\KryptonRibbonContextCollection.cs" />
+    <Compile Include="Controls Ribbon\KryptonRibbonContext.cs" />
+    <Compile Include="Controls Ribbon\KryptonRibbonGroupCollection.cs" />
+    <Compile Include="Controls Ribbon\KryptonRibbon.cs" />
+    <Compile Include="Controls Ribbon\KryptonRibbonTab.cs" />
+    <Compile Include="Controls Ribbon\KryptonRibbonGroup.cs" />
+    <Compile Include="Controls Ribbon\KryptonRibbonTabCollection.cs" />
     <Compile Include="Palette\RibbonTabToContent.cs" />
     <Compile Include="Palette\PaletteRibbonJustGroup.cs" />
     <Compile Include="Palette\PaletteRibbonGroupTab.cs" />
@@ -233,6 +234,39 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Ribbon\KryptonGalleryActionList.cs" />
+    <Compile Include="Ribbon\KryptonGalleryDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonActionList.cs" />
+    <Compile Include="Ribbon\KryptonRibbonDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupButtonDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupCheckBoxDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupClusterButtonDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupClusterCollectionEditor.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupClusterColorButtonDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupClusterDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupColorButtonDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupComboBoxDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupContainerCollectionEditor.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupCustomControlDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupDateTimePickerDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupDomainUpDownDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupGalleryDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupLabelDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupLinesCollectionEditor.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupLinesDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupMaskedTextBoxDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupNumericUpDownDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupRadioButtonDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupRichTextBoxDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupSeparatorDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupTextBoxDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupTrackBarDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupTripleCollectionEditor.cs" />
+    <Compile Include="Ribbon\KryptonRibbonGroupTripleDesigner.cs" />
+    <Compile Include="Ribbon\KryptonRibbonQATButtonCollectionEditor.cs" />
+    <Compile Include="Ribbon\KryptonRibbonRecentDocCollectionEditor.cs" />
+    <Compile Include="Ribbon\KryptonRibbonTabDesigner.cs" />
     <Compile Include="View Base\ViewRibbonQATOverflowManager.cs" />
     <Compile Include="View Base\ViewRibbonPopupGroupManager.cs" />
     <Compile Include="View Base\ViewRibbonManager.cs" />
@@ -351,50 +385,50 @@
   <ItemGroup>
     <Content Include="Krypton.ico" />
     <None Include="app.manifest" />
-    <None Include="ToolboxBitmaps\Krypton.RibbonGroupTrackBar.bmp" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonGroupDateTimePicker.bmp" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonGroupDomainUpDown.bmp" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonGroupNumericUpDown.bmp" />
+    <None Include="ToolboxBitmaps\KryptonRibbonGroupTrackBar.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonGroupDateTimePicker.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonGroupDomainUpDown.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonGroupNumericUpDown.bmp" />
     <EmbeddedResource Include="ToolboxBitmaps\KryptonGalleryRange.bmp" />
     <EmbeddedResource Include="ToolboxBitmaps\KryptonGallery.bmp" />
     <None Include="Resources\ButtonColorImageLarge.png" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonGroupColorButton.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonGroupColorButton.bmp" />
     <None Include="Resources\ButtonNoColor.png" />
     <None Include="Resources\ButtonColorImageSmall.png" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonGroupClusterColorButton.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonGroupClusterColorButton.bmp" />
     <None Include="Resources\help2.png" />
     <None Include="Resources\delete2.png" />
     <None Include="Resources\check2.png" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonGroupMaskedTextBox.bmp" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonRecentDoc.png" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonGroupRichTextBox.bmp" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonGroupComboBox.bmp" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonGroupTextBox.bmp" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonGroupCustomControl.bmp" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonGroupRadioButton.bmp" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonGroupCheckBox.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonGroupMaskedTextBox.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonRecentDoc.png" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonGroupRichTextBox.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonGroupComboBox.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonGroupTextBox.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonGroupCustomControl.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonGroupRadioButton.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonGroupCheckBox.bmp" />
     <None Include="Resources\CF_logo.bmp" />
     <None Include="Resources\MovePrevious.png" />
     <None Include="Resources\MoveLast.png" />
     <None Include="Resources\MoveFirst.png" />
     <None Include="Resources\MoveNext.png" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonGroupLabel.bmp" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonGroupClusterButton.bmp" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonGroupLines.bmp" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonGroupCluster.bmp" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonGroupTriple.bmp" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonGroupButton.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonGroupLabel.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonGroupClusterButton.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonGroupLines.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonGroupCluster.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonGroupTriple.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonGroupButton.bmp" />
     <None Include="Resources\ButtonImageSmall.png" />
     <None Include="Resources\ButtonImageLarge.png" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonGroupSeparator.bmp" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonQATButton.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonGroupSeparator.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonQATButton.bmp" />
     <None Include="Resources\QATButtonDefault.png" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonContext.bmp" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonGroup.bmp" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.RibbonTab.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonContext.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonGroup.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbonTab.bmp" />
     <None Include="Resources\GroupImageDefault.png" />
     <None Include="Resources\AppButtonDefault.png" />
-    <EmbeddedResource Include="ToolboxBitmaps\Krypton.Ribbon.bmp" />
+    <EmbeddedResource Include="ToolboxBitmaps\KryptonRibbon.bmp" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
@@ -405,9 +439,9 @@
     <None Include="StrongKrypton.snk" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Krypton.Toolkit\Krypton.Toolkit 2018.csproj">
+    <ProjectReference Include="..\ComponentFactory.Krypton.Toolkit\ComponentFactory.Krypton.Toolkit 2018.csproj">
       <Project>{96ecaecc-54f8-4aa5-8591-b443c2d9565f}</Project>
-      <Name>Krypton.Toolkit 2018</Name>
+      <Name>ComponentFactory.Krypton.Toolkit 2018</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

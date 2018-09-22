@@ -1,0 +1,369 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<title>Krypton .NET 4.70 Changelog</title>
+<link rel="icon" type="img/png" href="img/Krypton.ico" />
+</head>
+
+<body>
+    <table class="table">
+        <tr>
+            <td class="current-version">2018-05-15 Namespace changes</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Updated namespaces to reflect assembly names, these are found in the <strong style="background-color: #8DA8CB;">Experimental</strong> folder</li>
+                    <li>New HTML5 & CSS3 based changelog</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-04-29 Build 572</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Build 572 (build date Sunday 29th April 2018) is now obtainable through the <strong style="background-color: #8DA8CB;">releases</strong> tab</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-04-28 Fix build path output, and Demo Apps Ref path import and Output</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Remove hard-coded directory offsets for Component outputs</li>
+                    <li>Use offset location for components in Demo Apps</li>
+                    <li>Remove Release GAC'ing</li>
+                    <li>Fix explorer for the copied target names</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-04-22 Version 569, build path output changes, repo rename & re-structuring changes</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Build 569 (build date Sunday 22nd April 2018) is now available. It is recommended that you uninstall/remove previous versions first before using this version.</li>
+                    <li>DLL assembly names have been renamed to <em>Krypton Design</em>, <em>Krypton Docking</em>, <em>Krypton Navigator</em>, <em>Krypton Ribbon</em>, <em>Krypton Toolkit</em> and <em>Krypton Workspace</em>, these changes do also apply to other binaries in this repo. However these changes does <strong style="background-color: #8DA8CB;">NOT</strong> affect the namespace names of <em>ComponentFactory.Krypton.xx</em>.</li>
+                    <li>Build output paths have been changed for easier installer authoring and synchronisation.</li>
+                    <li>Renamed repo title to <em>Krypton-NET-4.70</em> to better reflect versioning.</li>
+                    <li>Removed different architectures folder for easier navigation.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-04-16 New distribution method, version 568</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>All binaries, applications, tools etc. in this project will now be installed by one installer, powered by <strong style="background-color: #8DA8CB;"><a href="https://www.advancedinstaller.com/">Advanced Installer</a></strong>. This is to allow easier distribution, and easier end-user updating.</li>
+                    <li>New folder <em>Updates</em> to contain files needed for the new update distribution.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-04-11 Adjust Ctrl+C display in MessageBox's</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Don't forget to add the <em>TextExtra</em> into the title wclassth calculation</li>
+                    <li>Only Display "Ctrl+C..." for Error and Exclamation icon's</li>
+                    <li>Created <em>#39</em></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-04-10 Version 565</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Build 565 (build date Tuesday 10th April, 2018) is now available from the <strong style="background-color: #8DA8CB;">releases</strong> tab.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-04-09 Use All <em><strong>C#</strong></em> features</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Change the projects to at least recognise C#7.2 features and enhancements - <em>to be applied in the future</em></li>
+                    <li>Some tinkering with spelling corrections - <em>to be applied in the future</em></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-03-27 <em><strong>KryptonRibbon.cs</strong></em> version 562</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Build 562 (build date 27th March 2018) fixes the issue as noted in <em>#35</em></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-03-26 Version 561</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Build 561 (build date Monday 26th March, 2018) is now available from the <strong style="background-color: #8DA8CB;">releases</strong> tab</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-03-25 More work on the help pages</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Make the Help relevant to the Actual Code <em>#17</em></li>
+                    <li>Change <em>bmp</em>'s to <em>png</em>'s</li>
+                    <li>Fix location of source for Help</li>
+                    <li>Change output to be clearer</li>
+                    <li>Remove previous output <strong style="background-color: #8DA8CB;">leftovers</strong></li>
+                    <li>Add instructions on how to generate</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-03-24pm Fix Issue <strong><em>#29</em></strong></td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>MessageBox taking a Null window owner (via default API's / null start / No KryptonManager loaded)</li>
+                    <li>Sort out the Toolkit examples to use the new dll locations</li>
+                    <li>Remove <em><strong style="background-color: #8DA8CB;">BootstrapperPackage</strong></em> .Net 3.5 nonsense from projects</li>
+                    <li>Remove hard coded build <em><strong style="background-color: #8DA8CB;">Output Paths</strong></em></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-03-24am Palette upgrade tool</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>The palette upgrade tool is now back! Enhancements over the previous commercial version 4.4.0 include:</li>
+                    <ul style="list-style-type: circle;">
+                        <li>Ability to export upgraded palette XML files</li>
+                        <li>Check to see if the output palette file is not saved before closing</li>
+                    </ul>
+                    <li>Exploration into a console version is in the works</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-03-19 Renderer class changes (Version 556, build date 19th March, 2018)</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Changed some classes from <em>internal</em> to <em>public</em> for easier accessibility for the <strong style="background-color: #8DA8CB;"><em><a href="https://github.com/Wagnerp/Krypton-Toolkit-Suite-Extended-NET-4.70">Extended Toolkit</a></em></strong></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-02-22 Toolkit build changes</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>All AMD64/x64 solutions should now build into correct directories</li>
+                    <li><strong>TODO:</strong> Rework Krypton Explorer (x64 and Any CPU) code to launch correct binaries</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-02-21 New release</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>New build 555 (build date 21st February, 2018) this is the very first time DLLs built for 64-bit architectures have been released. No new Nuget package will be available, due to install issues and this build is very much experimental. Head to the <strong style="background-color: #8DA8CB;">releases</strong> tab to download it. If you don't know how to build your application for 64-bit, please look at the <strong style="background-color: #8DA8CB;">issues</strong> tab for more information.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-02-20 Toolkit changes</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Renamed everything labelled <strong style="background-color: #8DA8CB;">2015</strong> to <strong style="background-color: #8DA8CB;">2018</strong></li>
+                    <li>Each solution now has its own binary folder</li>
+                    <li>Groundwork for supporting <strong style="background-color: #8DA8CB;">AMD64/x64</strong>, <strong style="background-color: #8DA8CB;">x86</strong> and <strong style="background-color: #8DA8CB;">Any CPU</strong> architectures</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-02-16 New Nuget package release</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Build 553 (build date 15th February, 2018) has been released.</li>
+                    <li>Palette designer has been included with this release and future releases.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-02-11 Rename and add help</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Rename the <strong style="background-color: #8DA8CB;">ToolKit Examples</strong> to <em>2018</em></li>
+                    <li>Add the start of structured help and links</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-02-10 Fix Issue <strong><em>#28</em></strong> and add help</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Fix issue <strong style="background-color: #8DA8CB;">#28</strong> - <em>Undo changes that checked for null, and then would use a null, rather than return a null..</em></li>
+                    <li>Add initial API Help from <strong style="background-color: #8DA8CB;">DocFX</strong></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-01-27pm New Nuget package release</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>New Nuget package, version <strong style="background-color: #8DA8CB;">4.70.544</strong> (build date January 27th, 2018) has been released</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-01-27am Help file migration/update</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Decompiled <strong style="background-color: #8DA8CB;">CHM</strong> file ready for migration/updates</li>
+                    <li>New 7z file/directory in <em>Help</em> labelled <strong style="background-color: #8DA8CB;">Help File Data</strong> containing the contents of the <strong style="background-color: #8DA8CB;">CHM</strong> file</li>
+                    <li>Remove duplicate information in <strong style="background-color: #8DA8CB;">README.md</strong></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-01-26 Add <strong>Trackmouse</strong> event</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Add the <em>designer events</em> to describe the controls that have <strong style="background-color: #8DA8CB;">TrackMouse Enter</strong> and <strong style="background-color: #8DA8CB;">Leave</strong></li>
+                    <li>Rename the projects to reflect year, to prevent confusion with old <em>.NET 4.5</em> projects</li>
+                    <li>Update test application to demonstrate <strong style="background-color: #8DA8CB;"><em>TrackMouse Events</em></strong></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-01-24pm <em>KryptonTextBox.cs</em> descriptions</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Added descriptions to <strong style="background-color: #8DA8CB;"><em>OnTrackMouseEnter</em></strong> and <strong style="background-color: #8DA8CB;"><em>OnTrackMouseLeave</em></strong> events to make more sense</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-01-24am Designer bug fix</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Fixed bug with <strong style="background-color: #8DA8CB;"><em>ComponentFactory.Krypton.Design.dll</em></strong> to version <strong style="background-color: #8DA8CB;">4.70.0.0</strong> due to hard coded values in toolkit code. Thanks to Smurf-IV for pointing this out to me.</li>
+                    <li>New Nuget package, version <strong style="background-color: #8DA8CB;">4.70.524</strong>, relating to the version of <strong style="background-color: #8DA8CB;"><em>ComponentFactory.Krypton.Design.dll</em></strong> (build date January 24th, 2018) will be uploaded to incorporate this fix.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-01-23 Repository changes</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li><strong style="background-color: #8DA8CB;">Releases</strong> tab is now enabled!</li>
+                    <li>New branch called <strong style="background-color: #8DA8CB;"><em>LTSR</em></strong> for long term stable releases</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-01-20 Nuget package update</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Fixed Nuget package specification to show the true file assembly number, i.e <strong style="background-color: #8DA8CB;"><em>4.70.522.0</em></strong> (build date January 16th, 2018) <strong><a href="https://github.com/Wagnerp/Krypton-NET-4.7/issues/13">#13</a></strong></li>
+                    <li>All new releases of packages will no longer have a dedicated changelog. Instead, it will point users back to <strong><a href="https://github.com/Wagnerp/Krypton-NET-4.7">this repository</a></strong> for more information</li>
+                    <li>All new releases of packages will no longer ship with the <strong style="background-color: #8DA8CB;">.chm</strong> help file. This is to reduce file size from 70+ MB to 5 - 6 MB. If the help file is needed, then please refer to <strong><a href="https://github.com/Wagnerp/Krypton-NET-4.7/raw/master/Help/KryptonHelp.chm">this link</a></strong> to download it</li>
+                    <li>New versions of Nuget packages can be obtained via <strong><a href="https://www.nuget.org/packages/KryptonToolkitSuite47/">this link</a></strong> or via your package manager with the following command <strong style="background-color: #8DA8CB;"><em>Install-Package KryptonToolkitSuite47 -Version 4.70.xxx</em></strong> (replace the x's with version number) or by searching <strong style="background-color: #8DA8CB;">KryptonToolkitSuite47</strong> in your package manager</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-01-15 Minor changes</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Renamed <strong style="background-color: #8DA8CB;">GetCreateParams()</strong> method to <strong style="background-color: #8DA8CB;">DrawDropShadow()</strong> in <em style="background-color: #8DA8CB;">KryptonForm.cs</em> to avoid confusion</li>
+                    <li>Added/update documentation/comments for drop shadow methods in <em style="background-color: #8DA8CB;">KryptonForm.cs</em> to make functions clearer</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-01-14 Toolkit Solution changes</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Convert to <strong style="background-color: #8DA8CB;">'?:</strong> expression</li>
+                        <ul style="list-style: circle;">
+                            <li><strong style="background-color: #8DA8CB;">null-coalescing</strong> if applicable</li>
+                            <li>Then to <strong style="background-color: #8DA8CB;">Expression body</strong> if simplified enough</li>
+                        </ul>
+                    <li>Fix some spelling mistakes along the way</li>
+                    <li>Add <strong style="background-color: #8DA8CB;">Ctrl + C</strong> text to <strong style="background-color: #8DA8CB;">KryptonCommand</strong></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="old-version">2018-01-13 Minor changes in <strong><em>SeparatorController.cs</em></strong></td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Fixed <strong><a href="https://github.com/ComponentFactory/Krypton/issues/79">Screen artifact, #79</a></strong> bug, courtesy of Cocotteseb</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    <p class="img-align">
+        <a href="http://jigsaw.w3.org/css-validator/check/referer">
+            <img style="border:0;width:88px;height:31px"
+                 src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+                 alt="Valid CSS!" />
+        </a>
+    </p>
+</body>
+</html>

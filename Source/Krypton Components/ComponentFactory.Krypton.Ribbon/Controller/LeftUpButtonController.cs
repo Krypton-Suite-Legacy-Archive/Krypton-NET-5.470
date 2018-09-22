@@ -12,9 +12,9 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Provide button pressed when mouse released functionality.
@@ -43,7 +43,7 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         /// <param name="target">Target for state changes.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public LeftUpButtonController(Krypton.Ribbon ribbon,
+        public LeftUpButtonController(KryptonRibbon ribbon,
                                       ViewBase target,
                                       NeedPaintHandler needPaint)
 		{
@@ -63,7 +63,7 @@ namespace Krypton.Ribbon
         /// <summary>
         /// Gets access to the owning ribbon instance.
         /// </summary>
-        public Krypton.Ribbon Ribbon { get; }
+        public KryptonRibbon Ribbon { get; }
 
 	    #endregion
 

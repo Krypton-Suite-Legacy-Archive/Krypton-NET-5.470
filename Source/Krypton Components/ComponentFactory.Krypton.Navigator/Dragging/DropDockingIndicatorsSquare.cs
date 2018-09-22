@@ -12,9 +12,9 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
 	/// Draws a window containing square docking indicators.
@@ -110,7 +110,7 @@ namespace Krypton.Navigator
             }
 
 		    // Show the window without activating it (i.e. do not take focus)
-			PI.ShowWindow(Handle, (short)PI.SW_SHOWNOACTIVATE);
+			PI.ShowWindow(Handle, PI.SW_SHOWNOACTIVATE);
 		}
 
 		/// <summary>

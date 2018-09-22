@@ -13,17 +13,17 @@ using System;
 using System.Drawing;
 using System.ComponentModel;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Represents a single recent document entry in the ribbon application button menu.
     /// </summary>
     [ToolboxItem(false)]
-    [ToolboxBitmap(typeof(Krypton.RibbonRecentDoc), "ToolboxBitmaps.Krypton.RibbonRecentDoc.png")]
+    [ToolboxBitmap(typeof(KryptonRibbonRecentDoc), "ToolboxBitmaps.KryptonRibbonRecentDoc.png")]
     [DefaultProperty("Text")]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
-    public class Krypton.RibbonRecentDoc : Component
+    public class KryptonRibbonRecentDoc : Component
     {
         #region Instance Fields
         private Image _image;
@@ -44,9 +44,9 @@ namespace Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialise a new instance of the Krypton.RibbonRecentDoc class.
+        /// Initialise a new instance of the KryptonRibbonRecentDoc class.
         /// </summary>
-        public Krypton.RibbonRecentDoc()
+        public KryptonRibbonRecentDoc()
         {
             // Default fields
             _text = "Recent Document";

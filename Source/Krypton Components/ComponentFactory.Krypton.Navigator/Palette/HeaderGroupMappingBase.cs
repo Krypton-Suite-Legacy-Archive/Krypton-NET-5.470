@@ -12,9 +12,9 @@
 using System.Drawing;
 using System.ComponentModel;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
 	/// Base class for storage and mapping of navigator header values.
@@ -22,7 +22,7 @@ namespace Krypton.Navigator
 	public abstract class HeaderGroupMappingBase : HeaderValuesBase
     {
         #region Instance Fields
-        private readonly Krypton.Navigator _navigator;
+        private readonly KryptonNavigator _navigator;
         private MapKryptonPageText _mapHeading;
         private MapKryptonPageText _mapDescription;
         private MapKryptonPageImage _mapImage;
@@ -34,7 +34,7 @@ namespace Krypton.Navigator
         /// </summary>
         /// <param name="navigator">Reference to owning navogator instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public HeaderGroupMappingBase(Krypton.Navigator navigator,
+        public HeaderGroupMappingBase(KryptonNavigator navigator,
                                       NeedPaintHandler needPaint)
             : base(needPaint)
         {

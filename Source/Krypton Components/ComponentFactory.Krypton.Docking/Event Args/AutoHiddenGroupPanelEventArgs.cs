@@ -11,7 +11,7 @@
 
 using System;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
 	/// <summary>
     /// Event arguments for a AutoHiddenGroupPanelAdding/AutoHiddenGroupPanelRemoved events.
@@ -29,7 +29,7 @@ namespace Krypton.Docking
         /// <param name="autoHiddenPanel">Reference to auto hidden panel control instance.</param>
         /// <param name="element">Reference to docking auto hidden edge element that is managing the panel.</param>
         public AutoHiddenGroupPanelEventArgs(KryptonAutoHiddenPanel autoHiddenPanel,
-                                             Krypton.DockingEdgeAutoHidden element)
+                                             KryptonDockingEdgeAutoHidden element)
 		{
             AutoHiddenPanelControl = autoHiddenPanel;
             EdgeAutoHiddenElement = element;
@@ -43,9 +43,9 @@ namespace Krypton.Docking
         public KryptonAutoHiddenPanel AutoHiddenPanelControl { get; }
 
 	    /// <summary>
-        /// Gets a reference to the Krypton.DockingEdgeAutoHidden that is managing the edge.
+        /// Gets a reference to the KryptonDockingEdgeAutoHidden that is managing the edge.
         /// </summary>
-        public Krypton.DockingEdgeAutoHidden EdgeAutoHiddenElement { get; }
+        public KryptonDockingEdgeAutoHidden EdgeAutoHiddenElement { get; }
 
 	    #endregion
 	}

@@ -13,20 +13,20 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
 using System.Windows.Forms;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Represents a ribbon group label.
     /// </summary>
     [ToolboxItem(false)]
-    [ToolboxBitmap(typeof(Krypton.RibbonGroupLabel), "ToolboxBitmaps.Krypton.RibbonGroupLabel.bmp")]
-    [Designer("Krypton.Ribbon.Krypton.RibbonGroupLabelDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [ToolboxBitmap(typeof(KryptonRibbonGroupLabel), "ToolboxBitmaps.KryptonRibbonGroupLabel.bmp")]
+    [Designer(typeof(ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupLabelDesigner))]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
     [DefaultProperty("Text")]
-    public class Krypton.RibbonGroupLabel : Krypton.RibbonGroupItem
+    public class KryptonRibbonGroupLabel : KryptonRibbonGroupItem
     {
         #region Instance Fields
         private bool _visible;
@@ -63,9 +63,9 @@ namespace Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialise a new instance of the Krypton.RibbonGroupLabel class.
+        /// Initialise a new instance of the KryptonRibbonGroupLabel class.
         /// </summary>
-        public Krypton.RibbonGroupLabel()
+        public KryptonRibbonGroupLabel()
         {
             // Default fields
             _visible = true;
@@ -415,7 +415,7 @@ namespace Krypton.Ribbon
         /// <param name="needPaint">Delegate for notifying changes in display.</param>
         /// <returns>ViewBase derived instance.</returns>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override ViewBase CreateView(Krypton.Ribbon ribbon, 
+        public override ViewBase CreateView(KryptonRibbon ribbon, 
                                             NeedPaintHandler needPaint)
         {
             return new ViewDrawRibbonGroupLabel(ribbon, this, needPaint);

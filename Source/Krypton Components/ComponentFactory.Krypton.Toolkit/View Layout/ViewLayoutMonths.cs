@@ -16,7 +16,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Globalization;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Extends the ViewComposite by creating/destroying month instances in a grid.

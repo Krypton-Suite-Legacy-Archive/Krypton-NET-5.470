@@ -11,7 +11,7 @@
 
 using System;
 
-namespace Krypton.Workspace
+namespace ComponentFactory.Krypton.Workspace
 {
 	/// <summary>
 	/// Data associated with a change in the active cell.
@@ -28,8 +28,8 @@ namespace Krypton.Workspace
 		/// </summary>
         /// <param name="oldCell">Previous active cell value.</param>
         /// <param name="newCell">New active cell value.</param>
-        public ActiveCellChangedEventArgs(Krypton.WorkspaceCell oldCell,
-                                          Krypton.WorkspaceCell newCell)
+        public ActiveCellChangedEventArgs(KryptonWorkspaceCell oldCell,
+                                          KryptonWorkspaceCell newCell)
 		{
             OldCell = oldCell;
             NewCell = newCell;
@@ -40,12 +40,12 @@ namespace Krypton.Workspace
 		/// <summary>
         /// Gets the old cell reference.
 		/// </summary>
-        public Krypton.WorkspaceCell OldCell { get; }
+        public KryptonWorkspaceCell OldCell { get; }
 
 	    /// <summary>
         /// Gets the new cell reference.
         /// </summary>
-        public Krypton.WorkspaceCell NewCell { get; }
+        public KryptonWorkspaceCell NewCell { get; }
 
 	    #endregion
 	}

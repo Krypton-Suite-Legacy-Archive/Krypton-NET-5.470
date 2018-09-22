@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="Krypton.Toolkit.KryptonForm" />
+    /// <seealso cref="ComponentFactory.Krypton.Toolkit.KryptonForm" />
     partial class RemindMeLaterForm
     {
         /// <summary>
@@ -34,14 +34,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RemindMeLaterForm));
-            this.kpnlBackdrop = new Krypton.Toolkit.KryptonPanel();
-            this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
-            this.kcmbRemindMeLaterTimeSpan = new Krypton.Toolkit.KryptonComboBox();
-            this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
-            this.kbtnRemindMeLater = new Krypton.Toolkit.KryptonButton();
-            this.kbtnCancel = new Krypton.Toolkit.KryptonButton();
+            this.kpnlBackdrop = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kcmbRemindMeLaterTimeSpan = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kbtnRemindMeLater = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kbtnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.kMan = new Krypton.Toolkit.KryptonManager(this.components);
+            this.kMan = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kpnlBackdrop)).BeginInit();
             this.kpnlBackdrop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kcmbRemindMeLaterTimeSpan)).BeginInit();
@@ -152,13 +152,13 @@
 
         #endregion
 
-        private Krypton.Toolkit.KryptonPanel kpnlBackdrop;
-        private Krypton.Toolkit.KryptonManager kMan;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel kpnlBackdrop;
+        private ComponentFactory.Krypton.Toolkit.KryptonManager kMan;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private Krypton.Toolkit.KryptonButton kbtnCancel;
-        private Krypton.Toolkit.KryptonButton kbtnRemindMeLater;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel1;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel2;
-        private Krypton.Toolkit.KryptonComboBox kcmbRemindMeLaterTimeSpan;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnCancel;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnRemindMeLater;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox kcmbRemindMeLaterTimeSpan;
     }
 }

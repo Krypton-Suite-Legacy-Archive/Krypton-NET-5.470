@@ -11,7 +11,7 @@
 
 using System.Collections.Generic;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
     /// <summary>
     /// Extends base functionality by allowing a collection of child docking elements.

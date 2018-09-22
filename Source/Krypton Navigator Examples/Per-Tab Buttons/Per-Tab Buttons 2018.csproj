@@ -55,14 +55,11 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Krypton Design">
-      <HintPath>..\..\..\Bin\Krypton Design.dll</HintPath>
-    </Reference>
     <Reference Include="Krypton Navigator">
-      <HintPath>..\..\..\Bin\Krypton Navigator.dll</HintPath>
+      <HintPath>..\..\..\..\..\Developer DLLs\Krypton DLLs\Versions\4.70\Krypton Navigator.dll</HintPath>
     </Reference>
     <Reference Include="Krypton Toolkit">
-      <HintPath>..\..\..\Bin\Krypton Toolkit.dll</HintPath>
+      <HintPath>..\..\..\..\..\Developer DLLs\Krypton DLLs\Versions\4.70\Krypton Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />

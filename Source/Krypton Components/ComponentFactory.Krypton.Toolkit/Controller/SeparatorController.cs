@@ -10,13 +10,13 @@
 // *****************************************************************************
 
 using System;
+using System.Diagnostics;
 using System.Drawing;
-using System.Windows.Forms;
 using System.Security;
 using System.Security.Permissions;
-using System.Diagnostics;
+using System.Windows.Forms;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     #region ISeparatorSource
     /// <summary>
@@ -76,7 +76,7 @@ namespace Krypton.Toolkit
 	/// </summary>
     public class SeparatorController : ButtonController,
                                        IDisposable
-                                       
+
     {
         #region Static Fields
         private static readonly Point _nullPoint = new Point(-1, -1);
@@ -84,6 +84,117 @@ namespace Krypton.Toolkit
         private static readonly Cursor _cursorVSplit = Properties.Resources.SplitVertical;
         private static readonly Cursor _cursorHMove = Cursors.SizeNS;
         private static readonly Cursor _cursorVMove = Cursors.SizeWE;
+
+        /// <summary>
+        /// This class has been created to remove the function
+        /// ControlPaint.FillReversibleRectangle(drawRect, Color.Black);
+        /// I have continued to have artifacts drawn on the screen
+        /// when dragging splitter bars.
+        /// 
+        /// Code courtesy of James Simms (https://github.com/jwsimms)
+        /// </summary>
+        public class DragObject
+        {
+            private static Color _barColour = Color.Red;
+            private static Control _ctrl = null;
+            private static ViewBase _target = null;
+            private static Control _parent = null;
+
+            /// <summary>
+            /// Hides this instance.
+            /// </summary>
+            public static void Hide()
+            {
+                if (_ctrl != null)
+                {
+                    _ctrl.Hide();
+
+                    _ctrl.Parent.Controls.Remove(_ctrl);
+
+                    _ctrl.Dispose();
+
+                    _ctrl = null;
+
+                    _parent = null;
+
+                    _target = null;
+
+                }
+            }
+
+            /// <summary>
+            /// Shows the specified target.
+            /// </summary>
+            /// <param name="target">The target.</param>
+            /// <param name="screenRect">The screen rect.</param>
+            public static void Show(ViewBase target, Rectangle screenRect)
+            {
+                //
+                // If for some reason, our target has changed, remove old control
+                //
+                if (_target != null)
+                {
+                    if (_target != target)
+                    {
+                        Hide();
+                    }
+                }
+
+                //
+                // Create dragbar control
+                //                                
+                if (_ctrl == null)
+                {
+                    _ctrl = new Control() { Visible = false, BackColor = _barColour };
+
+                    //
+                    // Get parent of dragbar control. Find a parent that
+                    // supports children. Some controls have read only 
+                    // child collections.
+                    //
+                    _parent = target.OwningControl;
+
+                    while (_parent != null)
+                    {
+
+                        try
+                        {
+                            _ctrl.Parent = _parent;
+
+                            _parent.Controls.Add(_ctrl);
+
+                            break;
+                        }
+                        catch (NotSupportedException)
+                        {
+                            _parent = _parent.Parent;
+                        }
+                    }
+                }
+
+                //
+                // Position dragbar control
+                //
+                Rectangle rect = _parent.RectangleToClient(screenRect);
+
+                _ctrl.Location = rect.Location;
+
+                _ctrl.Size = rect.Size;
+
+                _ctrl.BringToFront();
+
+                if (_ctrl.Visible == false)
+                {
+                    _ctrl.Show();
+                }
+
+                //
+                // Force a redraw
+                //
+                _ctrl.Invalidate();
+            }
+        }
+
         #endregion
 
         #region Instance Fields
@@ -108,13 +219,13 @@ namespace Krypton.Toolkit
         /// <param name="splitCursors">Show as split or movement cursors.</param>
         /// <param name="drawIndicator">Draw a separator indicator.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public SeparatorController(ISeparatorSource source, 
+        public SeparatorController(ISeparatorSource source,
                                    ViewBase target,
                                    bool splitCursors,
                                    bool drawIndicator,
                                    NeedPaintHandler needPaint)
             : base(target, needPaint)
-		{
+        {
             Debug.Assert(source != null);
 
             _source = source;
@@ -142,7 +253,7 @@ namespace Krypton.Toolkit
             UnregisterFilter();
         }
         #endregion
-        
+
         #region Public
         /// <summary>
         /// Gets and sets the drawing of the movement indicator.
@@ -162,14 +273,14 @@ namespace Krypton.Toolkit
 
         #endregion
 
-            #region Mouse Notifications
-            /// <summary>
-            /// Mouse has moved inside the view.
-            /// </summary>
-            /// <param name="c">Reference to the source control instance.</param>
-            /// <param name="pt">Mouse position relative to control.</param>
+        #region Mouse Notifications
+        /// <summary>
+        /// Mouse has moved inside the view.
+        /// </summary>
+        /// <param name="c">Reference to the source control instance.</param>
+        /// <param name="pt">Mouse position relative to control.</param>
         public override void MouseMove(Control c, Point pt)
-		{
+        {
             // If the separator is allowed to be moved by the user
             if (_source.SeparatorCanMove)
             {
@@ -200,7 +311,7 @@ namespace Krypton.Toolkit
 
             // Let base class do standard processing
             base.MouseMove(c, pt);
-		}
+        }
 
         /// <summary>
         /// Mouse button has been pressed in the view.
@@ -282,6 +393,7 @@ namespace Krypton.Toolkit
 
                 // Callback to the source to show movement has finished
                 Point splitPt = RecalcClient(pt);
+                DrawSplitIndicator(_nullPoint);
                 _source.SeparatorMoved(pt, splitPt);
             }
         }
@@ -292,7 +404,7 @@ namespace Krypton.Toolkit
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="next">Reference to view that is next to have the mouse.</param>
         public override void MouseLeave(Control c, ViewBase next)
-		{
+        {
             // If leaving when currently moving, then abort the movement
             if (IsMoving)
             {
@@ -305,7 +417,7 @@ namespace Krypton.Toolkit
             // Let base class do standard processing
             base.MouseLeave(c, next);
         }
-		#endregion
+        #endregion
 
         #region Key Notifications
         /// <summary>
@@ -459,11 +571,11 @@ namespace Krypton.Toolkit
         /// </summary>
         protected override bool IsOnlyPressedWhenOver
         {
-            get 
-            { 
+            get
+            {
                 // We want the separator to have the pressed look event when 
                 // the mouse is pressed by moved outside the separator rectangle
-                return false; 
+                return false;
             }
             set { }
         }
@@ -510,90 +622,50 @@ namespace Krypton.Toolkit
             return new Point(Target.ClientLocation.X + xDelta,
                              Target.ClientLocation.Y + yDelta);
         }
-
         private void DrawSplitIndicator(Point newPoint)
         {
             if (DrawMoveIndicator)
             {
-                if (_movementPoint == _nullPoint)
+                if (newPoint == _nullPoint)
                 {
-                    // If there is nothing old to remove...
-                    if (newPoint != _nullPoint)
-                    {
-                        // And there is something new to show, then just draw it
-                        DrawSplitIndicator(SplitRectangleFromPoint(newPoint));
-                    }
+                    DragObject.Hide();
                 }
-                else if (newPoint == _nullPoint)
+                else
                 {
-                    // If there is nothing new to draw...
-                    if (_movementPoint != _nullPoint)
+                    if (_movementPoint == _nullPoint)
                     {
-                        // And there is something old still showing, then remove it
-                        DrawSplitIndicator(SplitRectangleFromPoint(_movementPoint));
-                    }
-                }
-                else if (_movementPoint != newPoint)
-                {
-                    // There is a delta change to draw based on the orientation
-                    if (_separatorOrientation == Orientation.Vertical)
-                    {
-                        // Find the absolute different in positions
-                        int delta = Math.Abs(_movementPoint.X - newPoint.X);
-
-                        // If they do not actually overlap...
-                        if (delta >= Target.ClientWidth)
+                        // If there is nothing old to remove...
+                        if (newPoint != _nullPoint)
                         {
-                            // Then we just remove the old indicator and draw the new one
-                            DrawSplitIndicator(SplitRectangleFromPoint(_movementPoint));
-                            DrawSplitIndicator(SplitRectangleFromPoint(newPoint));
-                        }
-                        else
-                        {
-                            // Draw the areas that do not overlap
-                            DrawSplitIndicator(SplitRectangleFromPoint(_movementPoint, newPoint.X - _movementPoint.X));
-                            DrawSplitIndicator(SplitRectangleFromPoint(new Point(_movementPoint.X + Target.ClientWidth, _movementPoint.Y), newPoint.X - _movementPoint.X));
+                            DragObject.Show(Target, SplitRectangleFromPoint(newPoint));
                         }
                     }
                     else
                     {
-                        // Find the absolute different in positions
-                        int delta = Math.Abs(_movementPoint.Y - newPoint.Y);
-
-                        // If they do not actually overlap...
-                        if (delta >= Target.ClientHeight)
-                        {
-                            // Then we just remove the old indicator and draw the new one
-                            DrawSplitIndicator(SplitRectangleFromPoint(_movementPoint));
-                            DrawSplitIndicator(SplitRectangleFromPoint(newPoint));
-                        }
-                        else
-                        {
-                            // Draw the areas that do not overlap
-                            DrawSplitIndicator(SplitRectangleFromPoint(_movementPoint, newPoint.Y - _movementPoint.Y));
-                            DrawSplitIndicator(SplitRectangleFromPoint(new Point(_movementPoint.X, _movementPoint.Y + Target.ClientHeight), newPoint.Y - _movementPoint.Y));
-                        }
+                        DragObject.Show(Target, SplitRectangleFromPoint(newPoint));
                     }
                 }
+                // Remember the point used for last draw cycle
+                _movementPoint = newPoint;
             }
-
-            // Remember the point used for last draw cycle
-            _movementPoint = newPoint;
         }
-
-        private Rectangle SplitRectangleFromPoint(Point pt) => SplitRectangleFromPoint(pt,
-            _separatorOrientation == Orientation.Vertical ? Target.ClientWidth : Target.ClientHeight);
-
-        private Rectangle SplitRectangleFromPoint(Point pt, int length)
+        private Rectangle SplitRectangleFromPoint(Point pt)
         {
-            // Find the splitter rectangle based on the orientation
-            Rectangle splitRectangle = _separatorOrientation == Orientation.Vertical
-                ? new Rectangle(pt.X, _separatorBox.Y, length, Target.ClientHeight)
-                : new Rectangle(_separatorBox.X, pt.Y, Target.ClientWidth, length);
+            Rectangle rect;
+            if (_separatorOrientation == Orientation.Vertical)
+            {
+                rect = new Rectangle(pt.X, _separatorBox.Y, Target.ClientWidth, Target.ClientHeight);
 
-            return _source.SeparatorControl.RectangleToScreen(splitRectangle);
+            }
+            else
+            {
+                rect = new Rectangle(_separatorBox.X, pt.Y, Target.ClientWidth, Target.ClientHeight);
+            }
+            Rectangle ScreenRect = _source.SeparatorControl.RectangleToScreen(rect);
+
+
+            return (ScreenRect);
         }
-
         private void RegisterFilter()
         {
             if (_filter == null)
@@ -624,13 +696,6 @@ namespace Krypton.Toolkit
         }
         #endregion
 
-        #region Implementation Static
-        private static void DrawSplitIndicator(Rectangle drawRect)
-        {
-            // We just perform a simple reversible rectangle draw
-            ControlPaint.FillReversibleRectangle(drawRect, Color.Black);
-        }
-        #endregion
     }
 
     internal class SeparatorMessageFilter : IMessageFilter

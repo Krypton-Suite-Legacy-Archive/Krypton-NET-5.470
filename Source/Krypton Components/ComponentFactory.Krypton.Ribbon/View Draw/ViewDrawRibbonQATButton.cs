@@ -14,9 +14,9 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a quick access toolbar button based on a IQuickAccessToolbarButton source.
@@ -29,7 +29,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private readonly QATButtonToContent _contentProvider;
         private readonly ViewDrawContent _drawContent;
         private IDisposable _mementoBack;
@@ -42,7 +42,7 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="qatButton">Reference to button definition.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonQATButton(Krypton.Ribbon ribbon,
+        public ViewDrawRibbonQATButton(KryptonRibbon ribbon,
                                        IQuickAccessToolbarButton qatButton,
                                        NeedPaintHandler needPaint)
         {

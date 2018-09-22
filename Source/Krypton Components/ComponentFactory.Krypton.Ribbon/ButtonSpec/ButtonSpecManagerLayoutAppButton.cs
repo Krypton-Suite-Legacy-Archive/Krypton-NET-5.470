@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.Windows.Forms;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Manage a collection of button specs for placing within a collection of ViewLayoutDocker instances.

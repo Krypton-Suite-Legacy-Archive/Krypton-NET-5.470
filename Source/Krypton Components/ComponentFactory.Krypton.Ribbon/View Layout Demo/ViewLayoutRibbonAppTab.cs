@@ -17,9 +17,9 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Reflection;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Layout area for the application tab.
@@ -33,7 +33,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private Krypton.Ribbon _ribbon;
+        private KryptonRibbon _ribbon;
         private ViewDrawRibbonAppTab _appTab;
         #endregion
 
@@ -42,7 +42,7 @@ namespace Krypton.Ribbon
         /// Initialize a new instance of the ViewLayoutRibbonAppTab class.
 		/// </summary>
         /// <param name="ribbon">Owning control instance.</param>
-        public ViewLayoutRibbonAppTab(Krypton.Ribbon ribbon)
+        public ViewLayoutRibbonAppTab(KryptonRibbon ribbon)
         {
             Debug.Assert(ribbon != null);
             _ribbon = ribbon;
@@ -83,7 +83,7 @@ namespace Krypton.Ribbon
         /// Perform licence checking actions.
         /// </summary>
         /// <param name="ribbon">Ribbon control reference.</param>
-        protected void PerformLicenceChecking(Krypton.Ribbon ribbon)
+        protected void PerformLicenceChecking(KryptonRibbon ribbon)
         {
             // Define the encryted licence information
             EncryptedLicenseProvider.SetParameters(_licenseParameters);
@@ -94,7 +94,7 @@ namespace Krypton.Ribbon
             {
                 // Is there a valid license registered?
                 License license = null;
-                validated = LicenseManager.IsValid(typeof(Krypton.Ribbon), ribbon, out license);
+                validated = LicenseManager.IsValid(typeof(KryptonRibbon), ribbon, out license);
 
                 // Valid license is not enough!
                 if (validated)
@@ -151,7 +151,7 @@ namespace Krypton.Ribbon
                     else
                     {
                         LicenseInstallForm form = new LicenseInstallForm();
-                        form.ShowDialog(typeof(Krypton.Ribbon));
+                        form.ShowDialog(typeof(KryptonRibbon));
                     }
                 }
             }

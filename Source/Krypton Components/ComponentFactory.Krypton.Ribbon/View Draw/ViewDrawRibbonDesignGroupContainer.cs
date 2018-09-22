@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws an design time only for adding a new container to a group.
@@ -28,7 +28,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.RibbonGroup _ribbonGroup;
+        private readonly KryptonRibbonGroup _ribbonGroup;
         private ContextMenuStrip _cms;
         #endregion
 
@@ -40,9 +40,9 @@ namespace Krypton.Ribbon
             {
                 TransparentColor = Color.Magenta
             };
-            _imageList.Images.AddRange(new Image[]{Properties.Resources.Krypton.RibbonGroupTriple,
-                                                   Properties.Resources.Krypton.RibbonGroupLines,
-                                                   Properties.Resources.Krypton.RibbonGroupSeparator,
+            _imageList.Images.AddRange(new Image[]{Properties.Resources.KryptonRibbonGroupTriple,
+                                                   Properties.Resources.KryptonRibbonGroupLines,
+                                                   Properties.Resources.KryptonRibbonGroupSeparator,
                                                    Properties.Resources.KryptonGallery});
         }
 
@@ -52,8 +52,8 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonGroup">Associated ribbon group.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonDesignGroupContainer(Krypton.Ribbon ribbon,
-                                                  Krypton.RibbonGroup ribbonGroup,
+        public ViewDrawRibbonDesignGroupContainer(KryptonRibbon ribbon,
+                                                  KryptonRibbonGroup ribbonGroup,
                                                   NeedPaintHandler needPaint)
             : base(ribbon, needPaint)
         {

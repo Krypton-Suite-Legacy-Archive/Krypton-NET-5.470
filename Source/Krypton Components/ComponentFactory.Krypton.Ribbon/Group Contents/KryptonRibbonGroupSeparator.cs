@@ -12,20 +12,20 @@
 using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Represents a ribbon group separator.
     /// </summary>
     [ToolboxItem(false)]
-    [ToolboxBitmap(typeof(Krypton.RibbonGroupSeparator), "ToolboxBitmaps.Krypton.RibbonGroupSeparator.bmp")]
-    [Designer("Krypton.Ribbon.Krypton.RibbonGroupSeparatorDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [ToolboxBitmap(typeof(KryptonRibbonGroupSeparator), "ToolboxBitmaps.KryptonRibbonGroupSeparator.bmp")]
+    [Designer(typeof(ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupSeparatorDesigner))]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
     [DefaultProperty("Visible")]
-    public class Krypton.RibbonGroupSeparator : Krypton.RibbonGroupContainer
+    public class KryptonRibbonGroupSeparator : KryptonRibbonGroupContainer
     {
         #region Instance Fields
         private bool _visible;
@@ -52,9 +52,9 @@ namespace Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialise a new instance of the Krypton.RibbonGroupSeparator class.
+        /// Initialise a new instance of the KryptonRibbonGroupSeparator class.
         /// </summary>
-        public Krypton.RibbonGroupSeparator()
+        public KryptonRibbonGroupSeparator()
         {
             // Default fields
             _visible = true;
@@ -145,7 +145,7 @@ namespace Krypton.Ribbon
         /// <param name="needPaint">Delegate for notifying changes in display.</param>
         /// <returns>ViewBase derived instance.</returns>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override ViewBase CreateView(Krypton.Ribbon ribbon,
+        public override ViewBase CreateView(KryptonRibbon ribbon,
                                             NeedPaintHandler needPaint)
         {
             return new ViewDrawRibbonGroupSeparator(ribbon, this, needPaint);

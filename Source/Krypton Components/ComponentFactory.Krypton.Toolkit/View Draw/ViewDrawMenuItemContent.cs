@@ -12,7 +12,7 @@
 using System.Drawing;
 using System.Diagnostics;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     internal class ViewDrawMenuItemContent : ViewDrawContent,
                                              IContextMenuItemColumn

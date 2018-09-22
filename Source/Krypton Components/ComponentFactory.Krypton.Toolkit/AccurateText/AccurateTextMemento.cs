@@ -13,7 +13,7 @@ using System;
 using System.Drawing;
 using System.Drawing.Text;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
 	/// Encapsulate the information needed to draw text using the AccurateText class.

@@ -11,10 +11,10 @@
 
 using System.Drawing;
 using System.Windows.Forms;
-using Krypton.Toolkit;
-using Krypton.Navigator;
+using ComponentFactory.Krypton.Toolkit;
+using ComponentFactory.Krypton.Navigator;
 
-namespace Krypton.Workspace
+namespace ComponentFactory.Krypton.Workspace
 {
     /// <summary>
     /// Target one of the four sides of a workspace cell.
@@ -41,8 +41,8 @@ namespace Krypton.Workspace
                                            Rectangle hotRect,
                                            Rectangle drawRect,
                                            DragTargetHint hint,
-                                           Krypton.Workspace workspace,
-                                           Krypton.WorkspaceCell cell,
+                                           KryptonWorkspace workspace,
+                                           KryptonWorkspaceCell cell,
                                            KryptonPageFlags allowFlags)
             : base(screenRect, hotRect, drawRect, hint, workspace, allowFlags)
         {
@@ -69,7 +69,7 @@ namespace Krypton.Workspace
         /// <summary>
         /// Gets the target workspace cell.
         /// </summary>
-        public Krypton.WorkspaceCell Cell { get; private set; }
+        public KryptonWorkspaceCell Cell { get; private set; }
 
         /// <summary>
         /// Is this target a match for the provided screen position.
@@ -131,10 +131,10 @@ namespace Krypton.Workspace
         public override bool PerformDrop(Point screenPt, PageDragEndData data)
         {
             // We need a parent sequence in order to perform drop
-            if (Cell.WorkspaceParent is Krypton.WorkspaceSequence parent)
+            if (Cell.WorkspaceParent is KryptonWorkspaceSequence parent)
             {
                 // Transfer the dragged pages into a new cell
-                Krypton.WorkspaceCell cell = new Krypton.WorkspaceCell();
+                KryptonWorkspaceCell cell = new KryptonWorkspaceCell();
                 KryptonPage page = ProcessDragEndData(Workspace, cell, data);
 
                 // If no pages are transferred then we do nothing and no longer need cell instance
@@ -155,7 +155,7 @@ namespace Krypton.Workspace
                             : Orientation.Horizontal;
 
                         // Create a new sequence and transfer the target cell into it
-                        Krypton.WorkspaceSequence sequence = new Krypton.WorkspaceSequence(sequenceOrientation);
+                        KryptonWorkspaceSequence sequence = new KryptonWorkspaceSequence(sequenceOrientation);
                         int index = parent.Children.IndexOf(Cell);
                         parent.Children.RemoveAt(index);
                         sequence.Children.Add(Cell);

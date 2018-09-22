@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.ComponentModel;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
 	/// Storage for bar related properties.
@@ -31,7 +31,7 @@ namespace Krypton.Navigator
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Navigator _navigator;
+        private readonly KryptonNavigator _navigator;
         private BarMultiline _barMultiline;
         private bool _barAnimation;
         private VisualOrientation _barOrientation;
@@ -57,7 +57,7 @@ namespace Krypton.Navigator
 		/// </summary>
         /// <param name="navigator">Reference to owning navigator instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public NavigatorBar(Krypton.Navigator navigator,
+        public NavigatorBar(KryptonNavigator navigator,
                             NeedPaintHandler needPaint)
 		{
             Debug.Assert(navigator != null);

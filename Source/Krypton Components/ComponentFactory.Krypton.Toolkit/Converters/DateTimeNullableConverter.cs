@@ -13,7 +13,7 @@ using System;
 using System.ComponentModel;
 using System.Globalization;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Add DBNull/Null conversion for date time types.

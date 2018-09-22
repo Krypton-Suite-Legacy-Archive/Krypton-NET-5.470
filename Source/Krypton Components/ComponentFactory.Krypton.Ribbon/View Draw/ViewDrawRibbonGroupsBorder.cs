@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Draws the border around the groups inside the groups area.
@@ -44,7 +44,7 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="borderOutside">Should border be placed outside the contents.</param>
         /// <param name="needPaintDelegate">Delegate for notifying paint/layout changes.</param>
-        public ViewDrawRibbonGroupsBorder(Krypton.Ribbon ribbon,
+        public ViewDrawRibbonGroupsBorder(KryptonRibbon ribbon,
                                           bool borderOutside,
                                           NeedPaintHandler needPaintDelegate)
         {
@@ -313,7 +313,7 @@ namespace Krypton.Ribbon
         /// <summary>
         /// Gets access the source ribbon control.
         /// </summary>
-        protected Krypton.Ribbon Ribbon { get; }
+        protected KryptonRibbon Ribbon { get; }
 
         /// <summary>
         /// Gets access the paint delegate.
@@ -330,7 +330,7 @@ namespace Krypton.Ribbon
             if (!string.IsNullOrEmpty(Ribbon.SelectedTab?.ContextName))
             {
                 // Find the context definition for this context
-                Krypton.RibbonContext ribbonContext = Ribbon.RibbonContexts[Ribbon.SelectedTab.ContextName];
+                KryptonRibbonContext ribbonContext = Ribbon.RibbonContexts[Ribbon.SelectedTab.ContextName];
 
                 // Should always work, but you never know!
                 if (ribbonContext != null)

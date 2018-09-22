@@ -12,9 +12,9 @@
 using System.Drawing;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Draws the border around the groups inside the groups area and manages per tab scrollers as well.
@@ -22,7 +22,7 @@ namespace Krypton.Ribbon
     internal class ViewDrawRibbonGroupsBorderSynch : ViewDrawRibbonGroupsBorder
     {
         #region Classes
-        private class TabToView : Dictionary<Krypton.RibbonTab, ViewLayoutRibbonScrollPort> { };
+        private class TabToView : Dictionary<KryptonRibbonTab, ViewLayoutRibbonScrollPort> { };
         #endregion
 
         #region Static Fields
@@ -41,7 +41,7 @@ namespace Krypton.Ribbon
         /// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="needPaintDelegate">Delegate for notifying paint/layout changes.</param>
-        public ViewDrawRibbonGroupsBorderSynch(Krypton.Ribbon ribbon,
+        public ViewDrawRibbonGroupsBorderSynch(KryptonRibbon ribbon,
                                                NeedPaintHandler needPaintDelegate)
             : base(ribbon, false, needPaintDelegate)
         {
@@ -94,7 +94,7 @@ namespace Krypton.Ribbon
         /// </summary>
         /// <param name="tab">Ribbon tab reference.</param>
         /// <returns>Array of KeyTipInfo; otherwise null.</returns>
-        public KeyTipInfo[] GetGroupKeyTips(Krypton.RibbonTab tab) => _tabToView.ContainsKey(tab)
+        public KeyTipInfo[] GetGroupKeyTips(KryptonRibbonTab tab) => _tabToView.ContainsKey(tab)
             ? _tabToView[tab].GetGroupKeyTips()
             : new KeyTipInfo[] { };
 
@@ -212,7 +212,7 @@ namespace Krypton.Ribbon
             TabToView regenerate = new TabToView();
             
             // Make sure we have a view element to match each tab
-            foreach(Krypton.RibbonTab tab in Ribbon.RibbonTabs)
+            foreach(KryptonRibbonTab tab in Ribbon.RibbonTabs)
             {
                 ViewLayoutRibbonScrollPort view = null;
 
@@ -248,7 +248,7 @@ namespace Krypton.Ribbon
             _tabToView = regenerate;
 
             // Add the view elements in same order as the tab definitions
-            foreach (Krypton.RibbonTab tab in Ribbon.RibbonTabs)
+            foreach (KryptonRibbonTab tab in Ribbon.RibbonTabs)
             {
                 Add(_tabToView[tab]);
             }

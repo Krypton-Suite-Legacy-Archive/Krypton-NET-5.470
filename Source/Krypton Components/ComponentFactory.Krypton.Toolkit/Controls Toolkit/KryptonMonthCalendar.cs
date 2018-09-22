@@ -15,7 +15,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
     /// Enables the user to select a date using a visual monthly calendar display.
@@ -25,7 +25,7 @@ namespace Krypton.Toolkit
     [DefaultEvent("DateChanged")]
     [DefaultProperty("SelectionRange")]
     [DefaultBindingProperty("SelectionRange")]
-    [Designer("Krypton.Toolkit.KryptonMonthCalendarDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonMonthCalendarDesigner))]
     [DesignerCategory("code")]
     [Description("Select a date using a visual monthly calendar display.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]

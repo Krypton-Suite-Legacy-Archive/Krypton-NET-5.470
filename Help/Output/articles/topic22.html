@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content=" | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>KryptonContextMenu</p>
+<p>Use the <em>KryptonContextMenu</em> component instead of the <em>ContextMenuStrip</em> for
+displaying context menus to the end user. The <em>Krypton</em> implementation has
+several advantages over the <em>ContextMenuStrip</em> version. It has additional
+functionality available on the menu entries, such as the ability to have split
+buttons. It has additional types of menu entry, such as the header menu item. It
+also allows for more complex column arrangements.</p>
+<p><strong>Implementation</strong><br>Note that the <em>KryptonContextMenu</em> is not just a customized version of the
+<em>ContextMenuStrip</em>. It is written as an entirely new component so you will not
+be able to convert to using the <strong>Krypton</strong> version by just renaming your
+existing context menu instances. Nor can you add <em>ToolStrip</em> menu instances to
+the <em>Krypton</em> implementation.</p>
+<p>KryptonContextMenu Properties<br>Figure 1 shows the list of properties exposed by the <em>KryptonContextMenu</em>
+component.</p>
+<p> <em>Figure 1 - KryptonContextMenu properties</em></p>
+<ul>
+<li>*</li>
+</ul>
+<p><strong>Enabled</strong><br>This property does not prevent the context menu from being displayed but it does
+force all the menu items to be disabled even thought the items themselves are
+not individually disabled. This <em>Enabled</em> state is used to determine if the
+displayed context menu uses the enabled or disabled border and background for
+the entire context menu area.</p>
+<p><strong>Items</strong><br>A collection that contains the top level set of context menu items.</p>
+<p><strong>Tag</strong><br>Use the <em>Tag</em> to assign your application specific information with the component
+instance.</p>
+<p><strong>Images</strong><br>Most aspects of the appearance are specified via the set of state properties but
+there are some elements of the context menu that use images. This compound
+properties allows you to override the default images that are inherited from the
+associated palette. Examples of the images it provides are the <em>Checked</em> and
+<em>Indeterminate</em> pictures used in the image column for a menu item that has a
+checked state defined.</p>
+<p><strong>Palette</strong><br><strong>PaletteMode</strong><br>By default your component will use the globally defined palette. If you need to
+alter this so that a fixed builtin palette is specified then update the
+<em>PaleteMode</em> property directly. If you need to specify a <em>KryptonPalette</em>
+instance then assign it to the <em>Palette</em> property.</p>
+<p><strong>StateChecked, StateCommon, StateDisabled, StateHighlight &amp; StateNormal</strong><br>In order to customize the appearance you need to update the appropriate state
+properties. Not all elements of the appearance use all of the different possible
+states, so examine all the different states to discover which are appropriate
+for the element of interest. The intention of the context menu is that the
+appearance does not change whilst it is already displayed, so attempting to
+alter state properties will not update immediately as you might be expecting.</p>
+<p>KryptonContextMenu Methods</p>
+<p>There are only two methods that you need to be aware of in order to use the
+<em>KryptonContextMenu</em> effectively.</p>
+<p><strong>Show</strong></p>
+<p>Use the <em>Show</em> method to display the context menu. There are several different
+overrides for the method that allow various ways of specifying the screen
+location of the menu.</p>
+<p><strong>Close</strong><br>Call <em>Close</em> to remove the context menu from display. This method has no effect
+if the menu is not currently being displayed.</p>
+<p>KryptonContextMenu Events<br>There are four evens exposed by the <em>KryptonContextMenu</em> component as seen in
+figure 3.  </p>
+<ul>
+<li>Figure 3 - KryptonContextMenu events*</li>
+</ul>
+<p><strong>Closed</strong><br>Generated when the context menu has been removed from display. This event is
+useful when you need to perform cleanup once the context menu has been
+dismissed. Note that the event provides information about the reason for the
+close occurring, so you can take alternative action depending on the cause the
+menu close.</p>
+<p><strong>Closing</strong><br>Occurs when the context menu is requesting that it be removed from the display.
+This can occur because the user has clicked on one of the menu options. You can
+prevent the close from occuring by setting the <em>Cancel</em> property of the event
+arguments to <em>False</em>. Event data will contain an enumeration that indicates the
+reason for the close occuring. So you can decide if the close should be allowed
+depending on the reason. Note that it is possible for the context menu to be
+removed without the generation of the <em>Closing</em> event. In that case you will
+receive only the <em>Closed</em> event.</p>
+<p><strong>Opened</strong><br>Fired when the context menu has been displayed.</p>
+<p><strong>Opening</strong><br>Generated when the context menu is about to be displayed but before the <em>Items</em>
+collection has been processed. This event has a <em>Cancel</em> property so you can
+prevent the menu from being displayed. This is the appropriate event to use for
+updating the <em>Items</em> collection of entries so that it reflects accurately your
+application state. This prevents the need to constantly update menu item state
+during normal operation when the context menu is not being shown.</p>
+<p>Menu Items<br>There are several different types that can be used inside the context menu
+<em>Items</em> hierarchy. However, not all of them are valid at all locations in the
+hierarchy. At the top level you cannot place an individual
+<em>KryptonContextMenuItem</em> but instead must place them inside of an
+<em>KryptonContextMenuItems</em> collection instead. This extra hierarchy level allows
+for greater display flexibility because the collection of items can be modified
+as a group. For example, you can specify that a group of items be displayed
+without the image column having the traditional background displayed.</p>
+<p>The list of items that can be placed at the root <em>Items</em> level is as follows...</p>
+<ul>
+<li><ul>
+<li><a href="topic23.html">KryptonContextMenuCheckBox</a>  </li>
+</ul>
+</li>
+<li><ul>
+<li><a href="topic24.html">KryptonContextMenuCheckButton</a>  </li>
+</ul>
+</li>
+<li><ul>
+<li><a href="topic25.html">KryptonContextMenuColorColumns</a><br><a href="topic26.html">KryptonContextMenuHeader</a>  </li>
+</ul>
+</li>
+<li><ul>
+<li><a href="topic27.html">KryptonContextMenuImageSelect</a>  </li>
+</ul>
+</li>
+<li><ul>
+<li><a href="topic28.html">KryptonContextMenuItems</a>  </li>
+</ul>
+</li>
+<li><ul>
+<li><a href="topic29.html">KryptonContextMenuItem</a>  </li>
+</ul>
+</li>
+<li><ul>
+<li><a href="topic30.html">KryptonContextMenuLinkLabel</a>  </li>
+</ul>
+</li>
+<li><ul>
+<li><a href="topic31.html">KryptonContextMenuMonthCalendar</a>  </li>
+</ul>
+</li>
+<li><ul>
+<li><a href="topic32.html">KryptonContextMenuRadioButton</a>  </li>
+</ul>
+</li>
+<li><ul>
+<li><a href="topic33.html">KryptonContextMenuSeparator</a>  </li>
+</ul>
+</li>
+</ul>
+<p>The list of items that can be placed inside a
+<a href="topic28.html">KryptonContextMenuItems</a> is as follows...</p>
+<ul>
+<li><ul>
+<li><a href="topic29.html">KryptonContextMenuItem</a><br><a href="topic26.html">KryptonContextMenuHeader</a>  </li>
+</ul>
+</li>
+<li><ul>
+<li><a href="topic33.html">KryptonContextMenuSeparator</a>  </li>
+</ul>
+</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

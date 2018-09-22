@@ -15,9 +15,9 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyVersion("4.70.1.0")]
-[assembly: AssemblyFileVersion("4.70.1.0")]
-[assembly: AssemblyInformationalVersion("4.70.1.0")]
+[assembly: AssemblyVersion("4.70.4.0")]
+[assembly: AssemblyFileVersion("4.70.4.0")]
+[assembly: AssemblyInformationalVersion("4.70.4.0")]
 [assembly: AssemblyCopyright("© Component Factory Pty Ltd 2012. All rights reserved.")]
 [assembly: AssemblyProduct("KryptonCommand Examples")]
 [assembly: AssemblyDefaultAlias("KryptonCommandExamples.dll")]
@@ -33,4 +33,4 @@ using System.Runtime.InteropServices;
 [assembly: Dependency("System", LoadHint.Always)]
 [assembly: Dependency("System.Drawing", LoadHint.Always)]
 [assembly: Dependency("System.Windows.Forms", LoadHint.Always)]
-[assembly: Dependency("Krypton.Toolkit", LoadHint.Always)]
+[assembly: Dependency("ComponentFactory.Krypton.Toolkit", LoadHint.Always)]

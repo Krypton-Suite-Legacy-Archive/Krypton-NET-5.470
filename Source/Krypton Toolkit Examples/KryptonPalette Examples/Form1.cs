@@ -9,7 +9,7 @@
 // *****************************************************************************
 
 using System;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace KryptonPaletteExamples
 {
@@ -96,11 +96,20 @@ namespace KryptonPaletteExamples
         {
             kryptonManager.GlobalPalette = kryptonPaletteCustom;
             propertyGrid.SelectedObject = kryptonPaletteCustom;
+
+            btnExport.Enabled = true;
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            kryptonPaletteCustom.Export();
+
+            btnExport.Enabled = false;
         }
     }
 }

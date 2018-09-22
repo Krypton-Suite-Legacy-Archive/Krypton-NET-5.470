@@ -14,11 +14,11 @@ using System.Xml;
 using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
-using Krypton.Toolkit;
-using Krypton.Workspace;
-using Krypton.Navigator;
+using ComponentFactory.Krypton.Toolkit;
+using ComponentFactory.Krypton.Workspace;
+using ComponentFactory.Krypton.Navigator;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
     /// <summary>
     /// Provides docking functionality for a floating window that contains just a dockspace.
@@ -26,7 +26,7 @@ namespace Krypton.Docking
     [ToolboxItem(false)]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
-    public class Krypton.DockingFloatingWindow : DockingElementClosedCollection
+    public class KryptonDockingFloatingWindow : DockingElementClosedCollection
     {
         #region Instance Fields
 
@@ -36,12 +36,12 @@ namespace Krypton.Docking
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the Krypton.DockingFloatingWindow class.
+        /// Initialize a new instance of the KryptonDockingFloatingWindow class.
         /// </summary>
         /// <param name="name">Initial name of the element.</param>
         /// <param name="owner">Reference to form that owns the floating windows.</param>
         /// <param name="floatspace">Reference to form that will own all the floating window.</param>
-        public Krypton.DockingFloatingWindow(string name, Form owner, Krypton.DockingFloatspace floatspace)
+        public KryptonDockingFloatingWindow(string name, Form owner, KryptonDockingFloatspace floatspace)
             : base(name)
         {
             if (owner == null)
@@ -95,7 +95,7 @@ namespace Krypton.Docking
         /// <summary>
         /// Gets the floatspace element contained by the floating window.
         /// </summary>
-        public Krypton.DockingFloatspace FloatspaceElement { get; }
+        public KryptonDockingFloatspace FloatspaceElement { get; }
 
         /// <summary>
         /// Propogates an action request down the hierarchy of docking elements.
@@ -159,8 +159,8 @@ namespace Krypton.Docking
         /// Return the workspace cell that contains the named page.
         /// </summary>
         /// <param name="uniqueName">Unique name for search.</param>
-        /// <returns>Reference to Krypton.WorkspaceCell if match found; otherwise null.</returns>
-        public Krypton.WorkspaceCell CellForPage(string uniqueName)
+        /// <returns>Reference to KryptonWorkspaceCell if match found; otherwise null.</returns>
+        public KryptonWorkspaceCell CellForPage(string uniqueName)
         {
             return FloatspaceElement.CellForPage(uniqueName);
         }
@@ -172,7 +172,7 @@ namespace Krypton.Docking
         public void SelectPage(string uniqueName)
         {
             // Find the cell that contains the target named paged
-            Krypton.WorkspaceCell cell = CellForPage(uniqueName);
+            KryptonWorkspaceCell cell = CellForPage(uniqueName);
             // Check that the pages collection contains the named paged
             KryptonPage page = cell?.Pages[uniqueName];
             if (page != null)
@@ -269,21 +269,21 @@ namespace Krypton.Docking
         private void OnFloatingWindowCloseClicked(object sender, UniqueNamesEventArgs e)
         {
             // Events are generated from the parent docking manager
-            Krypton.DockingManager dockingManager = DockingManager;
+            KryptonDockingManager dockingManager = DockingManager;
             dockingManager?.CloseRequest(e.UniqueNames);
         }
 
         private void OnFloatingWindowCaptionDragging(object sender, ScreenAndOffsetEventArgs e)
         {
             // Events are generated from the parent docking manager
-            Krypton.DockingManager dockingManager = DockingManager;
+            KryptonDockingManager dockingManager = DockingManager;
             dockingManager?.DoDragDrop(e.ScreenPoint, e.ElementOffset, null, this);
         }
 
         private void OnDockingFloatspaceDisposed(object sender, EventArgs e)
         {
             // Cast to correct type and unhook event handlers so garbage collection can occur
-            Krypton.DockingFloatspace floatspaceElement = (Krypton.DockingFloatspace)sender;
+            KryptonDockingFloatspace floatspaceElement = (KryptonDockingFloatspace)sender;
             floatspaceElement.Disposed -= OnDockingFloatspaceDisposed;
 
             // Kill the floatspace window
@@ -299,7 +299,7 @@ namespace Krypton.Docking
             FloatingWindow.Disposed -= OnFloatingWindowDisposed;
 
             // Events are generated from the parent docking manager
-            Krypton.DockingManager dockingManager = DockingManager;
+            KryptonDockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {
                 // Generate event so the floating window customization can be reversed.

@@ -9,9 +9,9 @@
 //  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Layout area for the group button.
@@ -30,8 +30,8 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Owning control instance.</param>
         /// <param name="ribbonGroup">Reference to ribbon group this represents.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewLayoutRibbonGroupButton(Krypton.Ribbon ribbon,
-                                           Krypton.RibbonGroup ribbonGroup,
+        public ViewLayoutRibbonGroupButton(KryptonRibbon ribbon,
+                                           KryptonRibbonGroup ribbonGroup,
                                            NeedPaintHandler needPaint)
         {
             _groupButton = new ViewDrawRibbonGroupDialogButton(ribbon, ribbonGroup, needPaint);

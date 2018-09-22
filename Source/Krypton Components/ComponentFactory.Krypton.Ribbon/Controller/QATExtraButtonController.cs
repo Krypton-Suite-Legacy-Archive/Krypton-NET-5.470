@@ -11,9 +11,9 @@
 
 using System.Drawing;
 using System.Windows.Forms;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Provide quick access toolbar extra button controller functionality.
@@ -35,7 +35,7 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         /// <param name="target">Target for state changes.</param>
         /// <param name="needPaint">Delegate for notifying changes in display.</param>
-        public QATExtraButtonController(Krypton.Ribbon ribbon,
+        public QATExtraButtonController(KryptonRibbon ribbon,
                                         ViewBase target, 
                                         NeedPaintHandler needPaint)
             : base(ribbon, target, needPaint)
@@ -136,7 +136,7 @@ namespace Krypton.Ribbon
         /// Perform actual selection of the item.
         /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
-        public void KeyTipSelect(Krypton.Ribbon ribbon)
+        public void KeyTipSelect(KryptonRibbon ribbon)
         {
             // Change to a fixed pressed appearance
             SetFixed();

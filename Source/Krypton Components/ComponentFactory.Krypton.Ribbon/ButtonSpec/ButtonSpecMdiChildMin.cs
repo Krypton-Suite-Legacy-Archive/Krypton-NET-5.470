@@ -12,9 +12,9 @@
 using System;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Implementation for the minimize button for mdi child form.
@@ -22,7 +22,7 @@ namespace Krypton.Ribbon
     public class ButtonSpecMdiChildMin : ButtonSpecMdiChildFixed
     {
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         #endregion
 
         #region Identity
@@ -30,7 +30,7 @@ namespace Krypton.Ribbon
         /// Initialize a new instance of the ButtonSpecMdiChildMin class.
         /// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
-        public ButtonSpecMdiChildMin(Krypton.Ribbon ribbon)
+        public ButtonSpecMdiChildMin(KryptonRibbon ribbon)
             : base(PaletteButtonSpecStyle.PendantMin)
         {
             Debug.Assert(ribbon != null);

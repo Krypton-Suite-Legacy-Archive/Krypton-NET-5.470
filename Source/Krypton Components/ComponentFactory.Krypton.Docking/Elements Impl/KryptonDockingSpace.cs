@@ -14,11 +14,11 @@ using System.Xml;
 using System.Drawing;
 using System.Collections.Generic;
 using System.ComponentModel;
-using Krypton.Toolkit;
-using Krypton.Workspace;
-using Krypton.Navigator;
+using ComponentFactory.Krypton.Toolkit;
+using ComponentFactory.Krypton.Workspace;
+using ComponentFactory.Krypton.Navigator;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
     /// <summary>
     /// Base class for docking elements that manage a KryptonSpace derived class.
@@ -26,7 +26,7 @@ namespace Krypton.Docking
     [ToolboxItem(false)]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
-    public abstract class Krypton.DockingSpace : DockingElementClosedCollection
+    public abstract class KryptonDockingSpace : DockingElementClosedCollection
     {
         #region Instance Fields
 
@@ -37,11 +37,11 @@ namespace Krypton.Docking
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the Krypton.DockingSpace class.
+        /// Initialize a new instance of the KryptonDockingSpace class.
         /// </summary>
         /// <param name="name">Initial name of the element.</param>
         /// <param name="storeName">Name to use for storage pages.</param>
-        public Krypton.DockingSpace(string name, string storeName)
+        public KryptonDockingSpace(string name, string storeName)
             : base(name)
         {
             _storeName = storeName;
@@ -71,11 +71,11 @@ namespace Krypton.Docking
             if (pages != null)
             {
                 // If there is no active cell...
-                Krypton.WorkspaceCell cell = SpaceControl.ActiveCell;
+                KryptonWorkspaceCell cell = SpaceControl.ActiveCell;
                 if (cell == null)
                 {
                     // ...create a new cell and place at the end of the root collection
-                    cell = new Krypton.WorkspaceCell();
+                    cell = new KryptonWorkspaceCell();
                     SpaceControl.Root.Children.Add(cell);
                 }
 
@@ -89,7 +89,7 @@ namespace Krypton.Docking
         /// </summary>
         /// <param name="cell">Reference to existing workspace cell.</param>
         /// <param name="page">KryptonPage instance to be added.</param>
-        public void CellAppend(Krypton.WorkspaceCell cell, KryptonPage page)
+        public void CellAppend(KryptonWorkspaceCell cell, KryptonPage page)
         {
             // Use existing array adding method to prevent duplication of code
             CellAppend(cell, new KryptonPage[] { page });
@@ -100,7 +100,7 @@ namespace Krypton.Docking
         /// </summary>
         /// <param name="cell">Reference to existing workspace cell.</param>
         /// <param name="pages">Array of KryptonPage instances to be added.</param>
-        public void CellAppend(Krypton.WorkspaceCell cell, KryptonPage[] pages)
+        public void CellAppend(KryptonWorkspaceCell cell, KryptonPage[] pages)
         {
             // Demand that pages are not already present
             DemandPagesNotBePresent(pages);
@@ -112,7 +112,7 @@ namespace Krypton.Docking
             }
 
             // Check that we actually contain the provided workspace cell
-            Krypton.WorkspaceCell checkCell = SpaceControl.FirstCell();
+            KryptonWorkspaceCell checkCell = SpaceControl.FirstCell();
             while (checkCell != null)
             {
                 if (checkCell == cell)
@@ -125,7 +125,7 @@ namespace Krypton.Docking
 
             if (cell != checkCell)
             {
-                throw new ArgumentException("Krypton.WorkspaceCell reference is not inside this workspace");
+                throw new ArgumentException("KryptonWorkspaceCell reference is not inside this workspace");
             }
 
             // Append all the pages to end of the cell pages collection
@@ -141,7 +141,7 @@ namespace Krypton.Docking
         /// <param name="cell">Reference to existing workspace cell.</param>
         /// <param name="index">Index for inserting new pages.</param>
         /// <param name="page">KryptonPage instance to be added.</param>
-        public void CellInsert(Krypton.WorkspaceCell cell, int index, KryptonPage page)
+        public void CellInsert(KryptonWorkspaceCell cell, int index, KryptonPage page)
         {
             // Use existing array adding method to prevent duplication of code
             CellInsert(cell, index, new KryptonPage[] { page });
@@ -153,7 +153,7 @@ namespace Krypton.Docking
         /// <param name="cell">Reference to existing workspace cell.</param>
         /// <param name="index">Index for inserting new pages.</param>
         /// <param name="pages">Array of KryptonPage instances to be added.</param>
-        public void CellInsert(Krypton.WorkspaceCell cell, int index, KryptonPage[] pages)
+        public void CellInsert(KryptonWorkspaceCell cell, int index, KryptonPage[] pages)
         {
             // Demand that pages are not already present
             DemandPagesNotBePresent(pages);
@@ -165,7 +165,7 @@ namespace Krypton.Docking
             }
 
             // Check that we actually contain the provided workspace cell
-            Krypton.WorkspaceCell checkCell = SpaceControl.FirstCell();
+            KryptonWorkspaceCell checkCell = SpaceControl.FirstCell();
             while (checkCell != null)
             {
                 if (checkCell == cell)
@@ -178,7 +178,7 @@ namespace Krypton.Docking
 
             if (cell != checkCell)
             {
-                throw new ArgumentException("Krypton.WorkspaceCell reference is not inside this workspace");
+                throw new ArgumentException("KryptonWorkspaceCell reference is not inside this workspace");
             }
 
             if (pages != null)
@@ -205,7 +205,7 @@ namespace Krypton.Docking
                 UpdateStrings();
 
                 // Generate adding event for each cell that already exists
-                Krypton.WorkspaceCell cell = SpaceControl.FirstCell();
+                KryptonWorkspaceCell cell = SpaceControl.FirstCell();
                 while (cell != null)
                 {
                     OnSpaceCellAdding(SpaceControl, new WorkspaceCellEventArgs(cell));
@@ -263,7 +263,7 @@ namespace Krypton.Docking
                         if ((removePage != null) && !(removePage is KryptonStorePage))
                         {
                             // Find the cell that contains the target so we can remove the page
-                            Krypton.WorkspaceCell cell = SpaceControl.CellForPage(removePage);
+                            KryptonWorkspaceCell cell = SpaceControl.CellForPage(removePage);
                             if (cell != null)
                             {
                                 cell.Pages.Remove(removePage);
@@ -280,7 +280,7 @@ namespace Krypton.Docking
                 case DockingPropogateAction.RemoveAndDisposeAllPages:
                     {
                         // Process each cell in turn
-                        Krypton.WorkspaceCell cell = SpaceControl.FirstCell();
+                        KryptonWorkspaceCell cell = SpaceControl.FirstCell();
                         while (cell != null)
                         {
                             // Process each page inside the cell
@@ -314,7 +314,7 @@ namespace Krypton.Docking
                         if ((page != null) && !(page is KryptonStorePage))
                         {
                             // Replace the existing page with a placeholder that has the same unique name
-                            Krypton.WorkspaceCell cell = SpaceControl.CellForPage(page);
+                            KryptonWorkspaceCell cell = SpaceControl.CellForPage(page);
                             KryptonStorePage placeholder = new KryptonStorePage(uniqueName, _storeName);
                             cell.Pages.Insert(cell.Pages.IndexOf(page), placeholder);
                             cell.Pages.Remove(page);
@@ -324,7 +324,7 @@ namespace Krypton.Docking
                 case DockingPropogateAction.StoreAllPages:
                     {
                         // Process each cell in turn
-                        Krypton.WorkspaceCell cell = SpaceControl.FirstCell();
+                        KryptonWorkspaceCell cell = SpaceControl.FirstCell();
                         while (cell != null)
                         {
                             // Process each page inside the cell
@@ -362,7 +362,7 @@ namespace Krypton.Docking
                                 if (removePage != IgnoreStorePage)
                                 {
                                     // Find the cell that contains the target so we can remove the page
-                                    Krypton.WorkspaceCell cell = SpaceControl.CellForPage(removePage);
+                                    KryptonWorkspaceCell cell = SpaceControl.CellForPage(removePage);
                                     cell?.Pages.Remove(removePage);
                                 }
                             }
@@ -372,7 +372,7 @@ namespace Krypton.Docking
                 case DockingPropogateAction.ClearAllStoredPages:
                     {
                         // Process each cell in turn
-                        Krypton.WorkspaceCell cell = SpaceControl.FirstCell();
+                        KryptonWorkspaceCell cell = SpaceControl.FirstCell();
                         while (cell != null)
                         {
                             // Process each page inside the cell
@@ -419,7 +419,7 @@ namespace Krypton.Docking
                         KryptonPage storePage = SpaceControl.PageForUniqueName(page.UniqueName);
                         if (storePage is KryptonStorePage)
                         {
-                            Krypton.WorkspaceCell cell = SpaceControl.CellForPage(storePage);
+                            KryptonWorkspaceCell cell = SpaceControl.CellForPage(storePage);
                             cell.Pages.Insert(cell.Pages.IndexOf(storePage), page);
                         }
                     }
@@ -523,7 +523,7 @@ namespace Krypton.Docking
                             ((state == DockingPropogatePageList.Filler) && (ClearStoreAction == DockingPropogateAction.ClearFillerStoredPages)))
                         {
                             // Process each cell in turn
-                            Krypton.WorkspaceCell cell = SpaceControl.FirstCell();
+                            KryptonWorkspaceCell cell = SpaceControl.FirstCell();
                             while (cell != null)
                             {
                                 // Process each page inside the cell
@@ -553,7 +553,7 @@ namespace Krypton.Docking
         /// </summary>
         /// <param name="state">Request that should result in the cells collection being modified.</param>
         /// <param name="cells">Cells collection for modification by the docking elements.</param>
-        public override void PropogateCellList(DockingPropogateCellList state, Krypton.WorkspaceCellList cells)
+        public override void PropogateCellList(DockingPropogateCellList state, KryptonWorkspaceCellList cells)
         {
             switch (state)
             {
@@ -569,7 +569,7 @@ namespace Krypton.Docking
                             ((state == DockingPropogateCellList.Workspace) && (ClearStoreAction == DockingPropogateAction.ClearFillerStoredPages)))
                         {
                             // Find each cell in turn
-                            Krypton.WorkspaceCell cell = SpaceControl.FirstCell();
+                            KryptonWorkspaceCell cell = SpaceControl.FirstCell();
                             while (cell != null)
                             {
                                 cells.Add(cell);
@@ -599,7 +599,7 @@ namespace Krypton.Docking
             List<KryptonPage> pages = new List<KryptonPage>();
 
             // Grab the cell that contains the provided unique name
-            Krypton.WorkspaceCell cell = SpaceControl.CellForUniqueName(uniqueName);
+            KryptonWorkspaceCell cell = SpaceControl.CellForUniqueName(uniqueName);
             if (cell != null)
             {
                 // Only interested in visible pages that are not placeholders
@@ -619,8 +619,8 @@ namespace Krypton.Docking
         /// Return the workspace cell that contains the named page.
         /// </summary>
         /// <param name="uniqueName">Unique name for search.</param>
-        /// <returns>Reference to Krypton.WorkspaceCell if match found; otherwise null.</returns>
-        public Krypton.WorkspaceCell CellForPage(string uniqueName)
+        /// <returns>Reference to KryptonWorkspaceCell if match found; otherwise null.</returns>
+        public KryptonWorkspaceCell CellForPage(string uniqueName)
         {
             return SpaceControl.CellForUniqueName(uniqueName);
         }
@@ -632,7 +632,7 @@ namespace Krypton.Docking
         public void SelectPage(string uniqueName)
         {
             // Find the cell that contains the target named paged
-            Krypton.WorkspaceCell cell = CellForPage(uniqueName);
+            KryptonWorkspaceCell cell = CellForPage(uniqueName);
             // Check that the pages collection contains the named paged
             KryptonPage page = cell?.Pages[uniqueName];
             if (page != null)
@@ -648,7 +648,7 @@ namespace Krypton.Docking
         {
             if (SpaceControl != null)
             {
-                Krypton.DockingManager dockingManager = DockingManager;
+                KryptonDockingManager dockingManager = DockingManager;
                 if (dockingManager?.Strings != null)
                 {
                     SpaceControl.CloseTooltip = dockingManager.Strings.TextClose;
@@ -783,7 +783,7 @@ namespace Krypton.Docking
         /// <param name="e">A KryptonPageEventArgs containing the event data.</param>
         protected virtual void OnSpaceCellPageInserting(object sender, KryptonPageEventArgs e)
         {
-            Krypton.DockingManager dockingManager = DockingManager;
+            KryptonDockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {
                 if (e.Item is KryptonStorePage page)
@@ -825,13 +825,13 @@ namespace Krypton.Docking
         /// Raises the type specific cell adding event determinated by the derived class.
         /// </summary>
         /// <param name="cell">Referecence to new cell being added.</param>
-        protected abstract void RaiseCellAdding(Krypton.WorkspaceCell cell);
+        protected abstract void RaiseCellAdding(KryptonWorkspaceCell cell);
 
         /// <summary>
         /// Raises the type specific cell removed event determinated by the derived class.
         /// </summary>
         /// <param name="cell">Referecence to an existing cell being removed.</param>
-        protected abstract void RaiseCellRemoved(Krypton.WorkspaceCell cell);
+        protected abstract void RaiseCellRemoved(KryptonWorkspaceCell cell);
 
         /// <summary>
         /// Occurs when a page is dropped on the control.
@@ -885,7 +885,7 @@ namespace Krypton.Docking
         private void OnSpaceCellRemoved(object sender, EventArgs e)
         {
             // Remove event hooks so cell can be garbage collected
-            Krypton.WorkspaceCell cell = (Krypton.WorkspaceCell)sender;
+            KryptonWorkspaceCell cell = (KryptonWorkspaceCell)sender;
             cell.Disposed -= OnSpaceCellRemoved;
 
             RaiseCellRemoved(cell);
@@ -893,7 +893,7 @@ namespace Krypton.Docking
 
         private void OnSpaceControlPageLoading(object sender, PageLoadingEventArgs e)
         {
-            Krypton.DockingManager dockingManager = DockingManager;
+            KryptonDockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {
                 DockPageLoadingEventArgs args = new DockPageLoadingEventArgs(dockingManager, e.XmlReader, e.Page);
@@ -903,7 +903,7 @@ namespace Krypton.Docking
 
         private void OnSpaceControlPageSaving(object sender, PageSavingEventArgs e)
         {
-            Krypton.DockingManager dockingManager = DockingManager;
+            KryptonDockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {
                 DockPageSavingEventArgs args = new DockPageSavingEventArgs(dockingManager, e.XmlWriter, e.Page);
@@ -913,7 +913,7 @@ namespace Krypton.Docking
 
         private void OnSpaceControlRecreateLoadingPage(object sender, RecreateLoadingPageEventArgs e)
         {
-            Krypton.DockingManager dockingManager = DockingManager;
+            KryptonDockingManager dockingManager = DockingManager;
             dockingManager?.RaiseRecreateLoadingPage(e);
         }
         #endregion

@@ -11,7 +11,7 @@
 
 using System.Drawing;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Override the colors to provide lighter versions.

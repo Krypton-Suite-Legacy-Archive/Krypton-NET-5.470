@@ -11,7 +11,7 @@
 
 using System.Windows.Forms;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
     /// Redirect storage for a double palette with palette metrics.

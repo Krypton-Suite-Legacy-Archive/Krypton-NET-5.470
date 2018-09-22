@@ -15,9 +15,9 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Collections.Generic;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
     /// Base class for implementation of 'Stack - CheckButton' modes.
@@ -45,7 +45,7 @@ namespace Krypton.Navigator
 		/// <param name="navigator">Reference to navigator instance.</param>
 		/// <param name="manager">Reference to current manager.</param>
 		/// <param name="redirector">Palette redirector.</param>
-		public override void Construct(Krypton.Navigator navigator, 
+		public override void Construct(KryptonNavigator navigator, 
 									   ViewManager manager,
 									   PaletteRedirect redirector)
 		{
@@ -1091,7 +1091,7 @@ namespace Krypton.Navigator
             {
                 // Grab the page associated view elements
                 ViewDrawNavCheckButtonStack checkButton = (ViewDrawNavCheckButtonStack)_pageLookup[page];
-                ViewDrawBorderEdge buttonEdge = (ViewDrawBorderEdge)_buttonEdgeLookup[page];
+                ViewDrawBorderEdge buttonEdge = _buttonEdgeLookup[page];
 
                 // Add to the child collection with the correct docking style
                 if (dockTopLeft)

@@ -13,7 +13,7 @@ using System;
 using System.Drawing;
 using System.ComponentModel;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
 	/// Details for context menu related events.

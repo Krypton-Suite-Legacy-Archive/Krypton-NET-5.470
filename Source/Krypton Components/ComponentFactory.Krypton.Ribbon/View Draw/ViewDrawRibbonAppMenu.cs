@@ -9,9 +9,9 @@
 // *****************************************************************************
 
 using System.Drawing;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
     /// Extends the ViewDrawDocker by drawing the ribbon app menu area.

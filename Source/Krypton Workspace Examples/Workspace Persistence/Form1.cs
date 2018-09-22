@@ -16,9 +16,9 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using Krypton.Toolkit;
-using Krypton.Navigator;
-using Krypton.Workspace;
+using ComponentFactory.Krypton.Toolkit;
+using ComponentFactory.Krypton.Navigator;
+using ComponentFactory.Krypton.Workspace;
 
 namespace WorkspacePersistence
 {

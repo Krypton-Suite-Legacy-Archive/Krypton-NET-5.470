@@ -14,14 +14,14 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
 	/// Base class used for implementation of container controls using a Control as the base.
 	/// </summary>
 	[ToolboxItem(false)]
 	[DesignerCategory("code")]
-	[Designer("System.Windows.Forms.Design.ParentControlDesigner, System.Design")]
+	[Designer(typeof(System.Windows.Forms.Design.ParentControlDesigner))]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
 	public abstract class VisualControlContainment : VisualControl

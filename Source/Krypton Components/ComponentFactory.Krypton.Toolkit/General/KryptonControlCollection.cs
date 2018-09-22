@@ -12,7 +12,7 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Base class for krypton specific control collections.

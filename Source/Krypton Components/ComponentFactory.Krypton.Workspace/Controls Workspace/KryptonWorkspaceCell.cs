@@ -15,21 +15,21 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Krypton.Toolkit;
-using Krypton.Navigator;
+using ComponentFactory.Krypton.Toolkit;
+using ComponentFactory.Krypton.Navigator;
 
-namespace Krypton.Workspace
+namespace ComponentFactory.Krypton.Workspace
 {
     /// <summary>
     /// Represents an individual workspace cell.
     /// </summary>
     [ToolboxItem(false)]
-    [ToolboxBitmap(typeof(Krypton.WorkspaceCell), "ToolboxBitmaps.Krypton.WorkspaceCell.bmp")]
-    [Designer("Krypton.Workspace.Krypton.WorkspaceCellDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [ToolboxBitmap(typeof(KryptonWorkspaceCell), "ToolboxBitmaps.KryptonWorkspaceCell.bmp")]
+    [Designer(typeof(ComponentFactory.Krypton.Workspace.KryptonWorkspaceCellDesigner))]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
     [DefaultProperty("Pages")]
-    public class Krypton.WorkspaceCell : Krypton.Navigator,
+    public class KryptonWorkspaceCell : KryptonNavigator,
                                         IWorkspaceItem
     {
         #region Instance Fields
@@ -56,18 +56,18 @@ namespace Krypton.Workspace
 
         #region Identity
         /// <summary>
-        /// Initialise a new instance of the Krypton.WorkspaceCell class.
+        /// Initialise a new instance of the KryptonWorkspaceCell class.
         /// </summary>
-        public Krypton.WorkspaceCell()
+        public KryptonWorkspaceCell()
             : this("50*,50*")
         {
         }
 
         /// <summary>
-        /// Initialise a new instance of the Krypton.WorkspaceCell class.
+        /// Initialise a new instance of the KryptonWorkspaceCell class.
         /// </summary>
         /// <param name="starSize">Initial star sizing value.</param>
-        public Krypton.WorkspaceCell(string starSize)
+        public KryptonWorkspaceCell(string starSize)
         {
             // Change Navigator defaults to workspace requirements
             AllowPageDrag = true;
@@ -156,7 +156,7 @@ namespace Krypton.Workspace
         }
 
         /// <summary>
-        /// Gets or sets the coordinates of the upper-left corner of the workspace item relative to the upper-left corner of its Krypton.Workspace. 
+        /// Gets or sets the coordinates of the upper-left corner of the workspace item relative to the upper-left corner of its KryptonWorkspace. 
         /// </summary>
         [Browsable(false)]
         [Bindable(false)]
@@ -182,7 +182,7 @@ namespace Krypton.Workspace
         }
 
         /// <summary>
-        /// Gets or sets the tab order of the workspace item within its Krypton.Workspace.
+        /// Gets or sets the tab order of the workspace item within its KryptonWorkspace.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -387,7 +387,7 @@ namespace Krypton.Workspace
         /// Should the item be disposed when it is removed from the workspace.
         /// </summary>
         [Category("Workspace")]
-        [Description("Should the Krypton.Navigator be Disposed when removed from Krypton.Workspace.")]
+        [Description("Should the KryptonNavigator be Disposed when removed from KryptonWorkspace.")]
         [DefaultValue(true)]
         public virtual bool DisposeOnRemove
         {
@@ -422,7 +422,7 @@ namespace Krypton.Workspace
 		/// </summary>
         /// <param name="workspace">Reference to owning workspace instance..</param>
         /// <param name="xmlWriter">Xml writer to save information into.</param>
-        public void SaveToXml(Krypton.Workspace workspace, XmlWriter xmlWriter)
+        public void SaveToXml(KryptonWorkspace workspace, XmlWriter xmlWriter)
         {
             // Output cell values but not the actual customization of appearance
             xmlWriter.WriteStartElement("WC");
@@ -457,7 +457,7 @@ namespace Krypton.Workspace
         /// <param name="workspace">Reference to owning workspace instance.</param>
         /// <param name="xmlReader">Xml reader for loading information.</param>
         /// <param name="existingPages">Dictionary on existing pages before load.</param>
-        public void LoadFromXml(Krypton.Workspace workspace, 
+        public void LoadFromXml(KryptonWorkspace workspace, 
                                 XmlReader xmlReader,
                                 UniqueNameToPage existingPages)
         {
@@ -670,7 +670,7 @@ namespace Krypton.Workspace
     }
 
     /// <summary>
-    /// Manages a list of Krypton.WorkspaceCell instances.
+    /// Manages a list of KryptonWorkspaceCell instances.
     /// </summary>
-    public class Krypton.WorkspaceCellList : List<Krypton.WorkspaceCell> {}
+    public class KryptonWorkspaceCellList : List<KryptonWorkspaceCell> {}
 }

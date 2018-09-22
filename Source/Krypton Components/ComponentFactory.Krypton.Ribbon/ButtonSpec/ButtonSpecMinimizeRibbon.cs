@@ -12,9 +12,9 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Implementation for the minimize ribbon button.
@@ -22,7 +22,7 @@ namespace Krypton.Ribbon
     public class ButtonSpecMinimizeRibbon : ButtonSpec
     {
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         #endregion
 
         #region Identity
@@ -30,7 +30,7 @@ namespace Krypton.Ribbon
         /// Initialize a new instance of the ButtonSpecMinimizeRibbon class.
         /// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
-        public ButtonSpecMinimizeRibbon(Krypton.Ribbon ribbon)
+        public ButtonSpecMinimizeRibbon(KryptonRibbon ribbon)
         {
             Debug.Assert(ribbon != null);
             _ribbon = ribbon;

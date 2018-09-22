@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
     /// <summary>
     /// Implementation for the fixed next button for navigator.
@@ -24,7 +24,7 @@ namespace Krypton.Navigator
         /// Initialize a new instance of the ButtonSpecNavNext class.
         /// </summary>
         /// <param name="navigator">Reference to owning navigator instance.</param>
-        public ButtonSpecNavNext(Krypton.Navigator navigator)
+        public ButtonSpecNavNext(KryptonNavigator navigator)
             : base(navigator, PaletteButtonSpecStyle.Next)
         {
         }

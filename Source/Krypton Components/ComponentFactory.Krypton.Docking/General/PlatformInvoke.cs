@@ -13,7 +13,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
     internal class PI
     {

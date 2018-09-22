@@ -13,9 +13,9 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a long vertical group separator.
@@ -29,8 +29,8 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
-        private Krypton.RibbonGroupSeparator _ribbonSeparator;
+        private readonly KryptonRibbon _ribbon;
+        private KryptonRibbonGroupSeparator _ribbonSeparator;
         private readonly NeedPaintHandler _needPaint;
         private Size _preferredSize;
         private PaletteRibbonShape _lastShape;
@@ -43,8 +43,8 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonSeparator">Reference to group separator definition.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonGroupSeparator(Krypton.Ribbon ribbon,
-                                            Krypton.RibbonGroupSeparator ribbonSeparator,
+        public ViewDrawRibbonGroupSeparator(KryptonRibbon ribbon,
+                                            KryptonRibbonGroupSeparator ribbonSeparator,
                                             NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);

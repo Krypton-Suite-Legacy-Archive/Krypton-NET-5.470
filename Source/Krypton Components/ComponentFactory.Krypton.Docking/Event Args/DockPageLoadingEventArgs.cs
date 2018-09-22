@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.Xml;
-using Krypton.Navigator;
+using ComponentFactory.Krypton.Navigator;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
 	/// <summary>
     /// Event data for loading docking page configuration.
@@ -30,7 +30,7 @@ namespace Krypton.Docking
         /// <param name="manager">Reference to owning docking manager instance.</param>
         /// <param name="xmlReading">Xml reader for persisting custom data.</param>
         /// <param name="page">Reference to page being loaded.</param>
-        public DockPageLoadingEventArgs(Krypton.DockingManager manager,
+        public DockPageLoadingEventArgs(KryptonDockingManager manager,
                                         XmlReader xmlReading,
                                         KryptonPage page)
             : base(manager, xmlReading)

@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws an design time only for adding a new item to a triple container.
@@ -31,7 +31,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.RibbonGroupTriple _ribbonTriple;
+        private readonly KryptonRibbonGroupTriple _ribbonTriple;
         private ContextMenuStrip _cms;
 
         #endregion
@@ -44,20 +44,20 @@ namespace Krypton.Ribbon
             {
                 TransparentColor = Color.Magenta
             };
-            _imageList.Images.AddRange(new Image[]{Properties.Resources.Krypton.RibbonGroupButton,                                                   
-                                                   Properties.Resources.Krypton.RibbonGroupColorButton,                                                   
-                                                   Properties.Resources.Krypton.RibbonGroupCheckBox,
-                                                   Properties.Resources.Krypton.RibbonGroupRadioButton,
-                                                   Properties.Resources.Krypton.RibbonGroupLabel,
-                                                   Properties.Resources.Krypton.RibbonGroupCustomControl,
-                                                   Properties.Resources.Krypton.RibbonGroupTextBox,
-                                                   Properties.Resources.Krypton.RibbonGroupRichTextBox,
-                                                   Properties.Resources.Krypton.RibbonGroupComboBox,
-                                                   Properties.Resources.Krypton.RibbonGroupMaskedTextBox,
-                                                   Properties.Resources.Krypton.RibbonGroupNumericUpDown,
-                                                   Properties.Resources.Krypton.RibbonGroupDomainUpDown,
-                                                   Properties.Resources.Krypton.RibbonGroupDateTimePicker,
-                                                   Properties.Resources.Krypton.RibbonGroupTrackBar});
+            _imageList.Images.AddRange(new Image[]{Properties.Resources.KryptonRibbonGroupButton,                                                   
+                                                   Properties.Resources.KryptonRibbonGroupColorButton,                                                   
+                                                   Properties.Resources.KryptonRibbonGroupCheckBox,
+                                                   Properties.Resources.KryptonRibbonGroupRadioButton,
+                                                   Properties.Resources.KryptonRibbonGroupLabel,
+                                                   Properties.Resources.KryptonRibbonGroupCustomControl,
+                                                   Properties.Resources.KryptonRibbonGroupTextBox,
+                                                   Properties.Resources.KryptonRibbonGroupRichTextBox,
+                                                   Properties.Resources.KryptonRibbonGroupComboBox,
+                                                   Properties.Resources.KryptonRibbonGroupMaskedTextBox,
+                                                   Properties.Resources.KryptonRibbonGroupNumericUpDown,
+                                                   Properties.Resources.KryptonRibbonGroupDomainUpDown,
+                                                   Properties.Resources.KryptonRibbonGroupDateTimePicker,
+                                                   Properties.Resources.KryptonRibbonGroupTrackBar});
         }
 
 		/// <summary>
@@ -67,8 +67,8 @@ namespace Krypton.Ribbon
         /// <param name="ribbonTriple">Associated ribbon group triple.</param>
         /// <param name="currentSize">Size the view should use.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonDesignGroupTriple(Krypton.Ribbon ribbon,
-                                               Krypton.RibbonGroupTriple ribbonTriple,
+        public ViewDrawRibbonDesignGroupTriple(KryptonRibbon ribbon,
+                                               KryptonRibbonGroupTriple ribbonTriple,
                                                GroupItemSize currentSize,
                                                NeedPaintHandler needPaint)
             : base(ribbon, needPaint)

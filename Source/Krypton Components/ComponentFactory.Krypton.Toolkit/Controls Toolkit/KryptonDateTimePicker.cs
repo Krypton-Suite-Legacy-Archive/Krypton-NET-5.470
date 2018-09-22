@@ -15,7 +15,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
     /// Represents a Windows control that allows the user to select a date and a time and to display the date and time with a specified format.
@@ -25,7 +25,7 @@ namespace Krypton.Toolkit
     [DefaultEvent("ValueChanged")]
 	[DefaultProperty("Value")]
     [DefaultBindingProperty("Value")]
-    [Designer("Krypton.Toolkit.KryptonDateTimePickerDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonDateTimePickerDesigner))]
     [DesignerCategory("code")]
     [Description("Enables the user to select a date and time, and to display that date and time in a specified format.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
@@ -1735,7 +1735,7 @@ namespace Krypton.Toolkit
         protected override void WndProc(ref Message m)
         {
             // At design time inside the ribbon we are transparent to the mouse
-            if ((m.Msg == (int)PI.WM_NCHITTEST) && InRibbonDesignMode)
+            if ((m.Msg == PI.WM_NCHITTEST) && InRibbonDesignMode)
             {
                 // Allow actions to occur to window beneath us
                 m.Result = (IntPtr)PI.HTTRANSPARENT;

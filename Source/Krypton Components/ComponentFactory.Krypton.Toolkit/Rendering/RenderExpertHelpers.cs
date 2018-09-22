@@ -13,7 +13,7 @@ using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Helper functions for drawing in the glass styles.

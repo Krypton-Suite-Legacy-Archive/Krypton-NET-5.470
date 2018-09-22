@@ -12,10 +12,10 @@
 using System;
 using System.Drawing;
 using System.ComponentModel;
-using Krypton.Toolkit;
-using Krypton.Navigator;
+using ComponentFactory.Krypton.Toolkit;
+using ComponentFactory.Krypton.Navigator;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
     /// <summary>
     /// Acts as a proxy for a KryptonPage inside a auto hidden group.

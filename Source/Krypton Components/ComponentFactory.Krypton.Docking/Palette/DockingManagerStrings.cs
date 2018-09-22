@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.ComponentModel;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
 	/// <summary>
 	/// Storage for docking managee strings.
@@ -55,7 +55,7 @@ namespace Krypton.Docking
         /// Initialize a new instance of the DockingManagerStrings class.
 		/// </summary>
         /// <param name="docking">Reference to owning docking manager.</param>
-        public DockingManagerStrings(Krypton.DockingManager docking)
+        public DockingManagerStrings(KryptonDockingManager docking)
             : base()
 		{
             // Default values

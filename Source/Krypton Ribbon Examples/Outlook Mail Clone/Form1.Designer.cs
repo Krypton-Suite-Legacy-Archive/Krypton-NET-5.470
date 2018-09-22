@@ -30,417 +30,417 @@ namespace OutlookMailClone
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.panelFill = new Krypton.Toolkit.KryptonPanel();
+            this.panelFill = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.tableLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
-            this.kryptonButton2 = new Krypton.Toolkit.KryptonButton();
-            this.richTextBoxMessage = new Krypton.Toolkit.KryptonRichTextBox();
-            this.richTextBoxSubject = new Krypton.Toolkit.KryptonRichTextBox();
-            this.richTextBoxCc = new Krypton.Toolkit.KryptonRichTextBox();
-            this.richTextBoxTo = new Krypton.Toolkit.KryptonRichTextBox();
-            this.kryptonButton1 = new Krypton.Toolkit.KryptonButton();
-            this.cmsPaste = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsPasteItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.pasteToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.pasteSpecialToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.saveToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.forwardToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.deleteToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.toolStripMenuItem5 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.exitToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.cmsBusinessCards = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsBusinessCardsItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.otherBusinessCardsToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.cmsSignatures = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsSignaturesItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.signaturesToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.cmsFollowUp = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsFollowUpItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.todayToolStripMenuItem1 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.tomorrowToolStripMenuItem1 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.thisWeekToolStripMenuItem1 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.nextWeekToolStripMenuItem1 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.noDateToolStripMenuItem1 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.customToolStripMenuItem1 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuSeparator2 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.addReminderToolStripMenuItem1 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.clearFlagToolStripMenuItem1 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuSeparator1 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.flagForRecipientsToolStripMenuItem1 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.toolStripMenuItem3 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.toolStripMenuItem4 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.cmsSpelling = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsSpellingItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.spellingGrammerToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.researchToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.thesaoursToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.translateToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.translationScreentipToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.setLanguageToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.wordCountToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.clearFlagToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.flagForRecipientsToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.toolStripMenuItem1 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.toolStripMenuItem2 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.cmsFormPublish = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsFormPublishItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.publishFormToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.publishFormAsToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.cmsTable = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsTableItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.insertTableToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.drawTableToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.convertTextToTableToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.excelSpreadsheetToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.quickTablesToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.cmsTextBox = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsTextBoxItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.drawTextBoxToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.saveSelectionToTextBoxGalleryToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.cmsDropCap = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsDropCapItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.dropCapOptionsToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.cmsEquation = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsEquationItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.insertNewEquationToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.saveTextTToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.cmsQuickParts = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsQuickPartsItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.saveSelectionToQuickPartsGalleryToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.cmsSymbol = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsSymbolItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.moreSymbolsToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.cmsShapes = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsShapesItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.newDrawingCanvasToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.cmsThemes = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsThemesItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.resetToThemeFromTemplateToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.moreThemesOnMicrosoftOfficeToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.browseForThemesToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.saveCurrentThemeToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.cmsPageColor = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsPageColorItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.noColorToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuSeparator3 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.moreColorsToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.fillEffectsToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.toolStripMenuItem6 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.cmsUseVotingButtons = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsUseVotingButtonsItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.approveRejectToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.yesNoToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.yesNoMaybeToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuSeparator10 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.customToolStripMenuItem2 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.toolStripMenuItem7 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.cmsSaveSentItem = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsSaveSentItemItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.otherFolderToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuSeparator4 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.useDefaultFolderToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.dotNotSaveToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.toolStripMenuItem8 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.cmsChangeCase = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsChangeCaseItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.sentenceCaseToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.lowercaseToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.uPPERCASEToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.capitalizeEachWordToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.tOGGLECASEToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.cmsSpacing = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsSpacingItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.singleSpacingToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.spacingToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.doubleSpacingToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.paragraphToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.cmsBottomBorder = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsBottomBorderItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.bottomBorderToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.topBorderToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.leftBorderToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.rightBorderToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuSeparator6 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.noBorderToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.allBordersToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.outsideBordersToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.insideBordersToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuSeparator7 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.insideHorizontalBorderToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.insideVerticalBorderToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.diagonalDownBorderToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.diagonalUpBorderToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuSeparator8 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.horizontalLineToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuSeparator9 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.drawTableToolStripMenuItem1 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.viewGridlinesToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.bordersAndShadingToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.toolStripMenuItem9 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.toolStripMenuItem10 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.toolStripMenuItem11 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.toolStripMenuItem12 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.cmsChangeStyles = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsChangeStylesItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.styleSetToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.colorsToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.fontsToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuSeparator5 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.setAsDefaultToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.toolStripMenuItem13 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.cmsQuickStyles = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsQuickStylesItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.saveSelectionAsNewStyleToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.clearFormattingToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.applyStylesToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.cmsFind = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsFindItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.findToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.goToToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.cmsSelect = new Krypton.Toolkit.KryptonContextMenu();
-            this.cmsSelectItems = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.selectAllToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.selectObjectsToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.selectTextWithSimilarFormattingToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonRibbon = new Krypton.Ribbon.KryptonRibbon();
-            this.buttonSpecHelp = new Krypton.Toolkit.ButtonSpecAny();
-            this.qatSave = new Krypton.Ribbon.KryptonRibbonQATButton();
-            this.qatUndo = new Krypton.Ribbon.KryptonRibbonQATButton();
-            this.qatRedo = new Krypton.Ribbon.KryptonRibbonQATButton();
-            this.qatQuickPrint = new Krypton.Ribbon.KryptonRibbonQATButton();
-            this.qatForward = new Krypton.Ribbon.KryptonRibbonQATButton();
-            this.qatDelete = new Krypton.Ribbon.KryptonRibbonQATButton();
-            this.kryptonContextMenuItem1 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuItem2 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuSeparator11 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.kryptonContextMenuItem3 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuItem4 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuItems1 = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.kryptonContextMenuHeading1 = new Krypton.Toolkit.KryptonContextMenuHeading();
-            this.kryptonContextMenuItem10 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuItem5 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuItem6 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuSeparator13 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.kryptonContextMenuItem7 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuItems2 = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.kryptonContextMenuHeading2 = new Krypton.Toolkit.KryptonContextMenuHeading();
-            this.kryptonContextMenuItem11 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuItem12 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuItem13 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuItem14 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuSeparator15 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.kryptonContextMenuItems3 = new Krypton.Toolkit.KryptonContextMenuItems();
-            this.kryptonContextMenuHeading3 = new Krypton.Toolkit.KryptonContextMenuHeading();
-            this.kryptonContextMenuItem15 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuSeparator12 = new Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.kryptonContextMenuItem8 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuItem9 = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonRibbonRecentDoc1 = new Krypton.Ribbon.KryptonRibbonRecentDoc();
-            this.kryptonRibbonRecentDoc2 = new Krypton.Ribbon.KryptonRibbonRecentDoc();
-            this.kryptonRibbonRecentDoc3 = new Krypton.Ribbon.KryptonRibbonRecentDoc();
-            this.kryptonRibbonRecentDoc4 = new Krypton.Ribbon.KryptonRibbonRecentDoc();
-            this.kryptonRibbonRecentDoc5 = new Krypton.Ribbon.KryptonRibbonRecentDoc();
-            this.kryptonRibbonRecentDoc6 = new Krypton.Ribbon.KryptonRibbonRecentDoc();
-            this.kryptonRibbonRecentDoc7 = new Krypton.Ribbon.KryptonRibbonRecentDoc();
-            this.kryptonRibbonRecentDoc8 = new Krypton.Ribbon.KryptonRibbonRecentDoc();
-            this.buttonSpecAppMenu1 = new Krypton.Ribbon.ButtonSpecAppMenu();
-            this.tabMessage = new Krypton.Ribbon.KryptonRibbonTab();
-            this.groupClipboard = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.clipboard1 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.clipboardPaste = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.clipboard2 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.clipboardCut = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.clipboardCopy = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.clipboardFormatPainter = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.groupBasicText = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.basicTextLines = new Krypton.Ribbon.KryptonRibbonGroupLines();
-            this.basicTextFont = new Krypton.Ribbon.KryptonRibbonGroupCluster();
-            this.basicTextFontLarger = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.basicTextFontSmaller = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.basicTextBullet = new Krypton.Ribbon.KryptonRibbonGroupCluster();
-            this.basicTextBulletPoints = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.basicTextBulletNumbers = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.basicTextRubout = new Krypton.Ribbon.KryptonRibbonGroupCluster();
-            this.basicTextRuboutButton = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.basicTextStyle = new Krypton.Ribbon.KryptonRibbonGroupCluster();
-            this.basicTextStyleBold = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.basicTextStyleItalic = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.basicTextStyleUnderline = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.basicTextColors = new Krypton.Ribbon.KryptonRibbonGroupCluster();
-            this.basicTextColorBack = new Krypton.Ribbon.KryptonRibbonGroupClusterColorButton();
-            this.basicTextColorText = new Krypton.Ribbon.KryptonRibbonGroupClusterColorButton();
-            this.basicTextAlignment = new Krypton.Ribbon.KryptonRibbonGroupCluster();
-            this.basicTextAlignLeft = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.basicTextAlignCenter = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.basicTextAlignRight = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.basicTextTab = new Krypton.Ribbon.KryptonRibbonGroupCluster();
-            this.basicTextTabLeft = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.basicTextTabRight = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.groupNames = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.namesGroup = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.namesAddressBook = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.namesCheckNames = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.groupMessageInclude = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.includeTriple1 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.includeAttachFile = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.includeAttachItem = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.includeSignature = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.includeTriple2 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.groupOptions = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.optionsTripleFollowup = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.optionsFollowUp = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.optionsHighImportance = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.optionsLowImportance = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.groupZoom = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.proofingTriple = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.zoomMessageZoom = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.tabInsert = new Krypton.Ribbon.KryptonRibbonTab();
-            this.groupInsertInclude = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.kryptonRibbonGroupTriple4 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.includeInsertAttachFile = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.includeInsertAttachItem = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroupTriple5 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.includeInsertBusinessCard = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.includeInsertCalendar = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.includeInsertSignature = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.groupTables = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.kryptonRibbonGroupTriple3 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.tablesTable = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.groupInsertIllustrations = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.kryptonRibbonGroupTriple6 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.illustrationsPicture = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.illustrationsClipArt = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroupTriple7 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.illustrationsShapes = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.illustrationsSmartArt = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.illustrationsChart = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.groupLinks = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.kryptonRibbonGroupTriple2 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.linksHyperlink = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.linksBookmark = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.groupText = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.kryptonRibbonGroupTriple8 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.textTextBox = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.textQuickParts = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.textWordArt = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroupTriple9 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.textDropCap = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.textDateAndTime = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.textObject = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.groupSymbols = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.kryptonRibbonGroupTriple1 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.symbolsEquation = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.symbolSymbol = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.symbolHorizontalLine = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.tabOptions = new Krypton.Ribbon.KryptonRibbonTab();
-            this.groupOptionsThemes = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.kryptonRibbonGroupTriple10 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.themesTheme = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroupTriple11 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.themesColors = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.themesFonts = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.themesEffects = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroupSeparator1 = new Krypton.Ribbon.KryptonRibbonGroupSeparator();
-            this.kryptonRibbonGroupTriple12 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.themesPageColor = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.groupFields = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.kryptonRibbonGroupTriple13 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.fieldsShowBcc = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.fieldsShowFrom = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.groupFormat = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.kryptonRibbonGroupTriple14 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.formatPlainText = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.formatHTML = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.formatRichText = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.groupTracking = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.kryptonRibbonGroupTriple15 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.trackingUseVotingButtons = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroupLines3 = new Krypton.Ribbon.KryptonRibbonGroupLines();
-            this.kryptonRibbonGroupCheckBox1 = new Krypton.Ribbon.KryptonRibbonGroupCheckBox();
-            this.kryptonRibbonGroupCheckBox2 = new Krypton.Ribbon.KryptonRibbonGroupCheckBox();
-            this.groupMoreOptions = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.kryptonRibbonGroupTriple16 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.moreOptionsSaveSentItem = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.moreOptionsDelayDelivery = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.moreOptionsDirectRepliesTo = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.tabFormatText = new Krypton.Ribbon.KryptonRibbonTab();
-            this.groupFormatClipboard = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.kryptonRibbonGroupTriple17 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.formatClipboardPaste = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroupTriple18 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.formatClipboardCut = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.formatClipboardCopy = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.formatClipboardFormatPainter = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.groupFormatFont = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.kryptonRibbonGroupLines1 = new Krypton.Ribbon.KryptonRibbonGroupLines();
-            this.kryptonRibbonGroupCluster1 = new Krypton.Ribbon.KryptonRibbonGroupCluster();
-            this.fontGrowFont = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.fontShrinkFont = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.kryptonRibbonGroupCluster2 = new Krypton.Ribbon.KryptonRibbonGroupCluster();
-            this.fontTextClear = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.kryptonRibbonGroupCluster4 = new Krypton.Ribbon.KryptonRibbonGroupCluster();
-            this.fontTextBackColor = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.textFontColor = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.kryptonRibbonGroupCluster3 = new Krypton.Ribbon.KryptonRibbonGroupCluster();
-            this.fontBold = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.fontItalic = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.fontUnderline = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.fontStrikethrough = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.fontSubscript = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.fontSuperscript = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.fontChangeCase = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.groupFormatParagraph = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.kryptonRibbonGroupLines2 = new Krypton.Ribbon.KryptonRibbonGroupLines();
-            this.kryptonRibbonGroupCluster5 = new Krypton.Ribbon.KryptonRibbonGroupCluster();
-            this.fontBullets = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.fontNumbers = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.fontMultilevel = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.kryptonRibbonGroupCluster6 = new Krypton.Ribbon.KryptonRibbonGroupCluster();
-            this.fontDecreaseIndent = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.fontIncreaseIndent = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.kryptonRibbonGroupCluster7 = new Krypton.Ribbon.KryptonRibbonGroupCluster();
-            this.fontSort = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.kryptonRibbonGroupCluster8 = new Krypton.Ribbon.KryptonRibbonGroupCluster();
-            this.fontMarkers = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.kryptonRibbonGroupCluster9 = new Krypton.Ribbon.KryptonRibbonGroupCluster();
-            this.fontJustifyLeft = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.fontJustifyCenter = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.fontJustifyRight = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.fontJustify = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.kryptonRibbonGroupCluster10 = new Krypton.Ribbon.KryptonRibbonGroupCluster();
-            this.fontSpacing = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.kryptonRibbonGroupCluster11 = new Krypton.Ribbon.KryptonRibbonGroupCluster();
-            this.fontShading = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.fontBottomBorder = new Krypton.Ribbon.KryptonRibbonGroupClusterButton();
-            this.groupFormatStyles = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.kryptonRibbonGroupTriple19 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.stylesChangeStyles = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.groupFormatZoom = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.kryptonRibbonGroupTriple20 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.zoomZoom = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.groupFormatEditing = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.kryptonRibbonGroupTriple21 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.kryptonRibbonGroupButton4 = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroupButton5 = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroupButton6 = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.tabDeveloper = new Krypton.Ribbon.KryptonRibbonTab();
-            this.developerCode = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.developerCodeTriple = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.developerCodeVB = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.developerCodeMacros = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.developerForm = new Krypton.Ribbon.KryptonRibbonGroup();
-            this.developerFormTriple = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.developerFormDesignThis = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.developerFormDesignA = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.developerFormPublish = new Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.todayToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.tomorrowToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.thisWeekToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.nextWeekToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.noDateToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.customToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.addReminderToolStripMenuItem = new Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonManager1 = new Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.richTextBoxMessage = new ComponentFactory.Krypton.Toolkit.KryptonRichTextBox();
+            this.richTextBoxSubject = new ComponentFactory.Krypton.Toolkit.KryptonRichTextBox();
+            this.richTextBoxCc = new ComponentFactory.Krypton.Toolkit.KryptonRichTextBox();
+            this.richTextBoxTo = new ComponentFactory.Krypton.Toolkit.KryptonRichTextBox();
+            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.cmsPaste = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsPasteItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.pasteToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.pasteSpecialToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.saveToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.forwardToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.deleteToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.toolStripMenuItem5 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.exitToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.cmsBusinessCards = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsBusinessCardsItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.otherBusinessCardsToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.cmsSignatures = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsSignaturesItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.signaturesToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.cmsFollowUp = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsFollowUpItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.todayToolStripMenuItem1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.tomorrowToolStripMenuItem1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.thisWeekToolStripMenuItem1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.nextWeekToolStripMenuItem1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.noDateToolStripMenuItem1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.customToolStripMenuItem1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuSeparator2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.addReminderToolStripMenuItem1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.clearFlagToolStripMenuItem1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuSeparator1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.flagForRecipientsToolStripMenuItem1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.toolStripMenuItem3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.toolStripMenuItem4 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.cmsSpelling = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsSpellingItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.spellingGrammerToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.researchToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.thesaoursToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.translateToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.translationScreentipToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.setLanguageToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.wordCountToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.clearFlagToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.flagForRecipientsToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.toolStripMenuItem1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.toolStripMenuItem2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.cmsFormPublish = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsFormPublishItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.publishFormToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.publishFormAsToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.cmsTable = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsTableItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.insertTableToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.drawTableToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.convertTextToTableToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.excelSpreadsheetToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.quickTablesToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.cmsTextBox = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsTextBoxItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.drawTextBoxToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.saveSelectionToTextBoxGalleryToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.cmsDropCap = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsDropCapItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.dropCapOptionsToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.cmsEquation = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsEquationItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.insertNewEquationToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.saveTextTToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.cmsQuickParts = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsQuickPartsItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.saveSelectionToQuickPartsGalleryToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.cmsSymbol = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsSymbolItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.moreSymbolsToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.cmsShapes = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsShapesItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.newDrawingCanvasToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.cmsThemes = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsThemesItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.resetToThemeFromTemplateToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.moreThemesOnMicrosoftOfficeToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.browseForThemesToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.saveCurrentThemeToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.cmsPageColor = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsPageColorItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.noColorToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuSeparator3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.moreColorsToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.fillEffectsToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.toolStripMenuItem6 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.cmsUseVotingButtons = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsUseVotingButtonsItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.approveRejectToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.yesNoToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.yesNoMaybeToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuSeparator10 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.customToolStripMenuItem2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.toolStripMenuItem7 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.cmsSaveSentItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsSaveSentItemItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.otherFolderToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuSeparator4 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.useDefaultFolderToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.dotNotSaveToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.toolStripMenuItem8 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.cmsChangeCase = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsChangeCaseItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.sentenceCaseToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.lowercaseToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.uPPERCASEToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.capitalizeEachWordToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.tOGGLECASEToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.cmsSpacing = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsSpacingItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.singleSpacingToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.spacingToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.doubleSpacingToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.paragraphToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.cmsBottomBorder = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsBottomBorderItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.bottomBorderToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.topBorderToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.leftBorderToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.rightBorderToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuSeparator6 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.noBorderToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.allBordersToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.outsideBordersToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.insideBordersToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuSeparator7 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.insideHorizontalBorderToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.insideVerticalBorderToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.diagonalDownBorderToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.diagonalUpBorderToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuSeparator8 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.horizontalLineToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuSeparator9 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.drawTableToolStripMenuItem1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.viewGridlinesToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.bordersAndShadingToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.toolStripMenuItem9 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.toolStripMenuItem10 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.toolStripMenuItem11 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.toolStripMenuItem12 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.cmsChangeStyles = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsChangeStylesItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.styleSetToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.colorsToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.fontsToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuSeparator5 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.setAsDefaultToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.toolStripMenuItem13 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.cmsQuickStyles = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsQuickStylesItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.saveSelectionAsNewStyleToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.clearFormattingToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.applyStylesToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.cmsFind = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsFindItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.findToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.goToToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.cmsSelect = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.cmsSelectItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.selectAllToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.selectObjectsToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.selectTextWithSimilarFormattingToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonRibbon = new ComponentFactory.Krypton.Ribbon.KryptonRibbon();
+            this.buttonSpecHelp = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.qatSave = new ComponentFactory.Krypton.Ribbon.KryptonRibbonQATButton();
+            this.qatUndo = new ComponentFactory.Krypton.Ribbon.KryptonRibbonQATButton();
+            this.qatRedo = new ComponentFactory.Krypton.Ribbon.KryptonRibbonQATButton();
+            this.qatQuickPrint = new ComponentFactory.Krypton.Ribbon.KryptonRibbonQATButton();
+            this.qatForward = new ComponentFactory.Krypton.Ribbon.KryptonRibbonQATButton();
+            this.qatDelete = new ComponentFactory.Krypton.Ribbon.KryptonRibbonQATButton();
+            this.kryptonContextMenuItem1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItem2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuSeparator11 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.kryptonContextMenuItem3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItem4 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.kryptonContextMenuHeading1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
+            this.kryptonContextMenuItem10 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItem5 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItem6 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuSeparator13 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.kryptonContextMenuItem7 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItems2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.kryptonContextMenuHeading2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
+            this.kryptonContextMenuItem11 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItem12 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItem13 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItem14 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuSeparator15 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.kryptonContextMenuItems3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.kryptonContextMenuHeading3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
+            this.kryptonContextMenuItem15 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuSeparator12 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.kryptonContextMenuItem8 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItem9 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonRibbonRecentDoc1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonRecentDoc();
+            this.kryptonRibbonRecentDoc2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonRecentDoc();
+            this.kryptonRibbonRecentDoc3 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonRecentDoc();
+            this.kryptonRibbonRecentDoc4 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonRecentDoc();
+            this.kryptonRibbonRecentDoc5 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonRecentDoc();
+            this.kryptonRibbonRecentDoc6 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonRecentDoc();
+            this.kryptonRibbonRecentDoc7 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonRecentDoc();
+            this.kryptonRibbonRecentDoc8 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonRecentDoc();
+            this.buttonSpecAppMenu1 = new ComponentFactory.Krypton.Ribbon.ButtonSpecAppMenu();
+            this.tabMessage = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
+            this.groupClipboard = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.clipboard1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.clipboardPaste = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.clipboard2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.clipboardCut = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.clipboardCopy = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.clipboardFormatPainter = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.groupBasicText = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.basicTextLines = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupLines();
+            this.basicTextFont = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster();
+            this.basicTextFontLarger = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.basicTextFontSmaller = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.basicTextBullet = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster();
+            this.basicTextBulletPoints = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.basicTextBulletNumbers = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.basicTextRubout = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster();
+            this.basicTextRuboutButton = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.basicTextStyle = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster();
+            this.basicTextStyleBold = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.basicTextStyleItalic = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.basicTextStyleUnderline = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.basicTextColors = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster();
+            this.basicTextColorBack = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterColorButton();
+            this.basicTextColorText = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterColorButton();
+            this.basicTextAlignment = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster();
+            this.basicTextAlignLeft = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.basicTextAlignCenter = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.basicTextAlignRight = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.basicTextTab = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster();
+            this.basicTextTabLeft = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.basicTextTabRight = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.groupNames = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.namesGroup = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.namesAddressBook = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.namesCheckNames = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.groupMessageInclude = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.includeTriple1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.includeAttachFile = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.includeAttachItem = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.includeSignature = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.includeTriple2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.groupOptions = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.optionsTripleFollowup = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.optionsFollowUp = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.optionsHighImportance = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.optionsLowImportance = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.groupZoom = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.proofingTriple = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.zoomMessageZoom = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.tabInsert = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
+            this.groupInsertInclude = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple4 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.includeInsertAttachFile = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.includeInsertAttachItem = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroupTriple5 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.includeInsertBusinessCard = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.includeInsertCalendar = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.includeInsertSignature = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.groupTables = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple3 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.tablesTable = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.groupInsertIllustrations = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple6 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.illustrationsPicture = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.illustrationsClipArt = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroupTriple7 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.illustrationsShapes = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.illustrationsSmartArt = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.illustrationsChart = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.groupLinks = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.linksHyperlink = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.linksBookmark = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.groupText = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple8 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.textTextBox = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.textQuickParts = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.textWordArt = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroupTriple9 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.textDropCap = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.textDateAndTime = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.textObject = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.groupSymbols = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.symbolsEquation = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.symbolSymbol = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.symbolHorizontalLine = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.tabOptions = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
+            this.groupOptionsThemes = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple10 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.themesTheme = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroupTriple11 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.themesColors = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.themesFonts = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.themesEffects = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroupSeparator1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupSeparator();
+            this.kryptonRibbonGroupTriple12 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.themesPageColor = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.groupFields = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple13 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.fieldsShowBcc = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.fieldsShowFrom = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.groupFormat = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple14 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.formatPlainText = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.formatHTML = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.formatRichText = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.groupTracking = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple15 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.trackingUseVotingButtons = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroupLines3 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupLines();
+            this.kryptonRibbonGroupCheckBox1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCheckBox();
+            this.kryptonRibbonGroupCheckBox2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCheckBox();
+            this.groupMoreOptions = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple16 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.moreOptionsSaveSentItem = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.moreOptionsDelayDelivery = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.moreOptionsDirectRepliesTo = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.tabFormatText = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
+            this.groupFormatClipboard = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple17 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.formatClipboardPaste = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroupTriple18 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.formatClipboardCut = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.formatClipboardCopy = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.formatClipboardFormatPainter = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.groupFormatFont = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupLines1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupLines();
+            this.kryptonRibbonGroupCluster1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster();
+            this.fontGrowFont = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.fontShrinkFont = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.kryptonRibbonGroupCluster2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster();
+            this.fontTextClear = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.kryptonRibbonGroupCluster4 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster();
+            this.fontTextBackColor = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.textFontColor = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.kryptonRibbonGroupCluster3 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster();
+            this.fontBold = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.fontItalic = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.fontUnderline = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.fontStrikethrough = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.fontSubscript = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.fontSuperscript = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.fontChangeCase = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.groupFormatParagraph = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupLines2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupLines();
+            this.kryptonRibbonGroupCluster5 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster();
+            this.fontBullets = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.fontNumbers = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.fontMultilevel = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.kryptonRibbonGroupCluster6 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster();
+            this.fontDecreaseIndent = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.fontIncreaseIndent = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.kryptonRibbonGroupCluster7 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster();
+            this.fontSort = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.kryptonRibbonGroupCluster8 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster();
+            this.fontMarkers = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.kryptonRibbonGroupCluster9 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster();
+            this.fontJustifyLeft = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.fontJustifyCenter = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.fontJustifyRight = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.fontJustify = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.kryptonRibbonGroupCluster10 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster();
+            this.fontSpacing = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.kryptonRibbonGroupCluster11 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster();
+            this.fontShading = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.fontBottomBorder = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton();
+            this.groupFormatStyles = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple19 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.stylesChangeStyles = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.groupFormatZoom = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple20 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.zoomZoom = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.groupFormatEditing = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple21 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.kryptonRibbonGroupButton4 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroupButton5 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroupButton6 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.tabDeveloper = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
+            this.developerCode = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.developerCodeTriple = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.developerCodeVB = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.developerCodeMacros = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.developerForm = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.developerFormTriple = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.developerFormDesignThis = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.developerFormDesignA = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.developerFormPublish = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.todayToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.tomorrowToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.thisWeekToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.nextWeekToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.noDateToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.customToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.addReminderToolStripMenuItem = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelFill)).BeginInit();
             this.panelFill.SuspendLayout();
             this.tableLayout.SuspendLayout();
@@ -562,12 +562,12 @@ namespace OutlookMailClone
             // 
             // cmsPaste
             // 
-            this.cmsPaste.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsPaste.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsPasteItems});
             // 
             // cmsPasteItems
             // 
-            this.cmsPasteItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsPasteItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.pasteToolStripMenuItem,
             this.pasteSpecialToolStripMenuItem});
             // 
@@ -602,12 +602,12 @@ namespace OutlookMailClone
             // 
             // cmsBusinessCards
             // 
-            this.cmsBusinessCards.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsBusinessCards.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsBusinessCardsItems});
             // 
             // cmsBusinessCardsItems
             // 
-            this.cmsBusinessCardsItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsBusinessCardsItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.otherBusinessCardsToolStripMenuItem});
             // 
             // otherBusinessCardsToolStripMenuItem
@@ -616,12 +616,12 @@ namespace OutlookMailClone
             // 
             // cmsSignatures
             // 
-            this.cmsSignatures.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsSignatures.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsSignaturesItems});
             // 
             // cmsSignaturesItems
             // 
-            this.cmsSignaturesItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsSignaturesItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.signaturesToolStripMenuItem});
             // 
             // signaturesToolStripMenuItem
@@ -630,12 +630,12 @@ namespace OutlookMailClone
             // 
             // cmsFollowUp
             // 
-            this.cmsFollowUp.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsFollowUp.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsFollowUpItems});
             // 
             // cmsFollowUpItems
             // 
-            this.cmsFollowUpItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsFollowUpItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.todayToolStripMenuItem1,
             this.tomorrowToolStripMenuItem1,
             this.thisWeekToolStripMenuItem1,
@@ -693,12 +693,12 @@ namespace OutlookMailClone
             // 
             // cmsSpelling
             // 
-            this.cmsSpelling.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsSpelling.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsSpellingItems});
             // 
             // cmsSpellingItems
             // 
-            this.cmsSpellingItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsSpellingItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.spellingGrammerToolStripMenuItem,
             this.researchToolStripMenuItem,
             this.thesaoursToolStripMenuItem,
@@ -754,12 +754,12 @@ namespace OutlookMailClone
             // 
             // cmsFormPublish
             // 
-            this.cmsFormPublish.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsFormPublish.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsFormPublishItems});
             // 
             // cmsFormPublishItems
             // 
-            this.cmsFormPublishItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsFormPublishItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.publishFormToolStripMenuItem,
             this.publishFormAsToolStripMenuItem});
             // 
@@ -774,12 +774,12 @@ namespace OutlookMailClone
             // 
             // cmsTable
             // 
-            this.cmsTable.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsTable.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsTableItems});
             // 
             // cmsTableItems
             // 
-            this.cmsTableItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsTableItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.insertTableToolStripMenuItem,
             this.drawTableToolStripMenuItem,
             this.convertTextToTableToolStripMenuItem,
@@ -812,12 +812,12 @@ namespace OutlookMailClone
             // 
             // cmsTextBox
             // 
-            this.cmsTextBox.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsTextBox.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsTextBoxItems});
             // 
             // cmsTextBoxItems
             // 
-            this.cmsTextBoxItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsTextBoxItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.drawTextBoxToolStripMenuItem,
             this.saveSelectionToTextBoxGalleryToolStripMenuItem});
             // 
@@ -832,12 +832,12 @@ namespace OutlookMailClone
             // 
             // cmsDropCap
             // 
-            this.cmsDropCap.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsDropCap.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsDropCapItems});
             // 
             // cmsDropCapItems
             // 
-            this.cmsDropCapItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsDropCapItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.dropCapOptionsToolStripMenuItem});
             // 
             // dropCapOptionsToolStripMenuItem
@@ -847,12 +847,12 @@ namespace OutlookMailClone
             // 
             // cmsEquation
             // 
-            this.cmsEquation.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsEquation.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsEquationItems});
             // 
             // cmsEquationItems
             // 
-            this.cmsEquationItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsEquationItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.insertNewEquationToolStripMenuItem,
             this.saveTextTToolStripMenuItem});
             // 
@@ -867,12 +867,12 @@ namespace OutlookMailClone
             // 
             // cmsQuickParts
             // 
-            this.cmsQuickParts.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsQuickParts.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsQuickPartsItems});
             // 
             // cmsQuickPartsItems
             // 
-            this.cmsQuickPartsItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsQuickPartsItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.saveSelectionToQuickPartsGalleryToolStripMenuItem});
             // 
             // saveSelectionToQuickPartsGalleryToolStripMenuItem
@@ -881,12 +881,12 @@ namespace OutlookMailClone
             // 
             // cmsSymbol
             // 
-            this.cmsSymbol.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsSymbol.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsSymbolItems});
             // 
             // cmsSymbolItems
             // 
-            this.cmsSymbolItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsSymbolItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.moreSymbolsToolStripMenuItem});
             // 
             // moreSymbolsToolStripMenuItem
@@ -896,12 +896,12 @@ namespace OutlookMailClone
             // 
             // cmsShapes
             // 
-            this.cmsShapes.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsShapes.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsShapesItems});
             // 
             // cmsShapesItems
             // 
-            this.cmsShapesItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsShapesItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.newDrawingCanvasToolStripMenuItem});
             // 
             // newDrawingCanvasToolStripMenuItem
@@ -911,12 +911,12 @@ namespace OutlookMailClone
             // 
             // cmsThemes
             // 
-            this.cmsThemes.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsThemes.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsThemesItems});
             // 
             // cmsThemesItems
             // 
-            this.cmsThemesItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsThemesItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.resetToThemeFromTemplateToolStripMenuItem,
             this.moreThemesOnMicrosoftOfficeToolStripMenuItem,
             this.browseForThemesToolStripMenuItem,
@@ -942,12 +942,12 @@ namespace OutlookMailClone
             // 
             // cmsPageColor
             // 
-            this.cmsPageColor.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsPageColor.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsPageColorItems});
             // 
             // cmsPageColorItems
             // 
-            this.cmsPageColorItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsPageColorItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.noColorToolStripMenuItem,
             this.kryptonContextMenuSeparator3,
             this.moreColorsToolStripMenuItem,
@@ -967,12 +967,12 @@ namespace OutlookMailClone
             // 
             // cmsUseVotingButtons
             // 
-            this.cmsUseVotingButtons.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsUseVotingButtons.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsUseVotingButtonsItems});
             // 
             // cmsUseVotingButtonsItems
             // 
-            this.cmsUseVotingButtonsItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsUseVotingButtonsItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.approveRejectToolStripMenuItem,
             this.yesNoToolStripMenuItem,
             this.yesNoMaybeToolStripMenuItem,
@@ -997,12 +997,12 @@ namespace OutlookMailClone
             // 
             // cmsSaveSentItem
             // 
-            this.cmsSaveSentItem.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsSaveSentItem.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsSaveSentItemItems});
             // 
             // cmsSaveSentItemItems
             // 
-            this.cmsSaveSentItemItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsSaveSentItemItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.otherFolderToolStripMenuItem,
             this.kryptonContextMenuSeparator4,
             this.useDefaultFolderToolStripMenuItem,
@@ -1025,12 +1025,12 @@ namespace OutlookMailClone
             // 
             // cmsChangeCase
             // 
-            this.cmsChangeCase.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsChangeCase.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsChangeCaseItems});
             // 
             // cmsChangeCaseItems
             // 
-            this.cmsChangeCaseItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsChangeCaseItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.sentenceCaseToolStripMenuItem,
             this.lowercaseToolStripMenuItem,
             this.uPPERCASEToolStripMenuItem,
@@ -1059,12 +1059,12 @@ namespace OutlookMailClone
             // 
             // cmsSpacing
             // 
-            this.cmsSpacing.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsSpacing.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsSpacingItems});
             // 
             // cmsSpacingItems
             // 
-            this.cmsSpacingItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsSpacingItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.singleSpacingToolStripMenuItem,
             this.spacingToolStripMenuItem,
             this.doubleSpacingToolStripMenuItem,
@@ -1092,12 +1092,12 @@ namespace OutlookMailClone
             // 
             // cmsBottomBorder
             // 
-            this.cmsBottomBorder.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsBottomBorder.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsBottomBorderItems});
             // 
             // cmsBottomBorderItems
             // 
-            this.cmsBottomBorderItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsBottomBorderItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.bottomBorderToolStripMenuItem,
             this.topBorderToolStripMenuItem,
             this.leftBorderToolStripMenuItem,
@@ -1201,12 +1201,12 @@ namespace OutlookMailClone
             // 
             // cmsChangeStyles
             // 
-            this.cmsChangeStyles.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsChangeStyles.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsChangeStylesItems});
             // 
             // cmsChangeStylesItems
             // 
-            this.cmsChangeStylesItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsChangeStylesItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.styleSetToolStripMenuItem,
             this.colorsToolStripMenuItem,
             this.fontsToolStripMenuItem,
@@ -1234,12 +1234,12 @@ namespace OutlookMailClone
             // 
             // cmsQuickStyles
             // 
-            this.cmsQuickStyles.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsQuickStyles.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsQuickStylesItems});
             // 
             // cmsQuickStylesItems
             // 
-            this.cmsQuickStylesItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsQuickStylesItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.saveSelectionAsNewStyleToolStripMenuItem,
             this.clearFormattingToolStripMenuItem,
             this.applyStylesToolStripMenuItem});
@@ -1260,12 +1260,12 @@ namespace OutlookMailClone
             // 
             // cmsFind
             // 
-            this.cmsFind.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsFind.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsFindItems});
             // 
             // cmsFindItems
             // 
-            this.cmsFindItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsFindItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.findToolStripMenuItem,
             this.goToToolStripMenuItem});
             // 
@@ -1280,12 +1280,12 @@ namespace OutlookMailClone
             // 
             // cmsSelect
             // 
-            this.cmsSelect.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsSelect.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.cmsSelectItems});
             // 
             // cmsSelectItems
             // 
-            this.cmsSelectItems.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.cmsSelectItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.selectAllToolStripMenuItem,
             this.selectObjectsToolStripMenuItem,
             this.selectTextWithSimilarFormattingToolStripMenuItem});
@@ -1305,9 +1305,10 @@ namespace OutlookMailClone
             // 
             // kryptonRibbon
             // 
-            this.kryptonRibbon.AllowFormIntegrate = false;
-            this.kryptonRibbon.ButtonSpecs.AddRange(new Krypton.Toolkit.ButtonSpecAny[] {
+            this.kryptonRibbon.AllowFormIntegrate = true;
+            this.kryptonRibbon.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecHelp});
+            this.kryptonRibbon.InDesignHelperMode = true;
             this.kryptonRibbon.Name = "kryptonRibbon";
             this.kryptonRibbon.QATButtons.AddRange(new System.ComponentModel.Component[] {
             this.qatSave,
@@ -1318,8 +1319,8 @@ namespace OutlookMailClone
             this.qatDelete});
             this.kryptonRibbon.RibbonAppButton.AppButtonBaseColorDark = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(162)))), ((int)(((byte)(9)))));
             this.kryptonRibbon.RibbonAppButton.AppButtonBaseColorLight = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(212)))), ((int)(((byte)(46)))));
-            this.kryptonRibbon.RibbonAppButton.AppButtonImage = ((System.Drawing.Image)(resources.GetObject("kryptonRibbon.RibbonAppButton.AppButtonImage")));
-            this.kryptonRibbon.RibbonAppButton.AppButtonMenuItems.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonRibbon.RibbonAppButton.AppButtonImage = global::OutlookMailClone.Properties.Resources.Square_Design_64_x_64_New_Green;
+            this.kryptonRibbon.RibbonAppButton.AppButtonMenuItems.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kryptonContextMenuItem1,
             this.kryptonContextMenuItem2,
             this.kryptonContextMenuSeparator11,
@@ -1333,7 +1334,7 @@ namespace OutlookMailClone
             this.kryptonContextMenuItem8,
             this.kryptonContextMenuItem9});
             this.kryptonRibbon.RibbonAppButton.AppButtonMinRecentSize = new System.Drawing.Size(300, 250);
-            this.kryptonRibbon.RibbonAppButton.AppButtonRecentDocs.AddRange(new Krypton.Ribbon.KryptonRibbonRecentDoc[] {
+            this.kryptonRibbon.RibbonAppButton.AppButtonRecentDocs.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonRecentDoc[] {
             this.kryptonRibbonRecentDoc1,
             this.kryptonRibbonRecentDoc2,
             this.kryptonRibbonRecentDoc3,
@@ -1342,17 +1343,16 @@ namespace OutlookMailClone
             this.kryptonRibbonRecentDoc6,
             this.kryptonRibbonRecentDoc7,
             this.kryptonRibbonRecentDoc8});
-            this.kryptonRibbon.RibbonAppButton.AppButtonSpecs.AddRange(new Krypton.Ribbon.ButtonSpecAppMenu[] {
+            this.kryptonRibbon.RibbonAppButton.AppButtonSpecs.AddRange(new ComponentFactory.Krypton.Ribbon.ButtonSpecAppMenu[] {
             this.buttonSpecAppMenu1});
             this.kryptonRibbon.RibbonStrings.RecentDocuments = "Create New Outlook Item";
-            this.kryptonRibbon.RibbonTabs.AddRange(new Krypton.Ribbon.KryptonRibbonTab[] {
+            this.kryptonRibbon.RibbonTabs.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab[] {
             this.tabMessage,
             this.tabInsert,
             this.tabOptions,
             this.tabFormatText,
             this.tabDeveloper});
-            this.kryptonRibbon.SelectedContext = null;
-            this.kryptonRibbon.SelectedTab = this.tabMessage;
+            this.kryptonRibbon.SelectedTab = this.tabInsert;
             this.kryptonRibbon.Size = new System.Drawing.Size(782, 115);
             this.kryptonRibbon.TabIndex = 0;
             // 
@@ -1411,7 +1411,7 @@ namespace OutlookMailClone
             // kryptonContextMenuItem4
             // 
             this.kryptonContextMenuItem4.Image = global::OutlookMailClone.Properties.Resources.AppMenuSaveAs;
-            this.kryptonContextMenuItem4.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuItem4.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kryptonContextMenuItems1});
             this.kryptonContextMenuItem4.SplitSubMenu = true;
             this.kryptonContextMenuItem4.Text = "Save &As";
@@ -1419,7 +1419,7 @@ namespace OutlookMailClone
             // kryptonContextMenuItems1
             // 
             this.kryptonContextMenuItems1.ImageColumn = false;
-            this.kryptonContextMenuItems1.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuItems1.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kryptonContextMenuHeading1,
             this.kryptonContextMenuItem10});
             this.kryptonContextMenuItems1.StandardStyle = false;
@@ -1448,7 +1448,7 @@ namespace OutlookMailClone
             // kryptonContextMenuItem7
             // 
             this.kryptonContextMenuItem7.Image = global::OutlookMailClone.Properties.Resources.AppMenuPrint;
-            this.kryptonContextMenuItem7.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuItem7.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kryptonContextMenuItems2,
             this.kryptonContextMenuSeparator15,
             this.kryptonContextMenuItems3});
@@ -1458,7 +1458,7 @@ namespace OutlookMailClone
             // kryptonContextMenuItems2
             // 
             this.kryptonContextMenuItems2.ImageColumn = false;
-            this.kryptonContextMenuItems2.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuItems2.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kryptonContextMenuHeading2,
             this.kryptonContextMenuItem11,
             this.kryptonContextMenuItem12,
@@ -1498,7 +1498,7 @@ namespace OutlookMailClone
             // kryptonContextMenuItems3
             // 
             this.kryptonContextMenuItems3.ImageColumn = false;
-            this.kryptonContextMenuItems3.Items.AddRange(new Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuItems3.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kryptonContextMenuHeading3,
             this.kryptonContextMenuItem15});
             this.kryptonContextMenuItems3.StandardStyle = false;
@@ -1557,13 +1557,13 @@ namespace OutlookMailClone
             // 
             // buttonSpecAppMenu1
             // 
-            this.buttonSpecAppMenu1.Style = Krypton.Toolkit.PaletteButtonStyle.Standalone;
+            this.buttonSpecAppMenu1.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Standalone;
             this.buttonSpecAppMenu1.Text = "Editor Opt&ions";
             this.buttonSpecAppMenu1.UniqueName = "79F5426EC683477979F5426EC6834779";
             // 
             // tabMessage
             // 
-            this.tabMessage.Groups.AddRange(new Krypton.Ribbon.KryptonRibbonGroup[] {
+            this.tabMessage.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
             this.groupClipboard,
             this.groupBasicText,
             this.groupNames,
@@ -1577,7 +1577,7 @@ namespace OutlookMailClone
             // 
             this.groupClipboard.AllowCollapsed = false;
             this.groupClipboard.Image = ((System.Drawing.Image)(resources.GetObject("groupClipboard.Image")));
-            this.groupClipboard.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.groupClipboard.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.clipboard1,
             this.clipboard2});
             this.groupClipboard.KeyTipDialogLauncher = "FO";
@@ -1585,13 +1585,13 @@ namespace OutlookMailClone
             // 
             // clipboard1
             // 
-            this.clipboard1.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.clipboard1.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.clipboardPaste});
-            this.clipboard1.MinimumSize = Krypton.Ribbon.GroupItemSize.Large;
+            this.clipboard1.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Large;
             // 
             // clipboardPaste
             // 
-            this.clipboardPaste.ButtonType = Krypton.Ribbon.GroupButtonType.Split;
+            this.clipboardPaste.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.Split;
             this.clipboardPaste.ImageLarge = global::OutlookMailClone.Properties.Resources.ClipboardPaste;
             this.clipboardPaste.ImageSmall = ((System.Drawing.Image)(resources.GetObject("clipboardPaste.ImageSmall")));
             this.clipboardPaste.KeyTip = "V";
@@ -1600,11 +1600,11 @@ namespace OutlookMailClone
             // 
             // clipboard2
             // 
-            this.clipboard2.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.clipboard2.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.clipboardCut,
             this.clipboardCopy,
             this.clipboardFormatPainter});
-            this.clipboard2.MaximumSize = Krypton.Ribbon.GroupItemSize.Medium;
+            this.clipboard2.MaximumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Medium;
             // 
             // clipboardCut
             // 
@@ -1631,7 +1631,7 @@ namespace OutlookMailClone
             // groupBasicText
             // 
             this.groupBasicText.Image = global::OutlookMailClone.Properties.Resources.TextColor;
-            this.groupBasicText.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.groupBasicText.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.basicTextLines});
             this.groupBasicText.KeyTipDialogLauncher = "FN";
             this.groupBasicText.KeyTipGroup = "ZB";
@@ -1640,7 +1640,7 @@ namespace OutlookMailClone
             // 
             // basicTextLines
             // 
-            this.basicTextLines.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.basicTextLines.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.basicTextFont,
             this.basicTextBullet,
             this.basicTextRubout,
@@ -1651,7 +1651,7 @@ namespace OutlookMailClone
             // 
             // basicTextFont
             // 
-            this.basicTextFont.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.basicTextFont.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.basicTextFontLarger,
             this.basicTextFontSmaller});
             // 
@@ -1667,7 +1667,7 @@ namespace OutlookMailClone
             // 
             // basicTextBullet
             // 
-            this.basicTextBullet.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.basicTextBullet.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.basicTextBulletPoints,
             this.basicTextBulletNumbers});
             // 
@@ -1683,7 +1683,7 @@ namespace OutlookMailClone
             // 
             // basicTextRubout
             // 
-            this.basicTextRubout.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.basicTextRubout.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.basicTextRuboutButton});
             // 
             // basicTextRuboutButton
@@ -1693,32 +1693,32 @@ namespace OutlookMailClone
             // 
             // basicTextStyle
             // 
-            this.basicTextStyle.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.basicTextStyle.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.basicTextStyleBold,
             this.basicTextStyleItalic,
             this.basicTextStyleUnderline});
             // 
             // basicTextStyleBold
             // 
-            this.basicTextStyleBold.ButtonType = Krypton.Ribbon.GroupButtonType.Check;
+            this.basicTextStyleBold.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.Check;
             this.basicTextStyleBold.ImageSmall = global::OutlookMailClone.Properties.Resources.TextBold;
             this.basicTextStyleBold.KeyTip = "1";
             // 
             // basicTextStyleItalic
             // 
-            this.basicTextStyleItalic.ButtonType = Krypton.Ribbon.GroupButtonType.Check;
+            this.basicTextStyleItalic.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.Check;
             this.basicTextStyleItalic.ImageSmall = global::OutlookMailClone.Properties.Resources.TextItalics;
             this.basicTextStyleItalic.KeyTip = "2";
             // 
             // basicTextStyleUnderline
             // 
-            this.basicTextStyleUnderline.ButtonType = Krypton.Ribbon.GroupButtonType.Check;
+            this.basicTextStyleUnderline.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.Check;
             this.basicTextStyleUnderline.ImageSmall = global::OutlookMailClone.Properties.Resources.TextUnderline;
             this.basicTextStyleUnderline.KeyTip = "3";
             // 
             // basicTextColors
             // 
-            this.basicTextColors.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.basicTextColors.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.basicTextColorBack,
             this.basicTextColorText});
             // 
@@ -1727,7 +1727,7 @@ namespace OutlookMailClone
             this.basicTextColorBack.ImageSmall = global::OutlookMailClone.Properties.Resources.TextBackColor;
             this.basicTextColorBack.KeyTip = "I";
             this.basicTextColorBack.RecentColors = new System.Drawing.Color[0];
-            this.basicTextColorBack.SchemeStandard = Krypton.Toolkit.ColorScheme.Basic16;
+            this.basicTextColorBack.SchemeStandard = ComponentFactory.Krypton.Toolkit.ColorScheme.Basic16;
             this.basicTextColorBack.SelectedColor = System.Drawing.Color.Yellow;
             this.basicTextColorBack.VisibleMoreColors = false;
             this.basicTextColorBack.VisibleThemes = false;
@@ -1742,7 +1742,7 @@ namespace OutlookMailClone
             // 
             // basicTextAlignment
             // 
-            this.basicTextAlignment.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.basicTextAlignment.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.basicTextAlignLeft,
             this.basicTextAlignCenter,
             this.basicTextAlignRight});
@@ -1764,7 +1764,7 @@ namespace OutlookMailClone
             // 
             // basicTextTab
             // 
-            this.basicTextTab.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.basicTextTab.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.basicTextTabLeft,
             this.basicTextTabRight});
             // 
@@ -1782,17 +1782,17 @@ namespace OutlookMailClone
             // 
             this.groupNames.DialogBoxLauncher = false;
             this.groupNames.Image = global::OutlookMailClone.Properties.Resources.NamesGroup;
-            this.groupNames.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.groupNames.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.namesGroup});
             this.groupNames.KeyTipGroup = "ZN";
             this.groupNames.TextLine1 = "Names";
             // 
             // namesGroup
             // 
-            this.namesGroup.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.namesGroup.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.namesAddressBook,
             this.namesCheckNames});
-            this.namesGroup.MinimumSize = Krypton.Ribbon.GroupItemSize.Large;
+            this.namesGroup.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Large;
             // 
             // namesAddressBook
             // 
@@ -1813,7 +1813,7 @@ namespace OutlookMailClone
             // groupMessageInclude
             // 
             this.groupMessageInclude.Image = ((System.Drawing.Image)(resources.GetObject("groupMessageInclude.Image")));
-            this.groupMessageInclude.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.groupMessageInclude.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.includeTriple1,
             this.includeTriple2});
             this.groupMessageInclude.KeyTipDialogLauncher = "AP";
@@ -1822,7 +1822,7 @@ namespace OutlookMailClone
             // 
             // includeTriple1
             // 
-            this.includeTriple1.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.includeTriple1.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.includeAttachFile,
             this.includeAttachItem,
             this.includeSignature});
@@ -1845,7 +1845,7 @@ namespace OutlookMailClone
             // 
             // includeSignature
             // 
-            this.includeSignature.ButtonType = Krypton.Ribbon.GroupButtonType.DropDown;
+            this.includeSignature.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.DropDown;
             this.includeSignature.ImageLarge = global::OutlookMailClone.Properties.Resources.IncludeSignature;
             this.includeSignature.ImageSmall = global::OutlookMailClone.Properties.Resources.IncludeSignatureSmall;
             this.includeSignature.KeyTip = "G";
@@ -1855,7 +1855,7 @@ namespace OutlookMailClone
             // groupOptions
             // 
             this.groupOptions.Image = global::OutlookMailClone.Properties.Resources.OptionsFollowUpSmall;
-            this.groupOptions.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.groupOptions.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.optionsTripleFollowup});
             this.groupOptions.KeyTipDialogLauncher = "OP";
             this.groupOptions.KeyTipGroup = "ZO";
@@ -1863,16 +1863,16 @@ namespace OutlookMailClone
             // 
             // optionsTripleFollowup
             // 
-            this.optionsTripleFollowup.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.optionsTripleFollowup.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.optionsFollowUp,
             this.optionsHighImportance,
             this.optionsLowImportance});
-            this.optionsTripleFollowup.MaximumSize = Krypton.Ribbon.GroupItemSize.Medium;
-            this.optionsTripleFollowup.MinimumSize = Krypton.Ribbon.GroupItemSize.Medium;
+            this.optionsTripleFollowup.MaximumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Medium;
+            this.optionsTripleFollowup.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Medium;
             // 
             // optionsFollowUp
             // 
-            this.optionsFollowUp.ButtonType = Krypton.Ribbon.GroupButtonType.DropDown;
+            this.optionsFollowUp.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.DropDown;
             this.optionsFollowUp.ImageLarge = global::OutlookMailClone.Properties.Resources.OptionsFollowUp;
             this.optionsFollowUp.ImageSmall = global::OutlookMailClone.Properties.Resources.FollowUp1;
             this.optionsFollowUp.KeyTip = "W";
@@ -1901,16 +1901,16 @@ namespace OutlookMailClone
             this.groupZoom.AllowCollapsed = false;
             this.groupZoom.DialogBoxLauncher = false;
             this.groupZoom.Image = ((System.Drawing.Image)(resources.GetObject("groupZoom.Image")));
-            this.groupZoom.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.groupZoom.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.proofingTriple});
             this.groupZoom.KeyTipGroup = "Q";
             this.groupZoom.TextLine1 = "Zoom";
             // 
             // proofingTriple
             // 
-            this.proofingTriple.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.proofingTriple.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.zoomMessageZoom});
-            this.proofingTriple.MinimumSize = Krypton.Ribbon.GroupItemSize.Large;
+            this.proofingTriple.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Large;
             // 
             // zoomMessageZoom
             // 
@@ -1921,7 +1921,7 @@ namespace OutlookMailClone
             // 
             // tabInsert
             // 
-            this.tabInsert.Groups.AddRange(new Krypton.Ribbon.KryptonRibbonGroup[] {
+            this.tabInsert.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
             this.groupInsertInclude,
             this.groupTables,
             this.groupInsertIllustrations,
@@ -1935,7 +1935,7 @@ namespace OutlookMailClone
             // 
             this.groupInsertInclude.AllowCollapsed = false;
             this.groupInsertInclude.Image = ((System.Drawing.Image)(resources.GetObject("groupInsertInclude.Image")));
-            this.groupInsertInclude.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.groupInsertInclude.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupTriple4,
             this.kryptonRibbonGroupTriple5});
             this.groupInsertInclude.KeyTipDialogLauncher = "AP";
@@ -1943,7 +1943,7 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupTriple4
             // 
-            this.kryptonRibbonGroupTriple4.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple4.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.includeInsertAttachFile,
             this.includeInsertAttachItem});
             // 
@@ -1965,14 +1965,14 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupTriple5
             // 
-            this.kryptonRibbonGroupTriple5.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple5.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.includeInsertBusinessCard,
             this.includeInsertCalendar,
             this.includeInsertSignature});
             // 
             // includeInsertBusinessCard
             // 
-            this.includeInsertBusinessCard.ButtonType = Krypton.Ribbon.GroupButtonType.DropDown;
+            this.includeInsertBusinessCard.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.DropDown;
             this.includeInsertBusinessCard.ImageLarge = global::OutlookMailClone.Properties.Resources.IncludeBusinessCard;
             this.includeInsertBusinessCard.ImageSmall = global::OutlookMailClone.Properties.Resources.IncludeBusinessCardSmall;
             this.includeInsertBusinessCard.KeyTip = "AA";
@@ -1989,7 +1989,7 @@ namespace OutlookMailClone
             // 
             // includeInsertSignature
             // 
-            this.includeInsertSignature.ButtonType = Krypton.Ribbon.GroupButtonType.DropDown;
+            this.includeInsertSignature.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.DropDown;
             this.includeInsertSignature.ImageLarge = global::OutlookMailClone.Properties.Resources.IncludeSignature;
             this.includeInsertSignature.ImageSmall = global::OutlookMailClone.Properties.Resources.IncludeSignatureSmall;
             this.includeInsertSignature.KeyTip = "G";
@@ -2001,19 +2001,19 @@ namespace OutlookMailClone
             this.groupTables.AllowCollapsed = false;
             this.groupTables.DialogBoxLauncher = false;
             this.groupTables.Image = ((System.Drawing.Image)(resources.GetObject("groupTables.Image")));
-            this.groupTables.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.groupTables.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupTriple3});
             this.groupTables.TextLine1 = "Tables";
             // 
             // kryptonRibbonGroupTriple3
             // 
-            this.kryptonRibbonGroupTriple3.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple3.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.tablesTable});
-            this.kryptonRibbonGroupTriple3.MinimumSize = Krypton.Ribbon.GroupItemSize.Large;
+            this.kryptonRibbonGroupTriple3.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Large;
             // 
             // tablesTable
             // 
-            this.tablesTable.ButtonType = Krypton.Ribbon.GroupButtonType.DropDown;
+            this.tablesTable.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.DropDown;
             this.tablesTable.ImageLarge = global::OutlookMailClone.Properties.Resources.TablesLarge;
             this.tablesTable.ImageSmall = ((System.Drawing.Image)(resources.GetObject("tablesTable.ImageSmall")));
             this.tablesTable.KryptonContextMenu = this.cmsTable;
@@ -2024,17 +2024,17 @@ namespace OutlookMailClone
             this.groupInsertIllustrations.AllowCollapsed = false;
             this.groupInsertIllustrations.DialogBoxLauncher = false;
             this.groupInsertIllustrations.Image = ((System.Drawing.Image)(resources.GetObject("groupInsertIllustrations.Image")));
-            this.groupInsertIllustrations.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.groupInsertIllustrations.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupTriple6,
             this.kryptonRibbonGroupTriple7});
             this.groupInsertIllustrations.TextLine1 = "Illustrations";
             // 
             // kryptonRibbonGroupTriple6
             // 
-            this.kryptonRibbonGroupTriple6.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple6.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.illustrationsPicture,
             this.illustrationsClipArt});
-            this.kryptonRibbonGroupTriple6.MinimumSize = Krypton.Ribbon.GroupItemSize.Large;
+            this.kryptonRibbonGroupTriple6.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Large;
             // 
             // illustrationsPicture
             // 
@@ -2053,14 +2053,14 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupTriple7
             // 
-            this.kryptonRibbonGroupTriple7.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple7.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.illustrationsShapes,
             this.illustrationsSmartArt,
             this.illustrationsChart});
             // 
             // illustrationsShapes
             // 
-            this.illustrationsShapes.ButtonType = Krypton.Ribbon.GroupButtonType.DropDown;
+            this.illustrationsShapes.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.DropDown;
             this.illustrationsShapes.ImageLarge = global::OutlookMailClone.Properties.Resources.ShapesLarge;
             this.illustrationsShapes.ImageSmall = global::OutlookMailClone.Properties.Resources.ShapesSmall;
             this.illustrationsShapes.KeyTip = "SH";
@@ -2085,17 +2085,17 @@ namespace OutlookMailClone
             // 
             this.groupLinks.DialogBoxLauncher = false;
             this.groupLinks.Image = global::OutlookMailClone.Properties.Resources.HyperlinkSmall;
-            this.groupLinks.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.groupLinks.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupTriple2});
             this.groupLinks.KeyTipGroup = "ZL";
             this.groupLinks.TextLine1 = "Links";
             // 
             // kryptonRibbonGroupTriple2
             // 
-            this.kryptonRibbonGroupTriple2.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple2.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.linksHyperlink,
             this.linksBookmark});
-            this.kryptonRibbonGroupTriple2.MinimumSize = Krypton.Ribbon.GroupItemSize.Medium;
+            this.kryptonRibbonGroupTriple2.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Medium;
             // 
             // linksHyperlink
             // 
@@ -2115,7 +2115,7 @@ namespace OutlookMailClone
             // 
             this.groupText.DialogBoxLauncher = false;
             this.groupText.Image = global::OutlookMailClone.Properties.Resources.WordArtSmall;
-            this.groupText.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.groupText.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupTriple8,
             this.kryptonRibbonGroupTriple9});
             this.groupText.KeyTipGroup = "ZT";
@@ -2123,15 +2123,15 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupTriple8
             // 
-            this.kryptonRibbonGroupTriple8.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple8.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.textTextBox,
             this.textQuickParts,
             this.textWordArt});
-            this.kryptonRibbonGroupTriple8.MinimumSize = Krypton.Ribbon.GroupItemSize.Medium;
+            this.kryptonRibbonGroupTriple8.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Medium;
             // 
             // textTextBox
             // 
-            this.textTextBox.ButtonType = Krypton.Ribbon.GroupButtonType.DropDown;
+            this.textTextBox.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.DropDown;
             this.textTextBox.ImageLarge = global::OutlookMailClone.Properties.Resources.TextBoxLarge;
             this.textTextBox.ImageSmall = global::OutlookMailClone.Properties.Resources.TextBoxSmall;
             this.textTextBox.KeyTip = "X";
@@ -2141,7 +2141,7 @@ namespace OutlookMailClone
             // 
             // textQuickParts
             // 
-            this.textQuickParts.ButtonType = Krypton.Ribbon.GroupButtonType.DropDown;
+            this.textQuickParts.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.DropDown;
             this.textQuickParts.ImageLarge = global::OutlookMailClone.Properties.Resources.QuickPartsLarge;
             this.textQuickParts.ImageSmall = global::OutlookMailClone.Properties.Resources.QuickPartsSmall;
             this.textQuickParts.KeyTip = "Q";
@@ -2158,15 +2158,15 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupTriple9
             // 
-            this.kryptonRibbonGroupTriple9.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple9.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.textDropCap,
             this.textDateAndTime,
             this.textObject});
-            this.kryptonRibbonGroupTriple9.MaximumSize = Krypton.Ribbon.GroupItemSize.Medium;
+            this.kryptonRibbonGroupTriple9.MaximumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Medium;
             // 
             // textDropCap
             // 
-            this.textDropCap.ButtonType = Krypton.Ribbon.GroupButtonType.DropDown;
+            this.textDropCap.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.DropDown;
             this.textDropCap.ImageLarge = ((System.Drawing.Image)(resources.GetObject("textDropCap.ImageLarge")));
             this.textDropCap.ImageSmall = global::OutlookMailClone.Properties.Resources.DropCapSmall;
             this.textDropCap.KeyTip = "RC";
@@ -2193,22 +2193,22 @@ namespace OutlookMailClone
             // 
             this.groupSymbols.DialogBoxLauncher = false;
             this.groupSymbols.Image = global::OutlookMailClone.Properties.Resources.EquationSmall;
-            this.groupSymbols.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.groupSymbols.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupTriple1});
             this.groupSymbols.KeyTipGroup = "ZS";
             this.groupSymbols.TextLine1 = "Symbols";
             // 
             // kryptonRibbonGroupTriple1
             // 
-            this.kryptonRibbonGroupTriple1.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple1.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.symbolsEquation,
             this.symbolSymbol,
             this.symbolHorizontalLine});
-            this.kryptonRibbonGroupTriple1.MinimumSize = Krypton.Ribbon.GroupItemSize.Medium;
+            this.kryptonRibbonGroupTriple1.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Medium;
             // 
             // symbolsEquation
             // 
-            this.symbolsEquation.ButtonType = Krypton.Ribbon.GroupButtonType.DropDown;
+            this.symbolsEquation.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.DropDown;
             this.symbolsEquation.ImageLarge = global::OutlookMailClone.Properties.Resources.EquationLarge;
             this.symbolsEquation.ImageSmall = global::OutlookMailClone.Properties.Resources.EquationSmall;
             this.symbolsEquation.KeyTip = "E";
@@ -2217,7 +2217,7 @@ namespace OutlookMailClone
             // 
             // symbolSymbol
             // 
-            this.symbolSymbol.ButtonType = Krypton.Ribbon.GroupButtonType.DropDown;
+            this.symbolSymbol.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.DropDown;
             this.symbolSymbol.ImageLarge = global::OutlookMailClone.Properties.Resources.SymbolLarge;
             this.symbolSymbol.ImageSmall = global::OutlookMailClone.Properties.Resources.SymbolSmall;
             this.symbolSymbol.KeyTip = "U";
@@ -2234,7 +2234,7 @@ namespace OutlookMailClone
             // 
             // tabOptions
             // 
-            this.tabOptions.Groups.AddRange(new Krypton.Ribbon.KryptonRibbonGroup[] {
+            this.tabOptions.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
             this.groupOptionsThemes,
             this.groupFields,
             this.groupFormat,
@@ -2247,7 +2247,7 @@ namespace OutlookMailClone
             // 
             this.groupOptionsThemes.DialogBoxLauncher = false;
             this.groupOptionsThemes.Image = global::OutlookMailClone.Properties.Resources.ThemesSmall;
-            this.groupOptionsThemes.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.groupOptionsThemes.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupTriple10,
             this.kryptonRibbonGroupTriple11,
             this.kryptonRibbonGroupSeparator1,
@@ -2257,13 +2257,13 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupTriple10
             // 
-            this.kryptonRibbonGroupTriple10.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple10.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.themesTheme});
-            this.kryptonRibbonGroupTriple10.MinimumSize = Krypton.Ribbon.GroupItemSize.Large;
+            this.kryptonRibbonGroupTriple10.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Large;
             // 
             // themesTheme
             // 
-            this.themesTheme.ButtonType = Krypton.Ribbon.GroupButtonType.DropDown;
+            this.themesTheme.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.DropDown;
             this.themesTheme.ImageLarge = global::OutlookMailClone.Properties.Resources.ThemesLarge;
             this.themesTheme.ImageSmall = ((System.Drawing.Image)(resources.GetObject("themesTheme.ImageSmall")));
             this.themesTheme.KeyTip = "TH";
@@ -2272,11 +2272,11 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupTriple11
             // 
-            this.kryptonRibbonGroupTriple11.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple11.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.themesColors,
             this.themesFonts,
             this.themesEffects});
-            this.kryptonRibbonGroupTriple11.MaximumSize = Krypton.Ribbon.GroupItemSize.Medium;
+            this.kryptonRibbonGroupTriple11.MaximumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Medium;
             // 
             // themesColors
             // 
@@ -2301,13 +2301,13 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupTriple12
             // 
-            this.kryptonRibbonGroupTriple12.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple12.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.themesPageColor});
-            this.kryptonRibbonGroupTriple12.MinimumSize = Krypton.Ribbon.GroupItemSize.Large;
+            this.kryptonRibbonGroupTriple12.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Large;
             // 
             // themesPageColor
             // 
-            this.themesPageColor.ButtonType = Krypton.Ribbon.GroupButtonType.DropDown;
+            this.themesPageColor.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.DropDown;
             this.themesPageColor.ImageLarge = global::OutlookMailClone.Properties.Resources.PageColorLarge;
             this.themesPageColor.ImageSmall = ((System.Drawing.Image)(resources.GetObject("themesPageColor.ImageSmall")));
             this.themesPageColor.KeyTip = "PC";
@@ -2319,28 +2319,28 @@ namespace OutlookMailClone
             // 
             this.groupFields.DialogBoxLauncher = false;
             this.groupFields.Image = global::OutlookMailClone.Properties.Resources.FieldsSmall;
-            this.groupFields.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.groupFields.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupTriple13});
             this.groupFields.KeyTipGroup = "ZF";
             this.groupFields.TextLine1 = "Fields";
             // 
             // kryptonRibbonGroupTriple13
             // 
-            this.kryptonRibbonGroupTriple13.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple13.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.fieldsShowBcc,
             this.fieldsShowFrom});
-            this.kryptonRibbonGroupTriple13.MinimumSize = Krypton.Ribbon.GroupItemSize.Large;
+            this.kryptonRibbonGroupTriple13.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Large;
             // 
             // fieldsShowBcc
             // 
-            this.fieldsShowBcc.ButtonType = Krypton.Ribbon.GroupButtonType.Check;
+            this.fieldsShowBcc.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.Check;
             this.fieldsShowBcc.ImageLarge = global::OutlookMailClone.Properties.Resources.ShowBccLarge;
             this.fieldsShowBcc.ImageSmall = null;
             this.fieldsShowBcc.TextLine1 = "Bcc";
             // 
             // fieldsShowFrom
             // 
-            this.fieldsShowFrom.ButtonType = Krypton.Ribbon.GroupButtonType.Check;
+            this.fieldsShowFrom.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.Check;
             this.fieldsShowFrom.ImageLarge = global::OutlookMailClone.Properties.Resources.ShowFromLarge;
             this.fieldsShowFrom.ImageSmall = ((System.Drawing.Image)(resources.GetObject("fieldsShowFrom.ImageSmall")));
             this.fieldsShowFrom.KeyTip = "F";
@@ -2351,22 +2351,22 @@ namespace OutlookMailClone
             this.groupFormat.AllowCollapsed = false;
             this.groupFormat.DialogBoxLauncher = false;
             this.groupFormat.Image = ((System.Drawing.Image)(resources.GetObject("groupFormat.Image")));
-            this.groupFormat.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.groupFormat.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupTriple14});
             this.groupFormat.TextLine1 = "Format";
             // 
             // kryptonRibbonGroupTriple14
             // 
-            this.kryptonRibbonGroupTriple14.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple14.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.formatPlainText,
             this.formatHTML,
             this.formatRichText});
-            this.kryptonRibbonGroupTriple14.MaximumSize = Krypton.Ribbon.GroupItemSize.Medium;
-            this.kryptonRibbonGroupTriple14.MinimumSize = Krypton.Ribbon.GroupItemSize.Medium;
+            this.kryptonRibbonGroupTriple14.MaximumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Medium;
+            this.kryptonRibbonGroupTriple14.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Medium;
             // 
             // formatPlainText
             // 
-            this.formatPlainText.ButtonType = Krypton.Ribbon.GroupButtonType.Check;
+            this.formatPlainText.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.Check;
             this.formatPlainText.ImageLarge = ((System.Drawing.Image)(resources.GetObject("formatPlainText.ImageLarge")));
             this.formatPlainText.ImageSmall = global::OutlookMailClone.Properties.Resources.PlainTextSmall;
             this.formatPlainText.KeyTip = "L";
@@ -2375,7 +2375,7 @@ namespace OutlookMailClone
             // 
             // formatHTML
             // 
-            this.formatHTML.ButtonType = Krypton.Ribbon.GroupButtonType.Check;
+            this.formatHTML.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.Check;
             this.formatHTML.Checked = true;
             this.formatHTML.ImageLarge = ((System.Drawing.Image)(resources.GetObject("formatHTML.ImageLarge")));
             this.formatHTML.ImageSmall = global::OutlookMailClone.Properties.Resources.HTMLSmall;
@@ -2384,7 +2384,7 @@ namespace OutlookMailClone
             // 
             // formatRichText
             // 
-            this.formatRichText.ButtonType = Krypton.Ribbon.GroupButtonType.Check;
+            this.formatRichText.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.Check;
             this.formatRichText.ImageLarge = ((System.Drawing.Image)(resources.GetObject("formatRichText.ImageLarge")));
             this.formatRichText.ImageSmall = global::OutlookMailClone.Properties.Resources.RichTextSmall;
             this.formatRichText.KeyTip = "R";
@@ -2394,7 +2394,7 @@ namespace OutlookMailClone
             // groupTracking
             // 
             this.groupTracking.Image = global::OutlookMailClone.Properties.Resources.TrackingSmall;
-            this.groupTracking.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.groupTracking.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupTriple15,
             this.kryptonRibbonGroupLines3});
             this.groupTracking.KeyTipDialogLauncher = "OP";
@@ -2403,13 +2403,13 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupTriple15
             // 
-            this.kryptonRibbonGroupTriple15.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple15.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.trackingUseVotingButtons});
-            this.kryptonRibbonGroupTriple15.MinimumSize = Krypton.Ribbon.GroupItemSize.Large;
+            this.kryptonRibbonGroupTriple15.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Large;
             // 
             // trackingUseVotingButtons
             // 
-            this.trackingUseVotingButtons.ButtonType = Krypton.Ribbon.GroupButtonType.DropDown;
+            this.trackingUseVotingButtons.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.DropDown;
             this.trackingUseVotingButtons.ImageLarge = global::OutlookMailClone.Properties.Resources.UseVotingButtonsLarge;
             this.trackingUseVotingButtons.ImageSmall = null;
             this.trackingUseVotingButtons.KeyTip = "V";
@@ -2419,10 +2419,10 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupLines3
             // 
-            this.kryptonRibbonGroupLines3.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupLines3.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.kryptonRibbonGroupCheckBox1,
             this.kryptonRibbonGroupCheckBox2});
-            this.kryptonRibbonGroupLines3.MinimumSize = Krypton.Ribbon.GroupItemSize.Large;
+            this.kryptonRibbonGroupLines3.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Large;
             // 
             // kryptonRibbonGroupCheckBox1
             // 
@@ -2435,7 +2435,7 @@ namespace OutlookMailClone
             // groupMoreOptions
             // 
             this.groupMoreOptions.Image = global::OutlookMailClone.Properties.Resources.MoreOptionsSmall;
-            this.groupMoreOptions.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.groupMoreOptions.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupTriple16});
             this.groupMoreOptions.KeyTipDialogLauncher = "OP";
             this.groupMoreOptions.KeyTipGroup = "ZP";
@@ -2444,15 +2444,15 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupTriple16
             // 
-            this.kryptonRibbonGroupTriple16.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple16.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.moreOptionsSaveSentItem,
             this.moreOptionsDelayDelivery,
             this.moreOptionsDirectRepliesTo});
-            this.kryptonRibbonGroupTriple16.MinimumSize = Krypton.Ribbon.GroupItemSize.Medium;
+            this.kryptonRibbonGroupTriple16.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Medium;
             // 
             // moreOptionsSaveSentItem
             // 
-            this.moreOptionsSaveSentItem.ButtonType = Krypton.Ribbon.GroupButtonType.DropDown;
+            this.moreOptionsSaveSentItem.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.DropDown;
             this.moreOptionsSaveSentItem.ImageLarge = global::OutlookMailClone.Properties.Resources.SaveSentItemLarge;
             this.moreOptionsSaveSentItem.ImageSmall = global::OutlookMailClone.Properties.Resources.MoreOptionsSmall;
             this.moreOptionsSaveSentItem.KeyTip = "S";
@@ -2462,7 +2462,7 @@ namespace OutlookMailClone
             // 
             // moreOptionsDelayDelivery
             // 
-            this.moreOptionsDelayDelivery.ButtonType = Krypton.Ribbon.GroupButtonType.Check;
+            this.moreOptionsDelayDelivery.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.Check;
             this.moreOptionsDelayDelivery.ImageLarge = global::OutlookMailClone.Properties.Resources.DelayDeliveryLarge;
             this.moreOptionsDelayDelivery.ImageSmall = global::OutlookMailClone.Properties.Resources.DelayDeliverySmall;
             this.moreOptionsDelayDelivery.KeyTip = "D";
@@ -2471,7 +2471,7 @@ namespace OutlookMailClone
             // 
             // moreOptionsDirectRepliesTo
             // 
-            this.moreOptionsDirectRepliesTo.ButtonType = Krypton.Ribbon.GroupButtonType.Check;
+            this.moreOptionsDirectRepliesTo.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.Check;
             this.moreOptionsDirectRepliesTo.ImageLarge = global::OutlookMailClone.Properties.Resources.DirectRepliesToLarge;
             this.moreOptionsDirectRepliesTo.ImageSmall = global::OutlookMailClone.Properties.Resources.DrawingCanvasSmall;
             this.moreOptionsDirectRepliesTo.KeyTip = "I";
@@ -2480,7 +2480,7 @@ namespace OutlookMailClone
             // 
             // tabFormatText
             // 
-            this.tabFormatText.Groups.AddRange(new Krypton.Ribbon.KryptonRibbonGroup[] {
+            this.tabFormatText.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
             this.groupFormatClipboard,
             this.groupFormatFont,
             this.groupFormatParagraph,
@@ -2494,7 +2494,7 @@ namespace OutlookMailClone
             // 
             this.groupFormatClipboard.AllowCollapsed = false;
             this.groupFormatClipboard.Image = global::OutlookMailClone.Properties.Resources.ClipboardPasteSmall;
-            this.groupFormatClipboard.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.groupFormatClipboard.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupTriple17,
             this.kryptonRibbonGroupTriple18});
             this.groupFormatClipboard.KeyTipDialogLauncher = "FO";
@@ -2502,13 +2502,13 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupTriple17
             // 
-            this.kryptonRibbonGroupTriple17.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple17.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.formatClipboardPaste});
-            this.kryptonRibbonGroupTriple17.MinimumSize = Krypton.Ribbon.GroupItemSize.Large;
+            this.kryptonRibbonGroupTriple17.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Large;
             // 
             // formatClipboardPaste
             // 
-            this.formatClipboardPaste.ButtonType = Krypton.Ribbon.GroupButtonType.Split;
+            this.formatClipboardPaste.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.Split;
             this.formatClipboardPaste.ImageLarge = global::OutlookMailClone.Properties.Resources.ClipboardPaste;
             this.formatClipboardPaste.ImageSmall = ((System.Drawing.Image)(resources.GetObject("formatClipboardPaste.ImageSmall")));
             this.formatClipboardPaste.KeyTip = "V";
@@ -2517,11 +2517,11 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupTriple18
             // 
-            this.kryptonRibbonGroupTriple18.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple18.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.formatClipboardCut,
             this.formatClipboardCopy,
             this.formatClipboardFormatPainter});
-            this.kryptonRibbonGroupTriple18.MaximumSize = Krypton.Ribbon.GroupItemSize.Medium;
+            this.kryptonRibbonGroupTriple18.MaximumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Medium;
             // 
             // formatClipboardCut
             // 
@@ -2548,7 +2548,7 @@ namespace OutlookMailClone
             // groupFormatFont
             // 
             this.groupFormatFont.Image = global::OutlookMailClone.Properties.Resources.TextColor;
-            this.groupFormatFont.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.groupFormatFont.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupLines1});
             this.groupFormatFont.KeyTipDialogLauncher = "FN";
             this.groupFormatFont.KeyTipGroup = "ZF";
@@ -2556,7 +2556,7 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupLines1
             // 
-            this.kryptonRibbonGroupLines1.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupLines1.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.kryptonRibbonGroupCluster1,
             this.kryptonRibbonGroupCluster2,
             this.kryptonRibbonGroupCluster4,
@@ -2564,7 +2564,7 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupCluster1
             // 
-            this.kryptonRibbonGroupCluster1.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupCluster1.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.fontGrowFont,
             this.fontShrinkFont});
             // 
@@ -2580,7 +2580,7 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupCluster2
             // 
-            this.kryptonRibbonGroupCluster2.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupCluster2.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.fontTextClear});
             // 
             // fontTextClear
@@ -2590,7 +2590,7 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupCluster4
             // 
-            this.kryptonRibbonGroupCluster4.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupCluster4.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.fontTextBackColor,
             this.textFontColor});
             // 
@@ -2606,7 +2606,7 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupCluster3
             // 
-            this.kryptonRibbonGroupCluster3.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupCluster3.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.fontBold,
             this.fontItalic,
             this.fontUnderline,
@@ -2647,7 +2647,7 @@ namespace OutlookMailClone
             // 
             // fontChangeCase
             // 
-            this.fontChangeCase.ButtonType = Krypton.Ribbon.GroupButtonType.DropDown;
+            this.fontChangeCase.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.DropDown;
             this.fontChangeCase.ImageSmall = global::OutlookMailClone.Properties.Resources.TextChangeCase;
             this.fontChangeCase.KeyTip = "7";
             this.fontChangeCase.KryptonContextMenu = this.cmsChangeCase;
@@ -2655,7 +2655,7 @@ namespace OutlookMailClone
             // groupFormatParagraph
             // 
             this.groupFormatParagraph.Image = global::OutlookMailClone.Properties.Resources.TextAlignCenter;
-            this.groupFormatParagraph.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.groupFormatParagraph.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupLines2});
             this.groupFormatParagraph.KeyTipDialogLauncher = "PG";
             this.groupFormatParagraph.KeyTipGroup = "ZP";
@@ -2663,7 +2663,7 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupLines2
             // 
-            this.kryptonRibbonGroupLines2.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupLines2.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.kryptonRibbonGroupCluster5,
             this.kryptonRibbonGroupCluster6,
             this.kryptonRibbonGroupCluster7,
@@ -2674,7 +2674,7 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupCluster5
             // 
-            this.kryptonRibbonGroupCluster5.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupCluster5.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.fontBullets,
             this.fontNumbers,
             this.fontMultilevel});
@@ -2696,7 +2696,7 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupCluster6
             // 
-            this.kryptonRibbonGroupCluster6.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupCluster6.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.fontDecreaseIndent,
             this.fontIncreaseIndent});
             // 
@@ -2712,7 +2712,7 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupCluster7
             // 
-            this.kryptonRibbonGroupCluster7.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupCluster7.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.fontSort});
             // 
             // fontSort
@@ -2722,7 +2722,7 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupCluster8
             // 
-            this.kryptonRibbonGroupCluster8.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupCluster8.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.fontMarkers});
             // 
             // fontMarkers
@@ -2732,7 +2732,7 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupCluster9
             // 
-            this.kryptonRibbonGroupCluster9.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupCluster9.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.fontJustifyLeft,
             this.fontJustifyCenter,
             this.fontJustifyRight,
@@ -2760,19 +2760,19 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupCluster10
             // 
-            this.kryptonRibbonGroupCluster10.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupCluster10.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.fontSpacing});
             // 
             // fontSpacing
             // 
-            this.fontSpacing.ButtonType = Krypton.Ribbon.GroupButtonType.DropDown;
+            this.fontSpacing.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.DropDown;
             this.fontSpacing.ImageSmall = global::OutlookMailClone.Properties.Resources.LineSpacing;
             this.fontSpacing.KeyTip = "K";
             this.fontSpacing.KryptonContextMenu = this.cmsSpacing;
             // 
             // kryptonRibbonGroupCluster11
             // 
-            this.kryptonRibbonGroupCluster11.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupCluster11.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.fontShading,
             this.fontBottomBorder});
             // 
@@ -2783,7 +2783,7 @@ namespace OutlookMailClone
             // 
             // fontBottomBorder
             // 
-            this.fontBottomBorder.ButtonType = Krypton.Ribbon.GroupButtonType.Split;
+            this.fontBottomBorder.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.Split;
             this.fontBottomBorder.ImageSmall = global::OutlookMailClone.Properties.Resources.BottomBorder;
             this.fontBottomBorder.KryptonContextMenu = this.cmsBottomBorder;
             // 
@@ -2791,20 +2791,20 @@ namespace OutlookMailClone
             // 
             this.groupFormatStyles.AllowCollapsed = false;
             this.groupFormatStyles.Image = ((System.Drawing.Image)(resources.GetObject("groupFormatStyles.Image")));
-            this.groupFormatStyles.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.groupFormatStyles.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupTriple19});
             this.groupFormatStyles.KeyTipDialogLauncher = "FY";
             this.groupFormatStyles.TextLine1 = "Styles";
             // 
             // kryptonRibbonGroupTriple19
             // 
-            this.kryptonRibbonGroupTriple19.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple19.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.stylesChangeStyles});
-            this.kryptonRibbonGroupTriple19.MinimumSize = Krypton.Ribbon.GroupItemSize.Large;
+            this.kryptonRibbonGroupTriple19.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Large;
             // 
             // stylesChangeStyles
             // 
-            this.stylesChangeStyles.ButtonType = Krypton.Ribbon.GroupButtonType.DropDown;
+            this.stylesChangeStyles.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.DropDown;
             this.stylesChangeStyles.ImageLarge = global::OutlookMailClone.Properties.Resources.ChangeStyles;
             this.stylesChangeStyles.ImageSmall = ((System.Drawing.Image)(resources.GetObject("stylesChangeStyles.ImageSmall")));
             this.stylesChangeStyles.KeyTip = "G";
@@ -2817,15 +2817,15 @@ namespace OutlookMailClone
             this.groupFormatZoom.AllowCollapsed = false;
             this.groupFormatZoom.DialogBoxLauncher = false;
             this.groupFormatZoom.Image = ((System.Drawing.Image)(resources.GetObject("groupFormatZoom.Image")));
-            this.groupFormatZoom.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.groupFormatZoom.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupTriple20});
             this.groupFormatZoom.TextLine1 = "Zoom";
             // 
             // kryptonRibbonGroupTriple20
             // 
-            this.kryptonRibbonGroupTriple20.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple20.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.zoomZoom});
-            this.kryptonRibbonGroupTriple20.MinimumSize = Krypton.Ribbon.GroupItemSize.Large;
+            this.kryptonRibbonGroupTriple20.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Large;
             // 
             // zoomZoom
             // 
@@ -2838,23 +2838,23 @@ namespace OutlookMailClone
             // 
             this.groupFormatEditing.DialogBoxLauncher = false;
             this.groupFormatEditing.Image = global::OutlookMailClone.Properties.Resources.FindSmall;
-            this.groupFormatEditing.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.groupFormatEditing.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupTriple21});
             this.groupFormatEditing.KeyTipGroup = "ZN";
             this.groupFormatEditing.TextLine1 = "Editing";
             // 
             // kryptonRibbonGroupTriple21
             // 
-            this.kryptonRibbonGroupTriple21.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupTriple21.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.kryptonRibbonGroupButton4,
             this.kryptonRibbonGroupButton5,
             this.kryptonRibbonGroupButton6});
-            this.kryptonRibbonGroupTriple21.MaximumSize = Krypton.Ribbon.GroupItemSize.Medium;
-            this.kryptonRibbonGroupTriple21.MinimumSize = Krypton.Ribbon.GroupItemSize.Medium;
+            this.kryptonRibbonGroupTriple21.MaximumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Medium;
+            this.kryptonRibbonGroupTriple21.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Medium;
             // 
             // kryptonRibbonGroupButton4
             // 
-            this.kryptonRibbonGroupButton4.ButtonType = Krypton.Ribbon.GroupButtonType.Split;
+            this.kryptonRibbonGroupButton4.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.Split;
             this.kryptonRibbonGroupButton4.ImageLarge = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton4.ImageLarge")));
             this.kryptonRibbonGroupButton4.ImageSmall = global::OutlookMailClone.Properties.Resources.FindSmall;
             this.kryptonRibbonGroupButton4.KeyTip = "FD";
@@ -2870,7 +2870,7 @@ namespace OutlookMailClone
             // 
             // kryptonRibbonGroupButton6
             // 
-            this.kryptonRibbonGroupButton6.ButtonType = Krypton.Ribbon.GroupButtonType.DropDown;
+            this.kryptonRibbonGroupButton6.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.DropDown;
             this.kryptonRibbonGroupButton6.ImageLarge = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton6.ImageLarge")));
             this.kryptonRibbonGroupButton6.ImageSmall = global::OutlookMailClone.Properties.Resources.SelectSmall;
             this.kryptonRibbonGroupButton6.KeyTip = "SL";
@@ -2879,7 +2879,7 @@ namespace OutlookMailClone
             // 
             // tabDeveloper
             // 
-            this.tabDeveloper.Groups.AddRange(new Krypton.Ribbon.KryptonRibbonGroup[] {
+            this.tabDeveloper.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
             this.developerCode,
             this.developerForm});
             this.tabDeveloper.KeyTip = "L";
@@ -2890,16 +2890,16 @@ namespace OutlookMailClone
             this.developerCode.AllowCollapsed = false;
             this.developerCode.DialogBoxLauncher = false;
             this.developerCode.Image = ((System.Drawing.Image)(resources.GetObject("developerCode.Image")));
-            this.developerCode.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.developerCode.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.developerCodeTriple});
             this.developerCode.TextLine1 = "Code";
             // 
             // developerCodeTriple
             // 
-            this.developerCodeTriple.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.developerCodeTriple.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.developerCodeVB,
             this.developerCodeMacros});
-            this.developerCodeTriple.MinimumSize = Krypton.Ribbon.GroupItemSize.Large;
+            this.developerCodeTriple.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Large;
             // 
             // developerCodeVB
             // 
@@ -2921,17 +2921,17 @@ namespace OutlookMailClone
             this.developerForm.AllowCollapsed = false;
             this.developerForm.DialogBoxLauncher = false;
             this.developerForm.Image = ((System.Drawing.Image)(resources.GetObject("developerForm.Image")));
-            this.developerForm.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.developerForm.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.developerFormTriple});
             this.developerForm.TextLine1 = "Form";
             // 
             // developerFormTriple
             // 
-            this.developerFormTriple.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.developerFormTriple.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.developerFormDesignThis,
             this.developerFormDesignA,
             this.developerFormPublish});
-            this.developerFormTriple.MinimumSize = Krypton.Ribbon.GroupItemSize.Large;
+            this.developerFormTriple.MinimumSize = ComponentFactory.Krypton.Ribbon.GroupItemSize.Large;
             // 
             // developerFormDesignThis
             // 
@@ -2951,7 +2951,7 @@ namespace OutlookMailClone
             // 
             // developerFormPublish
             // 
-            this.developerFormPublish.ButtonType = Krypton.Ribbon.GroupButtonType.DropDown;
+            this.developerFormPublish.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.DropDown;
             this.developerFormPublish.ImageLarge = global::OutlookMailClone.Properties.Resources.FormPublish;
             this.developerFormPublish.ImageSmall = ((System.Drawing.Image)(resources.GetObject("developerFormPublish.ImageSmall")));
             this.developerFormPublish.KryptonContextMenu = this.cmsFormPublish;
@@ -2992,6 +2992,10 @@ namespace OutlookMailClone
             this.addReminderToolStripMenuItem.Image = global::OutlookMailClone.Properties.Resources.OptionsReminder;
             this.addReminderToolStripMenuItem.Text = "Add Reminder...";
             // 
+            // kryptonManager1
+            // 
+            this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2007Black;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3002,8 +3006,8 @@ namespace OutlookMailClone
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.StateCommon.Header.Content.LongText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.StateCommon.Header.Content.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.StateCommon.Header.Content.LongText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.StateCommon.Header.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.Text = "Outlook Mail Clone";
             ((System.ComponentModel.ISupportInitialize)(this.panelFill)).EndInit();
             this.panelFill.ResumeLayout(false);
@@ -3018,417 +3022,417 @@ namespace OutlookMailClone
 
         #endregion
 
-        private Krypton.Ribbon.KryptonRibbon kryptonRibbon;
-        private Krypton.Ribbon.KryptonRibbonTab tabMessage;
-        private Krypton.Toolkit.KryptonPanel panelFill;
-        private Krypton.Ribbon.KryptonRibbonGroup groupClipboard;
-        private Krypton.Ribbon.KryptonRibbonGroup groupBasicText;
-        private Krypton.Ribbon.KryptonRibbonGroup groupNames;
-        private Krypton.Ribbon.KryptonRibbonGroup groupMessageInclude;
-        private Krypton.Ribbon.KryptonRibbonGroup groupOptions;
-        private Krypton.Ribbon.KryptonRibbonGroup groupZoom;
-        private Krypton.Ribbon.KryptonRibbonTab tabInsert;
-        private Krypton.Ribbon.KryptonRibbonTab tabOptions;
-        private Krypton.Ribbon.KryptonRibbonTab tabFormatText;
-        private Krypton.Ribbon.KryptonRibbonTab tabDeveloper;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbon kryptonRibbon;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonTab tabMessage;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel panelFill;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup groupClipboard;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup groupBasicText;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup groupNames;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup groupMessageInclude;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup groupOptions;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup groupZoom;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonTab tabInsert;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonTab tabOptions;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonTab tabFormatText;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonTab tabDeveloper;
         private System.Windows.Forms.TableLayoutPanel tableLayout;
-        private Krypton.Toolkit.KryptonRichTextBox richTextBoxSubject;
-        private Krypton.Toolkit.KryptonRichTextBox richTextBoxCc;
-        private Krypton.Toolkit.KryptonRichTextBox richTextBoxTo;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple clipboard1;
-        private Krypton.Ribbon.KryptonRibbonGroupButton clipboardPaste;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple clipboard2;
-        private Krypton.Ribbon.KryptonRibbonGroupButton clipboardCut;
-        private Krypton.Ribbon.KryptonRibbonGroupButton clipboardCopy;
-        private Krypton.Ribbon.KryptonRibbonGroupButton clipboardFormatPainter;
-        private Krypton.Toolkit.KryptonContextMenu cmsPaste;
-        private Krypton.Toolkit.KryptonContextMenuItem pasteToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem pasteSpecialToolStripMenuItem;
-        private Krypton.Ribbon.KryptonRibbonGroupLines basicTextLines;
-        private Krypton.Ribbon.KryptonRibbonGroupCluster basicTextFont;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextFontLarger;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextFontSmaller;
-        private Krypton.Ribbon.KryptonRibbonGroupCluster basicTextBullet;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextBulletPoints;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextBulletNumbers;
-        private Krypton.Ribbon.KryptonRibbonGroupCluster basicTextRubout;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextRuboutButton;
-        private Krypton.Ribbon.KryptonRibbonGroupCluster basicTextStyle;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextStyleBold;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextStyleItalic;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextStyleUnderline;
-        private Krypton.Ribbon.KryptonRibbonGroupCluster basicTextColors;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterColorButton basicTextColorBack;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterColorButton basicTextColorText;
-        private Krypton.Ribbon.KryptonRibbonGroupCluster basicTextAlignment;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextAlignLeft;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextAlignCenter;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextAlignRight;
-        private Krypton.Ribbon.KryptonRibbonGroupCluster basicTextTab;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextTabLeft;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextTabRight;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple namesGroup;
-        private Krypton.Ribbon.KryptonRibbonGroupButton namesAddressBook;
-        private Krypton.Ribbon.KryptonRibbonGroupButton namesCheckNames;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple includeTriple1;
-        private Krypton.Ribbon.KryptonRibbonGroupButton includeAttachFile;
-        private Krypton.Ribbon.KryptonRibbonGroupButton includeAttachItem;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple includeTriple2;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple optionsTripleFollowup;
-        private Krypton.Ribbon.KryptonRibbonGroupButton optionsFollowUp;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple proofingTriple;
-        private Krypton.Ribbon.KryptonRibbonGroupButton zoomMessageZoom;
-        private Krypton.Toolkit.KryptonContextMenu cmsBusinessCards;
-        private Krypton.Toolkit.KryptonContextMenuItem otherBusinessCardsToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenu cmsSignatures;
-        private Krypton.Toolkit.KryptonContextMenuItem signaturesToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenu cmsFollowUp;
-        private Krypton.Toolkit.KryptonContextMenuItem todayToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem tomorrowToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem thisWeekToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem nextWeekToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem noDateToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem customToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem1;
-        private Krypton.Toolkit.KryptonContextMenuItem addReminderToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem clearFlagToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem2;
-        private Krypton.Toolkit.KryptonContextMenuItem flagForRecipientsToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenu cmsSpelling;
-        private Krypton.Toolkit.KryptonContextMenuItem spellingGrammerToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem researchToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem thesaoursToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem translateToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem translationScreentipToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem setLanguageToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem wordCountToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem todayToolStripMenuItem1;
-        private Krypton.Toolkit.KryptonContextMenuItem tomorrowToolStripMenuItem1;
-        private Krypton.Toolkit.KryptonContextMenuItem thisWeekToolStripMenuItem1;
-        private Krypton.Toolkit.KryptonContextMenuItem nextWeekToolStripMenuItem1;
-        private Krypton.Toolkit.KryptonContextMenuItem noDateToolStripMenuItem1;
-        private Krypton.Toolkit.KryptonContextMenuItem customToolStripMenuItem1;
-        private Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem3;
-        private Krypton.Toolkit.KryptonContextMenuItem addReminderToolStripMenuItem1;
-        private Krypton.Toolkit.KryptonContextMenuItem clearFlagToolStripMenuItem1;
-        private Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem4;
-        private Krypton.Toolkit.KryptonContextMenuItem flagForRecipientsToolStripMenuItem1;
-        private Krypton.Toolkit.KryptonContextMenuItem saveToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem forwardToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem deleteToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem5;
-        private Krypton.Toolkit.KryptonContextMenuItem exitToolStripMenuItem;
-        private Krypton.Ribbon.KryptonRibbonQATButton qatSave;
-        private Krypton.Ribbon.KryptonRibbonQATButton qatUndo;
-        private Krypton.Ribbon.KryptonRibbonQATButton qatRedo;
-        private Krypton.Ribbon.KryptonRibbonQATButton qatQuickPrint;
-        private Krypton.Ribbon.KryptonRibbonQATButton qatForward;
-        private Krypton.Ribbon.KryptonRibbonQATButton qatDelete;
-        private Krypton.Ribbon.KryptonRibbonGroup developerCode;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple developerCodeTriple;
-        private Krypton.Ribbon.KryptonRibbonGroupButton developerCodeVB;
-        private Krypton.Ribbon.KryptonRibbonGroupButton developerCodeMacros;
-        private Krypton.Ribbon.KryptonRibbonGroup developerForm;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple developerFormTriple;
-        private Krypton.Ribbon.KryptonRibbonGroupButton developerFormDesignThis;
-        private Krypton.Ribbon.KryptonRibbonGroupButton developerFormDesignA;
-        private Krypton.Ribbon.KryptonRibbonGroupButton developerFormPublish;
-        private Krypton.Toolkit.KryptonContextMenu cmsFormPublish;
-        private Krypton.Toolkit.KryptonContextMenuItem publishFormToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem publishFormAsToolStripMenuItem;
-        private Krypton.Ribbon.KryptonRibbonGroup groupInsertInclude;
-        private Krypton.Ribbon.KryptonRibbonGroup groupTables;
-        private Krypton.Ribbon.KryptonRibbonGroup groupInsertIllustrations;
-        private Krypton.Ribbon.KryptonRibbonGroup groupLinks;
-        private Krypton.Ribbon.KryptonRibbonGroup groupText;
-        private Krypton.Ribbon.KryptonRibbonGroup groupSymbols;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple4;
-        private Krypton.Ribbon.KryptonRibbonGroupButton includeInsertAttachFile;
-        private Krypton.Ribbon.KryptonRibbonGroupButton includeInsertAttachItem;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple5;
-        private Krypton.Ribbon.KryptonRibbonGroupButton includeInsertBusinessCard;
-        private Krypton.Ribbon.KryptonRibbonGroupButton includeInsertCalendar;
-        private Krypton.Ribbon.KryptonRibbonGroupButton includeInsertSignature;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple3;
-        private Krypton.Ribbon.KryptonRibbonGroupButton tablesTable;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple6;
-        private Krypton.Ribbon.KryptonRibbonGroupButton illustrationsPicture;
-        private Krypton.Ribbon.KryptonRibbonGroupButton illustrationsClipArt;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple7;
-        private Krypton.Ribbon.KryptonRibbonGroupButton illustrationsShapes;
-        private Krypton.Ribbon.KryptonRibbonGroupButton illustrationsSmartArt;
-        private Krypton.Ribbon.KryptonRibbonGroupButton illustrationsChart;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple2;
-        private Krypton.Ribbon.KryptonRibbonGroupButton linksHyperlink;
-        private Krypton.Ribbon.KryptonRibbonGroupButton linksBookmark;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple8;
-        private Krypton.Ribbon.KryptonRibbonGroupButton textTextBox;
-        private Krypton.Ribbon.KryptonRibbonGroupButton textQuickParts;
-        private Krypton.Ribbon.KryptonRibbonGroupButton textWordArt;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple9;
-        private Krypton.Ribbon.KryptonRibbonGroupButton textDropCap;
-        private Krypton.Ribbon.KryptonRibbonGroupButton textDateAndTime;
-        private Krypton.Ribbon.KryptonRibbonGroupButton textObject;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple1;
-        private Krypton.Ribbon.KryptonRibbonGroupButton symbolsEquation;
-        private Krypton.Ribbon.KryptonRibbonGroupButton symbolSymbol;
-        private Krypton.Ribbon.KryptonRibbonGroupButton symbolHorizontalLine;
-        private Krypton.Toolkit.KryptonContextMenu cmsTable;
-        private Krypton.Toolkit.KryptonContextMenuItem insertTableToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem drawTableToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem convertTextToTableToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem excelSpreadsheetToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem quickTablesToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenu cmsTextBox;
-        private Krypton.Toolkit.KryptonContextMenuItem drawTextBoxToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem saveSelectionToTextBoxGalleryToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenu cmsQuickParts;
-        private Krypton.Toolkit.KryptonContextMenuItem saveSelectionToQuickPartsGalleryToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenu cmsDropCap;
-        private Krypton.Toolkit.KryptonContextMenuItem dropCapOptionsToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenu cmsEquation;
-        private Krypton.Toolkit.KryptonContextMenuItem insertNewEquationToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem saveTextTToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenu cmsSymbol;
-        private Krypton.Toolkit.KryptonContextMenuItem moreSymbolsToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenu cmsShapes;
-        private Krypton.Toolkit.KryptonContextMenuItem newDrawingCanvasToolStripMenuItem;
-        private Krypton.Toolkit.ButtonSpecAny buttonSpecHelp;
-        private Krypton.Ribbon.KryptonRibbonGroup groupOptionsThemes;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple10;
-        private Krypton.Ribbon.KryptonRibbonGroupButton themesTheme;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple11;
-        private Krypton.Ribbon.KryptonRibbonGroupButton themesColors;
-        private Krypton.Ribbon.KryptonRibbonGroupButton themesFonts;
-        private Krypton.Ribbon.KryptonRibbonGroupButton themesEffects;
-        private Krypton.Ribbon.KryptonRibbonGroupSeparator kryptonRibbonGroupSeparator1;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple12;
-        private Krypton.Ribbon.KryptonRibbonGroupButton themesPageColor;
-        private Krypton.Ribbon.KryptonRibbonGroup groupFields;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple13;
-        private Krypton.Ribbon.KryptonRibbonGroupButton fieldsShowBcc;
-        private Krypton.Ribbon.KryptonRibbonGroupButton fieldsShowFrom;
-        private Krypton.Ribbon.KryptonRibbonGroup groupFormat;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple14;
-        private Krypton.Ribbon.KryptonRibbonGroupButton formatPlainText;
-        private Krypton.Ribbon.KryptonRibbonGroupButton formatHTML;
-        private Krypton.Ribbon.KryptonRibbonGroupButton formatRichText;
-        private Krypton.Ribbon.KryptonRibbonGroup groupTracking;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple15;
-        private Krypton.Ribbon.KryptonRibbonGroupButton trackingUseVotingButtons;
-        private Krypton.Ribbon.KryptonRibbonGroup groupMoreOptions;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple16;
-        private Krypton.Ribbon.KryptonRibbonGroupButton moreOptionsSaveSentItem;
-        private Krypton.Ribbon.KryptonRibbonGroupButton moreOptionsDelayDelivery;
-        private Krypton.Ribbon.KryptonRibbonGroupButton moreOptionsDirectRepliesTo;
-        private Krypton.Toolkit.KryptonContextMenu cmsThemes;
-        private Krypton.Toolkit.KryptonContextMenuItem resetToThemeFromTemplateToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem moreThemesOnMicrosoftOfficeToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem browseForThemesToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem saveCurrentThemeToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenu cmsPageColor;
-        private Krypton.Toolkit.KryptonContextMenuItem noColorToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem6;
-        private Krypton.Toolkit.KryptonContextMenuItem moreColorsToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem fillEffectsToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenu cmsUseVotingButtons;
-        private Krypton.Toolkit.KryptonContextMenuItem approveRejectToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem yesNoToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem yesNoMaybeToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem7;
-        private Krypton.Toolkit.KryptonContextMenuItem customToolStripMenuItem2;
-        private Krypton.Toolkit.KryptonContextMenu cmsSaveSentItem;
-        private Krypton.Toolkit.KryptonContextMenuItem otherFolderToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem8;
-        private Krypton.Toolkit.KryptonContextMenuItem useDefaultFolderToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem dotNotSaveToolStripMenuItem;
-        private Krypton.Ribbon.KryptonRibbonGroup groupFormatClipboard;
-        private Krypton.Ribbon.KryptonRibbonGroup groupFormatFont;
-        private Krypton.Ribbon.KryptonRibbonGroup groupFormatParagraph;
-        private Krypton.Ribbon.KryptonRibbonGroup groupFormatStyles;
-        private Krypton.Ribbon.KryptonRibbonGroup groupFormatZoom;
-        private Krypton.Ribbon.KryptonRibbonGroup groupFormatEditing;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple17;
-        private Krypton.Ribbon.KryptonRibbonGroupButton formatClipboardPaste;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple18;
-        private Krypton.Ribbon.KryptonRibbonGroupButton formatClipboardCut;
-        private Krypton.Ribbon.KryptonRibbonGroupButton formatClipboardCopy;
-        private Krypton.Ribbon.KryptonRibbonGroupButton formatClipboardFormatPainter;
-        private Krypton.Ribbon.KryptonRibbonGroupLines kryptonRibbonGroupLines1;
-        private Krypton.Ribbon.KryptonRibbonGroupCluster kryptonRibbonGroupCluster1;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontGrowFont;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontShrinkFont;
-        private Krypton.Ribbon.KryptonRibbonGroupCluster kryptonRibbonGroupCluster2;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontTextClear;
-        private Krypton.Ribbon.KryptonRibbonGroupCluster kryptonRibbonGroupCluster3;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontBold;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontItalic;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontUnderline;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontStrikethrough;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontSubscript;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontSuperscript;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontChangeCase;
-        private Krypton.Ribbon.KryptonRibbonGroupCluster kryptonRibbonGroupCluster4;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontTextBackColor;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton textFontColor;
-        private Krypton.Ribbon.KryptonRibbonGroupLines kryptonRibbonGroupLines2;
-        private Krypton.Ribbon.KryptonRibbonGroupCluster kryptonRibbonGroupCluster5;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontBullets;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontNumbers;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontMultilevel;
-        private Krypton.Ribbon.KryptonRibbonGroupCluster kryptonRibbonGroupCluster6;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontDecreaseIndent;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontIncreaseIndent;
-        private Krypton.Ribbon.KryptonRibbonGroupCluster kryptonRibbonGroupCluster7;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontSort;
-        private Krypton.Ribbon.KryptonRibbonGroupCluster kryptonRibbonGroupCluster8;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontMarkers;
-        private Krypton.Ribbon.KryptonRibbonGroupCluster kryptonRibbonGroupCluster9;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontJustifyLeft;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontJustifyCenter;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontJustifyRight;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontJustify;
-        private Krypton.Ribbon.KryptonRibbonGroupCluster kryptonRibbonGroupCluster10;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontSpacing;
-        private Krypton.Ribbon.KryptonRibbonGroupCluster kryptonRibbonGroupCluster11;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontShading;
-        private Krypton.Ribbon.KryptonRibbonGroupClusterButton fontBottomBorder;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple19;
-        private Krypton.Ribbon.KryptonRibbonGroupButton stylesChangeStyles;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple20;
-        private Krypton.Ribbon.KryptonRibbonGroupButton zoomZoom;
-        private Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple21;
-        private Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton4;
-        private Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton5;
-        private Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton6;
-        private Krypton.Toolkit.KryptonContextMenu cmsChangeCase;
-        private Krypton.Toolkit.KryptonContextMenuItem sentenceCaseToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem lowercaseToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem uPPERCASEToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem capitalizeEachWordToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem tOGGLECASEToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenu cmsSpacing;
-        private Krypton.Toolkit.KryptonContextMenuItem singleSpacingToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem spacingToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem doubleSpacingToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem paragraphToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenu cmsBottomBorder;
-        private Krypton.Toolkit.KryptonContextMenuItem bottomBorderToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem topBorderToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem leftBorderToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem rightBorderToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem9;
-        private Krypton.Toolkit.KryptonContextMenuItem noBorderToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem allBordersToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem outsideBordersToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem insideBordersToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem10;
-        private Krypton.Toolkit.KryptonContextMenuItem insideHorizontalBorderToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem insideVerticalBorderToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem diagonalDownBorderToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem diagonalUpBorderToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem11;
-        private Krypton.Toolkit.KryptonContextMenuItem horizontalLineToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem12;
-        private Krypton.Toolkit.KryptonContextMenuItem drawTableToolStripMenuItem1;
-        private Krypton.Toolkit.KryptonContextMenuItem viewGridlinesToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem bordersAndShadingToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenu cmsChangeStyles;
-        private Krypton.Toolkit.KryptonContextMenuItem styleSetToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem colorsToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem fontsToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem13;
-        private Krypton.Toolkit.KryptonContextMenuItem setAsDefaultToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenu cmsQuickStyles;
-        private Krypton.Toolkit.KryptonContextMenuItem saveSelectionAsNewStyleToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem clearFormattingToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem applyStylesToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenu cmsFind;
-        private Krypton.Toolkit.KryptonContextMenuItem findToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem goToToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenu cmsSelect;
-        private Krypton.Toolkit.KryptonContextMenuItem selectAllToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem selectObjectsToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItem selectTextWithSimilarFormattingToolStripMenuItem;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsPasteItems;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsBusinessCardsItems;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsSymbolItems;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsChangeCaseItems;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsSpacingItems;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsBottomBorderItems;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsChangeStylesItems;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsQuickStylesItems;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsFindItems;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsSelectItems;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsSignaturesItems;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsFormPublishItems;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsTableItems;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsTextBoxItems;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsDropCapItems;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsEquationItems;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsQuickPartsItems;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsShapesItems;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsThemesItems;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsPageColorItems;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsUseVotingButtonsItems;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsSaveSentItemItems;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsFollowUpItems;
-        private Krypton.Toolkit.KryptonContextMenuItems cmsSpellingItems;
-        private Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator2;
-        private Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator1;
-        private Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator3;
-        private Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator4;
-        private Krypton.Ribbon.KryptonRibbonGroupLines kryptonRibbonGroupLines3;
-        private Krypton.Ribbon.KryptonRibbonGroupCheckBox kryptonRibbonGroupCheckBox1;
-        private Krypton.Ribbon.KryptonRibbonGroupCheckBox kryptonRibbonGroupCheckBox2;
-        private Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator6;
-        private Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator7;
-        private Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator8;
-        private Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator5;
-        private Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator9;
-        private Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator10;
-        private Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem1;
-        private Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem2;
-        private Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator11;
-        private Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem3;
-        private Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem4;
-        private Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem5;
-        private Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem6;
-        private Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem7;
-        private Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator12;
-        private Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem8;
-        private Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem9;
-        private Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator13;
-        private Krypton.Ribbon.KryptonRibbonRecentDoc kryptonRibbonRecentDoc1;
-        private Krypton.Ribbon.KryptonRibbonRecentDoc kryptonRibbonRecentDoc2;
-        private Krypton.Ribbon.KryptonRibbonRecentDoc kryptonRibbonRecentDoc3;
-        private Krypton.Ribbon.KryptonRibbonRecentDoc kryptonRibbonRecentDoc4;
-        private Krypton.Ribbon.KryptonRibbonRecentDoc kryptonRibbonRecentDoc5;
-        private Krypton.Ribbon.KryptonRibbonRecentDoc kryptonRibbonRecentDoc6;
-        private Krypton.Ribbon.KryptonRibbonRecentDoc kryptonRibbonRecentDoc7;
-        private Krypton.Ribbon.KryptonRibbonRecentDoc kryptonRibbonRecentDoc8;
-        private Krypton.Ribbon.ButtonSpecAppMenu buttonSpecAppMenu1;
-        private Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems1;
-        private Krypton.Toolkit.KryptonContextMenuHeading kryptonContextMenuHeading1;
-        private Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem10;
-        private Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems2;
-        private Krypton.Toolkit.KryptonContextMenuHeading kryptonContextMenuHeading2;
-        private Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem11;
-        private Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem12;
-        private Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem13;
-        private Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem14;
-        private Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator15;
-        private Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems3;
-        private Krypton.Toolkit.KryptonContextMenuHeading kryptonContextMenuHeading3;
-        private Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem15;
-        private Krypton.Toolkit.KryptonManager kryptonManager1;
-        private Krypton.Toolkit.KryptonRichTextBox richTextBoxMessage;
-        private Krypton.Ribbon.KryptonRibbonGroupButton includeSignature;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel1;
-        private Krypton.Toolkit.KryptonButton kryptonButton2;
-        private Krypton.Toolkit.KryptonButton kryptonButton1;
-        private Krypton.Ribbon.KryptonRibbonGroupButton optionsHighImportance;
-        private Krypton.Ribbon.KryptonRibbonGroupButton optionsLowImportance;
+        private ComponentFactory.Krypton.Toolkit.KryptonRichTextBox richTextBoxSubject;
+        private ComponentFactory.Krypton.Toolkit.KryptonRichTextBox richTextBoxCc;
+        private ComponentFactory.Krypton.Toolkit.KryptonRichTextBox richTextBoxTo;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple clipboard1;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton clipboardPaste;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple clipboard2;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton clipboardCut;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton clipboardCopy;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton clipboardFormatPainter;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsPaste;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem pasteToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem pasteSpecialToolStripMenuItem;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupLines basicTextLines;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster basicTextFont;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextFontLarger;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextFontSmaller;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster basicTextBullet;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextBulletPoints;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextBulletNumbers;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster basicTextRubout;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextRuboutButton;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster basicTextStyle;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextStyleBold;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextStyleItalic;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextStyleUnderline;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster basicTextColors;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterColorButton basicTextColorBack;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterColorButton basicTextColorText;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster basicTextAlignment;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextAlignLeft;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextAlignCenter;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextAlignRight;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster basicTextTab;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextTabLeft;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton basicTextTabRight;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple namesGroup;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton namesAddressBook;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton namesCheckNames;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple includeTriple1;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton includeAttachFile;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton includeAttachItem;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple includeTriple2;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple optionsTripleFollowup;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton optionsFollowUp;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple proofingTriple;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton zoomMessageZoom;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsBusinessCards;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem otherBusinessCardsToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsSignatures;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem signaturesToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsFollowUp;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem todayToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem tomorrowToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem thisWeekToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem nextWeekToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem noDateToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem customToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem addReminderToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem clearFlagToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem2;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem flagForRecipientsToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsSpelling;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem spellingGrammerToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem researchToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem thesaoursToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem translateToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem translationScreentipToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem setLanguageToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem wordCountToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem todayToolStripMenuItem1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem tomorrowToolStripMenuItem1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem thisWeekToolStripMenuItem1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem nextWeekToolStripMenuItem1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem noDateToolStripMenuItem1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem customToolStripMenuItem1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem3;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem addReminderToolStripMenuItem1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem clearFlagToolStripMenuItem1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem4;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem flagForRecipientsToolStripMenuItem1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem saveToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem forwardToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem deleteToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem5;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem exitToolStripMenuItem;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonQATButton qatSave;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonQATButton qatUndo;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonQATButton qatRedo;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonQATButton qatQuickPrint;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonQATButton qatForward;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonQATButton qatDelete;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup developerCode;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple developerCodeTriple;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton developerCodeVB;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton developerCodeMacros;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup developerForm;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple developerFormTriple;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton developerFormDesignThis;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton developerFormDesignA;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton developerFormPublish;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsFormPublish;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem publishFormToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem publishFormAsToolStripMenuItem;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup groupInsertInclude;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup groupTables;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup groupInsertIllustrations;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup groupLinks;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup groupText;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup groupSymbols;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple4;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton includeInsertAttachFile;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton includeInsertAttachItem;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple5;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton includeInsertBusinessCard;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton includeInsertCalendar;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton includeInsertSignature;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple3;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton tablesTable;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple6;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton illustrationsPicture;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton illustrationsClipArt;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple7;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton illustrationsShapes;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton illustrationsSmartArt;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton illustrationsChart;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple2;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton linksHyperlink;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton linksBookmark;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple8;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton textTextBox;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton textQuickParts;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton textWordArt;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple9;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton textDropCap;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton textDateAndTime;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton textObject;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple1;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton symbolsEquation;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton symbolSymbol;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton symbolHorizontalLine;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsTable;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem insertTableToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem drawTableToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem convertTextToTableToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem excelSpreadsheetToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem quickTablesToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsTextBox;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem drawTextBoxToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem saveSelectionToTextBoxGalleryToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsQuickParts;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem saveSelectionToQuickPartsGalleryToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsDropCap;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem dropCapOptionsToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsEquation;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem insertNewEquationToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem saveTextTToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsSymbol;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem moreSymbolsToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsShapes;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem newDrawingCanvasToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecHelp;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup groupOptionsThemes;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple10;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton themesTheme;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple11;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton themesColors;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton themesFonts;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton themesEffects;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupSeparator kryptonRibbonGroupSeparator1;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple12;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton themesPageColor;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup groupFields;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple13;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton fieldsShowBcc;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton fieldsShowFrom;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup groupFormat;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple14;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton formatPlainText;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton formatHTML;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton formatRichText;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup groupTracking;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple15;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton trackingUseVotingButtons;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup groupMoreOptions;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple16;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton moreOptionsSaveSentItem;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton moreOptionsDelayDelivery;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton moreOptionsDirectRepliesTo;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsThemes;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem resetToThemeFromTemplateToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem moreThemesOnMicrosoftOfficeToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem browseForThemesToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem saveCurrentThemeToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsPageColor;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem noColorToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem6;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem moreColorsToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem fillEffectsToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsUseVotingButtons;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem approveRejectToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem yesNoToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem yesNoMaybeToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem7;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem customToolStripMenuItem2;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsSaveSentItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem otherFolderToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem8;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem useDefaultFolderToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem dotNotSaveToolStripMenuItem;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup groupFormatClipboard;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup groupFormatFont;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup groupFormatParagraph;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup groupFormatStyles;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup groupFormatZoom;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup groupFormatEditing;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple17;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton formatClipboardPaste;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple18;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton formatClipboardCut;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton formatClipboardCopy;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton formatClipboardFormatPainter;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupLines kryptonRibbonGroupLines1;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster kryptonRibbonGroupCluster1;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontGrowFont;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontShrinkFont;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster kryptonRibbonGroupCluster2;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontTextClear;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster kryptonRibbonGroupCluster3;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontBold;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontItalic;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontUnderline;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontStrikethrough;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontSubscript;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontSuperscript;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontChangeCase;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster kryptonRibbonGroupCluster4;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontTextBackColor;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton textFontColor;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupLines kryptonRibbonGroupLines2;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster kryptonRibbonGroupCluster5;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontBullets;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontNumbers;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontMultilevel;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster kryptonRibbonGroupCluster6;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontDecreaseIndent;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontIncreaseIndent;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster kryptonRibbonGroupCluster7;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontSort;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster kryptonRibbonGroupCluster8;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontMarkers;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster kryptonRibbonGroupCluster9;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontJustifyLeft;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontJustifyCenter;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontJustifyRight;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontJustify;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster kryptonRibbonGroupCluster10;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontSpacing;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCluster kryptonRibbonGroupCluster11;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontShading;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupClusterButton fontBottomBorder;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple19;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton stylesChangeStyles;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple20;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton zoomZoom;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple21;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton4;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton5;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton6;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsChangeCase;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem sentenceCaseToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem lowercaseToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem uPPERCASEToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem capitalizeEachWordToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem tOGGLECASEToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsSpacing;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem singleSpacingToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem spacingToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem doubleSpacingToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem paragraphToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsBottomBorder;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem bottomBorderToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem topBorderToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem leftBorderToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem rightBorderToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem9;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem noBorderToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem allBordersToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem outsideBordersToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem insideBordersToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem10;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem insideHorizontalBorderToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem insideVerticalBorderToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem diagonalDownBorderToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem diagonalUpBorderToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem11;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem horizontalLineToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem12;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem drawTableToolStripMenuItem1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem viewGridlinesToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem bordersAndShadingToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsChangeStyles;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem styleSetToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem colorsToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem fontsToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator toolStripMenuItem13;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem setAsDefaultToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsQuickStyles;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem saveSelectionAsNewStyleToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem clearFormattingToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem applyStylesToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsFind;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem findToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem goToToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmsSelect;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem selectAllToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem selectObjectsToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem selectTextWithSimilarFormattingToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsPasteItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsBusinessCardsItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsSymbolItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsChangeCaseItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsSpacingItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsBottomBorderItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsChangeStylesItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsQuickStylesItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsFindItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsSelectItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsSignaturesItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsFormPublishItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsTableItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsTextBoxItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsDropCapItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsEquationItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsQuickPartsItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsShapesItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsThemesItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsPageColorItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsUseVotingButtonsItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsSaveSentItemItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsFollowUpItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems cmsSpellingItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator2;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator3;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator4;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupLines kryptonRibbonGroupLines3;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCheckBox kryptonRibbonGroupCheckBox1;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCheckBox kryptonRibbonGroupCheckBox2;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator6;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator7;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator8;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator5;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator9;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator10;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem2;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator11;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem3;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem4;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem5;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem6;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem7;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator12;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem8;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem9;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator13;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonRecentDoc kryptonRibbonRecentDoc1;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonRecentDoc kryptonRibbonRecentDoc2;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonRecentDoc kryptonRibbonRecentDoc3;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonRecentDoc kryptonRibbonRecentDoc4;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonRecentDoc kryptonRibbonRecentDoc5;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonRecentDoc kryptonRibbonRecentDoc6;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonRecentDoc kryptonRibbonRecentDoc7;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonRecentDoc kryptonRibbonRecentDoc8;
+        private ComponentFactory.Krypton.Ribbon.ButtonSpecAppMenu buttonSpecAppMenu1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading kryptonContextMenuHeading1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem10;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems2;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading kryptonContextMenuHeading2;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem11;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem12;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem13;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem14;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator15;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems3;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading kryptonContextMenuHeading3;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem15;
+        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager1;
+        private ComponentFactory.Krypton.Toolkit.KryptonRichTextBox richTextBoxMessage;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton includeSignature;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton2;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton optionsHighImportance;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton optionsLowImportance;
 
     }
 }

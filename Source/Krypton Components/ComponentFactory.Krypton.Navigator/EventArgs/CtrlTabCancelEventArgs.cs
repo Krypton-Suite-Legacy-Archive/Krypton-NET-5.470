@@ -11,7 +11,7 @@
 
 using System.ComponentModel;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
 	/// Details for control tabbing events.

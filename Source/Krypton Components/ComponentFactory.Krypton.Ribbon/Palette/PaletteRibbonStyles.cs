@@ -11,9 +11,9 @@
 
 using System.ComponentModel;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Implement storage for a ribbon style values.
@@ -21,7 +21,7 @@ namespace Krypton.Ribbon
 	public class PaletteRibbonStyles : Storage
 	{
 		#region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
 		#endregion
 
 		#region Identity
@@ -30,7 +30,7 @@ namespace Krypton.Ribbon
 		/// </summary>
         /// <param name="ribbon">Source ribbon control instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public PaletteRibbonStyles(Krypton.Ribbon ribbon,
+        public PaletteRibbonStyles(KryptonRibbon ribbon,
                                    NeedPaintHandler needPaint)
 		{
             Debug.Assert(ribbon != null);

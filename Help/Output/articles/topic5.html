@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content=" | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>Control Structure</p>
+<p>All of the <em>Krypton</em> controls follow the same basic structure in the
+organization of properties and how features are exposed. Once you understand the
+standard organization you can quickly find and customize the control feature of
+interest. Figure 1 shows the set of properties exposed by the <em>KryptonButton</em>
+control that will be used as the example for the rest of this section.</p>
+<p><em>Figure 1 – KryptonButton standard properties</em></p>
+<p>Notice that the entire standard set of properties are grouped together under the
+category name of <em>Visuals</em>. If you ensure your properties window in <em>Visual
+Studio</em> is organized by category then it becomes very easy to find this group.</p>
+<p>Not all <em>Krypton</em> properties are exposed by this category, only the standard
+set. For example the <em>KryptonSplitContainer</em> has a <em>SplitterWidth</em> property that
+is placed in the <em>Layout</em> category. This maintains consistency with the property
+of the same name that is also in the <em>Layout</em> category for the <em>Windows Forms
+SplitContainer</em> control.</p>
+<p><strong>Styles</strong> </p>
+<p>Each type of control has multiple styles that are used to determine how the
+control will be displayed. This style value is exposed as an enumeration
+property and in the case of our <em>KryptonButton</em> example it is called
+<em>ButtonStyle</em>. The different styles can be thought of as the different
+variations available for that control.</p>
+<p>In the case of the <em>KryptonButton</em> the <em>Standalone</em> style is used for a standard
+button that is appropriate for most situations. The <em>LowProfile</em> style is
+instead intended for use in scenarios where the button should blend into the
+background of the container until the user interacts with it by giving it focus
+for moving the mouse over it. Figure 2 shows an example of the button using each
+of these two styles.  </p>
+<p><em>Figure 2 – ButtonStyle examples</em></p>
+<p>The first column shows the <em>Standalone</em> and <em>LowProfile</em> styles when the button
+is passive. You can see that the second button style has a transparent
+background in order to be less intrusive. In the second column you can see that
+when the user moves the mouse over the buttons they both then become highlighted
+in the same way.  </p>
+<p>A third button style of <em>ButtonSpec</em> is used for buttons when they are placed
+inside of other <em>Krypton</em> controls and the fourth style of <em>Form</em> is for caption
+buttons that are used by the <em>KryptonForm</em>. There are also extra custom styles
+that can be defined by using the KryptonPalette component. These extra styles
+always start with the word &#39;Custom&#39; and end with a number. In the case of button
+styles there are three with the names <em>Custom1</em>, <em>Custom2</em> and <em>Custom3</em>. Styles
+for different controls have a differing number of custom entries available.</p>
+<p><strong>Palette</strong> </p>
+<p>When any of the <em>Krypton</em> controls is drawn the details are sourced from a
+palette that contains all the default values for all of the different controls.
+This allows you to quickly switch the appearance of the controls by switching to
+using a different palette. Note that the palette is used to recover the values
+to use when they have not been customized at the per control level. See details
+of the <em>State</em> and <em>Override</em> properties for more details about customizing an
+individual control.</p>
+<p>Each control has two properties called <em>Palette</em> and <em>PaletteMode</em> that define
+which palette to use. <em>PaletteMode</em> determines how to find the palette. The
+default value is called <em>Global</em> and means that the control will use the single
+global palette. Most applications want all of the <em>Krypton</em> controls to have a
+consistent look and feel. In order to support this scenario there is a global
+palette setting. If you change the global palette then all the controls with a
+<em>PaletteMode</em> of <em>Global</em> will automatically start using this new value.</p>
+<p>To change the global palette you need to add an instance of the <em>KryptonManager</em>
+component to your application and then modify the <em>GlobalPaletteMode</em> and
+<em>GlobalPalette</em> properties. You can do this at design time by just dragging the
+<em>KryptonManager</em> component from the <em>Toolbox</em> and dropping it on your <em>Form</em>.
+Then select the new component and search in the properties window for the
+<em>GlobalPaletteMode</em> and <em>GlobalPalette</em> properties.</p>
+<p>Instead of using the <em>Global</em> value you might prefer to specify one of the
+built-in palettes for use with the control instance. In this case you just need
+to select one of the entries such as <em>Professional - System</em> and the control
+will then be fixed to using that built-in palette.</p>
+<p>You are not limited to using just built-in palettes. If you use a
+<em>KryptonPalette</em> component in your application then you can create your own
+custom palette with whatever settings you like. Just drag and drop the
+<em>KryptonPalette</em> from the <em>Toolbox</em> onto your <em>Form</em> and then use the properties
+window to setup the custom values. In order to modify your control to use the
+custom palette you need to use the <em>Palette</em> property of the <em>Krypton</em> control.
+Once assigned, which can be done at design time using the properties window, the
+<em>PaletteMode</em> value will automatically change to <em>Custom</em>. Figure 3 shows three
+<em>KryptonButton</em> instances where the first two are using built-in palettes of
+<em>Professional - Office 2003</em> and <em>Professional - System</em> and the third is using
+a <em>KryptonPalette</em> that has been customized.</p>
+<p><em>Figure 3 – KryptonButton with different palettes</em></p>
+<p><strong>Renderer</strong> </p>
+<p>All control drawing is performed by a renderer. Unlike the palette you cannot
+alter the renderer used on a per control basis but instead can only alter it at
+the global level. To change the global renderer you need to add an instance of
+the <em>KryptonManager</em> component to your application and then modify the
+<em>GlobalRenderMode</em> and <em>GlobalRenderer</em> properties. You can do this at design
+time by just dragging the <em>KryptonManager</em> component from the <em>Toolbox</em> and
+dropping it on your <em>Form</em>. Then select the new component and use the properties
+window to change the settings.</p>
+<p><strong>State</strong> </p>
+<p>Each control has a number of properties that begin with the word <em>State</em>, such
+as <em>StateDisabled</em> and <em>StateNormal</em>. These are the properties you use to
+customize the appearance of the control based on the state of the control.</p>
+<p>Each control has the two states <em>Disabled</em> and <em>Normal</em>. Some controls have
+additional states, for example the <em>KryptonButton</em> also has <em>Tracking</em> and
+<em>Pressed</em> states which have matching customization properties of <em>StateTracking</em>
+and <em>StatePressed</em>. To work out when each state is applied you should refer to
+the help documentation for the particular control.</p>
+<p>The <em>KryptonButton</em> uses the states in the following way. If the control is
+disabled because the <em>Enabled</em> property is defined as <em>False</em> then it uses the
+<em>StateDisabled</em> values. When the control is enabled but the user is not
+interacting with it then it uses <em>StateNormal</em>. Once the mouse moves over the
+control area it uses <em>StateTracking</em> and if the user presses the mouse down
+whilst hovering over the control is uses <em>StatePressed</em>. By altering the
+appropriate state values you can easily achieve the look required for your
+application. Figure 4 shows an example of the appearance for each of the states
+for the <em>KryptonButton</em>.</p>
+<p><em>Figure 4 – KryptonButton states</em></p>
+<p>Having the ability to alter each state is great for customization but can lead
+to slow development if you need to alter the same property for each of the
+states. For example, changing the border width is something you will probably
+want to be consistent across all the states.</p>
+<p>Changing the border width for <em>StateDisabled</em>, <em>StateNormal</em>, <em>StateTracking</em>
+and <em>StatePressed</em> is tedious and prone to errors. This is where the extra
+<em>StateCommon</em> property comes into play. This extra property acts as a common
+base that all the other states use if they have not been given a value. In our
+example you just set the border width of <em>StateCommon</em> and all the states will
+inherit this value, unless you specifically set a value for one of the specific
+states.</p>
+<p><strong>Override</strong> </p>
+<p>Some controls such as the <em>KryptonButton</em> need to alter the appearance of a
+state because of an external factor. For example, a button is capable of having
+the focus because the user can select it using the keyboard. In this case we
+need to give the user feedback so they can see it has the focus.</p>
+<p>Properties that are applied to the current state based on an external factor
+such as the focus begin with the word <em>Override</em>. The <em>KryptonButton</em> has two
+such properties called <em>OverrideFocus</em> and <em>OverrideDefault</em>. In addition to
+focus the button can also be marked as the default button on the owning <em>Form</em>.
+The user needs feedback on this state because pressing the <em>Enter</em> key will
+cause the default button to be pressed.</p>
+<p>The <em>Override</em> properties differ from <em>State</em> properties in that they do not
+inherit values from <em>StateCommon</em> and are applied to whatever the current state
+happens to be. Figure 5 shows two examples of the <em>KryptonButton</em> control. The
+top instance is the button in the normal state, the bottom instance shows the
+button also in normal state but with both the <em>OverrideFocus</em> and
+<em>OverrideDefault</em> applied.</p>
+<p><em>Figure 5 – Overrides applied to the normal state</em></p>
+<p><strong>Values</strong> </p>
+<p>Many of the <em>Krypton</em> controls display information to the user. For example the
+<em>KryptonButton</em>, <em>KryptonLabel</em> and <em>KryptonHeader</em> controls all have the
+ability to show some text and/or an image as part of the appearance. This
+display content is always stored in a property called <em>Values</em>. <em>Content</em> always
+consists of two text values and an image that are grouped together. See Figure 1
+for an example of the <em>Values</em> property for a <em>KryptonButton</em>.</p>
+<ul>
+<li>Figure 6 – KryptonButton values property*</li>
+</ul>
+<p>The exact name of the three properties varies depending on the context in which
+the content is being used. The <em>KryptonButton</em> calls them <em>Text</em>, <em>ExtraText,
+Image and ImageStates</em> whereas the <em>KryptonHeader</em> uses the names <em>Header</em>,
+<em>Description</em> and <em>Image</em>. Some controls have more than one content property.
+The <em>KryptonHeaderGroup</em> control has two value properties that contain content
+values, one of the primary header and another for the secondary header. Figure 7
+shows the value properties for a <em>KryptonHeaderGroup</em>.</p>
+<p><em>Figure 7 – Value properties for KryptonHeaderGroup</em></p>
+<p><strong>Background, Border and Content</strong></p>
+<p>Each <em>Krypton</em> control has a number of possible states that can each be
+customized in appearance. Rather than have a completely different set of
+customization properties for each control there are instead three standard sets
+that help to improve consistency. The standard sets of values are for the
+background, border and content.</p>
+<p>Not every control will have all three sets as only the relevant ones are
+provided. So the <em>KryptonPanel</em> only has the background set as it does not have
+a border capability and does not display any content. The <em>KryptonLabel</em> has
+only content properties and so the background and border are not provided. All
+three are provided for the <em>KryptonButton</em> because it does have a background, a
+border and content values.</p>
+<p>Some controls will have extra values in addition to those in the three standard
+sets as they have extra requirements that are control specific. But once you are
+familiar with how the three standard sets are used to customize all aspects of
+the control you will find it easy to deal with any of the <em>Krypton</em> controls.
+Each of the three sets of properties are explained in detail in the following
+section of the documentation.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

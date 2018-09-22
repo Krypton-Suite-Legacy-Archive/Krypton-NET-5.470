@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Part 1 - Expanding/Collapsing Left Panel | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Part 1 - Expanding/Collapsing Left Panel | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>Tutorial – Expanding HeaderGroups (Splitters)</p>
+<h2 id="part-1---expandingcollapsing-left-panelbrbr">Part 1 - Expanding/Collapsing Left Panel<br><br></h2>
+<p><strong>1) Create a new Windows Forms project</strong>  </p>
+<p>This will automatically create a form in design mode as below.</p>
+<p><strong>2) Add a reference to the ComponentFactory.Krypton.Toolkit assembly</strong>  </p>
+<p><strong>C#</strong> : Right click the &#39;References&#39; group in your project and select the &#39;Add
+Reference...&#39; option. Use the &#39;Browse&#39; tab of the shown dialog box to navigate
+to the location you installed the library and choose the
+&#39;\bin\ComponentFactory.Krypton.Toolkit.dll&#39; file. This will then add the
+toolkit assembly to the list of references for the project.  </p>
+<p><em>VB.NET</em> : Right click the project in the &#39;Solution Explorer&#39; window and choose
+the &#39;Add Reference&#39; option. Use the &#39;Browse&#39; tab of the shown dialog box to
+navigate to the location you installed the library and choose the
+&#39;\bin\ComponentFactory.Krypton.Toolkit.dll&#39; file. This will then add the
+toolkit assembly to the list of references for the project.</p>
+<p><strong>3) Ensure that the Krypton Toolkit components are in the Toolbox</strong><br>If not the <a href="Using%20Krypton%20in%20VS2005.md">Using Krypton in VS2005</a>
+tutorial can be used to add them.  </p>
+<p><strong>4) Open the code view for the form and change the base class.</strong>  </p>
+<p>Change the base class from the default of &#39;Form&#39; to be
+&#39;ComponentFactory.Krypton.Toolkit.KryptonForm&#39;. Your new definition for C#
+would be: -</p>
+<p>public partial class Form1 : ComponentFactory.Krypton.Toolkit.KryptonForm</p>
+<p>If using VB.NET then your new definition should like this: -</p>
+<p>Partial Class Form1<br>    Inherits ComponentFactory.Krypton.Toolkit.KryptonForm</p>
+<p>Recompile the project and then show the form in design mode again, this time you
+should see custom chrome applied to the form.</p>
+<p><strong>5) Drag a KryptonPanel from the toolbox and drop it in the centre of the
+form</strong>  </p>
+<p>When dropped it should look like the following picture.  </p>
+<p><strong>6) Use the KryptonPanel smart tag and click ‘Dock in parent container’</strong>  </p>
+<p>The panel will now occupy the entire client area even when the form is resized.  </p>
+<p><strong>7) Modify the Padding property for the new KryptonPanel to 5 on all sides</strong>  </p>
+<p>We need to add padding because another control will be placed inside and we want
+a nice border around the contained control.</p>
+<p><strong>8) Drag a KryptonSplitContainer from the toolbox and drop it inside the
+KryptonPanel</strong></p>
+<p>You should see text indicating the position of Panel1 and Panel2 areas.  </p>
+<p><strong>9) Drag a KryptonHeaderGroup from the toolbox and drop it inside Panel1</strong></p>
+<p><strong>10) Use the KryptonHeaderGroup smart tag and click ‘Dock in parent
+container’</strong>  </p>
+<p>The panel will now occupy the entire client area of Panel1.</p>
+<p><strong>11) Modify the KryptonHeaderGroup &#39;Text&#39; and &#39;Image&#39; properties</strong><br>Use the properties window to find the &#39;ValuesPrimary&#39; property and then set the
+&#39;Text&#39; to &#39;Left&#39; and remove the &#39;Image&#39; value.  </p>
+<p><strong>12) Modify the KryptonHeaderGroup &#39;HeaderVisibleSecondary&#39; property to
+&#39;False&#39;</strong><br>This will remove from display the second header and leave the display as
+follows.</p>
+<p><strong>13) Find the &#39;ButtonSpecs&#39; property and click the ellipses button</strong><br>We we will use the collection property to define the header buttons.  </p>
+<p><strong>14) Add one instance to the collection and set the &#39;Type&#39; to &#39;Arrow Left&#39;</strong><br>Use the &#39;Add&#39; button on the collection editor to add a new
+<em>ButtonSpec</em> entry. Then set the &#39;Type&#39; property of the entry to be &#39;Arrow Left&#39;
+so that the palette provided image will be shown. It should look like this in
+the dialog box, then press the &#39;OK&#39; button.  </p>
+<p><strong>15) Initial setup of Left group is completed</strong><br>You should now see the following picture as the initial display for the left
+group.</p>
+<p><strong>16) Enter code view and add the following using statement</strong><br>This is needed to ensure that the rest of the code will compile.</p>
+<p>using ComponentFactory.Krypton.Toolkit;</p>
+<p><strong>17) Hook into the header button click event</strong><br>Modify the constructor for the form with the following code in order to be
+notified when the user clicks the header button.</p>
+<p>public Form1()<br>{<br>   InitializeComponent();</p>
+<p>   // Hook into the click events on the header buttons<br>   kryptonHeaderGroup1.ButtonSpecs[0].Click += new EventHandler(OnLeftRight);<br>}</p>
+<p><strong>18) Add private field for remembering header width</strong><br>Add the following private field to the form class.</p>
+<p>private int _widthLeftRight;  </p>
+<p><strong>19) Add button click handler code</strong><br>Add the following event handler to the form class.<br>A description of how the code works follows after the code.</p>
+<p>private void OnLeftRight(object sender, EventArgs e)<br>{<br>   // (1) Suspend changes until all splitter properties have been updated<br>   kryptonSplitContainer1.SuspendLayout();   </p>
+<p>   // (2) Is the left header group currently expanded?<br>   if (kryptonSplitContainer1.FixedPanel == FixedPanel.None)<br>   {<br>      // (3) Make the left panel fixed in size<br>      kryptonSplitContainer1.FixedPanel = FixedPanel.Panel1;<br>      kryptonSplitContainer1.IsSplitterFixed = true;</p>
+<p>// (4) Remember the current height of the header group<br>_widthLeftRight = kryptonHeaderGroup1.Width;</p>
+<p>// (5) Find the new width to use for the header group<br>int newWidth = kryptonHeaderGroup1.PreferredSize.Height;</p>
+<p>// (6) Make the header group fixed just as the new height<br>kryptonSplitContainer1.Panel1MinSize = newWidth;<br>kryptonSplitContainer1.SplitterDistance = newWidth;</p>
+<p>// (7) Change header to be vertical and button to near edge<br>kryptonHeaderGroup1.HeaderPositionPrimary = VisualOrientation.Right;<br>kryptonHeaderGroup1.ButtonSpecs[0].Edge = PaletteRelativeEdgeAlign.Near;<br>}<br>else<br>{<br>// Make the bottom panel not-fixed in size anymore<br>kryptonSplitContainer1.FixedPanel = FixedPanel.None;<br>kryptonSplitContainer1.IsSplitterFixed = false;</p>
+<p>// Put back the minimize size to the original<br>kryptonSplitContainer1.Panel1MinSize = 100;</p>
+<p>// Calculate the correct splitter we want to put back<br>kryptonSplitContainer1.SplitterDistance = _widthLeftRight;</p>
+<p>// Change header to be horizontal and button to far edge<br>kryptonHeaderGroup1.HeaderPositionPrimary = VisualOrientation.Top;<br>kryptonHeaderGroup1.ButtonSpecs[0].Edge = PaletteRelativeEdgeAlign.Far;<br>}  </p>
+<p>kryptonSplitContainer1.ResumeLayout();  </p>
+<p>}</p>
+<p>(1) Because we are changing several different splitter properties in one go we
+wrap the changes in a SuspendLayout() / ResumeLayout() pair so that the changes
+are not acted on until all the properties have been modified. This reduces the
+amount of flicker that would otherwise occur because each property change
+updates the appearance in turn.  </p>
+<p>(2) The code begins by checking if the header group is in the expanded or
+collapsed state. When expanded there will be no fixed panel because the user is
+allowed to move the separator to update the relative spacing of the two splitter
+panels.  </p>
+<p>(3) When becoming collapsed we want the splitter panel to become fixed in size
+and prevent the user from moving the separator. The first line of code will fix
+the first panel so that any resizing of the form will cause the second splitter
+panel to be resized and leave the first splitter panel the same constant size.
+The second line makes the separator read only.</p>
+<p>(4) We need to remember the current width of the first splitter panel so that
+when the group is expanded again in the future we can put it back to the same
+size as it originally started at.</p>
+<p>(5) Because we are going to change the header group orientation to vertical the
+new width of the splitter panel needs to be the height of the primary header on
+the header group. This height can be discovered by asking for the
+PreferredSize of the control now that that collapsed state has changed. The
+collapsed is automatically toggled because we are using an arrow button type.  </p>
+<p>(6) In order to collapse the splitter panel we need to set the new width of the
+first panel.</p>
+<p>(7) Finally we change the image so that it points in the opposite direction,
+place it at the opposite edge of the header and change the orientation of the
+header to be vertical.</p>
+<p>The &#39;else&#39; section of the code is self evident once the above is understand and
+merely puts the header group back into the original state. At runtime the
+initial view of the window would be as follows.</p>
+<p>After using the header button it will then collapse down to the following.</p>
+<h2 id="brbrbrbrpart-2---expandingcollapsing-right-panelbr"><br><br><br><br>Part 2 - Expanding/Collapsing Right Panel<br></h2>
+<p><strong>20) Drag a KryptonSplitContainer from the toolbox and drop it inside the right
+panel</strong><br>You should see text indicating the position of new Panel1 and Panel2 areas.</p>
+<p><strong>21) Use the KryptonSplitContainer smart tag and click ‘Horizontal splitter
+orientation&#39;</strong>  </p>
+<p>The splitter will now change to a vertical orientation with panel1 at the top
+and panel2 at the bottom.</p>
+<p><strong>22) Drag a KryptonHeaderGroup from the toolbox and drop it inside Panel1</strong>  </p>
+<hr>
+<p><strong>23) Use the KryptonHeaderGroup smart tag and click ‘Dock in parent
+container&#39;</strong><br>This ensures the header group is always sized to fit the splitter panel size.</p>
+<hr>
+<p><strong>24) Use the KryptonHeaderGroup smart tag and click ‘Hide secondary header&#39;</strong><br>We don&#39;t need the secondary header at the bottom for this example application.</p>
+<p><strong>25) Drag a KryptonHeaderGroup from the toolbox and drop it inside Panel2</strong><br>We now follow the same steps for the header group in the second splitter panel.</p>
+<hr>
+<p><strong>26) Use the KryptonHeaderGroup smart tag and click ‘Dock in parent
+container&#39;</strong></p>
+<p>This ensures the header group is always sized to fit the splitter panel size.</p>
+<p><strong>27) Use the KryptonHeaderGroup smart tag and click ‘Hide secondary header&#39;</strong><br>You should end up with the following arrangement.</p>
+<p><strong>28) Modify the top right KryptonHeaderGroup &#39;Text&#39; and &#39;Image&#39; properties</strong><br>Use the properties window to find the ValuesPrimary property and then set the
+&#39;Text&#39; to &#39;Right Top&#39; and remove the &#39;Image&#39; value.</p>
+<p><strong>29) Modify the bottom right KryptonHeaderGroup &#39;Text&#39; and &#39;Image&#39; properties</strong><br>Use the properties window and this time set the &#39;Text&#39; to &#39;Right Bottom&#39; and
+remove the &#39;Image&#39; value.<br>This should result in the following updated display.</p>
+<p><strong>30) Find the &#39;ButtonSpecs&#39; property and click the ellipses button</strong><br>With the bottom right header group still selected find and click the ellipses
+button for the &#39;ButtonSpecs&#39; property.</p>
+<p><strong>31) Add one instance to the collection and set the &#39;Type&#39; to &#39;Arrow Down&#39;</strong><br>Use the &#39;Add&#39; button on the collection editor to add a new
+<em>ButtonSpec</em> entry. Then set the &#39;Type&#39; property of the entry to be &#39;Arrow Down&#39;
+so that the palette provided image will be shown. It should look like this in
+the dialog box, then press the &#39;OK&#39; button.  </p>
+<p><strong>32) Initial setup of right groups is completed</strong><br>You should now see the following picture as the initial display for the
+application.</p>
+<p><strong>33) Enter code view and hook into the button click event</strong><br>Modify the constructor by adding the following line.</p>
+<p>kryptonHeaderGroup3.ButtonSpecs[0].Click += new EventHandler(OnUpDown);</p>
+<p><strong>34) Add private field for remembering header height</strong><br>Add the following private field to the form class.</p>
+<p>private int _heightUpDown;</p>
+<p><strong>35) Add button click handler code</strong><br>Add the following event handler to the form class.<br>A description of how the code works follows after the code.</p>
+<p>private void OnUpDown(object sender, EventArgs e)<br>{<br>   // (1) Is the bottom right header group currently expanded?<br>   if (kryptonSplitContainer2.FixedPanel == FixedPanel.None)<br>   {<br>      // (2) Make the bottom panel fixed in size<br>      kryptonSplitContainer2.FixedPanel = FixedPanel.Panel2;<br>      kryptonSplitContainer2.IsSplitterFixed = true;</p>
+<pre><code>  // (3) Remember the current height of the header group  
+  \_heightUpDown = kryptonHeaderGroup3.Height;
+
+  // (4) Find the new height to use for the header group  
+  int newHeight = kryptonHeaderGroup3.PreferredSize.Height;
+
+  // (5) Make the header group fixed just as the new height  
+  kryptonSplitContainer2.Panel2MinSize = newHeight;  
+  kryptonSplitContainer2.SplitterDistance = kryptonSplitContainer2.Height;  
+</code></pre><p>   }<br>   else<br>   {<br>      // Make the bottom panel not-fixed in size anymore<br>      kryptonSplitContainer2.FixedPanel = FixedPanel.None;<br>      kryptonSplitContainer2.IsSplitterFixed = false;  </p>
+<pre><code>  // Put back the minimum size to the original  
+  kryptonSplitContainer2.Panel2MinSize = 100;
+
+  // Calculate the correct splitter we want to put back  
+  kryptonSplitContainer2.SplitterDistance =  
+     kryptonSplitContainer2.Height - \_heightUpDown -
+</code></pre><p>kryptonSplitContainer2.SplitterWidth;<br>   }<br>}</p>
+<p>(1) The code begins by checking if the header group is in the expanded or
+collapsed state. When expanded there will be no fixed panel because the user is
+allowed to move the separator and so update the relative spacing of the two
+splitter panels.  </p>
+<p>(2) When becoming collapsed we want the splitter panel to become fixed in size
+and prevent the user from moving the separator. The first line of code will fix
+the second panel so that any resizing of the form will cause the first splitter
+panel to be resized and leave the second splitter panel the same constant size.
+The second line makes the separator read only.</p>
+<p>(3) We need to remember the current height of the second splitter panel so that
+when the group is expanded again in the future we can put it back to the same
+size as it originally started at.</p>
+<p>(4) The new height of the second splitter panel can be discovered by using the
+DisplayRectangle that represents the inside client area of the header group.
+This height can be discovered by asking for the PreferredSize of the control now
+that that collapsed state has changed. The collapsed is automatically toggled
+because we are using an arrow button type.</p>
+<p>(5) In order to collapse the splitter panel we set the required height as the
+minimum height of the second split panel and then attempt to update the splitter
+distance to the whole height of the split container. The splitter distance will
+then we changed automatically by the split container control so that the minimum
+height of the second split panel is enforced.</p>
+<p>The &#39;else&#39; section of the code is self evident once the above is understand and
+merely puts the header group back into the original state. At runtime you should
+be able to press the down arrow to get the following display.  </p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

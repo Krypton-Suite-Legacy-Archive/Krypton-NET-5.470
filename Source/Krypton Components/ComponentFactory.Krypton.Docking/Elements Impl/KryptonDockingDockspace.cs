@@ -15,10 +15,10 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.ComponentModel;
-using Krypton.Workspace;
-using Krypton.Navigator;
+using ComponentFactory.Krypton.Workspace;
+using ComponentFactory.Krypton.Navigator;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
     /// <summary>
     /// Provides docking functionality within a control edge using a KryptonDockspace.
@@ -26,7 +26,7 @@ namespace Krypton.Docking
     [ToolboxItem(false)]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
-    public class Krypton.DockingDockspace : Krypton.DockingSpace
+    public class KryptonDockingDockspace : KryptonDockingSpace
     {
         #region Instance Fields
         private int _cacheCellVisibleCount;
@@ -46,12 +46,12 @@ namespace Krypton.Docking
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the Krypton.DockingDockspace class.
+        /// Initialize a new instance of the KryptonDockingDockspace class.
         /// </summary>
         /// <param name="name">Initial name of the element.</param>
         /// <param name="edge">Docking edge this dockspace is against.</param>
         /// <param name="size">Initial size of the dockspace.</param>
-        public Krypton.DockingDockspace(string name, DockingEdge edge, Size size)
+        public KryptonDockingDockspace(string name, DockingEdge edge, Size size)
             : base(name, "Docked")
         {
             // Create a new dockspace that will be a host for docking pages
@@ -78,15 +78,15 @@ namespace Krypton.Docking
         /// <summary>
         /// Gets the sibling auto hidden edge.
         /// </summary>
-        public Krypton.DockingEdgeAutoHidden EdgeAutoHiddenElement
+        public KryptonDockingEdgeAutoHidden EdgeAutoHiddenElement
         {
             get
             {
                 // Scan up the parent chain to get the edge we are expected to be inside
-                if (GetParentType(typeof(Krypton.DockingEdge)) is Krypton.DockingEdge dockingEdge)
+                if (GetParentType(typeof(KryptonDockingEdge)) is KryptonDockingEdge dockingEdge)
                 {
                     // Extract the expected fixed name of the auto hidden edge element
-                    return dockingEdge["AutoHidden"] as Krypton.DockingEdgeAutoHidden;
+                    return dockingEdge["AutoHidden"] as KryptonDockingEdgeAutoHidden;
                 }
 
                 return null;
@@ -267,7 +267,7 @@ namespace Krypton.Docking
         protected override void RaiseRemoved()
         {
             // Generate event so the any dockspace customization can be reversed.
-            Krypton.DockingManager dockingManager = DockingManager;
+            KryptonDockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {
                 DockspaceEventArgs args = new DockspaceEventArgs(DockspaceControl, this);
@@ -282,10 +282,10 @@ namespace Krypton.Docking
         /// Raises the type specific cell adding event determinated by the derived class.
         /// </summary>
         /// <param name="cell">Referecence to new cell being added.</param>
-        protected override void RaiseCellAdding(Krypton.WorkspaceCell cell)
+        protected override void RaiseCellAdding(KryptonWorkspaceCell cell)
         {
             // Generate event so the dockspace cell customization can be performed.
-            Krypton.DockingManager dockingManager = DockingManager;
+            KryptonDockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {
                 DockspaceCellEventArgs args = new DockspaceCellEventArgs(DockspaceControl, this, cell);
@@ -297,10 +297,10 @@ namespace Krypton.Docking
         /// Raises the type specific cell removed event determinated by the derived class.
         /// </summary>
         /// <param name="cell">Referecence to an existing cell being removed.</param>
-        protected override void RaiseCellRemoved(Krypton.WorkspaceCell cell)
+        protected override void RaiseCellRemoved(KryptonWorkspaceCell cell)
         {
             // Generate event so the dockspace cell customization can be reversed.
-            Krypton.DockingManager dockingManager = DockingManager;
+            KryptonDockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {
                 DockspaceCellEventArgs args = new DockspaceCellEventArgs(DockspaceControl, this, cell);
@@ -316,7 +316,7 @@ namespace Krypton.Docking
         protected override void RaiseSpacePageDrop(object sender, PageDropEventArgs e)
         {
             // Use event to indicate the page is moving to a workspace and allow it to be cancelled
-            Krypton.DockingManager dockingManager = DockingManager;
+            KryptonDockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {
                 CancelUniqueNameEventArgs args = new CancelUniqueNameEventArgs(e.Page.UniqueName, false);
@@ -462,28 +462,28 @@ namespace Krypton.Docking
         private void OnDockspacePageCloseClicked(object sender, UniqueNameEventArgs e)
         {
             // Generate event so that the close action is handled for the named page
-            Krypton.DockingManager dockingManager = DockingManager;
+            KryptonDockingManager dockingManager = DockingManager;
             dockingManager?.CloseRequest(new string[] { e.UniqueName });
         }
 
         private void OnDockspacePageAutoHiddenClicked(object sender, UniqueNameEventArgs e)
         {
             // Generate event so that the switch from docked to auto hidden is handled for cell that contains the named page
-            Krypton.DockingManager dockingManager = DockingManager;
+            KryptonDockingManager dockingManager = DockingManager;
             dockingManager?.SwitchDockedCellToAutoHiddenGroupRequest(e.UniqueName);
         }
 
         private void OnDockspacePagesDoubleClicked(object sender, UniqueNamesEventArgs e)
         {
             // Generate event so that the switch from docked to floating is handled for the provided list of named pages
-            Krypton.DockingManager dockingManager = DockingManager;
+            KryptonDockingManager dockingManager = DockingManager;
             dockingManager?.SwitchDockedToFloatingWindowRequest(e.UniqueNames);
         }
 
         private void OnDockspaceDropDownClicked(object sender, CancelDropDownEventArgs e)
         {
             // Generate event so that the appropriate context menu options are preseted and actioned
-            Krypton.DockingManager dockingManager = DockingManager;
+            KryptonDockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {
                 e.Cancel = !dockingManager.ShowPageContextMenuRequest(e.Page, e.KryptonContextMenu);
@@ -506,7 +506,7 @@ namespace Krypton.Docking
             if (pages.Count != 0)
             {
                 // Ask the docking manager for a IDragPageNotify implementation to handle the dragging operation
-                Krypton.DockingManager dockingManager = DockingManager;
+                KryptonDockingManager dockingManager = DockingManager;
                 dockingManager?.DoDragDrop(e.ScreenPoint, e.ElementOffset, e.Control, e.Pages);
             }
 

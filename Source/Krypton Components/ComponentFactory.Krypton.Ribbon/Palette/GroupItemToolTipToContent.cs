@@ -11,9 +11,9 @@
 
 using System.Drawing;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Map group item tooltip values to content values.
@@ -21,7 +21,7 @@ namespace Krypton.Ribbon
     internal class GroupItemToolTipToContent : IContentValues
     {
         #region Instance Fields
-        private readonly Krypton.RibbonGroupItem _groupItem;
+        private readonly KryptonRibbonGroupItem _groupItem;
         #endregion
 
         #region Identity
@@ -29,7 +29,7 @@ namespace Krypton.Ribbon
         /// Initialize a new instance of the GroupItemToolTipToContent class.
         /// </summary>
         /// <param name="groupItem">Source ribbon group item.</param>
-        public GroupItemToolTipToContent(Krypton.RibbonGroupItem groupItem)
+        public GroupItemToolTipToContent(KryptonRibbonGroupItem groupItem)
         {
             Debug.Assert(groupItem != null);
             _groupItem = groupItem;

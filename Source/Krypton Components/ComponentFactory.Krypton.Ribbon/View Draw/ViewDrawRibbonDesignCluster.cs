@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws an design time only for adding a new button to a cluster.
@@ -28,7 +28,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.RibbonGroupCluster _ribbonCluster;
+        private readonly KryptonRibbonGroupCluster _ribbonCluster;
         private ContextMenuStrip _cms;
         #endregion
 
@@ -40,8 +40,8 @@ namespace Krypton.Ribbon
             {
                 TransparentColor = Color.Magenta
             };
-            _imageList.Images.AddRange(new Image[]{Properties.Resources.Krypton.RibbonGroupClusterButton,                                                   
-                                                   Properties.Resources.Krypton.RibbonGroupClusterColorButton});
+            _imageList.Images.AddRange(new Image[]{Properties.Resources.KryptonRibbonGroupClusterButton,                                                   
+                                                   Properties.Resources.KryptonRibbonGroupClusterColorButton});
         }
 
         /// <summary>
@@ -50,8 +50,8 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonCluster">Reference to cluster definition.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonDesignCluster(Krypton.Ribbon ribbon,
-                                           Krypton.RibbonGroupCluster ribbonCluster,
+        public ViewDrawRibbonDesignCluster(KryptonRibbon ribbon,
+                                           KryptonRibbonGroupCluster ribbonCluster,
                                            NeedPaintHandler needPaint)
             : base(ribbon, needPaint)
         {

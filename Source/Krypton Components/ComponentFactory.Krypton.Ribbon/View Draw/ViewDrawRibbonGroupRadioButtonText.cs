@@ -12,9 +12,9 @@
 using System;
 using System.Drawing;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws the text string for a group radio button.
@@ -23,8 +23,8 @@ namespace Krypton.Ribbon
                                                         IContentValues
     {
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
-        private readonly Krypton.RibbonGroupRadioButton _ribbonRadioButton;
+        private readonly KryptonRibbon _ribbon;
+        private readonly KryptonRibbonGroupRadioButton _ribbonRadioButton;
         private readonly RibbonGroupNormalDisabledTextToContent _contentProvider;
         private IDisposable _memento;
         private readonly bool _firstText;
@@ -43,8 +43,8 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Source ribbon control.</param>
         /// <param name="ribbonRadioButton">Group radio button to display title for.</param>
         /// <param name="firstText">Should show the first button text.</param>
-        public ViewDrawRibbonGroupRadioButtonText(Krypton.Ribbon ribbon,
-                                                  Krypton.RibbonGroupRadioButton ribbonRadioButton,
+        public ViewDrawRibbonGroupRadioButtonText(KryptonRibbon ribbon,
+                                                  KryptonRibbonGroupRadioButton ribbonRadioButton,
                                                   bool firstText)
         {
             Debug.Assert(ribbon != null);

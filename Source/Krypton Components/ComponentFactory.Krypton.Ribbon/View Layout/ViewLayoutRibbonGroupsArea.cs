@@ -12,9 +12,9 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Contains all the layout of the groups area.
@@ -29,7 +29,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private readonly PaletteBackInheritRedirect _backInherit;
         #endregion
 
@@ -40,7 +40,7 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="redirect">Reference to redirector for palette settings.</param>
         /// <param name="needPaintDelegate">Delegate for notifying paint/layout changes.</param>
-        public ViewLayoutRibbonGroupsArea(Krypton.Ribbon ribbon,
+        public ViewLayoutRibbonGroupsArea(KryptonRibbon ribbon,
                                           PaletteRedirect redirect,
                                           NeedPaintHandler needPaintDelegate)
         {

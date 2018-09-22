@@ -12,7 +12,7 @@
 using System;
 using System.Xml;
 
-namespace Krypton.Workspace
+namespace ComponentFactory.Krypton.Workspace
 {
 	/// <summary>
 	/// Event data for persisting extra data for a workspace.
@@ -29,7 +29,7 @@ namespace Krypton.Workspace
 		/// </summary>
         /// <param name="workspace">Reference to owning workspace control.</param>
         /// <param name="xmlReading">Xml reader for persisting custom data.</param>
-        public XmlLoadingEventArgs(Krypton.Workspace workspace,
+        public XmlLoadingEventArgs(KryptonWorkspace workspace,
                                    XmlReader xmlReading)
 		{
             Workspace = workspace;
@@ -41,7 +41,7 @@ namespace Krypton.Workspace
 		/// <summary>
         /// Gets the workspace reference.
 		/// </summary>
-        public Krypton.Workspace Workspace { get; }
+        public KryptonWorkspace Workspace { get; }
 
 	    /// <summary>
         /// Gets the xml reader.

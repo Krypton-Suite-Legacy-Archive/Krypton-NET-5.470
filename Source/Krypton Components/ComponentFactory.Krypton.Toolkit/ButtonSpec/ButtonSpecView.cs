@@ -15,7 +15,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Create and manage the view for a ButtonSpec definition.
@@ -294,7 +294,7 @@ namespace Krypton.Toolkit
             _controller.Click += clickHandler;
 
             // If associated with a tooltip manager then pass mouse messages onto tooltip manager
-            IMouseController mouseController = (IMouseController)_controller;
+            IMouseController mouseController = _controller;
             if (Manager.ToolTipManager != null)
             {
                 mouseController = new ToolTipController(Manager.ToolTipManager, viewButton, _controller);

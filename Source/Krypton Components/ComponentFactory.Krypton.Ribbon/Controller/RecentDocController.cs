@@ -14,9 +14,9 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Generate click events when the recent document is pressed.

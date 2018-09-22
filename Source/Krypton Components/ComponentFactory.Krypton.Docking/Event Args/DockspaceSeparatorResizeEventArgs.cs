@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.Drawing;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
 	/// <summary>
     /// Event arguments for a DockspaceSeparatorResize event.
@@ -31,7 +31,7 @@ namespace Krypton.Docking
         /// <param name="element">Reference to dockspace docking element that is managing the separator.</param>
         /// <param name="resizeRect">Initial resizing rectangle.</param>
         public DockspaceSeparatorResizeEventArgs(KryptonSeparator separator,
-                                                 Krypton.DockingDockspace element,
+                                                 KryptonDockingDockspace element,
                                                  Rectangle resizeRect)
             : base(separator, element)
 		{

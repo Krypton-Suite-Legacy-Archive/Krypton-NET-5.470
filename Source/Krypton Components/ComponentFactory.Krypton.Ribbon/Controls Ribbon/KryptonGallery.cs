@@ -14,9 +14,9 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
     /// Provides a gallery for selecting from a group of possible images.
@@ -25,7 +25,7 @@ namespace Krypton.Ribbon
     [ToolboxBitmap(typeof(KryptonGallery), "ToolboxBitmaps.KryptonGallery.bmp")]
     [DefaultEvent("SelectedIndexChanged")]
 	[DefaultProperty("SelectedIndex")]
-    [Designer("Krypton.Ribbon.KryptonGalleryDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Ribbon.KryptonGalleryDesigner))]
     [DesignerCategory("code")]
     [Description("Select from a group of possible images.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
@@ -792,7 +792,7 @@ namespace Krypton.Ribbon
             set => _preferredItemSize = value;
         }
 
-        internal Krypton.Ribbon Ribbon { get; set; }
+        internal KryptonRibbon Ribbon { get; set; }
 
         internal void OnDropButton()
         {

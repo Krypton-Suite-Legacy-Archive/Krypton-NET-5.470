@@ -12,7 +12,7 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
 	/// Details for context menu related events.

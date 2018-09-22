@@ -12,7 +12,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Implementation for the fixed maximize button for krypton form.

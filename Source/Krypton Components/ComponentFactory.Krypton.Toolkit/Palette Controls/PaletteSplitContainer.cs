@@ -11,7 +11,7 @@
 
 using System.ComponentModel;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
 	/// Extend storage for the split container with background and border information combined with separator information.

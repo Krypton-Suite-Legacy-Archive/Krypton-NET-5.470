@@ -11,7 +11,7 @@
 
 using System.Windows.Forms;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
 	/// Extends the ViewDrawDocker by adding status strip merging into the border.

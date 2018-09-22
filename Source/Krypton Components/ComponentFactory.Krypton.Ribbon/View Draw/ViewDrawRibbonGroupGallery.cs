@@ -15,9 +15,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a ribbon group gallery.
@@ -32,7 +32,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private ViewDrawRibbonGroup _activeGroup;
         private readonly GalleryController _controller;
         private readonly NeedPaintHandler _needPaint;
@@ -54,8 +54,8 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonGallery">Reference to source gallery.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonGroupGallery(Krypton.Ribbon ribbon,
-                                          Krypton.RibbonGroupGallery ribbonGallery,
+        public ViewDrawRibbonGroupGallery(KryptonRibbon ribbon,
+                                          KryptonRibbonGroupGallery ribbonGallery,
                                           NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);
@@ -166,7 +166,7 @@ namespace Krypton.Ribbon
         /// <summary>
         /// Gets access to the owning group gallery instance.
         /// </summary>
-        public Krypton.RibbonGroupGallery GroupGallery { get; private set; }
+        public KryptonRibbonGroupGallery GroupGallery { get; private set; }
 
         #endregion
 
@@ -829,7 +829,7 @@ namespace Krypton.Ribbon
                         {
                             // Check that the group is not collapsed
                             if ((GroupGallery.RibbonGroup.IsCollapsed) &&
-                                ((_ribbon.GetControllerControl(GroupGallery.Gallery) is Krypton.Ribbon) ||
+                                ((_ribbon.GetControllerControl(GroupGallery.Gallery) is KryptonRibbon) ||
                                  (_ribbon.GetControllerControl(GroupGallery.Gallery) is VisualPopupMinimized)))
                             {
                                 visible = false;

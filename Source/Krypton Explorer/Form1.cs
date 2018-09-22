@@ -13,7 +13,7 @@ using System;
 using System.Diagnostics;
 using System.Windows.Forms;
 
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace KryptonExplorer
 {
@@ -380,7 +380,7 @@ namespace KryptonExplorer
 
         private void linkInputForm_LinkClicked(object sender, EventArgs e)
         {
-            try { Process.Start(@".\Input Form.exe"); }
+            try { Process.Start(@".\Input Form Examples.exe"); }
             catch (Exception ex)
             {
                 KryptonMessageBox.Show(this, ex.Message, @"Explorer", MessageBoxButtons.OK, MessageBoxIcon.Error);

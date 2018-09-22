@@ -9,19 +9,19 @@
 //  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
-    /// Delegate used for hooking into a Krypton.RibbonContext typed collection.
+    /// Delegate used for hooking into a KryptonRibbonContext typed collection.
     /// </summary>
-    public delegate void RibbonContextHandler(object sender, TypedCollectionEventArgs<Krypton.RibbonContext> e);
+    public delegate void RibbonContextHandler(object sender, TypedCollectionEventArgs<KryptonRibbonContext> e);
 
     /// <summary>
     /// Specialise the generic collection with type specific rules for context item accessor.
     /// </summary>
-    public class Krypton.RibbonContextCollection : TypedCollection<Krypton.RibbonContext>
+    public class KryptonRibbonContextCollection : TypedCollection<KryptonRibbonContext>
     {
         #region Public
         /// <summary>
@@ -29,12 +29,12 @@ namespace Krypton.Ribbon
         /// </summary>
         /// <param name="name">Name of the ribbon context instance.</param>
         /// <returns>Item at specified index.</returns>
-        public override Krypton.RibbonContext this[string name]
+        public override KryptonRibbonContext this[string name]
         {
             get
             {
                 // Search for a context with the same name as that requested.
-                foreach (Krypton.RibbonContext context in this)
+                foreach (KryptonRibbonContext context in this)
                 {
                     if (context.ContextName == name)
                     {

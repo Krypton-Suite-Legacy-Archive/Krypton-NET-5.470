@@ -15,9 +15,9 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Collections.Generic;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
 	/// Base class for view builder implementations.
@@ -48,7 +48,7 @@ namespace Krypton.Navigator
 		/// <summary>
 		/// Gets access to the navigator instance.
 		/// </summary>
-		public Krypton.Navigator Navigator
+		public KryptonNavigator Navigator
 		{
 		    [DebuggerStepThrough]
 		    get;
@@ -88,7 +88,7 @@ namespace Krypton.Navigator
 		/// <param name="navigator">Reference to navigator instance.</param>
 		/// <param name="manager">Reference to current manager.</param>
 		/// <param name="redirector">Palette redirector.</param>
-		public virtual void Construct(Krypton.Navigator navigator, 
+		public virtual void Construct(KryptonNavigator navigator, 
 									  ViewManager manager,
 									  PaletteRedirect redirector)
 		{

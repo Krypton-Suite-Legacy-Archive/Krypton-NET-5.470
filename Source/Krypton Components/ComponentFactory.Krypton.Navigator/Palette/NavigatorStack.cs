@@ -12,9 +12,9 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
 	/// Storage for stack related properties.
@@ -22,7 +22,7 @@ namespace Krypton.Navigator
     public class NavigatorStack : Storage
     {
         #region Instance Fields
-        private readonly Krypton.Navigator _navigator;
+        private readonly KryptonNavigator _navigator;
         private ButtonStyle _checkButtonStyle;
         private PaletteBorderStyle _borderEdgeStyle;
         private bool _stackAnimation;
@@ -40,7 +40,7 @@ namespace Krypton.Navigator
 		/// </summary>
         /// <param name="navigator">Reference to owning navigator instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public NavigatorStack(Krypton.Navigator navigator,
+        public NavigatorStack(KryptonNavigator navigator,
                               NeedPaintHandler needPaint)
 		{
             Debug.Assert(navigator != null);

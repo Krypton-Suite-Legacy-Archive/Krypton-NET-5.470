@@ -1,4 +1,4 @@
-﻿using Krypton.Toolkit;
+﻿using ComponentFactory.Krypton.Toolkit;
 using KryptonToolkitUpdater.Enumerations;
 using KryptonToolkitUpdater.Settings;
 using System.Windows.Forms;

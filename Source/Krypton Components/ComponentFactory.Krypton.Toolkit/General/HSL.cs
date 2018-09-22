@@ -11,7 +11,7 @@
 
 using System.Drawing;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
 	/// Represents a hue, saturation, luminance triple.

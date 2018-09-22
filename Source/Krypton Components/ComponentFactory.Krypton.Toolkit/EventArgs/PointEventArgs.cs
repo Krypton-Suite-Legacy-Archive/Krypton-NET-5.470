@@ -12,7 +12,7 @@
 using System;
 using System.Drawing;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
     /// Details for an event that provides a Point value.

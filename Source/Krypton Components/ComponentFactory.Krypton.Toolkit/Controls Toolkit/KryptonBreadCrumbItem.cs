@@ -14,7 +14,7 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Krypton object used to represent nodes in a hierarchical bread crumb data structure.
@@ -22,14 +22,14 @@ namespace Krypton.Toolkit
     [ToolboxItem(false)]
     [ToolboxBitmap(typeof(KryptonBreadCrumb), "ToolboxBitmaps.KryptonBreadCrumbItem.bmp")]
     [DesignTimeVisible(false)]
-    [Designer("Krypton.Toolkit.KryptonBreadCrumbItemDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItemDesigner))]
     public class KryptonBreadCrumbItem : KryptonListItem
     {
         #region Type Definitons
         /// <summary>
         /// Manages a collection of KryptonBreadCrumbItems
         /// </summary>
-        [Editor("Krypton.Toolkit.KryptonBreadCrumbItemsEditor, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
+        [Editor(typeof(ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItemsEditor), typeof(UITypeEditor))]
         public class BreadCrumbItems : TypedCollection<KryptonBreadCrumbItem>
         {
             #region Instance Fields
@@ -84,7 +84,7 @@ namespace Krypton.Toolkit
             /// <summary>
             /// Raises the Inserting event.
             /// </summary>
-            /// <param name="e">A Krypton.RibbonTabEventArgs instance containing event data.</param>
+            /// <param name="e">A KryptonRibbonTabEventArgs instance containing event data.</param>
             protected override void OnInserting(TypedCollectionEventArgs<KryptonBreadCrumbItem> e)
             {
                 // Setup parent relationship

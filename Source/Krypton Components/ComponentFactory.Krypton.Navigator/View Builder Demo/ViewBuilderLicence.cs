@@ -14,9 +14,9 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Reflection;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
     /// Extend the base class with licence checking.
@@ -34,7 +34,7 @@ namespace Krypton.Navigator
         /// Perform licence checking actions.
         /// </summary>
         /// <param name="navigator">Navigator control reference.</param>
-        protected override void PerformLicenceChecking(Krypton.Navigator navigator)
+        protected override void PerformLicenceChecking(KryptonNavigator navigator)
         {
             // Define the encryted licence information
             EncryptedLicenseProvider.SetParameters(_licenseParameters);
@@ -45,7 +45,7 @@ namespace Krypton.Navigator
             {
                 // Is there a valid license registered?
                 License license = null;
-                validated = LicenseManager.IsValid(typeof(Krypton.Navigator), navigator, out license);
+                validated = LicenseManager.IsValid(typeof(KryptonNavigator), navigator, out license);
 
                 // Valid license is not enough!
                 if (validated)
@@ -105,7 +105,7 @@ namespace Krypton.Navigator
                     else
                     {
                         LicenseInstallForm form = new LicenseInstallForm();
-                        form.ShowDialog(typeof(Krypton.Navigator));
+                        form.ShowDialog(typeof(KryptonNavigator));
                     }
                 }
             }

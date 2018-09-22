@@ -9,10 +9,10 @@
 //  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using Krypton.Toolkit;
-using Krypton.Navigator;
+using ComponentFactory.Krypton.Toolkit;
+using ComponentFactory.Krypton.Navigator;
 
-namespace Krypton.Workspace
+namespace ComponentFactory.Krypton.Workspace
 {
     /// <summary>
     /// Proxy class for receiving page notifications.
@@ -20,7 +20,7 @@ namespace Krypton.Workspace
     public class CellPageNotify : IDragPageNotify
     {
         #region Instance Fields
-        private readonly Krypton.Workspace _workspace;
+        private readonly KryptonWorkspace _workspace;
         #endregion
 
         #region Identity
@@ -28,7 +28,7 @@ namespace Krypton.Workspace
         /// Initialize a new instance of the CellPageNotify class.
         /// </summary>
         /// <param name="workspace">Reference to owning workspace.</param>
-        public CellPageNotify(Krypton.Workspace workspace)
+        public CellPageNotify(KryptonWorkspace workspace)
         {
             _workspace = workspace;
         }
@@ -41,7 +41,7 @@ namespace Krypton.Workspace
         /// <param name="sender">Source of the page drag; should never be null.</param>
         /// <param name="navigator">Navigator instance associated with source; can be null.</param>
         /// <param name="e">Event arguments indicating list of pages being dragged.</param>
-        public void PageDragStart(object sender, Krypton.Navigator navigator, PageDragCancelEventArgs e)
+        public void PageDragStart(object sender, KryptonNavigator navigator, PageDragCancelEventArgs e)
         {
             _workspace.InternalPageDragStart(sender, navigator, e);
         }
@@ -53,7 +53,7 @@ namespace Krypton.Workspace
         /// <param name="e">Event arguments containing the new screen point of the mouse.</param>
         public void PageDragMove(object sender, PointEventArgs e)
         {
-            _workspace.InternalPageDragMove(sender as Krypton.Navigator, e);
+            _workspace.InternalPageDragMove(sender as KryptonNavigator, e);
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Krypton.Workspace
         /// <returns>Drop was performed and the source can perform any removal of pages as required.</returns>
         public bool PageDragEnd(object sender, PointEventArgs e)
         {
-            return _workspace.InternalPageDragEnd(sender as Krypton.Navigator, e);
+            return _workspace.InternalPageDragEnd(sender as KryptonNavigator, e);
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace Krypton.Workspace
         /// <param name="sender">Source of the page drag; can be null.</param>
         public void PageDragQuit(object sender)
         {
-            _workspace.InternalPageDragQuit(sender as Krypton.Navigator);
+            _workspace.InternalPageDragQuit(sender as KryptonNavigator);
         }
         #endregion
     }

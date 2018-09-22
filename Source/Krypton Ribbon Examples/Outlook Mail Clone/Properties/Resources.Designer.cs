@@ -1403,6 +1403,16 @@ namespace OutlookMailClone.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Square_Design_64_x_64_New_Green {
+            get {
+                object obj = ResourceManager.GetObject("Square_Design_64_x_64_New_Green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap StyleSet {
             get {
                 object obj = ResourceManager.GetObject("StyleSet", resourceCulture);

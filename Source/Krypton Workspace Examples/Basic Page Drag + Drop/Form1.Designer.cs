@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.kryptonNavigator1 = new Krypton.Navigator.KryptonNavigator();
-            this.kryptonNavigator2 = new Krypton.Navigator.KryptonNavigator();
-            this.kryptonWorkspace2 = new Krypton.Workspace.KryptonWorkspace();
+            this.kryptonNavigator1 = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
+            this.kryptonNavigator2 = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
+            this.kryptonWorkspace2 = new ComponentFactory.Krypton.Workspace.KryptonWorkspace();
             this.labelTitle = new System.Windows.Forms.Label();
             this.groupBoxDragFeedback = new System.Windows.Forms.GroupBox();
             this.radioRounded = new System.Windows.Forms.RadioButton();
@@ -40,10 +40,10 @@
             this.radioBlock = new System.Windows.Forms.RadioButton();
             this.buttonClose = new System.Windows.Forms.Button();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
-            this.kryptonWorkspace1 = new Krypton.Workspace.KryptonWorkspace();
+            this.kryptonWorkspace1 = new ComponentFactory.Krypton.Workspace.KryptonWorkspace();
             this.labelNavigators = new System.Windows.Forms.Label();
             this.labelWorkspaces = new System.Windows.Forms.Label();
-            this.kryptonManager1 = new Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator1)).BeginInit();
             this.kryptonNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator2)).BeginInit();
@@ -57,8 +57,8 @@
             // 
             this.kryptonNavigator1.AllowPageDrag = true;
             this.kryptonNavigator1.AllowTabFocus = false;
-            this.kryptonNavigator1.Button.CloseButtonDisplay = Krypton.Navigator.ButtonDisplay.Hide;
-            this.kryptonNavigator1.Button.ContextButtonDisplay = Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigator1.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigator1.Button.ContextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
             this.kryptonNavigator1.Location = new System.Drawing.Point(13, 70);
             this.kryptonNavigator1.Name = "kryptonNavigator1";
             this.kryptonNavigator1.Size = new System.Drawing.Size(313, 202);
@@ -71,12 +71,12 @@
             this.kryptonNavigator2.AllowTabFocus = false;
             this.kryptonNavigator2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonNavigator2.Button.CloseButtonDisplay = Krypton.Navigator.ButtonDisplay.Hide;
-            this.kryptonNavigator2.Button.ContextButtonDisplay = Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigator2.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigator2.Button.ContextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
             this.kryptonNavigator2.Header.HeaderVisibleSecondary = false;
             this.kryptonNavigator2.Location = new System.Drawing.Point(343, 70);
             this.kryptonNavigator2.Name = "kryptonNavigator2";
-            this.kryptonNavigator2.NavigatorMode = Krypton.Navigator.NavigatorMode.HeaderBarCheckButtonHeaderGroup;
+            this.kryptonNavigator2.NavigatorMode = ComponentFactory.Krypton.Navigator.NavigatorMode.HeaderBarCheckButtonHeaderGroup;
             this.kryptonNavigator2.Size = new System.Drawing.Size(329, 202);
             this.kryptonNavigator2.TabIndex = 3;
             this.kryptonNavigator2.Text = "kryptonNavigator1";
@@ -96,7 +96,7 @@
             this.kryptonWorkspace2.Size = new System.Drawing.Size(329, 271);
             this.kryptonWorkspace2.TabIndex = 6;
             this.kryptonWorkspace2.TabStop = true;
-            this.kryptonWorkspace2.WorkspaceCellAdding += new System.EventHandler<Krypton.Workspace.WorkspaceCellEventArgs>(this.kryptonWorkspace2_WorkspaceCellAdding);
+            this.kryptonWorkspace2.WorkspaceCellAdding += new System.EventHandler<ComponentFactory.Krypton.Workspace.WorkspaceCellEventArgs>(this.kryptonWorkspace2_WorkspaceCellAdding);
             // 
             // labelTitle
             // 
@@ -195,7 +195,7 @@
             this.kryptonWorkspace1.Size = new System.Drawing.Size(313, 271);
             this.kryptonWorkspace1.TabIndex = 5;
             this.kryptonWorkspace1.TabStop = true;
-            this.kryptonWorkspace1.WorkspaceCellAdding += new System.EventHandler<Krypton.Workspace.WorkspaceCellEventArgs>(this.kryptonWorkspace1_WorkspaceCellAdding);
+            this.kryptonWorkspace1.WorkspaceCellAdding += new System.EventHandler<ComponentFactory.Krypton.Workspace.WorkspaceCellEventArgs>(this.kryptonWorkspace1_WorkspaceCellAdding);
             // 
             // labelNavigators
             // 
@@ -254,9 +254,9 @@
 
         #endregion
 
-        private Krypton.Navigator.KryptonNavigator kryptonNavigator1;
-        private Krypton.Navigator.KryptonNavigator kryptonNavigator2;
-        private Krypton.Workspace.KryptonWorkspace kryptonWorkspace2;
+        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigator1;
+        private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigator2;
+        private ComponentFactory.Krypton.Workspace.KryptonWorkspace kryptonWorkspace2;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.GroupBox groupBoxDragFeedback;
         private System.Windows.Forms.RadioButton radioRounded;
@@ -264,10 +264,10 @@
         private System.Windows.Forms.RadioButton radioBlock;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.ImageList imageList;
-        private Krypton.Workspace.KryptonWorkspace kryptonWorkspace1;
+        private ComponentFactory.Krypton.Workspace.KryptonWorkspace kryptonWorkspace1;
         private System.Windows.Forms.Label labelNavigators;
         private System.Windows.Forms.Label labelWorkspaces;
-        private Krypton.Toolkit.KryptonManager kryptonManager1;
+        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager1;
     }
 }
 

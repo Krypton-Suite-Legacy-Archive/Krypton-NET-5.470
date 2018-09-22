@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.Collections.Generic;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
     /// <summary>
     /// Dictionary lookup from unique name to the KryptonPage.

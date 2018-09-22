@@ -10,30 +10,30 @@
 // *****************************************************************************
 
 using System;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Manage the items that can be added to a ribbon group triple container.
     /// </summary>
-    public class Krypton.RibbonGroupTripleCollection : TypedRestrictCollection<Krypton.RibbonGroupItem>
+    public class KryptonRibbonGroupTripleCollection : TypedRestrictCollection<KryptonRibbonGroupItem>
     {
         #region Static Fields
-        private static readonly Type[] _types = { typeof(Krypton.RibbonGroupButton),
-                                                             typeof(Krypton.RibbonGroupColorButton),
-                                                             typeof(Krypton.RibbonGroupCheckBox),
-                                                             typeof(Krypton.RibbonGroupComboBox),
-                                                             typeof(Krypton.RibbonGroupCustomControl),
-                                                             typeof(Krypton.RibbonGroupDateTimePicker),
-                                                             typeof(Krypton.RibbonGroupDomainUpDown),
-                                                             typeof(Krypton.RibbonGroupLabel),
-                                                             typeof(Krypton.RibbonGroupNumericUpDown),
-                                                             typeof(Krypton.RibbonGroupRadioButton),
-                                                             typeof(Krypton.RibbonGroupRichTextBox),
-                                                             typeof(Krypton.RibbonGroupTextBox),
-                                                             typeof(Krypton.RibbonGroupTrackBar),
-                                                             typeof(Krypton.RibbonGroupMaskedTextBox)
+        private static readonly Type[] _types = { typeof(KryptonRibbonGroupButton),
+                                                             typeof(KryptonRibbonGroupColorButton),
+                                                             typeof(KryptonRibbonGroupCheckBox),
+                                                             typeof(KryptonRibbonGroupComboBox),
+                                                             typeof(KryptonRibbonGroupCustomControl),
+                                                             typeof(KryptonRibbonGroupDateTimePicker),
+                                                             typeof(KryptonRibbonGroupDomainUpDown),
+                                                             typeof(KryptonRibbonGroupLabel),
+                                                             typeof(KryptonRibbonGroupNumericUpDown),
+                                                             typeof(KryptonRibbonGroupRadioButton),
+                                                             typeof(KryptonRibbonGroupRichTextBox),
+                                                             typeof(KryptonRibbonGroupTextBox),
+                                                             typeof(KryptonRibbonGroupTrackBar),
+                                                             typeof(KryptonRibbonGroupMaskedTextBox)
                                                            };
         #endregion
 
@@ -79,13 +79,13 @@ namespace Krypton.Ribbon
         }
         #endregion
 
-        #region IList<Krypton.RibbonGroupItem>
+        #region IList<KryptonRibbonGroupItem>
         /// <summary>
         /// Inserts an item to the collection at the specified index.
         /// </summary>
         /// <param name="index">Insert index.</param>
         /// <param name="item">Item reference.</param>
-        public override void Insert(int index, Krypton.RibbonGroupItem item)
+        public override void Insert(int index, KryptonRibbonGroupItem item)
         {
             // Restrict contents to three items max
             if (Count == 3)
@@ -97,12 +97,12 @@ namespace Krypton.Ribbon
         }
         #endregion
 
-        #region ICollection<Krypton.RibbonGroupItem>
+        #region ICollection<KryptonRibbonGroupItem>
         /// <summary>
         /// Append an item to the collection.
         /// </summary>
         /// <param name="item">Item reference.</param>
-        public override void Add(Krypton.RibbonGroupItem item)
+        public override void Add(KryptonRibbonGroupItem item)
         {
             // Restrict contents to three items max
             if (Count == 3)

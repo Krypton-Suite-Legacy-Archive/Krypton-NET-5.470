@@ -13,7 +13,7 @@ using System;
 using System.Text;
 using System.ComponentModel;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Custom type converter so that PaletteDrawBorders values appear as neat text at design time.

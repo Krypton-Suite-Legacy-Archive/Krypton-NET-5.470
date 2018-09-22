@@ -14,9 +14,9 @@ using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Reflection;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
     internal class VisualPopupPage : VisualPopup
     {
@@ -25,7 +25,7 @@ namespace Krypton.Navigator
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Navigator _navigator;
+        private readonly KryptonNavigator _navigator;
         private readonly KryptonPage _page;
         #endregion
 
@@ -44,7 +44,7 @@ namespace Krypton.Navigator
         /// <param name="navigator">Reference to owning navigator control.</param>
         /// <param name="page">Reference to page for display.</param>
         /// <param name="renderer">Drawing renderer.</param>
-        public VisualPopupPage(Krypton.Navigator navigator,
+        public VisualPopupPage(KryptonNavigator navigator,
                                KryptonPage page,
                                IRenderer renderer)
             : base(renderer, true)

@@ -11,9 +11,9 @@
 
 using System;
 using System.Text;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Workspace
+namespace ComponentFactory.Krypton.Workspace
 {
     /// <summary>
     /// Handle a star number which consists of a number with optional asterisk at the end.

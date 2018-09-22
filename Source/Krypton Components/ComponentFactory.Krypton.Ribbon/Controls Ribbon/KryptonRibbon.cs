@@ -19,24 +19,24 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Security.Permissions;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Ribbon control presents a tabbed set of user options.
     /// </summary>
     [ToolboxItem(true)]
-    [ToolboxBitmap(typeof(Krypton.Ribbon), "ToolboxBitmaps.Krypton.Ribbon.bmp")]
+    [ToolboxBitmap(typeof(KryptonRibbon), "ToolboxBitmaps.KryptonRibbon.bmp")]
     [DefaultEvent("SelectedTabChanged")]
     [DefaultProperty("RibbonTabs")]
-    [Designer("Krypton.Ribbon.Krypton.RibbonDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Ribbon.KryptonRibbonDesigner))]
     [DesignerCategory("code")]
     [Description("Ribbon control presents a tabbed set of user options.")]
     [Docking(DockingBehavior.Never)]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
-    public class Krypton.Ribbon : VisualSimple,
+    public class KryptonRibbon : VisualSimple,
                                  IMessageFilter
     {
         #region Type Definitions
@@ -50,7 +50,7 @@ namespace Krypton.Ribbon
             /// Initialize a new instance of the RibbonButtonSpecAnyCollection class.
             /// </summary>
             /// <param name="owner">Reference to owning object.</param>
-            public RibbonButtonSpecAnyCollection(Krypton.Ribbon owner)
+            public RibbonButtonSpecAnyCollection(KryptonRibbon owner)
                 : base(owner)
             {
             }
@@ -112,8 +112,8 @@ namespace Krypton.Ribbon
         private ButtonStyle _scrollerStyle;
         private PaletteBackStyle _backStyle;
         private PaletteBackStyle _backInactiveStyle;
-        private Krypton.RibbonTab _minSelectedTab;
-        private Krypton.RibbonTab _selectedTab;
+        private KryptonRibbonTab _minSelectedTab;
+        private KryptonRibbonTab _selectedTab;
 
         #endregion
 
@@ -192,7 +192,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Identity
-        static Krypton.Ribbon()
+        static KryptonRibbon()
         {
             // Cache access to the internal 'Select' method of the ContainerControl
             _containerSelect = typeof(ContainerControl).GetMethod("Select",
@@ -201,9 +201,9 @@ namespace Krypton.Ribbon
         }
 
         /// <summary>
-        /// Initialize a new instance of the Krypton.Ribbon class.
+        /// Initialize a new instance of the KryptonRibbon class.
         /// </summary>
-        public Krypton.Ribbon()
+        public KryptonRibbon()
         {
             // Ribbon cannot take the focus
             SetStyle(ControlStyles.Selectable, false);
@@ -251,7 +251,7 @@ namespace Krypton.Ribbon
                 }
 
                 // Dispose of per-tab resources
-                foreach (Krypton.RibbonTab tab in RibbonTabs)
+                foreach (KryptonRibbonTab tab in RibbonTabs)
                 {
                     tab.Dispose();
                 }
@@ -629,14 +629,14 @@ namespace Krypton.Ribbon
         [Description("Collection of ribbon tabs.")]
         [MergableProperty(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public Krypton.RibbonTabCollection RibbonTabs { get; private set; }
+        public KryptonRibbonTabCollection RibbonTabs { get; private set; }
 
         /// <summary>
         /// Gets and sets the currently selected tab.
         /// </summary>
         [Category("Values")]
         [Description("Currently selected ribbon tab.")]
-        public Krypton.RibbonTab SelectedTab
+        public KryptonRibbonTab SelectedTab
         {
             get => _selectedTab;
 
@@ -740,7 +740,7 @@ namespace Krypton.Ribbon
         [Description("Collection of ribbon context definitions.")]
         [MergableProperty(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public Krypton.RibbonContextCollection RibbonContexts { get; private set; }
+        public KryptonRibbonContextCollection RibbonContexts { get; private set; }
 
         /// <summary>
         /// Gets the collection of ribbon quick access toolbar buttons.
@@ -748,9 +748,9 @@ namespace Krypton.Ribbon
         [Category("Values")]
         [Description("Collection of ribbon quick access toolbar buttons.")]
         [MergableProperty(false)]
-        [Editor("Krypton.Ribbon.Krypton.RibbonQATButtonCollectionEditor, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
+        [Editor(typeof(ComponentFactory.Krypton.Ribbon.KryptonRibbonQATButtonCollectionEditor), typeof(UITypeEditor))]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public Krypton.RibbonQATButtonCollection QATButtons { get; private set; }
+        public KryptonRibbonQATButtonCollection QATButtons { get; private set; }
 
         /// <summary>
         /// Gets the set of ribbon shortcuts.
@@ -1321,7 +1321,7 @@ namespace Krypton.Ribbon
         /// <summary>
         /// Creates a new instance of the control collection for the control.
         /// </summary>
-        /// <returns>A new instance of Krypton.NavigatorControlCollection assigned to the control.</returns>
+        /// <returns>A new instance of KryptonNavigatorControlCollection assigned to the control.</returns>
         protected override ControlCollection CreateControlsInstance()
         {
             // Create a navigator specific control collection
@@ -1533,7 +1533,7 @@ namespace Krypton.Ribbon
             Keys processData = keyData & ~Keys.Alt;
 
             // Ask the tabs to check for command key processing
-            foreach (Krypton.RibbonTab tab in RibbonTabs)
+            foreach (KryptonRibbonTab tab in RibbonTabs)
             {
                 if (tab.Visible && tab.ProcessCmdKey(ref msg, processData))
                 {
@@ -2675,7 +2675,7 @@ namespace Krypton.Ribbon
             while (c != null)
             {
                 // If the control is a well known control for use by controllers
-                if ((c is Krypton.Ribbon) ||
+                if ((c is KryptonRibbon) ||
                     (c is VisualPopupGroup) ||
                     (c is VisualPopupMinimized))
                 {
@@ -2762,19 +2762,19 @@ namespace Krypton.Ribbon
 
         private void CreateRibbonCollections()
         {
-            RibbonContexts = new Krypton.RibbonContextCollection();
+            RibbonContexts = new KryptonRibbonContextCollection();
             RibbonContexts.Clearing += OnRibbonContextsClearing;
             RibbonContexts.Cleared += OnRibbonContextsCleared;
             RibbonContexts.Inserted += OnRibbonContextsInserted;
             RibbonContexts.Removed += OnRibbonContextsRemoved;
 
-            RibbonTabs = new Krypton.RibbonTabCollection();
+            RibbonTabs = new KryptonRibbonTabCollection();
             RibbonTabs.Clearing += OnRibbonTabsClearing;
             RibbonTabs.Cleared += OnRibbonTabsCleared;
             RibbonTabs.Inserted += OnRibbonTabsInserted;
             RibbonTabs.Removed += OnRibbonTabsRemoved;
 
-            QATButtons = new Krypton.RibbonQATButtonCollection();
+            QATButtons = new KryptonRibbonQATButtonCollection();
             QATButtons.Clearing += OnRibbonQATButtonsClearing;
             QATButtons.Cleared += OnRibbonQATButtonsCleared;
             QATButtons.Inserted += OnRibbonQATButtonsInserted;
@@ -2925,7 +2925,7 @@ namespace Krypton.Ribbon
             }
         }
 
-        private bool TabIsContextValid(Krypton.RibbonTab tab)
+        private bool TabIsContextValid(KryptonRibbonTab tab)
         {
             // If the tab is not part of a context, then it is context valid or if 
             // in design mode then all tabs are valid as the context is ignored
@@ -2957,7 +2957,7 @@ namespace Krypton.Ribbon
 
         private void ValidateSelectedTab()
         {
-            Krypton.RibbonTab newSelection = null;
+            KryptonRibbonTab newSelection = null;
 
             // If not minimized...
             if (!RealMinimizedMode)
@@ -2968,7 +2968,7 @@ namespace Krypton.Ribbon
                     !TabIsContextValid(SelectedTab))                    // Or the selection is not part of the context...
                 {
                     // Search for a non-context tab to select
-                    foreach (Krypton.RibbonTab tab in RibbonTabs)
+                    foreach (KryptonRibbonTab tab in RibbonTabs)
                     {
                         if (string.IsNullOrEmpty(tab.ContextName))
                         {
@@ -2986,7 +2986,7 @@ namespace Krypton.Ribbon
                     if (newSelection == null)
                     {
                         // Search for a context tab
-                        foreach (Krypton.RibbonTab tab in RibbonTabs)
+                        foreach (KryptonRibbonTab tab in RibbonTabs)
                         {
                             if (!string.IsNullOrEmpty(tab.ContextName))
                             {
@@ -3106,7 +3106,7 @@ namespace Krypton.Ribbon
         private void OnRibbonContextsClearing(object sender, EventArgs e)
         {
             // Unhook from all the context instances
-            foreach (Krypton.RibbonContext context in RibbonContexts)
+            foreach (KryptonRibbonContext context in RibbonContexts)
             {
                 context.PropertyChanged -= OnContextPropertyChanged;
             }
@@ -3119,7 +3119,7 @@ namespace Krypton.Ribbon
             PerformNeedPaint(true);
         }
 
-        private void OnRibbonContextsInserted(object sender, TypedCollectionEventArgs<Krypton.RibbonContext> e)
+        private void OnRibbonContextsInserted(object sender, TypedCollectionEventArgs<KryptonRibbonContext> e)
         {
             // Hook into property changes for the context
             e.Item.PropertyChanged += OnContextPropertyChanged;
@@ -3127,7 +3127,7 @@ namespace Krypton.Ribbon
             PerformNeedPaint(true);
         }
 
-        private void OnRibbonContextsRemoved(object sender, TypedCollectionEventArgs<Krypton.RibbonContext> e)
+        private void OnRibbonContextsRemoved(object sender, TypedCollectionEventArgs<KryptonRibbonContext> e)
         {
             // Remove context instance hook
             e.Item.PropertyChanged -= OnContextPropertyChanged;
@@ -3144,7 +3144,7 @@ namespace Krypton.Ribbon
         private void OnRibbonTabsClearing(object sender, EventArgs e)
         {
             // Remove all the back references
-            foreach (Krypton.RibbonTab tab in RibbonTabs)
+            foreach (KryptonRibbonTab tab in RibbonTabs)
             {
                 // Unhook from tab property change event
                 tab.PropertyChanged -= OnTabPropertyChanged;
@@ -3166,7 +3166,7 @@ namespace Krypton.Ribbon
             PerformNeedPaint(true);
         }
 
-        private void OnRibbonTabsInserted(object sender, TypedCollectionEventArgs<Krypton.RibbonTab> e)
+        private void OnRibbonTabsInserted(object sender, TypedCollectionEventArgs<KryptonRibbonTab> e)
         {
             // Setup the back reference from tab to ribbon control
             e.Item.Ribbon = this;
@@ -3181,7 +3181,7 @@ namespace Krypton.Ribbon
             PerformNeedPaint(true);
         }
 
-        private void OnRibbonTabsRemoved(object sender, TypedCollectionEventArgs<Krypton.RibbonTab> e)
+        private void OnRibbonTabsRemoved(object sender, TypedCollectionEventArgs<KryptonRibbonTab> e)
         {
             // Unhook from tab property change event
             e.Item.PropertyChanged -= OnTabPropertyChanged;

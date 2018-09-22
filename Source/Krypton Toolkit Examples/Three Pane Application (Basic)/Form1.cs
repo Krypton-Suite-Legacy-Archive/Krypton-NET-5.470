@@ -9,7 +9,7 @@
 // *****************************************************************************
 
 using System;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace ThreePaneApplication
 {

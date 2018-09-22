@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Layout a scroller button with appropriate separator space around it.
@@ -51,7 +51,7 @@ namespace Krypton.Ribbon
         /// <param name="orientation">Scroller orientation.</param>
         /// <param name="insetForTabs">Should scoller be inset for use in tabs area.</param>
         /// <param name="needPaintDelegate">Delegate for notifying paint/layout requests.</param>
-        public ViewLayoutRibbonScroller(Krypton.Ribbon ribbon,
+        public ViewLayoutRibbonScroller(KryptonRibbon ribbon,
                                         VisualOrientation orientation,
                                         bool insetForTabs,
                                         NeedPaintHandler needPaintDelegate)

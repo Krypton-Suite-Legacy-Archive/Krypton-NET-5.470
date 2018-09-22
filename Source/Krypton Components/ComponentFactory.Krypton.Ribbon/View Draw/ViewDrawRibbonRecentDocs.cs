@@ -12,9 +12,9 @@
 using System;
 using System.Drawing;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws the recent documents title string.
@@ -23,7 +23,7 @@ namespace Krypton.Ribbon
                                               IContentValues
     {
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private readonly RibbonRecentDocsTitleToContent _contentProvider;
         private IDisposable _memento;
         #endregion
@@ -33,7 +33,7 @@ namespace Krypton.Ribbon
         /// Initialize a new instance of the ViewDrawRibbonRecentDocs class.
 		/// </summary>
         /// <param name="ribbon">Source ribbon control.</param>
-        public ViewDrawRibbonRecentDocs(Krypton.Ribbon ribbon)
+        public ViewDrawRibbonRecentDocs(KryptonRibbon ribbon)
         {
             Debug.Assert(ribbon != null);
             _ribbon = ribbon;

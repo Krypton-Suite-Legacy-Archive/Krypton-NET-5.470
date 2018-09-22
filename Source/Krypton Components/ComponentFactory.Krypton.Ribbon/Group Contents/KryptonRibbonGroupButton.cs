@@ -15,21 +15,21 @@ using System.Drawing.Design;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Represents a ribbon group button.
     /// </summary>
     [ToolboxItem(false)]
-    [ToolboxBitmap(typeof(Krypton.RibbonGroupButton), "ToolboxBitmaps.Krypton.RibbonGroupButton.bmp")]
-    [Designer("Krypton.Ribbon.Krypton.RibbonGroupButtonDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [ToolboxBitmap(typeof(KryptonRibbonGroupButton), "ToolboxBitmaps.KryptonRibbonGroupButton.bmp")]
+    [Designer(typeof(ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButtonDesigner))]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
     [DefaultEvent("Click")]
     [DefaultProperty("ButtonType")]
-    public class Krypton.RibbonGroupButton : Krypton.RibbonGroupItem
+    public class KryptonRibbonGroupButton : KryptonRibbonGroupItem
     {
         #region Static Fields
         private static readonly Image _defaultButtonImageSmall = Properties.Resources.ButtonImageSmall;
@@ -87,9 +87,9 @@ namespace Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialise a new instance of the Krypton.RibbonGroupButton class.
+        /// Initialise a new instance of the KryptonRibbonGroupButton class.
         /// </summary>
-        public Krypton.RibbonGroupButton()
+        public KryptonRibbonGroupButton()
         {
             // Default fields
             _enabled = true;
@@ -555,7 +555,7 @@ namespace Krypton.Ribbon
         /// <param name="needPaint">Delegate for notifying changes in display.</param>
         /// <returns>ViewBase derived instance.</returns>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override ViewBase CreateView(Krypton.Ribbon ribbon, 
+        public override ViewBase CreateView(KryptonRibbon ribbon, 
                                             NeedPaintHandler needPaint)
         {
             return new ViewDrawRibbonGroupButton(ribbon, this, needPaint);

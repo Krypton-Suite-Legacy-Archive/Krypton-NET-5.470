@@ -10,21 +10,21 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
-using System.Xml;
-using System.Drawing;
-using System.Reflection;
-using System.ComponentModel;
 using System.Collections.Generic;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization;
-using System.Windows.Forms;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Globalization;
-using System.Threading;
+using System.IO;
+using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading;
+using System.Windows.Forms;
+using System.Xml;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Define and modify a palette for styling Krypton controls.
@@ -34,7 +34,7 @@ namespace Krypton.Toolkit
     [DefaultEvent("PalettePaint")]
     [DefaultProperty("BasePaletteMode")]
     [DesignerCategory("code")]
-    [Designer("Krypton.Toolkit.KryptonPaletteDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer("ComponentFactory.Krypton.Toolkit.KryptonPaletteDesigner, ComponentFactory.Krypton.Design, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
     [Description("Customisable palette component.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
@@ -46,9 +46,7 @@ namespace Krypton.Toolkit
         #endregion
 
         #region Static Fields
-
-        private const int PALETTE_VERSION = 18;
-
+        private static readonly int _paletteVersion = 18;
         #endregion
 
         #region Instance Fields
@@ -58,9 +56,33 @@ namespace Krypton.Toolkit
         private IPalette _basePalette;
         private PaletteMode _basePaletteMode;
         private InheritBool _allowFormChrome;
-        private readonly PaletteRedirect _redirector;
-        private readonly PaletteRedirectCommon _redirectCommon;
-        private readonly NeedPaintHandler _needTMSPaintDelegate;
+        private PaletteRedirect _redirector;
+        private PaletteRedirectCommon _redirectCommon;
+        private KryptonPaletteCheckButtons _buttons;
+        private KryptonPaletteButtonSpecs _buttonSpecs;
+        private KryptonPaletteCalendarDay _calendarDay;
+        private KryptonPaletteCargo _cargo;
+        private KryptonPaletteCommon _common;
+        private KryptonPaletteContextMenu _contextMenu;
+        private KryptonPaletteControls _controls;
+        private PaletteDragDrop _dragDrop;
+        private KryptonPaletteForms _forms;
+        private KryptonPaletteGrids _grids;
+        private KryptonPaletteHeaders _headers;
+        private KryptonPaletteHeaderGroup _headerGroup;
+        private KryptonPaletteImages _images;
+        private KryptonPaletteInputControls _inputControls;
+        private KryptonPaletteLabels _labels;
+        private KryptonPaletteNavigator _navigator;
+        private KryptonPalettePanels _panels;
+        private KryptonPaletteRibbon _ribbon;
+        private KryptonPaletteSeparators _separators;
+        private KryptonPaletteTabButtons _tabs;
+        private KryptonPaletteTrackBar _trackBar;
+        private KryptonPaletteTMS _toolMenuStatus;
+        private NeedPaintHandler _needPaintDelegate;
+        private NeedPaintHandler _needTMSPaintDelegate;
+        private string _filePath;
         #endregion
 
         #region Events
@@ -107,8 +129,8 @@ namespace Krypton.Toolkit
         public KryptonPalette()
         {
             // Setup the need paint delegate
-            NeedPaintDelegate = OnNeedPaint;
-            _needTMSPaintDelegate = OnMenuToolStatusPaint;
+            _needPaintDelegate = new NeedPaintHandler(OnNeedPaint);
+            _needTMSPaintDelegate = new NeedPaintHandler(OnMenuToolStatusPaint);
 
             // Set the default palette/palette mode
             _basePalette = KryptonManager.GetPaletteForMode(PaletteMode.Office2010Blue);
@@ -125,62 +147,60 @@ namespace Krypton.Toolkit
             _allowFormChrome = InheritBool.Inherit;
 
             // Create the storage for the common states
-            Common = new KryptonPaletteCommon(_redirector, NeedPaintDelegate);
+            _common = new KryptonPaletteCommon(_redirector, _needPaintDelegate);
 
             // Create redirector so other storage inherits from common states
             _redirectCommon = new PaletteRedirectCommon(_redirector, Common.StateDisabled, Common.StateOthers);
 
             // Create the storage objects
-            ButtonStyles = new KryptonPaletteCheckButtons(_redirectCommon, NeedPaintDelegate);
-            ButtonSpecs = new KryptonPaletteButtonSpecs(_redirector);
-            CalendarDay = new KryptonPaletteCalendarDay(_redirector, NeedPaintDelegate);
-            Cargo = new KryptonPaletteCargo(NeedPaintDelegate);
-            ControlStyles = new KryptonPaletteControls(_redirectCommon, NeedPaintDelegate);
-            ContextMenu = new KryptonPaletteContextMenu(_redirectCommon, NeedPaintDelegate);
-            DragDrop = new PaletteDragDrop(_redirectCommon, NeedPaintDelegate);
-            FormStyles = new KryptonPaletteForms(_redirectCommon, NeedPaintDelegate);
-            GridStyles = new KryptonPaletteGrids(_redirectCommon, NeedPaintDelegate);
-            HeaderStyles = new KryptonPaletteHeaders(_redirectCommon, NeedPaintDelegate);
-            HeaderGroup = new KryptonPaletteHeaderGroup(_redirector, NeedPaintDelegate);
-            Images = new KryptonPaletteImages(_redirectCommon, NeedPaintDelegate);
-            InputControlStyles = new KryptonPaletteInputControls(_redirectCommon, NeedPaintDelegate);
-            LabelStyles = new KryptonPaletteLabels(_redirectCommon, NeedPaintDelegate);
-            Navigator = new KryptonPaletteNavigator(_redirectCommon, NeedPaintDelegate);
-            PanelStyles = new KryptonPalettePanels(_redirectCommon, NeedPaintDelegate);
-            Ribbon = new KryptonPaletteRibbon(_redirectCommon, NeedPaintDelegate);
-            SeparatorStyles = new KryptonPaletteSeparators(_redirectCommon, NeedPaintDelegate);
-            TabStyles = new KryptonPaletteTabButtons(_redirectCommon, NeedPaintDelegate);
-            TrackBar = new KryptonPaletteTrackBar(_redirectCommon, NeedPaintDelegate);
-            ToolMenuStatus = new KryptonPaletteTMS(this, _basePalette.ColorTable, _needTMSPaintDelegate);
+            _buttons = new KryptonPaletteCheckButtons(_redirectCommon, _needPaintDelegate);
+            _buttonSpecs = new KryptonPaletteButtonSpecs(_redirector);
+            _calendarDay = new KryptonPaletteCalendarDay(_redirector, _needPaintDelegate);
+            _cargo = new KryptonPaletteCargo(_needPaintDelegate);
+            _controls = new KryptonPaletteControls(_redirectCommon, _needPaintDelegate);
+            _contextMenu = new KryptonPaletteContextMenu(_redirectCommon, _needPaintDelegate);
+            _dragDrop = new PaletteDragDrop(_redirectCommon, _needPaintDelegate);
+            _forms = new KryptonPaletteForms(_redirectCommon, _needPaintDelegate);
+            _grids = new KryptonPaletteGrids(_redirectCommon, _needPaintDelegate);
+            _headers = new KryptonPaletteHeaders(_redirectCommon, _needPaintDelegate);
+            _headerGroup = new KryptonPaletteHeaderGroup(_redirector, _needPaintDelegate);
+            _images = new KryptonPaletteImages(_redirectCommon, _needPaintDelegate);
+            _inputControls = new KryptonPaletteInputControls(_redirectCommon, _needPaintDelegate);
+            _labels = new KryptonPaletteLabels(_redirectCommon, _needPaintDelegate);
+            _navigator = new KryptonPaletteNavigator(_redirectCommon, _needPaintDelegate);
+            _panels = new KryptonPalettePanels(_redirectCommon, _needPaintDelegate);
+            _ribbon = new KryptonPaletteRibbon(_redirectCommon, _needPaintDelegate);
+            _separators = new KryptonPaletteSeparators(_redirectCommon, _needPaintDelegate);
+            _tabs = new KryptonPaletteTabButtons(_redirectCommon, _needPaintDelegate);
+            _trackBar = new KryptonPaletteTrackBar(_redirectCommon, _needPaintDelegate);
+            _toolMenuStatus = new KryptonPaletteTMS(this, _basePalette.ColorTable, _needTMSPaintDelegate);
 
             // Hook into the storage change events
-            ButtonSpecs.ButtonSpecChanged += OnButtonSpecChanged;
+            _buttonSpecs.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
 
             // Hook to palette events
             if (_basePalette != null)
             {
-                _basePalette.PalettePaint += OnPalettePaint;
-                _basePalette.ButtonSpecChanged += OnButtonSpecChanged;
-                _basePalette.BasePaletteChanged += OnBasePaletteChanged;
-                _basePalette.BaseRendererChanged += OnBaseRendererChanged;
+                _basePalette.PalettePaint += new EventHandler<PaletteLayoutEventArgs>(OnPalettePaint);
+                _basePalette.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+                _basePalette.BasePaletteChanged += new EventHandler(OnBasePaletteChanged);
+                _basePalette.BaseRendererChanged += new EventHandler(OnBaseRendererChanged);
             }
+
+            _filePath = string.Empty;
         }
 
         /// <summary>
         /// Initialize a new instance of the KryptonPalette class.
         /// </summary>
         /// <param name="container">Container that owns the component.</param>
-        /// <exception cref="ArgumentNullException"></exception>
         public KryptonPalette(IContainer container)
             : this()
         {
             Debug.Assert(container != null);
 
             // Validate reference parameter
-            if (container == null)
-            {
-                throw new ArgumentNullException(nameof(container));
-            }
+            if (container == null) throw new ArgumentNullException("container");
 
             container.Add(this);
         }
@@ -196,10 +216,10 @@ namespace Krypton.Toolkit
                 // Must unhook from the palette paint event
                 if (_basePalette != null)
                 {
-                    _basePalette.PalettePaint -= OnPalettePaint;
-                    _basePalette.ButtonSpecChanged -= OnButtonSpecChanged;
-                    _basePalette.BasePaletteChanged -= OnBasePaletteChanged;
-                    _basePalette.BaseRendererChanged -= OnBaseRendererChanged;
+                    _basePalette.PalettePaint -= new EventHandler<PaletteLayoutEventArgs>(OnPalettePaint);
+                    _basePalette.ButtonSpecChanged -= new EventHandler(OnButtonSpecChanged);
+                    _basePalette.BasePaletteChanged -= new EventHandler(OnBasePaletteChanged);
+                    _basePalette.BaseRendererChanged -= new EventHandler(OnBaseRendererChanged);
                 }
             }
 
@@ -217,7 +237,7 @@ namespace Krypton.Toolkit
         [DefaultValue(typeof(InheritBool), "Inherit")]
         public InheritBool AllowFormChrome
         {
-            get => _allowFormChrome;
+            get { return _allowFormChrome; }
 
             set
             {
@@ -243,11 +263,14 @@ namespace Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteButtonSpecs ButtonSpecs { get; }
+        public KryptonPaletteButtonSpecs ButtonSpecs
+        {
+            get { return _buttonSpecs; }
+        }
 
         private bool ShouldSerializeButtonSpecs()
         {
-            return !ButtonSpecs.IsDefault;
+            return !_buttonSpecs.IsDefault;
         }
         #endregion
 
@@ -259,11 +282,14 @@ namespace Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining appearance of button styles.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCheckButtons ButtonStyles { get; }
+        public KryptonPaletteCheckButtons ButtonStyles
+        {
+            get { return _buttons; }
+        }
 
         private bool ShouldSerializeButtons()
         {
-            return !ButtonStyles.IsDefault;
+            return !_buttons.IsDefault;
         }
         #endregion
 
@@ -275,11 +301,14 @@ namespace Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining appearance of the calendar day.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCalendarDay CalendarDay { get; }
+        public KryptonPaletteCalendarDay CalendarDay
+        {
+            get { return _calendarDay; }
+        }
 
         private bool ShouldSerializeCalendarDay()
         {
-            return !CalendarDay.IsDefault;
+            return !_calendarDay.IsDefault;
         }
         #endregion
 
@@ -291,11 +320,14 @@ namespace Krypton.Toolkit
         [Category("Visuals")]
         [Description("Set of user supplied values.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCargo Cargo { get; }
+        public KryptonPaletteCargo Cargo
+        {
+            get { return _cargo; }
+        }
 
         private bool ShouldSerializeCargo()
         {
-            return !Cargo.IsDefault;
+            return !_cargo.IsDefault;
         }
         #endregion
 
@@ -307,11 +339,14 @@ namespace Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining common appearance values.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteCommon Common { get; }
+        public KryptonPaletteCommon Common
+        {
+            get { return _common; }
+        }
 
         private bool ShouldSerializeCommon()
         {
-            return !Common.IsDefault;
+            return !_common.IsDefault;
         }
         #endregion
 
@@ -323,11 +358,14 @@ namespace Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining appearance of control styles.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteControls ControlStyles { get; }
+        public KryptonPaletteControls ControlStyles
+        {
+            get { return _controls; }
+        }
 
         private bool ShouldSerializeControlStyles()
         {
-            return !ControlStyles.IsDefault;
+            return !_controls.IsDefault;
         }
         #endregion
 
@@ -339,11 +377,14 @@ namespace Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining appearance of context menus.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteContextMenu ContextMenu { get; }
+        public KryptonPaletteContextMenu ContextMenu
+        {
+            get { return _contextMenu; }
+        }
 
         private bool ShouldSerializeContextMenu()
         {
-            return !ContextMenu.IsDefault;
+            return !_contextMenu.IsDefault;
         }
         #endregion
 
@@ -355,11 +396,14 @@ namespace Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining appearance of drag and drop.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public PaletteDragDrop DragDrop { get; }
+        public PaletteDragDrop DragDrop
+        {
+            get { return _dragDrop; }
+        }
 
         private bool ShouldSerializeDragDrop()
         {
-            return !DragDrop.IsDefault;
+            return !_dragDrop.IsDefault;
         }
         #endregion
 
@@ -371,11 +415,14 @@ namespace Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining appearance of form styles.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteForms FormStyles { get; }
+        public KryptonPaletteForms FormStyles
+        {
+            get { return _forms; }
+        }
 
         private bool ShouldSerializeFormStyles()
         {
-            return !FormStyles.IsDefault;
+            return !_forms.IsDefault;
         }
         #endregion
 
@@ -387,11 +434,14 @@ namespace Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining HeaderGroup appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteHeaderGroup HeaderGroup { get; }
+        public KryptonPaletteHeaderGroup HeaderGroup
+        {
+            get { return _headerGroup; }
+        }
 
         private bool ShouldSerializeHeaderGroup()
         {
-            return !HeaderGroup.IsDefault;
+            return !_headerGroup.IsDefault;
         }
         #endregion
 
@@ -403,11 +453,14 @@ namespace Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining appearance of header styles.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteHeaders HeaderStyles { get; }
+        public KryptonPaletteHeaders HeaderStyles
+        {
+            get { return _headers; }
+        }
 
         private bool ShouldSerializeHeaders()
         {
-            return !HeaderStyles.IsDefault;
+            return !_headers.IsDefault;
         }
         #endregion
 
@@ -419,11 +472,14 @@ namespace Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining appearance of grid styles.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteGrids GridStyles { get; }
+        public KryptonPaletteGrids GridStyles
+        {
+            get { return _grids; }
+        }
 
         private bool ShouldSerializeGridStyles()
         {
-            return !GridStyles.IsDefault;
+            return !_grids.IsDefault;
         }
         #endregion
 
@@ -435,11 +491,14 @@ namespace Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining images.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteImages Images { get; }
+        public KryptonPaletteImages Images
+        {
+            get { return _images; }
+        }
 
         private bool ShouldSerializeImages()
         {
-            return !Images.IsDefault;
+            return !_images.IsDefault;
         }
         #endregion
 
@@ -451,11 +510,14 @@ namespace Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining input controls.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteInputControls InputControlStyles { get; }
+        public KryptonPaletteInputControls InputControlStyles
+        {
+            get { return _inputControls; }
+        }
 
         private bool ShouldSerializeInputControls()
         {
-            return !InputControlStyles.IsDefault;
+            return !_inputControls.IsDefault;
         }
         #endregion
 
@@ -467,11 +529,14 @@ namespace Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining appearance of label styles.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteLabels LabelStyles { get; }
+        public KryptonPaletteLabels LabelStyles
+        {
+            get { return _labels; }
+        }
 
         private bool ShouldSerializeLabels()
         {
-            return !LabelStyles.IsDefault;
+            return !_labels.IsDefault;
         }
         #endregion
 
@@ -483,11 +548,14 @@ namespace Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining Navigator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteNavigator Navigator { get; }
+        public KryptonPaletteNavigator Navigator
+        {
+            get { return _navigator; }
+        }
 
         private bool ShouldSerializeNavigator()
         {
-            return !Navigator.IsDefault;
+            return !_navigator.IsDefault;
         }
         #endregion
 
@@ -499,11 +567,14 @@ namespace Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining appearance of panel styles.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPalettePanels PanelStyles { get; }
+        public KryptonPalettePanels PanelStyles
+        {
+            get { return _panels; }
+        }
 
         private bool ShouldSerializePanels()
         {
-            return !PanelStyles.IsDefault;
+            return !_panels.IsDefault;
         }
         #endregion
 
@@ -515,11 +586,14 @@ namespace Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining appearance of ribbon.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteRibbon Ribbon { get; }
+        public KryptonPaletteRibbon Ribbon
+        {
+            get { return _ribbon; }
+        }
 
         private bool ShouldSerializeRibbon()
         {
-            return !Ribbon.IsDefault;
+            return !_ribbon.IsDefault;
         }
         #endregion
 
@@ -531,11 +605,14 @@ namespace Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining appearance of separator styles.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteSeparators SeparatorStyles { get; }
+        public KryptonPaletteSeparators SeparatorStyles
+        {
+            get { return _separators; }
+        }
 
         private bool ShouldSerializeSeparators()
         {
-            return !SeparatorStyles.IsDefault;
+            return !_separators.IsDefault;
         }
         #endregion
 
@@ -547,11 +624,14 @@ namespace Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining appearance of tab styles.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteTabButtons TabStyles { get; }
+        public KryptonPaletteTabButtons TabStyles
+        {
+            get { return _tabs; }
+        }
 
         private bool ShouldSerializeTabStyles()
         {
-            return !TabStyles.IsDefault;
+            return !_tabs.IsDefault;
         }
         #endregion
 
@@ -563,11 +643,14 @@ namespace Krypton.Toolkit
         [Category("Visuals")]
         [Description("Overrides for defining appearance for the track bar.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteTrackBar TrackBar { get; }
+        public KryptonPaletteTrackBar TrackBar
+        {
+            get { return _trackBar; }
+        }
 
         private bool ShouldSerializeTrackBar()
         {
-            return !TrackBar.IsDefault;
+            return !_trackBar.IsDefault;
         }
         #endregion
 
@@ -579,11 +662,14 @@ namespace Krypton.Toolkit
         [Category("Visuals")]
         [Description("Colors associated with tool, menu and status strips.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonPaletteTMS ToolMenuStatus { get; }
+        public KryptonPaletteTMS ToolMenuStatus
+        {
+            get { return _toolMenuStatus; }
+        }
 
         private bool ShouldSerializeToolMenuStatus()
         {
-            return !ToolMenuStatus.IsDefault;
+            return !_toolMenuStatus.IsDefault;
         }
         #endregion
 
@@ -614,10 +700,13 @@ namespace Krypton.Toolkit
         /// Gets a value indicating if KryptonForm instances should show custom chrome.
         /// </summary>
         /// <returns>InheritBool value.</returns>
-        public InheritBool GetAllowFormChrome() => AllowFormChrome == InheritBool.Inherit
-            ? _basePalette.GetAllowFormChrome()
-            : AllowFormChrome;
-
+        public InheritBool GetAllowFormChrome()
+        {
+            if (AllowFormChrome == InheritBool.Inherit)
+                return _basePalette.GetAllowFormChrome();
+            else
+                return AllowFormChrome;
+        }
         #endregion
 
         #region IPalette Back
@@ -1565,9 +1654,16 @@ namespace Krypton.Toolkit
         /// <returns>Appropriate image for drawing; otherwise null.</returns>
         public Image GetTreeViewImage(bool expanded)
         {
-            Image retImage = (expanded ? Images.TreeView.Minus : Images.TreeView.Plus) ?? _redirector.GetTreeViewImage(expanded);
+            Image retImage = null;
+
+            if (expanded)
+                retImage = _images.TreeView.Minus;
+            else
+                retImage = _images.TreeView.Plus;
 
             // Not found, then inherit from target
+            if (retImage == null)
+                retImage = _redirector.GetTreeViewImage(expanded);
 
             return retImage;
         }
@@ -1589,71 +1685,45 @@ namespace Krypton.Toolkit
             {
                 case CheckState.Unchecked:
                     if (!enabled)
-                    {
-                        retImage = Images.CheckBox.UncheckedDisabled;
-                    }
+                        retImage = _images.CheckBox.UncheckedDisabled;
                     else if (pressed)
-                    {
-                        retImage = Images.CheckBox.UncheckedPressed;
-                    }
+                        retImage = _images.CheckBox.UncheckedPressed;
                     else if (tracking)
-                    {
-                        retImage = Images.CheckBox.UncheckedTracking;
-                    }
+                        retImage = _images.CheckBox.UncheckedTracking;
                     else
-                    {
-                        retImage = Images.CheckBox.UncheckedNormal;
-                    }
-
+                        retImage = _images.CheckBox.UncheckedNormal;
                     break;
                 case CheckState.Checked:
                     if (!enabled)
-                    {
-                        retImage = Images.CheckBox.CheckedDisabled;
-                    }
+                        retImage = _images.CheckBox.CheckedDisabled;
                     else if (pressed)
-                    {
-                        retImage = Images.CheckBox.CheckedPressed;
-                    }
+                        retImage = _images.CheckBox.CheckedPressed;
                     else if (tracking)
-                    {
-                        retImage = Images.CheckBox.CheckedTracking;
-                    }
+                        retImage = _images.CheckBox.CheckedTracking;
                     else
-                    {
-                        retImage = Images.CheckBox.CheckedNormal;
-                    }
-
+                        retImage = _images.CheckBox.CheckedNormal;
                     break;
                 case CheckState.Indeterminate:
                     if (!enabled)
-                    {
-                        retImage = Images.CheckBox.IndeterminateDisabled;
-                    }
+                        retImage = _images.CheckBox.IndeterminateDisabled;
                     else if (pressed)
-                    {
-                        retImage = Images.CheckBox.IndeterminatePressed;
-                    }
+                        retImage = _images.CheckBox.IndeterminatePressed;
                     else if (tracking)
-                    {
-                        retImage = Images.CheckBox.IndeterminateTracking;
-                    }
+                        retImage = _images.CheckBox.IndeterminateTracking;
                     else
-                    {
-                        retImage = Images.CheckBox.IndeterminateNormal;
-                    }
-
+                        retImage = _images.CheckBox.IndeterminateNormal;
                     break;
             }
 
             // Use common image as the last resort
             if (retImage == null)
-            {
-                retImage = Images.CheckBox.Common;
-            }
+                retImage = _images.CheckBox.Common;
 
             // If nothing found then use the base palette
-            return retImage ?? _redirector.GetCheckBoxImage(enabled, checkState, tracking, pressed);
+            if (retImage == null)
+                return _redirector.GetCheckBoxImage(enabled, checkState, tracking, pressed);
+            else
+                return retImage;
         }
 
         /// <summary>
@@ -1666,56 +1736,41 @@ namespace Krypton.Toolkit
         /// <returns>Appropriate image for drawing; otherwise null.</returns>
         public Image GetRadioButtonImage(bool enabled, bool checkState, bool tracking, bool pressed)
         {
-            Image retImage;
+            Image retImage = null;
 
             // Get the state specific image
             if (!checkState)
             {
                 if (!enabled)
-                {
-                    retImage = Images.RadioButton.UncheckedDisabled;
-                }
+                    retImage = _images.RadioButton.UncheckedDisabled;
                 else if (pressed)
-                {
-                    retImage = Images.RadioButton.UncheckedPressed;
-                }
+                    retImage = _images.RadioButton.UncheckedPressed;
                 else if (tracking)
-                {
-                    retImage = Images.RadioButton.UncheckedTracking;
-                }
+                    retImage = _images.RadioButton.UncheckedTracking;
                 else
-                {
-                    retImage = Images.RadioButton.UncheckedNormal;
-                }
+                    retImage = _images.RadioButton.UncheckedNormal;
             }
             else
             {
                 if (!enabled)
-                {
-                    retImage = Images.RadioButton.CheckedDisabled;
-                }
+                    retImage = _images.RadioButton.CheckedDisabled;
                 else if (pressed)
-                {
-                    retImage = Images.RadioButton.CheckedPressed;
-                }
+                    retImage = _images.RadioButton.CheckedPressed;
                 else if (tracking)
-                {
-                    retImage = Images.RadioButton.CheckedTracking;
-                }
+                    retImage = _images.RadioButton.CheckedTracking;
                 else
-                {
-                    retImage = Images.RadioButton.CheckedNormal;
-                }
+                    retImage = _images.RadioButton.CheckedNormal;
             }
 
             // Use common image as the last resort
             if (retImage == null)
-            {
-                retImage = Images.RadioButton.Common;
-            }
+                retImage = _images.RadioButton.Common;
 
             // If nothing found then use the base palette
-            return retImage ?? _redirector.GetRadioButtonImage(enabled, checkState, tracking, pressed);
+            if (retImage == null)
+                return _redirector.GetRadioButtonImage(enabled, checkState, tracking, pressed);
+            else
+                return retImage;
         }
 
         /// <summary>
@@ -1729,27 +1784,28 @@ namespace Krypton.Toolkit
             switch (state)
             {
                 case PaletteState.Disabled:
-                    retImage = Images.DropDownButton.Disabled;
+                    retImage = _images.DropDownButton.Disabled;
                     break;
                 case PaletteState.Normal:
-                    retImage = Images.DropDownButton.Normal;
+                    retImage = _images.DropDownButton.Normal;
                     break;
                 case PaletteState.Tracking:
-                    retImage = Images.DropDownButton.Tracking;
+                    retImage = _images.DropDownButton.Tracking;
                     break;
                 case PaletteState.Pressed:
-                    retImage = Images.DropDownButton.Pressed;
+                    retImage = _images.DropDownButton.Pressed;
                     break;
             }
 
             // Use common image as the last resort
             if (retImage == null)
-            {
-                retImage = Images.DropDownButton.Common;
-            }
+                retImage = _images.DropDownButton.Common;
 
             // If nothing found then use the base palette
-            return retImage ?? _redirector.GetDropDownButtonImage(state);
+            if (retImage == null)
+                return _redirector.GetDropDownButtonImage(state);
+            else
+                return retImage;
         }
 
         /// <summary>
@@ -1758,10 +1814,13 @@ namespace Krypton.Toolkit
         /// <returns>Appropriate image for drawing; otherwise null.</returns>
         public Image GetContextMenuCheckedImage()
         {
-            Image retImage = Images.ContextMenu.Checked;
+            Image retImage = _images.ContextMenu.Checked;
 
             // If nothing found then use the base palette
-            return retImage ?? _redirector.GetContextMenuCheckedImage();
+            if (retImage == null)
+                return _redirector.GetContextMenuCheckedImage();
+            else
+                return retImage;
         }
 
         /// <summary>
@@ -1770,10 +1829,13 @@ namespace Krypton.Toolkit
         /// <returns>Appropriate image for drawing; otherwise null.</returns>
         public Image GetContextMenuIndeterminateImage()
         {
-            Image retImage = Images.ContextMenu.Indeterminate;
+            Image retImage = _images.ContextMenu.Indeterminate;
 
             // If nothing found then use the base palette
-            return retImage ?? _redirector.GetContextMenuIndeterminateImage();
+            if (retImage == null)
+                return _redirector.GetContextMenuIndeterminateImage();
+            else
+                return retImage;
         }
 
         /// <summary>
@@ -1782,10 +1844,13 @@ namespace Krypton.Toolkit
         /// <returns>Appropriate image for drawing; otherwise null.</returns>
         public Image GetContextMenuSubMenuImage()
         {
-            Image retImage = Images.ContextMenu.SubMenu;
+            Image retImage = _images.ContextMenu.SubMenu;
 
             // If nothing found then use the base palette
-            return retImage ?? _redirector.GetContextMenuSubMenuImage();
+            if (retImage == null)
+                return _redirector.GetContextMenuSubMenuImage();
+            else
+                return retImage;
         }
 
         /// <summary>
@@ -1803,44 +1868,42 @@ namespace Krypton.Toolkit
             switch (button)
             {
                 case PaletteRibbonGalleryButton.Up:
-                    images = Images.GalleryButtons.Up;
+                    images = _images.GalleryButtons.Up;
                     break;
                 case PaletteRibbonGalleryButton.Down:
-                    images = Images.GalleryButtons.Down;
+                    images = _images.GalleryButtons.Down;
                     break;
                 case PaletteRibbonGalleryButton.DropDown:
-                    images = Images.GalleryButtons.DropDown;
+                    images = _images.GalleryButtons.DropDown;
                     break;
             }
 
             // Grab the state image from the compound object
-            if (images != null)
+            switch (state)
             {
-                switch (state)
-                {
-                    case PaletteState.Disabled:
-                        retImage = images.Disabled;
-                        break;
-                    case PaletteState.Normal:
-                        retImage = images.Normal;
-                        break;
-                    case PaletteState.Tracking:
-                        retImage = images.Tracking;
-                        break;
-                    case PaletteState.Pressed:
-                        retImage = images.Pressed;
-                        break;
-                }
+                case PaletteState.Disabled:
+                    retImage = images.Disabled;
+                    break;
+                case PaletteState.Normal:
+                    retImage = images.Normal;
+                    break;
+                case PaletteState.Tracking:
+                    retImage = images.Tracking;
+                    break;
+                case PaletteState.Pressed:
+                    retImage = images.Pressed;
+                    break;
             }
 
             // Use common image if the state specific image is not available
             if (retImage == null)
-            {
                 retImage = images.Common;
-            }
 
             // If nothing found then use the base palette
-            return retImage ?? _redirector.GetGalleryButtonImage(button, state);
+            if (retImage == null)
+                return _redirector.GetGalleryButtonImage(button, state);
+            else
+                return retImage;
         }
         #endregion
 
@@ -2328,7 +2391,7 @@ namespace Krypton.Toolkit
         /// <returns>Feedback enumeration value.</returns>
         public PaletteDragFeedback GetDragDropFeedback()
         {
-            return DragDrop.GetDragDropFeedback();
+            return _dragDrop.GetDragDropFeedback();
         }
 
         /// <summary>
@@ -2337,7 +2400,7 @@ namespace Krypton.Toolkit
         /// <returns>Color value.</returns>
         public Color GetDragDropSolidBack()
         {
-            return DragDrop.GetDragDropSolidBack();
+            return _dragDrop.GetDragDropSolidBack();
         }
 
         /// <summary>
@@ -2346,7 +2409,7 @@ namespace Krypton.Toolkit
         /// <returns>Color value.</returns>
         public Color GetDragDropSolidBorder()
         {
-            return DragDrop.GetDragDropSolidBorder();
+            return _dragDrop.GetDragDropSolidBorder();
         }
 
         /// <summary>
@@ -2355,7 +2418,7 @@ namespace Krypton.Toolkit
         /// <returns>Opacity ranging from 0 to 1.</returns>
         public float GetDragDropSolidOpacity()
         {
-            return DragDrop.GetDragDropSolidOpacity();
+            return _dragDrop.GetDragDropSolidOpacity();
         }
 
         /// <summary>
@@ -2364,7 +2427,7 @@ namespace Krypton.Toolkit
         /// <returns>Color value.</returns>
         public Color GetDragDropDockBack()
         {
-            return DragDrop.GetDragDropDockBack();
+            return _dragDrop.GetDragDropDockBack();
         }
 
         /// <summary>
@@ -2373,7 +2436,7 @@ namespace Krypton.Toolkit
         /// <returns>Color value.</returns>
         public Color GetDragDropDockBorder()
         {
-            return DragDrop.GetDragDropDockBorder();
+            return _dragDrop.GetDragDropDockBorder();
         }
 
         /// <summary>
@@ -2382,7 +2445,7 @@ namespace Krypton.Toolkit
         /// <returns>Color value.</returns>
         public Color GetDragDropDockActive()
         {
-            return DragDrop.GetDragDropDockActive();
+            return _dragDrop.GetDragDropDockActive();
         }
 
         /// <summary>
@@ -2391,7 +2454,7 @@ namespace Krypton.Toolkit
         /// <returns>Color value.</returns>
         public Color GetDragDropDockInactive()
         {
-            return DragDrop.GetDragDropDockInactive();
+            return _dragDrop.GetDragDropDockInactive();
         }
         #endregion
 
@@ -2450,24 +2513,22 @@ namespace Krypton.Toolkit
                 SuspendUpdates();
 
                 if (silent)
-                {
                     ResetOperation(null);
-                }
                 else
                 {
                     // Perform the reset operation on a separate worker thread
-                    CommonHelper.PerformOperation(ResetOperation, null);
+                    CommonHelper.PerformOperation(new Operation(ResetOperation), null);
 
-                    MessageBox.Show("Reset of palette is completed.",
+                    KryptonMessageBox.Show("Reset of palette is completed.",
                                     "Palette Reset",
-                                    MessageBoxButtons.OK);
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
                 if (!silent)
                 {
-                    MessageBox.Show("Reset failed.\n\n Error:" + ex.Message,
+                    KryptonMessageBox.Show("Reset failed.\n\n Error:" + ex.Message,
                                     "Palette Reset",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
@@ -2492,24 +2553,22 @@ namespace Krypton.Toolkit
                 SuspendUpdates();
 
                 if (silent)
-                {
                     PopulateFromBaseOperation(null);
-                }
                 else
                 {
                     // Perform the reset operation on a separate worker thread
-                    CommonHelper.PerformOperation(PopulateFromBaseOperation, null);
+                    CommonHelper.PerformOperation(new Operation(PopulateFromBaseOperation), null);
 
-                    MessageBox.Show("Relevant values have been populated.",
+                    KryptonMessageBox.Show("Relevant values have been populated.",
                                     "Populate Values",
-                                    MessageBoxButtons.OK);
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
                 if (!silent)
                 {
-                    MessageBox.Show("Reset failed.\n\n Error:" + ex.Message,
+                    KryptonMessageBox.Show("Reset failed.\n\n Error:" + ex.Message,
                                     "Populate Values",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
@@ -2540,6 +2599,8 @@ namespace Krypton.Toolkit
                 // Get the actual file selected by the user
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
+                    SetFilePath(Path.GetFullPath(dialog.FileName));
+
                     // Use the existing import overload that takes the target name
                     return Import(dialog.FileName, false);
                 }
@@ -2576,24 +2637,24 @@ namespace Krypton.Toolkit
                 SuspendUpdates();
 
                 if (silent)
-                {
                     ret = (string)ImportFromFile(filename);
-                }
                 else
                 {
                     // Perform the import operation on a separate worker thread
-                    ret = (string)CommonHelper.PerformOperation(ImportFromFile, filename);
+                    ret = (string)CommonHelper.PerformOperation(new Operation(ImportFromFile), filename);
 
-                    MessageBox.Show("Import from file '" + filename + "' completed.",
+                    KryptonMessageBox.Show("Import from file '" + filename + "' completed.",
                                     "Palette Import",
-                                    MessageBoxButtons.OK);
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    SetFilePath(filename);
                 }
             }
             catch (Exception ex)
             {
                 if (!silent)
                 {
-                    MessageBox.Show("Import from file '" + filename + "' failed.\n\n Error:" + ex.Message,
+                    KryptonMessageBox.Show("Import from file '" + filename + "' failed.\n\n Error:" + ex.Message,
                                     "Palette Import",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
@@ -2635,24 +2696,22 @@ namespace Krypton.Toolkit
                 SuspendUpdates();
 
                 if (silent)
-                {
                     ImportFromStream(stream);
-                }
                 else
                 {
                     // Perform the import operation on a separate worker thread
-                    CommonHelper.PerformOperation(ImportFromStream, stream);
+                    CommonHelper.PerformOperation(new Operation(ImportFromStream), stream);
 
-                    MessageBox.Show("Import completed with success.",
+                    KryptonMessageBox.Show("Import completed with success.",
                                     "Palette Import",
-                                    MessageBoxButtons.OK);
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
                 if (!silent)
                 {
-                    MessageBox.Show("Import has failed.\n\n Error:" + ex.Message,
+                    KryptonMessageBox.Show("Import has failed.\n\n Error:" + ex.Message,
                                     "Palette Import",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
@@ -2692,24 +2751,22 @@ namespace Krypton.Toolkit
                 SuspendUpdates();
 
                 if (silent)
-                {
                     ImportFromByteArray(byteArray);
-                }
                 else
                 {
                     // Perform the import operation on a separate worker thread
-                    CommonHelper.PerformOperation(ImportFromByteArray, byteArray);
+                    CommonHelper.PerformOperation(new Operation(ImportFromByteArray), byteArray);
 
-                    MessageBox.Show("Import completed with success.",
+                    KryptonMessageBox.Show("Import completed with success.",
                                     "Palette Import",
-                                    MessageBoxButtons.OK);
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
                 if (!silent)
                 {
-                    MessageBox.Show("Import has failed.\n\n Error:" + ex.Message,
+                    KryptonMessageBox.Show("Import has failed.\n\n Error:" + ex.Message,
                                     "Palette Import",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
@@ -2742,6 +2799,8 @@ namespace Krypton.Toolkit
                 // Get the actual file selected by the user
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
+                    SetFilePath(Path.GetFullPath(dialog.FileName));
+
                     // Use the existing export overload that takes the target name
                     return Export(dialog.FileName, true, false);
                 }
@@ -2782,25 +2841,23 @@ namespace Krypton.Toolkit
                 SuspendUpdates();
 
                 if (silent)
-                {
                     ret = (string)ExportToFile(new object[] { filename, ignoreDefaults });
-                }
                 else
                 {
                     // Perform the import operation on a separate worker thread
-                    ret = (string)CommonHelper.PerformOperation(ExportToFile,
+                    ret = (string)CommonHelper.PerformOperation(new Operation(ExportToFile),
                                                                 new object[] { filename, ignoreDefaults });
 
-                    MessageBox.Show("Export to file '" + filename + "' completed.",
+                    KryptonMessageBox.Show("Export to file '" + filename + "' completed.",
                                     "Palette Export",
-                                    MessageBoxButtons.OK);
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
                 if (!silent)
                 {
-                    MessageBox.Show("Export to file '" + filename + "' failed.\n\n Error:" + ex.Message,
+                    KryptonMessageBox.Show("Export to file '" + filename + "' failed.\n\n Error:" + ex.Message,
                                     "Palette Export",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
@@ -2846,25 +2903,23 @@ namespace Krypton.Toolkit
                 SuspendUpdates();
 
                 if (silent)
-                {
                     ExportToStream(new object[] { stream, ignoreDefaults });
-                }
                 else
                 {
                     // Perform the import operation on a separate worker thread
-                    CommonHelper.PerformOperation(ExportToStream,
+                    CommonHelper.PerformOperation(new Operation(ExportToStream),
                                                   new object[] { stream, ignoreDefaults });
 
-                    MessageBox.Show("Export completed with success.",
+                    KryptonMessageBox.Show("Export completed with success.",
                                     "Palette Export",
-                                    MessageBoxButtons.OK);
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
                 if (!silent)
                 {
-                    MessageBox.Show("Export has failed.\n\n Error:" + ex.Message,
+                    KryptonMessageBox.Show("Export has failed.\n\n Error:" + ex.Message,
                                     "Palette Export",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
@@ -2906,25 +2961,23 @@ namespace Krypton.Toolkit
                 SuspendUpdates();
 
                 if (silent)
-                {
                     ret = (byte[])ExportToByteArray(new object[] { ignoreDefaults });
-                }
                 else
                 {
                     // Perform the import operation on a separate worker thread
-                    ret = (byte[])CommonHelper.PerformOperation(ExportToByteArray,
+                    ret = (byte[])CommonHelper.PerformOperation(new Operation(ExportToByteArray),
                                                                 new object[] { ignoreDefaults });
 
-                    MessageBox.Show("Export completed with success.",
+                    KryptonMessageBox.Show("Export completed with success.",
                                     "Palette Export",
-                                    MessageBoxButtons.OK);
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
                 if (!silent)
                 {
-                    MessageBox.Show("Export has failed.\n\n Error:" + ex.Message,
+                    KryptonMessageBox.Show("Export has failed.\n\n Error:" + ex.Message,
                                     "Palette Export",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
@@ -2953,7 +3006,7 @@ namespace Krypton.Toolkit
         [DefaultValue(typeof(PaletteMode), "Office2010Blue")]
         public PaletteMode BasePaletteMode
         {
-            get => _basePaletteMode;
+            get { return _basePaletteMode; }
 
             set
             {
@@ -2982,7 +3035,7 @@ namespace Krypton.Toolkit
                                 _basePaletteMode = tempMode;
                                 _basePalette = tempPalette;
 
-                                throw new ArgumentOutOfRangeException(nameof(value), "Cannot use palette that would create a circular reference");
+                                throw new ArgumentOutOfRangeException("value", "Cannot use palette that would create a circular reference");
                             }
                             else
                             {
@@ -3027,7 +3080,7 @@ namespace Krypton.Toolkit
         [DefaultValue(null)]
         public IPalette BasePalette
         {
-            get => _basePalette;
+            get { return _basePalette; }
 
             set
             {
@@ -3049,7 +3102,7 @@ namespace Krypton.Toolkit
                         _basePaletteMode = tempMode;
                         _basePalette = tempPalette;
 
-                        throw new ArgumentOutOfRangeException(nameof(value), "Cannot use palette that would create a circular reference");
+                        throw new ArgumentOutOfRangeException("value", "Cannot use palette that would create a circular reference");
                     }
                     else
                     {
@@ -3098,7 +3151,7 @@ namespace Krypton.Toolkit
         [DefaultValue(typeof(RendererMode), "Inherit")]
         public RendererMode BaseRenderMode
         {
-            get => _baseRenderMode;
+            get { return _baseRenderMode; }
 
             set
             {
@@ -3116,9 +3169,10 @@ namespace Krypton.Toolkit
                             _baseRenderMode = value;
 
                             // If inheriting then we do not need a base renderer
-                            _baseRenderer = value == RendererMode.Inherit
-                                ? null
-                                : KryptonManager.GetRendererForMode(_baseRenderMode);
+                            if (value == RendererMode.Inherit)
+                                _baseRenderer = null;
+                            else
+                                _baseRenderer = KryptonManager.GetRendererForMode(_baseRenderMode);
 
                             // Fire events to indicate a change in palette values
                             // (because renderer has changed the palette need redrawing)
@@ -3147,7 +3201,7 @@ namespace Krypton.Toolkit
         [DefaultValue(null)]
         public IRenderer BaseRenderer
         {
-            get => _baseRenderer;
+            get { return _baseRenderer; }
 
             set
             {
@@ -3171,15 +3225,28 @@ namespace Krypton.Toolkit
         /// Gets access to the color table instance.
         /// </summary>
         [Browsable(false)]
-        public KryptonColorTable ColorTable => ToolMenuStatus.InternalKCT;
+        public KryptonColorTable ColorTable
+        {
+            get { return _toolMenuStatus.InternalKCT; }
+        }
 
+        /// <summary>
+        /// Gets or sets the file path.
+        /// </summary>
+        /// <value>
+        /// The file path.
+        /// </value>
+        public string FilePath { get { return _filePath; } set { _filePath = value; } }
         #endregion
 
         #region Protected
         /// <summary>
         /// Gets access to the need paint delegate.
         /// </summary>
-        protected NeedPaintHandler NeedPaintDelegate { get; }
+        protected NeedPaintHandler NeedPaintDelegate
+        {
+            get { return _needPaintDelegate; }
+        }
 
         /// <summary>
         /// Raises the PalettePaint event.
@@ -3191,7 +3258,8 @@ namespace Krypton.Toolkit
             // Can only generate change events if not suspended
             if (_suspendCount == 0)
             {
-                PalettePaint?.Invoke(this, e);
+                if (PalettePaint != null)
+                    PalettePaint(this, e);
             }
         }
 
@@ -3205,7 +3273,8 @@ namespace Krypton.Toolkit
             // Can only generate change events if not suspended
             if (_suspendCount == 0)
             {
-                AllowFormChromeChanged?.Invoke(this, e);
+                if (AllowFormChromeChanged != null)
+                    AllowFormChromeChanged(this, e);
             }
         }
 
@@ -3219,7 +3288,8 @@ namespace Krypton.Toolkit
             // Can only generate change events if not suspended
             if (_suspendCount == 0)
             {
-                BasePaletteChanged?.Invoke(this, e);
+                if (BasePaletteChanged != null)
+                    BasePaletteChanged(this, e);
             }
         }
 
@@ -3233,7 +3303,8 @@ namespace Krypton.Toolkit
             // Can only generate change events if not suspended
             if (_suspendCount == 0)
             {
-                BaseRendererChanged?.Invoke(this, e);
+                if (BaseRendererChanged != null)
+                    BaseRendererChanged(this, e);
             }
         }
 
@@ -3247,7 +3318,8 @@ namespace Krypton.Toolkit
             // Can only generate change events if not suspended
             if (_suspendCount == 0)
             {
-                ButtonSpecChanged?.Invoke(this, e);
+                if (ButtonSpecChanged != null)
+                    ButtonSpecChanged(this, e);
             }
         }
         #endregion
@@ -3266,37 +3338,29 @@ namespace Krypton.Toolkit
             {
                 // If the palette has already been encountered then it is a circular reference
                 if (paletteSet.ContainsKey(palette))
-                {
                     return true;
-                }
                 else
                 {
                     // Otherwise, add to the set
                     paletteSet.Add(palette, true);
-                    // Cast to correct type
 
 
                     // If this is a KryptonPalette instance
-                    if (palette is KryptonPalette owner)
+                    if (palette is KryptonPalette)
                     {
+                        // Cast to correct type
+                        KryptonPalette owner = (KryptonPalette)palette;
+
                         // Get the next palette up in hierarchy
-                        switch (owner.BasePaletteMode)
-                        {
-                            case PaletteMode.Custom:
-                                palette = owner.BasePalette;
-                                break;
-                            case PaletteMode.Global:
-                                palette = KryptonManager.InternalGlobalPalette;
-                                break;
-                            default:
-                                palette = null;
-                                break;
-                        }
+                        if (owner.BasePaletteMode == PaletteMode.Custom)
+                            palette = owner.BasePalette;
+                        else if (owner.BasePaletteMode == PaletteMode.Global)
+                            palette = KryptonManager.InternalGlobalPalette;
+                        else
+                            palette = null;
                     }
                     else
-                    {
                         palette = null;
-                    }
                 }
             }
 
@@ -3320,26 +3384,26 @@ namespace Krypton.Toolkit
 
             // Ask each part of the palette to populate itself
             _allowFormChrome = _basePalette.GetAllowFormChrome();
-            ButtonStyles.PopulateFromBase(Common);
-            CalendarDay.PopulateFromBase();
-            ButtonSpecs.PopulateFromBase();
-            ControlStyles.PopulateFromBase(Common);
-            ContextMenu.PopulateFromBase(Common);
-            DragDrop.PopulateFromBase();
-            FormStyles.PopulateFromBase(Common);
-            GridStyles.PopulateFromBase(Common);
-            HeaderStyles.PopulateFromBase(Common);
-            HeaderGroup.PopulateFromBase();
-            Images.PopulateFromBase();
-            InputControlStyles.PopulateFromBase(Common);
-            LabelStyles.PopulateFromBase(Common);
-            Navigator.PopulateFromBase();
-            PanelStyles.PopulateFromBase(Common);
-            Ribbon.PopulateFromBase();
-            SeparatorStyles.PopulateFromBase(Common);
-            TabStyles.PopulateFromBase(Common);
-            TrackBar.PopulateFromBase();
-            ToolMenuStatus.PopulateFromBase();
+            _buttons.PopulateFromBase(Common);
+            _calendarDay.PopulateFromBase();
+            _buttonSpecs.PopulateFromBase();
+            _controls.PopulateFromBase(Common);
+            _contextMenu.PopulateFromBase(Common);
+            _dragDrop.PopulateFromBase();
+            _forms.PopulateFromBase(Common);
+            _grids.PopulateFromBase(Common);
+            _headers.PopulateFromBase(Common);
+            _headerGroup.PopulateFromBase();
+            _images.PopulateFromBase();
+            _inputControls.PopulateFromBase(Common);
+            _labels.PopulateFromBase(Common);
+            _navigator.PopulateFromBase();
+            _panels.PopulateFromBase(Common);
+            _ribbon.PopulateFromBase();
+            _separators.PopulateFromBase(Common);
+            _tabs.PopulateFromBase(Common);
+            _trackBar.PopulateFromBase();
+            _toolMenuStatus.PopulateFromBase();
 
             return null;
         }
@@ -3353,9 +3417,7 @@ namespace Krypton.Toolkit
 
             // Check the target file actually exists
             if (!info.Exists)
-            {
                 throw new ArgumentException("Provided file does not exist.");
-            }
 
             // Create a new xml document for storing the palette settings
             XmlDocument doc = new XmlDocument();
@@ -3415,48 +3477,33 @@ namespace Krypton.Toolkit
 
                 // We insist on a root element
                 if (!doc.HasChildNodes)
-                {
                     throw new ArgumentException("Xml document does not have a root element.");
-                }
 
                 // Try and grab the root element
                 XmlElement root = (XmlElement)doc.SelectSingleNode("KryptonPalette");
 
                 // We insist the root is always present
                 if (root == null)
-                {
                     throw new ArgumentException("Root element must be called 'KryptonPalette'.");
-                }
 
                 // We insit the version number is always present
                 if (!root.HasAttribute("Version"))
-                {
                     throw new ArgumentException("Root element must have an attribute called 'Version'.");
-                }
 
                 // Grab the version number of the format being loaded
                 int version = int.Parse(root.GetAttribute("Version"));
 
-                if (version < PALETTE_VERSION)
-                {
-                    throw new ArgumentException("Version '" + version + "' number is incompatible, only version " + PALETTE_VERSION.ToString() +
+                if (version < _paletteVersion)
+                    throw new ArgumentException("Version '" + version + "' number is incompatible, only version " + _paletteVersion.ToString() +
                                                 " or above can be imported.\nUse the PaletteUpgradeTool from the Application tab of the KryptonExplorer to upgrade.");
-                }
 
                 // Grab the properties and images elements
                 XmlElement props = (XmlElement)root.SelectSingleNode("Properties");
                 XmlElement images = (XmlElement)root.SelectSingleNode("Images");
 
                 // There must be both properties and images elements present
-                if (props == null)
-                {
-                    throw new ArgumentException("Element 'Properties' missing from the 'KryptonPalette'.");
-                }
-
-                if (images == null)
-                {
-                    throw new ArgumentException("Element 'Images' missing from the 'KryptonPalette'.");
-                }
+                if (props == null) throw new ArgumentException("Element 'Properties' missing from the 'KryptonPalette'.");
+                if (images == null) throw new ArgumentException("Element 'Images' missing from the 'KryptonPalette'.");
 
                 // Cache the images from the images element
                 ImageReverseDictionary imageCache = new ImageReverseDictionary();
@@ -3485,9 +3532,7 @@ namespace Krypton.Toolkit
 
             // Check the target directory actually exists
             if (!info.Directory.Exists)
-            {
                 throw new ArgumentException("Provided directory does not exist.");
-            }
 
             // Create an XmlDocument containing the saved palette details
             XmlDocument doc = ExportToXmlDocument(ignoreDefaults);
@@ -3561,7 +3606,7 @@ namespace Krypton.Toolkit
                 // Create a root node with version and the date information, by 
                 // having a version number the loading of older version is easier
                 XmlElement root = doc.CreateElement("KryptonPalette");
-                root.SetAttribute("Version", PALETTE_VERSION.ToString());
+                root.SetAttribute("Version", _paletteVersion.ToString());
                 root.SetAttribute("Generated", DateTime.Now.ToLongDateString() + ", " + DateTime.Now.ToShortTimeString());
                 doc.AppendChild(root);
 
@@ -3604,10 +3649,11 @@ namespace Krypton.Toolkit
                     // Search each of the attributes applied to the property
                     foreach (object attrib in prop.GetCustomAttributes(false))
                     {
-                        // Cast attribute to the correct type
                         // Is it marked with the special kryton persist marker?
-                        if (attrib is KryptonPersistAttribute persist)
+                        if (attrib is KryptonPersistAttribute)
                         {
+                            // Cast attribute to the correct type
+                            KryptonPersistAttribute persist = (KryptonPersistAttribute)attrib;
 
                             // Check if there is an elment matching the property
                             XmlElement childElement = (XmlElement)element.SelectSingleNode(prop.Name);
@@ -3647,9 +3693,16 @@ namespace Krypton.Toolkit
                                             else
                                             {
                                                 // Have we already encountered the image?
-                                                prop.SetValue(obj,
-                                                    imageCache.ContainsKey(valueValue) ? imageCache[valueValue] : null,
-                                                    null);
+                                                if (imageCache.ContainsKey(valueValue))
+                                                {
+                                                    // Push the image from the cache into the property
+                                                    prop.SetValue(obj, imageCache[valueValue], null);
+                                                }
+                                                else
+                                                {
+                                                    // Cannot find image to set to empty
+                                                    prop.SetValue(obj, null, null);
+                                                }
                                             }
                                         }
                                         else
@@ -3743,10 +3796,11 @@ namespace Krypton.Toolkit
                     // Search each of the attributes applied to the property
                     foreach (object attrib in prop.GetCustomAttributes(false))
                     {
-                        // Cast attribute to the correct type
                         // Is it marked with the special kryton persist marker?
-                        if (attrib is KryptonPersistAttribute persist)
+                        if (attrib is KryptonPersistAttribute)
                         {
+                            // Cast attribute to the correct type
+                            KryptonPersistAttribute persist = (KryptonPersistAttribute)attrib;
 
                             // Should we navigate down inside the property?
                             if (persist.Navigate)
@@ -3767,9 +3821,7 @@ namespace Krypton.Toolkit
                                         {
                                             // If the object 'IsDefault' then no need to persist it
                                             if ((bool)propertyIsDefault.GetValue(childObj))
-                                            {
                                                 childObj = null;
-                                            }
                                         }
                                     }
 
@@ -3805,13 +3857,9 @@ namespace Krypton.Toolkit
 
                                         // Decide if the property value matches the default described by the attribute
                                         if (defaultAttrib.Value == null)
-                                        {
                                             ignore = (childObj == null);
-                                        }
                                         else
-                                        {
                                             ignore = defaultAttrib.Value.Equals(childObj);
-                                        }
                                     }
                                 }
 
@@ -3918,10 +3966,11 @@ namespace Krypton.Toolkit
                     // Search each of the attributes applied to the property
                     foreach (object attrib in prop.GetCustomAttributes(false))
                     {
-                        // Cast attribute to the correct type
                         // Is it marked with the special kryton persist marker?
-                        if (attrib is KryptonPersistAttribute persist)
+                        if (attrib is KryptonPersistAttribute)
                         {
+                            // Cast attribute to the correct type
+                            KryptonPersistAttribute persist = (KryptonPersistAttribute)attrib;
 
                             // Should we navigate down inside the property?
                             if (persist.Navigate)
@@ -3939,9 +3988,7 @@ namespace Krypton.Toolkit
                                     {
                                         // If the object 'IsDefault' then no need to reset it
                                         if ((bool)propertyIsDefault.GetValue(childObj))
-                                        {
                                             childObj = null;
-                                        }
                                     }
 
                                     // If we have an object to process
@@ -4000,128 +4047,63 @@ namespace Krypton.Toolkit
         private string TypeToString(Type t)
         {
             if (t.Equals(typeof(string)))
-            {
                 return "String";
-            }
-
             if (t.Equals(typeof(int)))
-            {
                 return "Int";
-            }
-
             if (t.Equals(typeof(float)))
-            {
                 return "Single";
-            }
-
             if (t.Equals(typeof(bool)))
-            {
                 return "Bool";
-            }
-
             if (t.Equals(typeof(Color)))
-            {
                 return "Color";
-            }
-
             if (t.Equals(typeof(Image)))
-            {
                 return "Image";
-            }
-
             if (t.Equals(typeof(Font)))
-            {
                 return "Font";
-            }
-
             if (t.Equals(typeof(Padding)))
-            {
                 return "Padding";
-            }
             else if (t.Equals(typeof(InheritBool)))
-            {
                 return "InheritBool";
-            }
             else if (t.Equals(typeof(PaletteRectangleAlign)))
-            {
                 return "PaletteRectangleAlign";
-            }
             else if (t.Equals(typeof(PaletteRelativeAlign)))
-            {
                 return "PaletteRelativeAlign";
-            }
             else if (t.Equals(typeof(PaletteImageEffect)))
-            {
                 return "PaletteImageEffect";
-            }
             else if (t.Equals(typeof(PaletteImageStyle)))
-            {
                 return "PaletteImageStyle";
-            }
             else if (t.Equals(typeof(PaletteTextHint)))
-            {
                 return "PaletteTextHint";
-            }
             else if (t.Equals(typeof(PaletteTextHotkeyPrefix)))
-            {
                 return "PaletteTextHotkeyPrefix";
-            }
             else if (t.Equals(typeof(PaletteTextTrim)))
-            {
                 return "PaletteTextTrim";
-            }
             else if (t.Equals(typeof(PaletteColorStyle)))
-            {
                 return "PaletteColorStyle";
-            }
             else if (t.Equals(typeof(PaletteGraphicsHint)))
-            {
                 return "PaletteGraphicsHint";
-            }
             else if (t.Equals(typeof(PaletteMode)))
-            {
                 return "PaletteMode";
-            }
             else if (t.Equals(typeof(PaletteButtonStyle)))
-            {
                 return "PaletteButtonStyle";
-            }
             else if (t.Equals(typeof(PaletteButtonOrientation)))
-            {
                 return "PaletteButtonOrientation";
-            }
             else if (t.Equals(typeof(PaletteRelativeEdgeAlign)))
-            {
                 return "PaletteRelativeEdgeAlign";
-            }
             else if (t.Equals(typeof(RendererMode)))
-            {
                 return "RendererMode";
-            }
             else if (t.Equals(typeof(PaletteDrawBorders)))
-            {
                 return "PaletteDrawBorders";
-            }
             else if (t.Equals(typeof(PaletteContentText)))
-            {
                 return "PaletteContentText";
-            }
             else if (t.Equals(typeof(PaletteContentImage)))
-            {
                 return "PaletteContentImage";
-            }
             else if (t.Equals(typeof(PaletteDragFeedback)))
-            {
                 return "PaletteDragFeedback";
-            }
             else if (t.Equals(typeof(PaletteRibbonShape)))
-            {
                 return "PaletteRibbonShape";
-            }
             else
-            {
                 throw new ApplicationException("Unrecognised type '" + t.ToString() + "' for export.");
-            }
         }
 
         private Type StringToType(string s)
@@ -4199,11 +4181,11 @@ namespace Krypton.Toolkit
                     switch (state)
                     {
                         case PaletteState.Normal:
-                            return TrackBar.StateNormal.Tick;
+                            return _trackBar.StateNormal.Tick;
                         case PaletteState.Disabled:
-                            return TrackBar.StateDisabled.Tick;
+                            return _trackBar.StateDisabled.Tick;
                         case PaletteState.FocusOverride:
-                            return TrackBar.OverrideFocus.Tick;
+                            return _trackBar.OverrideFocus.Tick;
                         default:
                             // Should never happen!
                             Debug.Assert(false);
@@ -4213,11 +4195,11 @@ namespace Krypton.Toolkit
                     switch (state)
                     {
                         case PaletteState.Normal:
-                            return TrackBar.StateNormal.Track;
+                            return _trackBar.StateNormal.Track;
                         case PaletteState.Disabled:
-                            return TrackBar.StateDisabled.Track;
+                            return _trackBar.StateDisabled.Track;
                         case PaletteState.FocusOverride:
-                            return TrackBar.OverrideFocus.Track;
+                            return _trackBar.OverrideFocus.Track;
                         default:
                             // Should never happen!
                             Debug.Assert(false);
@@ -4227,15 +4209,15 @@ namespace Krypton.Toolkit
                     switch (state)
                     {
                         case PaletteState.Normal:
-                            return TrackBar.StateNormal.Position;
+                            return _trackBar.StateNormal.Position;
                         case PaletteState.Disabled:
-                            return TrackBar.StateDisabled.Position;
+                            return _trackBar.StateDisabled.Position;
                         case PaletteState.Tracking:
-                            return TrackBar.StateTracking.Position;
+                            return _trackBar.StateTracking.Position;
                         case PaletteState.Pressed:
-                            return TrackBar.StatePressed.Position;
+                            return _trackBar.StatePressed.Position;
                         case PaletteState.FocusOverride:
-                            return TrackBar.OverrideFocus.Position;
+                            return _trackBar.OverrideFocus.Position;
                         default:
                             // Should never happen!
                             Debug.Assert(false);
@@ -5155,15 +5137,13 @@ namespace Krypton.Toolkit
                 case PaletteState.FocusOverride:
                     return button.OverrideFocus.Back;
                 case PaletteState.BoldedOverride:
-                    return CalendarDay.OverrideBolded.Back;
+                    return _calendarDay.OverrideBolded.Back;
                 case PaletteState.TodayOverride:
-                    return CalendarDay.OverrideToday.Back;
+                    return _calendarDay.OverrideToday.Back;
                 default:
                     PaletteTriple buttonState = GetPaletteButton(button, state);
                     if (buttonState != null)
-                    {
                         return buttonState.Back;
-                    }
                     else
                     {
                         // Should never happen!
@@ -5183,15 +5163,13 @@ namespace Krypton.Toolkit
                 case PaletteState.FocusOverride:
                     return button.OverrideFocus.Border;
                 case PaletteState.BoldedOverride:
-                    return CalendarDay.OverrideBolded.Border;
+                    return _calendarDay.OverrideBolded.Border;
                 case PaletteState.TodayOverride:
-                    return CalendarDay.OverrideToday.Border;
+                    return _calendarDay.OverrideToday.Border;
                 default:
                     PaletteTriple buttonState = GetPaletteButton(button, state);
                     if (buttonState != null)
-                    {
                         return buttonState.Border;
-                    }
                     else
                     {
                         // Should never happen!
@@ -5211,15 +5189,13 @@ namespace Krypton.Toolkit
                 case PaletteState.FocusOverride:
                     return button.OverrideFocus.Content;
                 case PaletteState.BoldedOverride:
-                    return CalendarDay.OverrideBolded.Content;
+                    return _calendarDay.OverrideBolded.Content;
                 case PaletteState.TodayOverride:
-                    return CalendarDay.OverrideToday.Content;
+                    return _calendarDay.OverrideToday.Content;
                 default:
                     PaletteTriple buttonState = GetPaletteButton(button, state);
                     if (buttonState != null)
-                    {
                         return buttonState.Content;
-                    }
                     else
                     {
                         // Should never happen!
@@ -5268,9 +5244,7 @@ namespace Krypton.Toolkit
                 default:
                     PaletteTriple buttonState = GetPaletteCalendarDay(button, state);
                     if (buttonState != null)
-                    {
                         return buttonState.Back;
-                    }
                     else
                     {
                         // Should never happen!
@@ -5294,9 +5268,7 @@ namespace Krypton.Toolkit
                 default:
                     PaletteTriple buttonState = GetPaletteCalendarDay(button, state);
                     if (buttonState != null)
-                    {
                         return buttonState.Border;
-                    }
                     else
                     {
                         // Should never happen!
@@ -5320,9 +5292,7 @@ namespace Krypton.Toolkit
                 default:
                     PaletteTriple buttonState = GetPaletteCalendarDay(button, state);
                     if (buttonState != null)
-                    {
                         return buttonState.Content;
-                    }
                     else
                     {
                         // Should never happen!
@@ -5385,9 +5355,7 @@ namespace Krypton.Toolkit
                 default:
                     PaletteTabTriple buttonState = GetPaletteTab(button, state);
                     if (buttonState != null)
-                    {
                         return buttonState.Back;
-                    }
                     else
                     {
                         // Should never happen!
@@ -5407,9 +5375,7 @@ namespace Krypton.Toolkit
                 default:
                     PaletteTabTriple buttonState = GetPaletteTab(button, state);
                     if (buttonState != null)
-                    {
                         return buttonState.Border;
-                    }
                     else
                     {
                         // Should never happen!
@@ -5429,9 +5395,7 @@ namespace Krypton.Toolkit
                 default:
                     PaletteTabTriple buttonState = GetPaletteTab(button, state);
                     if (buttonState != null)
-                    {
                         return buttonState.Content;
-                    }
                     else
                     {
                         // Should never happen!
@@ -5469,9 +5433,7 @@ namespace Krypton.Toolkit
             PaletteSeparatorPadding separatorState = GetPaletteSeparator(separator, state);
 
             if (separatorState != null)
-            {
                 return separatorState.Back;
-            }
             else
             {
                 // Should never happen!
@@ -5485,9 +5447,7 @@ namespace Krypton.Toolkit
             PaletteSeparatorPadding separatorState = GetPaletteSeparator(separator, state);
 
             if (separatorState != null)
-            {
                 return separatorState.Border;
-            }
             else
             {
                 // Should never happen!
@@ -5520,9 +5480,7 @@ namespace Krypton.Toolkit
             PaletteDouble controlState = GetPaletteControl(control, state);
 
             if (controlState != null)
-            {
                 return controlState.Back;
-            }
             else
             {
                 // Should never happen!
@@ -5536,9 +5494,7 @@ namespace Krypton.Toolkit
             PaletteDouble controlState = GetPaletteControl(control, state);
 
             if (controlState != null)
-            {
                 return controlState.Border;
-            }
             else
             {
                 // Should never happen!
@@ -5567,9 +5523,7 @@ namespace Krypton.Toolkit
             PaletteDouble controlState = GetPaletteForm(form, state);
 
             if (controlState != null)
-            {
                 return controlState.Back;
-            }
             else
             {
                 // Should never happen!
@@ -5776,9 +5730,7 @@ namespace Krypton.Toolkit
             PaletteDouble controlState = GetPaletteForm(form, state);
 
             if (controlState != null)
-            {
                 return controlState.Border;
-            }
             else
             {
                 // Should never happen!
@@ -5807,9 +5759,7 @@ namespace Krypton.Toolkit
             PaletteTriple headerState = GetPaletteHeader(header, state);
 
             if (headerState != null)
-            {
                 return headerState.Back;
-            }
             else
             {
                 // Should never happen!
@@ -5823,9 +5773,7 @@ namespace Krypton.Toolkit
             PaletteTriple headerState = GetPaletteHeader(header, state);
 
             if (headerState != null)
-            {
                 return headerState.Border;
-            }
             else
             {
                 // Should never happen!
@@ -5839,9 +5787,7 @@ namespace Krypton.Toolkit
             PaletteTriple headerState = GetPaletteHeader(header, state);
 
             if (headerState != null)
-            {
                 return headerState.Content;
-            }
             else
             {
                 // Should never happen!
@@ -6101,10 +6047,10 @@ namespace Krypton.Toolkit
                 // Unhook from current palette events
                 if (_basePalette != null)
                 {
-                    _basePalette.PalettePaint -= OnPalettePaint;
-                    _basePalette.ButtonSpecChanged -= OnButtonSpecChanged;
-                    _basePalette.BasePaletteChanged -= OnBasePaletteChanged;
-                    _basePalette.BaseRendererChanged -= OnBaseRendererChanged;
+                    _basePalette.PalettePaint -= new EventHandler<PaletteLayoutEventArgs>(OnPalettePaint);
+                    _basePalette.ButtonSpecChanged -= new EventHandler(OnButtonSpecChanged);
+                    _basePalette.BasePaletteChanged -= new EventHandler(OnBasePaletteChanged);
+                    _basePalette.BaseRendererChanged -= new EventHandler(OnBaseRendererChanged);
                 }
 
                 // Remember the new palette
@@ -6114,19 +6060,39 @@ namespace Krypton.Toolkit
                 _redirector.Target = _basePalette;
 
                 // Update the color table we inherit from
-                ToolMenuStatus.BaseKCT = _basePalette.ColorTable;
+                _toolMenuStatus.BaseKCT = _basePalette.ColorTable;
 
                 // Hook to new palette events
                 if (_basePalette != null)
                 {
-                    _basePalette.PalettePaint += OnPalettePaint;
-                    _basePalette.ButtonSpecChanged += OnButtonSpecChanged;
-                    _basePalette.BasePaletteChanged += OnBasePaletteChanged;
-                    _basePalette.BaseRendererChanged += OnBaseRendererChanged;
+                    _basePalette.PalettePaint += new EventHandler<PaletteLayoutEventArgs>(OnPalettePaint);
+                    _basePalette.ButtonSpecChanged += new EventHandler(OnButtonSpecChanged);
+                    _basePalette.BasePaletteChanged += new EventHandler(OnBasePaletteChanged);
+                    _basePalette.BaseRendererChanged += new EventHandler(OnBaseRendererChanged);
                 }
             }
         }
 
+        #endregion
+
+        #region Setters & Getters        
+        /// <summary>
+        /// Sets the file path.
+        /// </summary>
+        /// <param name="value">The value of the file path.</param>
+        public void SetFilePath(string value)
+        {
+            FilePath = value;
+        }
+
+        /// <summary>
+        /// Gets the file path.
+        /// </summary>
+        /// <returns>The file path value.</returns>
+        public string GetFilePath()
+        {
+            return FilePath;
+        }
         #endregion
     }
 }

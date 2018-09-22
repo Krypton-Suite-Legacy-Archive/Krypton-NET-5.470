@@ -12,9 +12,9 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Base class for drawing an image in the specified size and state.
@@ -31,7 +31,7 @@ namespace Krypton.Ribbon
         /// Initialize a new instance of the ViewDrawRibbonGroupImageBase class.
 		/// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
-        public ViewDrawRibbonGroupImageBase(Krypton.Ribbon ribbon)
+        public ViewDrawRibbonGroupImageBase(KryptonRibbon ribbon)
         {
             Debug.Assert(ribbon != null);
             Ribbon = ribbon;
@@ -104,7 +104,7 @@ namespace Krypton.Ribbon
         /// <summary>
         /// Gets access to the owning ribbon control.
         /// </summary>
-        protected Krypton.Ribbon Ribbon { get; }
+        protected KryptonRibbon Ribbon { get; }
 
         /// <summary>
         /// Gets the size to draw the image.

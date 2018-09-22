@@ -11,9 +11,9 @@
 
 using System.ComponentModel;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
 	/// Storage for popup page related properties.
@@ -30,7 +30,7 @@ namespace Krypton.Navigator
         #endregion
 
         #region Instance Fields
-        private Krypton.Navigator _navigator;
+        private KryptonNavigator _navigator;
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace Krypton.Navigator
 		/// </summary>
         /// <param name="navigator">Reference to owning navigator instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public NavigatorPopupPages(Krypton.Navigator navigator,
+        public NavigatorPopupPages(KryptonNavigator navigator,
                                   NeedPaintHandler needPaint)
 		{
             Debug.Assert(navigator != null);

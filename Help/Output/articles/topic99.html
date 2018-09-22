@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content=" | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>Navigator PopupPages Properties  </p>
+<p>Applicable Modes:<br>        Bar - Tab - Only<br>        Bar - RibbonTab - Only<br>        Bar - CheckButton - Group - Only<br>        Bar - CheckButton - Only<br>        HeaderBar - CheckButton - Only<br>        Outlook - Mini</p>
+<p><strong>PopupPages Properties</strong><br>The set of properties associated with the display of pop up pages can be seen in
+Figure 1 as they appear in the properties window.  </p>
+<p>   <em>Figure 1 - PopupPages Properties</em>  </p>
+<p>Pop up page functionality is only available in the modes as listed at the top of
+this document. These are modes that do not show the contents of the selected
+page in the layout of the actual navigator control. Commonly these types of mode
+are called &#39;TabStrips&#39;. Because the content of the selected page is not
+displayed in the main part of the control these modes allow the page to be
+displayed in a separate pop up window when the appropriate button or header is
+pressed.</p>
+<p><strong>AllowPopupPages</strong><br>Use this enumeration property to decide when pop up pages will be used. The
+default value of <em>Only Outlook Mini Mode</em> only allows the use of pop up pages in
+the <em>Outlook - Mini</em> mode. Other possible values include <em>Only Compatible Modes</em>
+that only allows the use of pop up pages in &#39;TabStrip&#39; style modes and the
+<em>Never</em> value that prevents pop up pages from appearing at any time.</p>
+<p><strong>Border</strong><br>This is the pixel border width to use around the displayed pop up page. Figure 2
+shows a pop up page with the default value of 3, where you can see the thick
+blue border around the page contents. Figure 3 shows a value of 0 which turns
+off the use of the blue border area entirely. This border area is displayed
+using the <em>Navigator.Panel.PanelBackStyle</em> defined style.</p>
+<ul>
+<li><p>Figure 2 - Border width of 3*</p>
+</li>
+<li><p>Figure 3 - Border width of 0*</p>
+</li>
+</ul>
+<p><strong>Element</strong><br>When the pop up page is displayed it uses the algorithm specified in the
+<em>Position</em> property to auto calculate the location, and in some cases size, of
+the pop up window. All the calculations are relative to a display element. You
+can use this property to define which element is used in the calculations. There
+are two enumeration values possible for this property, <em>Item</em> and <em>Navigator</em>.
+You would use <em>Item</em> when you want the pop up window to appear relative to the
+selected page display item. Alternatively use <em>Navigator</em> when you want the pop
+up to be relative to the whole navigator control instance regardless of the
+exact location of the page item.</p>
+<p><strong>Gap</strong><br>Use this property to define the pixel gap between the display <em>Element</em> and the
+nearest edge of the pop up window. If you want the pop up window to be shown
+directly against the <em>Element</em> then use a value of 0. The default value is 3 and
+provides a small spacing gap between the <em>Element</em> and the pop up window.</p>
+<p><strong>Position</strong><br>This enumeration property is used to define how the pop up window is sized and
+positioned relative to the <em>Element,</em> taking into account the <em>Gap</em> value. The
+default value is called <em>Mode Appropriate</em> and uses an appropriate <em>Position</em>
+value that depends on the current mode and relevant mode settings. For example,
+in the <em>BarTabOnly</em> mode where the <em>BarOrientation</em> is <em>Top</em> it will show the
+pop up below the tab header and aligned to the near edge of the item. In the
+same mode but with a <em>BarOrientation</em> of <em>Right</em> it will show the pop up to the
+near side and aligned to the top of the header.</p>
+<p><strong>DismissPopups Method</strong><br>If you have a button inside a <em>KryptonPage</em> and then that page is shown as a pop
+up then you may want a way to dismiss the pop up when that button is pressed.
+This is the purpose of the <em>DismissPopups</em> method. When the button is pressed
+you should call this method to ensure that if the <em>KryptonPage</em> is displayed
+inside a pop up then that pop up is dismissed.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

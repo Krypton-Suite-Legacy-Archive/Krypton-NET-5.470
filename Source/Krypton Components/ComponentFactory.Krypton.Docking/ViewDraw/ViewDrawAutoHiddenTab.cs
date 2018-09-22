@@ -10,10 +10,10 @@
 // *****************************************************************************
 
 using System.Drawing;
-using Krypton.Toolkit;
-using Krypton.Navigator;
+using ComponentFactory.Krypton.Toolkit;
+using ComponentFactory.Krypton.Navigator;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
 	/// <summary>
 	/// View element that can draw an auto hidden tab based on a KryptonPage as the source.

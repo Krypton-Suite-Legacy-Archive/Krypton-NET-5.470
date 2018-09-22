@@ -13,20 +13,20 @@ using System;
 using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Represents a ribbon group custom control.
     /// </summary>
     [ToolboxItem(false)]
-    [ToolboxBitmap(typeof(Krypton.RibbonGroupCustomControl), "ToolboxBitmaps.Krypton.RibbonGroupCustomControl.bmp")]
-    [Designer("Krypton.Ribbon.Krypton.RibbonGroupCustomControlDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [ToolboxBitmap(typeof(KryptonRibbonGroupCustomControl), "ToolboxBitmaps.KryptonRibbonGroupCustomControl.bmp")]
+    [Designer(typeof(ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCustomControlDesigner))]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
     [DefaultProperty("Visible")]
-    public class Krypton.RibbonGroupCustomControl : Krypton.RibbonGroupItem
+    public class KryptonRibbonGroupCustomControl : KryptonRibbonGroupItem
     {
         #region Instance Fields
         private bool _visible;
@@ -58,9 +58,9 @@ namespace Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialise a new instance of the Krypton.RibbonGroupCustom class.
+        /// Initialise a new instance of the KryptonRibbonGroupCustom class.
         /// </summary>
-        public Krypton.RibbonGroupCustomControl()
+        public KryptonRibbonGroupCustomControl()
         {
             // Default fields
             _visible = true;
@@ -280,7 +280,7 @@ namespace Krypton.Ribbon
         /// <param name="needPaint">Delegate for notifying changes in display.</param>
         /// <returns>ViewBase derived instance.</returns>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override ViewBase CreateView(Krypton.Ribbon ribbon, 
+        public override ViewBase CreateView(KryptonRibbon ribbon, 
                                             NeedPaintHandler needPaint)
         {
             return new ViewDrawRibbonGroupCustomControl(ribbon, this, needPaint);
@@ -292,7 +292,7 @@ namespace Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public IKrypton.DesignObject CustomControlDesigner { get; set; }
+        public IKryptonDesignObject CustomControlDesigner { get; set; }
 
         /// <summary>
         /// Internal design time properties.

@@ -13,7 +13,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms.VisualStyles;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
 	/// Take into account the current theme when creating an Office 2003 appearance.
@@ -52,7 +52,7 @@ namespace Krypton.Toolkit
         /// Generate an appropriate color table.
         /// </summary>
         /// <returns>KryptonColorTable instance.</returns>
-        internal override KryptonProfessionalKCT GenerateColorTable()
+        internal override KryptonProfessionalKCT GenerateColorTable(bool _)
         {
             if (Environment.OSVersion.Version.Major < 6)
             {
@@ -80,7 +80,7 @@ namespace Krypton.Toolkit
 
             // Not a recognized scheme, so get the base class to generate something 
             // that looks sensible based on the current system settings
-            return base.GenerateColorTable();
+            return base.GenerateColorTable(true);
         }
         #endregion
 

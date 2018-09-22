@@ -14,9 +14,9 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a ribbon group custom control.
@@ -31,7 +31,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private ViewDrawRibbonGroup _activeGroup;
         private readonly CustomControlController _controller;
         private readonly NeedPaintHandler _needPaint;
@@ -45,8 +45,8 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonCustom">Reference to source custom definition.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonGroupCustomControl(Krypton.Ribbon ribbon,
-                                                Krypton.RibbonGroupCustomControl ribbonCustom,
+        public ViewDrawRibbonGroupCustomControl(KryptonRibbon ribbon,
+                                                KryptonRibbonGroupCustomControl ribbonCustom,
                                                 NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);
@@ -135,7 +135,7 @@ namespace Krypton.Ribbon
         /// <summary>
         /// Gets access to the owning group custom instance.
         /// </summary>
-        public Krypton.RibbonGroupCustomControl GroupCustomControl { get; private set; }
+        public KryptonRibbonGroupCustomControl GroupCustomControl { get; private set; }
 
         #endregion
 
@@ -575,7 +575,7 @@ namespace Krypton.Ribbon
                         {
                             // Check that the group is not collapsed
                             if ((GroupCustomControl.RibbonContainer.RibbonGroup.IsCollapsed) &&
-                                ((_ribbon.GetControllerControl(GroupCustomControl.LastCustomControl) is Krypton.Ribbon) ||
+                                ((_ribbon.GetControllerControl(GroupCustomControl.LastCustomControl) is KryptonRibbon) ||
                                  (_ribbon.GetControllerControl(GroupCustomControl.LastCustomControl) is VisualPopupMinimized)))
                             {
                                 visible = false;
@@ -583,7 +583,7 @@ namespace Krypton.Ribbon
                             else
                             {
                                 // Check that the hierarchy of containers are all visible
-                                Krypton.RibbonGroupContainer container = GroupCustomControl.RibbonContainer;
+                                KryptonRibbonGroupContainer container = GroupCustomControl.RibbonContainer;
 
                                 // Keep going until we have searched the entire parent chain of containers
                                 while (container != null)

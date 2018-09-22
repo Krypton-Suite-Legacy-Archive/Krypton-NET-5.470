@@ -14,9 +14,9 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a ribbon group cluster color button.
@@ -29,7 +29,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private readonly NeedPaintHandler _needPaint;
         private PaletteBackInheritForced _backForced;
         private PaletteBorderInheritForced _borderForced;
@@ -50,8 +50,8 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonButton">Reference to source button definition.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonGroupClusterColorButton(Krypton.Ribbon ribbon,
-                                                     Krypton.RibbonGroupClusterColorButton ribbonButton,
+        public ViewDrawRibbonGroupClusterColorButton(KryptonRibbon ribbon,
+                                                     KryptonRibbonGroupClusterColorButton ribbonButton,
                                                      NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);
@@ -87,7 +87,7 @@ namespace Krypton.Ribbon
 		public override string ToString()
 		{
 			// Return the class name and instance identifier
-            return "Krypton.RibbonGroupClusterColorButton:" + Id;
+            return "KryptonRibbonGroupClusterColorButton:" + Id;
 		}
 
         /// <summary>
@@ -117,7 +117,7 @@ namespace Krypton.Ribbon
         /// <summary>
         /// Gets access to the connected button definition.
         /// </summary>
-        public Krypton.RibbonGroupClusterColorButton GroupClusterColorButton { get; private set; }
+        public KryptonRibbonGroupClusterColorButton GroupClusterColorButton { get; private set; }
 
         #endregion
 

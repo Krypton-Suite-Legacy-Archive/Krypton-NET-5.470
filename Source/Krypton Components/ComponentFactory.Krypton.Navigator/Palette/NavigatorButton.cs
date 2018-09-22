@@ -13,9 +13,9 @@ using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
 	/// Storage for button related properties.
@@ -32,7 +32,7 @@ namespace Krypton.Navigator
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Navigator _navigator;
+        private readonly KryptonNavigator _navigator;
         private DirectionButtonAction _actionPrevious;
         private ButtonDisplay _displayPrevious;
         private DirectionButtonAction _actionNext;
@@ -50,7 +50,7 @@ namespace Krypton.Navigator
 		/// </summary>
         /// <param name="navigator">Reference to owning navigator instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public NavigatorButton(Krypton.Navigator navigator,
+        public NavigatorButton(KryptonNavigator navigator,
                                NeedPaintHandler needPaint)
 		{
             Debug.Assert(navigator != null);

@@ -15,21 +15,21 @@ using System.Drawing.Design;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Globalization;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Represents a ribbon group masked text box.
     /// </summary>
     [ToolboxItem(false)]
-    [ToolboxBitmap(typeof(Krypton.RibbonGroupMaskedTextBox), "ToolboxBitmaps.Krypton.RibbonGroupMaskedTextBox.bmp")]
-    [Designer("Krypton.Ribbon.Krypton.RibbonGroupMaskedTextBoxDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [ToolboxBitmap(typeof(KryptonRibbonGroupMaskedTextBox), "ToolboxBitmaps.KryptonRibbonGroupMaskedTextBox.bmp")]
+    [Designer(typeof(ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupMaskedTextBoxDesigner))]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
     [DefaultEvent("TextChanged")]
     [DefaultProperty("Mask")]
-    public class Krypton.RibbonGroupMaskedTextBox : Krypton.RibbonGroupItem
+    public class KryptonRibbonGroupMaskedTextBox : KryptonRibbonGroupItem
     {
         #region Instance Fields
         private bool _visible;
@@ -163,9 +163,9 @@ namespace Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialise a new instance of the Krypton.RibbonGroupMaskedTextBox class.
+        /// Initialise a new instance of the KryptonRibbonGroupMaskedTextBox class.
         /// </summary>
-        public Krypton.RibbonGroupMaskedTextBox()
+        public KryptonRibbonGroupMaskedTextBox()
         {
             // Default fields
             _visible = true;
@@ -232,7 +232,7 @@ namespace Krypton.Ribbon
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public override Krypton.Ribbon Ribbon
+        public override KryptonRibbon Ribbon
         {
             set 
             { 
@@ -435,7 +435,6 @@ namespace Krypton.Ribbon
         /// </summary>
         [Category("Appearance")]
         [Editor("System.Windows.Forms.Design.MaskedTextBoxTextEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
-        [RefreshProperties(RefreshProperties.All)]
         public string Text
         {
             get => MaskedTextBox.Text;
@@ -834,7 +833,7 @@ namespace Krypton.Ribbon
         /// <param name="needPaint">Delegate for notifying changes in display.</param>
         /// <returns>ViewBase derived instance.</returns>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override ViewBase CreateView(Krypton.Ribbon ribbon, 
+        public override ViewBase CreateView(KryptonRibbon ribbon, 
                                             NeedPaintHandler needPaint)
         {
             return new ViewDrawRibbonGroupMaskedTextBox(ribbon, this, needPaint);
@@ -846,7 +845,7 @@ namespace Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
-        public IKrypton.DesignObject MaskedTextBoxDesigner { get; set; }
+        public IKryptonDesignObject MaskedTextBoxDesigner { get; set; }
 
         /// <summary>
         /// Internal design time properties.

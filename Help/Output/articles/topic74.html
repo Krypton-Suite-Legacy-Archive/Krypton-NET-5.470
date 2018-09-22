@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content=" | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p><strong>Group Item Cluster Button</strong><br>You can only add a cluster button as a child of a cluster instance, they cannot
+be placed inside the group triple or group lines containers. Figure 1 shows the
+properties of the cluster button which are almost the same as those of the more
+general group button item.</p>
+<hr>
+<p>** ** <em>Figure 1 - Group Item Cluster Button Properties</em></p>
+<p><strong>ImageSmall</strong><br>The cluster button item must always have a valid image defined. If you assign
+<em>null</em> to the <em>Image</em> property then it will automatically revert to a default
+blue jigsaw piece image instead.</p>
+<p><strong>KeyTip</strong><br>When <em>KeyTips</em> are displayed this property defines the <em>KeyTip</em> for the cluster
+button instance. You should ensure that all items inside a tab have unique
+<em>KeyTip</em> values so that the user can always select items using keyboard access.</p>
+<p><strong>TextLine</strong><br>Assign the display text for the cluster button to the <em>TextLine</em> property.</p>
+<p><strong>ToolTipBody</strong><br><strong>ToolTipImage</strong><br><strong>ToolTipImageTransparentColor</strong><br><strong>ToolTipStyle</strong><br><strong>ToolTipTitle</strong><br>When the user hovers the mouse over the button instance you can use these
+properties to define the tool tip that will be displayed. Use <em>ToolTipTitle</em> and
+<em>ToolTipBody</em> to define the two text strings for display and <em>ToolTipImage</em> for
+the associated image. If you image contains a color that you would like to be
+treated as transparent then set the <em>ToolTipImageTransparentColor</em>. For example,
+many bitmaps use magenta as the color to become transparent. To control how the
+text and image are displayed in the tool tip you can use the <em>ToolTipStyle</em>
+property.</p>
+<p><strong>ButtonType</strong><br>Determines the appearance and operation of the button. Possible values include:-</p>
+<ul>
+<li><p>Push - A traditional push button</p>
+</li>
+<li><p>Check - Toggles between checked and unchecked</p>
+</li>
+<li><p>DropDown - Displays a context menu strip when pressed</p>
+</li>
+<li><p>Split - Split between a traditional push button and a drop down area</p>
+</li>
+</ul>
+<p><strong>Checked</strong><br>This property is only used when the <em>ButtonType</em> is defined as <em>Checked</em>. It
+determines if the cluster button should be drawn with the checked appearance.
+The value will automatically be toggled between <em>True</em> and <em>False</em> when the user
+clicks the cluster button and <em>ButtonType</em> is <em>Checked</em>.</p>
+<p><strong>ContextMenuStrip</strong><br>When the user clicks a button of type <em>DropDown</em> or the split portion of a
+<em>Split</em> button this property is used if defined and the <em>KryptonContextMenu</em>
+property is null. This property is provided as a parameter to the buttons
+<em>DropDown</em> event so that the developer can customize the context menu strip
+before it is displayed.</p>
+<p><strong>Enabled</strong><br>Used to define if the button is enabled or disabled at runtime.</p>
+<p><strong>KryptonCommand</strong><br>Attached command that is used as a source of state.</p>
+<p><strong>KryptonContextMenu</strong><br>When the user clicks a button of type <em>DropDown</em> or the split portion of a
+<em>Split</em> button this property is used if defined, otherwise the
+<em>ContextMenuStrip</em> is used. This property is provided as a parameter to the
+buttons <em>DropDown</em> event so that the developer can customize the context menu
+before it is displayed.</p>
+<p><strong>ShortcutKeys</strong><br>Define this property if you would like your application to have a shortcut key
+combination that invokes the cluster button. For example, cluster buttons used
+for cut/copy/paste would be defined with shortcut keys so the user can invoke
+those actions without moving focus away from the current control.</p>
+<p><strong>Visible</strong><br>Use this property to specify if the cluster button should be visible at runtime.</p>
+<p><strong>Tag</strong><br>Associate application specific information with the object instance by using
+this property.</p>
+<p><strong>Events</strong>  </p>
+<p><strong>DropDown</strong><br>A cancelable event than allows you to customize the drop down context menu
+before it is displayed. </p>
+<p><strong>Click</strong><br>Occurs when the button has been pressed. </p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

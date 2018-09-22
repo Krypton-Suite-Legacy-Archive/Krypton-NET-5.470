@@ -11,9 +11,9 @@
 
 using System.Drawing;
 using System.Collections.Generic;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
 	/// Special version of the bar used for tabs, used to alter rendering order.

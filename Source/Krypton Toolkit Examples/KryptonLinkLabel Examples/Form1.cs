@@ -12,7 +12,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace KryptonLinkLabelExamples
 {

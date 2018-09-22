@@ -14,7 +14,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
 	/// Displays a shadow effect for a visual popup.
@@ -90,7 +90,7 @@ namespace Krypton.Toolkit
             ClientSize = screenRect.Size;
 
             // Show the window without activating it (i.e. do not take focus)
-			PI.ShowWindow(Handle, (short)PI.SW_SHOWNOACTIVATE);
+			PI.ShowWindow(Handle, PI.SW_SHOWNOACTIVATE);
         }
 
         /// <summary>

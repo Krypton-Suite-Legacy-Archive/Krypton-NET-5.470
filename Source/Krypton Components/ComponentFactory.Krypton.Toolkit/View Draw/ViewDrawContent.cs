@@ -15,7 +15,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Reflection;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
 	/// View element that can draw a content

@@ -21,7 +21,7 @@ using System.Runtime.InteropServices;
 using System.Reflection;
 using Microsoft.Win32;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Display text and images with the styling features of the Krypton Toolkit
@@ -29,7 +29,7 @@ namespace Krypton.Toolkit
     [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonDataGridView), "ToolboxBitmaps.KryptonDataGridView.bmp")]
     [DesignerCategory("code")]
-    [Designer("Krypton.Toolkit.KryptonDataGridViewDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDesigner))]
     [Description("Display rows and columns of data if a grid you can customize.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]

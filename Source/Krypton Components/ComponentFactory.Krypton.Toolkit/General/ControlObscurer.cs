@@ -14,7 +14,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {    
     /// <summary>
     /// Used to obscure an area of the screen to hide form changes underneath.
@@ -51,7 +51,7 @@ namespace Krypton.Toolkit
                           screenRect.Height);
 
                 // Show the window without activating it (i.e. do not take focus)
-                PI.ShowWindow(Handle, (short)PI.SW_SHOWNOACTIVATE);
+                PI.ShowWindow(Handle, PI.SW_SHOWNOACTIVATE);
             }
             #endregion
 

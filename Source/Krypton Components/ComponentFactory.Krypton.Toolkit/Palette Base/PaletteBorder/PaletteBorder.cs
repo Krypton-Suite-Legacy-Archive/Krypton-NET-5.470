@@ -14,7 +14,7 @@ using System.Drawing.Design;
 using System.ComponentModel;
 using System.Diagnostics;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
 	/// Implement storage for palette border details.
@@ -210,7 +210,7 @@ namespace Krypton.Toolkit
         [Description("Specify which borders should be drawn.")]
         [DefaultValue(typeof(PaletteDrawBorders), "Inherit")]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-        [Editor("Krypton.Toolkit.PaletteDrawBordersEditor, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
+        [Editor(typeof(ComponentFactory.Krypton.Toolkit.PaletteDrawBordersEditor), typeof(UITypeEditor))]
         public PaletteDrawBorders DrawBorders
         {
             get => _storage?.BorderDrawBorders ?? PaletteDrawBorders.Inherit;

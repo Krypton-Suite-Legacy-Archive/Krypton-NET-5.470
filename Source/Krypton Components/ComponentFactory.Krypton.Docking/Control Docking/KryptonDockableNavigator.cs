@@ -12,16 +12,16 @@
 using System;
 using System.Drawing;
 using System.ComponentModel;
-using Krypton.Toolkit;
-using Krypton.Navigator;
+using ComponentFactory.Krypton.Toolkit;
+using ComponentFactory.Krypton.Navigator;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
     /// <summary>
-    /// Extends the Krypton.Navigator to work within the docking framework.
+    /// Extends the KryptonNavigator to work within the docking framework.
     /// </summary>
     [ToolboxBitmap(typeof(KryptonDockableWorkspace), "ToolboxBitmaps.KryptonDockableNavigator.bmp")]
-    public class KryptonDockableNavigator : Krypton.Navigator
+    public class KryptonDockableNavigator : KryptonNavigator
     {
         #region Events
         /// <summary>

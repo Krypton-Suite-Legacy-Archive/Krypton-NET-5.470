@@ -10,21 +10,21 @@
 // *****************************************************************************
 
 using System;
-using System.Security;
-using System.Resources;
 using System.Reflection;
+using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Security;
 
-[assembly: AssemblyVersion("4.70.555.0")]
-[assembly: AssemblyFileVersion("4.70.555.0")]
-[assembly: AssemblyInformationalVersion("4.70.555.0")]
+[assembly: AssemblyVersion("4.70.588.0")]
+[assembly: AssemblyFileVersion("4.70.588.0")]
+[assembly: AssemblyInformationalVersion("4.70.588.0")]
 [assembly: AssemblyCopyright("© Component Factory Pty Ltd, 2006-2018. Then modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017-2018. All rights reserved.")]
 [assembly: AssemblyProduct("Krypton Navigator")]
-[assembly: AssemblyDefaultAlias("Krypton.Navigator.dll")]
-[assembly: AssemblyTitle("Krypton.Navigator")]
+[assembly: AssemblyDefaultAlias("ComponentFactory.Krypton.Navigator.dll")]
+[assembly: AssemblyTitle("ComponentFactory.Krypton.Navigator")]
 [assembly: AssemblyCompany("Component Factory Pty Ltd, Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV)")]
-[assembly: AssemblyDescription("Krypton.Navigator")]
+[assembly: AssemblyDescription("ComponentFactory.Krypton.Navigator")]
 [assembly: AssemblyConfiguration("Production")]
 [assembly: NeutralResourcesLanguage("en-US")]
 [assembly: StringFreezing]
@@ -35,5 +35,5 @@ using System.Runtime.InteropServices;
 [assembly: Dependency("System.Drawing", LoadHint.Always)]
 [assembly: Dependency("System.Windows.Forms", LoadHint.Always)]
 [assembly: Dependency("System.Xml", LoadHint.Always)]
-[assembly: Dependency("Krypton.Toolkit", LoadHint.Always)]
+[assembly: Dependency("ComponentFactory.Krypton.Toolkit", LoadHint.Always)]
 [assembly: SecurityRules(SecurityRuleSet.Level1)]

@@ -16,10 +16,10 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
 using Microsoft.Win32;
-using Krypton.Toolkit;
-using Krypton.Ribbon;
-using Krypton.Navigator;
-using Krypton.Workspace;
+using ComponentFactory.Krypton.Toolkit;
+using ComponentFactory.Krypton.Ribbon;
+using ComponentFactory.Krypton.Navigator;
+using ComponentFactory.Krypton.Workspace;
 
 namespace MemoEditor
 {

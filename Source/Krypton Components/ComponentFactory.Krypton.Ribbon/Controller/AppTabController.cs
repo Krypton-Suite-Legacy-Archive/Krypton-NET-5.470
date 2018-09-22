@@ -12,9 +12,9 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Provide application button tab functionality.
@@ -26,7 +26,7 @@ namespace Krypton.Ribbon
                                       IRibbonKeyTipTarget
     {
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private bool _mouseOver;
         private bool _mouseDown;
         private bool _fixedPressed;
@@ -55,7 +55,7 @@ namespace Krypton.Ribbon
         /// <summary>
         /// Initialize a new instance of the AppTabController class.
 		/// </summary>
-        public AppTabController(Krypton.Ribbon ribbon)
+        public AppTabController(KryptonRibbon ribbon)
 		{
             _ribbon = ribbon;
             Keyboard = false;
@@ -248,7 +248,7 @@ namespace Krypton.Ribbon
         public void KeyDown(Control c, KeyEventArgs e)
         {
             ViewBase newView = null;
-            Krypton.Ribbon ribbon = (Krypton.Ribbon)c;
+            KryptonRibbon ribbon = (KryptonRibbon)c;
 
             switch (e.KeyData)
             {
@@ -378,7 +378,7 @@ namespace Krypton.Ribbon
         /// Perform actual selection of the item.
         /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
-        public void KeyTipSelect(Krypton.Ribbon ribbon)
+        public void KeyTipSelect(KryptonRibbon ribbon)
         {
             // We leave key tips usage whenever we use the application button
             ribbon.KillKeyboardKeyTips();

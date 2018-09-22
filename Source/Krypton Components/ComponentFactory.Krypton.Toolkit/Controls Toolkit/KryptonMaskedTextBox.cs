@@ -17,7 +17,7 @@ using System.Runtime.InteropServices;
 using System.Globalization;
 using System.Windows.Forms;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
     /// Provide a MaskedTextBox with Krypton styling applied.
@@ -27,7 +27,7 @@ namespace Krypton.Toolkit
     [DefaultEvent("MaskInputRejected")]
 	[DefaultProperty("Mask")]
     [DefaultBindingProperty("Text")]
-    [Designer("Krypton.Toolkit.KryptonMaskedTextBoxDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBoxDesigner))]
     [DesignerCategory("code")]
     [Description("Uses a mask to distinguish between proper and improper user input.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]

@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.kryptonManager = new Krypton.Toolkit.KryptonManager(this.components);
-            this.kryptonDockingManager = new Krypton.Docking.KryptonDockingManager();
-            this.kryptonPanel = new Krypton.Toolkit.KryptonPanel();
-            this.kryptonDockableWorkspace = new Krypton.Docking.KryptonDockableWorkspace();
+            this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonDockingManager = new ComponentFactory.Krypton.Docking.KryptonDockingManager();
+            this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonDockableWorkspace = new ComponentFactory.Krypton.Docking.KryptonDockableWorkspace();
             this.imageListSmall = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
@@ -52,8 +52,8 @@
             // kryptonDockableWorkspace
             // 
             this.kryptonDockableWorkspace.AutoHiddenHost = false;
-            this.kryptonDockableWorkspace.CompactFlags = ((Krypton.Workspace.CompactFlags)(((Krypton.Workspace.CompactFlags.RemoveEmptyCells | Krypton.Workspace.CompactFlags.RemoveEmptySequences)
-                        | Krypton.Workspace.CompactFlags.PromoteLeafs)));
+            this.kryptonDockableWorkspace.CompactFlags = ((ComponentFactory.Krypton.Workspace.CompactFlags)(((ComponentFactory.Krypton.Workspace.CompactFlags.RemoveEmptyCells | ComponentFactory.Krypton.Workspace.CompactFlags.RemoveEmptySequences) 
+            | ComponentFactory.Krypton.Workspace.CompactFlags.PromoteLeafs)));
             this.kryptonDockableWorkspace.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonDockableWorkspace.Location = new System.Drawing.Point(0, 0);
             this.kryptonDockableWorkspace.Name = "kryptonDockableWorkspace";
@@ -95,10 +95,10 @@
 
         #endregion
 
-        private Krypton.Toolkit.KryptonManager kryptonManager;
-        private Krypton.Docking.KryptonDockingManager kryptonDockingManager;
-        private Krypton.Toolkit.KryptonPanel kryptonPanel;
-        private Krypton.Docking.KryptonDockableWorkspace kryptonDockableWorkspace;
+        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager;
+        private ComponentFactory.Krypton.Docking.KryptonDockingManager kryptonDockingManager;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel;
+        private ComponentFactory.Krypton.Docking.KryptonDockableWorkspace kryptonDockableWorkspace;
         private System.Windows.Forms.ImageList imageListSmall;
     }
 }

@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.Drawing;
-using Krypton.Navigator;
+using ComponentFactory.Krypton.Navigator;
 
-namespace Krypton.Workspace
+namespace ComponentFactory.Krypton.Workspace
 {
     /// <summary>
     /// Target within the workspace.
@@ -37,7 +37,7 @@ namespace Krypton.Workspace
                                    Rectangle hotRect,
                                    Rectangle drawRect,
                                    DragTargetHint hint,
-                                   Krypton.Workspace workspace,
+                                   KryptonWorkspace workspace,
                                    KryptonPageFlags allowFlags)
             : base(screenRect, hotRect, drawRect, hint, allowFlags)
         {
@@ -63,7 +63,7 @@ namespace Krypton.Workspace
         /// <summary>
         /// Gets the target workspace control.
         /// </summary>
-        public Krypton.Workspace Workspace { get; private set; }
+        public KryptonWorkspace Workspace { get; private set; }
 
         #endregion
 
@@ -75,8 +75,8 @@ namespace Krypton.Workspace
         /// <param name="target">Target workspace cell instance.</param>
         /// <param name="data">Dragged page data.</param>
         /// <returns>Last page to be transferred.</returns>
-        protected KryptonPage ProcessDragEndData(Krypton.Workspace workspace,
-                                                 Krypton.WorkspaceCell target,
+        protected KryptonPage ProcessDragEndData(KryptonWorkspace workspace,
+                                                 KryptonWorkspaceCell target,
                                                  PageDragEndData data)
         {
             KryptonPage ret = null;

@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System.Drawing;
-using Krypton.Navigator;
+using ComponentFactory.Krypton.Navigator;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
     /// <summary>
     /// Target that never matches and so acts as a null drag target.

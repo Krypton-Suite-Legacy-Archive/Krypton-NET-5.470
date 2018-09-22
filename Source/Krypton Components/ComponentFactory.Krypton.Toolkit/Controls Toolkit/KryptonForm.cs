@@ -17,7 +17,7 @@ using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Draws the window chrome using a Krypton palette.
@@ -1620,7 +1620,9 @@ namespace Krypton.Toolkit
             return cp;
         }
 
-        // Example by juverpp
+        /// <summary>
+        /// Example by juverpp 
+        /// </summary>
         protected override CreateParams CreateParams
         {
             get

@@ -11,7 +11,7 @@
 
 using System;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
 	/// <summary>
     /// Event arguments for a DockableWorkspaceRemoved event.
@@ -29,7 +29,7 @@ namespace Krypton.Docking
         /// <param name="workspace">Reference to dockable workspace control instance.</param>
         /// <param name="element">Reference to docking workspace element that is managing the dockable workspace control.</param>
         public DockableWorkspaceEventArgs(KryptonDockableWorkspace workspace,
-                                          Krypton.DockingWorkspace element)
+                                          KryptonDockingWorkspace element)
 		{
             DockableWorkspaceControl = workspace;
             DockingWorkspaceElement = element;
@@ -43,9 +43,9 @@ namespace Krypton.Docking
         public KryptonDockableWorkspace DockableWorkspaceControl { get; }
 
 	    /// <summary>
-        /// Gets a reference to the Krypton.DockingWorkspace that is managing the dockable workspace control.
+        /// Gets a reference to the KryptonDockingWorkspace that is managing the dockable workspace control.
         /// </summary>
-        public Krypton.DockingWorkspace DockingWorkspaceElement { get; }
+        public KryptonDockingWorkspace DockingWorkspaceElement { get; }
 
 	    #endregion
 	}

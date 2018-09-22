@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System;
-using Krypton.Navigator;
+using ComponentFactory.Krypton.Navigator;
 
-namespace Krypton.Workspace
+namespace ComponentFactory.Krypton.Workspace
 {
 	/// <summary>
 	/// Data associated with a change in the active page.

@@ -12,7 +12,7 @@
 using System;
 using System.Xml;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
 	/// <summary>
     /// Event data for loading global docking configuration.
@@ -29,7 +29,7 @@ namespace Krypton.Docking
 		/// </summary>
         /// <param name="manager">Reference to owning docking manager instance.</param>
         /// <param name="xmlReading">Xml reader for persisting custom data.</param>
-        public DockGlobalLoadingEventArgs(Krypton.DockingManager manager,
+        public DockGlobalLoadingEventArgs(KryptonDockingManager manager,
                                           XmlReader xmlReading)
 		{
             DockingManager = manager;
@@ -41,7 +41,7 @@ namespace Krypton.Docking
 		/// <summary>
         /// Gets the docking manager reference.
 		/// </summary>
-        public Krypton.DockingManager DockingManager { get; }
+        public KryptonDockingManager DockingManager { get; }
 
 	    /// <summary>
         /// Gets the xml reader.

@@ -11,9 +11,9 @@
 
 using System.Drawing;
 using System.Windows.Forms;
-using Krypton.Navigator;
+using ComponentFactory.Krypton.Navigator;
 
-namespace Krypton.Workspace
+namespace ComponentFactory.Krypton.Workspace
 {
     /// <summary>
     /// Target a transfer to the target workspace cell.
@@ -21,7 +21,7 @@ namespace Krypton.Workspace
     public class DragTargetWorkspaceCellTransfer : DragTargetWorkspace
     {
         #region Instance Fields
-        private Krypton.WorkspaceCell _cell;
+        private KryptonWorkspaceCell _cell;
         private int _notDraggedPagesFromCell;
         #endregion
 
@@ -38,8 +38,8 @@ namespace Krypton.Workspace
         public DragTargetWorkspaceCellTransfer(Rectangle screenRect,
                                                Rectangle hotRect,
                                                Rectangle drawRect,
-                                               Krypton.Workspace workspace,
-                                               Krypton.WorkspaceCell cell,
+                                               KryptonWorkspace workspace,
+                                               KryptonWorkspaceCell cell,
                                                KryptonPageFlags allowFlags)
             : base(screenRect, hotRect, drawRect, DragTargetHint.Transfer, workspace, allowFlags)
         {

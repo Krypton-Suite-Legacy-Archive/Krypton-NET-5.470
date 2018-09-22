@@ -9,19 +9,19 @@
 //  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
-    /// Delegate used for hooking into a Krypton.RibbonContext typed collection.
+    /// Delegate used for hooking into a KryptonRibbonContext typed collection.
     /// </summary>
-    public delegate void RibbonRecentDocHandler(object sender, TypedCollectionEventArgs<Krypton.RibbonRecentDoc> e);
+    public delegate void RibbonRecentDocHandler(object sender, TypedCollectionEventArgs<KryptonRibbonRecentDoc> e);
 
     /// <summary>
     /// Specialise the generic collection with type specific rules for recent document item accessor.
     /// </summary>
-    public class Krypton.RibbonRecentDocCollection : TypedCollection<Krypton.RibbonRecentDoc>
+    public class KryptonRibbonRecentDocCollection : TypedCollection<KryptonRibbonRecentDoc>
     {
         #region Public
         /// <summary>
@@ -29,12 +29,12 @@ namespace Krypton.Ribbon
         /// </summary>
         /// <param name="name">Name of the recent document instance.</param>
         /// <returns>Item at specified index.</returns>
-        public override Krypton.RibbonRecentDoc this[string name]
+        public override KryptonRibbonRecentDoc this[string name]
         {
             get
             {
                 // Search for an entry with the same text name as that requested.
-                foreach (Krypton.RibbonRecentDoc recentDoc in this)
+                foreach (KryptonRibbonRecentDoc recentDoc in this)
                 {
                     if (recentDoc.Text == name)
                     {

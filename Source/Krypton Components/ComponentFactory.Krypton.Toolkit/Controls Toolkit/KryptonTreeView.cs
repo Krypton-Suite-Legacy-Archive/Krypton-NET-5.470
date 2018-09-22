@@ -10,16 +10,16 @@
 // *****************************************************************************
 
 using System;
+using System.Collections;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Drawing.Drawing2D;
-using System.ComponentModel;
-using System.Windows.Forms;
-using System.Runtime.InteropServices;
-using System.Collections;
 using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Provide a TreeView with Krypton styling applied.
@@ -28,7 +28,7 @@ namespace Krypton.Toolkit
     [ToolboxBitmap(typeof(KryptonTreeView), "ToolboxBitmaps.KryptonTreeView.bmp")]
     [DefaultEvent("AfterSelect")]
     [DefaultProperty("Nodes")]
-    [Designer("Krypton.Toolkit.KryptonTreeViewDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonTreeViewDesigner))]
     [DesignerCategory("code")]
     [Description("Displays a hierarchical collection of labeled items, each represented by a TreeNode")]
     [Docking(DockingBehavior.Ask)]
@@ -847,7 +847,7 @@ namespace Krypton.Toolkit
         [Category("Behavior")]
         [Description("The default image index for nodes.")]
         [Localizable(true)]
-        [TypeConverter("Krypton.Toolkit.NoneExcludedImageIndexConverter, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+        [TypeConverter("ComponentFactory.Krypton.Toolkit.NoneExcludedImageIndexConverter, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
         [Editor("System.Windows.Forms.Design.ImageIndexEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         [RefreshProperties(RefreshProperties.Repaint)]
         [RelatedImageList("ImageList")]
@@ -881,7 +881,7 @@ namespace Krypton.Toolkit
         [Category("Behavior")]
         [Description("The ImageList control from which nodes images are taken.")]
         [RefreshProperties(RefreshProperties.Repaint)]
-        [DefaultValue((string)null)]
+        [DefaultValue(null)]
         public ImageList ImageList
         {
             get => _treeView.ImageList;
@@ -930,7 +930,7 @@ namespace Krypton.Toolkit
         [Category("Behavior")]
         [Description("The default image index for selected nodes.")]
         [Localizable(true)]
-        [TypeConverter("Krypton.Toolkit.NoneExcludedImageIndexConverter, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+        [TypeConverter("ComponentFactory.Krypton.Toolkit.NoneExcludedImageIndexConverter, ComponentFactory.Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
         [Editor("System.Windows.Forms.Design.ImageIndexEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         [RelatedImageList("ImageList")]
         [DefaultValue(-1)]
@@ -1023,7 +1023,7 @@ namespace Krypton.Toolkit
         /// </summary>
         [Category("Behavior")]
         [Description("The ImageList used by the control for custom states.")]
-        [DefaultValue((string)null)]
+        [DefaultValue(null)]
         public ImageList StateImageList
         {
             get => _treeView.StateImageList;
@@ -1730,6 +1730,21 @@ namespace Krypton.Toolkit
             PerformNeedPaint(true);
             _treeView.Invalidate();
             base.OnMouseLeave(e);
+        }
+
+        /// <summary>
+        /// Raises the MouseDown event.
+        /// </summary>
+        /// <param name="e">A MouseEventArgs that contains the event data.</param>
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            _mouseOver = false;
+
+            PerformNeedPaint(true);
+
+            _treeView.Invalidate();
+
+            base.OnMouseDown(e);
         }
 
         /// <summary>

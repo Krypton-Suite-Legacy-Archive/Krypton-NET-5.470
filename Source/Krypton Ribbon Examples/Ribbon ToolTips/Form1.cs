@@ -14,8 +14,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
-using Krypton.Toolkit;
-using Krypton.Ribbon;
+using ComponentFactory.Krypton.Toolkit;
+using ComponentFactory.Krypton.Ribbon;
 
 namespace RibbonToolTips
 {

@@ -17,7 +17,7 @@ using System.Runtime.InteropServices;
 using System.Reflection;
 using Microsoft.Win32;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
     /// Display a windows forms label but with Krypton palette text and font settings.
@@ -26,7 +26,7 @@ namespace Krypton.Toolkit
     [ToolboxBitmap(typeof(KryptonWrapLabel), "ToolboxBitmaps.KryptonWrapLabel.bmp")]
 	[DefaultProperty("Text")]
     [DefaultBindingProperty("Text")]
-    [Designer("Krypton.Toolkit.KryptonWrapLabelDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonWrapLabelDesigner))]
     [DesignerCategory("code")]
     [Description("Displays descriptive information.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]

@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content=" | Krypton Component Suite 2018
+BSD 3-Clause License
+&#65533; Component Factory Pty Ltd, 2006-2018, All rights reserved. ">
+    <meta name="generator" content="docfx 2.33.1.0">
+    
+    <link rel="shortcut icon" href="../Krypton.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>Navigator Other Events  </p>
+<p>Applicable Events:<br>        TabCountChanged<br>        TabVisibleCountChanged<br>        TabDoubleClicked<br>        TabMouseHoverStart<br>        TabMouseHoverEnd<br>        PrimaryHeaderLeftClicked<br>        PrimaryHeaderRightClicked<br>        PrimaryHeaderDoubleClicked<br>        DisplayPopupPage<br>        OutlookDropDown<br>        ShowContextMenu<br>        BeginPageDrag<br>        AfterPageDrag<br>        PageDrop<br>        CtrlTabStart<br>        CtrlTabWrap<br>        TabClicked</p>
+<p><strong>TabCountChanged</strong><br>Fired when the number of pages in the control has changed.  </p>
+<p><strong>TabVisibleCountChanged</strong><br>Occurs when the number of visible pages has changed. This can occur when the
+number of actual pages remains constant but the <em>Visible</em> state of the pages is
+updated.  </p>
+<p><strong>TabDoubleClicked</strong><br>When the user double clicks a tab with the left mouse button this event is
+fired.  </p>
+<p><strong>TabMouseHoverStart</strong><br>If the user moves the mouse over a tab and leaves the mouse static for a short
+period of time then this event if fired. This is useful if you want to display
+your own tool tip style feedback.  </p>
+<p><strong>TabMouseHoverEnd</strong><br>Generated when the mouse moves after a TabMouseHoverStart has been created.
+These two events are always paired.  </p>
+<p><strong>PrimaryHeaderLeftClicked</strong><br>Fired when the user left mouse clicks on a primary header element.  </p>
+<p><strong>PrimaryHeaderRightClicked</strong><br>Fired when the user right mouse clicks on a primary header element.  </p>
+<p><strong>PrimaryHeaderDoubleClicked</strong><br>When the user double clicks with the left mouse button on a primary header
+element.  </p>
+<p><strong>DisplayPopupPage</strong><br>This event is fired whenever a pop up page is about to be shown. It has a
+<em>Cancel</em> property that allows you to prevent the pop up page from being shown by
+setting the <em>Cancel</em> to be <em>True</em>. It also has a <em>ScreenRectangle</em> parameter
+that you can inspect and modify to change the screen location and size of the
+pop up. It will be populated with a calculated value that is used unless you
+decide to override the value. Also provided is an <em>Item</em> property that gives you
+a reference to the <em>KryptonPage</em> that is going to be shown.  </p>
+<p><strong>OutlookDropDown</strong><br>When using either the <em>Outlook - Full</em> or the <em>Outlook - Mini</em> mode there is a
+small drop down arrow available in the overflow area of the control. When you
+click this drop down this event is generated. It has a property called
+<em>KryptonContextMenu</em> that contains the set of menu items for display to the
+user. You can modify this list by adding your own custom items that you would
+like presented to the user.  </p>
+<p><strong>ShowContextMenu</strong><br>If you right-click a page header then this event is generated as an attempt to
+show a page specific context menu. By default the events <em>e.Cancel</em> property is
+defined as <em>True</em> so that no context menu is shown. If you would like to show a
+context menu for the page then you must set this property to <em>False</em> in the
+event handler.</p>
+<p>The event arguments have two properties called <em>ContextMenuStrip</em> and
+<em>KryptonContextMenu</em> that are used to specify the context menu to be shown. Use
+of <em>KryptonContextMenu</em> takes precedence. When the event is generated the value
+of the context menu properties is defaulted to the settings from the actual
+<em>KryptonPage</em>. So the event argument <em>KryptonContextMenu</em> property is defined as
+the value of <em>KryptonPage.KryptonContextMenu</em> and the event
+argument <em>ContextMenuStrip</em> is defined as the <em>KryptonPage.ContextMenuStrip</em>
+value.</p>
+<p><strong>BeginPageDrag</strong><br>Just before page dragging occurs this event is fired to allow event handlers a
+chance to either cancel the operation or modify the set of pages that are being
+dragged. Note that <em>AllowPageDrag</em> must be set to <em>True</em> before any page
+dragging can occur and so this event will not be fired unless that property is
+set. Once this event has finished and has not been cancelled the
+<em>PageDragNotify</em> interface, if present, will be used during the drag operation
+for providing feedback.  </p>
+<p><strong>AfterPageDrag</strong><br>After the dragging operation has completed this event is fired so the event
+handler can cleanup and reverse any actions they took during the
+<em>BeginPageDrap</em>. It provides a property indicating if the drop was completed
+with success, so the drop occurred, or if the operation was cancelled.  </p>
+<p><strong>PageDrop</strong><br>This event is fired when a page is being dropped into the navigator instance.
+You can use this event to cancel the drop or alter the provided page reference
+in order to alter the page actually dropped.  </p>
+<p><strong>CtrlTabStart</strong><br>When the user presses the <em>Ctrl+Tab</em> key combination this event is fired so that
+you can cancel the event and prevent the normal action from occuring. Normally
+this key combination will cause the selected page to shift to the next visible
+and enabled page. <em>Ctrl+Shift+Tab</em> also fires the event and selected the
+previous page instead of the next page. One of the event arguments indicates if
+the shift key is pressed.  </p>
+<p><strong>CtrlTabWrap</strong><br>The <em>Ctrl+Tab</em> key combination causes the next appropriate page to become
+selected. If the searching reaches the end of the page list it wraps around to
+the first page again to continue the search. Hence using the <em>Ctrl+Tab</em>
+combination rotates around all the pages continually. To prevent this wrapping
+around of the page list you hook into this event and set the <em>Cancel</em> event
+argument. One of the event arguments indicates if the shift key is pressed.  </p>
+<p><strong>TabClicked</strong><br>This event is generated when the user left mouse clicks on a page tab header.
+Tab headers including the ribbon tabs, standard tabs and the check buttons that
+are used for many of the available modes. This event is generated even if the
+page is already the selected page.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.7)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

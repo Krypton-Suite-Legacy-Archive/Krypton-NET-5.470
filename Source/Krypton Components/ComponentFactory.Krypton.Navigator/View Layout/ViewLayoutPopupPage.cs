@@ -11,9 +11,9 @@
 
 using System.Drawing;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
 	/// View element that positions the provided page in the requested position.
@@ -21,7 +21,7 @@ namespace Krypton.Navigator
     internal class ViewLayoutPopupPage : ViewLayoutNull
 	{
 		#region Instance Fields
-        private readonly Krypton.Navigator _navigator;
+        private readonly KryptonNavigator _navigator;
         private readonly KryptonPage _page;
 		#endregion
 
@@ -31,7 +31,7 @@ namespace Krypton.Navigator
 		/// </summary>
         /// <param name="navigator">Reference to owning navigator control.</param>
         /// <param name="page">Page to the positioned.</param>
-        public ViewLayoutPopupPage(Krypton.Navigator navigator,
+        public ViewLayoutPopupPage(KryptonNavigator navigator,
                                    KryptonPage page)
 		{
             Debug.Assert(navigator != null);

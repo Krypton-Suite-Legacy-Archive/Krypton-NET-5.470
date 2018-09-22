@@ -16,7 +16,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
     /// Special panel used in the KryptonSplitContainer.
@@ -24,7 +24,7 @@ namespace Krypton.Toolkit
 	[ToolboxItem(false)]
 	[DesignerCategory("code")]
     [ToolboxBitmap(typeof(KryptonSplitterPanel), "ToolboxBitmaps.KryptonGroupPanel.bmp")]
-    [Designer("Krypton.Toolkit.KryptonSplitterPanelDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonSplitterPanelDesigner))]
     [Description("Enables you to group collections of controls.")]
     [Docking(DockingBehavior.Never)]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]

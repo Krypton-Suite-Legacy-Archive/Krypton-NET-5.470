@@ -17,9 +17,9 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
     /// Allow the palette to be overriden optionally.

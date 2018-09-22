@@ -15,14 +15,14 @@ using System.Drawing.Design;
 using System.Windows.Forms;
 using System.ComponentModel;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Provide a standard menu item.
     /// </summary>
     [ToolboxItem(false)]
     [ToolboxBitmap(typeof(KryptonContextMenuItem), "ToolboxBitmaps.KryptonContextMenuItem.bmp")]
-    [Designer("Krypton.Toolkit.KryptonContextMenuItemDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemDesigner))]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
     [DefaultProperty("Text")]
@@ -557,7 +557,7 @@ namespace Krypton.Toolkit
         [Category("Data")]
         [Description("Collection of sub-menu items.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [Editor("Krypton.Toolkit.KryptonContextMenuCollectionEditor, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
+        [Editor(typeof(ComponentFactory.Krypton.Toolkit.KryptonContextMenuCollectionEditor), typeof(UITypeEditor))]
         public KryptonContextMenuCollection Items { get; }
 
         /// <summary>

@@ -14,9 +14,9 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a dialog box launcher button for a group.
@@ -31,8 +31,8 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
-        private readonly Krypton.RibbonGroup _ribbonGroup;
+        private readonly KryptonRibbon _ribbon;
+        private readonly KryptonRibbonGroup _ribbonGroup;
         private IDisposable _mementoBack;
         #endregion
 
@@ -43,8 +43,8 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonGroup">Reference to ribbon group this represents.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonGroupDialogButton(Krypton.Ribbon ribbon,
-                                               Krypton.RibbonGroup ribbonGroup,
+        public ViewDrawRibbonGroupDialogButton(KryptonRibbon ribbon,
+                                               KryptonRibbonGroup ribbonGroup,
                                                NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);

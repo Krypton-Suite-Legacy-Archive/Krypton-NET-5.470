@@ -12,7 +12,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
     /// <summary>
     /// Target the entire navigator client area.
@@ -20,7 +20,7 @@ namespace Krypton.Navigator
     public class DragTargetNavigatorTransfer : DragTarget
     {
         #region Instance Fields
-        private Krypton.Navigator _navigator;
+        private KryptonNavigator _navigator;
         private int _notDraggedPagesFromNavigator;
         #endregion
 
@@ -32,7 +32,7 @@ namespace Krypton.Navigator
         /// <param name="navigator">Control instance for drop.</param>
         /// <param name="allowFlags">Only drop pages that have one of these flags defined.</param>
         public DragTargetNavigatorTransfer(Rectangle rect,
-                                           Krypton.Navigator navigator,
+                                           KryptonNavigator navigator,
                                            KryptonPageFlags allowFlags)
             : base(rect, rect, rect, DragTargetHint.Transfer, allowFlags)
         {

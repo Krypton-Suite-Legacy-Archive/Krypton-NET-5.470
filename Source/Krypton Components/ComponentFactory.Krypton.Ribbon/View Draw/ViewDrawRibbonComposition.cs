@@ -14,9 +14,9 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Allocate space for the location of the composition caption area.
@@ -31,7 +31,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private VisualForm _ownerForm;
         private readonly NeedPaintHandler _needPaint;
         private Blend _compBlend;
@@ -43,7 +43,7 @@ namespace Krypton.Ribbon
 		/// </summary>
         /// <param name="ribbon">Owning control instance.</param>
         /// <param name="needPaint">Delegate for requested a paint.</param>
-        public ViewDrawRibbonComposition(Krypton.Ribbon ribbon,
+        public ViewDrawRibbonComposition(KryptonRibbon ribbon,
                                          NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);

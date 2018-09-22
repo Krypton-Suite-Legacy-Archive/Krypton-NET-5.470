@@ -11,7 +11,7 @@
 
 using System.ComponentModel;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
     /// Details for an event that indicates a page is being dropped.

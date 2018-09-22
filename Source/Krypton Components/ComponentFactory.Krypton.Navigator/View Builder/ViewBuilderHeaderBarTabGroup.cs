@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.ComponentModel;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
     /// Implements the NavigatorMode.HeaderGroupTab view.
@@ -38,7 +38,7 @@ namespace Krypton.Navigator
         /// <param name="navigator">Reference to navigator instance.</param>
         /// <param name="manager">Reference to current manager.</param>
         /// <param name="redirector">Palette redirector.</param>
-        public override void Construct(Krypton.Navigator navigator,
+        public override void Construct(KryptonNavigator navigator,
                                        ViewManager manager,
                                        PaletteRedirect redirector)
         {

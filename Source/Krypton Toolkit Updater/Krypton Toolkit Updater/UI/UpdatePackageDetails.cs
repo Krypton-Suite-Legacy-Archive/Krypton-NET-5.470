@@ -1,4 +1,4 @@
-﻿using Krypton.Toolkit;
+﻿using ComponentFactory.Krypton.Toolkit;
 using System;
 
 namespace KryptonToolkitUpdater.UI
@@ -6,7 +6,7 @@ namespace KryptonToolkitUpdater.UI
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="Krypton.Toolkit.KryptonForm" />
+    /// <seealso cref="ComponentFactory.Krypton.Toolkit.KryptonForm" />
     public partial class UpdatePackageDetails : KryptonForm
     {
         #region Variables

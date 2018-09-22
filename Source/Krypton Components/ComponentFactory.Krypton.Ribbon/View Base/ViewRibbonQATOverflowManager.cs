@@ -12,14 +12,14 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     internal class ViewRibbonQATOverflowManager : ViewManager
     {
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private ViewBase _focusView;
         private bool _layingOut;
         #endregion
@@ -32,7 +32,7 @@ namespace Krypton.Ribbon
         /// <param name="control">Owning control.</param>
         /// <param name="qatContents">View that will handle focus requests.</param>
         /// <param name="root">View for group we are tracking.</param>
-        public ViewRibbonQATOverflowManager(Krypton.Ribbon ribbon,
+        public ViewRibbonQATOverflowManager(KryptonRibbon ribbon,
                                             Control control,
                                             ViewLayoutRibbonQATContents qatContents,
                                             ViewBase root)

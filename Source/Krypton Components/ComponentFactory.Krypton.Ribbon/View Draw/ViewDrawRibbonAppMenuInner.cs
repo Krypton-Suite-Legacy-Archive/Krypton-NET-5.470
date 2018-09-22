@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Extends the ViewLayoutDocker by drawing the ribbon application button inner background.
@@ -20,7 +20,7 @@ namespace Krypton.Ribbon
     internal class ViewDrawRibbonAppMenuInner : ViewLayoutDocker
 	{
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private IDisposable _memento;
         #endregion
 
@@ -29,7 +29,7 @@ namespace Krypton.Ribbon
         /// Initialize a new instance of the ViewDrawRibbonAppMenuInner class.
         /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
-        public ViewDrawRibbonAppMenuInner(Krypton.Ribbon ribbon)
+        public ViewDrawRibbonAppMenuInner(KryptonRibbon ribbon)
         {
             _ribbon = ribbon;
         }

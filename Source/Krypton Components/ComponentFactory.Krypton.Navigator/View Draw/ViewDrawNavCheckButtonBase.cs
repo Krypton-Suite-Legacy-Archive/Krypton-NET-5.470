@@ -14,9 +14,9 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.ComponentModel;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
 	/// Navigator view base element for drawing a check button for a krypton page.
@@ -63,7 +63,7 @@ namespace Krypton.Navigator
         /// <param name="page">Page this check button represents.</param>
         /// <param name="orientation">Orientation for the check button.</param>
         /// <param name="overflow">Button is used on the overflow bar.</param>
-        public ViewDrawNavCheckButtonBase(Krypton.Navigator navigator,
+        public ViewDrawNavCheckButtonBase(KryptonNavigator navigator,
                                           KryptonPage page,
                                           VisualOrientation orientation,
                                           bool overflow)
@@ -83,7 +83,7 @@ namespace Krypton.Navigator
         /// <param name="navigator">Owning navigator instance.</param>
         /// <param name="page">Page this check button represents.</param>
         /// <param name="orientation">Orientation for the check button.</param>
-        public ViewDrawNavCheckButtonBase(Krypton.Navigator navigator,
+        public ViewDrawNavCheckButtonBase(KryptonNavigator navigator,
                                           KryptonPage page,
                                           VisualOrientation orientation)
             : this(navigator, page, orientation,
@@ -108,7 +108,7 @@ namespace Krypton.Navigator
         /// <param name="statePressed">Source for pressed state values.</param>
         /// <param name="stateSelected">Source for selected state values.</param>
         /// <param name="stateFocused">Source for focused state values.</param>
-        public ViewDrawNavCheckButtonBase(Krypton.Navigator navigator,
+        public ViewDrawNavCheckButtonBase(KryptonNavigator navigator,
                                           KryptonPage page,
                                           VisualOrientation orientation,
                                           IPaletteTriple stateDisabled,
@@ -287,7 +287,7 @@ namespace Krypton.Navigator
         /// <summary>
         /// Gets the navigator that owns this view.
         /// </summary>
-        public Krypton.Navigator Navigator { get; }
+        public KryptonNavigator Navigator { get; }
 
 	    #endregion
 

@@ -15,11 +15,11 @@ using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Security.Permissions;
-using Krypton.Toolkit;
-using Krypton.Navigator;
-using Krypton.Workspace;
+using ComponentFactory.Krypton.Toolkit;
+using ComponentFactory.Krypton.Navigator;
+using ComponentFactory.Krypton.Workspace;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
     /// <summary>
     /// Extends the KryptonPanel to work as a panel for hosting the display of a sliding in/out page.
@@ -343,10 +343,10 @@ namespace Krypton.Docking
             _group = group;
 
             // Make sure we have a visible cell to update
-            Krypton.WorkspaceCell cell = DockspaceControl.FirstVisibleCell();
+            KryptonWorkspaceCell cell = DockspaceControl.FirstVisibleCell();
             if (cell == null)
             {
-                cell = new Krypton.WorkspaceCell();
+                cell = new KryptonWorkspaceCell();
                 DockspaceControl.Root.Children.Add(cell);
             }
 
@@ -556,7 +556,7 @@ namespace Krypton.Docking
                             {
                                 cbSize = (uint)Marshal.SizeOf(typeof(PI.TRACKMOUSEEVENTS)),
                                 dwHoverTime = 100,
-                                dwFlags = (int)(PI.TME_LEAVE),
+                                dwFlags = PI.TME_LEAVE,
                                 hWnd = Handle
                             };
 

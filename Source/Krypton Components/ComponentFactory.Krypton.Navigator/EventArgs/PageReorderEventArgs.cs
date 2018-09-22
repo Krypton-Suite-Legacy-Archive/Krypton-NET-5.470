@@ -11,7 +11,7 @@
 
 using System.ComponentModel;
 
-namespace Krypton.Navigator
+namespace ComponentFactory.Krypton.Navigator
 {
 	/// <summary>
 	/// Details of an event that is fired just before a page is reordered.

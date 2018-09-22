@@ -13,9 +13,9 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Process mouse events for a ribbon group check box.
@@ -27,7 +27,7 @@ namespace Krypton.Ribbon
                                              IRibbonKeyTipTarget
 	{
 		#region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
 	    private readonly ViewDrawRibbonGroupCheckBoxImage _targetImage;
         private NeedPaintHandler _needPaint;
         private bool _rightButtonDown;
@@ -56,7 +56,7 @@ namespace Krypton.Ribbon
         /// <param name="targetMain">Target for main element changes.</param>
         /// <param name="targetImage">Target for image state changes.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public GroupCheckBoxController(Krypton.Ribbon ribbon,
+        public GroupCheckBoxController(KryptonRibbon ribbon,
                                        ViewBase targetMain,
                                        ViewDrawRibbonGroupCheckBoxImage targetImage,
                                        NeedPaintHandler needPaint)
@@ -278,7 +278,7 @@ namespace Krypton.Ribbon
 
             switch (c)
             {
-                case Krypton.Ribbon rib:
+                case KryptonRibbon rib:
                     KeyDownRibbon(rib, e);
                     break;
                 case VisualPopupGroup pop:
@@ -316,7 +316,7 @@ namespace Krypton.Ribbon
         /// Perform actual selection of the item.
         /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
-        public void KeyTipSelect(Krypton.Ribbon ribbon)
+        public void KeyTipSelect(KryptonRibbon ribbon)
         {
             // Exit keyboard mode when you click the button spec
             ribbon.KillKeyboardMode();
@@ -459,7 +459,7 @@ namespace Krypton.Ribbon
 		#endregion
 
         #region Implementation
-        private void KeyDownRibbon(Krypton.Ribbon ribbon, KeyEventArgs e)
+        private void KeyDownRibbon(KryptonRibbon ribbon, KeyEventArgs e)
         {
             ViewBase newView = null;
 

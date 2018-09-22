@@ -14,7 +14,7 @@ using System.Drawing;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// ViewMananger for context menu handling.

@@ -15,9 +15,9 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.ComponentModel;
-using Krypton.Navigator;
+using ComponentFactory.Krypton.Navigator;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
     /// <summary>
     /// Provides docking functionality for a control instance.
@@ -25,7 +25,7 @@ namespace Krypton.Docking
     [ToolboxItem(false)]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
-    public class Krypton.DockingControl : DockingElementOpenCollection
+    public class KryptonDockingControl : DockingElementOpenCollection
     {
         #region Static Fields
         private static readonly Size INNER_MINIMUM = new Size(100, 100);
@@ -41,11 +41,11 @@ namespace Krypton.Docking
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the Krypton.DockingControl class.
+        /// Initialize a new instance of the KryptonDockingControl class.
         /// </summary>
         /// <param name="name">Initial name of the element.</param>
         /// <param name="control">Reference to control derived instance.</param>
-        public Krypton.DockingControl(string name, Control control)
+        public KryptonDockingControl(string name, Control control)
             : base(name)
         {
             if (control == null)
@@ -57,12 +57,12 @@ namespace Krypton.Docking
         }
 
         /// <summary>
-        /// Initialize a new instance of the Krypton.DockingControl class.
+        /// Initialize a new instance of the KryptonDockingControl class.
         /// </summary>
         /// <param name="name">Initial name of the element.</param>
         /// <param name="control">Reference to control derived instance.</param>
-        /// <param name="navigator">Inner space occupied by a Krypton.DockingNavigator.</param>
-        public Krypton.DockingControl(string name, Control control, Krypton.DockingNavigator navigator)
+        /// <param name="navigator">Inner space occupied by a KryptonDockingNavigator.</param>
+        public KryptonDockingControl(string name, Control control, KryptonDockingNavigator navigator)
             : base(name)
         {
             if (control == null)
@@ -79,12 +79,12 @@ namespace Krypton.Docking
         }
 
         /// <summary>
-        /// Initialize a new instance of the Krypton.DockingControl class.
+        /// Initialize a new instance of the KryptonDockingControl class.
         /// </summary>
         /// <param name="name">Initial name of the element.</param>
         /// <param name="control">Reference to control derived instance.</param>
-        /// <param name="workspace">Inner space occupied by a Krypton.DockingNavigator.</param>
-        public Krypton.DockingControl(string name, Control control, Krypton.DockingWorkspace workspace)
+        /// <param name="workspace">Inner space occupied by a KryptonDockingNavigator.</param>
+        public KryptonDockingControl(string name, Control control, KryptonDockingWorkspace workspace)
             : base(name)
         {
             if (control == null)
@@ -258,7 +258,7 @@ namespace Krypton.Docking
                         targets.Add(new DragTargetControlEdge(innerScreenRect, innerRectsHot[3], innerRectsDraw[3], DragTargetHint.EdgeBottom, this, KryptonPageFlags.DockingAllowDocked, false));
                     }
                 }
-                else if (_innerElement is Krypton.DockingNavigator dockingNavigator)
+                else if (_innerElement is KryptonDockingNavigator dockingNavigator)
                 {
 
                     // If there is inner space available
@@ -334,10 +334,10 @@ namespace Krypton.Docking
             Control.Controls.Add(_obscure);
 
             // Create docking elements for managing each of the four control edges
-            Add(new Krypton.DockingEdge("Top", control, DockingEdge.Top));
-            Add(new Krypton.DockingEdge("Bottom", control, DockingEdge.Bottom));
-            Add(new Krypton.DockingEdge("Left", control, DockingEdge.Left));
-            Add(new Krypton.DockingEdge("Right", control, DockingEdge.Right));
+            Add(new KryptonDockingEdge("Top", control, DockingEdge.Top));
+            Add(new KryptonDockingEdge("Bottom", control, DockingEdge.Bottom));
+            Add(new KryptonDockingEdge("Left", control, DockingEdge.Left));
+            Add(new KryptonDockingEdge("Right", control, DockingEdge.Right));
         }
         
         private void OnControlDisposed(object sender, EventArgs e)

@@ -13,14 +13,14 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     internal class KeyTipControl : Form
     {
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private List<ViewDrawRibbonKeyTip> _viewList;
         private string _prefix;
         private readonly bool _showDisabled;
@@ -33,7 +33,7 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning control instance.</param>
         /// <param name="keyTips">List of key tips.</param>
         /// <param name="showDisabled">True to show disabled entries, otherwise enabled.</param>
-        public KeyTipControl(Krypton.Ribbon ribbon, 
+        public KeyTipControl(KryptonRibbon ribbon, 
                              KeyTipInfoList keyTips,
                              bool showDisabled)
         {
@@ -168,7 +168,7 @@ namespace Krypton.Ribbon
                 _prefix += key;
 
                 // Hide ourself and then show again to force redraw
-                PI.ShowWindow(Handle, (short)PI.SW_HIDE);
+                PI.ShowWindow(Handle, PI.SW_HIDE);
 
                 // Use timer to force redraw
                 StartTimer();
@@ -288,7 +288,7 @@ namespace Krypton.Ribbon
             // Show the window and so cause it to be redrawn
             if (!IsDisposed && (Handle != IntPtr.Zero))
             {
-                PI.ShowWindow(Handle, (short)PI.SW_SHOWNOACTIVATE);
+                PI.ShowWindow(Handle, PI.SW_SHOWNOACTIVATE);
             }
         }
         #endregion

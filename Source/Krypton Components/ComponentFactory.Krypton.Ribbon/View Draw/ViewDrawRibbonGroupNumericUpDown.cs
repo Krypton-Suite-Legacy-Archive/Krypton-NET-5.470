@@ -14,9 +14,9 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Draws a ribbon group numeric up-down.
@@ -31,7 +31,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private ViewDrawRibbonGroup _activeGroup;
         private readonly NumericUpDownController _controller;
         private readonly NeedPaintHandler _needPaint;
@@ -45,8 +45,8 @@ namespace Krypton.Ribbon
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonNumericUpDown">Reference to source numeric up-down.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
-        public ViewDrawRibbonGroupNumericUpDown(Krypton.Ribbon ribbon,
-                                                Krypton.RibbonGroupNumericUpDown ribbonNumericUpDown,
+        public ViewDrawRibbonGroupNumericUpDown(KryptonRibbon ribbon,
+                                                KryptonRibbonGroupNumericUpDown ribbonNumericUpDown,
                                                 NeedPaintHandler needPaint)
         {
             Debug.Assert(ribbon != null);
@@ -135,7 +135,7 @@ namespace Krypton.Ribbon
         /// <summary>
         /// Gets access to the owning group numeric up-down instance.
         /// </summary>
-        public Krypton.RibbonGroupNumericUpDown GroupNumericUpDown { get; private set; }
+        public KryptonRibbonGroupNumericUpDown GroupNumericUpDown { get; private set; }
 
         #endregion
 
@@ -573,7 +573,7 @@ namespace Krypton.Ribbon
                         {
                             // Check that the group is not collapsed
                             if ((GroupNumericUpDown.RibbonContainer.RibbonGroup.IsCollapsed) &&
-                                ((_ribbon.GetControllerControl(GroupNumericUpDown.NumericUpDown) is Krypton.Ribbon) ||
+                                ((_ribbon.GetControllerControl(GroupNumericUpDown.NumericUpDown) is KryptonRibbon) ||
                                  (_ribbon.GetControllerControl(GroupNumericUpDown.NumericUpDown) is VisualPopupMinimized))
                                 )
                             {
@@ -582,7 +582,7 @@ namespace Krypton.Ribbon
                             else
                             {
                                 // Check that the hierarchy of containers are all visible
-                                Krypton.RibbonGroupContainer container = GroupNumericUpDown.RibbonContainer;
+                                KryptonRibbonGroupContainer container = GroupNumericUpDown.RibbonContainer;
 
                                 // Keep going until we have searched the entire parent chain of containers
                                 while (container != null)

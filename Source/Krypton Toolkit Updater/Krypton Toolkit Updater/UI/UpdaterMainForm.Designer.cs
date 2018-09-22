@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="Krypton.Toolkit.KryptonForm" />
+    /// <seealso cref="ComponentFactory.Krypton.Toolkit.KryptonForm" />
     partial class UpdaterMainForm
     {
         /// <summary>
@@ -34,14 +34,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdaterMainForm));
-            this.kMan = new Krypton.Toolkit.KryptonManager(this.components);
-            this.kpnlBackground = new Krypton.Toolkit.KryptonPanel();
+            this.kMan = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kpnlBackground = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.klblCurrentStatus = new Krypton.Toolkit.KryptonLabel();
-            this.kbtnOptions = new Krypton.Toolkit.KryptonButton();
-            this.kbtnCheckForUpdates = new Krypton.Toolkit.KryptonButton();
-            this.kbtnCancel = new Krypton.Toolkit.KryptonButton();
-            this.kllHelp = new Krypton.Toolkit.KryptonLinkLabel();
+            this.klblCurrentStatus = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kbtnOptions = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kbtnCheckForUpdates = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kbtnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kllHelp = new ComponentFactory.Krypton.Toolkit.KryptonLinkLabel();
             this.niKryptonToolkitUpdateUtility = new System.Windows.Forms.NotifyIcon(this.components);
             this.ctxNotifyIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.updateNowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +51,7 @@
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kbtnDownloadUpdate = new Krypton.Toolkit.KryptonButton();
+            this.kbtnDownloadUpdate = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kpnlBackground)).BeginInit();
             this.kpnlBackground.SuspendLayout();
             this.ctxNotifyIcon.SuspendLayout();
@@ -224,14 +224,14 @@
         }
 
         #endregion
-        private Krypton.Toolkit.KryptonManager kMan;
-        private Krypton.Toolkit.KryptonPanel kpnlBackground;
-        private Krypton.Toolkit.KryptonButton kbtnOptions;
-        private Krypton.Toolkit.KryptonButton kbtnCheckForUpdates;
-        private Krypton.Toolkit.KryptonButton kbtnCancel;
-        private Krypton.Toolkit.KryptonLinkLabel kllHelp;
+        private ComponentFactory.Krypton.Toolkit.KryptonManager kMan;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel kpnlBackground;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnOptions;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnCheckForUpdates;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnCancel;
+        private ComponentFactory.Krypton.Toolkit.KryptonLinkLabel kllHelp;
         private System.Windows.Forms.ProgressBar progressBar1;
-        private Krypton.Toolkit.KryptonLabel klblCurrentStatus;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel klblCurrentStatus;
         private System.Windows.Forms.NotifyIcon niKryptonToolkitUpdateUtility;
         private System.Windows.Forms.ContextMenuStrip ctxNotifyIcon;
         private System.Windows.Forms.ToolStripMenuItem updateNowToolStripMenuItem;
@@ -241,6 +241,6 @@
         private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
-        private Krypton.Toolkit.KryptonButton kbtnDownloadUpdate;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnDownloadUpdate;
     }
 }

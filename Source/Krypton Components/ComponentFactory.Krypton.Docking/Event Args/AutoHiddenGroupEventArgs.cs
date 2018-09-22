@@ -11,7 +11,7 @@
 
 using System;
 
-namespace Krypton.Docking
+namespace ComponentFactory.Krypton.Docking
 {
 	/// <summary>
     /// Event arguments for a AutoHiddenGroupAdding/AutoHiddenGroupRemoved events.
@@ -29,7 +29,7 @@ namespace Krypton.Docking
         /// <param name="control">Reference to auto hidden group control instance.</param>
         /// <param name="element">Reference to docking auto hidden group element that is managing the control.</param>
         public AutoHiddenGroupEventArgs(KryptonAutoHiddenGroup control,
-                                        Krypton.DockingAutoHiddenGroup element)
+                                        KryptonDockingAutoHiddenGroup element)
 		{
             AutoHiddenGroupControl = control;
             AutoHiddenGroupElement = element;
@@ -43,9 +43,9 @@ namespace Krypton.Docking
         public KryptonAutoHiddenGroup AutoHiddenGroupControl { get; }
 
 	    /// <summary>
-        /// Gets a reference to the Krypton.DockingAutoHiddenGroup that is managing the group.
+        /// Gets a reference to the KryptonDockingAutoHiddenGroup that is managing the group.
         /// </summary>
-        public Krypton.DockingAutoHiddenGroup AutoHiddenGroupElement { get; }
+        public KryptonDockingAutoHiddenGroup AutoHiddenGroupElement { get; }
 
 	    #endregion
 	}

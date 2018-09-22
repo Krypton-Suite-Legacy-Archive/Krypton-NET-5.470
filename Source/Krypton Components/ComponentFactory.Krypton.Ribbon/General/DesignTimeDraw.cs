@@ -11,9 +11,9 @@
 
 using System.Drawing;
 using System.Windows.Forms;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     internal class DesignTimeDraw
     {
@@ -48,7 +48,7 @@ namespace Krypton.Ribbon
         /// <param name="context">Rendering context.</param>
         /// <param name="clientRect">Client rectangle of the source view.</param>
         /// <param name="state">State of element.</param>
-        public static void DrawArea(Krypton.Ribbon ribbon,
+        public static void DrawArea(KryptonRibbon ribbon,
                                     RenderContext context,
                                     Rectangle clientRect,
                                     PaletteState state)
@@ -73,7 +73,7 @@ namespace Krypton.Ribbon
         /// <param name="context">Rendering context.</param>
         /// <param name="clientRect">Client rectangle of the source view.</param>
         /// <param name="state">State of element.</param>
-        public static void DrawFlapArea(Krypton.Ribbon ribbon,
+        public static void DrawFlapArea(KryptonRibbon ribbon,
                                         RenderContext context,
                                         Rectangle clientRect,
                                         PaletteState state)

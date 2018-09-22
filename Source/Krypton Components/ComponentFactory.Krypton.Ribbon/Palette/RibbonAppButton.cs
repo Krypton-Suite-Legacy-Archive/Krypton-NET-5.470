@@ -13,9 +13,9 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
 using System.Diagnostics;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
 	/// <summary>
 	/// Storage for application button related properties.
@@ -40,7 +40,7 @@ namespace Krypton.Ribbon
             /// Initialize a new instance of the AppMenuButtonSpecCollection class.
             /// </summary>
             /// <param name="owner">Reference to owning object.</param>
-            public AppMenuButtonSpecCollection(Krypton.Ribbon owner)
+            public AppMenuButtonSpecCollection(KryptonRibbon owner)
                 : base(owner)
             {
             }
@@ -49,7 +49,7 @@ namespace Krypton.Ribbon
         #endregion
 
         #region Instance Fields
-        private readonly Krypton.Ribbon _ribbon;
+        private readonly KryptonRibbon _ribbon;
         private Image _appButtonImage;
         private readonly KryptonContextMenuItems _appButtonMenuItems;
         private bool _appButtonVisible;
@@ -64,7 +64,7 @@ namespace Krypton.Ribbon
         /// Initialize a new instance of the RibbonAppButton class.
 		/// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
-        public RibbonAppButton(Krypton.Ribbon ribbon)
+        public RibbonAppButton(KryptonRibbon ribbon)
 		{
             Debug.Assert(ribbon != null);
             _ribbon = ribbon;
@@ -76,7 +76,7 @@ namespace Krypton.Ribbon
             };
             _appButtonImage = _defaultAppImage;
             AppButtonSpecs = new AppMenuButtonSpecCollection(ribbon);
-            AppButtonRecentDocs = new Krypton.RibbonRecentDocCollection();
+            AppButtonRecentDocs = new KryptonRibbonRecentDocCollection();
             AppButtonToolTipTitle = string.Empty;
             AppButtonToolTipBody = string.Empty;
             AppButtonToolTipImageTransparentColor = Color.Empty;
@@ -251,7 +251,7 @@ namespace Krypton.Ribbon
         [Category("Values")]
         [Description("Context menu items for the application button.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [Editor("Krypton.Toolkit.KryptonContextMenuItemCollectionEditor, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
+        [Editor(typeof(ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemCollectionEditor), typeof(UITypeEditor))]
         public virtual KryptonContextMenuItemCollection AppButtonMenuItems => _appButtonMenuItems.Items;
 
         #endregion
@@ -263,8 +263,8 @@ namespace Krypton.Ribbon
         [Category("Values")]
         [Description("Recent document entries for the application buttton.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [Editor("Krypton.Ribbon.Krypton.RibbonRecentDocCollectionEditor, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
-        public virtual Krypton.RibbonRecentDocCollection AppButtonRecentDocs { get; }
+        [Editor(typeof(ComponentFactory.Krypton.Ribbon.KryptonRibbonRecentDocCollectionEditor), typeof(UITypeEditor))]
+        public virtual KryptonRibbonRecentDocCollection AppButtonRecentDocs { get; }
 
         #endregion
 

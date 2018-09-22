@@ -13,7 +13,7 @@ using System;
 using System.Diagnostics;
 using System.ComponentModel;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     internal class ViewDrawMenuRadioButton: ViewComposite
     {
@@ -51,7 +51,7 @@ namespace Krypton.Toolkit
             KryptonContextMenuRadioButton.SetPaletteRedirect(provider.ProviderRedirector);
 
             // Create the content for the actual heading text/image
-            ViewDrawContent = new ViewDrawContent((ItemEnabled ? (IPaletteContent)KryptonContextMenuRadioButton.OverrideNormal : (IPaletteContent)KryptonContextMenuRadioButton.OverrideDisabled),
+            ViewDrawContent = new ViewDrawContent((ItemEnabled ? KryptonContextMenuRadioButton.OverrideNormal : KryptonContextMenuRadioButton.OverrideDisabled),
                                                _contentValues, VisualOrientation.Top)
             {
                 UseMnemonic = true,

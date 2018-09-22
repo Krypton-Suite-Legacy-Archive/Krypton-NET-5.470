@@ -15,7 +15,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
     /// Special panel used in the KryptonGroup and KryptonHeaderGroup controls.
@@ -23,7 +23,7 @@ namespace Krypton.Toolkit
 	[ToolboxItem(false)]
 	[DesignerCategory("code")]
     [ToolboxBitmap(typeof(KryptonGroupPanel), "ToolboxBitmaps.KryptonGroupPanel.bmp")]
-    [Designer("Krypton.Toolkit.KryptonGroupPanelDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonGroupPanelDesigner))]
     [Description("Enables you to group collections of controls.")]
     [Docking(DockingBehavior.Never)]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]

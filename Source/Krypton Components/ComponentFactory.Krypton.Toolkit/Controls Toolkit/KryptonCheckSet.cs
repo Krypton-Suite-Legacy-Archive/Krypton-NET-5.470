@@ -17,7 +17,7 @@ using System.Collections;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace Krypton.Toolkit
+namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Enforce mutual exclusive for a group of KryptonCheckButton controls.
@@ -27,7 +27,7 @@ namespace Krypton.Toolkit
     [DefaultEvent("CheckedButtonChanged")]
     [DefaultProperty("CheckButtons")]
     [DesignerCategory("code")]
-    [Designer("Krypton.Toolkit.KryptonCheckSetDesigner, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e")]
+    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonCheckSetDesigner))]
     [Description("Provide exclusive checked logic for a set of KryptonCheckButton controls.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
@@ -419,7 +419,7 @@ namespace Krypton.Toolkit
         [Category("Behavior")]
         [Description("Determine which of the associated buttons is checked.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [Editor("Krypton.Toolkit.KryptonCheckButtonCollectionEditor, Krypton.Design, Version=4.70.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e", typeof(UITypeEditor))]
+        [Editor(typeof(ComponentFactory.Krypton.Toolkit.KryptonCheckButtonCollectionEditor), typeof(UITypeEditor))]
         [RefreshProperties(RefreshProperties.All)]
         public KryptonCheckButtonCollection CheckButtons { get; }
 

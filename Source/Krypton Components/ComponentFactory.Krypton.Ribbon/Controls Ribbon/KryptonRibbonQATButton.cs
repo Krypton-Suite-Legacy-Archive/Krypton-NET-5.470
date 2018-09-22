@@ -14,20 +14,20 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.ComponentModel;
 using System.Windows.Forms;
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Krypton.Ribbon
+namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Represents a single ribbon quick access toolbar entry.
     /// </summary>
     [ToolboxItem(false)]
-    [ToolboxBitmap(typeof(Krypton.RibbonQATButton), "ToolboxBitmaps.Krypton.RibbonQATButton.bmp")]
+    [ToolboxBitmap(typeof(KryptonRibbonQATButton), "ToolboxBitmaps.KryptonRibbonQATButton.bmp")]
     [DefaultEvent("Click")]
     [DefaultProperty("Image")]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
-    public class Krypton.RibbonQATButton : Component,
+    public class KryptonRibbonQATButton : Component,
                                           IQuickAccessToolbarButton
     {
         #region Static Fields
@@ -58,9 +58,9 @@ namespace Krypton.Ribbon
 
         #region Identity
         /// <summary>
-        /// Initialise a new instance of the Krypton.RibbonQATButton class.
+        /// Initialise a new instance of the KryptonRibbonQATButton class.
         /// </summary>
-        public Krypton.RibbonQATButton()
+        public KryptonRibbonQATButton()
         {
             // Default fields
             _image = _defaultImage;
@@ -82,7 +82,7 @@ namespace Krypton.Ribbon
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public Krypton.Ribbon Ribbon { get; private set; }
+        public KryptonRibbon Ribbon { get; private set; }
 
         /// <summary>
         /// Gets and sets the application button image.
@@ -372,7 +372,7 @@ namespace Krypton.Ribbon
         /// </summary>
         /// <param name="ribbon">Reference to owning instance.</param>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        public void SetRibbon(Krypton.Ribbon ribbon)
+        public void SetRibbon(KryptonRibbon ribbon)
         {
             Ribbon = ribbon;
         }
