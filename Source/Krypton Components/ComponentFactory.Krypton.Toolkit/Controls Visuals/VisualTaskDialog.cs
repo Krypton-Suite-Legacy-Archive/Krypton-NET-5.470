@@ -163,7 +163,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _allowDialogClose = taskDialog.AllowDialogClose;
 
             InitializeComponent();
-            TextExtra = @"Ctrl+C to copy";
+            TextExtra = taskDialog.TextExtra;
             UpdateContents();
         }
 

@@ -14,6 +14,11 @@
 
 =======
 
+## 2018-09-23 Add design time and nullable bool bug fix, #67
+* Allow the developer to override the `Ctrl+c to copy` text in the Caption
+
+=======
+
 ## 2018-09-17 Release of Build 641
 * Build 641 (build date Monday 17th September, 2018) is now available through the **releases** tab
 
