@@ -14,7 +14,7 @@
 
 =======
 
-## 2018-09-23 Add design time and nullable bool bug fix, #67
+## 2018-09-23 Add `design time` and `nullable bool` for feature #67
 * Allow the developer to override the `Ctrl+c to copy` text in the Caption
 
 =======
