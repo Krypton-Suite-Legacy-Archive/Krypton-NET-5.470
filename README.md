@@ -14,6 +14,11 @@
 
 =======
 
+## 2018-09-25 Build 643
+* Build 643 (build date Tuesday 25th September, 2018) is now available through the **releases** tab, or as a NuGet package (note, this may not work)
+
+=======
+
 ## 2018-09-23 Add `design time` and `nullable bool` for feature #67
 * Allow the developer to override the `Ctrl+c to copy` text in the Caption
 

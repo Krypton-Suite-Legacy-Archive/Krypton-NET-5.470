@@ -161,6 +161,8 @@
             this.pictureBoxRight = new System.Windows.Forms.PictureBox();
             this.kryptonPanelTopBorder = new ComponentFactory.Krypton.Toolkit.KryptonBorderEdge();
             this.kryptonPanelBottom = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.ss = new System.Windows.Forms.StatusStrip();
+            this.tslVersion = new System.Windows.Forms.ToolStripStatusLabel();
             this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanelFill)).BeginInit();
             this.kryptonPanelFill.SuspendLayout();
@@ -189,6 +191,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanelBottom)).BeginInit();
             this.kryptonPanelBottom.SuspendLayout();
+            this.ss.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPanelFill
@@ -199,7 +202,7 @@
             this.kryptonPanelFill.Name = "kryptonPanelFill";
             this.kryptonPanelFill.Padding = new System.Windows.Forms.Padding(10);
             this.kryptonPanelFill.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
-            this.kryptonPanelFill.Size = new System.Drawing.Size(664, 406);
+            this.kryptonPanelFill.Size = new System.Drawing.Size(664, 401);
             this.kryptonPanelFill.TabIndex = 1;
             // 
             // kryptonNavigator
@@ -226,7 +229,7 @@
             this.kryptonPageApplicatons});
             this.kryptonNavigator.Panel.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
             this.kryptonNavigator.SelectedIndex = 0;
-            this.kryptonNavigator.Size = new System.Drawing.Size(644, 386);
+            this.kryptonNavigator.Size = new System.Drawing.Size(644, 381);
             this.kryptonNavigator.StateCommon.Bar.BarPaddingOutside = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.kryptonNavigator.StateCommon.Bar.CheckButtonGap = 5;
             this.kryptonNavigator.StateCommon.CheckButton.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
@@ -246,7 +249,7 @@
             this.kryptonPageToolkit.LastVisibleSet = true;
             this.kryptonPageToolkit.MinimumSize = new System.Drawing.Size(50, 50);
             this.kryptonPageToolkit.Name = "kryptonPageToolkit";
-            this.kryptonPageToolkit.Size = new System.Drawing.Size(527, 384);
+            this.kryptonPageToolkit.Size = new System.Drawing.Size(527, 379);
             this.kryptonPageToolkit.Text = "Toolkit";
             this.kryptonPageToolkit.TextTitle = "";
             this.kryptonPageToolkit.ToolTipTitle = "Page ToolTip";
@@ -267,7 +270,7 @@
             this.kryptonPage1,
             this.kryptonPage2});
             this.kryptonNavigatorToolkit.SelectedIndex = 1;
-            this.kryptonNavigatorToolkit.Size = new System.Drawing.Size(492, 320);
+            this.kryptonNavigatorToolkit.Size = new System.Drawing.Size(492, 315);
             this.kryptonNavigatorToolkit.StateCommon.HeaderGroup.Border.DrawBorders = ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.None;
             this.kryptonNavigatorToolkit.TabIndex = 0;
             this.kryptonNavigatorToolkit.Text = "kryptonNavigator1";
@@ -848,7 +851,7 @@
             this.kryptonPage2.LastVisibleSet = true;
             this.kryptonPage2.MinimumSize = new System.Drawing.Size(50, 50);
             this.kryptonPage2.Name = "kryptonPage2";
-            this.kryptonPage2.Size = new System.Drawing.Size(492, 293);
+            this.kryptonPage2.Size = new System.Drawing.Size(492, 288);
             this.kryptonPage2.Text = "Application Examples";
             this.kryptonPage2.ToolTipTitle = "Page ToolTip";
             this.kryptonPage2.UniqueName = "4702B7548CB44C0C4702B7548CB44C0C";
@@ -1756,7 +1759,7 @@
             this.kryptonButtonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonButtonClose.AutoSize = true;
             this.kryptonButtonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.kryptonButtonClose.Location = new System.Drawing.Point(580, 5);
+            this.kryptonButtonClose.Location = new System.Drawing.Point(580, 6);
             this.kryptonButtonClose.Name = "kryptonButtonClose";
             this.kryptonButtonClose.Size = new System.Drawing.Size(74, 25);
             this.kryptonButtonClose.TabIndex = 0;
@@ -1807,20 +1810,42 @@
             // 
             // kryptonPanelBottom
             // 
+            this.kryptonPanelBottom.Controls.Add(this.ss);
             this.kryptonPanelBottom.Controls.Add(this.kryptonButtonClose);
             this.kryptonPanelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.kryptonPanelBottom.Location = new System.Drawing.Point(0, 497);
+            this.kryptonPanelBottom.Location = new System.Drawing.Point(0, 492);
             this.kryptonPanelBottom.Name = "kryptonPanelBottom";
             this.kryptonPanelBottom.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
-            this.kryptonPanelBottom.Size = new System.Drawing.Size(664, 45);
+            this.kryptonPanelBottom.Size = new System.Drawing.Size(664, 65);
             this.kryptonPanelBottom.StateNormal.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
             this.kryptonPanelBottom.TabIndex = 2;
+            // 
+            // ss
+            // 
+            this.ss.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ss.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tslVersion});
+            this.ss.Location = new System.Drawing.Point(0, 43);
+            this.ss.Name = "ss";
+            this.ss.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
+            this.ss.Size = new System.Drawing.Size(664, 22);
+            this.ss.SizingGrip = false;
+            this.ss.TabIndex = 1;
+            this.ss.Text = "statusStrip1";
+            // 
+            // tslVersion
+            // 
+            this.tslVersion.Name = "tslVersion";
+            this.tslVersion.Size = new System.Drawing.Size(618, 17);
+            this.tslVersion.Spring = true;
+            this.tslVersion.Text = "Version: {0}";
+            this.tslVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(664, 542);
+            this.ClientSize = new System.Drawing.Size(664, 557);
             this.Controls.Add(this.kryptonPanelFill);
             this.Controls.Add(this.kryptonPanelTopBorder);
             this.Controls.Add(this.kryptonPanelTop);
@@ -1832,6 +1857,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Krypton Explorer";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanelFill)).EndInit();
             this.kryptonPanelFill.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator)).EndInit();
@@ -1869,6 +1895,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanelBottom)).EndInit();
             this.kryptonPanelBottom.ResumeLayout(false);
             this.kryptonPanelBottom.PerformLayout();
+            this.ss.ResumeLayout(false);
+            this.ss.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2008,6 +2036,8 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLinkLabel linkKryptonTaskDialog;
         private ComponentFactory.Krypton.Toolkit.KryptonLinkLabel linkKryptonInputBox;
         private ComponentFactory.Krypton.Toolkit.KryptonLinkLabel linkKryptonTreeView;
+        private System.Windows.Forms.StatusStrip ss;
+        private System.Windows.Forms.ToolStripStatusLabel tslVersion;
     }
 }
 
