@@ -46,6 +46,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private string _checkboxText;
         private bool _checkboxState;
         private bool _allowDialogClose;
+        private string _textExtra;
 
         #endregion
 
@@ -74,6 +75,7 @@ namespace ComponentFactory.Krypton.Toolkit
             RadioButtons = new KryptonTaskDialogCommandCollection();
             CommandButtons = new KryptonTaskDialogCommandCollection();
             _commonButtons = TaskDialogButtons.OK;
+            _textExtra = @"Ctrl+C to copy";
         }
 
         /// <summary> 
@@ -440,6 +442,27 @@ namespace ComponentFactory.Krypton.Toolkit
         [TypeConverter(typeof(StringConverter))]
         [Bindable(true)]
         public object Tag { get; set; }
+
+        /// <summary>
+        /// Allows user to override the default "Ctrl+c to copy" in window caption
+        /// </summary>
+        [Category("Appearance")]
+        [Description("'ExtraText' in Caption of the window.")]
+        [DefaultValue("")]
+        [Localizable(true)]
+        [Bindable(true)]
+        public string TextExtra
+        {
+            get => _textExtra;
+            set
+            {
+                if (_textExtra != value)
+                {
+                    _textExtra = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs(@"TextExtra"));
+                }
+            }
+        }
 
         private void ResetTag()
         {
