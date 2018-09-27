@@ -68,7 +68,7 @@ namespace KryptonToolkitUpdater.UI
 
         private void kbtnCheckForUpdates_Click(object sender, EventArgs e)
         {
-            CheckForUpdates("https://github.com/Wagnerp/Krypton-NET-4.70/blob/master/Updates/update.xml");
+            CheckForUpdates("https://github.com/Wagnerp/Krypton-NET-4.700/blob/master/Updates/update.xml");
         }
 
         private void kbtnOptions_Click(object sender, EventArgs e)
@@ -195,7 +195,7 @@ namespace KryptonToolkitUpdater.UI
 
         private void kllHelp_LinkClicked(object sender, EventArgs e)
         {
-            KryptonMessageBox.Show("This utility will enable you to check for and download updates for Krypton .NET 4.70.", "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            KryptonMessageBox.Show("This utility will enable you to check for and download updates for Krypton .NET 5.470.", "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void kbtnDownloadUpdate_Click(object sender, EventArgs e)

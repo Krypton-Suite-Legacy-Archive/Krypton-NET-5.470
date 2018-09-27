@@ -2108,7 +2108,7 @@
             this.kryptonLabel1.StateCommon.ShortText.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.AntiAlias;
             this.kryptonLabel1.TabIndex = 3;
             this.kryptonLabel1.Values.ExtraText = "Built for .NET Framework 4.7";
-            this.kryptonLabel1.Values.Text = "Krypton Toolkit Hub 4.70";
+            this.kryptonLabel1.Values.Text = "Krypton Toolkit Hub 5.470";
             // 
             // pictureBox1
             // 
