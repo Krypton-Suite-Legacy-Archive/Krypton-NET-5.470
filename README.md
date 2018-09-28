@@ -12,6 +12,8 @@
 
 ## Help Wanted! If anyone has experience with the Nuget or any other packaging specifications, then please do not hesitate to come forward, as past implementations have not come to fruition.
 
+**Update:** I can now confirm as of Friday 28th September, 2018 that the problem with the Nuget packages was the **major** number of the version. Therefore, in the next update, the version number will change from `4.70.xxx.0` to `5.470.xxx.0`.
+
 =======
 
 ## 2018-09-25 Build 643
