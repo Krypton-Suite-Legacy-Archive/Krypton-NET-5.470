@@ -17,8 +17,8 @@ using System.Security.Permissions;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyVersion("4.70.5001.0")]
-[assembly: AssemblyFileVersion("4.70.5001.0")]
+[assembly: AssemblyVersion("5.470.5001.0")]
+[assembly: AssemblyFileVersion("5.470.5001.0")]
 [assembly: AssemblyCopyright("© Component Factory Pty Ltd 2012. All rights reserved.")]
 [assembly: AssemblyInformationalVersion("4.5.1.0")]
 [assembly: AssemblyProduct("External Drag To Docking")]
