@@ -1,4 +1,4 @@
-# <img src="https://github.com/Wagnerp/Krypton-NET-4.70/blob/master/Assets/PNG/Square%20Design/Main%20Icon/64%20x%2064/Square%20Design%2064%20x%2064%20New%20Green.png">-NET-4.70
+# <img src="https://github.com/Wagnerp/Krypton-NET-4.70/blob/master/Assets/PNG/Square%20Design/Main%20Icon/64%20x%2064/Square%20Design%2064%20x%2064%20New%20Green.png">-NET-5.470
 
 =======
 
@@ -6,7 +6,7 @@
 
 =======
 
-## NOTE: With the advent of Windows 10 1803 being released to the general public, I am pleased to announce the availability of a 4.72 release that will support the .NET 4.7.2 framework. You can follow the project [here](https://github.com/Wagnerp/Krypton-NET-4.72).
+## NOTE: With the advent of Windows 10 1803 being released to the general public, I am pleased to announce the availability of a 5.472 release that will support the .NET 4.7.2 framework. You can follow the project [here](https://github.com/Wagnerp/Krypton-NET-4.72).
 
 =======
 
