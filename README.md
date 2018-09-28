@@ -16,6 +16,14 @@
 
 =======
 
+## 2018-09-28 Version **`4`** now becomes version **`5`**
+* Major version number changed from `4` to `5` after experimenting successfuly with NuGet packages
+- Known bug if installing via NuGet, ToolBox images will not be displayed properly
+- A backup copy of the `4.70` version has been uploaded to the **Version-4.70** branch
+* A new NuGet package can be obtained [here](https://www.nuget.org/packages/KryptonToolkitSuite5470/5.470.700) or by typing `KryptonToolkitSuite5470` in the package manager
+* Build 700 (build date Friday 28th September, 2018) is now available through the **releases** tab
+* Repository name change to reflect version changes
+
 ## 2018-09-25 Build 643
 * Build 643 (build date Tuesday 25th September, 2018) is now available through the **releases** tab, or as a NuGet package (note, this may not work)
 
