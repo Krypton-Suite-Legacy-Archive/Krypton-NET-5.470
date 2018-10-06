@@ -39,7 +39,7 @@ toolkit assembly to the list of references for the project.
  
 
 **3) Ensure that the Krypton Toolkit components are in the Toolbox**  
-If not the [Using Krypton in VS2005](Using%20Krypton%20in%20VS2005.md)
+If not the [Using Krypton in VS2017](Using%20Krypton%20in%20VS2017.md)
 tutorial can be used to add them.  
   
  
