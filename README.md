@@ -6,7 +6,7 @@
 
 =======
 
-## NOTE: With the advent of Windows 10 1803 being released to the general public, I am pleased to announce the availability of a 5.472 release that will support the .NET 4.7.2 framework. You can follow the project [here](https://github.com/Wagnerp/Krypton-NET-4.72).
+## NOTE: With the advent of Windows 10 1803 being released to the general public, I am pleased to announce the availability of a 5.472 release that will support the .NET 4.7.2 framework. You can follow the project [here](https://github.com/Wagnerp/Krypton-NET-5.472).
 
 =======
 
@@ -23,6 +23,8 @@
 * A new NuGet package can be obtained [here](https://www.nuget.org/packages/KryptonToolkitSuite5470/5.470.700) or by typing `KryptonToolkitSuite5470` in the package manager
 * Build 700 (build date Friday 28th September, 2018) is now available through the **releases** tab
 * Repository name change to reflect version changes
+
+========
 
 ## 2018-09-25 Build 643
 * Build 643 (build date Tuesday 25th September, 2018) is now available through the **releases** tab, or as a NuGet package (note, this may not work)
