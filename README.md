@@ -10,9 +10,9 @@
 
 =======
 
-## Help Wanted! If anyone has experience with the Nuget or any other packaging specifications, then please do not hesitate to come forward, as past implementations have not come to fruition.
-
-**Update:** I can now confirm as of Friday 28th September, 2018 that the problem with the Nuget packages was the **major** number of the version. Therefore, in the next update, the version number will change from `4.70.xxx.0` to `5.470.xxx.0`.
+## 2018-12-03 Build 701
+* Build 701 (build date Monday 3rd December, 2018) is now available through NuGet
+* Minor changes
 
 =======
 
@@ -347,7 +347,7 @@
 * Reupload of fresh binaries after a good fight!
 * Changed year of all classes, controls etc from `2017` to `2018`
 * Mass rebuild of solution
-* Eradicated all references of `4.5.0.0` to `4.7.0.0`
+* Eradicated all references of `4.5.0.0` to `5.470.0.0`
 
 =======
 
