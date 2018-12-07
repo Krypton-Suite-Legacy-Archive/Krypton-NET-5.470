@@ -8671,11 +8671,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Get the actual file selected by the user
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    // Set the file path
-                    SetCustomisedKryptonPaletteFilePath(Path.GetFullPath(dialog.FileName));
-
                     // Use the existing import overload that takes the target name
                     return Import(dialog.FileName, false);
+                }
+
+                if (dialog.FileName != null)
+                {
+                    // Set the file path
+                    SetCustomisedKryptonPaletteFilePath(Path.GetFullPath(dialog.FileName));
                 }
             }
 
