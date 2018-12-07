@@ -78,10 +78,10 @@ statements to the forms code file. This makes it easier to write code that
 involves the *Krypton* components without the need to fully scope them. Open up
 the form code file and add the following statements to the existing entries...  
   
-    using Krypton.Toolkit;  
-    using Krypton.Navigator;  
-    using Krypton.Workspace;  
-    using Krypton.Docking;
+    using ComponentFactory.Krypton.Toolkit;  
+    using ComponentFactory.Krypton.Navigator;  
+    using ComponentFactory.Krypton.Workspace;  
+    using ComponentFactory.Krypton.Docking;
 
  
 

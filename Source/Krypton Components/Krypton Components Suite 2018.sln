@@ -741,6 +741,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IMG", "IMG", "{29935FC9-D8A
 		..\..\Updates\changelog\img\Krypton.ico = ..\..\Updates\changelog\img\Krypton.ico
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{130B2FD5-551F-46A0-897D-44D443D31F47}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -767,6 +769,10 @@ Global
 		{E00FF125-CB44-480B-847E-7B3D27E481EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E00FF125-CB44-480B-847E-7B3D27E481EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E00FF125-CB44-480B-847E-7B3D27E481EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{130B2FD5-551F-46A0-897D-44D443D31F47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{130B2FD5-551F-46A0-897D-44D443D31F47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{130B2FD5-551F-46A0-897D-44D443D31F47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{130B2FD5-551F-46A0-897D-44D443D31F47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -783,7 +789,7 @@ Global
 		{29935FC9-D8AE-4C7A-83AB-03C3E6179946} = {29748D21-B5F4-4C80-A030-7B7720BF8021}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		BuildVersion_StartDate = 2000/1/1
 		SolutionGuid = {ECEA7A85-0CA8-47A4-93BE-6AA896E9749D}
+		BuildVersion_StartDate = 2000/1/1
 	EndGlobalSection
 EndGlobal

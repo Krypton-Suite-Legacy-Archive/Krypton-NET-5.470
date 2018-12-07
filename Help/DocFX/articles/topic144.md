@@ -20,18 +20,18 @@ This will automatically create a form in design mode as below.
 
  
 
-**2) Add a reference to the Krypton.Toolkit assembly**  
+**2) Add a reference to the ComponentFactory.Krypton.Toolkit assembly**  
   
 **C\#** : Right click the 'References' group in your project and select the 'Add
 Reference...' option. Use the 'Browse' tab of the shown dialog box to navigate
 to the location you installed the library and choose the
-'\\bin\\Krypton.Toolkit.dll' file. This will then add the
+'\\bin\\ComponentFactory.Krypton.Toolkit.dll' file. This will then add the
 toolkit assembly to the list of references for the project.  
   
 *VB.NET* : Right click the project in the 'Solution Explorer' window and choose
 the 'Add Reference' option. Use the 'Browse' tab of the shown dialog box to
 navigate to the location you installed the library and choose the
-'\\bin\\Krypton.Toolkit.dll' file. This will then add the
+'\\bin\\ComponentFactory.Krypton.Toolkit.dll' file. This will then add the
 toolkit assembly to the list of references for the project.
 
  
@@ -39,7 +39,7 @@ toolkit assembly to the list of references for the project.
  
 
 **3) Ensure that the Krypton Toolkit components are in the Toolbox**  
-If not the [Using Krypton in VS2005](Using%20Krypton%20in%20VS2005.md)
+If not the [Using Krypton in VS2017](Using%20Krypton%20in%20VS2017.md)
 tutorial can be used to add them.  
   
  
@@ -48,15 +48,15 @@ tutorial can be used to add them.
 
 
 Change the base class from the default of 'Form' to be
-'Krypton.Toolkit.KryptonForm'. Your new definition for C\#
+'ComponentFactory.Krypton.Toolkit.KryptonForm'. Your new definition for C\#
 would be: -
 
-public partial class Form1 : Krypton.Toolkit.KryptonForm
+public partial class Form1 : ComponentFactory.Krypton.Toolkit.KryptonForm
 
 If using VB.NET then your new definition should like this: -
 
 Partial Class Form1  
-    Inherits Krypton.Toolkit.KryptonForm
+    Inherits ComponentFactory.Krypton.Toolkit.KryptonForm
 
 Recompile the project and then show the form in design mode again, this time you
 should see custom chrome applied to the form.
@@ -138,7 +138,7 @@ group.
 **16) Enter code view and add the following using statement**  
 This is needed to ensure that the rest of the code will compile.
 
-using Krypton.Toolkit;
+using ComponentFactory.Krypton.Toolkit;
 
 **17) Hook into the header button click event**  
 Modify the constructor for the form with the following code in order to be

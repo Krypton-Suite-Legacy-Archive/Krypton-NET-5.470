@@ -5,16 +5,16 @@
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
 // 
-//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.70)
-//  Version 4.7.0.0  www.ComponentFactory.com
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
+//  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Drawing;
-using System.Windows.Forms;
-using System.ComponentModel;
-using System.Security.Permissions;
 using ComponentFactory.Krypton.Toolkit.Properties;
+using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Security.Permissions;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -22,7 +22,7 @@ namespace ComponentFactory.Krypton.Toolkit
     /// Show a wait dialog during long operations.
     /// </summary>
     [ToolboxItem(false)]
-    public partial class ModalWaitDialog : Form, IMessageFilter
+    public partial class ModalWaitDialog : KryptonForm, IMessageFilter
     {
         #region Static Fields
         private const int DELAY_SHOWING = 500;
@@ -47,7 +47,7 @@ namespace ComponentFactory.Krypton.Toolkit
             InitializeComponent();
 
             // Remove redraw flicker by using double buffering
-            SetStyle(ControlStyles.DoubleBuffer | 
+            SetStyle(ControlStyles.DoubleBuffer |
                      ControlStyles.AllPaintingInWmPaint, true);
 
             // Hook into dispach of windows messages
@@ -72,9 +72,9 @@ namespace ComponentFactory.Krypton.Toolkit
             e.Graphics.RotateTransform(_spinAngle);
 
             // Perform actual draw of the image
-            e.Graphics.DrawImage(_hourGlass, 
-                                 -16, -16, 
-                                 _hourGlass.Width, 
+            e.Graphics.DrawImage(_hourGlass,
+                                 -16, -16,
+                                 _hourGlass.Width,
                                  _hourGlass.Height);
 
             // Must return the graphics instance in same state provided
@@ -116,7 +116,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         // Increase the spin angle by one notch
                         _spinAngle = (_spinAngle + SPIN_ANGLE) % 360;
-                        
+
                         // Request the spin image be redrawn
                         Invalidate();
 
@@ -139,8 +139,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public bool PreFilterMessage(ref Message m)
         {
             // Prevent mouse messages from activating any application windows
-            if (((m.Msg >= 0x0200) && (m.Msg <= 0x0209)) || 
-                ((m.Msg >= 0x00A0) && (m.Msg <= 0x00A9)))  
+            if (((m.Msg >= 0x0200) && (m.Msg <= 0x0209)) ||
+                ((m.Msg >= 0x00A0) && (m.Msg <= 0x00A9)))
             {
                 // Discover target control for message
                 if (FromHandle(m.HWnd) != null)

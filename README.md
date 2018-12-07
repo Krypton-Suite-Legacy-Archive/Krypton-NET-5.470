@@ -1,4 +1,4 @@
-# <img src="https://github.com/Wagnerp/Krypton-NET-4.70/blob/master/Assets/PNG/Square%20Design/Main%20Icon/64%20x%2064/Square%20Design%2064%20x%2064%20New%20Green.png">-NET-4.70 (Dev branch)
+# <img src="https://github.com/Wagnerp/Krypton-NET-4.70/blob/master/Assets/PNG/Square%20Design/Main%20Icon/64%20x%2064/Square%20Design%2064%20x%2064%20New%20Green.png">-NET-5.470
 
 =======
 
@@ -6,11 +6,33 @@
 
 =======
 
-## NOTE: With the advent of Windows 10 1803 being released to the general public, I am pleased to announce the availability of a 4.72 release that will support the .NET 4.7.2 framework. You can follow the project [here](https://github.com/Wagnerp/Krypton-NET-4.72).
+## NOTE: With the advent of Windows 10 1803 being released to the general public, I am pleased to announce the availability of a 5.472 release that will support the .NET 4.7.2 framework. You can follow the project [here](https://github.com/Wagnerp/Krypton-NET-5.472).
 
 =======
 
-## Help Wanted! If anyone has experience with the Nuget or any other packaging specifications, then please do not hesitate to come forward, as past implementations have not come to fruition.
+## 2018-12-03 Build 701
+* Build 701 (build date Monday 3rd December, 2018) is now available through NuGet
+* Minor changes
+
+=======
+
+## 2018-09-28 Version **`4`** now becomes version **`5`**
+* Major version number changed from `4` to `5` after experimenting successfuly with NuGet packages
+- Known bug if installing via NuGet, ToolBox images will not be displayed properly
+- A backup copy of the `4.70` version has been uploaded to the **Version-4.70** branch
+* A new NuGet package can be obtained [here](https://www.nuget.org/packages/KryptonToolkitSuite5470/5.470.700) or by typing `KryptonToolkitSuite5470` in the package manager
+* Build 700 (build date Friday 28th September, 2018) is now available through the **releases** tab
+* Repository name change to reflect version changes
+
+========
+
+## 2018-09-25 Build 643
+* Build 643 (build date Tuesday 25th September, 2018) is now available through the **releases** tab, or as a NuGet package (note, this may not work)
+
+=======
+
+## 2018-09-23 Add `design time` and `nullable bool` for feature #67
+* Allow the developer to override the `Ctrl+c to copy` text in the Caption
 
 =======
 
@@ -237,8 +259,8 @@
 =======
 
 ## 2018-01-24am Designer bug fix
-* Fixed bug with Krypton.Design.dll to version `4.70.0.0` due to hard coded values in toolkit code. Thanks to Smurf-IV for pointing this out to me.
-* New Nuget package, version `4.70.524`, relating to the version of Krypton.Designer.dll (build date January 24th, 2018) will be uploaded to incorporate this fix.
+* Fixed bug with ComponentFactory.Krypton.Design.dll to version `4.70.0.0` due to hard coded values in toolkit code. Thanks to Smurf-IV for pointing this out to me.
+* New Nuget package, version `4.70.524`, relating to the version of ComponentFactory.Krypton.Designer.dll (build date January 24th, 2018) will be uploaded to incorporate this fix.
 
 =======
 
@@ -325,7 +347,7 @@
 * Reupload of fresh binaries after a good fight!
 * Changed year of all classes, controls etc from `2017` to `2018`
 * Mass rebuild of solution
-* Eradicated all references of `4.5.0.0` to `4.7.0.0`
+* Eradicated all references of `4.5.0.0` to `5.470.0.0`
 
 =======
 
