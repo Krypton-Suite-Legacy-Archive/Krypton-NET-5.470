@@ -1165,17 +1165,14 @@ namespace ComponentFactory.Krypton.Ribbon
                 Form ownerForm = _ribbon.Parent as Form;
 
                 // Should always be inside a form, but you never know!
-                if (ownerForm != null)
+                // We only care if the owner form is a KryptonForm instance
+                if (ownerForm is KryptonForm form)
                 {
-                    // We only care if the owner form is a KryptonForm instance
-                    if (ownerForm is KryptonForm)
-                    {
-                        _kryptonForm = ownerForm as KryptonForm;
-                        _kryptonForm.Composition = _compositionArea;
-                        _kryptonForm.ApplyCustomChromeChanged += new EventHandler(OnFormChromeCheck);
-                        _kryptonForm.ClientSizeChanged += new EventHandler(OnFormChromeCheck);
-                        _kryptonForm.WindowActiveChanged += new EventHandler(OnWindowActiveChanged);
-                    }
+                    _kryptonForm = form;
+                    _kryptonForm.Composition = _compositionArea;
+                    _kryptonForm.ApplyCustomChromeChanged += new EventHandler(OnFormChromeCheck);
+                    _kryptonForm.ClientSizeChanged += new EventHandler(OnFormChromeCheck);
+                    _kryptonForm.WindowActiveChanged += new EventHandler(OnWindowActiveChanged);
                 }
 
                 // Update decision about integrating or providing caption functionality
@@ -1263,7 +1260,12 @@ namespace ComponentFactory.Krypton.Ribbon
                 _kryptonForm.AllowComposition = _ribbon.AllowFormIntegrate && !_ribbon.InDesignMode;
 
                 //TODO call this function when palette is changing
-                bool newAllowIconDisplay = (!_integrated || !_ribbon.RibbonAppButton.AppButtonVisible || (_ribbon.RibbonAppButton.AppButtonVisible && (_ribbon.RibbonShape == PaletteRibbonShape.Office2010 || _ribbon.RibbonShape == PaletteRibbonShape.Office2013)));
+                bool newAllowIconDisplay = (!_integrated 
+                                            || !_ribbon.RibbonAppButton.AppButtonVisible 
+                                            || (_ribbon.RibbonAppButton.AppButtonVisible 
+                                                    && (_ribbon.RibbonShape == PaletteRibbonShape.Office2010 || _ribbon.RibbonShape == PaletteRibbonShape.Office2013)
+                                                )
+                                            );
                 if (_kryptonForm.AllowIconDisplay != newAllowIconDisplay)
                 {
                     _kryptonForm.AllowIconDisplay = newAllowIconDisplay;

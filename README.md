@@ -49,9 +49,9 @@
 =======
 
 ## 2018-08-08 Build 633
-* Build 633 (build date Wedensday 8th August, 2018) is now available through the **releases** tab
+* Build 633 (build date Wednesday 8th August, 2018) is now available through the **releases** tab
 * New icon (not propagated through all the example applications yet)
-* General bugfixes
+* General bug fixes
 
 =======
 

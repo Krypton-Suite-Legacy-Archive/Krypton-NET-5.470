@@ -86,7 +86,6 @@ namespace ApplicationMenu
             // 
             // kryptonRibbon1
             // 
-            this.kryptonRibbon1.AllowFormIntegrate = true;
             this.kryptonRibbon1.InDesignHelperMode = true;
             this.kryptonRibbon1.Name = "kryptonRibbon1";
             this.kryptonRibbon1.RibbonAppButton.AppButtonMenuItems.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
@@ -107,7 +106,6 @@ namespace ApplicationMenu
             this.buttonSpecAppMenu2});
             this.kryptonRibbon1.RibbonTabs.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab[] {
             this.kryptonRibbonTab1});
-            this.kryptonRibbon1.SelectedContext = null;
             this.kryptonRibbon1.SelectedTab = this.kryptonRibbonTab1;
             this.kryptonRibbon1.Size = new System.Drawing.Size(519, 115);
             this.kryptonRibbon1.TabIndex = 0;
@@ -384,7 +382,7 @@ namespace ApplicationMenu
             // 
             this.textBoxMinHeight.Location = new System.Drawing.Point(163, 98);
             this.textBoxMinHeight.Name = "textBoxMinHeight";
-            this.textBoxMinHeight.Size = new System.Drawing.Size(50, 23);
+            this.textBoxMinHeight.Size = new System.Drawing.Size(50, 20);
             this.textBoxMinHeight.TabIndex = 6;
             this.textBoxMinHeight.Text = "kryptonTextBox3";
             // 
@@ -392,7 +390,7 @@ namespace ApplicationMenu
             // 
             this.textBoxDocsTitle.Location = new System.Drawing.Point(163, 50);
             this.textBoxDocsTitle.Name = "textBoxDocsTitle";
-            this.textBoxDocsTitle.Size = new System.Drawing.Size(141, 23);
+            this.textBoxDocsTitle.Size = new System.Drawing.Size(141, 20);
             this.textBoxDocsTitle.TabIndex = 1;
             this.textBoxDocsTitle.Text = "kryptonTextBox1";
             // 
@@ -427,7 +425,7 @@ namespace ApplicationMenu
             // 
             this.textBoxMinWidth.Location = new System.Drawing.Point(163, 74);
             this.textBoxMinWidth.Name = "textBoxMinWidth";
-            this.textBoxMinWidth.Size = new System.Drawing.Size(50, 23);
+            this.textBoxMinWidth.Size = new System.Drawing.Size(50, 20);
             this.textBoxMinWidth.TabIndex = 3;
             this.textBoxMinWidth.Text = "kryptonTextBox2";
             // 
