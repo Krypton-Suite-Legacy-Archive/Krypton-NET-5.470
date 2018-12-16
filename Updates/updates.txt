@@ -243,7 +243,7 @@
 * Reupload of fresh binaries after a good fight!
 * Changed year of all classes, controls et.c from 2017 to 2018
 * Mass rebuild of solution
-* Eradicated all references of `4.5.0.0` to `4.7.0.0`
+* Eradicated all references of `4.5.0.0` to `5.470.0.0`
 
 =======
 

@@ -32,25 +32,36 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelMessage = new System.Windows.Forms.Label();
+            this.labelMessage = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
+            this.kryptonPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelMessage
             // 
-            this.labelMessage.Location = new System.Drawing.Point(68, 17);
+            this.labelMessage.Location = new System.Drawing.Point(66, 20);
             this.labelMessage.Name = "labelMessage";
-            this.labelMessage.Size = new System.Drawing.Size(201, 28);
+            this.labelMessage.Size = new System.Drawing.Size(218, 20);
             this.labelMessage.TabIndex = 0;
-            this.labelMessage.Text = "Please wait for operation to complete.";
-            this.labelMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelMessage.Values.Text = "Please wait for operation to complete.";
+            // 
+            // kryptonPanel1
+            // 
+            this.kryptonPanel1.Controls.Add(this.labelMessage);
+            this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
+            this.kryptonPanel1.Name = "kryptonPanel1";
+            this.kryptonPanel1.Size = new System.Drawing.Size(296, 66);
+            this.kryptonPanel1.TabIndex = 1;
             // 
             // ModalWaitDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(269, 66);
+            this.ClientSize = new System.Drawing.Size(296, 66);
             this.ControlBox = false;
-            this.Controls.Add(this.labelMessage);
+            this.Controls.Add(this.kryptonPanel1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -61,12 +72,16 @@ namespace ComponentFactory.Krypton.Toolkit
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Processing";
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
+            this.kryptonPanel1.ResumeLayout(false);
+            this.kryptonPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label labelMessage;
+        private KryptonLabel labelMessage;
+        private KryptonPanel kryptonPanel1;
     }
 }
