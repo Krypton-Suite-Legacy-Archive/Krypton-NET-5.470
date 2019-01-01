@@ -8,11 +8,12 @@
 //  Version 5.470.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using ComponentFactory.Krypton.Ribbon;
-using ComponentFactory.Krypton.Toolkit;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+
+using ComponentFactory.Krypton.Ribbon;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace KryptonGalleryExamples
 {

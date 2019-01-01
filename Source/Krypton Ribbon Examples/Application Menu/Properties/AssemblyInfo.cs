@@ -17,9 +17,9 @@ using System.Security.Permissions;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyVersion("5.470.5001.0")]
-[assembly: AssemblyFileVersion("5.470.5001.0")]
-[assembly: AssemblyInformationalVersion("5.470.5001.0")]
+[assembly: AssemblyVersion("2018.10.5003.13")]
+[assembly: AssemblyFileVersion("18.10.5003.13")]
+[assembly: AssemblyInformationalVersion("2018.10.5003.13")]
 [assembly: AssemblyCopyright("© Component Factory Pty Ltd 2012. All rights reserved.")]
 [assembly: AssemblyProduct("Application Menu")]
 [assembly: AssemblyDefaultAlias("ApplicationMenu.dll")]
