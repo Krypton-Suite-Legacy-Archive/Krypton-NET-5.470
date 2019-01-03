@@ -1,6 +1,6 @@
 ﻿// *****************************************************************************
 // 
-//  © Component Factory Pty Ltd 2012. All rights reserved.
+//  © Component Factory Pty Ltd 2012 - 2019 - 2019. All rights reserved.
 //	The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, PO Box 1504, 
 //  Glen Waverley, Vic 3150, Australia and are supplied subject to licence terms.
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 
 [assembly: AssemblyVersion("17.10.6001.15")]
 [assembly: AssemblyFileVersion("17.10.6001.15")]
-[assembly: AssemblyCopyright("© Component Factory Pty Ltd 2012. All rights reserved.")]
+[assembly: AssemblyCopyright("© Component Factory Pty Ltd 2012 - 2019 - 2019. All rights reserved.")]
 [assembly: AssemblyInformationalVersion("4.5.1.0")]
 [assembly: AssemblyProduct("Docking Customized")]
 [assembly: AssemblyDefaultAlias("DockingCustomized.dll")]

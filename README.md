@@ -10,6 +10,11 @@
 
 =======
 
+## 2019-01-03 Year Change
+* Changed `2018` to `2019` in code
+
+=======
+
 ## 2018-12-03 Build 701
 * Build 701 (build date Monday 3rd December, 2018) is now available through NuGet
 * Minor changes

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Krypton Toolkit Updater")]
-[assembly: AssemblyCopyright("Copyright © 2018 Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV)")]
+[assembly: AssemblyCopyright("Copyright © 2019 Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV)")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

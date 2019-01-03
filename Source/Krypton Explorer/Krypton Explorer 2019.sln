@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krypton Explorer 2019", "Krypton Explorer 2019.csproj", "{04CD6851-B923-4AB3-91E7-A1D8477AFE0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		ReleaseCS|Any CPU = ReleaseCS|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04CD6851-B923-4AB3-91E7-A1D8477AFE0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04CD6851-B923-4AB3-91E7-A1D8477AFE0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04CD6851-B923-4AB3-91E7-A1D8477AFE0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04CD6851-B923-4AB3-91E7-A1D8477AFE0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04CD6851-B923-4AB3-91E7-A1D8477AFE0E}.ReleaseCS|Any CPU.ActiveCfg = ReleaseCS|Any CPU
+		{04CD6851-B923-4AB3-91E7-A1D8477AFE0E}.ReleaseCS|Any CPU.Build.0 = ReleaseCS|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E1BFF9A3-8AEF-4DFC-AB1F-B8E2075A643D}
+	EndGlobalSection
+EndGlobal
