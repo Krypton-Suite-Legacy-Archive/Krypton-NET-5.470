@@ -9,14 +9,14 @@
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Drawing;
-using System.ComponentModel;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
 using Microsoft.Win32;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Drawing;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -55,11 +55,14 @@ namespace ComponentFactory.Krypton.Toolkit
         private static PaletteSparklePurple _paletteSparklePurple;
         private static PaletteOffice2013 _paletteOffice2013;
         private static PaletteOffice2013White _paletteOffice2013White;
+        private static PaletteOffice365Black _paletteOffice365Black;
+        private static PaletteOffice365White _paletteOffice365White;
         private static RenderStandard _renderStandard;
         private static RenderProfessional _renderProfessional;
         private static RenderOffice2007 _renderOffice2007;
         private static RenderOffice2010 _renderOffice2010;
         private static RenderOffice2013 _renderOffice2013;
+        private static RenderOffice365 _renderOffice365;
         private static RenderSparkle _renderSparkle;
         #endregion
 
@@ -105,7 +108,7 @@ namespace ComponentFactory.Krypton.Toolkit
             : this()
         {
             Debug.Assert(container != null);
-            
+
             // Validate reference parameter
             if (container == null)
             {
@@ -140,7 +143,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get => InternalGlobalPaletteMode;
 
-            set 
+            set
             {
                 // Only interested in changes of value
                 if (InternalGlobalPaletteMode != value)
@@ -269,7 +272,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             GlobalPaletteMode = PaletteModeManager.Office2010Blue;
         }
-        
+
         /// <summary>
         /// Gets or sets a value indicating if the palette colors are applied to the toolstrips.
         /// </summary>
@@ -389,7 +392,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Use new value
                     _globalAllowFormChrome = value;
-             
+
                     // Fire change event
                     OnGlobalAllowFormChromeChanged(EventArgs.Empty);
                 }
@@ -411,7 +414,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public static IPalette CurrentGlobalPalette
         {
-            get 
+            get
             {
                 switch (InternalGlobalPaletteMode)
                 {
@@ -441,6 +444,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         return PaletteOffice2013;
                     case PaletteModeManager.Office2013White:
                         return PaletteOffice2013White;
+                    case PaletteModeManager.Office365Black:
+                        return PaletteOffice365Black;
+                    case PaletteModeManager.Office365White:
+                        return PaletteOffice365White;
                     case PaletteModeManager.Custom:
                         return InternalGlobalPalette;
                     default:
@@ -485,6 +492,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     return PaletteOffice2013;
                 case PaletteMode.Office2013White:
                     return PaletteOffice2013White;
+                case PaletteMode.Office365Black:
+                    return PaletteOffice365Black;
+                case PaletteMode.Office365White:
+                    return PaletteOffice365White;
                 case PaletteMode.Global:
                     return CurrentGlobalPalette;
                 case PaletteMode.Custom:
@@ -536,6 +547,22 @@ namespace ComponentFactory.Krypton.Toolkit
         public static PaletteOffice2010Black PaletteOffice2010Black => _paletteOffice2010Black ?? (_paletteOffice2010Black = new PaletteOffice2010Black());
 
         /// <summary>
+        /// Gets the palette office365 black.
+        /// </summary>
+        /// <value>
+        /// The palette office365 black.
+        /// </value>
+        public static PaletteOffice365Black PaletteOffice365Black => _paletteOffice365Black ?? (_paletteOffice365Black = new PaletteOffice365Black());
+
+        /// <summary>
+        /// Gets the palette office365 white.
+        /// </summary>
+        /// <value>
+        /// The palette office365 white.
+        /// </value>
+        public static PaletteOffice365White PaletteOffice365White => _paletteOffice365White ?? (_paletteOffice365White = new PaletteOffice365White());
+
+        /// <summary>
         /// Gets the single instance of the Blue variant sparkle palette.
         /// </summary>
         public static PaletteSparkleBlue PaletteSparkleBlue => _paletteSparkleBlue ?? (_paletteSparkleBlue = new PaletteSparkleBlue());
@@ -577,6 +604,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     return RenderOffice2010;
                 case RendererMode.Office2013:
                     return RenderOffice2013;
+                case RendererMode.Office365:
+                    return RenderOffice365;
                 case RendererMode.Professional:
                     return RenderProfessional;
                 case RendererMode.Standard:
@@ -609,6 +638,11 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets the single instance of the Office 2013 renderer.
         /// </summary>
         public static RenderOffice2013 RenderOffice2013 => _renderOffice2013 ?? (_renderOffice2013 = new RenderOffice2013());
+
+        /// <summary>
+        /// Gets the single instance of the 365 2013 renderer.
+        /// </summary>
+        public static RenderOffice365 RenderOffice365 => _renderOffice365 ?? (_renderOffice365 = new RenderOffice365());
 
         /// <summary>
         /// Gets the single instance of the professional renderer.

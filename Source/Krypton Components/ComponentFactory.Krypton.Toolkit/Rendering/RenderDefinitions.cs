@@ -16,26 +16,26 @@ using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	#region IRenderer
-	/// <summary>
-	/// Exposes access to specialized renderers.
-	/// </summary>
-	public interface IRenderer
-	{
-		/// <summary>
+    #region IRenderer
+    /// <summary>
+    /// Exposes access to specialized renderers.
+    /// </summary>
+    public interface IRenderer
+    {
+        /// <summary>
         /// Gets the standard border renderer.
-		/// </summary>
-		IRenderBorder RenderStandardBorder { get; }
+        /// </summary>
+        IRenderBorder RenderStandardBorder { get; }
 
-		/// <summary>
+        /// <summary>
         /// Gets the standard background renderer.
-		/// </summary>
-		IRenderBack RenderStandardBack { get; }
+        /// </summary>
+        IRenderBack RenderStandardBack { get; }
 
-		/// <summary>
+        /// <summary>
         /// Gets the standard content renderer.
-		/// </summary>
-		IRenderContent RenderStandardContent { get; }
+        /// </summary>
+        IRenderContent RenderStandardContent { get; }
 
         /// <summary>
         /// Gets the tab border renderer.
@@ -58,7 +58,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="paletteBack">Background palette to test.</param>
         /// <param name="state">Element state associated with palette.</param>
         /// <returns>True if transparent painting required.</returns>
-        bool EvalTransparentPaint(IPaletteBack paletteBack, 
+        bool EvalTransparentPaint(IPaletteBack paletteBack,
                                   PaletteState state);
 
         /// <summary>
@@ -68,8 +68,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="paletteBorder">Background palette to test.</param>
         /// <param name="state">Element state associated with palette.</param>
         /// <returns>True if transparent painting required.</returns>
-        bool EvalTransparentPaint(IPaletteBack paletteBack, 
-                                  IPaletteBorder paletteBorder, 
+        bool EvalTransparentPaint(IPaletteBack paletteBack,
+                                  IPaletteBorder paletteBorder,
                                   PaletteState state);
 
         /// <summary>
@@ -77,15 +77,15 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="colorPalette">Color palette to use when rendering toolstrip.</param>
         ToolStripRenderer RenderToolStrip(IPalette colorPalette);
-	}
-	#endregion
+    }
+    #endregion
 
-	#region IRenderBorder
-	/// <summary>
-	/// Exposes methods for drawing borders.
-	/// </summary>
-	public interface IRenderBorder
-	{
+    #region IRenderBorder
+    /// <summary>
+    /// Exposes methods for drawing borders.
+    /// </summary>
+    public interface IRenderBorder
+    {
         /// <summary>
         /// Gets the raw padding used per edge of the border.
         /// </summary>
@@ -97,15 +97,15 @@ namespace ComponentFactory.Krypton.Toolkit
                                     PaletteState state,
                                     VisualOrientation orientation);
 
-		/// <summary>
-		/// Gets the padding used to position display elements completely inside border drawing.
-		/// </summary>
-		/// <param name="palette">Palette used for drawing.</param>
+        /// <summary>
+        /// Gets the padding used to position display elements completely inside border drawing.
+        /// </summary>
+        /// <param name="palette">Palette used for drawing.</param>
         /// <param name="state">State associated with rendering.</param>
         /// <param name="orientation">Visual orientation of the border.</param>
         /// <returns>Padding structure detailing all four edges.</returns>
-		Padding GetBorderDisplayPadding(IPaletteBorder palette, 
-										PaletteState state,
+        Padding GetBorderDisplayPadding(IPaletteBorder palette,
+                                        PaletteState state,
                                         VisualOrientation orientation);
 
         /// <summary>
@@ -123,20 +123,20 @@ namespace ComponentFactory.Krypton.Toolkit
                                           VisualOrientation orientation,
                                           PaletteState state);
 
-		/// <summary>
-		/// Generate a graphics path that is in the middle of the border.
-		/// </summary>
-		/// <param name="context">Rendering context.</param>
-		/// <param name="rect">Target rectangle.</param>
-		/// <param name="palette">Palette used for drawing.</param>
+        /// <summary>
+        /// Generate a graphics path that is in the middle of the border.
+        /// </summary>
+        /// <param name="context">Rendering context.</param>
+        /// <param name="rect">Target rectangle.</param>
+        /// <param name="palette">Palette used for drawing.</param>
         /// <param name="orientation">Visual orientation of the border.</param>
         /// <param name="state">State associated with rendering.</param>
-		/// <returns>GraphicsPath instance.</returns>
-		GraphicsPath GetBorderPath(RenderContext context, 
-								   Rectangle rect, 
-								   IPaletteBorder palette,
+        /// <returns>GraphicsPath instance.</returns>
+        GraphicsPath GetBorderPath(RenderContext context,
+                                   Rectangle rect,
+                                   IPaletteBorder palette,
                                    VisualOrientation orientation,
-								   PaletteState state);
+                                   PaletteState state);
 
         /// <summary>
         /// Generate a graphics path that encloses the border and is used when rendering a background to ensure the background does not draw over the border area.
@@ -153,112 +153,112 @@ namespace ComponentFactory.Krypton.Toolkit
                                  VisualOrientation orientation,
                                  PaletteState state);
 
-		/// <summary>
-		/// Draw border on the inside edge of the specified rectangle.
-		/// </summary>
-		/// <param name="context">Rendering context.</param>
-		/// <param name="rect">Target rectangle.</param>
-		/// <param name="palette">Palette used for drawing.</param>
-		/// <param name="orientation">Visual orientation of the border.</param>
-		/// <param name="state">State associated with rendering.</param>
-		void DrawBorder(RenderContext context, 
-						Rectangle rect, 
-						IPaletteBorder palette,
-						VisualOrientation orientation,
-						PaletteState state);
-	}
-	#endregion
+        /// <summary>
+        /// Draw border on the inside edge of the specified rectangle.
+        /// </summary>
+        /// <param name="context">Rendering context.</param>
+        /// <param name="rect">Target rectangle.</param>
+        /// <param name="palette">Palette used for drawing.</param>
+        /// <param name="orientation">Visual orientation of the border.</param>
+        /// <param name="state">State associated with rendering.</param>
+        void DrawBorder(RenderContext context,
+                        Rectangle rect,
+                        IPaletteBorder palette,
+                        VisualOrientation orientation,
+                        PaletteState state);
+    }
+    #endregion
 
-	#region IRenderBack
-	/// <summary>
-	/// Exposes methods for drawing backgrounds.
-	/// </summary>
-	public interface IRenderBack
-	{
-		/// <summary>
-		/// Draw background to fill the specified path.
-		/// </summary>
-		/// <param name="context">Rendering context.</param>
-		/// <param name="rect">Target rectangle that encloses path.</param>
-		/// <param name="path">Graphics path.</param>
-		/// <param name="palette">Palette used for drawing.</param>
-		/// <param name="orientation">Visual orientation of the background.</param>
-		/// <param name="state">State associated with rendering.</param>
+    #region IRenderBack
+    /// <summary>
+    /// Exposes methods for drawing backgrounds.
+    /// </summary>
+    public interface IRenderBack
+    {
+        /// <summary>
+        /// Draw background to fill the specified path.
+        /// </summary>
+        /// <param name="context">Rendering context.</param>
+        /// <param name="rect">Target rectangle that encloses path.</param>
+        /// <param name="path">Graphics path.</param>
+        /// <param name="palette">Palette used for drawing.</param>
+        /// <param name="orientation">Visual orientation of the background.</param>
+        /// <param name="state">State associated with rendering.</param>
         /// <param name="memento">Cache used for drawing.</param>
-        IDisposable DrawBack(RenderContext context, 
-					         Rectangle rect, 
-					         GraphicsPath path, 
-					         IPaletteBack palette,
-					         VisualOrientation orientation,
-					         PaletteState state,
+        IDisposable DrawBack(RenderContext context,
+                             Rectangle rect,
+                             GraphicsPath path,
+                             IPaletteBack palette,
+                             VisualOrientation orientation,
+                             PaletteState state,
                              IDisposable memento);
-	}
-	#endregion
+    }
+    #endregion
 
-	#region IRenderContent
-	/// <summary>
-	/// Exposes methods for drawing content.
-	/// </summary>
-	public interface IRenderContent
-	{
-		/// <summary>
-		/// Get the preferred size for drawing the content.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		/// <param name="palette">Content palette details.</param>
-		/// <param name="values">Content values.</param>
-		/// <param name="orientation">Visual orientation of the content.</param>
+    #region IRenderContent
+    /// <summary>
+    /// Exposes methods for drawing content.
+    /// </summary>
+    public interface IRenderContent
+    {
+        /// <summary>
+        /// Get the preferred size for drawing the content.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        /// <param name="palette">Content palette details.</param>
+        /// <param name="values">Content values.</param>
+        /// <param name="orientation">Visual orientation of the content.</param>
         /// <param name="state">State associated with rendering.</param>
         /// <param name="composition">Drawing onto a composition element.</param>
         /// <param name="glowing">If composition, should glowing be drawn.</param>
         /// <returns>Preferred size.</returns>
-		Size GetContentPreferredSize(ViewLayoutContext context,
-									 IPaletteContent palette,
-									 IContentValues values,
-									 VisualOrientation orientation,
+        Size GetContentPreferredSize(ViewLayoutContext context,
+                                     IPaletteContent palette,
+                                     IContentValues values,
+                                     VisualOrientation orientation,
                                      PaletteState state,
                                      bool composition,
                                      bool glowing);
 
-		/// <summary>
-		/// Perform layout calculations on the provided content.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		/// <param name="availableRect">Space available for laying out.</param>
-		/// <param name="palette">Content palette details.</param>
-		/// <param name="values">Content values.</param>
-		/// <param name="orientation">Visual orientation of the content.</param>
-		/// <param name="state">State associated with rendering.</param>
+        /// <summary>
+        /// Perform layout calculations on the provided content.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        /// <param name="availableRect">Space available for laying out.</param>
+        /// <param name="palette">Content palette details.</param>
+        /// <param name="values">Content values.</param>
+        /// <param name="orientation">Visual orientation of the content.</param>
+        /// <param name="state">State associated with rendering.</param>
         /// <param name="composition">Drawing onto a composition element.</param>
         /// <param name="glowing">If composition, should glowing be drawn.</param>
         /// <returns>Memento with cached information.</returns>
-		IDisposable LayoutContent(ViewLayoutContext context,
-							      Rectangle availableRect,
-							      IPaletteContent palette,
-							      IContentValues values,
-							      VisualOrientation orientation,
+        IDisposable LayoutContent(ViewLayoutContext context,
+                                  Rectangle availableRect,
+                                  IPaletteContent palette,
+                                  IContentValues values,
+                                  VisualOrientation orientation,
                                   PaletteState state,
                                   bool composition,
                                   bool glowing);
 
-		/// <summary>
-		/// Perform draw of content using provided memento.
-		/// </summary>
-		/// <param name="context">Render context.</param>
-		/// <param name="displayRect">Display area available for drawing.</param>
-		/// <param name="palette">Content palette details.</param>
-		/// <param name="memento">Cached values from layout call.</param>
-		/// <param name="orientation">Visual orientation of the content.</param>
-		/// <param name="state">State associated with rendering.</param>
+        /// <summary>
+        /// Perform draw of content using provided memento.
+        /// </summary>
+        /// <param name="context">Render context.</param>
+        /// <param name="displayRect">Display area available for drawing.</param>
+        /// <param name="palette">Content palette details.</param>
+        /// <param name="memento">Cached values from layout call.</param>
+        /// <param name="orientation">Visual orientation of the content.</param>
+        /// <param name="state">State associated with rendering.</param>
         /// <param name="composition">Drawing onto a composition element.</param>
         /// <param name="glowing">If composition, should glowing be drawn.</param>
         /// <param name="allowFocusRect">Allow drawing of focus rectangle.</param>
         void DrawContent(RenderContext context,
-						 Rectangle displayRect,
-						 IPaletteContent palette,
+                         Rectangle displayRect,
+                         IPaletteContent palette,
                          IDisposable memento,
-						 VisualOrientation orientation,
-						 PaletteState state,
+                         VisualOrientation orientation,
+                         PaletteState state,
                          bool composition,
                          bool glowing,
                          bool allowFocusRect);
@@ -305,7 +305,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Display rectangle for the image content.</returns>
         Rectangle GetContentLongTextRectangle(IDisposable memento);
     }
-	#endregion
+    #endregion
 
     #region IRenderTabBorder
     /// <summary>
@@ -846,12 +846,12 @@ namespace ComponentFactory.Krypton.Toolkit
     }
     #endregion
 
-	#region Enum RenderMode
-	/// <summary>
-	/// Specifies the renderer to use when painting.
-	/// </summary>
-	public enum RendererMode
-	{
+    #region Enum RenderMode
+    /// <summary>
+    /// Specifies the renderer to use when painting.
+    /// </summary>
+    public enum RendererMode
+    {
         /// <summary>
         /// Specifies the renderer be inherited from the base palette.
         /// </summary>
@@ -867,15 +867,20 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         Office2007,
 
-	    /// <summary>
-	    /// Specifies the RenderOffice2010 be used.
-	    /// </summary>
-	    Office2010,
+        /// <summary>
+        /// Specifies the RenderOffice2010 be used.
+        /// </summary>
+        Office2010,
 
-	    /// <summary>
-	    /// Specifies the RenderOffice2013 be used.
+        /// <summary>
+        /// Specifies the RenderOffice2013 be used.
+        /// </summary>
+        Office2013,
+
+        /// <summary>
+	    /// Specifies the RenderOffice365 be used.
 	    /// </summary>
-	    Office2013,
+        Office365,
 
         /// <summary>
 		/// Specifies the RenderProfessional be used.
@@ -891,6 +896,6 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Specifies a custom renderer be used.
 		/// </summary>
 		Custom
-	}
+    }
     #endregion
 }

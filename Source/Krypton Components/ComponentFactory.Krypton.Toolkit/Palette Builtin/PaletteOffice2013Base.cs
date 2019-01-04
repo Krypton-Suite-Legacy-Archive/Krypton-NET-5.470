@@ -172,7 +172,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private Font _italicFont;
         private string _baseFontName;
 
-        //TODO rendre dynamique
+        //TODO render dynamique
         //public static Color baseUserColor = Color.FromArgb(255, 248, 56);
         #endregion
 
