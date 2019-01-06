@@ -2092,6 +2092,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         Office2007Silver,
 
+        Office2007White,
+
         /// <summary>
         /// Specifies the Black color variant of the Office 2007 appearance.
         /// </summary>
@@ -2107,22 +2109,18 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         Office2010Silver,
 
+        Office2010White,
+
         /// <summary>
         /// Specifies the Black color variant of the Office 2010 appearance.
         /// </summary>
         Office2010Black,
 
-        /// <summary>
-        /// Specifies the Office 2013 palette theme.
-        /// </summary>
-        Office2013,
-
-        /// <summary>
-        /// Specifies the Office 2013 White palette theme.
-        /// </summary>
-        Office2013White,
-
         Office365Black,
+
+        Office365Blue,
+
+        Office365Silver,
 
         Office365White,
 
@@ -2173,6 +2171,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         Office2007Silver,
 
+        Office2007White,
+
         /// <summary>
         /// Specifies the Black color variant of the Office 2007 appearance.
         /// </summary>
@@ -2188,22 +2188,18 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         Office2010Silver,
 
+        Office2010White,
+
         /// <summary>
         /// Specifies the Black color variant of the Office 2010 appearance.
         /// </summary>
         Office2010Black,
 
-        /// <summary>
-        /// Specifies the color variant of the Office 2013 appearance.
-        /// </summary>
-        Office2013,
-
-        /// <summary>
-        /// Specifies the White color variant of the Office 2013 appearance.
-        /// </summary>
-        Office2013White,
-
         Office365Black,
+
+        Office365Blue,
+
+        Office365Silver,
 
         Office365White,
 
