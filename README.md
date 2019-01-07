@@ -13,7 +13,7 @@
 ## 2019-01-06 New Palettes - `Office 365`
 * Build 715 (build date Sunday 6th January, 2019) is now available through NuGet
 * Ribbon fixes
-* New built-in palette `Office 365` in black, blue, silver and white colours (note to `Office 2013` palette users, please temporarily change your theme before upgrading, as this code has been discontinued)
+* New built-in palette `Office 365` in black, blue, silver and white colours ~~(note to `Office 2013` palette users, please temporarily change your theme before upgrading, as this code has been discontinued)~~
 * Office 2007 & 2010 white themes are in the works along with Access Red, Powerpoint Red, Excel/Publisher Green, Outlook Orange/Blue
 
 =======
