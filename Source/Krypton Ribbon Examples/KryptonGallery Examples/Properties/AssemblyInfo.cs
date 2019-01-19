@@ -1,6 +1,6 @@
 ﻿// *****************************************************************************
 // 
-//  © Component Factory Pty Ltd 2012. All rights reserved.
+//  © Component Factory Pty Ltd 2012 - 2019. All rights reserved.
 //	The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, PO Box 1504, 
 //  Glen Waverley, Vic 3150, Australia and are supplied subject to licence terms.
@@ -17,10 +17,10 @@ using System.Security.Permissions;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyVersion("2018.10.5002.13")]
+[assembly: AssemblyVersion("2019.10.5002.13")]
 [assembly: AssemblyFileVersion("18.10.5002.13")]
-[assembly: AssemblyInformationalVersion("2018.10.5002.13")]
-[assembly: AssemblyCopyright("© Component Factory Pty Ltd 2012. All rights reserved.")]
+[assembly: AssemblyInformationalVersion("2019.10.5002.13")]
+[assembly: AssemblyCopyright("© Component Factory Pty Ltd 2012 - 2019. All rights reserved.")]
 [assembly: AssemblyProduct("Krypton Gallery Examples")]
 [assembly: AssemblyDefaultAlias("KryptonGalleryExamples.dll")]
 [assembly: AssemblyTitle("Krypton Gallery Examples")]
