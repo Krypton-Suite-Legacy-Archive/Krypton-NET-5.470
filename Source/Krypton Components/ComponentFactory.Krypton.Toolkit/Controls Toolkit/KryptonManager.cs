@@ -1,22 +1,22 @@
 ﻿// *****************************************************************************
 // BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
-//  © Component Factory Pty Ltd, 2006-2018, All rights reserved.
+//  © Component Factory Pty Ltd, 2006-2019, All rights reserved.
 // The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
 // 
-//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Drawing;
-using System.ComponentModel;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
 using Microsoft.Win32;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Drawing;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -46,20 +46,26 @@ namespace ComponentFactory.Krypton.Toolkit
         private static PaletteProfessionalSystem _paletteProfessionalSystem;
         private static PaletteOffice2007Blue _paletteOffice2007Blue;
         private static PaletteOffice2007Silver _paletteOffice2007Silver;
+        private static PaletteOffice2007White _paletteOffice2007White;
         private static PaletteOffice2007Black _paletteOffice2007Black;
         private static PaletteOffice2010Blue _paletteOffice2010Blue;
         private static PaletteOffice2010Silver _paletteOffice2010Silver;
         private static PaletteOffice2010Black _paletteOffice2010Black;
+        private static PaletteOffice2013 _paletteOffice2013;
+        private static PaletteOffice2013White _paletteOffice2013White;
         private static PaletteSparkleBlue _paletteSparkleBlue;
         private static PaletteSparkleOrange _paletteSparkleOrange;
         private static PaletteSparklePurple _paletteSparklePurple;
-        private static PaletteOffice2013 _paletteOffice2013;
-        private static PaletteOffice2013White _paletteOffice2013White;
+        private static PaletteOffice365Black _paletteOffice365Black;
+        private static PaletteOffice365Blue _paletteOffice365Blue;
+        private static PaletteOffice365Silver _paletteOffice365Silver;
+        private static PaletteOffice365White _paletteOffice365White;
         private static RenderStandard _renderStandard;
         private static RenderProfessional _renderProfessional;
         private static RenderOffice2007 _renderOffice2007;
         private static RenderOffice2010 _renderOffice2010;
         private static RenderOffice2013 _renderOffice2013;
+        private static RenderOffice365 _renderOffice365;
         private static RenderSparkle _renderSparkle;
         #endregion
 
@@ -105,7 +111,7 @@ namespace ComponentFactory.Krypton.Toolkit
             : this()
         {
             Debug.Assert(container != null);
-            
+
             // Validate reference parameter
             if (container == null)
             {
@@ -140,7 +146,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get => InternalGlobalPaletteMode;
 
-            set 
+            set
             {
                 // Only interested in changes of value
                 if (InternalGlobalPaletteMode != value)
@@ -269,7 +275,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             GlobalPaletteMode = PaletteModeManager.Office2010Blue;
         }
-        
+
         /// <summary>
         /// Gets or sets a value indicating if the palette colors are applied to the toolstrips.
         /// </summary>
@@ -389,7 +395,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     // Use new value
                     _globalAllowFormChrome = value;
-             
+
                     // Fire change event
                     OnGlobalAllowFormChromeChanged(EventArgs.Empty);
                 }
@@ -411,7 +417,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public static IPalette CurrentGlobalPalette
         {
-            get 
+            get
             {
                 switch (InternalGlobalPaletteMode)
                 {
@@ -423,24 +429,35 @@ namespace ComponentFactory.Krypton.Toolkit
                         return PaletteOffice2007Blue;
                     case PaletteModeManager.Office2007Silver:
                         return PaletteOffice2007Silver;
+                    case PaletteModeManager.Office2007White:
+                        return PaletteOffice2007White;
                     case PaletteModeManager.Office2007Black:
                         return PaletteOffice2007Black;
                     case PaletteModeManager.Office2010Blue:
                         return PaletteOffice2010Blue;
                     case PaletteModeManager.Office2010Silver:
                         return PaletteOffice2010Silver;
+                    case PaletteModeManager.Office2010White:
                     case PaletteModeManager.Office2010Black:
                         return PaletteOffice2010Black;
+                    case PaletteModeManager.Office2013:
+                        return PaletteOffice2013;
+                    case PaletteModeManager.Office2013White:
+                        return PaletteOffice2013White;
                     case PaletteModeManager.SparkleBlue:
                         return PaletteSparkleBlue;
                     case PaletteModeManager.SparkleOrange:
                         return PaletteSparkleOrange;
                     case PaletteModeManager.SparklePurple:
                         return PaletteSparklePurple;
-                    case PaletteModeManager.Office2013:
-                        return PaletteOffice2013;
-                    case PaletteModeManager.Office2013White:
-                        return PaletteOffice2013White;
+                    case PaletteModeManager.Office365Black:
+                        return PaletteOffice365Black;
+                    case PaletteModeManager.Office365Blue:
+                        return PaletteOffice365Blue;
+                    case PaletteModeManager.Office365Silver:
+                        return PaletteOffice365Silver;
+                    case PaletteModeManager.Office365White:
+                        return PaletteOffice365White;
                     case PaletteModeManager.Custom:
                         return InternalGlobalPalette;
                     default:
@@ -467,24 +484,35 @@ namespace ComponentFactory.Krypton.Toolkit
                     return PaletteOffice2007Blue;
                 case PaletteMode.Office2007Silver:
                     return PaletteOffice2007Silver;
+                case PaletteMode.Office2007White:
+                    return PaletteOffice2007White;
                 case PaletteMode.Office2007Black:
                     return PaletteOffice2007Black;
                 case PaletteMode.Office2010Blue:
                     return PaletteOffice2010Blue;
                 case PaletteMode.Office2010Silver:
                     return PaletteOffice2010Silver;
+                case PaletteMode.Office2010White:
                 case PaletteMode.Office2010Black:
                     return PaletteOffice2010Black;
+                case PaletteMode.Office2013:
+                    return PaletteOffice2013;
+                case PaletteMode.Office2013White:
+                    return PaletteOffice2013White;
                 case PaletteMode.SparkleBlue:
                     return PaletteSparkleBlue;
                 case PaletteMode.SparkleOrange:
                     return PaletteSparkleOrange;
                 case PaletteMode.SparklePurple:
                     return PaletteSparklePurple;
-                case PaletteMode.Office2013:
-                    return PaletteOffice2013;
-                case PaletteMode.Office2013White:
-                    return PaletteOffice2013White;
+                case PaletteMode.Office365Black:
+                    return PaletteOffice365Black;
+                case PaletteMode.Office365Blue:
+                    return PaletteOffice365Blue;
+                case PaletteMode.Office365Silver:
+                    return PaletteOffice365Silver;
+                case PaletteMode.Office365White:
+                    return PaletteOffice365White;
                 case PaletteMode.Global:
                     return CurrentGlobalPalette;
                 case PaletteMode.Custom:
@@ -515,6 +543,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public static PaletteOffice2007Silver PaletteOffice2007Silver => _paletteOffice2007Silver ?? (_paletteOffice2007Silver = new PaletteOffice2007Silver());
 
+        public static PaletteOffice2007White PaletteOffice2007White => _paletteOffice2007White ?? (_paletteOffice2007White = new PaletteOffice2007White());
+
         /// <summary>
         /// Gets the single instance of the Black variant Office 2007 palette.
         /// </summary>
@@ -536,6 +566,48 @@ namespace ComponentFactory.Krypton.Toolkit
         public static PaletteOffice2010Black PaletteOffice2010Black => _paletteOffice2010Black ?? (_paletteOffice2010Black = new PaletteOffice2010Black());
 
         /// <summary>
+        /// Gets the single instance of the Office 2013 palette.
+        /// </summary>
+        public static PaletteOffice2013 PaletteOffice2013 => _paletteOffice2013 ?? (_paletteOffice2013 = new PaletteOffice2013());
+
+        /// <summary>
+        /// Gets the single instance of the Office 2013 palette.
+        /// </summary>
+        public static PaletteOffice2013White PaletteOffice2013White => _paletteOffice2013White ?? (_paletteOffice2013White = new PaletteOffice2013White());
+
+        /// <summary>
+        /// Gets the palette office365 black.
+        /// </summary>
+        /// <value>
+        /// The palette office365 black.
+        /// </value>
+        public static PaletteOffice365Black PaletteOffice365Black => _paletteOffice365Black ?? (_paletteOffice365Black = new PaletteOffice365Black());
+
+        /// <summary>
+        /// Gets the palette office365 blue.
+        /// </summary>
+        /// <value>
+        /// The palette office365 blue.
+        /// </value>
+        public static PaletteOffice365Blue PaletteOffice365Blue => _paletteOffice365Blue ?? (_paletteOffice365Blue = new PaletteOffice365Blue());
+
+        /// <summary>
+        /// Gets the palette office365 silver.
+        /// </summary>
+        /// <value>
+        /// The palette office365 silver.
+        /// </value>
+        public static PaletteOffice365Silver PaletteOffice365Silver => _paletteOffice365Silver ?? (_paletteOffice365Silver = new PaletteOffice365Silver());
+
+        /// <summary>
+        /// Gets the palette office365 white.
+        /// </summary>
+        /// <value>
+        /// The palette office365 white.
+        /// </value>
+        public static PaletteOffice365White PaletteOffice365White => _paletteOffice365White ?? (_paletteOffice365White = new PaletteOffice365White());
+
+        /// <summary>
         /// Gets the single instance of the Blue variant sparkle palette.
         /// </summary>
         public static PaletteSparkleBlue PaletteSparkleBlue => _paletteSparkleBlue ?? (_paletteSparkleBlue = new PaletteSparkleBlue());
@@ -550,15 +622,6 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public static PaletteSparklePurple PaletteSparklePurple => _paletteSparklePurple ?? (_paletteSparklePurple = new PaletteSparklePurple());
 
-        /// <summary>
-        /// Gets the single instance of the Office 2013 palette.
-        /// </summary>
-        public static PaletteOffice2013 PaletteOffice2013 => _paletteOffice2013 ?? (_paletteOffice2013 = new PaletteOffice2013());
-
-        /// <summary>
-        /// Gets the single instance of the Office 2013 palette.
-        /// </summary>
-        public static PaletteOffice2013White PaletteOffice2013White => _paletteOffice2013White ?? (_paletteOffice2013White = new PaletteOffice2013White());
 
         /// <summary>
         /// Gets the implementation for the requested renderer mode.
@@ -577,6 +640,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     return RenderOffice2010;
                 case RendererMode.Office2013:
                     return RenderOffice2013;
+                case RendererMode.Office365:
+                    return RenderOffice365;
                 case RendererMode.Professional:
                     return RenderProfessional;
                 case RendererMode.Standard:
@@ -609,6 +674,11 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets the single instance of the Office 2013 renderer.
         /// </summary>
         public static RenderOffice2013 RenderOffice2013 => _renderOffice2013 ?? (_renderOffice2013 = new RenderOffice2013());
+
+        /// <summary>
+        /// Gets the single instance of the 365 2013 renderer.
+        /// </summary>
+        public static RenderOffice365 RenderOffice365 => _renderOffice365 ?? (_renderOffice365 = new RenderOffice365());
 
         /// <summary>
         /// Gets the single instance of the professional renderer.
@@ -698,6 +768,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
             _paletteOffice2007Silver?.UserPreferenceChanged();
 
+            _paletteOffice2007White?.UserPreferenceChanged();
+
             _paletteOffice2007Black?.UserPreferenceChanged();
 
             _paletteOffice2010Blue?.UserPreferenceChanged();
@@ -706,15 +778,21 @@ namespace ComponentFactory.Krypton.Toolkit
 
             _paletteOffice2010Black?.UserPreferenceChanged();
 
+            _paletteOffice2013?.UserPreferenceChanged();
+
+            _paletteOffice2013White?.UserPreferenceChanged();
+
             _paletteSparkleBlue?.UserPreferenceChanged();
 
             _paletteSparkleOrange?.UserPreferenceChanged();
 
             _paletteSparklePurple?.UserPreferenceChanged();
 
-            _paletteOffice2013?.UserPreferenceChanged();
+            _paletteOffice365Black?.UserPreferenceChanged();
 
-            _paletteOffice2013White?.UserPreferenceChanged();
+            _paletteOffice365Blue?.UserPreferenceChanged();
+
+            _paletteOffice365Silver?.UserPreferenceChanged();
 
             UpdateToolStripManager();
         }

@@ -1,4 +1,4 @@
-# <img src="https://github.com/Wagnerp/Krypton-NET-4.70/blob/master/Assets/PNG/Square%20Design/Main%20Icon/64%20x%2064/Square%20Design%2064%20x%2064%20New%20Green.png">-NET-5.470
+# <img src="https://github.com/Wagnerp/Krypton-NET-4.70/blob/master/Assets/PNG/Square%20Design/Main%20Icon/64%20x%2064/Square%20Design%2064%20x%2064%20New%20Green.png"> .NET 5.470
 
 =======
 
@@ -10,6 +10,19 @@
 
 =======
 
+## 2019-01-06 New Palettes - `Office 365`
+* Build 715 (build date Sunday 6th January, 2019) is now available through NuGet
+* Ribbon fixes
+* New built-in palette `Office 365` in black, blue, silver and white colours ~~(note to `Office 2013` palette users, please temporarily change your theme before upgrading, as this code has been discontinued)~~
+* Office 2007 & 2010 white themes are in the works along with Access Red, Powerpoint Red, Excel/Publisher Green, Outlook Orange/Blue
+
+=======
+
+## 2019-01-03 Year Change
+* Changed `2018` to `2019` in code
+
+=======
+
 ## 2018-12-03 Build 701
 * Build 701 (build date Monday 3rd December, 2018) is now available through NuGet
 * Minor changes
@@ -17,7 +30,7 @@
 =======
 
 ## 2018-09-28 Version **`4`** now becomes version **`5`**
-* Major version number changed from `4` to `5` after experimenting successfuly with NuGet packages
+* Major version number changed from `4` to `5` after experimenting successfully with NuGet packages
 - Known bug if installing via NuGet, ToolBox images will not be displayed properly
 - A backup copy of the `4.70` version has been uploaded to the **Version-4.70** branch
 * A new NuGet package can be obtained [here](https://www.nuget.org/packages/KryptonToolkitSuite5470/5.470.700) or by typing `KryptonToolkitSuite5470` in the package manager

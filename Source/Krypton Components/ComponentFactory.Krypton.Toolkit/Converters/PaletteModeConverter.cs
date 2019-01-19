@@ -1,11 +1,11 @@
 ﻿// *****************************************************************************
 // BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
-//  © Component Factory Pty Ltd, 2006-2018, All rights reserved.
+//  © Component Factory Pty Ltd, 2006-2019, All rights reserved.
 // The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
 // 
-//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
@@ -21,11 +21,17 @@ namespace ComponentFactory.Krypton.Toolkit
                                              new Pair(PaletteMode.ProfessionalOffice2003,"Professional - Office 2003"),
                                              new Pair(PaletteMode.Office2007Blue,        "Office 2007 - Blue"),
                                              new Pair(PaletteMode.Office2007Silver,      "Office 2007 - Silver"),
+                                             new Pair(PaletteMode.Office2007White,       "Office 2007 - White"),
                                              new Pair(PaletteMode.Office2007Black,       "Office 2007 - Black"),
                                              new Pair(PaletteMode.Office2010Blue,        "Office 2010 - Blue"),
                                              new Pair(PaletteMode.Office2010Silver,      "Office 2010 - Silver"),
+                                             new Pair(PaletteMode.Office2010White,       "Office 2010 - White"),
                                              new Pair(PaletteMode.Office2010Black,       "Office 2010 - Black"),
                                              new Pair(PaletteMode.Office2013White,       "Office 2013 - White"),
+                                             new Pair(PaletteMode.Office365Black,        "Office 365 - Black"),
+                                             new Pair(PaletteMode.Office365Blue,         "Office 365 - Blue"),
+                                             new Pair(PaletteMode.Office365Silver,       "Office 365 - Silver"),
+                                             new Pair(PaletteMode.Office365White,        "Office 365 - White"),
                                              new Pair(PaletteMode.SparkleBlue,           "Sparkle - Blue"),
                                              new Pair(PaletteMode.SparkleOrange,         "Sparkle - Orange"),
                                              new Pair(PaletteMode.SparklePurple,         "Sparkle - Purple") };
