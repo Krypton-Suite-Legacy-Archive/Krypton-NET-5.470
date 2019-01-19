@@ -86,7 +86,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public Rectangle ClipRect { get; }
 
         /// <summary>
-        /// Calculate a rectangle in control coodinates that is aligned for gradient drawing.
+        /// Calculate a rectangle in control coordinates that is aligned for gradient drawing.
         /// </summary>
         /// <param name="align">How to align the gradient.</param>
         /// <param name="local">Rectangle of the local element.</param>

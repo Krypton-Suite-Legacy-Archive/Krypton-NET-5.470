@@ -12,15 +12,15 @@
 using System;
 using System.ComponentModel;
 using System.Drawing;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Extends the control base with some common changes relevant to krypton simple controls.
-	/// </summary>
-	[ToolboxItem(false)]
+    /// <summary>
+    /// Extends the control base with some common changes relevant to krypton simple controls.
+    /// </summary>
+    [ToolboxItem(false)]
 	[DesignerCategory("code")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]

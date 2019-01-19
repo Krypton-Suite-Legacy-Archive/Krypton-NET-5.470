@@ -82,7 +82,7 @@ namespace ComponentFactory.Krypton.Toolkit
 			// Create view for the control border and background
             _drawDocker = new ViewDrawGroupBoxDocker(StateNormal.Back, StateNormal.Border);
 
-            // Create the element that fills the remainder space and remembers fill rectange
+            // Create the element that fills the remainder space and remembers fill rectangle
             _layoutFill = new ViewLayoutFill(Panel);
 
 			// Add caption into the docker with initial dock edges defined
@@ -519,7 +519,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Do we have a manager to ask for a preferred size?
             if (ViewManager != null)
             {
-                // Ask the view to peform a layout
+                // Ask the view to perform a layout
                 Size retSize = ViewManager.GetPreferredSize(Renderer, proposedSize);
 
                 // Apply the maximum sizing

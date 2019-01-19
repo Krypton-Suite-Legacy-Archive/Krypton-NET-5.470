@@ -10,20 +10,21 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
-using System.Windows.Forms;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
+using System.Drawing;
 using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
+
 using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Base class used for implementation of actual controls.
-	/// </summary>
-	[ToolboxItem(false)]
+    /// <summary>
+    /// Base class used for implementation of actual controls.
+    /// </summary>
+    [ToolboxItem(false)]
 	[DesignerCategory("code")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
@@ -554,7 +555,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Do we have a manager to use for laying out?
                 if (ViewManager != null)
                 {
-                    // Ask the view to peform a layout
+                    // Ask the view to perform a layout
                     ViewManager.Layout(Renderer);
 
                     return true;
@@ -591,7 +592,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get
             {
-                // Do we need to evaluate the need for a tranparent paint
+                // Do we need to evaluate the need for a transparent paint
                 if (_evalTransparent)
                 {
                     _paintTransparent = EvalTransparentPaint();
@@ -826,7 +827,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Layout cannot now be dirty
                         _layoutDirty = false;
 
-                        // Ask the view to peform a layout
+                        // Ask the view to perform a layout
                         ViewManager.Layout(Renderer);
 
                     } while (_layoutDirty && (max-- > 0));
