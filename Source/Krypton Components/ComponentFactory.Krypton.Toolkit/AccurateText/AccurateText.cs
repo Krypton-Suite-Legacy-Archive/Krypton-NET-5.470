@@ -279,7 +279,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     try
                     {
-                        if (composition && glowing)
+                        bool supportsComposition = !((Environment.OSVersion.Version.Major <= 6 &&
+                                        Environment.OSVersion.Version.Minor <= 2) ||
+                                        Environment.OSVersion.Version.Major < 6);
+                        if (supportsComposition && composition && glowing)
                         {
                             //DrawCompositionGlowingText(g, memento.Text, memento.Font, rect, state,
                             //                           SystemColors.ActiveCaptionText, true);
@@ -298,7 +301,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                     SystemColors.ActiveCaptionText, true);
                             }
                         }
-                        else if (composition)
+                        else if (supportsComposition && composition)
                         {
                             //Check if correct in all cases
                             SolidBrush tmpBrush = brush as SolidBrush;
