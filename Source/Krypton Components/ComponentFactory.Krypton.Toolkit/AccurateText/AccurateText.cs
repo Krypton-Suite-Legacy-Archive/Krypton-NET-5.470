@@ -279,7 +279,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     try
                     {
-                        if (composition && glowing)
+                        if (Application.RenderWithVisualStyles && composition && glowing)
                         {
                             //DrawCompositionGlowingText(g, memento.Text, memento.Font, rect, state,
                             //                           SystemColors.ActiveCaptionText, true);
@@ -298,7 +298,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                     SystemColors.ActiveCaptionText, true);
                             }
                         }
-                        else if (composition)
+                        else if (Application.RenderWithVisualStyles && composition)
                         {
                             //Check if correct in all cases
                             SolidBrush tmpBrush = brush as SolidBrush;
