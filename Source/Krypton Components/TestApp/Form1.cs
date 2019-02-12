@@ -17,5 +17,12 @@ namespace TestApp
         {
             InitializeComponent();
         }
+
+        private void kryptonButton1_Click(object sender, EventArgs e)
+        {
+            RibbonApp ra = new RibbonApp();
+
+            ra.Show();
+        }
     }
 }

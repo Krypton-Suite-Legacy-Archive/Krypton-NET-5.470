@@ -186,6 +186,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create the view manager instance
             ViewManager = new ViewManager(this, _drawDocker);
+
+            // Set the UseDropShadow to true
+            UseDropShadow = true;
         }
 
         /// <summary>
@@ -1607,6 +1610,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private void DrawDropShadow()
         {
             GetCreateParams();
+
+            // Redraw
+            Invalidate();
         }
 
         /// <summary>
@@ -1630,7 +1636,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 // add the drop shadow flag for automatically drawing
                 // a drop shadow around the form
                 CreateParams cp = base.CreateParams;
-                cp.ClassStyle |= CS_DROPSHADOW;
+
+                if (UseDropShadow)
+                {
+                    cp.ClassStyle |= CS_DROPSHADOW;
+                }
+
                 return cp;
             }
         }
