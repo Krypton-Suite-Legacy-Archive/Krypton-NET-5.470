@@ -3,7 +3,7 @@
 //  © Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
 //	The software and associated documentation supplied hereunder are the 
     //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
-//  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
+//  Mornington, Vic 3931, Australia and are supplied subject to license terms.
 // 
 //  Version 5.470.0.0 	www.ComponentFactory.com
 // *****************************************************************************
