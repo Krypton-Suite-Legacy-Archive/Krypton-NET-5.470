@@ -86,6 +86,7 @@ namespace ApplicationMenu
             // 
             // kryptonRibbon1
             // 
+            this.kryptonRibbon1.AllowFormIntegrate = true;
             this.kryptonRibbon1.InDesignHelperMode = true;
             this.kryptonRibbon1.Name = "kryptonRibbon1";
             this.kryptonRibbon1.RibbonAppButton.AppButtonMenuItems.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
@@ -104,8 +105,10 @@ namespace ApplicationMenu
             this.kryptonRibbon1.RibbonAppButton.AppButtonSpecs.AddRange(new ComponentFactory.Krypton.Ribbon.ButtonSpecAppMenu[] {
             this.buttonSpecAppMenu1,
             this.buttonSpecAppMenu2});
+            this.kryptonRibbon1.RibbonAppButton.AppButtonToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.SuperTip;
             this.kryptonRibbon1.RibbonTabs.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab[] {
             this.kryptonRibbonTab1});
+            this.kryptonRibbon1.SelectedContext = null;
             this.kryptonRibbon1.SelectedTab = this.kryptonRibbonTab1;
             this.kryptonRibbon1.Size = new System.Drawing.Size(519, 115);
             this.kryptonRibbon1.TabIndex = 0;
@@ -156,12 +159,16 @@ namespace ApplicationMenu
             // 
             this.buttonSpecAppMenu1.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Standalone;
             this.buttonSpecAppMenu1.Text = "O&ptions";
+            this.buttonSpecAppMenu1.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
+            this.buttonSpecAppMenu1.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Generic;
             this.buttonSpecAppMenu1.UniqueName = "9664A073DF8541B79664A073DF8541B7";
             // 
             // buttonSpecAppMenu2
             // 
             this.buttonSpecAppMenu2.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Standalone;
             this.buttonSpecAppMenu2.Text = "&Close";
+            this.buttonSpecAppMenu2.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
+            this.buttonSpecAppMenu2.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Generic;
             this.buttonSpecAppMenu2.UniqueName = "70F15DC834C14B3070F15DC834C14B30";
             // 
             // kryptonRibbonTab1
@@ -197,6 +204,7 @@ namespace ApplicationMenu
             this.button2010Blue.ImageSmall = ((System.Drawing.Image)(resources.GetObject("button2010Blue.ImageSmall")));
             this.button2010Blue.TextLine1 = "2010";
             this.button2010Blue.TextLine2 = "Blue";
+            this.button2010Blue.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.SuperTip;
             this.button2010Blue.Click += new System.EventHandler(this.button2010Blue_Click);
             // 
             // button2010Silver
@@ -206,6 +214,7 @@ namespace ApplicationMenu
             this.button2010Silver.ImageSmall = ((System.Drawing.Image)(resources.GetObject("button2010Silver.ImageSmall")));
             this.button2010Silver.TextLine1 = "2010";
             this.button2010Silver.TextLine2 = "Silver";
+            this.button2010Silver.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.SuperTip;
             this.button2010Silver.Click += new System.EventHandler(this.button2010Silver_Click);
             // 
             // button2010Black
@@ -215,6 +224,7 @@ namespace ApplicationMenu
             this.button2010Black.ImageSmall = ((System.Drawing.Image)(resources.GetObject("button2010Black.ImageSmall")));
             this.button2010Black.TextLine1 = "2010";
             this.button2010Black.TextLine2 = "Black";
+            this.button2010Black.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.SuperTip;
             this.button2010Black.Click += new System.EventHandler(this.button2010Black_Click);
             // 
             // kryptonRibbonGroupTriple1
@@ -232,6 +242,7 @@ namespace ApplicationMenu
             this.buttonBlue.ImageSmall = ((System.Drawing.Image)(resources.GetObject("buttonBlue.ImageSmall")));
             this.buttonBlue.TextLine1 = "2007";
             this.buttonBlue.TextLine2 = "Blue";
+            this.buttonBlue.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.SuperTip;
             this.buttonBlue.Click += new System.EventHandler(this.buttonBlue_Click);
             // 
             // buttonSilver
@@ -242,6 +253,7 @@ namespace ApplicationMenu
             this.buttonSilver.KeyTip = "S";
             this.buttonSilver.TextLine1 = "2007";
             this.buttonSilver.TextLine2 = "Silver";
+            this.buttonSilver.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.SuperTip;
             this.buttonSilver.Click += new System.EventHandler(this.buttonSilver_Click);
             // 
             // buttonBlack
@@ -252,6 +264,7 @@ namespace ApplicationMenu
             this.buttonBlack.KeyTip = "L";
             this.buttonBlack.TextLine1 = "2007";
             this.buttonBlack.TextLine2 = "Black";
+            this.buttonBlack.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.SuperTip;
             this.buttonBlack.Click += new System.EventHandler(this.buttonBlack_Click);
             // 
             // kryptonRibbonGroupTriple3
@@ -269,6 +282,7 @@ namespace ApplicationMenu
             this.buttonSparkleBlue.KeyTip = "E";
             this.buttonSparkleBlue.TextLine1 = "Sparkle";
             this.buttonSparkleBlue.TextLine2 = "Blue";
+            this.buttonSparkleBlue.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.SuperTip;
             this.buttonSparkleBlue.Click += new System.EventHandler(this.buttonSparkleBlue_Click);
             // 
             // buttonSparkleOrange
@@ -279,6 +293,7 @@ namespace ApplicationMenu
             this.buttonSparkleOrange.KeyTip = "O";
             this.buttonSparkleOrange.TextLine1 = "Sparkle";
             this.buttonSparkleOrange.TextLine2 = "Orange";
+            this.buttonSparkleOrange.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.SuperTip;
             this.buttonSparkleOrange.Click += new System.EventHandler(this.buttonSparkleOrange_Click);
             // 
             // buttonSparklePurple
@@ -289,6 +304,7 @@ namespace ApplicationMenu
             this.buttonSparklePurple.KeyTip = "P";
             this.buttonSparklePurple.TextLine1 = "Sparkle";
             this.buttonSparklePurple.TextLine2 = "Purple";
+            this.buttonSparklePurple.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.SuperTip;
             this.buttonSparklePurple.Click += new System.EventHandler(this.buttonSparklePurple_Click);
             // 
             // kryptonRibbonGroupTriple2
@@ -304,6 +320,7 @@ namespace ApplicationMenu
             this.button2003.ImageSmall = ((System.Drawing.Image)(resources.GetObject("button2003.ImageSmall")));
             this.button2003.KeyTip = "3";
             this.button2003.TextLine1 = " 2003";
+            this.button2003.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.SuperTip;
             this.button2003.Click += new System.EventHandler(this.button2003_Click);
             // 
             // buttonSystem
@@ -313,6 +330,7 @@ namespace ApplicationMenu
             this.buttonSystem.ImageSmall = ((System.Drawing.Image)(resources.GetObject("buttonSystem.ImageSmall")));
             this.buttonSystem.KeyTip = "S";
             this.buttonSystem.TextLine1 = "System";
+            this.buttonSystem.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.SuperTip;
             this.buttonSystem.Click += new System.EventHandler(this.buttonSystem_Click);
             // 
             // kryptonManager1
@@ -382,7 +400,7 @@ namespace ApplicationMenu
             // 
             this.textBoxMinHeight.Location = new System.Drawing.Point(163, 98);
             this.textBoxMinHeight.Name = "textBoxMinHeight";
-            this.textBoxMinHeight.Size = new System.Drawing.Size(50, 20);
+            this.textBoxMinHeight.Size = new System.Drawing.Size(50, 23);
             this.textBoxMinHeight.TabIndex = 6;
             this.textBoxMinHeight.Text = "kryptonTextBox3";
             // 
@@ -390,7 +408,7 @@ namespace ApplicationMenu
             // 
             this.textBoxDocsTitle.Location = new System.Drawing.Point(163, 50);
             this.textBoxDocsTitle.Name = "textBoxDocsTitle";
-            this.textBoxDocsTitle.Size = new System.Drawing.Size(141, 20);
+            this.textBoxDocsTitle.Size = new System.Drawing.Size(141, 23);
             this.textBoxDocsTitle.TabIndex = 1;
             this.textBoxDocsTitle.Text = "kryptonTextBox1";
             // 
@@ -425,7 +443,7 @@ namespace ApplicationMenu
             // 
             this.textBoxMinWidth.Location = new System.Drawing.Point(163, 74);
             this.textBoxMinWidth.Name = "textBoxMinWidth";
-            this.textBoxMinWidth.Size = new System.Drawing.Size(50, 20);
+            this.textBoxMinWidth.Size = new System.Drawing.Size(50, 23);
             this.textBoxMinWidth.TabIndex = 3;
             this.textBoxMinWidth.Text = "kryptonTextBox2";
             // 
@@ -439,6 +457,7 @@ namespace ApplicationMenu
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
+            this.ShowIcon = false;
             this.Text = "Application Menu";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonRibbon1)).EndInit();

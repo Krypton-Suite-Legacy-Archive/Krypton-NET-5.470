@@ -17,10 +17,10 @@ using System.Security.Permissions;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyVersion("17.10.6001.15")]
-[assembly: AssemblyFileVersion("17.10.6001.15")]
+[assembly: AssemblyVersion("17.10.6002.15")]
+[assembly: AssemblyFileVersion("17.10.6002.15")]
 [assembly: AssemblyCopyright("© Component Factory Pty Ltd 2012 - 2019 - 2019. All rights reserved.")]
-[assembly: AssemblyInformationalVersion("4.5.1.0")]
+[assembly: AssemblyInformationalVersion("4.5.2.0")]
 [assembly: AssemblyProduct("Docking Customized")]
 [assembly: AssemblyDefaultAlias("DockingCustomized.dll")]
 [assembly: AssemblyTitle("Docking Customized")]

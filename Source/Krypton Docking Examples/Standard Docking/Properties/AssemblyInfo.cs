@@ -17,10 +17,10 @@ using System.Security.Permissions;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyVersion("5.470.5001.0")]
-[assembly: AssemblyFileVersion("5.470.5001.0")]
+[assembly: AssemblyVersion("5.470.5002.0")]
+[assembly: AssemblyFileVersion("5.470.5002.0")]
 [assembly: AssemblyCopyright("© Component Factory Pty Ltd 2012 - 2019 - 2019. All rights reserved.")]
-[assembly: AssemblyInformationalVersion("4.5.1.0")]
+[assembly: AssemblyInformationalVersion("4.5.2.0")]
 [assembly: AssemblyProduct("Standard Docking")]
 [assembly: AssemblyDefaultAlias("StandardDocking.dll")]
 [assembly: AssemblyTitle("Standard Docking")]

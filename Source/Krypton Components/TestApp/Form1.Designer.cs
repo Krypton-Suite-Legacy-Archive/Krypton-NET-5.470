@@ -32,11 +32,11 @@
             this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonBorderEdge1 = new ComponentFactory.Krypton.Toolkit.KryptonBorderEdge();
-            this.kryptonCheckedListBox1 = new ComponentFactory.Krypton.Toolkit.KryptonCheckedListBox();
             this.kryptonTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.kryptonCheckedListBox1 = new ComponentFactory.Krypton.Toolkit.KryptonCheckedListBox();
+            this.kryptonBorderEdge1 = new ComponentFactory.Krypton.Toolkit.KryptonBorderEdge();
+            this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
@@ -70,38 +70,16 @@
             this.kryptonPanel2.Size = new System.Drawing.Size(800, 450);
             this.kryptonPanel2.TabIndex = 0;
             // 
-            // kryptonButton1
+            // kryptonTextBox1
             // 
-            this.kryptonButton1.Location = new System.Drawing.Point(214, 146);
-            this.kryptonButton1.Name = "kryptonButton1";
-            this.kryptonButton1.Size = new System.Drawing.Size(143, 91);
-            this.kryptonButton1.TabIndex = 0;
-            this.kryptonButton1.ToolTipValues.EnableToolTips = true;
-            this.kryptonButton1.Values.Text = "kryptonButton1";
-            this.kryptonButton1.Click += new System.EventHandler(this.kryptonButton1_Click);
-            // 
-            // kryptonButton2
-            // 
-            this.kryptonButton2.Location = new System.Drawing.Point(346, 146);
-            this.kryptonButton2.Name = "kryptonButton2";
-            this.kryptonButton2.Size = new System.Drawing.Size(143, 91);
-            this.kryptonButton2.StateCommon.Content.ShortText.MultiLine = ComponentFactory.Krypton.Toolkit.InheritBool.True;
-            this.kryptonButton2.StateCommon.Content.ShortText.MultiLineH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
-            this.kryptonButton2.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
-            this.kryptonButton2.TabIndex = 1;
-            this.kryptonButton2.ToolTipValues.EnableToolTips = true;
-            this.kryptonButton2.ToolTipValues.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.KeyTip;
-            this.kryptonButton2.Values.Text = "Test Movement of\r\ntooltip to other \r\ncontrol";
-            // 
-            // kryptonBorderEdge1
-            // 
-            this.kryptonBorderEdge1.Location = new System.Drawing.Point(25, 13);
-            this.kryptonBorderEdge1.Name = "kryptonBorderEdge1";
-            this.kryptonBorderEdge1.Size = new System.Drawing.Size(50, 1);
-            this.kryptonBorderEdge1.Text = "kryptonBorderEdge1";
-            this.kryptonBorderEdge1.ToolTipValues.Description = "Because you can..";
-            this.kryptonBorderEdge1.ToolTipValues.EnableToolTips = true;
-            this.kryptonBorderEdge1.ToolTipValues.Heading = "Why";
+            this.kryptonTextBox1.Location = new System.Drawing.Point(25, 59);
+            this.kryptonTextBox1.Name = "kryptonTextBox1";
+            this.kryptonTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.kryptonTextBox1.TabIndex = 4;
+            this.kryptonTextBox1.Text = "kryptonTextBox1";
+            this.kryptonTextBox1.ToolTipValues.Description = "Please type carefully";
+            this.kryptonTextBox1.ToolTipValues.EnableToolTips = true;
+            this.kryptonTextBox1.ToolTipValues.Heading = "This Text will explode";
             // 
             // kryptonCheckedListBox1
             // 
@@ -113,16 +91,38 @@
             this.kryptonCheckedListBox1.ToolTipValues.EnableToolTips = true;
             this.kryptonCheckedListBox1.ToolTipValues.Heading = "Checked List Box";
             // 
-            // kryptonTextBox1
+            // kryptonBorderEdge1
             // 
-            this.kryptonTextBox1.Location = new System.Drawing.Point(25, 59);
-            this.kryptonTextBox1.Name = "kryptonTextBox1";
-            this.kryptonTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.kryptonTextBox1.TabIndex = 4;
-            this.kryptonTextBox1.Text = "kryptonTextBox1";
-            this.kryptonTextBox1.ToolTipValues.Description = "Please type carefully";
-            this.kryptonTextBox1.ToolTipValues.EnableToolTips = true;
-            this.kryptonTextBox1.ToolTipValues.Heading = "This Text will explode";
+            this.kryptonBorderEdge1.Location = new System.Drawing.Point(25, 13);
+            this.kryptonBorderEdge1.Name = "kryptonBorderEdge1";
+            this.kryptonBorderEdge1.Size = new System.Drawing.Size(50, 1);
+            this.kryptonBorderEdge1.Text = "kryptonBorderEdge1";
+            this.kryptonBorderEdge1.ToolTipValues.Description = "Because you can..";
+            this.kryptonBorderEdge1.ToolTipValues.EnableToolTips = true;
+            this.kryptonBorderEdge1.ToolTipValues.Heading = "Why";
+            // 
+            // kryptonButton2
+            // 
+            this.kryptonButton2.Location = new System.Drawing.Point(363, 146);
+            this.kryptonButton2.Name = "kryptonButton2";
+            this.kryptonButton2.Size = new System.Drawing.Size(143, 91);
+            this.kryptonButton2.StateCommon.Content.ShortText.MultiLine = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.kryptonButton2.StateCommon.Content.ShortText.MultiLineH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.kryptonButton2.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.kryptonButton2.TabIndex = 1;
+            this.kryptonButton2.ToolTipValues.EnableToolTips = true;
+            this.kryptonButton2.ToolTipValues.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.KeyTip;
+            this.kryptonButton2.Values.Text = "Test Movement of\r\ntooltip to other \r\ncontrol";
+            // 
+            // kryptonButton1
+            // 
+            this.kryptonButton1.Location = new System.Drawing.Point(214, 146);
+            this.kryptonButton1.Name = "kryptonButton1";
+            this.kryptonButton1.Size = new System.Drawing.Size(143, 91);
+            this.kryptonButton1.TabIndex = 0;
+            this.kryptonButton1.ToolTipValues.EnableToolTips = true;
+            this.kryptonButton1.Values.Text = "kryptonButton1";
+            this.kryptonButton1.Click += new System.EventHandler(this.kryptonButton1_Click);
             // 
             // buttonSpecAny1
             // 
