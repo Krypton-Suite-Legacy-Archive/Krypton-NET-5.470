@@ -274,7 +274,9 @@ namespace ComponentFactory.Krypton.Toolkit
             _stopTimer.Stop();
 
             // Is the target is not the same as the currently showing tooltip
-            if (_currentTarget != _startTarget)
+            if ( (_currentTarget != _startTarget)
+                || (_startTarget == null)   // SKC: Default tooltip not using a viewbase ??
+                )
             {
                 // Leave tooltips mode
                 _startTarget = null;
@@ -284,6 +286,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 OnCancelToolTip();
 
                 // If we are over a new target then show straight away
+                // SKC: No Idea how this was supposed to work because the mouse leave will have set this to null !
                 if (_currentTarget != null)
                 {
                     // Enter showing tooltips mode

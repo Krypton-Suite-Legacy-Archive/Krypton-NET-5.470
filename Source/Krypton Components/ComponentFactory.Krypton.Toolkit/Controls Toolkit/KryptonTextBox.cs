@@ -10,11 +10,11 @@
 // *****************************************************************************
 
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
-using System.ComponentModel;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -463,6 +463,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _textBox = new InternalTextBox(this);
             _textBox.TrackMouseEnter += OnTextBoxMouseChange;
             _textBox.TrackMouseLeave += OnTextBoxMouseChange;
+            AddTooltipControlsTo(_textBox);
             _textBox.AcceptsTabChanged += OnTextBoxAcceptsTabChanged;
             _textBox.TextAlignChanged += OnTextBoxTextAlignChanged;
             _textBox.TextChanged += OnTextBoxTextChanged;
@@ -1829,7 +1830,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
 
                         // Show relative to the provided screen rectangle
-                        _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target.ClientRectangle));
+                        _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target?.ClientRectangle ?? ClientRectangle));
                     }
                 }
             }

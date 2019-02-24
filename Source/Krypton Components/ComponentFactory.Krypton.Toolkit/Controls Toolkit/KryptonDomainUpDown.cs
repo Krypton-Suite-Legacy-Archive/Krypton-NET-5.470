@@ -10,18 +10,18 @@
 // *****************************************************************************
 
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
-using System.ComponentModel;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Provide a DomainUpDown with Krypton styling applied.
-	/// </summary>
-	[ToolboxItem(true)]
+    /// </summary>
+    [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonDomainUpDown), "ToolboxBitmaps.KryptonDomainUpDown.bmp")]
     [DefaultEvent("SelectedItemChanged")]
 	[DefaultProperty("Items")]
@@ -999,6 +999,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _domainUpDown.SelectedItemChanged += OnDomainUpDownSelectedItemChanged;
             _domainUpDown.TrackMouseEnter += OnDomainUpDownMouseChange;
             _domainUpDown.TrackMouseLeave += OnDomainUpDownMouseChange;
+            AddTooltipControlsTo(_domainUpDown);
             _domainUpDown.GotFocus += OnDomainUpDownGotFocus;
             _domainUpDown.LostFocus += OnDomainUpDownLostFocus;
             _domainUpDown.KeyDown += OnDomainUpDownKeyDown;
@@ -2118,7 +2119,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
 
                         // Show relative to the provided screen rectangle
-                        _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target.ClientRectangle));
+                        _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target?.ClientRectangle ?? ClientRectangle));
                     }
                 }
             }

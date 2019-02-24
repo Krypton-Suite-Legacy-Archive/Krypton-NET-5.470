@@ -10,16 +10,16 @@
 // *****************************************************************************
 
 using System;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Diagnostics;
-using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Manages a view presentation for a control display surface.
-	/// </summary>
+    /// <summary>
+    /// Manages a view presentation for a control display surface.
+    /// </summary>
     public class ViewManager : GlobalId,
                                IDisposable
     {
@@ -263,7 +263,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Is the provided point associated with a component.
         /// </summary>
         /// <param name="pt">Mouse point.</param>
-        /// <returns>Component referece; otherwise false.</returns>
+        /// <returns>Component referecne; otherwise false.</returns>
         public virtual Component ComponentFromPoint(Point pt)
         {
             // Find the view element associated with the point

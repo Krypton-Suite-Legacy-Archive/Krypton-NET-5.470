@@ -9,11 +9,11 @@
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using System.ComponentModel;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -24,7 +24,7 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Static Fields
 
-        private const int VERT_OFFSET = 22;
+        private const int VERT_OFFSET = 8;
         private const int HORZ_OFFSET = 8;
 
         #endregion
@@ -129,7 +129,8 @@ namespace ComponentFactory.Krypton.Toolkit
             // Find the screen position the popup will be relative to
             Rectangle screenRect = new Rectangle((screenPt.X + HORZ_OFFSET) - (popupSize.Width / 2),
                                                  screenPt.Y - VERT_OFFSET ,
-                                                 1, VERT_OFFSET * 2);
+                                                 1, 
+                                                 VERT_OFFSET*3); // SKC: Need to move the new window away from `possible` cursor HotSpot
             
             // Show it now!
             Show(screenRect, popupSize);
@@ -145,8 +146,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Size popupSize = ViewManager.GetPreferredSize(Renderer, Size.Empty);
 
             // Find the screen position the popup will be relative to
-            screenRect = new Rectangle(screenRect.X, screenRect.Y - VERT_OFFSET,
-                                       screenRect.Width, screenRect.Height + (VERT_OFFSET * 2));
+            screenRect = new Rectangle((screenRect.X + HORZ_OFFSET), 
+                screenRect.Y - VERT_OFFSET,
+                screenRect.Width, 
+                screenRect.Height + (VERT_OFFSET));
 
             // Show it now!
             Show(screenRect, popupSize);
