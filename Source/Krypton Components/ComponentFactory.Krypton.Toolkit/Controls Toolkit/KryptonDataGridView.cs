@@ -30,7 +30,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [ToolboxBitmap(typeof(KryptonDataGridView), "ToolboxBitmaps.KryptonDataGridView.bmp")]
     [DesignerCategory("code")]
     [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDesigner))]
-    [Description("Display rows and columns of data if a grid you can customize.")]
+    [Description("Display rows and columns of data of a grid you can customize.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     public class KryptonDataGridView : DataGridView
@@ -1611,7 +1611,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void SetupViewAndStates()
         {
-            // Create the state storgate objects
+            // Create the state storage objects
             StateCommon = new PaletteDataGridViewRedirect(Redirector, NeedPaintDelegate);
             StateDisabled = new PaletteDataGridViewAll(StateCommon, NeedPaintDelegate);
             StateNormal = new PaletteDataGridViewAll(StateCommon, NeedPaintDelegate);
@@ -1729,7 +1729,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // If the column headers default font is null or if the same as when we last
             // set the value then we do need to update with the latest value. Otherwise
-            // the programmer has modified the value and so leave it alone as overrriden.
+            // the programmer has modified the value and so leave it alone as over-ridden.
             if ((ColumnHeadersDefaultCellStyle.Font == null) ||
                 (ColumnHeadersDefaultCellStyle.Font.Equals(_columnFont)))
             {
@@ -2169,7 +2169,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Layout cannot now be dirty
                         _layoutDirty = false;
 
-                        // Ask the view to peform a layout
+                        // Ask the view to perform a layout
                         ViewManager.Layout(Renderer);
 
                     } while (_layoutDirty && (max-- > 0));

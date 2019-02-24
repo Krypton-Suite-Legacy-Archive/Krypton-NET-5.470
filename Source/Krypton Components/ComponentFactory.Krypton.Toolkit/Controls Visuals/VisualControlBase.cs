@@ -10,20 +10,23 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
-using System.Windows.Forms;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
+using System.Drawing;
 using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
+
+using ComponentFactory.Krypton.Toolkit.Values;
+
 using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Base class used for implementation of actual controls.
-	/// </summary>
-	[ToolboxItem(false)]
+    /// <summary>
+    /// Base class used for implementation of actual controls.
+    /// </summary>
+    [ToolboxItem(false)]
 	[DesignerCategory("code")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
@@ -47,12 +50,14 @@ namespace ComponentFactory.Krypton.Toolkit
         private readonly SimpleCall _refreshCall;
         private readonly SimpleCall _layoutCall;
         private KryptonContextMenu _kryptonContextMenu;
+        private VisualPopupToolTip _visualPopupToolTip;
+        private ToolTipManager _toolTipManager;
         #endregion
 
-		#region Events
-		/// <summary>
-		/// Occurs when the palette changes.
-		/// </summary>
+        #region Events
+        /// <summary>
+        /// Occurs when the palette changes.
+        /// </summary>
         [Category("Property Changed")]
         [Description("Occurs when the value of the Palette property is changed.")]
 		public event EventHandler PaletteChanged;
@@ -117,6 +122,14 @@ namespace ComponentFactory.Krypton.Toolkit
             Redirector = CreateRedirector();
 
             AttachGlobalEvents();
+
+            // Do the Tooltip Magic
+            ToolTipValues = new ToolTipValues(NeedPaintDelegate);
+            // Create the manager for handling tooltips
+            // ReSharper disable once UseObjectOrCollectionInitializer
+            _toolTipManager = new ToolTipManager();
+            _toolTipManager.ShowToolTip += OnShowToolTip;
+            _toolTipManager.CancelToolTip += OnCancelToolTip;
         }
 
         /// <summary>
@@ -127,6 +140,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             if (disposing)
             {
+                // Remove any showing tooltip
+                OnCancelToolTip(this, EventArgs.Empty);
+
                 // Unhook from any current menu strip
                 if (base.ContextMenuStrip != null)
                 {
@@ -473,6 +489,22 @@ namespace ComponentFactory.Krypton.Toolkit
                 _globalEvents = false;
             }
         }
+
+        /// <summary>
+        /// Gets access to the button content.
+        /// </summary>
+        [Category("ToolTip")]
+        [Description("Control ToolTip Text")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public ToolTipValues ToolTipValues { get; }
+
+        protected void AddTooltipControlsTo(Control internalWrappedControl)
+        {
+            internalWrappedControl.MouseEnter += (_, args) => OnMouseEnter(args);
+            internalWrappedControl.MouseLeave += (_, args) => OnMouseLeave(args);
+            internalWrappedControl.MouseDown += (_, args) => OnMouseDown(args);
+        }
+
         #endregion
 
         #region Public IKryptonDebug
@@ -554,7 +586,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Do we have a manager to use for laying out?
                 if (ViewManager != null)
                 {
-                    // Ask the view to peform a layout
+                    // Ask the view to perform a layout
                     ViewManager.Layout(Renderer);
 
                     return true;
@@ -591,7 +623,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get
             {
-                // Do we need to evaluate the need for a tranparent paint
+                // Do we need to evaluate the need for a transparent paint
                 if (_evalTransparent)
                 {
                     _paintTransparent = EvalTransparentPaint();
@@ -826,7 +858,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Layout cannot now be dirty
                         _layoutDirty = false;
 
-                        // Ask the view to peform a layout
+                        // Ask the view to perform a layout
                         ViewManager.Layout(Renderer);
 
                     } while (_layoutDirty && (max-- > 0));
@@ -881,7 +913,19 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 		}
 
-		/// <summary>
+        protected override void OnMouseEnter(EventArgs e)
+        {
+            // Cannot process a message for a disposed control
+            if (!IsDisposed && !Disposing)
+            {
+                _toolTipManager.MouseEnter(ViewManager?.ActiveView??ViewManager?.Root, this);
+            }
+
+            // Let base class fire events
+            base.OnMouseEnter(e);
+        }
+
+        /// <summary>
 		/// Raises the MouseMove event.
 		/// </summary>
 		/// <param name="e">A MouseEventArgs that contains the event data.</param>
@@ -890,8 +934,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // Cannot process a message for a disposed control
             if (!IsDisposed && !Disposing)
             {
+                _toolTipManager.MouseMove(ViewManager?.ActiveView??ViewManager?.Root, this, e.Location);
                 // Do we have a manager for processing mouse messages?
-                ViewManager?.MouseMove(e, new Point(e.X, e.Y));
+                ViewManager?.MouseMove(e, e.Location);
             }
 
 			// Let base class fire events
@@ -907,8 +952,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // Cannot process a message for a disposed control
             if (!IsDisposed && !Disposing)
             {
+                _toolTipManager.MouseDown(ViewManager?.ActiveView??ViewManager?.Root, this, e.Location, e.Button);
                 // Do we have a manager for processing mouse messages?
-                ViewManager?.MouseDown(e, new Point(e.X, e.Y));
+                ViewManager?.MouseDown(e, e.Location);
             }
 
 			// Let base class fire events
@@ -924,8 +970,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // Cannot process a message for a disposed control
             if (!IsDisposed && !Disposing)
             {
+                _toolTipManager.MouseUp(ViewManager?.ActiveView??ViewManager?.Root, this, e.Location, e.Button);
                 // Do we have a manager for processing mouse messages?
-                ViewManager?.MouseUp(e, new Point(e.X, e.Y));
+                ViewManager?.MouseUp(e, e.Location);
             }
 
 			// Let base class fire events
@@ -941,6 +988,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Cannot process a message for a disposed control
             if (!IsDisposed && !Disposing)
             {
+                _toolTipManager.MouseLeave(ViewManager?.ActiveView??ViewManager?.Root, this, null);
                 // Do we have a manager for processing mouse messages?
                 ViewManager?.MouseLeave(e);
             }
@@ -959,8 +1007,10 @@ namespace ComponentFactory.Krypton.Toolkit
             // Cannot process a message for a disposed control
             if (!IsDisposed && !Disposing)
             {
+                Point location = PointToClient(MousePosition);
+                _toolTipManager.DoubleClick(ViewManager?.ActiveView??ViewManager?.Root, location);
                 // Do we have a manager for processing mouse messages?
-                ViewManager?.DoubleClick(PointToClient(MousePosition));
+                ViewManager?.DoubleClick(location);
             }
 
             // Let base class fire events
@@ -1284,6 +1334,60 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             ContextMenuClosed();
         }
+
+        private void OnShowToolTip(object sender, ToolTipEventArgs e)
+        {
+            if (!IsDisposed)
+            {
+                // Do not show tooltips when the form we are in does not have focus
+                Form topForm = FindForm();
+                if ((topForm != null) 
+                    && !topForm.ContainsFocus)
+                {
+                    return;
+                }
+
+                // Never show tooltips are design time
+                if (!DesignMode
+                    && ToolTipValues.EnableToolTips
+                    )
+                {
+                    // Remove any currently showing tooltip
+                    _visualPopupToolTip?.Dispose();
+
+                    // Create the actual tooltip popup object
+                    // ReSharper disable once UseObjectOrCollectionInitializer
+                    _visualPopupToolTip = new VisualPopupToolTip(Redirector,
+                        ToolTipValues,
+                        Renderer,
+                        PaletteBackStyle.ControlToolTip,
+                        PaletteBorderStyle.ControlToolTip,
+                        CommonHelper.ContentStyleFromLabelStyle(ToolTipValues.ToolTipStyle));
+
+                    _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
+
+                    // Show relative to the provided screen rectangle
+                    _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target?.ClientRectangle??ClientRectangle));
+                }
+            }
+        }
+
+        private void OnCancelToolTip(object sender, EventArgs e)
+        {
+            // Remove any currently showing tooltip
+            _visualPopupToolTip?.Dispose();
+        }
+
+        private void OnVisualPopupToolTipDisposed(object sender, EventArgs e)
+        {
+            // Unhook events from the specific instance that generated event
+            VisualPopupToolTip popupToolTip = (VisualPopupToolTip)sender;
+            popupToolTip.Disposed -= OnVisualPopupToolTipDisposed;
+
+            // Not showing a popup page any more
+            _visualPopupToolTip = null;
+        }
         #endregion
+
     }
 }

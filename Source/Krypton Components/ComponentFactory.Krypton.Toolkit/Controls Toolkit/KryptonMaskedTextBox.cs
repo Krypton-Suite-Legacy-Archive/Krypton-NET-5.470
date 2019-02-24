@@ -10,19 +10,19 @@
 // *****************************************************************************
 
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
-using System.ComponentModel;
-using System.Runtime.InteropServices;
 using System.Globalization;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Provide a MaskedTextBox with Krypton styling applied.
-	/// </summary>
-	[ToolboxItem(true)]
+    /// </summary>
+    [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonMaskedTextBox), "ToolboxBitmaps.KryptonMaskedTextBox.bmp")]
     [DefaultEvent("MaskInputRejected")]
 	[DefaultProperty("Mask")]
@@ -469,6 +469,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _maskedTextBox = new InternalMaskedTextBox(this);
             _maskedTextBox.TrackMouseEnter += OnMaskedTextBoxMouseChange;
             _maskedTextBox.TrackMouseLeave += OnMaskedTextBoxMouseChange;
+            AddTooltipControlsTo(_maskedTextBox);
             _maskedTextBox.TextAlignChanged += OnMaskedTextBoxTextAlignChanged;
             _maskedTextBox.TextChanged += OnMaskedTextBoxTextChanged;
             _maskedTextBox.HideSelectionChanged += OnMaskedTextBoxHideSelectionChanged;
@@ -2036,7 +2037,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
 
                         // Show relative to the provided screen rectangle
-                        _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target.ClientRectangle));
+                        _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target?.ClientRectangle ?? ClientRectangle));
                     }
                 }
             }

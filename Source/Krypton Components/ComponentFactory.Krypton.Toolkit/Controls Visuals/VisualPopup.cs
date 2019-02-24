@@ -10,20 +10,20 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Windows.Forms;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
+using System.Text;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Base class used for implementation of popup controls.
-	/// </summary>
-	[ToolboxItem(false)]
+    /// <summary>
+    /// Base class used for implementation of popup controls.
+    /// </summary>
+    [ToolboxItem(false)]
 	[DesignerCategory("code")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
@@ -760,7 +760,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 popupLocation.X = screen.WorkingArea.Left;
             }
 
-            // Preven the popup from being off the right size of the screen
+            // Prevent the popup from being off the right size of the screen
             if ((popupLocation.X + popupSize.Width) > screen.WorkingArea.Right)
             {
                 popupLocation.X = screen.WorkingArea.Right - popupSize.Width;

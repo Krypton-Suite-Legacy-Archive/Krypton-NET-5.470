@@ -20,19 +20,19 @@ namespace ComponentFactory.Krypton.Toolkit
 	/// </summary>
 	public class ToolTipEventArgs : EventArgs
 	{
-		#region Instance Fields
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
-        /// Initialize a new instance of the ButtonSpecEventArgs class.
-		/// </summary>
+        #region Identity
+        /// <summary>
+        /// Initialize a new instance of the ToolTipEventArgs class.
+        /// </summary>
         /// <param name="target">Reference to view element that requires tooltip.</param>
         /// <param name="screenPt">Screen location of mouse when tooltip was required.</param>
         public ToolTipEventArgs(ViewBase target, Point screenPt)
 		{
-            Debug.Assert(target != null);
+            //Debug.Assert(target != null);
 
 			// Remember parameter details
             Target = target;

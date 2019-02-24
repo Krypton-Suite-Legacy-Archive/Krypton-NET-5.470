@@ -9,13 +9,14 @@
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using Microsoft.Win32;
 using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+
+using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -1055,6 +1056,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _comboBox.MeasureItem += OnComboBoxMeasureItem;
             _comboBox.TrackMouseEnter += OnComboBoxMouseChange;
             _comboBox.TrackMouseLeave += OnComboBoxMouseChange;
+            AddTooltipControlsTo(_comboBox);
             _comboBox.DropDown += OnComboBoxDropDown;
             _comboBox.DropDownClosed += OnComboBoxDropDownClosed;
             _comboBox.DropDownStyleChanged += OnComboBoxDropDownStyleChanged;
@@ -3016,7 +3018,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
 
                         // Show relative to the provided screen rectangle
-                        _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target.ClientRectangle));
+                        _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target?.ClientRectangle ?? ClientRectangle));
                     }
                 }
             }

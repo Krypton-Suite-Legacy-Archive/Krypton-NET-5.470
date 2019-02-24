@@ -10,17 +10,17 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
 using System.ComponentModel;
-using System.Windows.Forms;
+using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Provide a NumericUpDown with Krypton styling applied.
-	/// </summary>
-	[ToolboxItem(true)]
+    /// </summary>
+    [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonNumericUpDown), "ToolboxBitmaps.KryptonNumericUpDown.bmp")]
     [DefaultEvent("ValueChanged")]
 	[DefaultProperty("Value")]
@@ -869,6 +869,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _numericUpDown.ValueChanged += OnNumericUpDownValueChanged;
             _numericUpDown.TrackMouseEnter += OnNumericUpDownMouseChange;
             _numericUpDown.TrackMouseLeave += OnNumericUpDownMouseChange;
+            AddTooltipControlsTo(_numericUpDown);
             _numericUpDown.GotFocus += OnNumericUpDownGotFocus;
             _numericUpDown.LostFocus += OnNumericUpDownLostFocus;
             _numericUpDown.KeyDown += OnNumericUpDownKeyDown;
@@ -2058,7 +2059,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
 
                         // Show relative to the provided screen rectangle
-                        _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target.ClientRectangle));
+                        _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target?.ClientRectangle ?? ClientRectangle));
                     }
                 }
             }

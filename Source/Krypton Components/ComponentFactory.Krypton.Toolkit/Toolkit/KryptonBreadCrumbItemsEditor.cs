@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             #region Types
             /// <summary>
-            /// Simple class to reduce the length of declaractions!
+            /// Simple class to reduce the length of declarations!
             /// </summary>
             protected class DictItemBase : Dictionary<KryptonBreadCrumbItem, KryptonBreadCrumbItem> { };
 

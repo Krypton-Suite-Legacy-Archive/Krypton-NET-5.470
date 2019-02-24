@@ -1230,6 +1230,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _listBox.MeasureItem += OnListBoxMeasureItem;
             _listBox.TrackMouseEnter += OnListBoxMouseChange;
             _listBox.TrackMouseLeave += OnListBoxMouseChange;
+            AddTooltipControlsTo(_listBox);
             _listBox.SelectedIndexChanged += OnListBoxSelectedIndexChanged;
             _listBox.SelectedValueChanged += OnListBoxSelectedValueChanged;
             _listBox.Format += OnListBoxFormat;
