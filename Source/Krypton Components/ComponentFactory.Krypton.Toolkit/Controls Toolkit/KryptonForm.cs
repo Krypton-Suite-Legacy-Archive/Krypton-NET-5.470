@@ -3,7 +3,7 @@
 //  © Component Factory Pty Ltd, 2006-2019, All rights reserved.
 // The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
-//  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
+//  Mornington, Vic 3931, Australia and are supplied subject to license terms.
 // 
 //  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
 //  Version 5.470.0.0  www.ComponentFactory.com
@@ -186,6 +186,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create the view manager instance
             ViewManager = new ViewManager(this, _drawDocker);
+
+            // Set the UseDropShadow to true
+            UseDropShadow = true;
         }
 
         /// <summary>
@@ -1592,12 +1595,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Calls the method that draws the drop shadow around the form.
         /// </summary>
         /// <param name="useDropShadow">Use dropshadow user input value.</param>
-        private void UpdateDropShadowDraw(bool useDropShadow)
+        public void UpdateDropShadowDraw(bool useDropShadow)
         {
             if (useDropShadow)
             {
                 DrawDropShadow();
             }
+
+            Invalidate();
         }
 
         /// <summary>
@@ -1607,6 +1612,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private void DrawDropShadow()
         {
             GetCreateParams();
+
+            // Redraw
+            Invalidate();
         }
 
         /// <summary>
@@ -1630,7 +1638,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 // add the drop shadow flag for automatically drawing
                 // a drop shadow around the form
                 CreateParams cp = base.CreateParams;
-                cp.ClassStyle |= CS_DROPSHADOW;
+
+                if (UseDropShadow)
+                {
+                    cp.ClassStyle |= CS_DROPSHADOW;
+                }
+
                 return cp;
             }
         }

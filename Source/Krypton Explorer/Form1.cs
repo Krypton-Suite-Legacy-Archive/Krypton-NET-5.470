@@ -905,5 +905,10 @@ namespace KryptonExplorer
 
             Invalidate();
         }
+
+        private void kbtnViewLatestReleaseNotes_Click(object sender, EventArgs e)
+        {
+            Process.Start(@"https://www.somsubhra.com/github-release-stats/?username=Wagnerp&repository=Krypton-NET-5.470");
+        }
     }
 }
