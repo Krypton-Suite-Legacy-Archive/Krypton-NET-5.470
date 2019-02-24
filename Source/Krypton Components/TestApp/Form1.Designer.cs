@@ -38,10 +38,12 @@
             this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.kcmbThemeCollection = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             this.kryptonPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kcmbThemeCollection)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonManager1
@@ -59,6 +61,7 @@
             // 
             // kryptonPanel2
             // 
+            this.kryptonPanel2.Controls.Add(this.kcmbThemeCollection);
             this.kryptonPanel2.Controls.Add(this.kryptonTextBox1);
             this.kryptonPanel2.Controls.Add(this.kryptonCheckedListBox1);
             this.kryptonPanel2.Controls.Add(this.kryptonBorderEdge1);
@@ -133,6 +136,15 @@
             this.buttonSpecAny1.ToolTipTitle = "Title";
             this.buttonSpecAny1.UniqueName = "8D0C7B51F6A946484D932C2A06451172";
             // 
+            // kcmbThemeCollection
+            // 
+            this.kcmbThemeCollection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.kcmbThemeCollection.DropDownWidth = 305;
+            this.kcmbThemeCollection.Location = new System.Drawing.Point(214, 21);
+            this.kcmbThemeCollection.Name = "kcmbThemeCollection";
+            this.kcmbThemeCollection.Size = new System.Drawing.Size(305, 21);
+            this.kcmbThemeCollection.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AllowButtonSpecToolTips = true;
@@ -144,11 +156,13 @@
             this.Controls.Add(this.kryptonPanel1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
             this.kryptonPanel2.ResumeLayout(false);
             this.kryptonPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kcmbThemeCollection)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -163,6 +177,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonCheckedListBox kryptonCheckedListBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonBorderEdge kryptonBorderEdge1;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox kcmbThemeCollection;
     }
 }
 
