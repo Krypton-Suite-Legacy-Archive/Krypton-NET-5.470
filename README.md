@@ -10,6 +10,13 @@
 
 =======
 
+## 2019-02-25 Build 741 - Tooltips & **`ThemeManager.cs`**
+* You can now use `Krypton Tooltips` on every Krypton control [#85](https://github.com/Wagnerp/Krypton-NET-5.470/issues/85)
+* `ThemeManager.cs` now makes it easier for developers to access the true theme names, without relying on nonsensical enumerations.
+* NuGet package build 741 (build date Monday 25th February, 2019) is now available
+
+=======
+
 ## 2019-02-11 Build 720 - Fix for drop shadow while using the ribbon component
 * Fix for [#56](https://github.com/Wagnerp/Krypton-NET-5.470/issues/56) courtesy of [richterAI](https://github.com/richterAl)
 * Build 720 (build date Tuesday 12th February, 2019) is now available on NuGet
