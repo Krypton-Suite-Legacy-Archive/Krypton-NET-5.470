@@ -51,15 +51,15 @@ namespace TestApp
         {
             if (kcmbThemeCollection.Text != string.Empty)
             {
-                ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.ApplyThemeMode(kcmbThemeCollection.Text));
+                ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.ApplyTheme(kcmbThemeCollection.Text));
             }
             else if (kdbThemeCollection.Text != string.Empty)
             {
-                ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.ApplyThemeMode(kdbThemeCollection.Text));
+                ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.ApplyTheme(kdbThemeCollection.Text));
             }
             else if (klbThemes.Text != string.Empty)
             {
-                ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.ApplyThemeMode(klbThemes.SelectedItem.ToString()));
+                ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.ApplyThemeMode(klbThemes.Tag.ToString()));
             }
 
             kbtnApplyTheme.Enabled = false;

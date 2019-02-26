@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<DOCUMENT Type="Advanced Installer" CreateVersion="15.7" version="15.7" Modules="professional" RootPath="." Language="en_GB" Id="{E33F9616-D6A8-46D7-9572-C2A13C20FEAF}">
+<DOCUMENT Type="Advanced Installer" CreateVersion="15.7" version="15.7" Modules="professional" RootPath="." Language="en_GB" Id="{9E6A7AAD-9C51-46A0-9E23-74FF2F281279}">
   <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
     <ROW Name="HiddenItems" Value="AppXProductDetailsComponent;AppXDependenciesComponent;AppXAppDetailsComponent;AppXVisualAssetsComponent;AppXCapabilitiesComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent;MsiJavaComponent;MsiDriverPackagesComponent;UserAccountsComponent;ScheduledTasksComponent;SqlConnectionComponent;AutorunComponent;FirewallExceptionComponent;GameUxComponent;MsiDirectEditorComponent;SharePointSlnComponent;SilverlightSlnComponent;MultipleInstancesComponent;SccmComponent;ActSyncAppComponent;FixupComponent"/>
   </COMPONENT>
@@ -13,10 +13,11 @@
     <ROW Property="AI_FINDEXE_TITLE" Value="Select the installation package for [|ProductName]" ValueLocId="AI.Property.FindExeTitle"/>
     <ROW Property="AI_FrameBtnsColor" Value="metroblack" MultiBuildValue="DefaultBuild:metrogreen" MsiKey="AI_FrameBtnsColor"/>
     <ROW Property="AI_FrameColor" Value="metroblack" MultiBuildValue="DefaultBuild:metrogreen" MsiKey="AI_FrameColor"/>
-    <ROW Property="AI_NO_BORDER_NORMAL" MultiBuildValue="DefaultBuild:1" MsiKey="AI_NO_BORDER_NORMAL"/>
+    <ROW Property="AI_PREDEF_LCONDS_PROPS" Value="AI_DETECTED_DOTNET_VERSION"/>
     <ROW Property="AI_PRODUCTNAME_ARP" Value="Krypton Toolkit Suite 5.470"/>
+    <ROW Property="AI_REQUIRED_DOTNET_DISPLAY" MultiBuildValue="DefaultBuild:4.7" ValueLocId="-"/>
+    <ROW Property="AI_REQUIRED_DOTNET_VERSION" MultiBuildValue="DefaultBuild:4.7" ValueLocId="-"/>
     <ROW Property="AI_ThemeStyle" Value="default" MultiBuildValue="DefaultBuild:metrogreen" MsiKey="AI_ThemeStyle"/>
-    <ROW Property="AI_ThemeStyleEx" Value="border" MultiBuildValue="DefaultBuild:flat" MsiKey="AI_ThemeStyleEx"/>
     <ROW Property="AI_UNINSTALLER" Value="msiexec.exe"/>
     <ROW Property="ALLUSERS" Value="1"/>
     <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
@@ -25,147 +26,152 @@
     <ROW Property="ARPPRODUCTICON" Value="KryptonExplorer.exe" Type="8"/>
     <ROW Property="ARPSYSTEMCOMPONENT" Value="1"/>
     <ROW Property="ARPURLINFOABOUT" Value="https://github.com/Wagnerp/Krypton-NET-5.470/issues"/>
-    <ROW Property="ARPURLUPDATEINFO" Value="https://github.com/Wagnerp/Krypton-NET-5.470/"/>
+    <ROW Property="ARPURLUPDATEINFO" Value="https://github.com/Wagnerp/Krypton-NET-5.470"/>
+    <ROW Property="AppLogoIcon" Value="applogoicon" MultiBuildValue="DefaultBuild:SquareDesign64x64.jpg" Type="1" MsiKey="AppLogoIcon"/>
+    <ROW Property="CTRLS" Value="2"/>
     <ROW Property="Manufacturer" Value="Krypton .NET Contributors"/>
-    <ROW Property="ProductCode" Value="2057:{CF89DF78-C525-4F8E-916A-C092657A83DD} " Type="16"/>
+    <ROW Property="ProductCode" Value="2057:{64731847-B3F8-49DB-98BA-2013D9D60E12} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="Krypton Toolkit Suite 5.470"/>
     <ROW Property="ProductVersion" Value="5.470.720.0" Type="32" TargetFile="KryptonToolkit.dll_1"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
-    <ROW Property="UpgradeCode" Value="{942A7F6A-6B52-4250-8BB9-E4B67749E31C}"/>
+    <ROW Property="UpgradeCode" Value="{2437445D-CDD5-4203-B40B-EC4430E94BC5}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
     <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT" MultiBuildValue="DefaultBuild:Windows XP SP3 x86, Windows Server 2003 SP2 x86, Windows Vista x86, Windows Server 2008 x86" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT50" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT50Display" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT5X" MultiBuildValue="DefaultBuild:Windows XP/2003 RTM, Windows XP/2003 SP1, Windows XP SP2 x86" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="DefaultBuild:Windows XP/2003 RTM, Windows XP/2003 SP1, Windows XP SP2 x86" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT64" MultiBuildValue="DefaultBuild:Windows XP SP2 x64, Windows Server 2003 SP2 x64, Windows Vista x64, Windows Server 2008 x64" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT64Display" MultiBuildValue="DefaultBuild:Windows XP SP2 x64, Windows Server 2003 SP2 x64, Windows Vista x64, Windows Server 2008 x64" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNTDisplay" MultiBuildValue="DefaultBuild:Windows XP SP3 x86, Windows Server 2003 SP2 x86, Windows Vista x86, Windows Server 2008 x86" ValueLocId="-"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
-    <ROW Directory="AI_Bin32_Dir" Directory_Parent="APPDIR" DefaultDir="32-bit"/>
     <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
-    <ROW Directory="Applications_Dir" Directory_Parent="AI_Bin32_Dir" DefaultDir="APPLIC~1|Applications"/>
-    <ROW Directory="Bin_Dir" Directory_Parent="AI_Bin32_Dir" DefaultDir="Bin"/>
+    <ROW Directory="Applications_Dir" Directory_Parent="APPDIR" DefaultDir="APPLIC~1|Applications"/>
+    <ROW Directory="Bin_Dir" Directory_Parent="APPDIR" DefaultDir="Bin"/>
     <ROW Directory="DesktopFolder" Directory_Parent="TARGETDIR" DefaultDir="DESKTO~1|DesktopFolder" IsPseudoRoot="1"/>
-    <ROW Directory="Help_Dir" Directory_Parent="AI_Bin32_Dir" DefaultDir="Help"/>
+    <ROW Directory="Help_Dir" Directory_Parent="APPDIR" DefaultDir="Help"/>
     <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
-    <ROW Component="AI_CustomARPName" ComponentId="{BD5E05E4-B975-4644-9A0C-02768FBD0E81}" Directory_="APPDIR" Attributes="260" KeyPath="DisplayName" Options="1"/>
-    <ROW Component="AI_ExePath" ComponentId="{4715ED44-092A-46AE-8EFB-AAEAF66C7FE6}" Directory_="APPDIR" Attributes="4" KeyPath="AI_ExePath"/>
-    <ROW Component="AdvancedPageDragandDrop.exe" ComponentId="{3E3AE8FF-F072-46D5-91B4-E7206A2C38B3}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="AdvancedPageDragandDrop.exe"/>
-    <ROW Component="ApplicationMenu.exe" ComponentId="{0302DBB3-5AF6-4AE1-A1D4-21A9F73D5302}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="ApplicationMenu.exe"/>
-    <ROW Component="AutoShrinkingGroups.exe" ComponentId="{4B4771EF-3B0E-4B27-A8B4-EFC2D3E2D38D}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="AutoShrinkingGroups.exe"/>
-    <ROW Component="BasicEvents.exe" ComponentId="{CB307FC2-A9F7-49CE-8F21-3DECB57080A4}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="BasicEvents.exe"/>
-    <ROW Component="BasicPageDragandDrop.exe" ComponentId="{2FE68BF1-B28B-45B6-8217-6985286F58C3}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="BasicPageDragandDrop.exe"/>
-    <ROW Component="ButtonSpecPlayground.exe" ComponentId="{F4F2A391-E2C9-474F-AA16-23FE9EC34935}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="ButtonSpecPlayground.exe"/>
-    <ROW Component="CellMaximizeandRestore.exe" ComponentId="{3D5DF910-CEAB-4256-8769-2FA29CE4813D}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="CellMaximizeandRestore.exe"/>
-    <ROW Component="ChildControlStack.exe" ComponentId="{1BC5BF51-A1B1-42C5-856B-88E243544CFC}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="ChildControlStack.exe"/>
-    <ROW Component="ContextualTabs.exe" ComponentId="{68C7D282-14ED-42DC-8F08-EB3FA036C6EE}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="ContextualTabs.exe"/>
-    <ROW Component="CustomControlUsingPalettes.exe" ComponentId="{81E5A2EC-3629-4222-A43B-C97930EA6F59}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="CustomControlUsingPalettes.exe"/>
-    <ROW Component="CustomControlUsingRenderers.exe" ComponentId="{05BA87F7-ADBB-4E55-A87F-87DB9CAD9393}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="CustomControlUsingRenderers.exe"/>
-    <ROW Component="DockingCustomized.exe" ComponentId="{485C04F8-2561-4BC7-841D-DFFCE46A9891}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="DockingCustomized.exe"/>
-    <ROW Component="DockingFlags.exe" ComponentId="{4D1F8BDE-64A4-4C88-96B4-D620270E52EB}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="DockingFlags.exe"/>
-    <ROW Component="DockingPersistence.exe" ComponentId="{D1B0D550-BE12-4E06-B9B9-E4C8DCE93C56}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="DockingPersistence.exe"/>
-    <ROW Component="ExpandingHeaderGroupsDockStyleExamples.exe" ComponentId="{A9B276F9-C1C0-4652-9E45-201E64ED2CD3}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="ExpandingHeaderGroupsDockStyleExamples.exe"/>
-    <ROW Component="ExpandingHeaderGroupsSplittersExamples.exe" ComponentId="{CFEC0D4C-D925-486C-9302-C674588A6C5A}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="ExpandingHeaderGroupsSplittersExamples.exe"/>
-    <ROW Component="ExpandingHeaderGroupsStackExamples.exe" ComponentId="{32A597C5-6612-44F7-8F7E-B180BCE4A6CF}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="ExpandingHeaderGroupsStackExamples.exe"/>
-    <ROW Component="ExpandingPages.exe" ComponentId="{7091E0F2-0F67-492E-850D-21DFDF85D8F7}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="ExpandingPages.exe"/>
-    <ROW Component="ExternalDragtoDocking.exe" ComponentId="{44838324-1943-40C4-849B-74E69CC2F737}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="ExternalDragtoDocking.exe"/>
-    <ROW Component="InputFormExamples.exe" ComponentId="{70FAF7F3-5E9E-4847-822D-6CBFD329CAFF}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="InputFormExamples.exe"/>
-    <ROW Component="KeyTipsandKeyboardAccess.exe" ComponentId="{78FE5F86-CB68-4963-9404-321DA1702A70}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KeyTipsandKeyboardAccess.exe"/>
-    <ROW Component="KryptonBorderEdgeExamples.exe" ComponentId="{74E95FE5-BFD3-4774-8967-EBDE7C26AFDE}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonBorderEdgeExamples.exe"/>
-    <ROW Component="KryptonBreadCrumbExamples.exe" ComponentId="{0BF8B1B6-5147-4854-BF05-C0A879E74811}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonBreadCrumbExamples.exe"/>
-    <ROW Component="KryptonButtonExamples.exe" ComponentId="{2C557BBE-9F41-4C78-BA45-BA678B4B3DC9}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonButtonExamples.exe"/>
-    <ROW Component="KryptonCheckButtonExamples.exe" ComponentId="{E53C89D8-E3EC-4137-91FC-0C1902A5C052}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonCheckButtonExamples.exe"/>
-    <ROW Component="KryptonCheckSetExamples.exe" ComponentId="{77E8BA3B-4861-4B4C-9247-3006D74F583A}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonCheckSetExamples.exe"/>
-    <ROW Component="KryptonCheckboxExamples.exe" ComponentId="{24D592FC-96F9-4D1A-8715-9E2E1BE46BE8}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonCheckboxExamples.exe"/>
-    <ROW Component="KryptonCheckedListBoxExamples.exe" ComponentId="{27B4F22D-86EF-4131-A557-F355DFF7A1B3}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonCheckedListBoxExamples.exe"/>
-    <ROW Component="KryptonColorButtonExamples.exe" ComponentId="{44D98D2A-AA5C-486A-BF2F-FF7CF8874F94}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonColorButtonExamples.exe"/>
-    <ROW Component="KryptonComboBoxExamples.exe" ComponentId="{FBC3795E-C24B-4BD6-A17D-FDB6028B6C5F}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonComboBoxExamples.exe"/>
-    <ROW Component="KryptonCommandExamples.exe" ComponentId="{78CA3B02-7CF4-4F39-9AEA-8E101D010D6E}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonCommandExamples.exe"/>
-    <ROW Component="KryptonContextMenuExamples.exe" ComponentId="{F96188A3-02E8-4322-B04D-EB9CA9515280}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonContextMenuExamples.exe"/>
-    <ROW Component="KryptonDataGridViewExamples.exe" ComponentId="{BBFEF603-05AF-4987-8B6B-DC4BEE9E90A8}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonDataGridViewExamples.exe"/>
-    <ROW Component="KryptonDateTimePickerExamples.exe" ComponentId="{D8B6226F-F474-4B13-88B8-411C390A9447}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonDateTimePickerExamples.exe"/>
-    <ROW Component="KryptonDocking.dll" ComponentId="{73328A0C-5579-43B2-A414-9973DDD586C9}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonDocking.dll"/>
-    <ROW Component="KryptonDocking.dll_1" ComponentId="{68AC5492-7C21-47F7-A4F7-7A46DE142455}" Directory_="Bin_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonDocking.dll_1"/>
-    <ROW Component="KryptonDomainUpDownExamples.exe" ComponentId="{36AB3861-6581-4DFE-BCEA-E096B5A10643}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonDomainUpDownExamples.exe"/>
-    <ROW Component="KryptonDropButtonExamples.exe" ComponentId="{E414690C-AB91-4FAD-BABC-A304FB08661F}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonDropButtonExamples.exe"/>
-    <ROW Component="KryptonExplorer.exe" ComponentId="{DB7A614A-093F-4041-9B12-AC4669980CA5}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonExplorer.exe"/>
-    <ROW Component="KryptonFormExamples.exe" ComponentId="{7AA7C372-A5D0-4461-8B18-46EBD2179D59}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonFormExamples.exe"/>
-    <ROW Component="KryptonGalleryExamples.exe" ComponentId="{859BA543-2D0B-4CB2-8EDA-F1B9F98A1053}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonGalleryExamples.exe"/>
-    <ROW Component="KryptonGroupBoxExamples.exe" ComponentId="{4612AC8D-493F-475B-8014-EAD53A775E55}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonGroupBoxExamples.exe"/>
-    <ROW Component="KryptonGroupExamples.exe" ComponentId="{ED43CD9F-9A54-4559-801A-DAB2F824BA8E}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonGroupExamples.exe"/>
-    <ROW Component="KryptonHeaderExamples.exe" ComponentId="{B9033694-D2EC-4431-BBA9-61710F1CAD1B}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonHeaderExamples.exe"/>
-    <ROW Component="KryptonHeaderGroupExamples.exe" ComponentId="{8E2E8EAA-B5F8-4A29-A284-78D51ED6E817}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonHeaderGroupExamples.exe"/>
-    <ROW Component="KryptonInputBoxExamples.exe" ComponentId="{9B91FC9F-7D84-470F-BA1A-76F146DFFA93}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonInputBoxExamples.exe"/>
-    <ROW Component="KryptonLabelExamples.exe" ComponentId="{2A056A54-75B4-4BCC-B2A3-3BD7F4A37BF1}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonLabelExamples.exe"/>
-    <ROW Component="KryptonLinkLabelExamples.exe" ComponentId="{FA16ACD5-C199-4FE3-A1B7-5873082617C8}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonLinkLabelExamples.exe"/>
-    <ROW Component="KryptonListBoxExamples.exe" ComponentId="{56625D32-7760-49E6-8CE9-E823A3C3935E}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonListBoxExamples.exe"/>
-    <ROW Component="KryptonMaskedTextBoxExamples.exe" ComponentId="{158FD9F3-DB48-41AA-9E04-4D9CDA597487}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonMaskedTextBoxExamples.exe"/>
-    <ROW Component="KryptonMessageBoxExamples.exe" ComponentId="{5CC7174D-1AFA-47A2-B212-C8F951E6F17A}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonMessageBoxExamples.exe"/>
-    <ROW Component="KryptonMonthCalendarExamples.exe" ComponentId="{E6391B70-B34F-42E9-8FC8-CC0F893FC673}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonMonthCalendarExamples.exe"/>
-    <ROW Component="KryptonNavigator.dll" ComponentId="{1BE34AB1-11F4-40C2-86C5-32164F6AFD2F}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonNavigator.dll"/>
-    <ROW Component="KryptonNavigator.dll_1" ComponentId="{EBE19D8B-0B4D-4FD7-95C2-D7D9596C8EBB}" Directory_="Bin_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonNavigator.dll_1"/>
-    <ROW Component="KryptonNumericUpDownExamples.exe" ComponentId="{F85B07CD-45A5-41FE-B5F4-09A4BE719EA2}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonNumericUpDownExamples.exe"/>
-    <ROW Component="KryptonPaletteExamples.exe" ComponentId="{66DBA547-318B-47DD-B111-48365BAFFEA4}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonPaletteExamples.exe"/>
-    <ROW Component="KryptonPanelExamples.exe" ComponentId="{F1F8126F-EC0F-4328-B3D7-7103D61B70C9}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonPanelExamples.exe"/>
-    <ROW Component="KryptonRadioButtonExamples.exe" ComponentId="{622D487C-536E-435D-8ECE-6CDA95F21AEF}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonRadioButtonExamples.exe"/>
-    <ROW Component="KryptonRibbon.dll" ComponentId="{1F40A68C-0C97-4CB4-A1AA-84AD0B4300BA}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonRibbon.dll"/>
-    <ROW Component="KryptonRibbon.dll_1" ComponentId="{9A26E64B-1CA6-4601-A394-3ABB3853FBC8}" Directory_="Bin_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonRibbon.dll_1"/>
-    <ROW Component="KryptonRichTextBoxExamples.exe" ComponentId="{723E45A1-2510-4A9A-B24C-B787B1C3A3F4}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonRichTextBoxExamples.exe"/>
-    <ROW Component="KryptonSeparatorExamples.exe" ComponentId="{B09DB207-7975-480E-8BAE-6C7461F26526}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonSeparatorExamples.exe"/>
-    <ROW Component="KryptonSplitContainerExamples.exe" ComponentId="{5B5DF5E3-F7C9-4AAA-86C1-E64739870296}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonSplitContainerExamples.exe"/>
-    <ROW Component="KryptonTaskDialogExamples.exe" ComponentId="{2CC9F19E-F593-4EB6-89C3-414B4E327379}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonTaskDialogExamples.exe"/>
-    <ROW Component="KryptonTextBoxExamples.exe" ComponentId="{90FD48FE-CA03-493E-A295-B35909746D4F}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonTextBoxExamples.exe"/>
-    <ROW Component="KryptonToolkit.dll" ComponentId="{F0D3E8E0-C88D-4DE5-A00E-65B0EF1B8FAF}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonToolkit.dll"/>
-    <ROW Component="KryptonToolkit.dll_1" ComponentId="{E50F3784-871E-4BB6-8BCA-1B122A0063ED}" Directory_="Bin_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonToolkit.dll_1"/>
-    <ROW Component="KryptonToolkitHelp.chm" ComponentId="{6A97A5BA-C3F5-4F5C-97DA-7F1230C2B1B2}" Directory_="Help_Dir" Attributes="0" KeyPath="KryptonToolkitHelp.chm" Type="1"/>
-    <ROW Component="KryptonTrackBarExamples.exe" ComponentId="{218FBD09-85A0-483D-91FB-1EB1716DCF19}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonTrackBarExamples.exe"/>
-    <ROW Component="KryptonTreeViewExamples.exe" ComponentId="{36065F14-3478-4425-AACA-4A24A9D8D7A7}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonTreeViewExamples.exe"/>
-    <ROW Component="KryptonWorkspace.dll" ComponentId="{028023BC-4FE4-4C7A-B4DA-5AA99D6FE691}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonWorkspace.dll"/>
-    <ROW Component="KryptonWorkspace.dll_1" ComponentId="{77BF8F16-03C4-4B81-8428-6372430088EF}" Directory_="Bin_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonWorkspace.dll_1"/>
-    <ROW Component="KryptonWrapLabelExamples.exe" ComponentId="{C8EB2D02-83AB-4D7D-BDA6-25DDD3E032CA}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="KryptonWrapLabelExamples.exe"/>
-    <ROW Component="MDIApplication.exe" ComponentId="{A9FBDB67-4A59-449B-B600-EE6D93DFBD1D}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="MDIApplication.exe"/>
-    <ROW Component="MDIRibbon.exe" ComponentId="{DE76B55A-5915-4CCC-A907-F487350B7642}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="MDIRibbon.exe"/>
-    <ROW Component="MemoEditor.exe" ComponentId="{19A45EAF-F54A-4697-84BD-6AA10AA6D3DE}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="MemoEditor.exe"/>
-    <ROW Component="MultiControlDocking.exe" ComponentId="{7E337C55-4269-435D-8FB3-1A063B49AEC0}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="MultiControlDocking.exe"/>
-    <ROW Component="NavigatorContextMenus.exe" ComponentId="{A2240200-9B44-423B-AA35-141448737EF8}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="NavigatorContextMenus.exe"/>
-    <ROW Component="NavigatorModes.exe" ComponentId="{2B5566EE-85D1-4926-BB7E-0D19B5FD6FE7}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="NavigatorModes.exe"/>
-    <ROW Component="NavigatorPalettes.exe" ComponentId="{841DBB13-70C4-493A-BA9A-EC822F5DB850}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="NavigatorPalettes.exe"/>
-    <ROW Component="NavigatorPlayground.exe" ComponentId="{663DCD20-BC4D-45F0-8C88-FCABA82C5DEA}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="NavigatorPlayground.exe"/>
-    <ROW Component="NavigatorToolTips.exe" ComponentId="{2217ADF7-E13E-4436-B0BC-DCE6489BCCA7}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="NavigatorToolTips.exe"/>
-    <ROW Component="NavigatorandFloatingWindows.exe" ComponentId="{12B38144-FD06-49C3-82FB-82D2A861BB8B}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="NavigatorandFloatingWindows.exe"/>
-    <ROW Component="OneNoteTabs.exe" ComponentId="{E718BE47-B272-4C39-B4AD-2B6942307F53}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="OneNoteTabs.exe"/>
-    <ROW Component="OrientationPlusAlignment.exe" ComponentId="{1B7C6836-9BF1-48AF-96B4-FFDD877933C5}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="OrientationPlusAlignment.exe"/>
-    <ROW Component="OutlookMailClone.exe" ComponentId="{CF0EDD77-FDF9-48EF-A1B6-A32CC58FC60F}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="OutlookMailClone.exe"/>
-    <ROW Component="OutlookMockup.exe" ComponentId="{675A3734-12C8-4D16-ADF7-B1A393247A55}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="OutlookMockup.exe"/>
-    <ROW Component="PaletteDesigner.exe" ComponentId="{CB04C81B-0646-4B89-A2BB-117CFDFE04B4}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="PaletteDesigner.exe"/>
-    <ROW Component="PaletteUpgradeTool.exe" ComponentId="{FB6D2F9B-DC23-4451-A038-6617279A8EE2}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="PaletteUpgradeTool.exe"/>
-    <ROW Component="PerTabButtons.exe" ComponentId="{A670C0AB-72BE-43C0-BADE-1FB8032DD423}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="PerTabButtons.exe"/>
-    <ROW Component="PopupPages.exe" ComponentId="{6BACE75E-4D99-4E72-8F6F-F19CEE770CC8}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="PopupPages.exe"/>
-    <ROW Component="ProductInformation" ComponentId="{F2103A6D-7ECD-436E-9ECD-06ED61235E4F}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
-    <ROW Component="QuickAccessToolbar.exe" ComponentId="{7B0E7FB9-2805-40A9-ADC6-FAA0C3976FAD}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="QuickAccessToolbar.exe"/>
-    <ROW Component="RibbonControls.exe" ComponentId="{80370C4F-EF65-44B6-8108-A4FAFE004701}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="RibbonControls.exe"/>
-    <ROW Component="RibbonGallery.exe" ComponentId="{45F4FC5B-D3C9-4E7C-9938-7BBD61A380E4}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="RibbonGallery.exe"/>
-    <ROW Component="RibbonToolTips.exe" ComponentId="{CED0FD87-C290-4711-8B65-407A49998483}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="RibbonToolTips.exe"/>
-    <ROW Component="RibbonandNavigatorandWorkspace.exe" ComponentId="{CF24C9C9-E7E0-4F3E-9618-FA8787E3BCD7}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="RibbonandNavigatorandWorkspace.exe"/>
-    <ROW Component="SHORTCUTDIR" ComponentId="{F85D7599-DBB5-40F1-A3EA-A49BB71E2B58}" Directory_="SHORTCUTDIR" Attributes="0"/>
-    <ROW Component="SinglelinePlusMultiline.exe" ComponentId="{71D83D51-C4AF-4D57-BB2B-58817D352297}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="SinglelinePlusMultiline.exe"/>
-    <ROW Component="StandardDocking.exe" ComponentId="{1B039BFC-7323-45C9-8891-DA3FB095BFFA}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="StandardDocking.exe"/>
-    <ROW Component="SystemThemedForms.exe" ComponentId="{B5E7810F-FE29-47FB-BA08-5EA009D5D02B}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="SystemThemedForms.exe"/>
-    <ROW Component="TabBorderStyles.exe" ComponentId="{19AF2860-28FE-4FEA-BF6F-5FAA51936F28}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="TabBorderStyles.exe"/>
-    <ROW Component="TestClipBase.exe" ComponentId="{8E59B5F1-832C-4F78-8245-3B8BFCA73AE9}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="TestClipBase.exe"/>
-    <ROW Component="TestMessageBoxClipping.exe" ComponentId="{5C7990EB-BA29-490E-ABBB-E03BF66E9AB4}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="TestMessageBoxClipping.exe"/>
-    <ROW Component="TestTextClipping.exe" ComponentId="{B455B831-547F-4789-B4F0-4F5CE2F8367A}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="TestTextClipping.exe"/>
-    <ROW Component="ThreePaneApplicationBasic.exe" ComponentId="{F10C3E85-88F8-498F-975A-AAAE2DED7C1B}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="ThreePaneApplicationBasic.exe"/>
-    <ROW Component="ThreePaneApplicationExtended.exe" ComponentId="{7FEFAE5F-6E5D-40A6-975E-A66D0D39B6F1}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="ThreePaneApplicationExtended.exe"/>
-    <ROW Component="UserPageCreation.exe" ComponentId="{C8CC2574-ADAA-4478-9DC4-ACF71B0B73BF}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="UserPageCreation.exe"/>
-    <ROW Component="WorkspaceCellLayout.exe" ComponentId="{5678ABC8-86EF-48B6-9EB9-723243DAC7DE}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="WorkspaceCellLayout.exe"/>
-    <ROW Component="WorkspaceCellModes.exe" ComponentId="{584E92D0-9E98-42F2-8B58-9DA0084FCBE5}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="WorkspaceCellModes.exe"/>
-    <ROW Component="WorkspacePersistence.exe" ComponentId="{F04BD6EB-3FDB-4B36-A97A-62B073AC08D3}" Directory_="Applications_Dir" Attributes="0" Condition="NOT VersionNT64" KeyPath="WorkspacePersistence.exe"/>
+    <ROW Component="AI_CustomARPName" ComponentId="{0ADCE3D0-6ABE-4F54-9C6E-64EEA39BD67C}" Directory_="APPDIR" Attributes="4" KeyPath="DisplayName" Options="1"/>
+    <ROW Component="AI_ExePath" ComponentId="{9E7226ED-0AE1-4A19-BB8E-48D22504A267}" Directory_="APPDIR" Attributes="4" KeyPath="AI_ExePath"/>
+    <ROW Component="AdvancedPageDragandDrop.exe" ComponentId="{DC125DC9-C35F-4F19-961B-C34125BF93EB}" Directory_="Applications_Dir" Attributes="0" KeyPath="AdvancedPageDragandDrop.exe"/>
+    <ROW Component="ApplicationMenu.exe" ComponentId="{71148C73-DB4A-4F62-ADFD-8161516CC6D5}" Directory_="Applications_Dir" Attributes="0" KeyPath="ApplicationMenu.exe"/>
+    <ROW Component="AutoShrinkingGroups.exe" ComponentId="{88DF6A6C-5D59-4A8D-9BD7-FD3ACA04205E}" Directory_="Applications_Dir" Attributes="0" KeyPath="AutoShrinkingGroups.exe"/>
+    <ROW Component="BasicEvents.exe" ComponentId="{2C82F3A6-1D27-421D-931E-571C5BA79ECA}" Directory_="Applications_Dir" Attributes="0" KeyPath="BasicEvents.exe"/>
+    <ROW Component="BasicPageDragandDrop.exe" ComponentId="{D40CDFAC-606E-420E-8D14-A2FA35309DE7}" Directory_="Applications_Dir" Attributes="0" KeyPath="BasicPageDragandDrop.exe"/>
+    <ROW Component="ButtonSpecPlayground.exe" ComponentId="{694FFF30-460C-43A6-B7A2-83F7197EC15C}" Directory_="Applications_Dir" Attributes="0" KeyPath="ButtonSpecPlayground.exe"/>
+    <ROW Component="CellMaximizeandRestore.exe" ComponentId="{31BD6D1A-FE99-4A38-B14B-0B5E5C2F32CD}" Directory_="Applications_Dir" Attributes="0" KeyPath="CellMaximizeandRestore.exe"/>
+    <ROW Component="ChildControlStack.exe" ComponentId="{1C044801-C553-427E-8F0B-F2E9DA7B9402}" Directory_="Applications_Dir" Attributes="0" KeyPath="ChildControlStack.exe"/>
+    <ROW Component="ContextualTabs.exe" ComponentId="{DD7409B0-BD30-4A2E-A6E1-B0521709976E}" Directory_="Applications_Dir" Attributes="0" KeyPath="ContextualTabs.exe"/>
+    <ROW Component="CustomControlUsingPalettes.exe" ComponentId="{FEBF9C74-10E5-4ED6-A984-8D87CF3900CF}" Directory_="Applications_Dir" Attributes="0" KeyPath="CustomControlUsingPalettes.exe"/>
+    <ROW Component="CustomControlUsingRenderers.exe" ComponentId="{8921ABB8-B6CE-47E0-9848-A842C040A79B}" Directory_="Applications_Dir" Attributes="0" KeyPath="CustomControlUsingRenderers.exe"/>
+    <ROW Component="DockingCustomized.exe" ComponentId="{26212845-5EDA-41A6-B895-D9A92AFF1D2F}" Directory_="Applications_Dir" Attributes="0" KeyPath="DockingCustomized.exe"/>
+    <ROW Component="DockingFlags.exe" ComponentId="{5350941E-AE56-4798-B7AE-2EB9628F85A9}" Directory_="Applications_Dir" Attributes="0" KeyPath="DockingFlags.exe"/>
+    <ROW Component="DockingPersistence.exe" ComponentId="{DB37E79C-9FA1-44B0-9E0C-722A9DDC534C}" Directory_="Applications_Dir" Attributes="0" KeyPath="DockingPersistence.exe"/>
+    <ROW Component="ExpandingHeaderGroupsDockStyleExamples.exe" ComponentId="{3DF783DB-0B76-46C4-B3A1-BE8110586141}" Directory_="Applications_Dir" Attributes="0" KeyPath="ExpandingHeaderGroupsDockStyleExamples.exe"/>
+    <ROW Component="ExpandingHeaderGroupsSplittersExamples.exe" ComponentId="{5534F9E6-38C4-4707-AF2B-D8064B37B41C}" Directory_="Applications_Dir" Attributes="0" KeyPath="ExpandingHeaderGroupsSplittersExamples.exe"/>
+    <ROW Component="ExpandingHeaderGroupsStackExamples.exe" ComponentId="{21C21C3A-FC65-47E6-96E6-FB2F85A3BC03}" Directory_="Applications_Dir" Attributes="0" KeyPath="ExpandingHeaderGroupsStackExamples.exe"/>
+    <ROW Component="ExpandingPages.exe" ComponentId="{A2759636-D184-497F-B7CE-797DD650872F}" Directory_="Applications_Dir" Attributes="0" KeyPath="ExpandingPages.exe"/>
+    <ROW Component="ExternalDragtoDocking.exe" ComponentId="{2752EC4A-806D-4516-85B6-F881AE65AB2F}" Directory_="Applications_Dir" Attributes="0" KeyPath="ExternalDragtoDocking.exe"/>
+    <ROW Component="InputFormExamples.exe" ComponentId="{624D421B-1645-41BD-B743-4B143091B882}" Directory_="Applications_Dir" Attributes="0" KeyPath="InputFormExamples.exe"/>
+    <ROW Component="KeyTipsandKeyboardAccess.exe" ComponentId="{7F01ACE1-BD6B-4E92-B1C1-255D0A8A7F0B}" Directory_="Applications_Dir" Attributes="0" KeyPath="KeyTipsandKeyboardAccess.exe"/>
+    <ROW Component="KryptonBorderEdgeExamples.exe" ComponentId="{CE9807E8-ED19-455A-9135-0866A3A113B3}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonBorderEdgeExamples.exe"/>
+    <ROW Component="KryptonBreadCrumbExamples.exe" ComponentId="{8C87C8FE-78EA-40ED-9336-0E870FD71C9B}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonBreadCrumbExamples.exe"/>
+    <ROW Component="KryptonButtonExamples.exe" ComponentId="{22921E19-DA13-4180-8B88-F430F0778C21}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonButtonExamples.exe"/>
+    <ROW Component="KryptonCheckButtonExamples.exe" ComponentId="{A7792EF2-1601-4A6B-B1B5-FF162A76805E}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonCheckButtonExamples.exe"/>
+    <ROW Component="KryptonCheckSetExamples.exe" ComponentId="{1FEF6B7D-70F0-4A7A-BF36-EC157C90BC85}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonCheckSetExamples.exe"/>
+    <ROW Component="KryptonCheckboxExamples.exe" ComponentId="{C927B3A3-CF1A-4836-BC67-C1E3E8EAF086}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonCheckboxExamples.exe"/>
+    <ROW Component="KryptonCheckedListBoxExamples.exe" ComponentId="{514E2D74-1DD8-4A1C-B0A4-E57148557604}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonCheckedListBoxExamples.exe"/>
+    <ROW Component="KryptonColorButtonExamples.exe" ComponentId="{F6F8CAE6-BC39-4793-96F1-2725A1D50C97}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonColorButtonExamples.exe"/>
+    <ROW Component="KryptonComboBoxExamples.exe" ComponentId="{AC56C206-8C36-4F28-96D0-F8250A2D12A3}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonComboBoxExamples.exe"/>
+    <ROW Component="KryptonCommandExamples.exe" ComponentId="{D06ECA69-8821-4D98-8733-E18D336FA09D}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonCommandExamples.exe"/>
+    <ROW Component="KryptonContextMenuExamples.exe" ComponentId="{F2AA48EF-8C77-45F7-992E-113FAB9C9072}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonContextMenuExamples.exe"/>
+    <ROW Component="KryptonDataGridViewExamples.exe" ComponentId="{B3E99998-92AB-420C-B41C-3EAAAED5A6D9}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonDataGridViewExamples.exe"/>
+    <ROW Component="KryptonDateTimePickerExamples.exe" ComponentId="{B64224BA-4379-4FCD-B888-06F7E9E6DDDC}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonDateTimePickerExamples.exe"/>
+    <ROW Component="KryptonDocking.dll" ComponentId="{FA474BE1-7C7D-4DD4-B95F-E0F369B6BCFE}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonDocking.dll"/>
+    <ROW Component="KryptonDocking.dll_1" ComponentId="{31E6DF6A-93C1-4A37-9A0F-2D927955EEA1}" Directory_="Bin_Dir" Attributes="0" KeyPath="KryptonDocking.dll_1"/>
+    <ROW Component="KryptonDomainUpDownExamples.exe" ComponentId="{C61167DD-1064-48E4-ABDC-2AE184FB095A}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonDomainUpDownExamples.exe"/>
+    <ROW Component="KryptonDropButtonExamples.exe" ComponentId="{FA69FD11-1CE0-4DF4-BE01-D429A0085034}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonDropButtonExamples.exe"/>
+    <ROW Component="KryptonExplorer.exe" ComponentId="{41D78EE8-9FFB-40AC-B7CA-95B8EDB6B0E3}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonExplorer.exe"/>
+    <ROW Component="KryptonFormExamples.exe" ComponentId="{7DA8459B-1E05-4D5B-B3E0-1EDCB7C24283}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonFormExamples.exe"/>
+    <ROW Component="KryptonGalleryExamples.exe" ComponentId="{28806E6B-A489-40F7-9303-A24E6B3A1982}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonGalleryExamples.exe"/>
+    <ROW Component="KryptonGroupBoxExamples.exe" ComponentId="{6F94D574-DDB7-498E-9C79-E7BF01ED63A4}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonGroupBoxExamples.exe"/>
+    <ROW Component="KryptonGroupExamples.exe" ComponentId="{7E5428D8-1003-4C31-B680-9D6AEBF86FE6}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonGroupExamples.exe"/>
+    <ROW Component="KryptonHeaderExamples.exe" ComponentId="{ECE685B8-738B-4457-AF25-A62C4A81AE5A}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonHeaderExamples.exe"/>
+    <ROW Component="KryptonHeaderGroupExamples.exe" ComponentId="{68AD9905-FAA9-4E53-9860-33358BCA6398}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonHeaderGroupExamples.exe"/>
+    <ROW Component="KryptonInputBoxExamples.exe" ComponentId="{344748E4-7726-4A0F-B7BF-2AF8E063DE92}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonInputBoxExamples.exe"/>
+    <ROW Component="KryptonLabelExamples.exe" ComponentId="{845D1790-60AB-4EFE-AD59-8904F69398DB}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonLabelExamples.exe"/>
+    <ROW Component="KryptonLinkLabelExamples.exe" ComponentId="{8937B04F-C6B9-4C8A-86FC-4E9C517DF0E6}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonLinkLabelExamples.exe"/>
+    <ROW Component="KryptonListBoxExamples.exe" ComponentId="{0E9A63FB-C067-4B9A-9280-DE66C1CF66C3}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonListBoxExamples.exe"/>
+    <ROW Component="KryptonMaskedTextBoxExamples.exe" ComponentId="{96F988B5-F627-4437-9D60-E8F6993BB10B}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonMaskedTextBoxExamples.exe"/>
+    <ROW Component="KryptonMessageBoxExamples.exe" ComponentId="{7664824A-DEED-44FE-9F5E-B5B32E3EC4BA}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonMessageBoxExamples.exe"/>
+    <ROW Component="KryptonMonthCalendarExamples.exe" ComponentId="{0A6A2919-C58C-4BCE-AA77-366F4560E9A4}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonMonthCalendarExamples.exe"/>
+    <ROW Component="KryptonNavigator.dll" ComponentId="{3FACA7EE-553F-4D23-AE00-4B4739C3E08C}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonNavigator.dll"/>
+    <ROW Component="KryptonNavigator.dll_1" ComponentId="{08125B9E-F4AC-47B5-9A2A-36044E2F17D0}" Directory_="Bin_Dir" Attributes="0" KeyPath="KryptonNavigator.dll_1"/>
+    <ROW Component="KryptonNumericUpDownExamples.exe" ComponentId="{7DC00278-4EF6-4D1E-AB44-F6BDB7F27C97}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonNumericUpDownExamples.exe"/>
+    <ROW Component="KryptonPaletteExamples.exe" ComponentId="{A295AC29-96E8-417A-8179-123E1B0EC213}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonPaletteExamples.exe"/>
+    <ROW Component="KryptonPanelExamples.exe" ComponentId="{EF24C021-EE0C-40C0-A1C0-996230A8C0C0}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonPanelExamples.exe"/>
+    <ROW Component="KryptonRadioButtonExamples.exe" ComponentId="{61B257C2-FE33-42BC-9C4A-7066491FCA75}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonRadioButtonExamples.exe"/>
+    <ROW Component="KryptonRibbon.dll" ComponentId="{90492CED-917B-482C-A49C-09DF9CAA86D7}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonRibbon.dll"/>
+    <ROW Component="KryptonRibbon.dll_1" ComponentId="{41196822-9668-4A1A-BE1F-0FBDA1FA1A76}" Directory_="Bin_Dir" Attributes="0" KeyPath="KryptonRibbon.dll_1"/>
+    <ROW Component="KryptonRichTextBoxExamples.exe" ComponentId="{B3349A3A-2CC1-431E-9FB3-19228932CD61}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonRichTextBoxExamples.exe"/>
+    <ROW Component="KryptonSeparatorExamples.exe" ComponentId="{97D42E23-F56B-4348-A4FF-FE7C2D66AC06}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonSeparatorExamples.exe"/>
+    <ROW Component="KryptonSplitContainerExamples.exe" ComponentId="{D8B99235-CEAE-4E83-A27F-0254E7E9C516}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonSplitContainerExamples.exe"/>
+    <ROW Component="KryptonTaskDialogExamples.exe" ComponentId="{812B215F-A13C-4307-893C-C2033AC27C16}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonTaskDialogExamples.exe"/>
+    <ROW Component="KryptonTextBoxExamples.exe" ComponentId="{D68B47EC-215C-4C04-A4E1-D2395184AA11}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonTextBoxExamples.exe"/>
+    <ROW Component="KryptonToolkit.dll" ComponentId="{935C4EB2-AA70-4AF4-BB8F-AF7D1887DA45}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonToolkit.dll"/>
+    <ROW Component="KryptonToolkit.dll_1" ComponentId="{89D5702F-A61B-4F7D-99DA-DA31184D12E3}" Directory_="Bin_Dir" Attributes="0" KeyPath="KryptonToolkit.dll_1"/>
+    <ROW Component="KryptonToolkitHelp.chm" ComponentId="{107A6091-00D0-4985-BB56-3662B75D08A7}" Directory_="Help_Dir" Attributes="0" KeyPath="KryptonToolkitHelp.chm" Type="1"/>
+    <ROW Component="KryptonTrackBarExamples.exe" ComponentId="{55B94EA6-F3F8-4F8B-9779-FFF4F0A56D06}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonTrackBarExamples.exe"/>
+    <ROW Component="KryptonTreeViewExamples.exe" ComponentId="{59647584-5F76-49A9-9EA3-9EB0F34287E3}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonTreeViewExamples.exe"/>
+    <ROW Component="KryptonWorkspace.dll" ComponentId="{E063897F-D5E2-45DB-BB0F-41597E51C95D}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonWorkspace.dll"/>
+    <ROW Component="KryptonWorkspace.dll_1" ComponentId="{AAF60405-598A-4731-A752-D371CB20D3A1}" Directory_="Bin_Dir" Attributes="0" KeyPath="KryptonWorkspace.dll_1"/>
+    <ROW Component="KryptonWrapLabelExamples.exe" ComponentId="{E8D01181-07BF-4CEB-9974-0577ED298F4D}" Directory_="Applications_Dir" Attributes="0" KeyPath="KryptonWrapLabelExamples.exe"/>
+    <ROW Component="MDIApplication.exe" ComponentId="{A3EF1BD4-4F8A-43D2-8114-88ED0B8B95D2}" Directory_="Applications_Dir" Attributes="0" KeyPath="MDIApplication.exe"/>
+    <ROW Component="MDIRibbon.exe" ComponentId="{B9B9FFA5-6B74-42CF-A432-240F3020FE41}" Directory_="Applications_Dir" Attributes="0" KeyPath="MDIRibbon.exe"/>
+    <ROW Component="MemoEditor.exe" ComponentId="{3DDC6A5B-BB2F-453C-95BE-062CC3D5C2F0}" Directory_="Applications_Dir" Attributes="0" KeyPath="MemoEditor.exe"/>
+    <ROW Component="MultiControlDocking.exe" ComponentId="{E789E067-75BC-4266-BB34-07C5DC43B144}" Directory_="Applications_Dir" Attributes="0" KeyPath="MultiControlDocking.exe"/>
+    <ROW Component="NavigatorContextMenus.exe" ComponentId="{026D540E-4651-4269-8959-9ABD58F0B795}" Directory_="Applications_Dir" Attributes="0" KeyPath="NavigatorContextMenus.exe"/>
+    <ROW Component="NavigatorModes.exe" ComponentId="{1539D010-5CF2-43A3-B2A9-F980A9572DFC}" Directory_="Applications_Dir" Attributes="0" KeyPath="NavigatorModes.exe"/>
+    <ROW Component="NavigatorPalettes.exe" ComponentId="{A98C5223-48B2-453C-B2B9-095DADC9EAE3}" Directory_="Applications_Dir" Attributes="0" KeyPath="NavigatorPalettes.exe"/>
+    <ROW Component="NavigatorPlayground.exe" ComponentId="{23EABA21-5A5A-4375-9C1D-E5E574C20BD9}" Directory_="Applications_Dir" Attributes="0" KeyPath="NavigatorPlayground.exe"/>
+    <ROW Component="NavigatorToolTips.exe" ComponentId="{50CAF2CE-CB66-4ABD-86D6-85604A783227}" Directory_="Applications_Dir" Attributes="0" KeyPath="NavigatorToolTips.exe"/>
+    <ROW Component="NavigatorandFloatingWindows.exe" ComponentId="{82E74C5F-EADC-4374-B77A-B8D5BA4C0B2A}" Directory_="Applications_Dir" Attributes="0" KeyPath="NavigatorandFloatingWindows.exe"/>
+    <ROW Component="OneNoteTabs.exe" ComponentId="{2041E5FE-0F90-4B3D-8145-AB133706A18B}" Directory_="Applications_Dir" Attributes="0" KeyPath="OneNoteTabs.exe"/>
+    <ROW Component="OrientationPlusAlignment.exe" ComponentId="{132AB6F9-F4AD-42E7-8614-2681CC2C40BF}" Directory_="Applications_Dir" Attributes="0" KeyPath="OrientationPlusAlignment.exe"/>
+    <ROW Component="OutlookMailClone.exe" ComponentId="{8D32CF8F-6D0B-487C-8190-3CA07248D181}" Directory_="Applications_Dir" Attributes="0" KeyPath="OutlookMailClone.exe"/>
+    <ROW Component="OutlookMockup.exe" ComponentId="{89847FAE-DBD8-4248-B3A2-0EB67F30A2FA}" Directory_="Applications_Dir" Attributes="0" KeyPath="OutlookMockup.exe"/>
+    <ROW Component="PaletteDesigner.exe" ComponentId="{D173267D-DE74-4A97-85B6-E857CF8F2558}" Directory_="Applications_Dir" Attributes="0" KeyPath="PaletteDesigner.exe"/>
+    <ROW Component="PaletteUpgradeTool.exe" ComponentId="{3870B371-8ED5-4967-92F5-7B2EB731E081}" Directory_="Applications_Dir" Attributes="0" KeyPath="PaletteUpgradeTool.exe"/>
+    <ROW Component="PerTabButtons.exe" ComponentId="{E80DE6E2-F2FF-43EB-89B8-B91A3D15CFC4}" Directory_="Applications_Dir" Attributes="0" KeyPath="PerTabButtons.exe"/>
+    <ROW Component="PopupPages.exe" ComponentId="{0C63B522-D2F3-421F-BC77-A60F4BE7E51A}" Directory_="Applications_Dir" Attributes="0" KeyPath="PopupPages.exe"/>
+    <ROW Component="ProductInformation" ComponentId="{C96C1128-07EC-4843-A25A-BAFCB0592C25}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+    <ROW Component="QuickAccessToolbar.exe" ComponentId="{75A4AD70-0FC8-4334-87FD-2B567F859A84}" Directory_="Applications_Dir" Attributes="0" KeyPath="QuickAccessToolbar.exe"/>
+    <ROW Component="RibbonControls.exe" ComponentId="{1C28B878-4DCB-44D7-B870-4C71D5BD1A44}" Directory_="Applications_Dir" Attributes="0" KeyPath="RibbonControls.exe"/>
+    <ROW Component="RibbonGallery.exe" ComponentId="{CA2DBCA1-4FEC-4C46-854E-15A779D4504F}" Directory_="Applications_Dir" Attributes="0" KeyPath="RibbonGallery.exe"/>
+    <ROW Component="RibbonToolTips.exe" ComponentId="{D21186BE-BAE4-4547-8994-E3E784BF6D11}" Directory_="Applications_Dir" Attributes="0" KeyPath="RibbonToolTips.exe"/>
+    <ROW Component="RibbonandNavigatorandWorkspace.exe" ComponentId="{1245704D-E5EC-4884-83BD-F5D740DE5972}" Directory_="Applications_Dir" Attributes="0" KeyPath="RibbonandNavigatorandWorkspace.exe"/>
+    <ROW Component="SHORTCUTDIR" ComponentId="{8668AB69-3B5E-4E91-81B7-D0996AB84915}" Directory_="SHORTCUTDIR" Attributes="0"/>
+    <ROW Component="SinglelinePlusMultiline.exe" ComponentId="{16BB2B17-AB91-4766-BE0B-C759B221EE16}" Directory_="Applications_Dir" Attributes="0" KeyPath="SinglelinePlusMultiline.exe"/>
+    <ROW Component="StandardDocking.exe" ComponentId="{03A86EDF-1920-4785-8C83-FD8AA15DA52D}" Directory_="Applications_Dir" Attributes="0" KeyPath="StandardDocking.exe"/>
+    <ROW Component="SystemThemedForms.exe" ComponentId="{C1DCD3B0-1425-4DCD-BA27-3B31B6CECEC9}" Directory_="Applications_Dir" Attributes="0" KeyPath="SystemThemedForms.exe"/>
+    <ROW Component="TabBorderStyles.exe" ComponentId="{0CE8FEFD-D242-4334-99CD-5F363CBE0684}" Directory_="Applications_Dir" Attributes="0" KeyPath="TabBorderStyles.exe"/>
+    <ROW Component="TestClipBase.exe" ComponentId="{638C6723-DD03-4BD8-8751-0BBC55F1F0E3}" Directory_="Applications_Dir" Attributes="0" KeyPath="TestClipBase.exe"/>
+    <ROW Component="TestMessageBoxClipping.exe" ComponentId="{80B8695A-1E7B-45F8-9477-A7F0564B2EEE}" Directory_="Applications_Dir" Attributes="0" KeyPath="TestMessageBoxClipping.exe"/>
+    <ROW Component="TestTextClipping.exe" ComponentId="{4BC017C9-8897-4B94-87AE-17E3BC87BA98}" Directory_="Applications_Dir" Attributes="0" KeyPath="TestTextClipping.exe"/>
+    <ROW Component="ThreePaneApplicationBasic.exe" ComponentId="{A6B77566-8B93-455A-9938-DB274CC521FC}" Directory_="Applications_Dir" Attributes="0" KeyPath="ThreePaneApplicationBasic.exe"/>
+    <ROW Component="ThreePaneApplicationExtended.exe" ComponentId="{0286B022-C333-47FB-AF2E-D657CCD8D9C3}" Directory_="Applications_Dir" Attributes="0" KeyPath="ThreePaneApplicationExtended.exe"/>
+    <ROW Component="UserPageCreation.exe" ComponentId="{99C14FD6-362E-4503-9D19-E24B52D726F4}" Directory_="Applications_Dir" Attributes="0" KeyPath="UserPageCreation.exe"/>
+    <ROW Component="WorkspaceCellLayout.exe" ComponentId="{938668D8-7DB7-49B0-9A4F-7ABFA597770E}" Directory_="Applications_Dir" Attributes="0" KeyPath="WorkspaceCellLayout.exe"/>
+    <ROW Component="WorkspaceCellModes.exe" ComponentId="{15DE99A8-0672-42AE-8CAE-EFDFDEDDD646}" Directory_="Applications_Dir" Attributes="0" KeyPath="WorkspaceCellModes.exe"/>
+    <ROW Component="WorkspacePersistence.exe" ComponentId="{341DC8C4-3908-4900-8BCF-8B56576660A0}" Directory_="Applications_Dir" Attributes="0" KeyPath="WorkspacePersistence.exe"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
     <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="AI_CustomARPName AI_ExePath AdvancedPageDragandDrop.exe ApplicationMenu.exe AutoShrinkingGroups.exe BasicEvents.exe BasicPageDragandDrop.exe ButtonSpecPlayground.exe CellMaximizeandRestore.exe ChildControlStack.exe ContextualTabs.exe CustomControlUsingPalettes.exe CustomControlUsingRenderers.exe DockingCustomized.exe DockingFlags.exe DockingPersistence.exe ExpandingHeaderGroupsDockStyleExamples.exe ExpandingHeaderGroupsSplittersExamples.exe ExpandingHeaderGroupsStackExamples.exe ExpandingPages.exe ExternalDragtoDocking.exe InputFormExamples.exe KeyTipsandKeyboardAccess.exe KryptonBorderEdgeExamples.exe KryptonBreadCrumbExamples.exe KryptonButtonExamples.exe KryptonCheckButtonExamples.exe KryptonCheckSetExamples.exe KryptonCheckboxExamples.exe KryptonCheckedListBoxExamples.exe KryptonColorButtonExamples.exe KryptonComboBoxExamples.exe KryptonCommandExamples.exe KryptonContextMenuExamples.exe KryptonDataGridViewExamples.exe KryptonDateTimePickerExamples.exe KryptonDocking.dll KryptonDocking.dll_1 KryptonDomainUpDownExamples.exe KryptonDropButtonExamples.exe KryptonExplorer.exe KryptonFormExamples.exe KryptonGalleryExamples.exe KryptonGroupBoxExamples.exe KryptonGroupExamples.exe KryptonHeaderExamples.exe KryptonHeaderGroupExamples.exe KryptonInputBoxExamples.exe KryptonLabelExamples.exe KryptonLinkLabelExamples.exe KryptonListBoxExamples.exe KryptonMaskedTextBoxExamples.exe KryptonMessageBoxExamples.exe KryptonMonthCalendarExamples.exe KryptonNavigator.dll KryptonNavigator.dll_1 KryptonNumericUpDownExamples.exe KryptonPaletteExamples.exe KryptonPanelExamples.exe KryptonRadioButtonExamples.exe KryptonRibbon.dll KryptonRibbon.dll_1 KryptonRichTextBoxExamples.exe KryptonSeparatorExamples.exe KryptonSplitContainerExamples.exe KryptonTaskDialogExamples.exe KryptonTextBoxExamples.exe KryptonToolkit.dll KryptonToolkit.dll_1 KryptonToolkitHelp.chm KryptonTrackBarExamples.exe KryptonTreeViewExamples.exe KryptonWorkspace.dll KryptonWorkspace.dll_1 KryptonWrapLabelExamples.exe MDIApplication.exe MDIRibbon.exe MemoEditor.exe MultiControlDocking.exe NavigatorContextMenus.exe NavigatorModes.exe NavigatorPalettes.exe NavigatorPlayground.exe NavigatorToolTips.exe NavigatorandFloatingWindows.exe OneNoteTabs.exe OrientationPlusAlignment.exe OutlookMailClone.exe OutlookMockup.exe PaletteDesigner.exe PaletteUpgradeTool.exe PerTabButtons.exe PopupPages.exe ProductInformation QuickAccessToolbar.exe RibbonControls.exe RibbonGallery.exe RibbonToolTips.exe RibbonandNavigatorandWorkspace.exe SHORTCUTDIR SinglelinePlusMultiline.exe StandardDocking.exe SystemThemedForms.exe TabBorderStyles.exe TestClipBase.exe TestMessageBoxClipping.exe TestTextClipping.exe ThreePaneApplicationBasic.exe ThreePaneApplicationExtended.exe UserPageCreation.exe WorkspaceCellLayout.exe WorkspaceCellModes.exe WorkspacePersistence.exe"/>
@@ -285,8 +291,11 @@
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
   </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrapperUISequenceComponent">
+    <ROW Action="AI_DetectSoftware" Sequence="101"/>
+  </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
-    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="Setup Files" Languages="en_GB" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true" MsiPackageType="AI_ALL"/>
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="Setup Files" Languages="en_GB" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
     <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
@@ -297,6 +306,9 @@
     <ROW Fragment="InstallDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\InstallDlg.aip"/>
     <ROW Fragment="LicenseAgreementDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\LicenseAgreementDlg.aip"/>
     <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="PreparePrereqDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\PreparePrereqDlg.aip"/>
+    <ROW Fragment="PrerequisitesDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\PrerequisitesDlg.aip"/>
+    <ROW Fragment="ProgressPrereqDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\ProgressPrereqDlg.aip"/>
     <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;surface\fragments\SequenceDialogs.aip"/>
     <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
     <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
@@ -304,6 +316,7 @@
     <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
     <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\VerifyRemoveDlg.aip"/>
     <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\VerifyRepairDlg.aip"/>
+    <ROW Fragment="WelcomePrereqDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\WelcomePrereqDlg.aip"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiActionTextComponent">
     <ROW Action="AI_DeleteLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
@@ -318,6 +331,8 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
     <ROW Name="ExternalUICleaner.dll" SourcePath="&lt;AI_CUSTACTS&gt;ExternalUICleaner.dll"/>
     <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
+    <ROW Name="SoftwareDetector.dll" SourcePath="&lt;AI_CUSTACTS&gt;SoftwareDetector.dll"/>
+    <ROW Name="SquareDesign64x64.jpg" SourcePath="O:\Development\Krypton Repositories\Versions\Standard\Krypton-NET-5.470\Assets\JPEG\64 x 64\Square Design 64 x 64.jpg"/>
     <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
     <ROW Name="lzmaextractor.dll" SourcePath="&lt;AI_CUSTACTS&gt;lzmaextractor.dll"/>
   </COMPONENT>
@@ -328,6 +343,12 @@
     <ROW Dialog_="PatchWelcomeDlg" Control="ProductNameTitle" Type="Text" X="83" Y="21" Width="245" Height="50" Attributes="196611" Text="[ProductName]" TextStyle="[ProductNameForSplash]" Order="600" TextLocId="Metro.Control.Text.ProductName" MsiKey="PatchWelcomeDlg#ProductNameTitle"/>
     <ROW Dialog_="PatchWelcomeDlg" Control="CompanyText" Type="Text" X="83" Y="16" Width="191" Height="12" Attributes="196611" Text="[Manufacturer]" TextStyle="[ManufacturerFont]" Order="700" TextLocId="Metro.Control.Text.Manufacturer" MsiKey="PatchWelcomeDlg#CompanyText"/>
     <ROW Dialog_="PatchWelcomeDlg" Control="ProductLogo" Type="Bitmap" X="17" Y="5" Width="59" Height="63" Attributes="1" Text="[AppLogoIcon]" Order="800" MsiKey="PatchWelcomeDlg#ProductLogo"/>
+    <ROW Dialog_="PreparePrereqDlg" Control="ProgressAnimation" Type="Bitmap" X="123" Y="83" Width="113" Height="30" Attributes="1048577" Text="PreparePrereqDlgProgress.gif" Order="800" MsiKey="PreparePrereqDlg#ProgressAnimation"/>
+    <ROW Dialog_="PrerequisitesDlg" Control="Cancel" Type="ImageButton" X="163" Y="359" Width="78" Height="28" Attributes="2" Text="[NextCancelButtons]" TextStyle="[MetroButtonText]" Order="100" MsiKey="PrerequisitesDlg#Cancel" Options="1" ExtType="ImageButton" ExtData="[ButtonText_Cancel]" ExtDataLocId="-"/>
+    <ROW Dialog_="ProgressPrereqDlg" Control="ActionText" Type="Text" X="17" Y="191" Width="309" Height="11" Attributes="196611" TextStyle="SubnoteFont" Order="800" MsiKey="ProgressPrereqDlg#ActionText"/>
+    <ROW Dialog_="ProgressPrereqDlg" Control="ProgressBar" Type="StyledProgressBar" X="17" Y="185" Width="312" Height="5" Attributes="65537" Text="PrereqProgressImage.png" Order="900" MsiKey="ProgressPrereqDlg#ProgressBar" ExtType="StyledProgressBar"/>
+    <ROW Dialog_="ProgressPrereqDlg" Control="StatusLabel" Type="Text" X="17" Y="171" Width="45" Height="13" Attributes="196611" Text="Status:" TextStyle="SubnoteFont" Order="1000" TextLocId="Control.Text.ProgressDlg#StatusLabel" MsiKey="ProgressPrereqDlg#StatusLabel"/>
+    <ROW Dialog_="ProgressPrereqDlg" Control="Text" Type="Text" X="17" Y="105" Width="300" Height="30" Attributes="196611" Text="Please wait while the [Wizard] [Progress2] prerequisites for [ProductName].  This may take several minutes." Order="1100" TextLocId="Control.Text.ProgressPrereqDlg#Text" MsiKey="ProgressPrereqDlg#Text"/>
     <ROW Dialog_="VerifyReadyDlg" Control="Cancel" Type="ImageButton" X="163" Y="359" Width="78" Height="28" Attributes="2" Text="[NextCancelButtons]" TextStyle="[MetroButtonText]" Order="100" MsiKey="VerifyReadyDlg#Cancel" Options="1" ExtType="ImageButton" ExtData="[ButtonText_Cancel]" ExtDataLocId="-"/>
     <ROW Dialog_="VerifyReadyDlg" Control="Back" Type="PushButton" X="5" Y="381" Width="11" Height="11" Attributes="2" Text="Control.Text.VerifyReadyDlg#Back" Help="Back|" Order="200" TextLocId="Control.Text.VerifyReadyDlg#Back" HelpLocId="Air.Control.Help#Back" MsiKey="VerifyReadyDlg#Back" Options="1" ExtType="PushButton" ExtData="[ButtonText_Back]" ExtDataLocId="-"/>
     <ROW Dialog_="VerifyReadyDlg" Control="ReadyToInstall" Type="Text" X="17" Y="105" Width="312" Height="19" Attributes="196611" Text="Ready to Install" TextStyle="[SubTitleStyle]" Order="400" TextLocId="Control.Text.VerifyReadyDlg#Title" MsiKey="VerifyReadyDlg#ReadyToInstall"/>
@@ -339,9 +360,14 @@
     <ROW Dialog_="VerifyReadyDlg" Control="AdvInst" Type="Text" X="5" Y="388" Width="74" Height="11" Attributes="196611" Text="Advanced Installer" TextStyle="[BrandingStyle]" Order="1000" MsiKey="VerifyReadyDlg#AdvInst"/>
     <ROW Dialog_="VerifyRemoveDlg" Control="Cancel" Type="ImageButton" X="163" Y="359" Width="78" Height="28" Attributes="2" Text="[NextCancelButtons]" TextStyle="[MetroButtonText]" Order="100" MsiKey="VerifyRemoveDlg#Cancel" Options="1" ExtType="ImageButton" ExtData="[ButtonText_Cancel]" ExtDataLocId="-"/>
     <ROW Dialog_="VerifyRepairDlg" Control="Bitmap" Type="Bitmap" X="0" Y="0" Width="345" Height="400" Attributes="1" Text="[Background]" Order="100" MsiKey="VerifyRepairDlg#Bitmap"/>
-    <ROW Dialog_="VerifyRepairDlg" Control="Repair" Type="ImageButton" X="251" Y="359" Width="78" Height="28" Attributes="3" Text="[metrobuttonimage]" TextStyle="[MetroButtonText]" Order="200" MsiKey="VerifyRepairDlg#Repair" Options="1" ExtType="ImageButton" ExtData="&amp;Repair" ExtDataLocId="Metro.Control.ExtData.VerifyRepairDlg#Repair"/>
+    <ROW Dialog_="VerifyRepairDlg" Control="Cancel" Type="ImageButton" X="163" Y="359" Width="78" Height="28" Attributes="2" Text="[NextCancelButtons]" TextStyle="[MetroButtonText]" Order="200" MsiKey="VerifyRepairDlg#Cancel" Options="1" ExtType="ImageButton" ExtData="[ButtonText_Cancel]" ExtDataLocId="-"/>
+    <ROW Dialog_="WelcomePrereqDlg" Control="Description" Type="Text" X="17" Y="139" Width="312" Height="211" Attributes="196611" Text="The setup has determined that some of the prerequisites needed to run [ProductName] are missing. This wizard will assist you in getting and installing those prerequisites. Click &quot;[Text_Next]&quot; to continue or &quot;[ButtonText_Cancel]&quot; to exit the [Wizard]." Order="800" TextLocId="Control.Text.WelcomePrereqDlg#Description" MsiKey="WelcomePrereqDlg#Description"/>
+    <ROW Dialog_="WelcomePrereqDlg" Control="SubTitle" Type="Text" X="17" Y="105" Width="312" Height="34" Attributes="196611" Text="Welcome to the Prerequisites [Wizard]" TextStyle="SubTitle" Order="900" TextLocId="Control.Text.WelcomePrereqDlg#SubTitle" MsiKey="WelcomePrereqDlg#SubTitle"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="WelcomePrereqDlg" Control_="Next" Event="NewDialog" Argument="PrerequisitesDlg" Condition="AI_BOOTSTRAPPER" Ordering="1"/>
+    <ROW Dialog_="PrerequisitesDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_BOOTSTRAPPER" Ordering="1"/>
+    <ROW Dialog_="PrerequisitesDlg" Control_="Back" Event="NewDialog" Argument="WelcomePrereqDlg" Condition="AI_BOOTSTRAPPER" Ordering="1"/>
     <ROW Dialog_="InstallDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="301"/>
     <ROW Dialog_="InstallDlg" Control_="YouMustAgreeCtrl" Event="NewDialog" Argument="LicenseAgreementDlg" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="301"/>
     <ROW Dialog_="LicenseAgreementDlg" Control_="Back" Event="NewDialog" Argument="InstallDlg" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="1"/>
@@ -400,6 +426,7 @@
     <ROW Directory_="SHORTCUTDIR" Component_="SHORTCUTDIR" ManualDelete="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_AppSearchEx" Type="1" Source="Prereq.dll" Target="DoAppSearchEx"/>
     <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH_ORIGINAL" Target="[AI_SETUPEXEPATH]"/>
     <ROW Action="AI_ChooseTextStyles" Type="1" Source="aicustact.dll" Target="ChooseTextStyles"/>
     <ROW Action="AI_DATA_SETTER" Type="51" Source="AI_ExtractFiles" Target="[AI_SETUPEXEPATH]"/>
@@ -408,6 +435,7 @@
     <ROW Action="AI_DeleteLzma" Type="1025" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
     <ROW Action="AI_DeleteRCadLzma" Type="51" Source="AI_DeleteRLzma" Target="[AI_SETUPEXEPATH]"/>
     <ROW Action="AI_DeleteRLzma" Type="1281" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DetectSoftware" Type="257" Source="SoftwareDetector.dll" Target="OnDetectSoftware"/>
     <ROW Action="AI_DoRemoveExternalUIStub" Type="3585" Source="ExternalUICleaner.dll" Target="DoRemoveExternalUIStub" WithoutSeq="true"/>
     <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
     <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
@@ -418,44 +446,40 @@
     <ROW Action="AI_FindExeLzma" Type="1" Source="lzmaextractor.dll" Target="FindEXE"/>
     <ROW Action="AI_GetArpIconPath" Type="1" Source="aicustact.dll" Target="GetArpIconPath"/>
     <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_LaunchApp" Type="1" Source="aicustact.dll" Target="[#KryptonExplorer.exe]"/>
     <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
-    <ROW Action="AI_REDIRECT_32BIT_FOLDER" Type="51" Source="AI_Bin32_Dir" Target="[APPDIR]"/>
     <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH" Target="[AI_SETUPEXEPATH_ORIGINAL]"/>
     <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
     <ROW Action="AI_RemoveExternalUIStub" Type="1" Source="ExternalUICleaner.dll" Target="RemoveExternalUIStub"/>
     <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
     <ROW Action="AI_RunFinishActions" Type="1" Source="aicustact.dll" Target="RunFinishActions" WithoutSeq="true"/>
-    <ROW Action="AI_SETPROGRAMFILES" Type="51" Source="AI_ProgramFiles" Target="[ProgramFilesFolder]"/>
-    <ROW Action="AI_SETPROGRAMFILES64" Type="51" Source="AI_ProgramFiles" Target="[ProgramFiles64Folder]"/>
     <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
     <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
-    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[AI_ProgramFiles][Manufacturer]\[ProductName]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
     <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
     <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="KryptonExplorer.exe" SourcePath="L:\Developer\Source Code\Installers\Krypton Toolkit Suite 5.470\Applications\Krypton Explorer.exe" Index="0"/>
-    <ROW Name="PaletteDesigner.exe" SourcePath="L:\Developer\Source Code\Installers\Krypton Toolkit Suite 5.470\Applications\Palette Designer.exe" Index="0"/>
-    <ROW Name="PaletteUpgradeTool.exe" SourcePath="L:\Developer\Source Code\Installers\Krypton Toolkit Suite 5.470\Applications\Palette Upgrade Tool.exe" Index="0"/>
     <ROW Name="SystemFoldermsiexec.exe" SourcePath="&lt;AI_RES&gt;uninstall.ico" Index="0"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIniFileComponent">
-    <ROW IniFile="URL" FileName="ONLINE~1.URL|Online Help.url" DirProperty="SHORTCUTDIR" Section="InternetShortcut" Key="URL" Value="https://rawgit.com/Wagnerp/Krypton-NET-4.7/master/Help/Output/index.html" Action="0" Component_="KryptonNavigator.dll"/>
-    <ROW IniFile="URL_1" FileName="REPORT~1.URL|Report a Bug.url" DirProperty="SHORTCUTDIR" Section="InternetShortcut" Key="URL" Value="https://github.com/Wagnerp/Krypton-NET-5.470/issues" Action="0" Component_="KryptonNavigator.dll"/>
-    <ROW IniFile="URL_2" FileName="PROJEC~1.URL|Project Homepage.url" DirProperty="SHORTCUTDIR" Section="InternetShortcut" Key="URL" Value="https://github.com/Wagnerp/Krypton-NET-5.470/" Action="0" Component_="KryptonNavigator.dll"/>
-    <ROW IniFile="WorkingDirectory" FileName="ONLINE~1.URL|Online Help.url" DirProperty="SHORTCUTDIR" Section="InternetShortcut" Key="WorkingDirectory" Value="[SHORTCUTDIR]" Action="0" Component_="KryptonNavigator.dll"/>
-    <ROW IniFile="WorkingDirectory_1" FileName="REPORT~1.URL|Report a Bug.url" DirProperty="SHORTCUTDIR" Section="InternetShortcut" Key="WorkingDirectory" Value="[SHORTCUTDIR]" Action="0" Component_="KryptonNavigator.dll"/>
-    <ROW IniFile="WorkingDirectory_2" FileName="PROJEC~1.URL|Project Homepage.url" DirProperty="SHORTCUTDIR" Section="InternetShortcut" Key="WorkingDirectory" Value="[SHORTCUTDIR]" Action="0" Component_="KryptonNavigator.dll"/>
+    <ROW IniFile="URL" FileName="ONLINE~1.URL|Online Help.url" DirProperty="SHORTCUTDIR" Section="InternetShortcut" Key="URL" Value="https://rawgit.com/Wagnerp/Krypton-NET-4.7/master/Help/Output/index.html" Action="0" Component_="KryptonFormExamples.exe"/>
+    <ROW IniFile="URL_1" FileName="REPORT~1.URL|Report a Bug.url" DirProperty="SHORTCUTDIR" Section="InternetShortcut" Key="URL" Value="https://github.com/Wagnerp/Krypton-NET-5.470/issues" Action="0" Component_="KryptonFormExamples.exe"/>
+    <ROW IniFile="URL_2" FileName="PROJEC~1.URL|Project Homepage.url" DirProperty="SHORTCUTDIR" Section="InternetShortcut" Key="URL" Value="https://github.com/Wagnerp/Krypton-NET-5.470" Action="0" Component_="KryptonFormExamples.exe"/>
+    <ROW IniFile="WorkingDirectory" FileName="ONLINE~1.URL|Online Help.url" DirProperty="SHORTCUTDIR" Section="InternetShortcut" Key="WorkingDirectory" Value="[SHORTCUTDIR]" Action="0" Component_="KryptonFormExamples.exe"/>
+    <ROW IniFile="WorkingDirectory_1" FileName="REPORT~1.URL|Report a Bug.url" DirProperty="SHORTCUTDIR" Section="InternetShortcut" Key="WorkingDirectory" Value="[SHORTCUTDIR]" Action="0" Component_="KryptonFormExamples.exe"/>
+    <ROW IniFile="WorkingDirectory_2" FileName="PROJEC~1.URL|Project Homepage.url" DirProperty="SHORTCUTDIR" Section="InternetShortcut" Key="WorkingDirectory" Value="[SHORTCUTDIR]" Action="0" Component_="KryptonFormExamples.exe"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
     <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
-    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="747"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
     <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1502"/>
     <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
     <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
     <ROW Action="AI_EnableDebugLog" Sequence="51"/>
     <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99" Builds="DefaultBuild"/>
-    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101" Builds="DefaultBuild"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="103" Builds="DefaultBuild"/>
     <ROW Action="AI_DeleteCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="199" Builds="DefaultBuild"/>
     <ROW Action="AI_DeleteRCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="198" Builds="DefaultBuild"/>
     <ROW Action="AI_ExtractCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="197" Builds="DefaultBuild"/>
@@ -466,29 +490,31 @@
     <ROW Action="AI_ExtractFiles" Sequence="3998" Builds="DefaultBuild"/>
     <ROW Action="AI_DATA_SETTER" Sequence="3997"/>
     <ROW Action="AI_EstimateExtractFiles" Sequence="3999" Builds="DefaultBuild"/>
-    <ROW Action="AI_REDIRECT_32BIT_FOLDER" Condition="NOT VersionNT64 AND NOT AI_Disable32BitRedirection" Sequence="799"/>
-    <ROW Action="AI_SETPROGRAMFILES64" Condition="VersionNT64" Sequence="748"/>
-    <ROW Action="AI_SETPROGRAMFILES" Condition="NOT VersionNT64" Sequence="749"/>
+    <ROW Action="AI_DetectSoftware" Sequence="102"/>
+    <ROW Action="AI_AppSearchEx" Sequence="101"/>
     <ROW Action="AI_GetArpIconPath" Sequence="1401"/>
     <ROW Action="AI_RemoveExternalUIStub" Condition="(REMOVE=&quot;ALL&quot;) AND ((VersionNT &gt; 500) OR((VersionNT = 500) AND (ServicePackLevel &gt;= 4)))" Sequence="1501"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
     <ROW Action="InstallDlg" Condition="AI_INSTALL" Sequence="1230" SeqType="3" MsiKey="WelcomeDlg"/>
-    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="747"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
     <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
     <ROW Action="AI_DpiContentScale" Sequence="52"/>
     <ROW Action="AI_EnableDebugLog" Sequence="51"/>
     <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99"/>
-    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101"/>
-    <ROW Action="AI_SETPROGRAMFILES64" Condition="VersionNT64" Sequence="748"/>
-    <ROW Action="AI_SETPROGRAMFILES" Condition="NOT VersionNT64" Sequence="749"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="103"/>
+    <ROW Action="AI_DetectSoftware" Sequence="102"/>
+    <ROW Action="AI_AppSearchEx" Sequence="101"/>
     <ROW Action="MaintenanceTypeDlg" Condition="AI_MAINT" Sequence="1250" SeqType="3" MsiKey="MaintenanceTypeDlg"/>
     <ROW Action="AI_ChooseTextStyles" Sequence="74"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="( Version9X OR ( NOT VersionNT64 ) OR ( VersionNT64 AND ((VersionNT64 &lt;&gt; 502) OR (ServicePackLevel &lt;&gt; 2) OR (MsiNTProductType &lt;&gt; 1)) AND ((VersionNT64 &lt;&gt; 502) OR (ServicePackLevel &lt;&gt; 2) OR (MsiNTProductType = 1)) AND ((VersionNT64 &lt;&gt; 600) OR (MsiNTProductType &lt;&gt; 1)) AND ((VersionNT64 &lt;&gt; 600) OR (MsiNTProductType = 1)) ) )" Description="[ProductName] can not be installed on the following Windows versions: [WindowsTypeNT64Display]." DescriptionLocId="AI.LaunchCondition.NoSpecificNT64" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="( Version9X OR VersionNT64 OR ( VersionNT AND ((VersionNT &lt;&gt; 501) OR (ServicePackLevel &lt;&gt; 3)) AND ((VersionNT &lt;&gt; 502) OR (ServicePackLevel &lt;&gt; 2)) AND ((VersionNT &lt;&gt; 600) OR (MsiNTProductType &lt;&gt; 1)) AND ((VersionNT &lt;&gt; 600) OR (MsiNTProductType = 1)) ) )" Description="[ProductName] can not be installed on the following Windows versions: [WindowsTypeNTDisplay]." DescriptionLocId="AI.LaunchCondition.NoSpecificNT" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] can not be installed on [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] can not be installed on [WindowsTypeNT50Display]." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="(VersionNT64 OR ((VersionNT &lt;&gt; 501) OR (ServicePackLevel = 3))) AND ((VersionNT &lt;&gt; 502) OR (ServicePackLevel = 2))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="AI_DETECTED_DOTNET_VERSION &gt;= AI_REQUIRED_DOTNET_VERSION" Description="[ProductName] can not be installed on systems with .NET Framework version lower than [AI_REQUIRED_DOTNET_DISPLAY]." DescriptionLocId="AI.LaunchCondition.DotNET" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="SETUPEXEDIR OR (REMOVE=&quot;ALL&quot;)" Description="This package can only be run from a bootstrapper." DescriptionLocId="AI.LaunchCondition.RequireBootstrapper" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="VersionNT" Description="[ProductName] can not be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
   </COMPONENT>
@@ -517,17 +543,18 @@
     <ROW Registry="UninstallPath" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="UninstallPath" Value="[AI_UNINSTALLER] /x [ProductCode] AI_UNINSTALLER_CTP=1" Component_="AI_CustomARPName"/>
     <ROW Registry="UninstallString" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="UninstallString" Value="[AI_UNINSTALLER] /x [ProductCode] AI_UNINSTALLER_CTP=1" Component_="AI_CustomARPName"/>
     <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
-    <ROW Registry="VersionMajor" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="VersionMajor" Value="#5" Component_="AI_CustomARPName"/>
-    <ROW Registry="VersionMinor" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="VersionMinor" Value="#470" Component_="AI_CustomARPName"/>
+    <ROW Registry="VersionMajor" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="VersionMajor" Value="#1" Component_="AI_CustomARPName"/>
+    <ROW Registry="VersionMinor" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="VersionMinor" Value="#0" Component_="AI_CustomARPName"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
-    <ROW Shortcut="KryptonExplorer" Directory_="SHORTCUTDIR" Name="KRYPTO~1|Krypton Explorer" Component_="KryptonExplorer.exe" Target="[#KryptonExplorer.exe]" Hotkey="0" Icon_="KryptonExplorer.exe" IconIndex="0" ShowCmd="1" WkDir="Applications_Dir"/>
-    <ROW Shortcut="KryptonExplorer_1" Directory_="DesktopFolder" Name="KRYPTO~1|Krypton Explorer" Component_="KryptonExplorer.exe" Target="[#KryptonExplorer.exe]" Hotkey="0" Icon_="KryptonExplorer.exe" IconIndex="0" ShowCmd="1" WkDir="Applications_Dir"/>
-    <ROW Shortcut="KryptonToolkitHelp" Directory_="SHORTCUTDIR" Name="KRYPTO~2|Krypton Toolkit Help" Component_="KryptonToolkitHelp.chm" Target="[#KryptonToolkitHelp.chm]" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Help_Dir"/>
-    <ROW Shortcut="PaletteDesigner" Directory_="SHORTCUTDIR" Name="PALETT~1|Palette Designer" Component_="PaletteDesigner.exe" Target="[#PaletteDesigner.exe]" Hotkey="0" Icon_="PaletteDesigner.exe" IconIndex="0" ShowCmd="1" WkDir="Applications_Dir"/>
-    <ROW Shortcut="PaletteDesigner_1" Directory_="DesktopFolder" Name="PALETT~1|Palette Designer" Component_="PaletteDesigner.exe" Target="[#PaletteDesigner.exe]" Hotkey="0" Icon_="PaletteDesigner.exe" IconIndex="0" ShowCmd="1" WkDir="Applications_Dir"/>
-    <ROW Shortcut="PaletteUpgradeTool" Directory_="SHORTCUTDIR" Name="PALETT~2|Palette Upgrade Tool" Component_="PaletteUpgradeTool.exe" Target="[#PaletteUpgradeTool.exe]" Hotkey="0" Icon_="PaletteUpgradeTool.exe" IconIndex="0" ShowCmd="1" WkDir="Applications_Dir"/>
-    <ROW Shortcut="PaletteUpgradeTool_1" Directory_="DesktopFolder" Name="PALETT~2|Palette Upgrade Tool" Component_="PaletteUpgradeTool.exe" Target="[#PaletteUpgradeTool.exe]" Hotkey="0" Icon_="PaletteUpgradeTool.exe" IconIndex="0" ShowCmd="1" WkDir="Applications_Dir"/>
+    <ROW Shortcut="KryptonExplorer.exe" Directory_="SHORTCUTDIR" Name="KRYPTO~1.EXE|Krypton Explorer.exe" Component_="KryptonExplorer.exe" Target="[#KryptonExplorer.exe]" Description="Krypton Explorer.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Applications_Dir"/>
+    <ROW Shortcut="KryptonExplorer.exe_1" Directory_="DesktopFolder" Name="KRYPTO~1.EXE|Krypton Explorer.exe" Component_="KryptonExplorer.exe" Target="[#KryptonExplorer.exe]" Description="Krypton Explorer.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Applications_Dir"/>
+    <ROW Shortcut="KryptonToolkitHelp" Directory_="SHORTCUTDIR" Name="KRYPTO~1|Krypton Toolkit Help" Component_="KryptonToolkitHelp.chm" Target="[#KryptonToolkitHelp.chm]" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Help_Dir"/>
+    <ROW Shortcut="KryptonToolkitHelp_1" Directory_="DesktopFolder" Name="KRYPTO~1|Krypton Toolkit Help" Component_="KryptonToolkitHelp.chm" Target="[#KryptonToolkitHelp.chm]" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Help_Dir"/>
+    <ROW Shortcut="PaletteDesigner.exe" Directory_="SHORTCUTDIR" Name="PALETT~1.EXE|Palette Designer.exe" Component_="PaletteDesigner.exe" Target="[#PaletteDesigner.exe]" Description="Palette Designer.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Applications_Dir"/>
+    <ROW Shortcut="PaletteDesigner.exe_1" Directory_="DesktopFolder" Name="PALETT~1.EXE|Palette Designer.exe" Component_="PaletteDesigner.exe" Target="[#PaletteDesigner.exe]" Description="Palette Designer.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Applications_Dir"/>
+    <ROW Shortcut="PaletteUpgradeTool.exe" Directory_="SHORTCUTDIR" Name="PALETT~2.EXE|Palette Upgrade Tool.exe" Component_="PaletteUpgradeTool.exe" Target="[#PaletteUpgradeTool.exe]" Description="Palette Upgrade Tool.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Applications_Dir"/>
+    <ROW Shortcut="PaletteUpgradeTool.exe_1" Directory_="DesktopFolder" Name="PALETT~2.EXE|Palette Upgrade Tool.exe" Component_="PaletteUpgradeTool.exe" Target="[#PaletteUpgradeTool.exe]" Description="Palette Upgrade Tool.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Applications_Dir"/>
     <ROW Shortcut="Uninstall" Directory_="SHORTCUTDIR" Name="UNINST~1|Uninstall" Component_="KryptonToolkitHelp.chm" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Hotkey="0" Icon_="SystemFoldermsiexec.exe" IconIndex="0" ShowCmd="1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
@@ -536,5 +563,15 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
     <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
     <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
+    <ROW PrereqKey="C8B23E544BA99E5809B4D984F750" DisplayName=".NET Framework 4.7" SetupFileUrl="https://download.microsoft.com/download/D/D/3/DD35CC25-6E9C-484B-A746-C5BE0C923290/NDP47-KB3186497-x86-x64-AllOS-ENU.exe" Location="1" ExactSize="61586744" WinNTVersions="Windows XP SP3 x86, Windows Server 2003 SP2 x86, Windows Vista x86, Windows Server 2008 x86, Windows 7 RTM x86, Windows 10 version 1507 x86, Windows 10 version 1511 x86, Windows 10 version 1703 x86, Windows 10 version 1709 x86, Windows 10 version 1803 x86, Windows 10 version 1809 x86" WinNT64Versions="Windows XP SP2 x64, Windows Server 2003 SP2 x64, Windows Vista x64, Windows Server 2008 x64, Windows 7 RTM x64, Windows Server 2008 R2 RTM x64, Windows 10 version 1507 x64, Windows 10 version 1511 x64, Windows 10 version 1703 x64, Windows 10 version 1709 x64, Windows 10 version 1803 x64, Windows 10 version 1809 x64, Windows Server 2019 x64" Operator="1" NoUiComLine="/q /norestart" Options="xy" MD5="b59040e489bff55433508438627d11e6" TargetName=".NET Framework 4.7"/>
+    <ATTRIBUTE name="PrereqsOrder" value="C8B23E544BA99E5809B4D984F750"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqSearchComponent">
+    <ROW SearchKey="C8B23E544BA99E5809B4D984F750Release" Prereq="C8B23E544BA99E5809B4D984F750" SearchType="9" SearchString="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\Release" RefContent="G460804" Order="1" Property="PreReqSearch_C8B23E544BA99E5809B4D9"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.SynchronizedFolderComponent">
+    <ROW Directory_="APPDIR" SourcePath="L:\Developer\Source Code\Installers\Krypton Toolkit Suite 5.470" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store" ExcludeFlags="6"/>
   </COMPONENT>
 </DOCUMENT>
