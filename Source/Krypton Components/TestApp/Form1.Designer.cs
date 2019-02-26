@@ -32,13 +32,15 @@
             this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kcmbThemeCollection = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.kryptonTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonCheckedListBox1 = new ComponentFactory.Krypton.Toolkit.KryptonCheckedListBox();
             this.kryptonBorderEdge1 = new ComponentFactory.Krypton.Toolkit.KryptonBorderEdge();
             this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.kcmbThemeCollection = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kdbThemeCollection = new ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown();
+            this.klbThemes = new ComponentFactory.Krypton.Toolkit.KryptonListBox();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
@@ -61,6 +63,8 @@
             // 
             // kryptonPanel2
             // 
+            this.kryptonPanel2.Controls.Add(this.klbThemes);
+            this.kryptonPanel2.Controls.Add(this.kdbThemeCollection);
             this.kryptonPanel2.Controls.Add(this.kcmbThemeCollection);
             this.kryptonPanel2.Controls.Add(this.kryptonTextBox1);
             this.kryptonPanel2.Controls.Add(this.kryptonCheckedListBox1);
@@ -72,6 +76,15 @@
             this.kryptonPanel2.Name = "kryptonPanel2";
             this.kryptonPanel2.Size = new System.Drawing.Size(800, 450);
             this.kryptonPanel2.TabIndex = 0;
+            // 
+            // kcmbThemeCollection
+            // 
+            this.kcmbThemeCollection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.kcmbThemeCollection.DropDownWidth = 305;
+            this.kcmbThemeCollection.Location = new System.Drawing.Point(214, 21);
+            this.kcmbThemeCollection.Name = "kcmbThemeCollection";
+            this.kcmbThemeCollection.Size = new System.Drawing.Size(305, 21);
+            this.kcmbThemeCollection.TabIndex = 6;
             // 
             // kryptonTextBox1
             // 
@@ -136,14 +149,19 @@
             this.buttonSpecAny1.ToolTipTitle = "Title";
             this.buttonSpecAny1.UniqueName = "8D0C7B51F6A946484D932C2A06451172";
             // 
-            // kcmbThemeCollection
+            // kdbThemeCollection
             // 
-            this.kcmbThemeCollection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.kcmbThemeCollection.DropDownWidth = 305;
-            this.kcmbThemeCollection.Location = new System.Drawing.Point(214, 21);
-            this.kcmbThemeCollection.Name = "kcmbThemeCollection";
-            this.kcmbThemeCollection.Size = new System.Drawing.Size(305, 21);
-            this.kcmbThemeCollection.TabIndex = 6;
+            this.kdbThemeCollection.Location = new System.Drawing.Point(526, 22);
+            this.kdbThemeCollection.Name = "kdbThemeCollection";
+            this.kdbThemeCollection.Size = new System.Drawing.Size(227, 22);
+            this.kdbThemeCollection.TabIndex = 8;
+            // 
+            // klbThemes
+            // 
+            this.klbThemes.Location = new System.Drawing.Point(526, 51);
+            this.klbThemes.Name = "klbThemes";
+            this.klbThemes.Size = new System.Drawing.Size(227, 96);
+            this.klbThemes.TabIndex = 9;
             // 
             // Form1
             // 
@@ -178,6 +196,8 @@
         private ComponentFactory.Krypton.Toolkit.KryptonBorderEdge kryptonBorderEdge1;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox kcmbThemeCollection;
+        private ComponentFactory.Krypton.Toolkit.KryptonListBox klbThemes;
+        private ComponentFactory.Krypton.Toolkit.KryptonDomainUpDown kdbThemeCollection;
     }
 }
 

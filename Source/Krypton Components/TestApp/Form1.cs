@@ -25,10 +25,11 @@ namespace TestApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            foreach (string theme in ThemeManager.SupportedThemeArray)
-            {
-                kcmbThemeCollection.Items.Add(theme);
-            }
+            ThemeManager.PropagateThemeSelector(kcmbThemeCollection);
+
+            ThemeManager.PropagateThemeSelector(kdbThemeCollection);
+
+            ThemeManager.PropagateThemeSelector(klbThemes);
         }
     }
 }

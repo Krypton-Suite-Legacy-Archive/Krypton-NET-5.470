@@ -882,13 +882,13 @@ namespace KryptonExplorer
 
             kryptonManager1.GlobalPaletteMode = settings.Theme;
 
-            kcmbTheme.Text = settings.Theme.ToString();
+            kcmbTheme.Text = ThemeManager.ReturnPaletteModeManagerAsString(settings.Theme);
 
             tslVersion.Text = $"Version: { _currentVersion.ToString() }";
 
-            foreach (PaletteMode item in Enum.GetValues(typeof(PaletteMode)))
+            foreach (string item in ThemeManager.SupportedThemeArray)
             {
-                kcmbTheme.Items.Add(item.ToString());
+                kcmbTheme.Items.Add(item);
             }
         }
 
@@ -899,16 +899,21 @@ namespace KryptonExplorer
 
         private void kcmbTheme_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PaletteMode mode = (PaletteMode)Enum.Parse(typeof(PaletteMode), kcmbTheme.Text);
-
-            kryptonManager1.GlobalPaletteMode = (PaletteModeManager)mode;
-
-            Invalidate();
+            kbtnApplyTheme.Enabled = true;
         }
 
         private void kbtnViewLatestReleaseNotes_Click(object sender, EventArgs e)
         {
             Process.Start(@"https://www.somsubhra.com/github-release-stats/?username=Wagnerp&repository=Krypton-NET-5.470");
+        }
+
+        private void kbtnApplyTheme_Click(object sender, EventArgs e)
+        {
+            ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.ApplyThemeMode(kcmbTheme.Text));
+
+            Invalidate();
+
+            kbtnApplyTheme.Enabled = false;
         }
     }
 }

@@ -156,6 +156,7 @@
             this.labelApplications = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.linkPaletteDesigner = new ComponentFactory.Krypton.Toolkit.KryptonLinkLabel();
             this.kryptonPage3 = new ComponentFactory.Krypton.Navigator.KryptonPage();
+            this.kbtnApplyTheme = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kbtnViewLatestReleaseNotes = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kbtnOpenApplicationPath = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kbtnRestoreTheme = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -171,7 +172,6 @@
             this.ss = new System.Windows.Forms.StatusStrip();
             this.tslVersion = new System.Windows.Forms.ToolStripStatusLabel();
             this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
-            this.kbtnApplyTheme = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanelFill)).BeginInit();
             this.kryptonPanelFill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator)).BeginInit();
@@ -1786,6 +1786,19 @@
             this.kryptonPage3.ToolTipTitle = "Page ToolTip";
             this.kryptonPage3.UniqueName = "CFA5B88FD61444D09FBDCFC6D2B57A3A";
             // 
+            // kbtnApplyTheme
+            // 
+            this.kbtnApplyTheme.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.kbtnApplyTheme.Enabled = false;
+            this.kbtnApplyTheme.Location = new System.Drawing.Point(339, 51);
+            this.kbtnApplyTheme.Name = "kbtnApplyTheme";
+            this.kbtnApplyTheme.Size = new System.Drawing.Size(80, 28);
+            this.kbtnApplyTheme.StateCommon.Content.LongText.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kbtnApplyTheme.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kbtnApplyTheme.TabIndex = 8;
+            this.kbtnApplyTheme.Values.Text = "&Apply";
+            this.kbtnApplyTheme.Click += new System.EventHandler(this.kbtnApplyTheme_Click);
+            // 
             // kbtnViewLatestReleaseNotes
             // 
             this.kbtnViewLatestReleaseNotes.AutoSize = true;
@@ -1945,18 +1958,6 @@
             // kryptonManager1
             // 
             this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office365Black;
-            // 
-            // kbtnApplyTheme
-            // 
-            this.kbtnApplyTheme.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.kbtnApplyTheme.Enabled = false;
-            this.kbtnApplyTheme.Location = new System.Drawing.Point(339, 51);
-            this.kbtnApplyTheme.Name = "kbtnApplyTheme";
-            this.kbtnApplyTheme.Size = new System.Drawing.Size(80, 28);
-            this.kbtnApplyTheme.StateCommon.Content.LongText.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kbtnApplyTheme.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kbtnApplyTheme.TabIndex = 8;
-            this.kbtnApplyTheme.Values.Text = "&Apply";
             // 
             // Form1
             // 

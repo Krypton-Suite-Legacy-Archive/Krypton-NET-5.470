@@ -136,10 +136,11 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-        /// 
+        /// Applies the theme mode.
         /// </summary>
-        /// <param name="themeName"></param>
+        /// <param name="themeName">Name of the theme.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static PaletteMode ApplyThemeMode(string themeName)
         {
             PaletteMode result = PaletteMode.Office2010Blue;
@@ -194,6 +195,12 @@ namespace ComponentFactory.Krypton.Toolkit
             return result;
         }
 
+        /// <summary>
+        /// Returns the palette mode manager as string.
+        /// </summary>
+        /// <param name="paletteModeManager">The palette mode manager.</param>
+        /// <param name="manager">The manager.</param>
+        /// <returns></returns>
         public static string ReturnPaletteModeManagerAsString(PaletteModeManager paletteModeManager, KryptonManager manager = null)
         {
             string result = null;
@@ -286,6 +293,11 @@ namespace ComponentFactory.Krypton.Toolkit
             return result;
         }
 
+        /// <summary>
+        /// Returns the palette mode as string.
+        /// </summary>
+        /// <param name="paletteMode">The palette mode.</param>
+        /// <returns></returns>
         public static string ReturnPaletteModeAsString(PaletteMode paletteMode)
         {
             string result = null;
@@ -335,55 +347,15 @@ namespace ComponentFactory.Krypton.Toolkit
             return result;
         }
 
+        /// <summary>
+        /// Applies the global theme.
+        /// </summary>
+        /// <param name="manager">The manager.</param>
+        /// <param name="paletteModeManager">The palette mode manager.</param>
         public static void ApplyGlobalTheme(KryptonManager manager, PaletteModeManager paletteModeManager)
         {
             try
             {
-                //switch (paletteModeManager)
-                //{
-                //    case PaletteModeManager.ProfessionalSystem:
-                //        manager.GlobalPaletteMode = PaletteModeManager.
-                //        break;
-                //    case PaletteModeManager.ProfessionalOffice2003:
-                //        break;
-                //    case PaletteModeManager.Office2007Blue:
-                //        break;
-                //    case PaletteModeManager.Office2007Silver:
-                //        break;
-                //    case PaletteModeManager.Office2007White:
-                //        break;
-                //    case PaletteModeManager.Office2007Black:
-                //        break;
-                //    case PaletteModeManager.Office2010Blue:
-                //        break;
-                //    case PaletteModeManager.Office2010Silver:
-                //        break;
-                //    case PaletteModeManager.Office2010White:
-                //        break;
-                //    case PaletteModeManager.Office2010Black:
-                //        break;
-                //    case PaletteModeManager.Office2013:
-                //        break;
-                //    case PaletteModeManager.Office2013White:
-                //        break;
-                //    case PaletteModeManager.Office365Black:
-                //        break;
-                //    case PaletteModeManager.Office365Blue:
-                //        break;
-                //    case PaletteModeManager.Office365Silver:
-                //        break;
-                //    case PaletteModeManager.Office365White:
-                //        break;
-                //    case PaletteModeManager.SparkleBlue:
-                //        break;
-                //    case PaletteModeManager.SparkleOrange:
-                //        break;
-                //    case PaletteModeManager.SparklePurple:
-                //        break;
-                //    case PaletteModeManager.Custom:
-                //        break;
-                //}
-
                 manager.GlobalPaletteMode = paletteModeManager;
             }
             catch (Exception exc)
@@ -393,59 +365,76 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
+        /// <summary>
+        /// Applies the global theme.
+        /// </summary>
+        /// <param name="manager">The manager.</param>
+        /// <param name="mode">The theme mode.</param>
         public static void ApplyGlobalTheme(KryptonManager manager, PaletteMode mode)
         {
             try
             {
-                //switch (mode)
-                //{
-                //    case PaletteMode.Global:
-                //        break;
-                //    case PaletteMode.ProfessionalSystem:
-                //        break;
-                //    case PaletteMode.ProfessionalOffice2003:
-                //        break;
-                //    case PaletteMode.Office2007Blue:
-                //        break;
-                //    case PaletteMode.Office2007Silver:
-                //        break;
-                //    case PaletteMode.Office2007White:
-                //        break;
-                //    case PaletteMode.Office2007Black:
-                //        break;
-                //    case PaletteMode.Office2010Blue:
-                //        break;
-                //    case PaletteMode.Office2010Silver:
-                //        break;
-                //    case PaletteMode.Office2010White:
-                //        break;
-                //    case PaletteMode.Office2010Black:
-                //        break;
-                //    case PaletteMode.Office2013:
-                //        break;
-                //    case PaletteMode.Office2013White:
-                //        break;
-                //    case PaletteMode.Office365Black:
-                //        break;
-                //    case PaletteMode.Office365Blue:
-                //        break;
-                //    case PaletteMode.Office365Silver:
-                //        break;
-                //    case PaletteMode.Office365White:
-                //        break;
-                //    case PaletteMode.SparkleBlue:
-                //        break;
-                //    case PaletteMode.SparkleOrange:
-                //        break;
-                //    case PaletteMode.SparklePurple:
-                //        break;
-                //    case PaletteMode.Custom:
-                //        break;
-                //    default:
-                //        break;
-                //}
-
                 manager.GlobalPaletteMode = (PaletteModeManager)mode;
+            }
+            catch (Exception exc)
+            {
+
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Propagates the theme selector.
+        /// </summary>
+        /// <param name="target">The target.</param>
+        public static void PropagateThemeSelector(KryptonComboBox target)
+        {
+            try
+            {
+                foreach (string theme in SupportedThemeArray)
+                {
+                    target.Items.Add(theme);
+                }
+            }
+            catch (Exception exc)
+            {
+
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Propagates the theme selector.
+        /// </summary>
+        /// <param name="target">The target.</param>
+        public static void PropagateThemeSelector(KryptonListBox target)
+        {
+            try
+            {
+                foreach (string theme in SupportedThemeArray)
+                {
+                    target.Items.Add(theme);
+                }
+            }
+            catch (Exception exc)
+            {
+
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Propagates the theme selector.
+        /// </summary>
+        /// <param name="target">The target.</param>
+        public static void PropagateThemeSelector(KryptonDomainUpDown target)
+        {
+            try
+            {
+                foreach (string theme in SupportedThemeArray)
+                {
+                    target.Items.Add(theme);
+                }
             }
             catch (Exception exc)
             {
