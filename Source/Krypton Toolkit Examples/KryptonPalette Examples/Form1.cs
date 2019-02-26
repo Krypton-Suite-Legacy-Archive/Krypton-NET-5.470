@@ -24,78 +24,104 @@ namespace KryptonPaletteExamples
         {
             kryptonManager.GlobalPalette = kryptonPaletteOffice2010Blue;
             propertyGrid.SelectedObject = kryptonPaletteOffice2010Blue;
+
+            EnableDropShadow(true);
         }
 
         private void buttonOffice2010Blue_Click(object sender, EventArgs e)
         {
             kryptonManager.GlobalPalette = kryptonPaletteOffice2010Blue;
             propertyGrid.SelectedObject = kryptonPaletteOffice2010Blue;
+
+            EnableDropShadow(true);
         }
 
         private void buttonOffice2010Silver_Click(object sender, EventArgs e)
         {
             kryptonManager.GlobalPalette = kryptonPaletteOffice2010Silver;
             propertyGrid.SelectedObject = kryptonPaletteOffice2010Silver;
+
+            EnableDropShadow(true);
         }
 
         private void buttonOffice2010Black_Click(object sender, EventArgs e)
         {
             kryptonManager.GlobalPalette = kryptonPaletteOffice2010Black;
             propertyGrid.SelectedObject = kryptonPaletteOffice2010Black;
+
+            EnableDropShadow(true);
         }
 
         private void buttonOffice2007Blue_Click(object sender, EventArgs e)
         {
             kryptonManager.GlobalPalette = kryptonPaletteOffice2007Blue;
             propertyGrid.SelectedObject = kryptonPaletteOffice2007Blue;
+
+            EnableDropShadow(true);
         }
 
         private void buttonOffice2007Silver_Click(object sender, EventArgs e)
         {
             kryptonManager.GlobalPalette = kryptonPaletteOffice2007Silver;
             propertyGrid.SelectedObject = kryptonPaletteOffice2007Silver;
+
+            EnableDropShadow(true);
         }
 
         private void buttonOffice2007Black_Click(object sender, EventArgs e)
         {
             kryptonManager.GlobalPalette = kryptonPaletteOffice2007Black;
             propertyGrid.SelectedObject = kryptonPaletteOffice2007Black;
+
+            EnableDropShadow(true);
         }
 
         private void buttonOffice2003_Click(object sender, EventArgs e)
         {
             kryptonManager.GlobalPalette = kryptonPaletteOffice2003;
             propertyGrid.SelectedObject = kryptonPaletteOffice2003;
+
+            EnableDropShadow(true);
         }
 
         private void buttonSystem_Click(object sender, EventArgs e)
         {
             kryptonManager.GlobalPalette = kryptonPaletteSystem;
             propertyGrid.SelectedObject = kryptonPaletteSystem;
+
+            EnableDropShadow(false);
         }
 
         private void buttonSparkleBlue_Click(object sender, EventArgs e)
         {
             kryptonManager.GlobalPalette = kryptonPaletteSparkleBlue;
             propertyGrid.SelectedObject = kryptonPaletteSparkleBlue;
+
+            EnableDropShadow(true);
         }
 
         private void buttonSparkleOrange_Click(object sender, EventArgs e)
         {
             kryptonManager.GlobalPalette = kryptonPaletteSparkleOrange;
             propertyGrid.SelectedObject = kryptonPaletteSparkleOrange;
+
+            EnableDropShadow(true);
         }
 
         private void buttonSparklePurple_Click(object sender, EventArgs e)
         {
             kryptonManager.GlobalPalette = kryptonPaletteSparklePurple;
             propertyGrid.SelectedObject = kryptonPaletteSparklePurple;
+
+            EnableDropShadow(true);
         }
 
         private void buttonCustom_Click(object sender, EventArgs e)
         {
             kryptonManager.GlobalPalette = kryptonPaletteCustom;
             propertyGrid.SelectedObject = kryptonPaletteCustom;
+
+            EnableDropShadow(false);
 
             btnExport.Enabled = true;
         }
@@ -110,6 +136,11 @@ namespace KryptonPaletteExamples
             kryptonPaletteCustom.Export();
 
             btnExport.Enabled = false;
+        }
+
+        private void EnableDropShadow(bool enabled)
+        {
+            UseDropShadow = enabled;
         }
     }
 }
