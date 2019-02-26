@@ -31,5 +31,38 @@ namespace TestApp
 
             ThemeManager.PropagateThemeSelector(klbThemes);
         }
+
+        private void kcmbThemeCollection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            kbtnApplyTheme.Enabled = true;
+        }
+
+        private void kdbThemeCollection_SelectedItemChanged(object sender, EventArgs e)
+        {
+            kbtnApplyTheme.Enabled = true;
+        }
+
+        private void klbThemes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            kbtnApplyTheme.Enabled = true;
+        }
+
+        private void kbtnApplyTheme_Click(object sender, EventArgs e)
+        {
+            if (kcmbThemeCollection.Text != string.Empty)
+            {
+                ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.ApplyThemeMode(kcmbThemeCollection.Text));
+            }
+            else if (kdbThemeCollection.Text != string.Empty)
+            {
+                ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.ApplyThemeMode(kdbThemeCollection.Text));
+            }
+            else if (klbThemes.Text != string.Empty)
+            {
+                ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.ApplyThemeMode(klbThemes.SelectedItem.ToString()));
+            }
+
+            kbtnApplyTheme.Enabled = false;
+        }
     }
 }

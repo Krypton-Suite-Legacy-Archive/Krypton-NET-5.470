@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Square Design 48 x 48 Green.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -62,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RibbonApp.resx">
       <DependentUpon>RibbonApp.cs</DependentUpon>
@@ -88,6 +92,12 @@
       <Project>{96ECAECC-54F8-4AA5-8591-B443C2D9565F}</Project>
       <Name>ComponentFactory.Krypton.Toolkit 2019</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Square Design 48 x 48 Green.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Square Design 32 x 32 New Green.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
