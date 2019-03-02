@@ -91,7 +91,6 @@
             this.kryptonContextMenuItem1});
             this.kryptonRibbon.RibbonTabs.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab[] {
             this.tabPersistence});
-            this.kryptonRibbon.SelectedContext = null;
             this.kryptonRibbon.SelectedTab = this.tabPersistence;
             this.kryptonRibbon.Size = new System.Drawing.Size(784, 115);
             this.kryptonRibbon.TabIndex = 0;
@@ -312,6 +311,7 @@
             this.Controls.Add(this.kryptonRibbon);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
+            this.ShowIcon = false;
             this.Text = "Docking Persistence";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonRibbon)).EndInit();

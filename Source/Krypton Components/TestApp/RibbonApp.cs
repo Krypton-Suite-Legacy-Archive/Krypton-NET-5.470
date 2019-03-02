@@ -1,4 +1,5 @@
-﻿using ComponentFactory.Krypton.Toolkit;
+﻿using ComponentFactory.Krypton.Ribbon;
+using ComponentFactory.Krypton.Toolkit;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,6 +14,11 @@ namespace TestApp
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple1;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kgbtnDropShadowOn;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kgbtnDropShadowOff;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup kryptonRibbonGroup2;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple2;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupComboBox krgcmbThemeChooser;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupDomainUpDown krgdThemeSelector;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton1;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbon kryptonRibbon1;
 
         private void InitializeComponent()
@@ -23,6 +29,11 @@ namespace TestApp
             this.kryptonRibbonGroupTriple1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.kgbtnDropShadowOn = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.kgbtnDropShadowOff = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroup2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.krgcmbThemeChooser = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupComboBox();
+            this.krgdThemeSelector = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupDomainUpDown();
+            this.kryptonRibbonGroupButton1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonRibbon1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -33,6 +44,7 @@ namespace TestApp
             this.kryptonRibbon1.Name = "kryptonRibbon1";
             this.kryptonRibbon1.RibbonTabs.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab[] {
             this.kryptonRibbonTab1});
+            this.kryptonRibbon1.SelectedContext = null;
             this.kryptonRibbon1.SelectedTab = this.kryptonRibbonTab1;
             this.kryptonRibbon1.Size = new System.Drawing.Size(1347, 115);
             this.kryptonRibbon1.TabIndex = 0;
@@ -40,7 +52,8 @@ namespace TestApp
             // kryptonRibbonTab1
             // 
             this.kryptonRibbonTab1.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
-            this.kryptonRibbonGroup1});
+            this.kryptonRibbonGroup1,
+            this.kryptonRibbonGroup2});
             // 
             // kryptonRibbonGroup1
             // 
@@ -67,6 +80,29 @@ namespace TestApp
             this.kgbtnDropShadowOff.TextLine2 = "Off";
             this.kgbtnDropShadowOff.Click += new System.EventHandler(this.kgbtnDropShadowOff_Click);
             // 
+            // kryptonRibbonGroup2
+            // 
+            this.kryptonRibbonGroup2.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.kryptonRibbonGroupTriple2});
+            // 
+            // kryptonRibbonGroupTriple2
+            // 
+            this.kryptonRibbonGroupTriple2.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.krgcmbThemeChooser,
+            this.krgdThemeSelector,
+            this.kryptonRibbonGroupButton1});
+            // 
+            // krgcmbThemeChooser
+            // 
+            this.krgcmbThemeChooser.DropDownWidth = 121;
+            this.krgcmbThemeChooser.FormattingEnabled = false;
+            this.krgcmbThemeChooser.ItemHeight = 15;
+            this.krgcmbThemeChooser.Text = "";
+            // 
+            // krgdThemeSelector
+            // 
+            this.krgdThemeSelector.Text = "";
+            // 
             // RibbonApp
             // 
             this.ClientSize = new System.Drawing.Size(1347, 670);
@@ -74,6 +110,7 @@ namespace TestApp
             this.Name = "RibbonApp";
             this.TextExtra = "Test";
             this.UseDropShadow = false;
+            this.Load += new System.EventHandler(this.RibbonApp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonRibbon1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -97,6 +134,13 @@ namespace TestApp
             kgbtnDropShadowOn.Checked = false;
 
             UpdateDropShadowDraw(false);
+        }
+
+        private void RibbonApp_Load(object sender, EventArgs e)
+        {
+            RibbonThemeManager.PropagateThemeSelector(krgcmbThemeChooser);
+
+            RibbonThemeManager.PropagateThemeSelector(krgdThemeSelector);
         }
     }
 }
