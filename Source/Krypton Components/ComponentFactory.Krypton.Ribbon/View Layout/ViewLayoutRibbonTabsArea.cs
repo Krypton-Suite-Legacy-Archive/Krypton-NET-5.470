@@ -798,7 +798,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 {
                     IContentValues sourceContent = null;
                     LabelStyle toolTipStyle = LabelStyle.SuperTip;
-                    Rectangle screenRect = new Rectangle(e.ScreenPt, new Size(1, 1));
+                    Rectangle screenRect = new Rectangle(e.ControlMousePosition, new Size(1, 1));
 
                     // If the target is the application button
                     switch (e.Target)
@@ -991,9 +991,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
                         // The popup tooltip control always adds on a border above/below so we negate that here.
                         screenRect.Height -= 20;
-
-                        // Show relative to the provided screen rectangle
-                        _visualPopupToolTip.ShowCalculatingSize(screenRect);
+                        _visualPopupToolTip.ShowRelativeTo(e.Target, screenRect.Location);
                     }
                 }
             }

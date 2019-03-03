@@ -11,7 +11,6 @@
 
 using System;
 using System.Drawing;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -20,23 +19,19 @@ namespace ComponentFactory.Krypton.Toolkit
 	/// </summary>
 	public class ToolTipEventArgs : EventArgs
 	{
-        #region Instance Fields
-
-        #endregion
-
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ToolTipEventArgs class.
         /// </summary>
         /// <param name="target">Reference to view element that requires tooltip.</param>
-        /// <param name="screenPt">Screen location of mouse when tooltip was required.</param>
-        public ToolTipEventArgs(ViewBase target, Point screenPt)
+        /// <param name="controlMousePosition">Screen location of mouse when tooltip was required.</param>
+        public ToolTipEventArgs(ViewBase target, Point controlMousePosition)
 		{
             //Debug.Assert(target != null);
 
 			// Remember parameter details
             Target = target;
-            ScreenPt = screenPt;
+            ControlMousePosition = controlMousePosition;
 		}
 		#endregion
 
@@ -49,7 +44,7 @@ namespace ComponentFactory.Krypton.Toolkit
 	    /// <summary>
 		/// Gets the screen point of the mouse where tooltip is required.
 		/// </summary>
-        public Point ScreenPt { get; }
+        public Point ControlMousePosition { get; }
 
 	    #endregion
 	}

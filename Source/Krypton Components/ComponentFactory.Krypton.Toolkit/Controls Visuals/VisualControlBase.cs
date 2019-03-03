@@ -498,13 +498,6 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public ToolTipValues ToolTipValues { get; }
 
-        protected void AddTooltipControlsTo(Control internalWrappedControl)
-        {
-            internalWrappedControl.MouseEnter += (_, args) => OnMouseEnter(args);
-            internalWrappedControl.MouseLeave += (_, args) => OnMouseLeave(args);
-            internalWrappedControl.MouseDown += (_, args) => OnMouseDown(args);
-        }
-
         #endregion
 
         #region Public IKryptonDebug
@@ -988,7 +981,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Cannot process a message for a disposed control
             if (!IsDisposed && !Disposing)
             {
-                _toolTipManager.MouseLeave(ViewManager?.ActiveView??ViewManager?.Root, this, null);
+                _toolTipManager.MouseLeave(null, this, null);
                 // Do we have a manager for processing mouse messages?
                 ViewManager?.MouseLeave(e);
             }
@@ -1340,9 +1333,8 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed)
             {
                 // Do not show tooltips when the form we are in does not have focus
-                Form topForm = FindForm();
-                if ((topForm != null) 
-                    && !topForm.ContainsFocus)
+                // SKC: Not sure that this should be done, as other "Window apps" show tooltips when they are not topmost
+                if (FindForm()?.ContainsFocus == false)
                 {
                     return;
                 }
@@ -1365,9 +1357,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         CommonHelper.ContentStyleFromLabelStyle(ToolTipValues.ToolTipStyle));
 
                     _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
-
-                    // Show relative to the provided screen rectangle
-                    _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target?.ClientRectangle??ClientRectangle));
+                    _visualPopupToolTip.ShowRelativeTo(e.Target, e.ControlMousePosition);
                 }
             }
         }

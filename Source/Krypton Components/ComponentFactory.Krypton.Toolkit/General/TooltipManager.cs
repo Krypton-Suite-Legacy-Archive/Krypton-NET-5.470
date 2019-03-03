@@ -137,7 +137,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         }
                     }
                 }
-                catch { }
+                catch
+                {
+                    // ignored
+                }
             }
         }
 

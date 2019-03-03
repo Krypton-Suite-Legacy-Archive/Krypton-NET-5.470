@@ -555,7 +555,6 @@ namespace ComponentFactory.Krypton.Toolkit
             _listBox.MeasureItem += OnListBoxMeasureItem;
             _listBox.TrackMouseEnter += OnListBoxMouseChange;
             _listBox.TrackMouseLeave += OnListBoxMouseChange;
-            AddTooltipControlsTo(_listBox);
             _listBox.DataSourceChanged += OnListBoxDataSourceChanged;
             _listBox.DisplayMemberChanged += OnListBoxDisplayMemberChanged;
             _listBox.ValueMemberChanged += OnListBoxValueMemberChanged;
@@ -1807,10 +1806,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_trackingMouseEnter)
                 {
                     OnTrackMouseEnter(EventArgs.Empty);
+                    OnMouseEnter(e);
                 }
                 else
                 {
                     OnTrackMouseLeave(EventArgs.Empty);
+                    OnMouseLeave(e);
                 }
             }
         }

@@ -1056,7 +1056,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _comboBox.MeasureItem += OnComboBoxMeasureItem;
             _comboBox.TrackMouseEnter += OnComboBoxMouseChange;
             _comboBox.TrackMouseLeave += OnComboBoxMouseChange;
-            AddTooltipControlsTo(_comboBox);
+            //AddTooltipControlsTo(_comboBox);
             _comboBox.DropDown += OnComboBoxDropDown;
             _comboBox.DropDownClosed += OnComboBoxDropDownClosed;
             _comboBox.DropDownStyleChanged += OnComboBoxDropDownStyleChanged;
@@ -1083,7 +1083,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _comboHolder = new InternalPanel(this);
             _comboHolder.Controls.Add(_comboBox);
 
-            // Create the element that fills the remainder space and remembers fill rectange
+            // Create the element that fills the remainder space and remembers fill rectangle
             _layoutFill = new ViewLayoutFill(_comboHolder);
 
             // Create inner view for placing inside the drawing docker
@@ -2879,10 +2879,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_trackingMouseEnter)
                 {
                     OnTrackMouseEnter(EventArgs.Empty);
+                    OnMouseEnter(e);
                 }
                 else
                 {
                     OnTrackMouseLeave(EventArgs.Empty);
+                    OnMouseLeave(e);
                 }
             }
 
@@ -3016,9 +3018,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                      CommonHelper.ContentStyleFromLabelStyle(toolTipStyle));
 
                         _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
-
-                        // Show relative to the provided screen rectangle
-                        _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target?.ClientRectangle ?? ClientRectangle));
+                        _visualPopupToolTip.ShowRelativeTo(e.Target, e.ControlMousePosition);
                     }
                 }
             }

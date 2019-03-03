@@ -177,14 +177,14 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-        /// Show the popup with the given size but relative to the provided parent rectangle.
+        /// Show the popup with the given size but relative to the provided top left point.
         /// </summary>
-        /// <param name="parentScreenRect">Screen rectangle of parent area.</param>
+        /// <param name="popupLocation">Intended top left of parent area.</param>
         /// <param name="popupSize">Size of the popup to show.</param>
-        public virtual void Show(Rectangle parentScreenRect, Size popupSize)
+        public void Show(Point popupLocation, Size popupSize)
         {
             // Show the requested popup below the parent screen rectangle
-            Show(CalculateBelowPopupRect(parentScreenRect, popupSize));
+            Show(CalculateBelowPopupRect(popupLocation, popupSize));
         }
 
         /// <summary>
@@ -193,7 +193,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="path1">Outer path.</param>
         /// <param name="path2">Middle path.</param>
         /// <param name="path3">Inside path.</param>
-        public virtual void DefineShadowPaths(GraphicsPath path1,
+        public void DefineShadowPaths(GraphicsPath path1,
                                               GraphicsPath path2,
                                               GraphicsPath path3)
         {
@@ -296,7 +296,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="m">Original message.</param>
         /// <param name="pt">Client coordinates point.</param>
-        /// <returns>True to alow; otherwise false.</returns>
+        /// <returns>True to allow; otherwise false.</returns>
         public virtual bool AllowMouseMove(Message m, Point pt)
 	    {
 	        // If we have the focus then we always allow the mouse move
@@ -465,8 +465,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Raises the Layout event.
         /// </summary>
-        /// <param name="levent">A LayoutEventArgs that contains the event data.</param>
-        protected override void OnLayout(LayoutEventArgs levent)
+        /// <param name="lEvent">A LayoutEventArgs that contains the event data.</param>
+        protected override void OnLayout(LayoutEventArgs lEvent)
         {
             // Cannot process a message for a disposed control
             if (!IsDisposed)
@@ -482,7 +482,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Layout cannot now be dirty
                         _layoutDirty = false;
 
-                        // Ask the view to peform a layout
+                        // Ask the view to perform a layout
                         ViewManager.Layout(Renderer);
 
                     } while (_layoutDirty && (max-- > 0));
@@ -490,7 +490,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Let base class layout child controls
-            base.OnLayout(levent);
+            base.OnLayout(lEvent);
         }
 
         /// <summary>
@@ -721,49 +721,39 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Implementation
-        private Rectangle CalculateBelowPopupRect(Rectangle parentScreenRect, Size popupSize)
+        private Rectangle CalculateBelowPopupRect(Point popupLocation, Size popupSize)
         {
             // Get the screen that the parent rectangle is mostly within, this is the
             // screen we will attempt to place the entire popup within
-            Screen screen = Screen.FromRectangle(parentScreenRect);
-
-            Point popupLocation = new Point(parentScreenRect.X, parentScreenRect.Bottom);
+            Rectangle screenRect = Screen.GetWorkingArea(popupLocation);
 
             // Is there enough room below the parent for the entire popup height?
-            if ((parentScreenRect.Bottom + popupSize.Height) <= screen.WorkingArea.Bottom)
+            if ((popupLocation.Y + popupSize.Height) >= screenRect.Bottom)
             {
-                // Place the popup below the parent
-                popupLocation.Y = parentScreenRect.Bottom;
-            }
-            else
-            {
-                // Is there enough room above the parent for the enture popup height?
-                if ((parentScreenRect.Top - popupSize.Height) >= screen.WorkingArea.Top)
+                // Is there enough room above the parent for the entire popup height?
+                if ((popupLocation.Y - popupSize.Height) >= screenRect.Top)
                 {
                     // Place the popup above the parent
-                    popupLocation.Y = parentScreenRect.Top - popupSize.Height;
+                    popupLocation.Y -= popupSize.Height;
                 }
                 else
                 {
                     // Cannot show entire popup above or below, find which has most space
-                    int spareAbove = parentScreenRect.Top - screen.WorkingArea.Top;
-                    int spareBelow = screen.WorkingArea.Bottom - parentScreenRect.Bottom;
-
                     // Place it in the area with the most space
-                    popupLocation.Y = spareAbove > spareBelow ? screen.WorkingArea.Top : parentScreenRect.Bottom;
+                    popupLocation.Y = screenRect.Top;
                 }
             }
 
             // Prevent the popup from being off the left side of the screen
-            if (popupLocation.X < screen.WorkingArea.Left)
+            if (popupLocation.X < screenRect.Left)
             {
-                popupLocation.X = screen.WorkingArea.Left;
+                popupLocation.X = screenRect.Left;
             }
 
             // Prevent the popup from being off the right size of the screen
-            if ((popupLocation.X + popupSize.Width) > screen.WorkingArea.Right)
+            if ((popupLocation.X + popupSize.Width) > screenRect.Right)
             {
-                popupLocation.X = screen.WorkingArea.Right - popupSize.Width;
+                popupLocation.X = screenRect.Right - popupSize.Width;
             }
 
             return new Rectangle(popupLocation, popupSize);

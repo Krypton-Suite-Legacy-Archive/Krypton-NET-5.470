@@ -611,7 +611,6 @@ namespace ComponentFactory.Krypton.Toolkit
             _treeView = new InternalTreeView(this);
             _treeView.TrackMouseEnter += OnTreeViewMouseChange;
             _treeView.TrackMouseLeave += OnTreeViewMouseChange;
-            AddTooltipControlsTo(_treeView);
             _treeView.GotFocus += OnTreeViewGotFocus;
             _treeView.LostFocus += OnTreeViewLostFocus;
             _treeView.KeyDown += OnTreeViewKeyDown;
@@ -2252,10 +2251,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_trackingMouseEnter)
                 {
                     OnTrackMouseEnter(EventArgs.Empty);
+                    OnMouseEnter(e);
                 }
                 else
                 {
                     OnTrackMouseLeave(EventArgs.Empty);
+                    OnMouseLeave(e);
                 }
             }
         }

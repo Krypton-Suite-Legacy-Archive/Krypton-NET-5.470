@@ -999,7 +999,6 @@ namespace ComponentFactory.Krypton.Toolkit
             _domainUpDown.SelectedItemChanged += OnDomainUpDownSelectedItemChanged;
             _domainUpDown.TrackMouseEnter += OnDomainUpDownMouseChange;
             _domainUpDown.TrackMouseLeave += OnDomainUpDownMouseChange;
-            AddTooltipControlsTo(_domainUpDown);
             _domainUpDown.GotFocus += OnDomainUpDownGotFocus;
             _domainUpDown.LostFocus += OnDomainUpDownLostFocus;
             _domainUpDown.KeyDown += OnDomainUpDownKeyDown;
@@ -2117,9 +2116,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                      CommonHelper.ContentStyleFromLabelStyle(toolTipStyle));
 
                         _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
-
-                        // Show relative to the provided screen rectangle
-                        _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target?.ClientRectangle ?? ClientRectangle));
+                        _visualPopupToolTip.ShowRelativeTo(e.Target, e.ControlMousePosition);
                     }
                 }
             }
@@ -2158,10 +2155,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_trackingMouseEnter)
                 {
                     OnTrackMouseEnter(EventArgs.Empty);
+                    OnMouseEnter(e);
                 }
                 else
                 {
                     OnTrackMouseLeave(EventArgs.Empty);
+                    OnMouseLeave(e);
                 }
             }
         }

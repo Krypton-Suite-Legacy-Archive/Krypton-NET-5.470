@@ -13,6 +13,7 @@ using System;
 using System.Drawing;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -174,13 +175,12 @@ namespace ComponentFactory.Krypton.Toolkit
 		    IEnumerable<ViewBase> ordering = ReverseRenderOrder ? Reverse() : this;
 
             // Ask each child to render in turn
-            foreach (ViewBase child in ordering)
-			{
-                // Only render visible children that are inside the clipping rectangle
-                if (child.Visible && child.ClientRectangle.IntersectsWith(context.ClipRect))
-                {
-                    child.Render(context);
-                }
+            foreach (ViewBase child in ordering
+                .Where(child => child.Visible 
+                                && child.ClientRectangle.IntersectsWith(context.ClipRect))
+                )
+            {
+                child.Render(context);
             }
 
 			// Perform rendering after that of children
@@ -200,7 +200,7 @@ namespace ComponentFactory.Krypton.Toolkit
 			// We do not allow null references in the collection
 			if (item == null)
             {
-                throw new ArgumentNullException("Cannot add a null view into a composite view.");
+                throw new ArgumentNullException(nameof(item), @"Cannot add a null view into a composite view.");
             }
 
             if (_views != null)
@@ -286,17 +286,17 @@ namespace ComponentFactory.Krypton.Toolkit
 		}
 
 		/// <summary>
-		/// Removes first occurance of specified view.
+		/// Removes first occurence of specified view.
 		/// </summary>
 		/// <param name="item">ViewBase reference.</param>
 		/// <returns>True if removed; otherwise false.</returns>
 		public override bool Remove(ViewBase item)
 		{
             // Let type safe collection perform operation
-            bool ret = (_views != null) ? _views.Remove(item) : false;
+            bool ret = _views?.Remove(item) ?? false;
 
             // Remove back reference only when remove completed with success
-            if (ret)
+            if (ret && item != null)
             {
                 item.Parent = null;
             }
@@ -351,7 +351,7 @@ namespace ComponentFactory.Krypton.Toolkit
 			// We do not allow null references in the collection
 			if (item == null)
             {
-                throw new ArgumentNullException("Cannot insert a null view inside a composite view.");
+                throw new ArgumentNullException(nameof(item), @"Cannot insert a null view inside a composite view.");
             }
 
             if (_views != null)
@@ -397,7 +397,7 @@ namespace ComponentFactory.Krypton.Toolkit
 				// We do not allow null references in the collection
 				if (value == null)
                 {
-                    throw new ArgumentNullException("Cannot set a null view into a composite view.");
+                    throw new ArgumentNullException(nameof(value), @"Cannot set a null view into a composite view.");
                 }
 
                 if (_views != null)
@@ -510,7 +510,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Let base class store the new setting
                 base.FixedState = value;
 
-                // Propogate to all contained elements
+                // Propagate to all contained elements
                 foreach (ViewBase child in this)
                 {
                     child.FixedState = value;
@@ -526,7 +526,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Let base class clear setting
             base.ClearFixedState();
 
-            // Propogate to all contained elements
+            // Propagate to all contained elements
             foreach (ViewBase child in this)
             {
                 child.ClearFixedState();
@@ -546,27 +546,21 @@ namespace ComponentFactory.Krypton.Toolkit
 
 			// Do we contain the point?
 			if (ClientRectangle.Contains(pt))
-			{
+            {
                 // Give children a chance to specify a more accurate match but
                 // we search the children in reverse order as the last child in 
                 // the collection is the top most in the z-order. The mouse is 
-                // therefore testing againt the most visible child first.
-                foreach (ViewBase child in Reverse())
+                // therefore testing against the most visible child first.
+                foreach (ViewBase child in Reverse()
+                    .Where(child => child.Visible)
+                    .Where(child => child.ClientRectangle.Contains(pt)))
                 {
-                    // Only interested in children that are visible
-                    if (child.Visible)
-                    {
-                        // Is the point inside the child area?
-                        if (child.ClientRectangle.Contains(pt))
-                        {
-                            // Find child that wants the point
-                            ret = child.ViewFromPoint(pt);
-                            break;
-                        }
-                    }
+                    // Find child that wants the point
+                    ret = child.ViewFromPoint(pt);
+                    break;
                 }
 
-				// If none of the children, match then we do
+                // If none of the children, match then we do
 				if (ret == null)
                 {
                     ret = this;
