@@ -469,7 +469,6 @@ namespace ComponentFactory.Krypton.Toolkit
             _maskedTextBox = new InternalMaskedTextBox(this);
             _maskedTextBox.TrackMouseEnter += OnMaskedTextBoxMouseChange;
             _maskedTextBox.TrackMouseLeave += OnMaskedTextBoxMouseChange;
-            AddTooltipControlsTo(_maskedTextBox);
             _maskedTextBox.TextAlignChanged += OnMaskedTextBoxTextAlignChanged;
             _maskedTextBox.TextChanged += OnMaskedTextBoxTextChanged;
             _maskedTextBox.HideSelectionChanged += OnMaskedTextBoxHideSelectionChanged;
@@ -2035,9 +2034,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                      CommonHelper.ContentStyleFromLabelStyle(toolTipStyle));
 
                         _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
-
-                        // Show relative to the provided screen rectangle
-                        _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target?.ClientRectangle ?? ClientRectangle));
+                        _visualPopupToolTip.ShowRelativeTo(e.Target, e.ControlMousePosition);
                     }
                 }
             }
@@ -2070,10 +2067,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_trackingMouseEnter)
                 {
                     OnTrackMouseEnter(EventArgs.Empty);
+                    OnMouseEnter(e);
                 }
                 else
                 {
                     OnTrackMouseLeave(EventArgs.Empty);
+                    OnMouseLeave(e);
                 }
             }
         }

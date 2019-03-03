@@ -863,8 +863,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
 
-                        // Show relative to the provided screen rectangle
-                        _visualPopupToolTip.ShowCalculatingSize(Calendar.CalendarControl.RectangleToScreen(e.Target?.ClientRectangle ?? ClientRectangle));
+                        _visualPopupToolTip.ShowRelativeTo(e.Target, e.ControlMousePosition);
                     }
                 }
             }

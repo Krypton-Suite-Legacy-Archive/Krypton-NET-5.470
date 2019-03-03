@@ -441,7 +441,6 @@ namespace ComponentFactory.Krypton.Toolkit
             _richTextBox = new InternalRichTextBox(this);
             _richTextBox.TrackMouseEnter += OnRichTextBoxMouseChange;
             _richTextBox.TrackMouseLeave += OnRichTextBoxMouseChange;
-            AddTooltipControlsTo(_richTextBox);
             _richTextBox.AcceptsTabChanged += OnRichTextBoxAcceptsTabChanged;
             _richTextBox.TextChanged += OnRichTextBoxTextChanged;
             _richTextBox.HideSelectionChanged += OnRichTextBoxHideSelectionChanged;
@@ -2269,10 +2268,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_trackingMouseEnter)
                 {
                     OnTrackMouseEnter(EventArgs.Empty);
+                    OnMouseEnter(e);
                 }
                 else
                 {
                     OnTrackMouseLeave(EventArgs.Empty);
+                    OnMouseLeave(e);
                 }
             }
         }
@@ -2428,9 +2429,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                      CommonHelper.ContentStyleFromLabelStyle(toolTipStyle));
 
                         _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
-
-                        // Show relative to the provided screen rectangle
-                        _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target?.ClientRectangle ?? ClientRectangle));
+                        _visualPopupToolTip.ShowRelativeTo(e.Target, e.ControlMousePosition);
                     }
                 }
             }

@@ -1,29 +1,31 @@
 ﻿// *****************************************************************************
-// 
-//  © Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
-//  The software and associated documentation supplied hereunder are the 
+// BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
+//  © Component Factory Pty Ltd, 2006-2019, All rights reserved.
+// The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to license terms.
 // 
-//  Version 5.470.0.0 	www.ComponentFactory.com
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
+//  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
-using System.IO;
-using System.Xml;
-using System.Text;
-using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.Threading;
 using System.Collections;
-using System.Windows.Forms;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.Drawing.Text;
+using System.IO;
 using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
+using System.Xml;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -122,14 +124,9 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 // Generate a GUID that is guaranteed to be unique
-                PI.GUIDSTRUCT newGUID = new PI.GUIDSTRUCT();
-                PI.CoCreateGuid(ref newGUID);
-
+                Guid guid = Guid.NewGuid();
                 // Return as a hex formatted string.
-                return string.Format("{0:X4}{1:X4}{2:X4}{3:X4}{4:X4}{5:X4}{6:X4}{7:X4}",
-                                     newGUID.Data1, newGUID.Data2, newGUID.Data3, newGUID.Data4,
-                                     newGUID.Data5, newGUID.Data6, newGUID.Data7, newGUID.Data8);
-                                     
+                return guid.ToString(@"N");
             }
         }
 
@@ -704,7 +701,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Apply a reversed orientation so that when orientated again it comes out with the original value.
         /// </summary>
         /// <param name="borders">Border edges to be drawn.</param>
-        /// <param name="orientation">How to adjsut the border edges.</param>
+        /// <param name="orientation">How to adjust the border edges.</param>
         /// <returns>Border edges adjusted for orientation.</returns>
         public static PaletteDrawBorders ReverseOrientateDrawBorders(PaletteDrawBorders borders,
                                                                      VisualOrientation orientation)
@@ -1241,7 +1238,6 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             PI.RECT rect = new PI.RECT
             {
-
                 // Start with a zero sized rectangle
                 left = 0,
                 right = 0,
@@ -1408,7 +1404,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Corrected format.</returns>
         public static string MakeCustomDateFormat(string format)
         {
-            // Is this a single charater format?
+            // Is this a single character format?
             if (format.Length == 1)
             {
                 // If the character is one of the predefined entries...
@@ -1772,5 +1768,41 @@ namespace ComponentFactory.Krypton.Toolkit
         public static Form ActiveFloatingWindow { get; set; }
 
         #endregion
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static Icon CaptureCursor()
+        {
+            PI.CURSORINFO ci = new PI.CURSORINFO();
+            ci.cbSize = Marshal.SizeOf(ci);
+
+            if (PI.GetCursorInfo(ref ci))
+            {
+                if (ci.flags == PI.CURSOR_SHOWING)
+                {
+                    IntPtr icon = PI.CopyIcon(ci.hCursor);
+                    if (PI.GetIconInfo(icon, out PI.ICONINFO icInfo))
+                    {
+                        //  x = ci.ptScreenPos.x - ((int)icInfo.xHotspot);
+                        //  y = ci.ptScreenPos.y - ((int)icInfo.yHotspot);
+                        Icon ic = Icon.FromHandle(icon);
+                        if (icInfo.hbmColor != IntPtr.Zero)
+                        {
+                            PI.DeleteObject(icInfo.hbmColor);
+                        }
+
+                        if (icInfo.hbmMask != IntPtr.Zero)
+                        {
+                            PI.DeleteObject(icInfo.hbmMask);
+                        }
+
+                        return ic;
+                    }
+                }
+            }
+            return null;
+        }
     }
 }

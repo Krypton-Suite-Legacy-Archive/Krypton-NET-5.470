@@ -189,7 +189,7 @@ namespace ComponentFactory.Krypton.Ribbon
             DismissedDelegate = finishDelegate;
 
             // Request we be shown below the parent screen rect
-            Show(parentScreenRect, popupSize);
+            Show(new Point(parentScreenRect.Left, parentScreenRect.Bottom), popupSize);
         }
         #endregion
 

@@ -9,11 +9,14 @@
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+
+using ComponentFactory.Krypton.Toolkit.Values;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -22,13 +25,6 @@ namespace ComponentFactory.Krypton.Toolkit
     /// </summary>
     public class VisualPopupToolTip : VisualPopup
     {
-        #region Static Fields
-
-        private const int VERT_OFFSET = 8;
-        private const int HORZ_OFFSET = 8;
-
-        #endregion
-
         #region Instance Fields
         private readonly PaletteTripleMetricRedirect _palette;
         private readonly ViewDrawDocker _drawDocker;
@@ -52,7 +48,7 @@ namespace ComponentFactory.Krypton.Toolkit
                    PaletteContentStyle.LabelToolTip)
         {
         }
-            
+
         /// <summary>
         /// Initialize a new instance of the VisualPopupTooltip class.
         /// </summary>
@@ -86,15 +82,6 @@ namespace ComponentFactory.Krypton.Toolkit
             // Create the view manager instance
             ViewManager = new ViewManager(this, _drawDocker);
         }
-
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            base.Dispose(disposing);
-        }
         #endregion
 
         #region Public
@@ -110,7 +97,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="m">Original message.</param>
         /// <param name="pt">Client coordinates point.</param>
-        /// <returns>True to alow; otherwise false.</returns>
+        /// <returns>True to allow; otherwise false.</returns>
         public override bool AllowMouseMove(Message m, Point pt)
         {
             // We allow all mouse moves when we are showing
@@ -118,41 +105,121 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-        /// Show the tooltip popup relative to the provided screen position.
+        /// Use the setting from the Positioning to display the tooltip
         /// </summary>
-        /// <param name="screenPt">Screen point of cursor.</param>
-        public void ShowCalculatingSize(Point screenPt)
+        /// <param name="target"></param>
+        /// <param name="controlMousePosition"></param>
+        public void ShowRelativeTo(ViewBase target, Point controlMousePosition)
         {
+            PopupPositionValues position;
+            if (_contentValues is ToolTipValues toolTipValues)
+            {
+                position = toolTipValues.ToolTipPosition;
+            }
+            else
+            {
+                position = new PopupPositionValues();
+            }
+            Icon currentIcon = CommonHelper.CaptureCursor();
+
+            Rectangle positionPlacementRectangle = position.PlacementRectangle;
+            switch (position.PlacementMode)
+            {
+                case PlacementMode.Absolute:
+                case PlacementMode.AbsolutePoint:
+                    // The screen, or PlacementRectangle if it is set.
+                    // So do nothing !
+                    break;
+                case PlacementMode.Mouse:
+                case PlacementMode.MousePoint:
+                    // The bounds of the mouse pointer. PlacementRectangle is ignored
+                    // TODO: SKC: Should really get the HotSpot from the Icon and use that !
+                    positionPlacementRectangle = new Rectangle(controlMousePosition.X, controlMousePosition.Y, currentIcon.Width/2, currentIcon.Height/2);
+                    break;
+                default:
+                    // The screen, or PlacementRectangle if it is set. The PlacementRectangle is relative to the screen.
+                    if (positionPlacementRectangle.IsEmpty)
+                    {
+                        // PlacementTarget or parent.
+                        positionPlacementRectangle =
+                            position.PlacementTarget?.ClientRectangle ?? target.ClientRectangle;
+                        positionPlacementRectangle = (position.PlacementTarget?.OwningControl ?? target.OwningControl).RectangleToScreen(positionPlacementRectangle);
+                    }
+                    else
+                    {
+                        positionPlacementRectangle = Screen.GetWorkingArea(controlMousePosition);
+                    }
+                    break;
+            }
+
             // Get the size the popup would like to be
             Size popupSize = ViewManager.GetPreferredSize(Renderer, Size.Empty);
+            Point popupLocation;
 
-            // Find the screen position the popup will be relative to
-            Rectangle screenRect = new Rectangle((screenPt.X + HORZ_OFFSET) - (popupSize.Width / 2),
-                                                 screenPt.Y - VERT_OFFSET ,
-                                                 1, 
-                                                 VERT_OFFSET*3); // SKC: Need to move the new window away from `possible` cursor HotSpot
-            
+            switch (position.PlacementMode)
+            {
+                case PlacementMode.Absolute:
+                case PlacementMode.AbsolutePoint:
+                case PlacementMode.MousePoint:
+                case PlacementMode.Relative:
+                case PlacementMode.RelativePoint:
+                    // The top-left corner of the target area. 	The top-left corner of the Popup.
+                    popupLocation = positionPlacementRectangle.Location;
+                    if (positionPlacementRectangle.IntersectsWith(new Rectangle(controlMousePosition, currentIcon.Size)))
+                    {
+                        // TODO: SKC: Should really get the HotSpot from the Icon and use that !
+                        popupLocation.X = controlMousePosition.X+4; // Still might "Bounce back" due to offscreen location
+                    }
+                    break;
+                case PlacementMode.Bottom:
+                case PlacementMode.Mouse:
+                    // The bottom-left corner of the target area. 	The top-left corner of the Popup.
+                    popupLocation = new Point(positionPlacementRectangle.Left, positionPlacementRectangle.Bottom);
+                    break;
+                case PlacementMode.Center:
+                    // The center of the target area. 	The center of the Popup.
+                    popupLocation = positionPlacementRectangle.Location;
+                    popupLocation.Offset(popupSize.Width / 2, -popupSize.Height / 2);
+                    if (positionPlacementRectangle.IntersectsWith(new Rectangle(controlMousePosition, currentIcon.Size)))
+                    {
+                        // TODO: SKC: Should really get the HotSpot from the Icon and use that !
+                        popupLocation.X = controlMousePosition.X+4; // Still might "Bounce back" due to offscreen location
+                    }
+                    break;
+                case PlacementMode.Left:
+                    // The top-left corner of the target area. 	The top-right corner of the Popup.
+                    popupLocation = new Point(positionPlacementRectangle.Left - popupSize.Width, positionPlacementRectangle.Top);
+                    break;
+                case PlacementMode.Right:
+                    // The top-right corner of the target area. 	The top-left corner of the Popup.
+                    popupLocation = new Point(positionPlacementRectangle.Right, positionPlacementRectangle.Top);
+                    break;
+                case PlacementMode.Top:
+                    // The top-left corner of the target area. 	The bottom-left corner of the Popup.
+                    popupLocation = new Point(positionPlacementRectangle.Left, positionPlacementRectangle.Top - popupSize.Height);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
             // Show it now!
-            Show(screenRect, popupSize);
+            Show(popupLocation, popupSize);
+
         }
 
         /// <summary>
         /// Show the tooltip popup relative to the provided screen position.
         /// </summary>
-        /// <param name="screenRect">Screen position to display relative to.</param>
-        public void ShowCalculatingSize(Rectangle screenRect)
+        /// <param name="controlMousePosition">Screen point of cursor.</param>
+        public void ShowCalculatingSize(Point controlMousePosition)
         {
             // Get the size the popup would like to be
             Size popupSize = ViewManager.GetPreferredSize(Renderer, Size.Empty);
 
             // Find the screen position the popup will be relative to
-            screenRect = new Rectangle((screenRect.X + HORZ_OFFSET), 
-                screenRect.Y - VERT_OFFSET,
-                screenRect.Width, 
-                screenRect.Height + (VERT_OFFSET));
-
+            Icon currentIcon = CommonHelper.CaptureCursor();
+            controlMousePosition.Offset(currentIcon.Height/2, currentIcon.Width/2);
             // Show it now!
-            Show(screenRect, popupSize);
+            Show(controlMousePosition, popupSize);
         }
         #endregion
 
@@ -160,11 +227,11 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Raises the Layout event.
         /// </summary>
-        /// <param name="levent">An EventArgs that contains the event data.</param>
-        protected override void OnLayout(LayoutEventArgs levent)
+        /// <param name="lEvent">An EventArgs that contains the event data.</param>
+        protected override void OnLayout(LayoutEventArgs lEvent)
         {
-            // Let base class calulcate fill rectangle
-            base.OnLayout(levent);
+            // Let base class calculate fill rectangle
+            base.OnLayout(lEvent);
 
             // Need a render context for accessing the renderer
             using (RenderContext context = new RenderContext(this, null, ClientRectangle, Renderer))

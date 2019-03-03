@@ -463,7 +463,6 @@ namespace ComponentFactory.Krypton.Toolkit
             _textBox = new InternalTextBox(this);
             _textBox.TrackMouseEnter += OnTextBoxMouseChange;
             _textBox.TrackMouseLeave += OnTextBoxMouseChange;
-            AddTooltipControlsTo(_textBox);
             _textBox.AcceptsTabChanged += OnTextBoxAcceptsTabChanged;
             _textBox.TextAlignChanged += OnTextBoxTextAlignChanged;
             _textBox.TextChanged += OnTextBoxTextChanged;
@@ -1828,9 +1827,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                      CommonHelper.ContentStyleFromLabelStyle(toolTipStyle));
 
                         _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
-
-                        // Show relative to the provided screen rectangle
-                        _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target?.ClientRectangle ?? ClientRectangle));
+                        _visualPopupToolTip.ShowRelativeTo(e.Target, e.ControlMousePosition);
                     }
                 }
             }
@@ -1860,10 +1857,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_trackingMouseEnter)
                 {
                     OnTrackMouseEnter(EventArgs.Empty);
+                    OnMouseEnter(e);
                 }
                 else
                 {
                     OnTrackMouseLeave(EventArgs.Empty);
+                    OnMouseLeave(e);
                 }
             }
         }
