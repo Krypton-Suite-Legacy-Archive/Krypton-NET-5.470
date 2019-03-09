@@ -92,9 +92,9 @@
             // kbtnApplyTheme
             // 
             this.kbtnApplyTheme.Enabled = false;
-            this.kbtnApplyTheme.Location = new System.Drawing.Point(526, 154);
+            this.kbtnApplyTheme.Location = new System.Drawing.Point(526, 241);
             this.kbtnApplyTheme.Name = "kbtnApplyTheme";
-            this.kbtnApplyTheme.Size = new System.Drawing.Size(126, 48);
+            this.kbtnApplyTheme.Size = new System.Drawing.Size(227, 91);
             this.kbtnApplyTheme.TabIndex = 11;
             this.kbtnApplyTheme.ToolTipValues.Description = "Applies the user selected theme";
             this.kbtnApplyTheme.ToolTipValues.EnableToolTips = true;
@@ -110,7 +110,7 @@
             // 
             this.klbThemes.Location = new System.Drawing.Point(526, 51);
             this.klbThemes.Name = "klbThemes";
-            this.klbThemes.Size = new System.Drawing.Size(227, 96);
+            this.klbThemes.Size = new System.Drawing.Size(227, 184);
             this.klbThemes.TabIndex = 9;
             this.klbThemes.ToolTipValues.EnableToolTips = true;
             popupPositionValues2.PlacementRectangle = new System.Drawing.Rectangle(0, 0, 0, 0);
@@ -148,7 +148,7 @@
             // 
             this.kryptonTextBox1.Location = new System.Drawing.Point(25, 59);
             this.kryptonTextBox1.Name = "kryptonTextBox1";
-            this.kryptonTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.kryptonTextBox1.Size = new System.Drawing.Size(100, 23);
             this.kryptonTextBox1.TabIndex = 4;
             this.kryptonTextBox1.Text = "kryptonTextBox1";
             this.kryptonTextBox1.ToolTipValues.Description = "Please type carefully -> Right";
@@ -189,7 +189,7 @@
             // 
             // kryptonButton2
             // 
-            this.kryptonButton2.Location = new System.Drawing.Point(363, 146);
+            this.kryptonButton2.Location = new System.Drawing.Point(174, 241);
             this.kryptonButton2.Name = "kryptonButton2";
             this.kryptonButton2.Size = new System.Drawing.Size(143, 91);
             this.kryptonButton2.StateCommon.Content.ShortText.MultiLine = ComponentFactory.Krypton.Toolkit.InheritBool.True;
@@ -207,7 +207,7 @@
             // 
             // kryptonButton1
             // 
-            this.kryptonButton1.Location = new System.Drawing.Point(214, 146);
+            this.kryptonButton1.Location = new System.Drawing.Point(25, 241);
             this.kryptonButton1.Name = "kryptonButton1";
             this.kryptonButton1.Size = new System.Drawing.Size(143, 91);
             this.kryptonButton1.TabIndex = 0;
