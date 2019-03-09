@@ -9,10 +9,10 @@
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using System.Drawing;
-using ComponentFactory.Krypton.Toolkit;
+
 using ComponentFactory.Krypton.Navigator;
+using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Workspace;
 
 namespace ComponentFactory.Krypton.Docking

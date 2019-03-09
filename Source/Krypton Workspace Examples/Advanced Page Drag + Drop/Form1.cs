@@ -73,8 +73,9 @@ namespace AdvancedPageDragAndDrop
         {
             // Hide the default close and context buttons, they are not relevant for this demo
             e.Cell.Button.CloseButtonAction = CloseButtonAction.None;
-            e.Cell.Button.CloseButtonDisplay = ButtonDisplay.Hide;
-            e.Cell.Button.ContextButtonDisplay = ButtonDisplay.Hide;
+            e.Cell.Button.CloseButtonAction = CloseButtonAction.RemovePage;
+            //e.Cell.Button.CloseButtonDisplay = ButtonDisplay.Hide;
+            //e.Cell.Button.ContextButtonDisplay = ButtonDisplay.Hide;
         }
 
         private KryptonWorkspaceCell CreateCell(string title, int imageIndex)

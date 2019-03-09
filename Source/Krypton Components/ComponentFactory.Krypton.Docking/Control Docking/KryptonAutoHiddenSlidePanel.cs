@@ -18,6 +18,7 @@ using System.Security.Permissions;
 using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Navigator;
 using ComponentFactory.Krypton.Workspace;
+// ReSharper disable MemberCanBeInternal
 
 namespace ComponentFactory.Krypton.Docking
 {
@@ -205,7 +206,7 @@ namespace ComponentFactory.Krypton.Docking
                 Page = null;
                 _group = null;
 
-                // Remove ourself from the control we planted outself into
+                // Remove ourself from the control we planted ourself into
                 _control.Controls.Remove(this);
 
                 // Remove all the pages so that the pages have palette redirection reset
@@ -264,7 +265,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Remove from view the slide out page if it matches the unqiue name provided.
+        /// Remove from view the slide out page if it matches the unique name provided.
         /// </summary>
         /// <param name="uniqueName">Unique name of the page to be hidden.</param>
         public void HideUniqueName(string uniqueName)
@@ -495,8 +496,17 @@ namespace ComponentFactory.Krypton.Docking
             //    We are not in the hidden state                                        AND
             //    We have an associated auto hidden group control that is not disposed  AND
             //    We are not disposed
-            if ((parentForm != null) && ((parentForm == Form.ActiveForm) || ((parentMdi != null) && (parentMdi.ActiveMdiChild == parentForm))) &&
-                parentForm.ContainsFocus && (_state != DockingAutoHiddenShowState.Hidden) && (_group != null) && !_group.IsDisposed && !IsDisposed)
+            if ( (parentForm != null) 
+                 && ( (parentForm == Form.ActiveForm) 
+                      || ( (parentMdi != null) 
+                           && (parentMdi.ActiveMdiChild == parentForm)
+                      )
+                 ) 
+                 && parentForm.ContainsFocus 
+                 && (_state != DockingAutoHiddenShowState.Hidden) 
+                 && _group?.IsDisposed == false 
+                 && !IsDisposed
+                 )
             {
                 switch (msg.Msg)
                 {
@@ -523,9 +533,10 @@ namespace ComponentFactory.Krypton.Docking
                         // Convert the mouse position into a screen location
                         Point screenPt = CommonHelper.ClientMouseMessageToScreenPt(msg);
 
-                        // Is the mouse over ourself or over the associated auto hiiden group
-                        if (RectangleToScreen(ClientRectangle).Contains(screenPt) ||
-                            _group.RectangleToScreen(_group.ClientRectangle).Contains(screenPt))
+                        // Is the mouse over ourself or over the associated auto hidden group
+                        if (RectangleToScreen(ClientRectangle).Contains(screenPt) 
+                            || _group.RectangleToScreen(_group.ClientRectangle).Contains(screenPt)
+                            )
                         {
                             // We do not dismiss while the mouse is over ourself
                             if (_dismissRunning)

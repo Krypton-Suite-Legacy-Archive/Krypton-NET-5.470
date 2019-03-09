@@ -1,26 +1,26 @@
 ﻿// *****************************************************************************
 // 
-//  © Component Factory Pty Ltd 2012 - 2019 - 2019. All rights reserved.
+//  © Component Factory Pty Ltd 2012 - 2019. All rights reserved.
 //	The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, PO Box 1504, 
 //  Glen Waverley, Vic 3150, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.5.0.0 	www.ComponentFactory.com
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
+//  Version 5.470.0.0  www.ComponentFactory.com
+//
 // *****************************************************************************
 
 using System;
-using System.Security;
-using System.Resources;
 using System.Reflection;
-using System.Diagnostics;
-using System.Security.Permissions;
+using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Security;
 
-[assembly: AssemblyVersion("5.470.5002.0")]
-[assembly: AssemblyFileVersion("5.470.5002.0")]
-[assembly: AssemblyCopyright("© Component Factory Pty Ltd 2012 - 2019 - 2019. All rights reserved.")]
-[assembly: AssemblyInformationalVersion("4.5.2.0")]
+[assembly: AssemblyVersion("5.470.603.0")]
+[assembly: AssemblyFileVersion("5.470.603.0")]
+[assembly: AssemblyInformationalVersion("5.470.603.0")]
+[assembly: AssemblyCopyright("© Component Factory Pty Ltd 2012 - 2019. All rights reserved.")]
 [assembly: AssemblyProduct("Multi Control Docking")]
 [assembly: AssemblyDefaultAlias("MultiControlDocking.dll")]
 [assembly: AssemblyTitle("Multi Control Docking")]

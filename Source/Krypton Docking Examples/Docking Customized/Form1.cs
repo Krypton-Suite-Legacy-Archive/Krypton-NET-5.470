@@ -1,25 +1,24 @@
 ﻿// *****************************************************************************
 // 
-//  © Component Factory Pty Ltd 2012 - 2019 - 2019. All rights reserved.
+//  © Component Factory Pty Ltd 2012 - 2019. All rights reserved.
 //	The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, PO Box 1504, 
 //  Glen Waverley, Vic 3150, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.5.0.0 	www.ComponentFactory.com
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
+//  Version 5.470.0.0  www.ComponentFactory.com
+//
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
-using System.ComponentModel;
-using System.Collections.Generic;
-using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
-using ComponentFactory.Krypton.Navigator;
-using ComponentFactory.Krypton.Workspace;
+
 using ComponentFactory.Krypton.Docking;
+using ComponentFactory.Krypton.Navigator;
 using ComponentFactory.Krypton.Ribbon;
+using ComponentFactory.Krypton.Toolkit;
+using ComponentFactory.Krypton.Workspace;
 
 namespace DockingCustomized
 {
@@ -123,8 +122,8 @@ namespace DockingCustomized
             // Create a set of custom menu items
             KryptonContextMenuItems customItems = new KryptonContextMenuItems();
             KryptonContextMenuSeparator customSeparator = new KryptonContextMenuSeparator();
-            KryptonContextMenuItem customItem1 = new KryptonContextMenuItem("Custom Item 1", new EventHandler(OnCustomMenuItem));
-            KryptonContextMenuItem customItem2 = new KryptonContextMenuItem("Custom Item 2", new EventHandler(OnCustomMenuItem));
+            KryptonContextMenuItem customItem1 = new KryptonContextMenuItem("Custom Item 1", OnCustomMenuItem);
+            KryptonContextMenuItem customItem2 = new KryptonContextMenuItem("Custom Item 2", OnCustomMenuItem);
             customItem1.Tag = e.Page;
             customItem2.Tag = e.Page;
             customItems.Items.AddRange(new KryptonContextMenuItemBase[] { customSeparator, customItem1, customItem2 });
@@ -138,8 +137,8 @@ namespace DockingCustomized
             // Create a set of custom menu items
             KryptonContextMenuItems customItems = new KryptonContextMenuItems();
             KryptonContextMenuSeparator customSeparator = new KryptonContextMenuSeparator();
-            KryptonContextMenuItem customItem1 = new KryptonContextMenuItem("Custom Item 3", new EventHandler(OnCustomMenuItem));
-            KryptonContextMenuItem customItem2 = new KryptonContextMenuItem("Custom Item 4", new EventHandler(OnCustomMenuItem));
+            KryptonContextMenuItem customItem1 = new KryptonContextMenuItem("Custom Item 3", OnCustomMenuItem);
+            KryptonContextMenuItem customItem2 = new KryptonContextMenuItem("Custom Item 4", OnCustomMenuItem);
             customItem1.Tag = e.Page;
             customItem2.Tag = e.Page;
             customItems.Items.AddRange(new KryptonContextMenuItemBase[] { customSeparator, customItem1, customItem2 });

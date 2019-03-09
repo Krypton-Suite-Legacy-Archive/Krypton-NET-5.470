@@ -10,26 +10,28 @@
 // *****************************************************************************
 
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Design;
-using System.ComponentModel;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
+using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
+
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Navigator control allows a variety of methods for moving around a collection of pages.
-	/// </summary>
-	[ToolboxItem(true)]
+    /// <summary>
+    /// Navigator control allows a variety of methods for moving around a collection of pages.
+    /// </summary>
+    [ToolboxItem(true)]
 	[ToolboxBitmap(typeof(KryptonNavigator), "ToolboxBitmaps.KryptonNavigator.bmp")]
 	[DefaultEvent("SelectedIndexChanged")]
 	[DefaultProperty("Pages")]
-    [Designer(typeof(ComponentFactory.Krypton.Navigator.KryptonNavigatorDesigner))]
+    [Designer(typeof(KryptonNavigatorDesigner))]
     [DesignerCategory("code")]
     [Description("Allows navigation between pages.")]
     [Docking(DockingBehavior.Ask)]
@@ -369,7 +371,7 @@ namespace ComponentFactory.Krypton.Navigator
 		[Category("Visuals")]
 		[Description("Collection of pages in the navigator control.")]
 		[MergableProperty(false)]
-        [Editor(typeof(ComponentFactory.Krypton.Navigator.NavigatorPageCollectionEditor), typeof(UITypeEditor))]
+        [Editor(typeof(NavigatorPageCollectionEditor), typeof(UITypeEditor))]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
 		public KryptonPageCollection Pages { get; private set; }
 
@@ -411,19 +413,19 @@ namespace ComponentFactory.Krypton.Navigator
                     // If tab selection is disabled then prevent setting the selection
                     if (!AllowTabSelect)
                     {
-                        throw new ArgumentOutOfRangeException("Cannot select a tab when AllowTabSelect=False");
+                        throw new TargetException(@"Cannot select a tab when AllowTabSelect=False");
                     }
 
 				    // Range check the index
 					if ((value < 0) || (value >= Pages.Count))
 					{
-					    throw new ArgumentOutOfRangeException(nameof(value), "Index out of range");
+					    throw new ArgumentOutOfRangeException(nameof(value), @"Index out of range");
 					}
 
 				    // Can only select a page that is visible
                     if (!Pages[value].LastVisibleSet)
                     {
-                        throw new ArgumentNullException(nameof(value), "Cannot select a page that is not visible");
+                        throw new ArgumentNullException(nameof(value), @"Cannot select a page that is not visible");
                     }
 
 				    // Request the change by changing the SelectedPage
@@ -450,13 +452,13 @@ namespace ComponentFactory.Krypton.Navigator
                     // If tab selection is disabled then prevent setting the selection
                     if (!AllowTabSelect)
                     {
-                        throw new ArgumentOutOfRangeException("Cannot select a tab when AllowTabSelect=False");
+                        throw new TargetException(@"Cannot select a tab when AllowTabSelect=False");
                     }
 
 				    // You cannot remove the selection entirely by using null
 					if (value == null)
 					{
-					    throw new ArgumentOutOfRangeException(nameof(value), "Value cannot be null");
+					    throw new ArgumentOutOfRangeException(nameof(value), @"Value cannot be null");
 					}
 
 				    // Check the page is in the pages collection
@@ -465,7 +467,7 @@ namespace ComponentFactory.Krypton.Navigator
                         // Can only select a page that is visible
                         if (!value.LastVisibleSet)
                         {
-                            throw new ArgumentNullException(nameof(value), "Cannot select a page that is not visible");
+                            throw new ArgumentNullException(nameof(value), @"Cannot select a page that is not visible");
                         }
 
                         // Change of selected page means we get rid of any showing popup page
@@ -1165,11 +1167,11 @@ namespace ComponentFactory.Krypton.Navigator
         [EditorBrowsable(EditorBrowsableState.Never)]
         public void DebugOutput()
         {
-            Console.WriteLine("Navigator Count:{0}", Pages.Count);
+            Console.WriteLine(@"Navigator Count:{0}", Pages.Count);
 
             foreach (KryptonPage page in Pages)
             {
-                Console.WriteLine("  Page Text:{0} Visible:{1}", page.Text, page.LastVisibleSet);
+                Console.WriteLine(@"  Page Text:{0} Visible:{1}", page.Text, page.LastVisibleSet);
             }
         }        
         #endregion
@@ -1327,7 +1329,7 @@ namespace ComponentFactory.Krypton.Navigator
                 if (CommonHelper.IsShiftKeyPressed)
                 {
                     // If the focus has been moved to a page that does not have the focus
-                    if ((SelectedPage != null) && !SelectedPage.ContainsFocus)
+                    if (SelectedPage?.ContainsFocus == false)
                     {
                         // We need to force another TAB+SHIFT to move the focus backwards
                         foreach (KryptonPage page in Pages)
@@ -1407,22 +1409,19 @@ namespace ComponentFactory.Krypton.Navigator
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             // If we have a selected page...
-            if (SelectedPage != null)
+            if (SelectedPage?.KryptonContextMenu != null)
             {
-                if (SelectedPage.KryptonContextMenu != null)
+                if (SelectedPage.KryptonContextMenu.ProcessShortcut(keyData))
                 {
-                    if (SelectedPage.KryptonContextMenu.ProcessShortcut(keyData))
-                    {
-                        return true;
-                    }
+                    return true;
                 }
+            }
 
-                if (SelectedPage.ContextMenuStrip != null)
+            if (SelectedPage?.ContextMenuStrip != null)
+            {
+                if (CommonHelper.CheckContextMenuForShortcut(SelectedPage.ContextMenuStrip, ref msg, keyData))
                 {
-                    if (CommonHelper.CheckContextMenuForShortcut(SelectedPage.ContextMenuStrip, ref msg, keyData))
-                    {
-                        return true;
-                    }
+                    return true;
                 }
             }
 
@@ -1433,7 +1432,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// Processes a mnemonic character.
         /// </summary>
         /// <param name="charCode">The mnemonic character entered.</param>
-        /// <returns>true if the mnemonic was processsed; otherwise, false.</returns>
+        /// <returns>true if the mnemonic was processed; otherwise, false.</returns>
         protected override bool ProcessMnemonic(char charCode)
         {
             // If the button manager wants to process mnemonic characters and
@@ -1519,7 +1518,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// Raises the BeforePageReorder event.
         /// </summary>
         /// <param name="de">A PageDragCancelEventArgs containing event details.</param>
-        internal protected virtual void OnBeforePageReorder(PageReorderEventArgs de)
+        protected internal virtual void OnBeforePageReorder(PageReorderEventArgs de)
         {
             BeforePageReorder?.Invoke(this, de);
         }
@@ -1546,7 +1545,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// Raises the PageDrop event.
         /// </summary>
         /// <param name="e">A v containing event details.</param>
-        internal protected virtual void OnPageDrop(PageDropEventArgs e)
+        protected internal virtual void OnPageDrop(PageDropEventArgs e)
         {
             PageDrop?.Invoke(this, e);
         }
@@ -1582,6 +1581,11 @@ namespace ComponentFactory.Krypton.Navigator
                             SelectNextPageControl(true, true);
                         }
                     }
+                }
+                else
+                {
+                    // https://github.com/Wagnerp/Krypton-NET-5.470/issues/93
+                    SelectNextPageControl(false, false);
                 }
 
                 // If the control size needs to change when a different page is selected
@@ -1659,7 +1663,7 @@ namespace ComponentFactory.Krypton.Navigator
         }
 
         /// <summary>
-        /// Raises athe CloseAction event.
+        /// Raises the CloseAction event.
         /// </summary>
         /// <param name="e">An CloseActionEventArgs containing the event args.</param>
         protected virtual void OnCloseAction(CloseActionEventArgs e)
@@ -1755,7 +1759,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// Raises the TabVisibleCountChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event args.</param>
-        internal protected virtual void OnTabVisibleCountChanged(EventArgs e)
+        protected internal virtual void OnTabVisibleCountChanged(EventArgs e)
         {
             TabVisibleCountChanged?.Invoke(this, e);
         }
@@ -1764,43 +1768,43 @@ namespace ComponentFactory.Krypton.Navigator
         /// Raises the TabClicked event.
         /// </summary>
         /// <param name="e">An KryptonPageEventArgs containing the event args.</param>
-        internal protected virtual void OnTabClicked(KryptonPageEventArgs e)
+        protected internal virtual void OnTabClicked(KryptonPageEventArgs e)
         {
             TabClicked?.Invoke(this, e);
         }
 
         /// <summary>
-        /// Raises athe TabDoubleClicked event.
+        /// Raises the TabDoubleClicked event.
         /// </summary>
         /// <param name="e">An KryptonPageEventArgs containing the event args.</param>
-        internal protected virtual void OnTabDoubleClicked(KryptonPageEventArgs e)
+        protected internal virtual void OnTabDoubleClicked(KryptonPageEventArgs e)
         {
             TabDoubleClicked?.Invoke(this, e);
         }
 
         /// <summary>
-        /// Raises athe PrimaryHeaderLeftClicked event.
+        /// Raises the PrimaryHeaderLeftClicked event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event args.</param>
-        internal protected virtual void OnPrimaryHeaderLeftClicked(EventArgs e)
+        protected internal virtual void OnPrimaryHeaderLeftClicked(EventArgs e)
         {
             PrimaryHeaderLeftClicked?.Invoke(this, e);
         }
 
         /// <summary>
-        /// Raises athe PrimaryHeaderRightClicked event.
+        /// Raises the PrimaryHeaderRightClicked event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event args.</param>
-        internal protected virtual void OnPrimaryHeaderRightClicked(EventArgs e)
+        protected internal virtual void OnPrimaryHeaderRightClicked(EventArgs e)
         {
             PrimaryHeaderRightClicked?.Invoke(this, e);
         }
 
         /// <summary>
-        /// Raises athe PrimaryHeaderDoubleClicked event.
+        /// Raises the PrimaryHeaderDoubleClicked event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event args.</param>
-        internal protected virtual void OnPrimaryHeaderDoubleClicked(EventArgs e)
+        protected internal virtual void OnPrimaryHeaderDoubleClicked(EventArgs e)
         {
             PrimaryHeaderDoubleClicked?.Invoke(this, e);
         }
@@ -1809,18 +1813,16 @@ namespace ComponentFactory.Krypton.Navigator
         /// Raises the OutlookDropDown event.
         /// </summary>
         /// <param name="kcm">Context menu about to be displayed.</param>
-        internal protected virtual void OnOutlookDropDown(KryptonContextMenu kcm)
+        protected internal virtual void OnOutlookDropDown(KryptonContextMenu kcm)
         {
-            OutlookDropDown?.Invoke(this, new KryptonContextMenuEventArgs(SelectedPage,
-    SelectedIndex,
-    kcm));
+            OutlookDropDown?.Invoke(this, new KryptonContextMenuEventArgs(SelectedPage, SelectedIndex, kcm));
         }
 
         /// <summary>
         /// Raises the DisplayPopupPage event.
         /// </summary>
         /// <param name="e">A PopupPageEventArgs containing event data.</param>
-        internal protected virtual void OnDisplayPopupPage(PopupPageEventArgs e)
+        protected internal virtual void OnDisplayPopupPage(PopupPageEventArgs e)
         {
             DisplayPopupPage?.Invoke(this, e);
         }
@@ -1829,7 +1831,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// Raises the ShowContextMenu event.
         /// </summary>
         /// <param name="e">A ShowContextMenuArgs containing event data.</param>
-        internal protected virtual void OnShowContextMenu(ShowContextMenuArgs e)
+        protected internal virtual void OnShowContextMenu(ShowContextMenuArgs e)
         {
             ShowContextMenu?.Invoke(this, e);
         }
@@ -1838,7 +1840,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// Raises the CtrlTabStart event.
         /// </summary>
         /// <param name="e">An CtrlTabCancelEventArgs containing event details.</param>
-        internal protected virtual void OnCtrlTabStart(CtrlTabCancelEventArgs e)
+        protected internal virtual void OnCtrlTabStart(CtrlTabCancelEventArgs e)
         {
             CtrlTabStart?.Invoke(this, e);
         }
@@ -1847,7 +1849,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// Raises the CtrlTabWrap event.
         /// </summary>
         /// <param name="e">An CtrlTabCancelEventArgs containing event details.</param>
-        internal protected virtual void OnCtrlTabWrap(CtrlTabCancelEventArgs e)
+        protected internal virtual void OnCtrlTabWrap(CtrlTabCancelEventArgs e)
         {
             CtrlTabWrap?.Invoke(this, e);
         }
@@ -1874,7 +1876,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// Raises the TabMoved event.
         /// </summary>
         /// <param name="e">An TabMovedEventArgs containing event details.</param>
-        internal protected virtual void OnTabMoved(TabMovedEventArgs e)
+        protected internal virtual void OnTabMoved(TabMovedEventArgs e)
         {
             TabMoved?.Invoke(this, e);
         }
@@ -1883,7 +1885,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// Raises the ViewBuilderPropertyChanged event.
         /// </summary>
         /// <param name="propertyName">Name of the property that has changed.</param>
-        internal protected virtual void OnViewBuilderPropertyChanged(string propertyName)
+        protected internal virtual void OnViewBuilderPropertyChanged(string propertyName)
         {
             ViewBuilderPropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -1896,7 +1898,7 @@ namespace ComponentFactory.Krypton.Navigator
         protected void ForceControlLayout()
         {
             // Usually the layout will not occur if currently initializing but
-            // we need to force the layout processing because overwise the size
+            // we need to force the layout processing because otherwise the size
             // of the panel controls will not have been calculated when controls
             // are added to the panels. That would then cause problems with
             // anchor controls as they would then resize incorrectly.
@@ -2258,12 +2260,9 @@ namespace ComponentFactory.Krypton.Navigator
                 if (DragPageNotify.PageDragEnd(this, e))
                 {
                     // Success, so remove the pages from the navigator
-                    foreach (KryptonPage page in _dragPages)
+                    foreach (KryptonPage page in _dragPages.Where(page => Pages.Contains(page)))
                     {
-                        if (Pages.Contains(page))
-                        {
-                            Pages.Remove(page);
-                        }
+                        Pages.Remove(page);
                     }
                 }
             }
@@ -2340,7 +2339,7 @@ namespace ComponentFactory.Krypton.Navigator
             ToolTips = new NavigatorToolTips(this, NeedPaintDelegate);
 
             // Need to know when the context button is about to show a context menu, so we
-            // can then populate it with the correct set of values dependant on the current pages
+            // can then populate it with the correct set of values dependent on the current pages
             Button.ContextButton.KryptonContextMenu.Opening += OnOpeningContextMenu;
         }
 
@@ -2648,6 +2647,7 @@ namespace ComponentFactory.Krypton.Navigator
             if (_cachePageVisibleCount != Pages.VisibleCount)
             {
                 _cachePageVisibleCount = Pages.VisibleCount;
+                if ( _cachePageVisibleCount != 0 )
                 OnTabVisibleCountChanged(EventArgs.Empty);
             }
         }
@@ -2744,7 +2744,7 @@ namespace ComponentFactory.Krypton.Navigator
             // Start searching from the provided page
             KryptonPage start = begin;
 
-            // Process all pages except the current one to find available pape
+            // Process all pages except the current one to find available page
             for (int i = 0; i < (Pages.Count - 1); i++)
             {
                 KryptonPage next;
@@ -2841,7 +2841,7 @@ namespace ComponentFactory.Krypton.Navigator
                 if ((visible && (Pages.VisibleCount != Pages.Count)) || (!visible && (Pages.VisibleCount > 0)))
                 {
                     // Do not allow page visible change event processing because it causes visual changes
-                    // when we want to make all the changes in one go before showign the visual update
+                    // when we want to make all the changes in one go before showing the visual update
                     _ignorePageVisibleChange = true;
 
                     // Change to page visibility means we remove the popup page
@@ -2973,7 +2973,7 @@ namespace ComponentFactory.Krypton.Navigator
             {
                 // Do not show tooltips when the form we are in does not have focus
                 Form topForm = FindForm();
-                if ((topForm != null) && !topForm.ContainsFocus)
+                if (topForm?.ContainsFocus == false)
                 {
                     return;
                 }
@@ -3065,7 +3065,7 @@ namespace ComponentFactory.Krypton.Navigator
             {
                 // We do not provide hover support when the form does not have the focus
                 Form topForm = FindForm();
-                if ((topForm != null) && !topForm.ContainsFocus)
+                if (topForm?.ContainsFocus == false)
                 {
                     return;
                 }
@@ -3215,7 +3215,7 @@ namespace ComponentFactory.Krypton.Navigator
                                     if (!(nextInside && ViewBuilder.IsTabStripMode))
                                     {
                                         // If the control is not inside this navigator instance or if it 
-                                        // is inside this naviagator but it is also inside the selected page 
+                                        // is inside this navigator but it is also inside the selected page 
                                         // then maybe it can be selected.
                                         if (!nextInside || (nextInside && (SelectedPage != null) && SelectedPage.Contains(next)))
                                         {
@@ -3316,7 +3316,7 @@ namespace ComponentFactory.Krypton.Navigator
             // Cast to correct type
             KryptonContextMenuItem menuItem = (KryptonContextMenuItem)sender;
 
-            // Get the page this menu item referencs
+            // Get the page this menu item references
             KryptonPage page = (KryptonPage)menuItem.Tag;
 
             // Try and select the page if we are allowed selected pages
