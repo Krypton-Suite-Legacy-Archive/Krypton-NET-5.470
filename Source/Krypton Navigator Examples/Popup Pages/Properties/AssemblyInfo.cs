@@ -17,9 +17,9 @@ using System.Security.Permissions;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyVersion("5.470.5002.0")]
-[assembly: AssemblyFileVersion("5.470.5002.0")]
-[assembly: AssemblyInformationalVersion("5.470.5002.0")]
+[assembly: AssemblyVersion("2019.3.5003.9")]
+[assembly: AssemblyFileVersion("19.3.5003.9")]
+[assembly: AssemblyInformationalVersion("2019.3.5003.9")]
 [assembly: AssemblyCopyright("© Component Factory Pty Ltd 2012 - 2019. All rights reserved.")]
 [assembly: AssemblyProduct("Popup Pages")]
 [assembly: AssemblyDefaultAlias("PopupPages.dll")]

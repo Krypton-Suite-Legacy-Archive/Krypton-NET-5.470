@@ -405,8 +405,9 @@ namespace MemoEditor
         private void kryptonWorkspace_WorkspaceCellAdding(object sender, WorkspaceCellEventArgs e)
         {
             // Do not show any navigator level buttons
-            e.Cell.Button.CloseButtonDisplay = ButtonDisplay.Hide;
-            e.Cell.Button.ButtonDisplayLogic = ButtonDisplayLogic.None;
+            //e.Cell.Button.CloseButtonDisplay = ButtonDisplay.Hide;
+            //e.Cell.Button.ButtonDisplayLogic = ButtonDisplayLogic.None;
+            e.Cell.Button.CloseButtonAction = CloseButtonAction.RemovePageAndDispose;
 
             // Do not need the secondary header for header modes
             e.Cell.Header.HeaderVisibleSecondary = false;
@@ -439,6 +440,7 @@ namespace MemoEditor
         {
             // Tell the cell instance to not perform any actions with the page, we will remove it if we need to
             e.Action = CloseButtonAction.None;
+            e.Action = CloseButtonAction.RemovePageAndDispose;
 
             // Use our own routine to close the page, so user is asked to save changes if required
             CloseMemoPage(e.Item);

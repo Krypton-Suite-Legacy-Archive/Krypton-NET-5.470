@@ -239,7 +239,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Check if the layout is dirty and if so perform the layout now.
         /// </summary>
-        /// <param name="viewLayout">Shoudl the view be layed out as well.</param>
+        /// <param name="viewLayout">Should the view be layed out as well.</param>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public void CheckPerformLayout(bool viewLayout)

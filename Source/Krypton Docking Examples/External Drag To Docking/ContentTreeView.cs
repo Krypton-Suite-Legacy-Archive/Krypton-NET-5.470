@@ -1,23 +1,21 @@
 ﻿// *****************************************************************************
 // 
-//  © Component Factory Pty Ltd 2012 - 2019 - 2019. All rights reserved.
+//  © Component Factory Pty Ltd 2012 - 2019. All rights reserved.
 //	The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, PO Box 1504, 
 //  Glen Waverley, Vic 3150, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.5.0.0 	www.ComponentFactory.com
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
+//  Version 5.470.0.0  www.ComponentFactory.com
+//
 // *****************************************************************************
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
-using ComponentFactory.Krypton.Navigator;
-using ComponentFactory.Krypton.Workspace;
+
 using ComponentFactory.Krypton.Docking;
+using ComponentFactory.Krypton.Navigator;
 
 namespace ExternalDragToDocking
 {
@@ -113,8 +111,8 @@ namespace ExternalDragToDocking
                     Application.DoEvents();
 
                     // We want to know when the drag drop operating is finished
-                    Form1.DockingManager.DoDragDropEnd += new EventHandler(kryptonDockingManager_DoDragDropFinished);
-                    Form1.DockingManager.DoDragDropQuit += new EventHandler(kryptonDockingManager_DoDragDropFinished);
+                    Form1.DockingManager.DoDragDropEnd += kryptonDockingManager_DoDragDropFinished;
+                    Form1.DockingManager.DoDragDropQuit += kryptonDockingManager_DoDragDropFinished;
 
                     // Drag the new floating window around
                     Form1.DockingManager.DoDragDrop(MousePosition, pt, dragPage, fw);
@@ -127,8 +125,8 @@ namespace ExternalDragToDocking
         private void kryptonDockingManager_DoDragDropFinished(object sender, EventArgs e)
         {
             // Remember to unhook from no longer needed events
-            Form1.DockingManager.DoDragDropEnd -= new EventHandler(kryptonDockingManager_DoDragDropFinished);
-            Form1.DockingManager.DoDragDropQuit -= new EventHandler(kryptonDockingManager_DoDragDropFinished);
+            Form1.DockingManager.DoDragDropEnd -= kryptonDockingManager_DoDragDropFinished;
+            Form1.DockingManager.DoDragDropQuit -= kryptonDockingManager_DoDragDropFinished;
 
             // Drag has finished so set drag node back to null
             _dragNode = null;

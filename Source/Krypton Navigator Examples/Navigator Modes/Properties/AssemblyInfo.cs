@@ -17,10 +17,10 @@ using System.Security.Permissions;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyVersion("5.470.5003.0")]
-[assembly: AssemblyFileVersion("5.470.5003.0")]
+[assembly: AssemblyVersion("2019.3.5004.9")]
+[assembly: AssemblyFileVersion("19.3.5004.9")]
 [assembly: AssemblyCopyright("© Component Factory Pty Ltd 2012 - 2019. All rights reserved.")]
-[assembly: AssemblyInformationalVersion("5.470.5003.0")]
+[assembly: AssemblyInformationalVersion("2019.3.5004.9")]
 [assembly: AssemblyProduct("Navigator Modes")]
 [assembly: AssemblyDefaultAlias("NavigatorModes.dll")]
 [assembly: AssemblyTitle("Navigator Modes")]
