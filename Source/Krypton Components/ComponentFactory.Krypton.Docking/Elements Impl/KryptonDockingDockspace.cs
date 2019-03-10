@@ -10,13 +10,14 @@
 // *****************************************************************************
 
 using System;
-using System.Xml;
-using System.Drawing;
-using System.Windows.Forms;
 using System.Collections.Generic;
 using System.ComponentModel;
-using ComponentFactory.Krypton.Workspace;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Xml;
+
 using ComponentFactory.Krypton.Navigator;
+using ComponentFactory.Krypton.Workspace;
 
 namespace ComponentFactory.Krypton.Docking
 {
@@ -279,9 +280,9 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Raises the type specific cell adding event determinated by the derived class.
+        /// Raises the type specific cell adding event determined by the derived class.
         /// </summary>
-        /// <param name="cell">Referecence to new cell being added.</param>
+        /// <param name="cell">Reference to new cell being added.</param>
         protected override void RaiseCellAdding(KryptonWorkspaceCell cell)
         {
             // Generate event so the dockspace cell customization can be performed.
@@ -294,9 +295,9 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Raises the type specific cell removed event determinated by the derived class.
+        /// Raises the type specific cell removed event determined by the derived class.
         /// </summary>
-        /// <param name="cell">Referecence to an existing cell being removed.</param>
+        /// <param name="cell">Reference to an existing cell being removed.</param>
         protected override void RaiseCellRemoved(KryptonWorkspaceCell cell)
         {
             // Generate event so the dockspace cell customization can be reversed.
@@ -482,7 +483,7 @@ namespace ComponentFactory.Krypton.Docking
 
         private void OnDockspaceDropDownClicked(object sender, CancelDropDownEventArgs e)
         {
-            // Generate event so that the appropriate context menu options are preseted and actioned
+            // Generate event so that the appropriate context menu options are presented and actioned
             KryptonDockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {

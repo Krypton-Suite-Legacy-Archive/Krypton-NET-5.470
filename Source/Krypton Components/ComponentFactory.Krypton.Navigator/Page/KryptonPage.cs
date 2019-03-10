@@ -821,8 +821,9 @@ namespace ComponentFactory.Krypton.Navigator
         /// <summary>
         /// Gets and sets the preferred size for the page when inside an auto hidden slide panel.
         /// </summary>
-        [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
+        [Category("Appearance")]
+        [Description("When used within a KryptonDockingSpace,\nGive a hint on the Minimum Initial size needed")]
         public virtual Size AutoHiddenSlideSize
         {
             get => _autoHiddenSlideSize;

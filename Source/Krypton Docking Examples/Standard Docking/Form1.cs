@@ -43,15 +43,15 @@ namespace StandardDocking
 
         private KryptonPage NewInput()          
         { 
-            return NewPage("Input ", 1, new ContentInput()); 
+            return NewPage("Input ", 1, new ContentInput(), null); 
         }
         
         private KryptonPage NewPropertyGrid()   
         { 
-            return NewPage("Properties ", 2, new ContentPropertyGrid()); 
+            return NewPage("Properties ", 2, new ContentPropertyGrid(), new Size(300, 300)); 
         }
 
-        private KryptonPage NewPage(string name, int image, Control content)
+        private KryptonPage NewPage(string name, int image, Control content, Size ?autoHiddenSizeHint = null)
         {
             // Create new page with title and image
             KryptonPage p = new KryptonPage
@@ -67,6 +67,10 @@ namespace StandardDocking
             p.Controls.Add(content);
 
             _count++;
+            if (autoHiddenSizeHint.HasValue)
+            {
+                p.AutoHiddenSlideSize = autoHiddenSizeHint.Value;
+            }
             return p;
         }
 
