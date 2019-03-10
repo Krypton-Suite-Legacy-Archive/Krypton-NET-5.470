@@ -13,6 +13,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Media;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit.Properties;
@@ -40,53 +41,41 @@ namespace ComponentFactory.Krypton.Toolkit
             #endregion
 
             #region Identity
-            /// <summary>
-            /// Initialize a new instance of the HelpInfo class.
-            /// </summary>
-            public HelpInfo()
-            {
-            }
-
-            /// <summary>
-            /// Initialize a new instance of the HelpInfo class.
-            /// </summary>
-            /// <param name="helpFilePath">Value for HelpFilePath.</param>
-            public HelpInfo(string helpFilePath)
-            {
-                HelpFilePath = helpFilePath;
-            }
 
             /// <summary>
             /// Initialize a new instance of the HelpInfo class.
             /// </summary>
             /// <param name="helpFilePath">Value for HelpFilePath.</param>
             /// <param name="keyword">Value for Keyword</param>
-            public HelpInfo(string helpFilePath, string keyword)
+            public HelpInfo(string helpFilePath = null, string keyword = null)
+            :this(helpFilePath, keyword, !string.IsNullOrWhiteSpace(keyword) ? HelpNavigator.Topic : HelpNavigator.TableOfContents, null )
+            {
+
+            }
+
+            /// <summary>
+            /// Initialize a new instance of the HelpInfo class.
+            /// </summary>
+            /// <param name="helpFilePath">Value for HelpFilePath.</param>
+            /// <param name="navigator">Value for Navigator</param>
+            /// <param name="param"></param>
+            public HelpInfo(string helpFilePath, HelpNavigator navigator, object param = null)
+                :this(helpFilePath, null, navigator, param )
+            {
+
+            }
+
+            /// <summary>
+            /// Initialize a new instance of the HelpInfo class.
+            /// </summary>
+            /// <param name="helpFilePath">Value for HelpFilePath.</param>
+            /// <param name="navigator">Value for Navigator</param>
+            /// <param name="keyword">Value for Keyword</param>
+            /// <param name="param"></param>
+            private HelpInfo(string helpFilePath, string keyword, HelpNavigator navigator, object param)
             {
                 HelpFilePath = helpFilePath;
                 Keyword = keyword;
-            }
-
-            /// <summary>
-            /// Initialize a new instance of the HelpInfo class.
-            /// </summary>
-            /// <param name="helpFilePath">Value for HelpFilePath.</param>
-            /// <param name="navigator">Value for Navigator</param>
-            public HelpInfo(string helpFilePath, HelpNavigator navigator)
-            {
-                HelpFilePath = helpFilePath;
-                Navigator = navigator;
-            }
-
-            /// <summary>
-            /// Initialize a new instance of the HelpInfo class.
-            /// </summary>
-            /// <param name="helpFilePath">Value for HelpFilePath.</param>
-            /// <param name="navigator">Value for Navigator</param>
-            /// <param name="param">Value for Param</param>
-            public HelpInfo(string helpFilePath, HelpNavigator navigator, object param)
-            {
-                HelpFilePath = helpFilePath;
                 Navigator = navigator;
                 Param = param;
             }
@@ -124,6 +113,13 @@ namespace ComponentFactory.Krypton.Toolkit
             #endregion
 
             #region Identity
+            public MessageButton()
+            {
+                IgnoreAltF4 = false;
+                Visible = false;
+                Enabled = false;
+            }
+
             /// <summary>
             /// Gets and sets the ignoring of Alt+F4
             /// </summary>
@@ -175,7 +171,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private readonly MessageBoxButtons _buttons;
         private readonly MessageBoxIcon _icon;
         private readonly MessageBoxDefaultButton _defaultButton;
-        private MessageBoxOptions _options; // TODO: What is this used for ?
+        private MessageBoxOptions _options; // TODO: What is this used for ? e.g. MessageBoxOptions.RTL
         private KryptonPanel _panelMessage;
         private KryptonPanel _panelMessageText;
         private KryptonWrapLabel _messageText;
@@ -185,9 +181,11 @@ namespace ComponentFactory.Krypton.Toolkit
         private MessageButton _button1;
         private MessageButton _button2;
         private MessageButton _button3;
+        private MessageButton _button4;
         private KryptonBorderEdge _borderEdge;
-        private HelpInfo _helpInfo; // TODO: What is this used for ?
-
+        private readonly HelpInfo _helpInfo;
+        // If help information provided or we are not a service/default desktop application then grab an owner for showing the message box
+        private IWin32Window _showOwner;
         #endregion
 
         #region Identity
@@ -209,7 +207,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _defaultButton = defaultButton;
             _options = options;
             _helpInfo = helpInfo;
-
+            _showOwner = showOwner;
             // Create the form contents
             InitializeComponent();
 
@@ -416,14 +414,15 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="icon">One of the System.Windows.Forms.MessageBoxIcon values that specifies which icon to display in the message box.</param>
         /// <param name="defaultButton">One of the System.Windows.Forms.MessageBoxDefaultButton values that specifies the default button for the message box.</param>
         /// <param name="options">One of the System.Windows.Forms.MessageBoxOptions values that specifies which display and association options will be used for the message box. You may pass in 0 if you wish to use the defaults.</param>
+        /// <param name="displayHelpButton">Displays a message box with the specified text, caption, buttons, icon, default button, options, and Help button.</param>
         /// <param name="showCtrlCopy">Show extraText in title. If null(default) then only when Warning or Error icon is used.</param>
         /// <returns>One of the System.Windows.Forms.DialogResult values.</returns>
-        public static DialogResult Show(IWin32Window owner, 
-                                        string text, string caption, 
-                                        MessageBoxButtons buttons, MessageBoxIcon icon, 
-                                        MessageBoxDefaultButton defaultButton, MessageBoxOptions options, bool? showCtrlCopy = null)
+        public static DialogResult Show(IWin32Window owner, string text, string caption,
+            MessageBoxButtons buttons, MessageBoxIcon icon,
+            MessageBoxDefaultButton defaultButton, MessageBoxOptions options,
+            bool displayHelpButton, bool? showCtrlCopy = null)
         {
-            return InternalShow(owner, text, caption, buttons, icon, defaultButton, options, null, showCtrlCopy);
+            return InternalShow(null, text, caption, buttons, icon, defaultButton, options, displayHelpButton ? new HelpInfo() : null, showCtrlCopy);
         }
 
         /// <summary>
@@ -650,7 +649,6 @@ namespace ComponentFactory.Krypton.Toolkit
                 throw new ArgumentException(@"Cannot show message box from a service with help specified", nameof(options));
             }
 
-            // If help information provided or we are not a service/default desktop application then grab an owner for showing the message box
             IWin32Window showOwner = null;
             if ((helpInfo != null) || ((options & (MessageBoxOptions.ServiceNotification | MessageBoxOptions.DefaultDesktopOnly)) == 0))
             {
@@ -686,7 +684,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
 
-            if (showCtrlCopy != null && showCtrlCopy.Value)
+            if (showCtrlCopy == true)
             {
                 TextExtra = @"Ctrl+c to copy";
             }
@@ -733,21 +731,28 @@ namespace ComponentFactory.Krypton.Toolkit
                 case MessageBoxButtons.OK:
                     _button1.Text = KryptonManager.Strings.OK;
                     _button1.DialogResult = DialogResult.OK;
-                    _button2.Visible = _button3.Visible = false;
+                    _button1.Visible = true;
+                    _button1.Enabled = true;
                     break;
                 case MessageBoxButtons.OKCancel:
                     _button1.Text = KryptonManager.Strings.OK;
                     _button2.Text = KryptonManager.Strings.Cancel;
                     _button1.DialogResult = DialogResult.OK;
                     _button2.DialogResult = DialogResult.Cancel;
-                    _button3.Visible = false;
+                    _button1.Visible = true;
+                    _button1.Enabled = true;
+                    _button2.Visible = true;
+                    _button2.Enabled = true;
                     break;
                 case MessageBoxButtons.YesNo:
                     _button1.Text = KryptonManager.Strings.Yes;
                     _button2.Text = KryptonManager.Strings.No;
                     _button1.DialogResult = DialogResult.Yes;
                     _button2.DialogResult = DialogResult.No;
-                    _button3.Visible = false;
+                    _button1.Visible = true;
+                    _button1.Enabled = true;
+                    _button2.Visible = true;
+                    _button2.Enabled = true;
                     ControlBox = false;
                     break;
                 case MessageBoxButtons.YesNoCancel:
@@ -757,13 +762,22 @@ namespace ComponentFactory.Krypton.Toolkit
                     _button1.DialogResult = DialogResult.Yes;
                     _button2.DialogResult = DialogResult.No;
                     _button3.DialogResult = DialogResult.Cancel;
+                    _button1.Visible = true;
+                    _button1.Enabled = true;
+                    _button2.Visible = true;
+                    _button2.Enabled = true;
+                    _button3.Visible = true;
+                    _button3.Enabled = true;
                     break;
                 case MessageBoxButtons.RetryCancel:
                     _button1.Text = KryptonManager.Strings.Retry;
                     _button2.Text = KryptonManager.Strings.Cancel;
                     _button1.DialogResult = DialogResult.Retry;
                     _button2.DialogResult = DialogResult.Cancel;
-                    _button3.Visible = false;
+                    _button1.Visible = true;
+                    _button1.Enabled = true;
+                    _button2.Visible = true;
+                    _button2.Enabled = true;
                     break;
                 case MessageBoxButtons.AbortRetryIgnore:
                     _button1.Text = KryptonManager.Strings.Abort;
@@ -772,6 +786,12 @@ namespace ComponentFactory.Krypton.Toolkit
                     _button1.DialogResult = DialogResult.Abort;
                     _button2.DialogResult = DialogResult.Retry;
                     _button3.DialogResult = DialogResult.Ignore;
+                    _button1.Visible = true;
+                    _button1.Enabled = true;
+                    _button2.Visible = true;
+                    _button2.Enabled = true;
+                    _button3.Visible = true;
+                    _button3.Enabled = true;
                     ControlBox = false;
                     break;
             }
@@ -782,6 +802,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 _button1.IgnoreAltF4 = true;
                 _button2.IgnoreAltF4 = true;
                 _button3.IgnoreAltF4 = true;
+                _button4.IgnoreAltF4 = true;
             }
         }
 
@@ -800,6 +821,76 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void UpdateHelp()
         {
+            if (_helpInfo == null)
+            {
+                return;
+            }
+
+            MessageButton helpButton;
+            switch (_buttons)
+            {
+                case MessageBoxButtons.OK:
+                    helpButton = _button2;
+                    break;
+                case MessageBoxButtons.OKCancel:
+                case MessageBoxButtons.YesNo:
+                case MessageBoxButtons.RetryCancel:
+                    helpButton = _button3;
+                    break;
+                case MessageBoxButtons.AbortRetryIgnore:
+                case MessageBoxButtons.YesNoCancel:
+                    helpButton = _button4;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            if (helpButton != null)
+            {
+                helpButton.Visible = true;
+                helpButton.Enabled = true;
+                helpButton.Text = KryptonManager.Strings.Help;
+                helpButton.KeyPress += (sender, args) => LaunchHelp();
+                helpButton.Click += (sender, args) => LaunchHelp();
+            }
+        }
+
+        /// <summary>
+        /// When the user clicks the Help button, the Help file specified in the helpFilePath parameter
+        /// is opened and the Help keyword topic identified by the keyword parameter is displayed.
+        /// The form that owns the message box (or the active form) also receives the HelpRequested event.
+        /// </summary>
+        private void LaunchHelp()
+        {
+            try
+            {
+                Control control = Control.FromHandle(_showOwner.Handle);
+
+                MethodInfo mInfoMethod = control.GetType().GetMethod(@"OnHelpRequested", BindingFlags.Instance | BindingFlags.NonPublic,
+                    Type.DefaultBinder, new[] { typeof(HelpEventArgs) }, null);
+                if (mInfoMethod != null)
+                {
+                    mInfoMethod.Invoke(control, new object [] {new HelpEventArgs(MousePosition)});
+                }
+                if (string.IsNullOrWhiteSpace(_helpInfo.HelpFilePath))
+                {
+                    return;
+                }
+
+                if (!string.IsNullOrWhiteSpace(_helpInfo.Keyword))
+                {
+                    Help.ShowHelp(control, _helpInfo.HelpFilePath, _helpInfo.Keyword);
+                }
+                else
+                {
+                    Help.ShowHelp(control, _helpInfo.HelpFilePath, _helpInfo.Navigator, _helpInfo.Param);
+                }
+            }
+            catch 
+            {
+                // Do nothing if failure to send to Parent
+            }
+
         }
 
         private void UpdateSizing(IWin32Window showOwner)
@@ -872,66 +963,56 @@ namespace ComponentFactory.Krypton.Toolkit
             Size maxButtonSize = new Size(button1Size.Width + GAP, button1Size.Height);
 
             // If Button2 is visible
-            switch (_buttons)
+            if (_button2.Enabled)
             {
-                case MessageBoxButtons.OKCancel:
-                case MessageBoxButtons.YesNo:
-                case MessageBoxButtons.YesNoCancel:
-                case MessageBoxButtons.RetryCancel:
-                case MessageBoxButtons.AbortRetryIgnore:
-                    {
-                        numButtons++;
-                        Size button2Size = _button2.GetPreferredSize(Size.Empty);
-                        maxButtonSize.Width = Math.Max(maxButtonSize.Width, button2Size.Width + GAP);
-                        maxButtonSize.Height = Math.Max(maxButtonSize.Height, button2Size.Height);
-                    }
-                    break;
+                numButtons++;
+                Size button2Size = _button2.GetPreferredSize(Size.Empty);
+                maxButtonSize.Width = Math.Max(maxButtonSize.Width, button2Size.Width + GAP);
+                maxButtonSize.Height = Math.Max(maxButtonSize.Height, button2Size.Height);
             }
 
             // If Button3 is visible
-            switch (_buttons)
+            if ( _button3.Enabled)
             {
-                case MessageBoxButtons.YesNoCancel:
-                case MessageBoxButtons.AbortRetryIgnore:
-                    {
-                        numButtons++;
-                        Size button3Size = _button2.GetPreferredSize(Size.Empty);
-                        maxButtonSize.Width = Math.Max(maxButtonSize.Width, button3Size.Width + GAP);
-                        maxButtonSize.Height = Math.Max(maxButtonSize.Height, button3Size.Height);
-                    }
-                    break;
+                numButtons++;
+                Size button3Size = _button3.GetPreferredSize(Size.Empty);
+                maxButtonSize.Width = Math.Max(maxButtonSize.Width, button3Size.Width + GAP);
+                maxButtonSize.Height = Math.Max(maxButtonSize.Height, button3Size.Height);
+            }
+            // If Button4 is visible
+            if (_button4.Enabled)
+            {
+                numButtons++;
+                Size button4Size = _button4.GetPreferredSize(Size.Empty);
+                maxButtonSize.Width = Math.Max(maxButtonSize.Width, button4Size.Width + GAP);
+                maxButtonSize.Height = Math.Max(maxButtonSize.Height, button4Size.Height);
             }
 
             // Start positioning buttons 10 pixels from right edge
             int right = _panelButtons.Right - GAP;
 
-            // If Button3 is visible
-            switch (_buttons)
+            // If Button4 is visible
+            if (_button4.Enabled)
             {
-                case MessageBoxButtons.YesNoCancel:
-                case MessageBoxButtons.AbortRetryIgnore:
-                    {
-                        _button3.Location = new Point(right - maxButtonSize.Width, GAP);
-                        _button3.Size = maxButtonSize;
-                        right -= maxButtonSize.Width + GAP;
-                    }
-                    break;
+                _button4.Location = new Point(right - maxButtonSize.Width, GAP);
+                _button4.Size = maxButtonSize;
+                right -= maxButtonSize.Width + GAP;
+            }
+
+            // If Button3 is visible
+            if (_button3.Enabled)
+            {
+                _button3.Location = new Point(right - maxButtonSize.Width, GAP);
+                _button3.Size = maxButtonSize;
+                right -= maxButtonSize.Width + GAP;
             }
 
             // If Button2 is visible
-            switch (_buttons)
+            if (_button2.Enabled)
             {
-                case MessageBoxButtons.OKCancel:
-                case MessageBoxButtons.YesNo:
-                case MessageBoxButtons.YesNoCancel:
-                case MessageBoxButtons.RetryCancel:
-                case MessageBoxButtons.AbortRetryIgnore:
-                    {
-                        _button2.Location = new Point(right - maxButtonSize.Width, GAP);
-                        _button2.Size = maxButtonSize;
-                        right -= maxButtonSize.Width + GAP;
-                    }
-                    break;
+                _button2.Location = new Point(right - maxButtonSize.Width, GAP);
+                _button2.Size = maxButtonSize;
+                right -= maxButtonSize.Width + GAP;
             }
 
             // Button1 is always visible
@@ -966,13 +1047,18 @@ namespace ComponentFactory.Krypton.Toolkit
                     sb.AppendLine("---------------------------");
                     sb.Append(_button1.Text);
                     sb.Append("   ");
-                    if (_button2.Visible)
+                    if (_button2.Enabled)
                     {
                         sb.Append(_button2.Text);
                         sb.Append("   ");
-                        if (_button3.Visible)
+                        if (_button3.Enabled)
                         {
                             sb.Append(_button3.Text);
+                            sb.Append("   ");
+                        }
+                        if (_button4.Enabled)
+                        {
+                            sb.Append(_button4.Text);
                             sb.Append("   ");
                         }
                     }
@@ -994,6 +1080,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _messageIcon = new PictureBox();
             _panelButtons = new KryptonPanel();
             _borderEdge = new KryptonBorderEdge();
+            _button4 = new MessageButton();
             _button3 = new MessageButton();
             _button1 = new MessageButton();
             _button2 = new MessageButton();
@@ -1068,6 +1155,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // _panelButtons
             // 
             _panelButtons.Controls.Add(_borderEdge);
+            _panelButtons.Controls.Add(_button4);
             _panelButtons.Controls.Add(_button3);
             _panelButtons.Controls.Add(_button1);
             _panelButtons.Controls.Add(_button2);
@@ -1087,6 +1175,20 @@ namespace ComponentFactory.Krypton.Toolkit
             _borderEdge.Name = "_borderEdge";
             _borderEdge.Size = new Size(156, 1);
             _borderEdge.Text = @"kryptonBorderEdge1";
+            // 
+            // _button4
+            // 
+            _button4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            _button4.AutoSize = true;
+            _button4.IgnoreAltF4 = false;
+            _button4.Location = new Point(156, 0);
+            _button4.Margin = new Padding(0);
+            _button4.MinimumSize = new Size(50, 26);
+            _button4.Name = "_button4";
+            _button4.Size = new Size(50, 26);
+            _button4.TabIndex = 2;
+            _button4.Values.Text = @"B4";
+            _button4.KeyDown += button_keyDown;
             // 
             // _button3
             // 
