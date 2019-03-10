@@ -89,7 +89,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <returns>Reference to docking element that handles the new dockspace.</returns>
         public KryptonDockingDockspace AppendDockspace(string name)
         {
-            return CreateAndInsertDockspace(Count, name, new Size(200, 200));
+            return AppendDockspace(name, new Size(200, 200));
         }
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <returns>Reference to docking element that handles the new dockspace.</returns>
         public KryptonDockingDockspace InsertDockspace(int index, string name)
         {
-            return CreateAndInsertDockspace(index, name, new Size(200, 200));
+            return InsertDockspace(index, name, new Size(200, 200));
         }
 
         /// <summary>
