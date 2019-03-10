@@ -64,5 +64,22 @@ namespace TestApp
 
             kbtnApplyTheme.Enabled = false;
         }
+
+        private void kryptonButton2_Click(object sender, EventArgs e)
+        {
+            //KryptonMessageBox.Show(this, "Press the Help Button", "Help From the MessageBox", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1,
+            //    MessageBoxOptions.RightAlign, true);
+
+            KryptonMessageBox.Show(this, "Press the Help Button", "Help From the MessageBox",
+                MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.RightAlign, @"..\..\..\..\..\Help\Krypton Toolkit Help.chm", HelpNavigator.KeywordIndex, @"Overview");
+
+
+        }
+
+        private void Form1_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            KryptonMessageBox.Show(this, $@"At Mouse Position {hlpevent.MousePos}", @"HelpRequested");
+        }
     }
 }

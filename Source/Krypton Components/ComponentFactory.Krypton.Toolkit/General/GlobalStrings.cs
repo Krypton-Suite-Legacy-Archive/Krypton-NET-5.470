@@ -10,6 +10,9 @@
 // *****************************************************************************
 
 using System.ComponentModel;
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Global
+// ReSharper disable MemberCanBeInternal
 
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -31,6 +34,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private const string DEFAULT_IGNORE = "Ignore";
         private const string DEFAULT_CLOSE = "Close";
         private const string DEFAULT_TODAY = "Today";
+        private const string DEFAULT_HELP = "Help";
 
         #endregion
 
@@ -38,10 +42,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the Clipping class.
-		/// </summary>
+        /// </summary>
         public GlobalStrings()
         {
             Reset();
@@ -69,7 +73,8 @@ namespace ComponentFactory.Krypton.Toolkit
                                  Retry.Equals(DEFAULT_RETRY) &&
                                  Ignore.Equals(DEFAULT_IGNORE) &&
                                  Close.Equals(DEFAULT_CLOSE) &&
-                                 Today.Equals(DEFAULT_CLOSE);
+                                 Today.Equals(DEFAULT_CLOSE) &&
+                                Help.Equals(DEFAULT_HELP);
 
         /// <summary>
         /// Reset all strings to default values.
@@ -85,6 +90,7 @@ namespace ComponentFactory.Krypton.Toolkit
             Ignore = DEFAULT_IGNORE;
             Close = DEFAULT_CLOSE;
             Today = DEFAULT_TODAY;
+            Help = DEFAULT_HELP;
         }
 
         /// <summary>
@@ -177,6 +183,15 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public string Today { get; set; }
 
+        /// <summary>
+        /// Gets and sets the Close string used in calendars.
+        /// </summary>
+        [Localizable(true)]
+        [Category("Visuals")]
+        [Description("Help string used for Message Box Buttons.")]
+        [DefaultValue("Help")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public string Help { get; set; }
         #endregion
     }
 }

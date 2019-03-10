@@ -148,7 +148,7 @@
             // 
             this.kryptonTextBox1.Location = new System.Drawing.Point(25, 59);
             this.kryptonTextBox1.Name = "kryptonTextBox1";
-            this.kryptonTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.kryptonTextBox1.Size = new System.Drawing.Size(100, 20);
             this.kryptonTextBox1.TabIndex = 4;
             this.kryptonTextBox1.Text = "kryptonTextBox1";
             this.kryptonTextBox1.ToolTipValues.Description = "Please type carefully -> Right";
@@ -204,6 +204,7 @@
             this.kryptonButton2.ToolTipValues.ToolTipPosition = popupPositionValues8;
             this.kryptonButton2.ToolTipValues.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.KeyTip;
             this.kryptonButton2.Values.Text = "Test Movement of\r\ntooltip to other \r\ncontrol";
+            this.kryptonButton2.Click += new System.EventHandler(this.kryptonButton2_Click);
             // 
             // kryptonButton1
             // 
@@ -238,10 +239,12 @@
             this.buttonSpecAny1});
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.kryptonPanel1);
+            this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.Form1_HelpRequested);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
