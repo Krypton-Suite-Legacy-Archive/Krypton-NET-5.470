@@ -10,6 +10,16 @@
 
 =======
 
+## 2019-03-11 Build 791
+* Fix for [#39](https://github.com/Wagnerp/Krypton-NET-5.470/issues/39)
+* Fix for [#74](https://github.com/Wagnerp/Krypton-NET-5.470/issues/74)
+* Fix for [#93](https://github.com/Wagnerp/Krypton-NET-5.470/issues/93)
+* Fix for [#97](https://github.com/Wagnerp/Krypton-NET-5.470/issues/97)
+* Now you are required to accept the license agreement when downloading new NuGet package versions
+* Build 791 (build date Monday 11th March, 2019) is now available on NuGet
+
+=======
+
 ## 2019-03-04 Build 770
 * You can now use `Krypton Tooltips` on listboxes and treeviews [#90](https://github.com/Wagnerp/Krypton-NET-5.470/issues/90)
 * `ThemeManager.cs` is now available for ribbon controls
