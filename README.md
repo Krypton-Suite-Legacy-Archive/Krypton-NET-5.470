@@ -10,6 +10,11 @@
 
 =======
 
+## 2019-03-13 Build 791.1
+* Add `*.xml` files to NuGet package, as per [#97](https://github.com/Wagnerp/Krypton-NET-5.470/issues/97)
+
+=======
+
 ## 2019-03-11 Build 791
 * Fix for [#39](https://github.com/Wagnerp/Krypton-NET-5.470/issues/39)
 * Fix for [#74](https://github.com/Wagnerp/Krypton-NET-5.470/issues/74)
