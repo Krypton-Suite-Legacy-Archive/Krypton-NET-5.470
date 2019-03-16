@@ -10,14 +10,15 @@
 // *****************************************************************************
 
 using System;
-using System.Xml;
-using System.Drawing;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
+using System.Xml;
+
+using ComponentFactory.Krypton.Navigator;
 using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Workspace;
-using ComponentFactory.Krypton.Navigator;
 
 namespace ComponentFactory.Krypton.Docking
 {
@@ -71,20 +72,7 @@ namespace ComponentFactory.Krypton.Docking
 
             if (pages != null)
             {
-                Size currentHintSize = SpaceControl.Size;
-                foreach (Size newPageSize in pages.Select(page => page.AutoHiddenSlideSize))
-                {
-                    if (currentHintSize.Width < newPageSize.Width)
-                    {
-                        currentHintSize.Width = newPageSize.Width;
-                    }
-                    if (currentHintSize.Height < newPageSize.Height)
-                    {
-                        currentHintSize.Height = newPageSize.Height;
-                    }
-                }
-
-                SpaceControl.Size = currentHintSize;
+                ObserveAutoHiddenSlideSize(pages);
                 // If there is no active cell...
                 KryptonWorkspaceCell cell = SpaceControl.ActiveCell;
                 if (cell == null)
@@ -97,6 +85,25 @@ namespace ComponentFactory.Krypton.Docking
                 // Add all provided pages into the cell
                 cell.Pages.AddRange(pages);
             }
+        }
+
+        private void ObserveAutoHiddenSlideSize(KryptonPage[] pages)
+        {
+            Size currentHintSize = SpaceControl.Size;
+            foreach (Size newPageSize in pages.Select(page => page.AutoHiddenSlideSize))
+            {
+                if (currentHintSize.Width < newPageSize.Width)
+                {
+                    currentHintSize.Width = newPageSize.Width;
+                }
+
+                if (currentHintSize.Height < newPageSize.Height)
+                {
+                    currentHintSize.Height = newPageSize.Height;
+                }
+            }
+
+            SpaceControl.Size = currentHintSize;
         }
 
         /// <summary>
@@ -146,19 +153,7 @@ namespace ComponentFactory.Krypton.Docking
             // Append all the pages to end of the cell pages collection
             if (pages != null)
             {
-                Size currentHintSize = SpaceControl.Size;
-                foreach (Size newPageSize in pages.Select(page => page.AutoHiddenSlideSize))
-                {
-                    if (currentHintSize.Width < newPageSize.Width)
-                    {
-                        currentHintSize.Width = newPageSize.Width;
-                    }
-                    if (currentHintSize.Height < newPageSize.Height)
-                    {
-                        currentHintSize.Height = newPageSize.Height;
-                    }
-                }
-                SpaceControl.Size = currentHintSize;
+                ObserveAutoHiddenSlideSize(pages);
                 cell.Pages.AddRange(pages);
             }
         }
@@ -211,20 +206,8 @@ namespace ComponentFactory.Krypton.Docking
 
             if (pages != null)
             {
+                ObserveAutoHiddenSlideSize(pages);
                 // Insert all the pages in sequence starting at the provided index
-                Size currentHintSize = SpaceControl.Size;
-                foreach (Size newPageSize in pages.Select(page => page.AutoHiddenSlideSize))
-                {
-                    if (currentHintSize.Width < newPageSize.Width)
-                    {
-                        currentHintSize.Width = newPageSize.Width;
-                    }
-                    if (currentHintSize.Height < newPageSize.Height)
-                    {
-                        currentHintSize.Height = newPageSize.Height;
-                    }
-                }
-                SpaceControl.Size = currentHintSize;
                 foreach (KryptonPage page in pages)
                 {
                     cell.Pages.Insert(index++, page);
@@ -256,7 +239,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates an action request down the hierarchy of docking elements.
+        /// Propagates an action request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="action">Action that is requested to be performed.</param>
         /// <param name="uniqueNames">Array of unique names of the pages the action relates to.</param>
@@ -276,18 +259,16 @@ namespace ComponentFactory.Krypton.Docking
                     break;
                 case DockingPropogateAction.ShowPages:
                 case DockingPropogateAction.HidePages:
-                    {
-                        bool newVisible = (action == DockingPropogateAction.ShowPages);
-                        foreach (string uniqueName in uniqueNames)
+                {
+                    bool newVisible = (action == DockingPropogateAction.ShowPages);
+                        // Update visible state of pages that are not placeholders
+                        foreach (KryptonPage page in uniqueNames
+                            .Select(uniqueName => SpaceControl.PageForUniqueName(uniqueName))
+                            .Where(page => (page != null) && !(page is KryptonStorePage)))
                         {
-                            // Update visible state of pages that are not placeholders
-                            KryptonPage page = SpaceControl.PageForUniqueName(uniqueName);
-                            if ((page != null) && !(page is KryptonStorePage))
-                            {
-                                page.Visible = newVisible;
-                            }
+                            page.Visible = newVisible;
                         }
-                    }
+                }
                     break;
                 case DockingPropogateAction.ShowAllPages:
                     SpaceControl.ShowAllPages(typeof(KryptonStorePage));
@@ -445,7 +426,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates an action request down the hierarchy of docking elements.
+        /// Propagates an action request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="action">Action that is requested to be performed.</param>
         /// <param name="pages">Array of pages the action relates to.</param>
@@ -472,7 +453,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates a boolean state request down the hierarchy of docking elements.
+        /// Propagates a boolean state request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="state">Boolean state that is requested to be recovered.</param>
         /// <param name="uniqueName">Unique name of the page the request relates to.</param>
@@ -518,7 +499,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates a page request down the hierarchy of docking elements.
+        /// Propagates a page request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="state">Request that should result in a page reference if found.</param>
         /// <param name="uniqueName">Unique name of the page the request relates to.</param>
@@ -544,7 +525,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates a page list request down the hierarchy of docking elements.
+        /// Propagates a page list request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="state">Request that should result in pages collection being modified.</param>
         /// <param name="pages">Pages collection for modification by the docking elements.</param>
@@ -590,7 +571,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates a workspace cell list request down the hierarchy of docking elements.
+        /// Propagates a workspace cell list request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="state">Request that should result in the cells collection being modified.</param>
         /// <param name="cells">Cells collection for modification by the docking elements.</param>
@@ -707,9 +688,9 @@ namespace ComponentFactory.Krypton.Docking
         {
             // Output workspace based docking element
             xmlWriter.WriteStartElement(XmlElementName);
-            xmlWriter.WriteAttributeString("N", Name);
-            xmlWriter.WriteAttributeString("O", Order.ToString());
-            xmlWriter.WriteAttributeString("S", CommonHelper.SizeToString(SpaceControl.Size));
+            xmlWriter.WriteAttributeString(@"N", Name);
+            xmlWriter.WriteAttributeString(@"O", Order.ToString());
+            xmlWriter.WriteAttributeString(@"S", CommonHelper.SizeToString(SpaceControl.Size));
 
             // Output an xml for the contained workspace
             SpaceControl.PageSaving += OnSpaceControlPageSaving;
@@ -730,7 +711,7 @@ namespace ComponentFactory.Krypton.Docking
             // Is it the expected xml element name?
             if (xmlReader.Name != XmlElementName)
             {
-                throw new ArgumentException("Element name '" + XmlElementName + "' was expected but found '" + xmlReader.Name + "' instead.");
+                throw new ArgumentException($@"Element name '{XmlElementName}' was expected but found '{xmlReader.Name}' instead.");
             }
 
             // Grab the element attributes
@@ -741,7 +722,7 @@ namespace ComponentFactory.Krypton.Docking
             // Check the name matches up
             if (elementName != Name)
             {
-                throw new ArgumentException("Attribute 'N' value '" + Name + "' was expected but found '" + elementName + "' instead.");
+                throw new ArgumentException($@"Attribute 'N' value '{Name}' was expected but found '{elementName}' instead.");
             }
 
             // Check for the optional element order value
@@ -760,13 +741,13 @@ namespace ComponentFactory.Krypton.Docking
             // Read to the expect child element
             if (!xmlReader.Read())
             {
-                throw new ArgumentException("An element was expected but could not be read in.");
+                throw new ArgumentException(@"An element was expected but could not be read in.");
             }
 
             // This should always be a workspace definition
-            if (xmlReader.Name != "KW")
+            if (xmlReader.Name != @"KW")
             {
-                throw new ArgumentException("Element name 'KW' was expected but found '" + xmlReader.Name + "' instead.");
+                throw new ArgumentException($@"Element name 'KW' was expected but found '{xmlReader.Name}' instead.");
             }
 
             // Let derived class perform element specific persistence
@@ -775,7 +756,7 @@ namespace ComponentFactory.Krypton.Docking
             // Read past this element to the end element
             if (!xmlReader.Read())
             {
-                throw new ArgumentException("An element was expected but could not be read in.");
+                throw new ArgumentException(@"An element was expected but could not be read in.");
             }
         }
         #endregion
@@ -831,7 +812,7 @@ namespace ComponentFactory.Krypton.Docking
                 {
                     if ((sender is KryptonDockspace dockspace) && (dockspace.CellForPage(e.Item) != null))
                     {
-                        // Prevent this existing store page from being removed due to the Propogate action below. This can
+                        // Prevent this existing store page from being removed due to the Propagate action below. This can
                         // occur because a cell with pages is added in one go and so insert events are generated for the
                         // existing pages inside the cell to ensure that the event is always fired consistently.
                         IgnoreStorePage = page;
@@ -839,7 +820,7 @@ namespace ComponentFactory.Krypton.Docking
 
                     if ((sender is KryptonDockableWorkspace workspace) && (workspace.CellForPage(e.Item) != null))
                     {
-                        // Prevent this existing store page from being removed due to the Propogate action below. This can
+                        // Prevent this existing store page from being removed due to the Propagate action below. This can
                         // occur because a cell with pages is added in one go and so insert events are generated for the
                         // existing pages inside the cell to ensure that the event is always fired consistently.
                         IgnoreStorePage = page;
@@ -853,25 +834,25 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Gets the proprogate action used to clear a store page for this implementation.
+        /// Gets the propagate action used to clear a store page for this implementation.
         /// </summary>
         protected abstract DockingPropogateAction ClearStoreAction { get; }
 
         /// <summary>
-        /// Raises the type specific space control removed event determinated by the derived class.
+        /// Raises the type specific space control removed event determined by the derived class.
         /// </summary>
         protected abstract void RaiseRemoved();
 
         /// <summary>
-        /// Raises the type specific cell adding event determinated by the derived class.
+        /// Raises the type specific cell adding event determined by the derived class.
         /// </summary>
-        /// <param name="cell">Referecence to new cell being added.</param>
+        /// <param name="cell">Reference to new cell being added.</param>
         protected abstract void RaiseCellAdding(KryptonWorkspaceCell cell);
 
         /// <summary>
-        /// Raises the type specific cell removed event determinated by the derived class.
+        /// Raises the type specific cell removed event determined by the derived class.
         /// </summary>
-        /// <param name="cell">Referecence to an existing cell being removed.</param>
+        /// <param name="cell">Reference to an existing cell being removed.</param>
         protected abstract void RaiseCellRemoved(KryptonWorkspaceCell cell);
 
         /// <summary>

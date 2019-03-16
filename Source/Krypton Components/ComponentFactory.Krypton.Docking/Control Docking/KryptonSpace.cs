@@ -10,13 +10,14 @@
 // *****************************************************************************
 
 using System;
-using System.Xml;
-using System.Drawing;
-using System.ComponentModel;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
+using System.Xml;
+
 using ComponentFactory.Krypton.Navigator;
+using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Workspace;
 
 namespace ComponentFactory.Krypton.Docking
@@ -654,7 +655,7 @@ namespace ComponentFactory.Krypton.Docking
                 KryptonWorkspaceCell cell = FirstCell();
                 while (cell != null)
                 {
-                    // Use focus dependant header style
+                    // Use focus dependent header style
                     if (cell.ContainsFocus)
                     {
                         // Change in cell focus state?

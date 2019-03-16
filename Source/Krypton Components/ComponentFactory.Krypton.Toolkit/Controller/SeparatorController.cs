@@ -817,6 +817,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
     {
         #region Types
+        /// <summary>
+        /// 
+        /// </summary>
         public class SeparatorIndicator : Form
         {
             #region Instance Fields
