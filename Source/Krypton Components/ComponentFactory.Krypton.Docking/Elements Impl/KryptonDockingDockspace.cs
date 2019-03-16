@@ -95,7 +95,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates an action request down the hierarchy of docking elements.
+        /// Propagates an action request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="action">Action that is requested to be performed.</param>
         /// <param name="value">Integer value associated with the request.</param>
@@ -104,7 +104,7 @@ namespace ComponentFactory.Krypton.Docking
             switch (action)
             {
                 case DockingPropogateAction.RepositionDockspace:
-                    // Only processs if it applies to us
+                    // Only processes if it applies to us
                     if (value == Order)
                     {
                         Control parent = DockspaceControl.Parent;
@@ -158,7 +158,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates an integer state request down the hierarchy of docking elements.
+        /// Propagates an integer state request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="state">Integer state that is requested to be recovered.</param>
         /// <param name="value">Value discovered from matching </param>
@@ -169,7 +169,7 @@ namespace ComponentFactory.Krypton.Docking
         }
         
         /// <summary>
-        /// Propogates a request for drag targets down the hierarchy of docking elements.
+        /// Propagates a request for drag targets down the hierarchy of docking elements.
         /// </summary>
         /// <param name="floatingWindow">Reference to window being dragged.</param>
         /// <param name="dragData">Set of pages being dragged.</param>
@@ -258,12 +258,12 @@ namespace ComponentFactory.Krypton.Docking
 
         #region Protected
         /// <summary>
-        /// Gets the proprogate action used to clear a store page for this implementation.
+        /// Gets the propagate action used to clear a store page for this implementation.
         /// </summary>
         protected override DockingPropogateAction ClearStoreAction => DockingPropogateAction.ClearDockedStoredPages;
 
         /// <summary>
-        /// Raises the type specific space control removed event determinated by the derived class.
+        /// Raises the type specific space control removed event determined by the derived class.
         /// </summary>
         protected override void RaiseRemoved()
         {
@@ -349,7 +349,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the xml element name to use when saving.
         /// </summary>
-        protected override string XmlElementName => "DD";
+        protected override string XmlElementName => @"DD";
 
         /// <summary>
         /// Saves docking configuration information using a provider xml writer.

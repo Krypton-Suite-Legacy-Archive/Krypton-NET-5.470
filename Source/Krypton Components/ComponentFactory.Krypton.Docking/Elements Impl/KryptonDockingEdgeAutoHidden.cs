@@ -10,17 +10,18 @@
 // *****************************************************************************
 
 using System;
-using System.Xml;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using System.ComponentModel;
-using ComponentFactory.Krypton.Toolkit;
+using System.Xml;
+
 using ComponentFactory.Krypton.Navigator;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Docking
 {
     /// <summary>
-    /// Provides auto hidden docking funtionality against a specific control edge.
+    /// Provides auto hidden docking functionality against a specific control edge.
     /// </summary>
     [ToolboxItem(false)]
     [DesignerCategory("code")]
@@ -132,7 +133,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates an action request down the hierarchy of docking elements.
+        /// Propagates an action request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="action">Action that is requested to be performed.</param>
         /// <param name="uniqueNames">Array of unique names of the pages the action relates to.</param>
@@ -176,7 +177,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates an action request down the hierarchy of docking elements.
+        /// Propagates an action request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="action">Action that is requested to be performed.</param>
         /// <param name="pages">Array of pages the action relates to.</param>
@@ -451,7 +452,7 @@ namespace ComponentFactory.Krypton.Docking
 
         private void OnSlidePanelPageDropDownClicked(object sender, CancelDropDownEventArgs e)
         {
-            // Generate event so that the appropriate context menu options are preseted and actioned
+            // Generate event so that the appropriate context menu options are presented and actioned
             KryptonDockingManager dockingManager = DockingManager;
             if (dockingManager != null)
             {
@@ -461,7 +462,7 @@ namespace ComponentFactory.Krypton.Docking
 
         private void OnSlidePanelAutoHiddenShowingStateChanged(object sender, AutoHiddenShowingStateEventArgs e)
         {
-            // Generate event so that the appropriate context menu options are preseted and actioned
+            // Generate event so that the appropriate context menu options are presented and actioned
             KryptonDockingManager dockingManager = DockingManager;
             dockingManager?.RaiseAutoHiddenShowingStateChanged(e);
         }
