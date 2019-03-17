@@ -53,7 +53,7 @@ namespace ComponentFactory.Krypton.Docking
         public KryptonFloatspace FloatspaceControl => (KryptonFloatspace)SpaceControl;
 
         /// <summary>
-        /// Propogates a request for drag targets down the hierarchy of docking elements.
+        /// Propagates a request for drag targets down the hierarchy of docking elements.
         /// </summary>
         /// <param name="floatingWindow">Reference to window being dragged.</param>
         /// <param name="dragData">Set of pages being dragged.</param>
@@ -162,7 +162,7 @@ namespace ComponentFactory.Krypton.Docking
                 {
                     if ((sender is KryptonFloatspace floatspace) && (floatspace.CellForPage(e.Item) != null))
                     {
-                        // Prevent this existing store page from being removed due to the Propogate action below. This can
+                        // Prevent this existing store page from being removed due to the Propagate action below. This can
                         // occur because a cell with pages is added in one go and so insert events are generated for the
                         // existing pages inside the cell to ensure that the event is always fired consistently.
                         IgnoreStorePage = page;

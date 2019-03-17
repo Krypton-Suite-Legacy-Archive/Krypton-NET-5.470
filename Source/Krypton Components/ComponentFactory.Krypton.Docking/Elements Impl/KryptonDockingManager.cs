@@ -1510,11 +1510,10 @@ namespace ComponentFactory.Krypton.Docking
 
             using (DockingMultiUpdate update = new DockingMultiUpdate(this))
             {
-                CloseRequestEventArgs e;
                 foreach (string uniqueName in uniqueNames)
                 {
                     // Raise event that allows the action to be defined by handlers
-                    e = new CloseRequestEventArgs(uniqueName, DefaultCloseRequest);
+                    CloseRequestEventArgs e = new CloseRequestEventArgs(uniqueName, DefaultCloseRequest);
                     OnPageCloseRequest(e);
 
                     switch (e.CloseRequest)

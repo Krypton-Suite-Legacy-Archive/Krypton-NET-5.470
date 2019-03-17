@@ -10,9 +10,11 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
 using System.ComponentModel;
+using System.Drawing;
+
 using ComponentFactory.Krypton.Toolkit;
+// ReSharper disable MemberCanBeInternal
 
 namespace ComponentFactory.Krypton.Navigator
 {
@@ -39,8 +41,8 @@ namespace ComponentFactory.Krypton.Navigator
     /// <summary>
     /// Collection for managing NavigatorButtonSpec instances for a KryptonNavigator.
     /// </summary>
-    public class NavigatorButtonSpecCollection : ButtonSpecCollection<ButtonSpecNavigator> 
-    { 
+    public class NavigatorButtonSpecCollection : ButtonSpecCollection<ButtonSpecNavigator>
+    {
         #region Identity
         /// <summary>
         /// Initialize a new instance of the NavigatorButtonSpecCollection class.
@@ -58,8 +60,8 @@ namespace ComponentFactory.Krypton.Navigator
     /// <summary>
     /// Collection for managing NavigatorButtonSpec instances.
     /// </summary>
-    public class NavFixedButtonSpecCollection : ButtonSpecCollection<ButtonSpecNavFixed> 
-    { 
+    public class NavFixedButtonSpecCollection : ButtonSpecCollection<ButtonSpecNavFixed>
+    {
         #region Identity
         /// <summary>
         /// Initialize a new instance of the NavFixedButtonSpecCollection class.
@@ -77,8 +79,8 @@ namespace ComponentFactory.Krypton.Navigator
     /// <summary>
     /// Specifies flags that can be applied to a KryptonPage
     /// </summary>
-    [Flags()]
-    public enum KryptonPageFlags : int
+    [Flags]
+    public enum KryptonPageFlags
     {
         /// <summary>Specifies that in the Outlook mode the page is shown on the overflow bar.</summary>
         PageInOverflowBarForOutlookMode = 0x0001,
@@ -658,6 +660,7 @@ namespace ComponentFactory.Krypton.Navigator
     /// <summary>
     /// Specifies a hint about the action that occurs on drop.
     /// </summary>
+    [Flags]
     public enum DragTargetHint
     {
         /// <summary>Specifies the target has no hint information.</summary>
@@ -713,16 +716,16 @@ namespace ComponentFactory.Krypton.Navigator
 		/// <param name="screenRect">Screen rectangle.</param>
         void ShowRelative(Rectangle screenRect);
 
-		/// <summary>
-		/// Perofrm mouse hit testing against a screen point.
-		/// </summary>
-		/// <param name="screenPoint">Screen point.</param>
-		/// <returns>Area that is active.</returns>
+        /// <summary>
+        /// Perform mouse hit testing against a screen point.
+        /// </summary>
+        /// <param name="screenPoint">Screen point.</param>
+        /// <returns>Area that is active.</returns>
         int ScreenMouseMove(Point screenPoint);
 
-		/// <summary>
-		/// Ensure the state is updated to reflect the mouse not being over the control.
-		/// </summary>
+        /// <summary>
+        /// Ensure the state is updated to reflect the mouse not being over the control.
+        /// </summary>
         void MouseReset();
 
         /// <summary>
@@ -814,7 +817,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// Gets and sets the paint delegate to use for refresh requests.
         /// </summary>
         NeedPaintHandler NeedPaint { get; set; }
-        
+
         /// <summary>
         /// Gets the ButtonSpec associated with the provided item.
         /// </summary>

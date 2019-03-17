@@ -19,6 +19,7 @@ using System.Xml;
 using ComponentFactory.Krypton.Navigator;
 using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Workspace;
+// ReSharper disable MemberCanBeInternal
 
 namespace ComponentFactory.Krypton.Docking
 {
@@ -218,9 +219,9 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets and sets access to the parent docking element.
         /// </summary>
-        public override IDockingElement Parent 
+        public override IDockingElement Parent
         {
-            set 
+            set
             {
                 // Let base class perform standard processing
                 base.Parent = value;
@@ -259,8 +260,8 @@ namespace ComponentFactory.Krypton.Docking
                     break;
                 case DockingPropogateAction.ShowPages:
                 case DockingPropogateAction.HidePages:
-                {
-                    bool newVisible = (action == DockingPropogateAction.ShowPages);
+                    {
+                        bool newVisible = (action == DockingPropogateAction.ShowPages);
                         // Update visible state of pages that are not placeholders
                         foreach (KryptonPage page in uniqueNames
                             .Select(uniqueName => SpaceControl.PageForUniqueName(uniqueName))
@@ -268,7 +269,7 @@ namespace ComponentFactory.Krypton.Docking
                         {
                             page.Visible = newVisible;
                         }
-                }
+                    }
                     break;
                 case DockingPropogateAction.ShowAllPages:
                     SpaceControl.ShowAllPages(typeof(KryptonStorePage));
@@ -297,6 +298,7 @@ namespace ComponentFactory.Krypton.Docking
                             }
                         }
                     }
+                    SpaceControl.PerformLayout();
                     break;
                 case DockingPropogateAction.RemoveAllPages:
                 case DockingPropogateAction.RemoveAndDisposeAllPages:

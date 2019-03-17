@@ -10,21 +10,23 @@
 // *****************************************************************************
 
 using System;
-using System.Xml;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using System.ComponentModel;
 using System.Linq;
+using System.Text;
+using System.Xml;
+
 using ComponentFactory.Krypton.Navigator;
 using ComponentFactory.Krypton.Workspace;
+// ReSharper disable MemberCanBeInternal
 
 namespace ComponentFactory.Krypton.Docking
 {
     /// <summary>
     /// Implements base docking element functionality.
     /// </summary>
-    public abstract class DockingElement : Component, 
+    public abstract class DockingElement : Component,
                                            IDockingElement
     {
         #region Instance Fields
@@ -55,7 +57,7 @@ namespace ComponentFactory.Krypton.Docking
         /// Gets a comma separated list of names leading to this element.
         /// </summary>
         [Browsable(false)]
-        public string Path 
+        public string Path
         {
             get
             {
@@ -137,45 +139,45 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public virtual IDockingElement Parent 
+        public virtual IDockingElement Parent
         {
             get => _parent;
 
-            set 
+            set
             {
                 // We do not allow the same name to occur twice in a collection (so check new parent collection)
                 if (value?[Name] != null)
                 {
-                    throw new ArgumentNullException("Parent provided already has our Name in its collection.");
+                    throw new ArgumentNullException(@"Parent provided already has our Name in its collection.");
                 }
 
-                _parent = value; 
+                _parent = value;
             }
         }
 
         /// <summary>
-        /// Propogates an action request down the hierarchy of docking elements.
+        /// Propagates an action request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="action">Action that is requested to be performed.</param>
         /// <param name="uniqueNames">Array of unique names of the pages the action relates to.</param>
         public virtual void PropogateAction(DockingPropogateAction action, string[] uniqueNames)
         {
-            // Propogate the action request to all the child elements
+            // Propagate the action request to all the child elements
             // (use reverse order so if element removes itself we still have a valid loop)
-            for(int i = Count - 1; i >= 0; i--)
+            for (int i = Count - 1; i >= 0; i--)
             {
                 this[i].PropogateAction(action, uniqueNames);
             }
         }
 
         /// <summary>
-        /// Propogates an action request down the hierarchy of docking elements.
+        /// Propagates an action request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="action">Action that is requested to be performed.</param>
         /// <param name="pages">Array of pages the action relates to.</param>
         public virtual void PropogateAction(DockingPropogateAction action, KryptonPage[] pages)
         {
-            // Propogate the action request to all the child elements
+            // Propagate the action request to all the child elements
             // (use reverse order so if element removes itself we still have a valid loop)
             for (int i = Count - 1; i >= 0; i--)
             {
@@ -184,13 +186,13 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates an action request down the hierarchy of docking elements.
+        /// Propagates an action request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="action">Action that is requested to be performed.</param>
         /// <param name="value">Integer value associated with the request.</param>
         public virtual void PropogateAction(DockingPropogateAction action, int value)
         {
-            // Propogate the action request to all the child elements
+            // Propagate the action request to all the child elements
             // (use reverse order so if element removes itself we still have a valid loop)
             for (int i = Count - 1; i >= 0; i--)
             {
@@ -199,13 +201,13 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates a boolean state request down the hierarchy of docking elements.
+        /// Propagates a boolean state request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="state">Boolean state that is requested to be recovered.</param>
         /// <param name="uniqueName">Unique name of the page the request relates to.</param>
         /// <returns>True/False if state is known; otherwise null indicating no information available.</returns>
         public virtual bool? PropogateBoolState(DockingPropogateBoolState state, string uniqueName)
-        {   
+        {
             // Search all child docking elements
             for (int i = 0; i < Count; i++)
             {
@@ -221,13 +223,13 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates an integer state request down the hierarchy of docking elements.
+        /// Propagates an integer state request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="state">Integer state that is requested to be recovered.</param>
         /// <param name="value">Value discovered from matching </param>
         public virtual void PropogateIntState(DockingPropogateIntState state, ref int value)
         {
-            // Propogate the request to all the child elements
+            // Propagate the request to all the child elements
             for (int i = Count - 1; i >= 0; i--)
             {
                 this[i].PropogateIntState(state, ref value);
@@ -235,7 +237,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates a page request down the hierarchy of docking elements.
+        /// Propagates a page request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="state">Request that should result in a page reference if found.</param>
         /// <param name="uniqueName">Unique name of the page the request relates to.</param>
@@ -257,13 +259,13 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates a page list request down the hierarchy of docking elements.
+        /// Propagates a page list request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="state">Request that should result in pages collection being modified.</param>
         /// <param name="pages">Pages collection for modification by the docking elements.</param>
         public virtual void PropogatePageList(DockingPropogatePageList state, KryptonPageCollection pages)
         {
-            // Propogate the action request to all the child elements
+            // Propagate the action request to all the child elements
             // (use reverse order so if element removes itself we still have a valid loop)
             for (int i = Count - 1; i >= 0; i--)
             {
@@ -272,13 +274,13 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates a workspace cell list request down the hierarchy of docking elements.
+        /// Propagates a workspace cell list request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="state">Request that should result in the cells collection being modified.</param>
         /// <param name="cells">Cells collection for modification by the docking elements.</param>
         public virtual void PropogateCellList(DockingPropogateCellList state, KryptonWorkspaceCellList cells)
         {
-            // Propogate the action request to all the child elements
+            // Propagate the action request to all the child elements
             // (use reverse order so if element removes itself we still have a valid loop)
             for (int i = Count - 1; i >= 0; i--)
             {
@@ -287,7 +289,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates a request for drag targets down the hierarchy of docking elements.
+        /// Propagates a request for drag targets down the hierarchy of docking elements.
         /// </summary>
         /// <param name="floatingWindow">Reference to window being dragged.</param>
         /// <param name="dragData">Set of pages being dragged.</param>
@@ -296,7 +298,7 @@ namespace ComponentFactory.Krypton.Docking
                                                  PageDragEndData dragData,
                                                  DragTargetList targets)
         {
-            // Propogate the request to all child elements
+            // Propagate the request to all child elements
             foreach (IDockingElement child in this)
             {
                 child.PropogateDragTargets(floatingWindow, dragData, targets);
@@ -494,10 +496,10 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="xmlWriter">Xml writer object.</param>
         public virtual void SaveElementToXml(XmlWriter xmlWriter)
         {
-            // Output docking lement
+            // Output docking element
             xmlWriter.WriteStartElement(XmlElementName);
-            xmlWriter.WriteAttributeString("N", Name);
-            xmlWriter.WriteAttributeString("C", Count.ToString());
+            xmlWriter.WriteAttributeString(@"N", Name);
+            xmlWriter.WriteAttributeString(@"C", Count.ToString());
 
             // Output an element per child
             foreach (IDockingElement child in this)
@@ -519,17 +521,17 @@ namespace ComponentFactory.Krypton.Docking
             // Is it the expected xml element name?
             if (xmlReader.Name != XmlElementName)
             {
-                throw new ArgumentException("Element name '" + XmlElementName + "' was expected but found '" + xmlReader.Name + "' instead.");
+                throw new ArgumentException($@"Element name '{XmlElementName}' was expected but found '{xmlReader.Name}' instead.");
             }
 
             // Grab the element attributes
-            string elementName = xmlReader.GetAttribute("N");
-            string elementCount = xmlReader.GetAttribute("C");
+            string elementName = xmlReader.GetAttribute(@"N");
+            string elementCount = xmlReader.GetAttribute(@"C");
 
             // Check the name matches up
             if (elementName != Name)
             {
-                throw new ArgumentException("Attribute 'N' value '" + Name + "' was expected but found '" + elementName + "' instead.");
+                throw new ArgumentException($@"Attribute 'N' value '{Name}' was expected but found '{elementName}' instead.");
             }
 
             // Let derived class perform element specific persistence
@@ -544,11 +546,11 @@ namespace ComponentFactory.Krypton.Docking
                     // Read to the next element
                     if (!xmlReader.Read())
                     {
-                        throw new ArgumentException("An element was expected but could not be read in.");
+                        throw new ArgumentException(@"An element was expected but could not be read in.");
                     }
 
                     // Find a child docking element with the matching name
-                    IDockingElement child = this[xmlReader.GetAttribute("N")];
+                    IDockingElement child = this[xmlReader.GetAttribute(@"N")];
 
                     // Let derived class perform child element specific processing
                     LoadChildDockingElement(xmlReader, pages, child);
@@ -558,7 +560,7 @@ namespace ComponentFactory.Krypton.Docking
             // Read past this element to the end element
             if (!xmlReader.Read())
             {
-                throw new ArgumentException("An element was expected but could not be read in.");
+                throw new ArgumentException(@"An element was expected but could not be read in.");
             }
         }
 
@@ -586,7 +588,7 @@ namespace ComponentFactory.Krypton.Docking
         {
             if (!HasDockManager)
             {
-                throw new ApplicationException("Cannot perform this operation when there is no access to a KryptonDockingManager.");
+                throw new ApplicationException(@"Cannot perform this operation when there is no access to a KryptonDockingManager.");
             }
         }
 
@@ -602,16 +604,16 @@ namespace ComponentFactory.Krypton.Docking
         [Browsable(false)]
         public KryptonDockingManager DockingManager
         {
-            get 
+            get
             {
                 // Searching from this element upwards
                 IDockingElement parent = this;
                 while (parent != null)
                 {
                     // If we find a match then we are done
-                    if (parent is KryptonDockingManager)
+                    if (parent is KryptonDockingManager manager)
                     {
-                        return parent as KryptonDockingManager;
+                        return manager;
                     }
 
                     // Keep going up the parent chain
@@ -627,7 +629,7 @@ namespace ComponentFactory.Krypton.Docking
         /// Search up the parent chain looking for the specified type of object.
         /// </summary>
         /// <param name="findType">Type of the instance we are searching for.</param>
-        /// <returns>Object reference if found and it implements IDockingElemnet; otherwise null.</returns>
+        /// <returns>Object reference if found and it implements IDockingElement; otherwise null.</returns>
         public IDockingElement GetParentType(Type findType)
         {
             // Searching from this element upwards
@@ -637,7 +639,7 @@ namespace ComponentFactory.Krypton.Docking
                 // If we find a match then we are done
                 if (parent.GetType() == findType)
                 {
-                    return parent as IDockingElement;
+                    return parent;
                 }
 
                 // Keep going up the parent chain
@@ -708,8 +710,8 @@ namespace ComponentFactory.Krypton.Docking
         /// <param name="xmlReader">Xml reader object.</param>
         /// <param name="pages">Collection of available pages.</param>
         /// <param name="child">Optional reference to existing child docking element.</param>
-        protected virtual void LoadChildDockingElement(XmlReader xmlReader, 
-                                                       KryptonPageCollection pages, 
+        protected virtual void LoadChildDockingElement(XmlReader xmlReader,
+                                                       KryptonPageCollection pages,
                                                        IDockingElement child)
         {
             if (child != null)
@@ -725,7 +727,7 @@ namespace ComponentFactory.Krypton.Docking
                     // Read past this element
                     if (!xmlReader.Read())
                     {
-                        throw new ArgumentException("An element was expected but could not be read in.");
+                        throw new ArgumentException(@"An element was expected but could not be read in.");
                     }
 
                     // Finished when we hit the end element matching the incoming one

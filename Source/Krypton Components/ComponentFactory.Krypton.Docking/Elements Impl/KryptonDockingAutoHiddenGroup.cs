@@ -10,12 +10,14 @@
 // *****************************************************************************
 
 using System;
-using System.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
+using System.Xml;
+
+using ComponentFactory.Krypton.Navigator;
 using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Workspace;
-using ComponentFactory.Krypton.Navigator;
 
 namespace ComponentFactory.Krypton.Docking
 {
@@ -126,7 +128,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates an action request down the hierarchy of docking elements.
+        /// Propagates an action request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="action">Action that is requested to be performed.</param>
         /// <param name="uniqueNames">Array of unique names of the pages the action relates to.</param>
@@ -138,14 +140,13 @@ namespace ComponentFactory.Krypton.Docking
                 case DockingPropogateAction.HidePages:
                     {
                         bool newVisible = (action == DockingPropogateAction.ShowPages);
-                        foreach (string uniqueName in uniqueNames)
+                        // Update visible state of pages that are not placeholders
+                        foreach (KryptonPage page in uniqueNames
+                            .Select(uniqueName => AutoHiddenGroupControl.Pages[uniqueName])
+                            .Where(page => (page != null) && !(page is KryptonStorePage))
+                        )
                         {
-                            // Update visible state of pages that are not placeholders
-                            KryptonPage page = AutoHiddenGroupControl.Pages[uniqueName];
-                            if ((page != null) && !(page is KryptonStorePage))
-                            {
-                                page.Visible = newVisible;
-                            }
+                            page.Visible = newVisible;
                         }
                     }
                     break;
@@ -157,18 +158,17 @@ namespace ComponentFactory.Krypton.Docking
                     break;
                 case DockingPropogateAction.RemovePages:
                 case DockingPropogateAction.RemoveAndDisposePages:
-                    foreach (string uniqueName in uniqueNames)
+                    // Only remove the actual page and not placeholders
+                    foreach (KryptonPage page in uniqueNames
+                        .Select(uniqueName => AutoHiddenGroupControl.Pages[uniqueName])
+                        .Where(page => (page != null) && !(page is KryptonStorePage))
+                    )
                     {
-                        // Only remove the actual page and not placeholders
-                        KryptonPage page = AutoHiddenGroupControl.Pages[uniqueName];
-                        if ((page != null) && !(page is KryptonStorePage))
-                        {
-                            AutoHiddenGroupControl.Pages.Remove(page);
+                        AutoHiddenGroupControl.Pages.Remove(page);
 
-                            if (action == DockingPropogateAction.RemoveAndDisposePages)
-                            {
-                                page.Dispose();
-                            }
+                        if (action == DockingPropogateAction.RemoveAndDisposePages)
+                        {
+                            page.Dispose();
                         }
                     }
                     break;
@@ -212,7 +212,7 @@ namespace ComponentFactory.Krypton.Docking
                     }
                     break;
                 case DockingPropogateAction.ClearAllStoredPages:
-                    for(int i=AutoHiddenGroupControl.Pages.Count-1; i>=0; i--)
+                    for (int i = AutoHiddenGroupControl.Pages.Count - 1; i >= 0; i--)
                     {
                         // Only remove a placeholder paged
                         KryptonPage page = AutoHiddenGroupControl.Pages[i];
@@ -229,7 +229,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates an action request down the hierarchy of docking elements.
+        /// Propagates an action request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="action">Action that is requested to be performed.</param>
         /// <param name="pages">Array of pages the action relates to.</param>
@@ -247,7 +247,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates a boolean state request down the hierarchy of docking elements.
+        /// Propagates a boolean state request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="state">Boolean state that is requested to be recovered.</param>
         /// <param name="uniqueName">Unique name of the page the request relates to.</param>
@@ -293,7 +293,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates a page request down the hierarchy of docking elements.
+        /// Propagates a page request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="state">Request that should result in a page reference if found.</param>
         /// <param name="uniqueName">Unique name of the page the request relates to.</param>
@@ -319,7 +319,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates a page list request down the hierarchy of docking elements.
+        /// Propagates a page list request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="state">Request that should result in pages collection being modified.</param>
         /// <param name="pages">Pages collection for modification by the docking elements.</param>
@@ -419,8 +419,8 @@ namespace ComponentFactory.Krypton.Docking
             }
 
             return pages.ToArray();
-        }        
-        
+        }
+
         /// <summary>
         /// Saves docking configuration information using a provider xml writer.
         /// </summary>
@@ -662,7 +662,7 @@ namespace ComponentFactory.Krypton.Docking
         private void OnAutoHiddenGroupStoringPage(object sender, UniqueNameEventArgs e)
         {
             // We only allow a single 'store' page in this docking location at a time
-            DockingManager.PropogateAction(DockingPropogateAction.ClearAutoHiddenStoredPages, new string[] {e.UniqueName});
+            DockingManager.PropogateAction(DockingPropogateAction.ClearAutoHiddenStoredPages, new string[] { e.UniqueName });
         }
 
         private void OnAutoHiddenGroupTabClicked(object sender, KryptonPageEventArgs e)
