@@ -98,7 +98,7 @@ namespace ComponentFactory.Krypton.Docking
         public KryptonDockingFloatspace FloatspaceElement { get; }
 
         /// <summary>
-        /// Propogates an action request down the hierarchy of docking elements.
+        /// Propagates an action request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="action">Action that is requested to be performed.</param>
         /// <param name="uniqueNames">Array of unique names of the pages the action relates to.</param>
@@ -139,7 +139,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates a request for drag targets down the hierarchy of docking elements.
+        /// Propagates a request for drag targets down the hierarchy of docking elements.
         /// </summary>
         /// <param name="floatingWindow">Reference to window being dragged.</param>
         /// <param name="dragData">Set of pages being dragged.</param>

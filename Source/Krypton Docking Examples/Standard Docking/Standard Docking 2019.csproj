@@ -59,19 +59,24 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Krypton Docking">
+    <Reference Include="Krypton Docking, Version=5.470.661.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Bin\Krypton Docking.dll</HintPath>
     </Reference>
-    <Reference Include="Krypton Navigator">
+    <Reference Include="Krypton Navigator, Version=5.470.650.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Bin\Krypton Navigator.dll</HintPath>
     </Reference>
-    <Reference Include="Krypton Ribbon">
+    <Reference Include="Krypton Ribbon, Version=5.470.695.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Bin\Krypton Ribbon.dll</HintPath>
     </Reference>
-    <Reference Include="Krypton Toolkit">
+    <Reference Include="Krypton Toolkit, Version=5.470.793.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Bin\Krypton Toolkit.dll</HintPath>
     </Reference>
-    <Reference Include="Krypton Workspace">
+    <Reference Include="Krypton Workspace, Version=5.470.653.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Bin\Krypton Workspace.dll</HintPath>
     </Reference>
     <Reference Include="System" />

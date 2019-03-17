@@ -10,11 +10,12 @@
 // *****************************************************************************
 
 using System;
-using System.Xml;
-using System.Drawing;
-using System.Windows.Forms;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Xml;
+
 using ComponentFactory.Krypton.Navigator;
 
 namespace ComponentFactory.Krypton.Docking
@@ -183,7 +184,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates a request for drag targets down the hierarchy of docking elements.
+        /// Propagates a request for drag targets down the hierarchy of docking elements.
         /// </summary>
         /// <param name="floatingWindow">Reference to window being dragged.</param>
         /// <param name="dragData">Set of pages being dragged.</param>
@@ -277,7 +278,7 @@ namespace ComponentFactory.Krypton.Docking
                 // Let base class generate targets for contained elements
                 base.PropogateDragTargets(floatingWindow, dragData, targets);
             }
-        }        
+        }
         #endregion
 
         #region Protected
@@ -304,7 +305,7 @@ namespace ComponentFactory.Krypton.Docking
             {
                 // Use upper limit to prevent crazy values causing long delays
                 largestOrder = Math.Min(largestOrder, 30);
-            
+
                 // Request each dockspace in ordering sequence reposition itself
                 for (int i = 0; i <= largestOrder; i++)
                 {
@@ -339,7 +340,7 @@ namespace ComponentFactory.Krypton.Docking
             Add(new KryptonDockingEdge("Left", control, DockingEdge.Left));
             Add(new KryptonDockingEdge("Right", control, DockingEdge.Right));
         }
-        
+
         private void OnControlDisposed(object sender, EventArgs e)
         {
             // Unhook events to allow garbage collection
@@ -468,7 +469,7 @@ namespace ComponentFactory.Krypton.Docking
                                     new Rectangle(area.Right - length, area.Y, length, area.Height),
                                     new Rectangle(area.X, area.Y, area.Width, length),
                                     new Rectangle(area.X, area.Bottom - length, area.Width, length),
-                                    new Rectangle(area.X + length, area.Y + length, 
+                                    new Rectangle(area.X + length, area.Y + length,
                                                   area.Width - (length * 2), area.Height - (length * 2))};
         }
 

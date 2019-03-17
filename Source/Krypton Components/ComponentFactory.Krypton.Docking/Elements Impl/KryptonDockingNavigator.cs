@@ -10,12 +10,14 @@
 // *****************************************************************************
 
 using System;
-using System.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Xml;
+
+using ComponentFactory.Krypton.Navigator;
 using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Workspace;
-using ComponentFactory.Krypton.Navigator;
+// ReSharper disable MemberCanBeInternal
 
 namespace ComponentFactory.Krypton.Docking
 {
@@ -164,7 +166,7 @@ namespace ComponentFactory.Krypton.Docking
                     // Cannot show a null page reference
                     if (pages[i] == null)
                     {
-                        throw new ArgumentException("pages array contains a null page reference");
+                        throw new ArgumentException(@"pages array contains a null page reference", nameof(pages));
                     }
 
                     uniqueNames[i] = pages[i].UniqueName;
@@ -193,12 +195,12 @@ namespace ComponentFactory.Krypton.Docking
                 {
                     if (uniqueName == null)
                     {
-                        throw new ArgumentNullException("uniqueNames array contains a null string reference");
+                        throw new ArgumentNullException(nameof(uniqueNames), @"uniqueNames array contains a null string reference");
                     }
 
                     if (uniqueName.Length == 0)
                     {
-                        throw new ArgumentException("uniqueNames array contains a zero length string");
+                        throw new ArgumentException(@"uniqueNames array contains a zero length string", nameof(uniqueNames));
                     }
                 }
 
@@ -274,7 +276,7 @@ namespace ComponentFactory.Krypton.Docking
                     // Cannot show a null page reference
                     if (pages[i] == null)
                     {
-                        throw new ArgumentException("pages array contains a null page reference");
+                        throw new ArgumentException(@"pages array contains a null page reference", nameof(pages));
                     }
 
                     uniqueNames[i] = pages[i].UniqueName;
@@ -303,12 +305,12 @@ namespace ComponentFactory.Krypton.Docking
                 {
                     if (uniqueName == null)
                     {
-                        throw new ArgumentNullException("uniqueNames array contains a null string reference");
+                        throw new ArgumentNullException(nameof(uniqueNames), @"uniqueNames array contains a null string reference");
                     }
 
                     if (uniqueName.Length == 0)
                     {
-                        throw new ArgumentException("uniqueNames array contains a zero length string");
+                        throw new ArgumentException(@"uniqueNames array contains a zero length string", nameof(uniqueNames));
                     }
                 }
 
@@ -374,7 +376,7 @@ namespace ComponentFactory.Krypton.Docking
                     // Cannot show a null page reference
                     if (pages[i] == null)
                     {
-                        throw new ArgumentException("pages array contains a null page reference");
+                        throw new ArgumentException(@"pages array contains a null page reference", nameof(pages));
                     }
 
                     uniqueNames[i] = pages[i].UniqueName;
@@ -404,12 +406,12 @@ namespace ComponentFactory.Krypton.Docking
                 {
                     if (uniqueName == null)
                     {
-                        throw new ArgumentNullException("uniqueNames array contains a null string reference");
+                        throw new ArgumentNullException(nameof(uniqueNames), @"uniqueNames array contains a null string reference");
                     }
 
                     if (uniqueName.Length == 0)
                     {
-                        throw new ArgumentException("uniqueNames array contains a zero length string");
+                        throw new ArgumentException(@"uniqueNames array contains a zero length string", nameof(uniqueNames));
                     }
                 }
 
@@ -435,17 +437,18 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates an action request down the hierarchy of docking elements.
+        /// Propagates an action request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="action">Action that is requested to be performed.</param>
         /// <param name="uniqueNames">Array of unique names of the pages the action relates to.</param>
         public override void PropogateAction(DockingPropogateAction action, string[] uniqueNames)
         {
+            KryptonPageCollection pageCollection = DockableNavigatorControl.Pages;
             switch (action)
             {
                 case DockingPropogateAction.Loading:
                     // Remove all pages including store pages
-                    DockableNavigatorControl.Pages.Clear();
+                    pageCollection.Clear();
                     return;
                 case DockingPropogateAction.ShowAllPages:
                 case DockingPropogateAction.HideAllPages:
@@ -457,55 +460,54 @@ namespace ComponentFactory.Krypton.Docking
                     foreach (string uniqueName in uniqueNames)
                     {
                         // Swap pages that are not placeholders to become placeholders
-                        KryptonPage page = DockableNavigatorControl.Pages[uniqueName];
+                        KryptonPage page = pageCollection[uniqueName];
                         if ((page != null) && !(page is KryptonStorePage))
                         {
                             // Replace the existing page with a placeholder that has the same unique name
                             KryptonStorePage placeholder = new KryptonStorePage(uniqueName, _storeName);
-                            DockableNavigatorControl.Pages.Insert(DockableNavigatorControl.Pages.IndexOf(page), placeholder);
-                            DockableNavigatorControl.Pages.Remove(page);
+                            pageCollection.Insert(pageCollection.IndexOf(page), placeholder);
+                            pageCollection.Remove(page);
                         }
                     }
                     break;
                 case DockingPropogateAction.StoreAllPages:
+                    // Process each page inside the cell
+                    for (int i = pageCollection.Count - 1; i >= 0; i--)
                     {
-                        // Process each page inside the cell
-                        for (int i = DockableNavigatorControl.Pages.Count - 1; i >= 0; i--)
+                        // Swap pages that are not placeholders to become placeholders
+                        KryptonPage page = pageCollection[i];
+                        if ((page != null) && !(page is KryptonStorePage))
                         {
-                            // Swap pages that are not placeholders to become placeholders
-                            KryptonPage page = DockableNavigatorControl.Pages[i];
-                            if ((page != null) && !(page is KryptonStorePage))
-                            {
-                                // Replace the existing page with a placeholder that has the same unique name
-                                KryptonStorePage placeholder = new KryptonStorePage(page.UniqueName, _storeName);
-                                DockableNavigatorControl.Pages.Insert(DockableNavigatorControl.Pages.IndexOf(page), placeholder);
-                                DockableNavigatorControl.Pages.Remove(page);
-                            }
+                            // Replace the existing page with a placeholder that has the same unique name
+                            KryptonStorePage placeholder = new KryptonStorePage(page.UniqueName, _storeName);
+                            pageCollection.Insert(pageCollection.IndexOf(page), placeholder);
+                            pageCollection.Remove(page);
                         }
                     }
+
                     break;
                 case DockingPropogateAction.ClearFillerStoredPages:
                 case DockingPropogateAction.ClearStoredPages:
                     foreach (string uniqueName in uniqueNames)
                     {
                         // Only remove a matching unique name if it is a placeholder page
-                        KryptonPage removePage = DockableNavigatorControl.Pages[uniqueName];
+                        KryptonPage removePage = pageCollection[uniqueName];
                         if (removePage is KryptonStorePage)
                         {
-                            DockableNavigatorControl.Pages.Remove(removePage);
+                            pageCollection.Remove(removePage);
                         }
                     }
                     break;
                 case DockingPropogateAction.ClearAllStoredPages:
                     {
                         // Process each page inside the cell
-                        for (int i = DockableNavigatorControl.Pages.Count - 1; i >= 0; i--)
+                        for (int i = pageCollection.Count - 1; i >= 0; i--)
                         {
                             // Remove all placeholders
-                            KryptonPage page = DockableNavigatorControl.Pages[i];
+                            KryptonPage page = pageCollection[i];
                             if (page is KryptonStorePage)
                             {
-                                DockableNavigatorControl.Pages.Remove(page);
+                                pageCollection.Remove(page);
                             }
                         }
                     }
@@ -521,7 +523,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates a boolean state request down the hierarchy of docking elements.
+        /// Propagates a boolean state request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="state">Boolean state that is requested to be recovered.</param>
         /// <param name="uniqueName">Unique name of the page the request relates to.</param>
@@ -567,7 +569,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates a page request down the hierarchy of docking elements.
+        /// Propagates a page request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="state">Request that should result in a page reference if found.</param>
         /// <param name="uniqueName">Unique name of the page the request relates to.</param>
@@ -593,7 +595,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates a page list request down the hierarchy of docking elements.
+        /// Propagates a page list request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="state">Request that should result in pages collection being modified.</param>
         /// <param name="pages">Pages collection for modification by the docking elements.</param>
@@ -629,7 +631,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates a request for drag targets down the hierarchy of docking elements.
+        /// Propagates a request for drag targets down the hierarchy of docking elements.
         /// </summary>
         /// <param name="floatingWindow">Reference to window being dragged.</param>
         /// <param name="dragData">Set of pages being dragged.</param>
@@ -749,8 +751,8 @@ namespace ComponentFactory.Krypton.Docking
         {
             // Output navigator docking element
             xmlWriter.WriteStartElement(XmlElementName);
-            xmlWriter.WriteAttributeString("N", Name);
-            xmlWriter.WriteAttributeString("C", DockableNavigatorControl.Pages.Count.ToString());
+            xmlWriter.WriteAttributeString(@"N", Name);
+            xmlWriter.WriteAttributeString(@"C", DockableNavigatorControl.Pages.Count.ToString());
 
             // Persist each child page in turn
             KryptonDockingManager dockingManager = DockingManager;
@@ -760,12 +762,12 @@ namespace ComponentFactory.Krypton.Docking
                 if (page.AreFlagsSet(KryptonPageFlags.AllowConfigSave))
                 {
                     xmlWriter.WriteStartElement("KP");
-                    CommonHelper.TextToXmlAttribute(xmlWriter, "UN", page.UniqueName);
-                    CommonHelper.TextToXmlAttribute(xmlWriter, "S", CommonHelper.BoolToString(page is KryptonStorePage));
-                    CommonHelper.TextToXmlAttribute(xmlWriter, "V", CommonHelper.BoolToString(page.LastVisibleSet), "True");
+                    CommonHelper.TextToXmlAttribute(xmlWriter, @"UN", page.UniqueName);
+                    CommonHelper.TextToXmlAttribute(xmlWriter, @"S", CommonHelper.BoolToString(page is KryptonStorePage));
+                    CommonHelper.TextToXmlAttribute(xmlWriter, @"V", CommonHelper.BoolToString(page.LastVisibleSet), @"True");
 
                     // Give event handlers a chance to save custom data with the page
-                    xmlWriter.WriteStartElement("CPD");
+                    xmlWriter.WriteStartElement(@"CPD");
                     DockPageSavingEventArgs args = new DockPageSavingEventArgs(dockingManager, xmlWriter, page);
                     dockingManager.RaisePageSaving(args);
                     xmlWriter.WriteEndElement();
@@ -791,17 +793,17 @@ namespace ComponentFactory.Krypton.Docking
             // Is it the expected xml element name?
             if (xmlReader.Name != XmlElementName)
             {
-                throw new ArgumentException("Element name '" + XmlElementName + "' was expected but found '" + xmlReader.Name + "' instead.");
+                throw new ArgumentException($@"Element name '{XmlElementName}' was expected but found '{xmlReader.Name}' instead.");
             }
 
             // Grab the element attributes
-            string elementName = xmlReader.GetAttribute("N");
-            string elementCount = xmlReader.GetAttribute("C");
+            string elementName = xmlReader.GetAttribute(@"N");
+            string elementCount = xmlReader.GetAttribute(@"C");
 
             // Check the name matches up
             if (elementName != Name)
             {
-                throw new ArgumentException("Attribute 'N' value '" + Name + "' was expected but found '" + elementName + "' instead.");
+                throw new ArgumentException($@"Attribute 'N' value '{Name}' was expected but found '{elementName}' instead.");
             }
 
             // Remove any existing pages in the navigator
@@ -812,27 +814,27 @@ namespace ComponentFactory.Krypton.Docking
             if (count > 0)
             {
                 KryptonDockingManager manager = DockingManager;
-                KryptonPage page = null;
                 for (int i = 0; i < count; i++)
                 {
                     // Read past this element
                     if (!xmlReader.Read())
                     {
-                        throw new ArgumentException("An element was expected but could not be read in.");
+                        throw new ArgumentException(@"An element was expected but could not be read in.");
                     }
 
                     // Is it the expected xml element name?
-                    if (xmlReader.Name != "KP")
+                    if (xmlReader.Name != @"KP")
                     {
-                        throw new ArgumentException("Element name 'KP' was expected but found '" + xmlReader.Name + "' instead.");
+                        throw new ArgumentException($@"Element name 'KP' was expected but found '{xmlReader.Name}' instead.");
                     }
 
                     // Get the unique name of the page
-                    string uniqueName = CommonHelper.XmlAttributeToText(xmlReader, "UN");
-                    bool boolStore = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, "S"));
-                    bool boolVisible = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, "V", "True"));
+                    string uniqueName = CommonHelper.XmlAttributeToText(xmlReader, @"UN");
+                    bool boolStore = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, @"S"));
+                    bool boolVisible = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, @"V", @"True"));
 
                     // If the entry is for just a placeholder...
+                    KryptonPage page;
                     if (boolStore)
                     {
                         // Recreate the requested store page and append
@@ -870,12 +872,12 @@ namespace ComponentFactory.Krypton.Docking
 
                     if (!xmlReader.Read())
                     {
-                        throw new ArgumentException("An element was expected but could not be read in.");
+                        throw new ArgumentException(@"An element was expected but could not be read in.");
                     }
 
-                    if (xmlReader.Name != "CPD")
+                    if (xmlReader.Name != @"CPD")
                     {
-                        throw new ArgumentException("Expected 'CPD' element was not found");
+                        throw new ArgumentException(@"Expected 'CPD' element was not found");
                     }
 
                     bool finished = xmlReader.IsEmptyElement;
@@ -890,21 +892,21 @@ namespace ComponentFactory.Krypton.Docking
                         // Check it has the expected name
                         if (xmlReader.NodeType == XmlNodeType.EndElement)
                         {
-                            finished = (xmlReader.Name == "CPD");
+                            finished = (xmlReader.Name == @"CPD");
                         }
 
                         if (!finished)
                         {
                             if (!xmlReader.Read())
                             {
-                                throw new ArgumentException("An element was expected but could not be read in.");
+                                throw new ArgumentException(@"An element was expected but could not be read in.");
                             }
                         }
                     }
 
                     if (!xmlReader.Read())
                     {
-                        throw new ArgumentException("An element was expected but could not be read in.");
+                        throw new ArgumentException(@"An element was expected but could not be read in.");
                     }
                 }
             }
@@ -912,7 +914,7 @@ namespace ComponentFactory.Krypton.Docking
             // Read past this element to the end element
             if (!xmlReader.Read())
             {
-                throw new ArgumentException("An element was expected but could not be read in.");
+                throw new ArgumentException(@"An element was expected but could not be read in.");
             }
         }
         #endregion
@@ -921,7 +923,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the xml element name to use when saving.
         /// </summary>
-        protected override string XmlElementName => "DN";
+        protected override string XmlElementName => @"DN";
 
         #endregion
 

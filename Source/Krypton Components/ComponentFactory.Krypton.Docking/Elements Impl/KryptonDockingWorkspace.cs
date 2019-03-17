@@ -12,8 +12,10 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using ComponentFactory.Krypton.Workspace;
+
 using ComponentFactory.Krypton.Navigator;
+using ComponentFactory.Krypton.Workspace;
+// ReSharper disable MemberCanBeInternal
 
 namespace ComponentFactory.Krypton.Docking
 {
@@ -31,7 +33,7 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         /// <param name="name">Initial name of the element.</param>
         public KryptonDockingWorkspace(string name)
-            : this(name, "Workspace", new KryptonDockableWorkspace())
+            : this(name, @"Workspace", new KryptonDockableWorkspace())
         {
         }
 
@@ -62,9 +64,9 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets and sets access to the parent docking element.
         /// </summary>
-        public override IDockingElement Parent 
+        public override IDockingElement Parent
         {
-            set 
+            set
             {
                 // Let base class perform standard processing
                 base.Parent = value;
@@ -129,7 +131,7 @@ namespace ComponentFactory.Krypton.Docking
                     // Cannot show a null page reference
                     if (pages[i] == null)
                     {
-                        throw new ArgumentException("pages array contains a null page reference");
+                        throw new ArgumentException(@"pages array contains a null page reference", nameof(pages));
                     }
 
                     uniqueNames[i] = pages[i].UniqueName;
@@ -158,12 +160,12 @@ namespace ComponentFactory.Krypton.Docking
                 {
                     if (uniqueName == null)
                     {
-                        throw new ArgumentNullException("uniqueNames array contains a null string reference");
+                        throw new ArgumentNullException(nameof(uniqueNames), @"uniqueNames array contains a null string reference");
                     }
 
                     if (uniqueName.Length == 0)
                     {
-                        throw new ArgumentException("uniqueNames array contains a zero length string");
+                        throw new ArgumentException(@"uniqueNames array contains a zero length string", nameof(uniqueNames));
                     }
                 }
 
@@ -239,7 +241,7 @@ namespace ComponentFactory.Krypton.Docking
                     // Cannot show a null page reference
                     if (pages[i] == null)
                     {
-                        throw new ArgumentException("pages array contains a null page reference");
+                        throw new ArgumentException(@"pages array contains a null page reference", nameof(pages));
                     }
 
                     uniqueNames[i] = pages[i].UniqueName;
@@ -268,12 +270,12 @@ namespace ComponentFactory.Krypton.Docking
                 {
                     if (uniqueName == null)
                     {
-                        throw new ArgumentNullException("uniqueNames array contains a null string reference");
+                        throw new ArgumentNullException(nameof(uniqueNames), @"uniqueNames array contains a null string reference");
                     }
 
                     if (uniqueName.Length == 0)
                     {
-                        throw new ArgumentException("uniqueNames array contains a zero length string");
+                        throw new ArgumentException(@"uniqueNames array contains a zero length string", nameof(uniqueNames));
                     }
                 }
 
@@ -311,7 +313,7 @@ namespace ComponentFactory.Krypton.Docking
             // Unique names cannot be zero length
             if (uniqueName.Length == 0)
             {
-                throw new ArgumentException("uniqueName cannot be zero length");
+                throw new ArgumentException(@"uniqueName cannot be zero length", nameof(uniqueName));
             }
 
             RemovePages(new string[] { uniqueName }, disposePage);
@@ -339,7 +341,7 @@ namespace ComponentFactory.Krypton.Docking
                     // Cannot show a null page reference
                     if (pages[i] == null)
                     {
-                        throw new ArgumentException("pages array contains a null page reference");
+                        throw new ArgumentException(@"pages array contains a null page reference", nameof(pages));
                     }
 
                     uniqueNames[i] = pages[i].UniqueName;
@@ -369,12 +371,12 @@ namespace ComponentFactory.Krypton.Docking
                 {
                     if (uniqueName == null)
                     {
-                        throw new ArgumentNullException("uniqueNames array contains a null string reference");
+                        throw new ArgumentNullException(nameof(uniqueNames), @"uniqueNames array contains a null string reference");
                     }
 
                     if (uniqueName.Length == 0)
                     {
-                        throw new ArgumentException("uniqueNames array contains a zero length string");
+                        throw new ArgumentException(@"uniqueNames array contains a zero length string", nameof(uniqueNames));
                     }
                 }
 
@@ -400,7 +402,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates an action request down the hierarchy of docking elements.
+        /// Propagates an action request down the hierarchy of docking elements.
         /// </summary>
         /// <param name="action">Action that is requested to be performed.</param>
         /// <param name="uniqueNames">Array of unique names of the pages the action relates to.</param>
@@ -421,7 +423,7 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Propogates a request for drag targets down the hierarchy of docking elements.
+        /// Propagates a request for drag targets down the hierarchy of docking elements.
         /// </summary>
         /// <param name="floatingWindow">Reference to window being dragged.</param>
         /// <param name="dragData">Set of pages being dragged.</param>
@@ -464,8 +466,8 @@ namespace ComponentFactory.Krypton.Docking
             {
                 return DockingLocation.None;
             }
-        }       
- 
+        }
+
         /// <summary>
         /// Find the docking element that contains the named page.
         /// </summary>
@@ -517,12 +519,12 @@ namespace ComponentFactory.Krypton.Docking
 
         #region Protected
         /// <summary>
-        /// Gets the proprogate action used to clear a store page for this implementation.
+        /// Gets the propagate action used to clear a store page for this implementation.
         /// </summary>
         protected override DockingPropogateAction ClearStoreAction => DockingPropogateAction.ClearFillerStoredPages;
 
         /// <summary>
-        /// Raises the type specific space control removed event determinated by the derived class.
+        /// Raises the type specific space control removed event determined by the derived class.
         /// </summary>
         protected override void RaiseRemoved()
         {
@@ -534,11 +536,11 @@ namespace ComponentFactory.Krypton.Docking
                 dockingManager.RaiseDockableWorkspaceRemoved(args);
             }
         }
-        
+
         /// <summary>
-        /// Raises the type specific cell adding event determinated by the derived class.
+        /// Raises the type specific cell adding event determined by the derived class.
         /// </summary>
-        /// <param name="cell">Referecence to new cell being added.</param>
+        /// <param name="cell">Reference to new cell being added.</param>
         protected override void RaiseCellAdding(KryptonWorkspaceCell cell)
         {
             // Generate event so the dockable workspace cell customization can be performed.
@@ -551,9 +553,9 @@ namespace ComponentFactory.Krypton.Docking
         }
 
         /// <summary>
-        /// Raises the type specific cell removed event determinated by the derived class.
+        /// Raises the type specific cell removed event determined by the derived class.
         /// </summary>
-        /// <param name="cell">Referecence to an existing cell being removed.</param>
+        /// <param name="cell">Reference to an existing cell being removed.</param>
         protected override void RaiseCellRemoved(KryptonWorkspaceCell cell)
         {
             // Generate event so the dockable workspace cell customization can be reversed.
@@ -587,7 +589,7 @@ namespace ComponentFactory.Krypton.Docking
         /// <summary>
         /// Gets the xml element name to use when saving.
         /// </summary>
-        protected override string XmlElementName => "DW";
+        protected override string XmlElementName => @"DW";
 
         #endregion    
 

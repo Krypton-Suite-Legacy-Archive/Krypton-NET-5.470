@@ -25,6 +25,7 @@ namespace StandardDocking
     public partial class Form1 : KryptonForm
     {
         private int _count = 1;
+        private KryptonPage props3;
 
         public Form1()
         {
@@ -83,7 +84,8 @@ namespace StandardDocking
 
             // Add initial docking pages
             kryptonDockingManager.AddToWorkspace("Workspace", new KryptonPage[] { NewDocument(), NewDocument() });
-            kryptonDockingManager.AddDockspace("Control", DockingEdge.Right, new KryptonPage[] { NewPropertyGrid(), NewInput() });
+            props3 = NewPropertyGrid();
+            kryptonDockingManager.AddDockspace("Control", DockingEdge.Right, new KryptonPage[] { props3, NewInput() });
             kryptonDockingManager.AddDockspace("Control", DockingEdge.Bottom, new KryptonPage[] { NewInput(), NewPropertyGrid() });
 
             // Set correct initial ribbon palette buttons
@@ -345,6 +347,16 @@ namespace StandardDocking
         private void ribbonAppButtonExit_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnHideProps3_Click(object sender, EventArgs e)
+        {
+            kryptonDockingManager.HidePage(props3);
+        }
+
+        private void btnShowProps3_Click(object sender, EventArgs e)
+        {
+            kryptonDockingManager.ShowPage(props3);
         }
     }
 }

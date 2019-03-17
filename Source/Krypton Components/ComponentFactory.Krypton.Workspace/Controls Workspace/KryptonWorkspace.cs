@@ -10,29 +10,30 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
-using System.Xml;
-using System.Text;
-using System.Drawing;
-using System.ComponentModel;
 using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Runtime.InteropServices;
+using System.ComponentModel;
+using System.Drawing;
 using System.Globalization;
+using System.IO;
+using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading;
-using ComponentFactory.Krypton.Toolkit;
+using System.Windows.Forms;
+using System.Xml;
+
 using ComponentFactory.Krypton.Navigator;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Workspace
 {
-	/// <summary>
+    /// <summary>
     /// Layout a hierarchy of KryptonNavigator instances.
-	/// </summary>
+    /// </summary>
     [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonWorkspace), "ToolboxBitmaps.KryptonWorkspace.bmp")]
     [DefaultEvent("WorkspaceCellAdded")]
     [DefaultProperty("Root")]
-    [Designer(typeof(ComponentFactory.Krypton.Workspace.KryptonWorkspaceDesigner))]
+    [Designer(typeof(KryptonWorkspaceDesigner))]
     [DesignerCategory("code")]
     [Description("Layout a hierarchy of KryptonNavigator instances.")]
     [Docking(DockingBehavior.Ask)]
@@ -243,7 +244,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// Initialize a new instance of the KryptonWorkspace class.
 		/// </summary>
         public KryptonWorkspace()
-		{
+        {
             Root = new KryptonWorkspaceSequence();
             Root.PropertyChanged += OnChildrenPropertyChanged;
             Root.MaximizeRestoreClicked += OnChildrenMaximizeRestoreClicked;
@@ -419,8 +420,8 @@ namespace ComponentFactory.Krypton.Workspace
         {
             get => _activeCell;
 
-            set 
-            { 
+            set
+            {
                 // You cannot set the active cell to 'null' as if we have any cells then one of them
                 // must always be the active cell. Active just means the primary cell in the workspace.
                 if (value != null)
@@ -497,7 +498,7 @@ namespace ComponentFactory.Krypton.Workspace
                     // Cannot assign a value of less than zero
                     if (value < 0)
                     {
-                        throw new ArgumentOutOfRangeException("SplitterWidth", "Value cannot be less than zero");
+                        throw new ArgumentOutOfRangeException(@"SplitterWidth", @"Value cannot be less than zero");
                     }
 
                     // Use new width of the splitter area
@@ -568,8 +569,9 @@ namespace ComponentFactory.Krypton.Workspace
 
                     // Update all the separators to match control state
                     PaletteMetricPadding metricPadding = CommonHelper.SeparatorStyleToMetricPadding(_separatorStyle);
-                    foreach (ViewDrawWorkspaceSeparator separator in _drawPanel)
+                    foreach (ViewBase viewBase in _drawPanel)
                     {
+                        ViewDrawWorkspaceSeparator separator = (ViewDrawWorkspaceSeparator)viewBase;
                         separator.MetricPadding = metricPadding;
                     }
 
@@ -759,7 +761,7 @@ namespace ComponentFactory.Krypton.Workspace
 
                 cell = NextCell(cell);
             }
-            
+
             return pages.ToArray();
         }
 
@@ -799,7 +801,7 @@ namespace ComponentFactory.Krypton.Workspace
             get
             {
                 int count = 0;
-                
+
                 // Iterate over the workspace hierarchy looking for cells
                 KryptonWorkspaceCell cell = FirstCell();
                 while (cell != null)
@@ -1274,11 +1276,11 @@ namespace ComponentFactory.Krypton.Workspace
         }
 
         /// <summary>
-        /// Rebalance the star sized items by setting them all to the same 50*,50* value.
+        /// Re-balance the star sized items by setting them all to the same 50*,50* value.
         /// </summary>
         public void ApplyRebalance()
         {
-            ApplyResizing(Root, "50*", "50*", true, false);
+            ApplyResizing(Root, @"50*", @"50*", true, false);
         }
 
         /// <summary>
@@ -1329,10 +1331,10 @@ namespace ComponentFactory.Krypton.Workspace
                 }
 
                 // If the item is itself a sequence
-                if (c is KryptonWorkspaceSequence)
+                if (c is KryptonWorkspaceSequence workspaceSequence)
                 {
                     // Recurse into processing the sequence as well
-                    ApplyResizing(c as KryptonWorkspaceSequence,
+                    ApplyResizing(workspaceSequence,
                                   newWidth, newHeight,
                                   applyStar, applyFixed);
                 }
@@ -1397,7 +1399,7 @@ namespace ComponentFactory.Krypton.Workspace
                 {
                     // Make sure the controls and pages have been added to the display
                     PerformLayout();
-                    
+
                     // Do we set focus back to the control that had it before?
                     if (activePageFocus != null)
                     {
@@ -1507,8 +1509,6 @@ namespace ComponentFactory.Krypton.Workspace
                             // If no cells then do we need to create a cell?
                             if (createCellIfEmpty || (cells.Count > 0))
                             {
-                                KryptonWorkspaceCell cell;
-
                                 // If there are no more cells then create one now
                                 if (cells.Count == 0)
                                 {
@@ -1516,7 +1516,7 @@ namespace ComponentFactory.Krypton.Workspace
                                 }
                                 else
                                 {
-                                    cell = cells[0];
+                                    KryptonWorkspaceCell cell = cells[0];
                                     cells.RemoveAt(0);
                                     sequence.Children.Add(cell);
                                 }
@@ -1731,14 +1731,16 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="dragEndData">Pages data being dragged.</param>
         /// <param name="allowFlags">Only drop pages that have one of these flags set.</param>
         /// <returns>List of drag targets.</returns>
-        public virtual  DragTargetList GenerateDragTargets(PageDragEndData dragEndData, KryptonPageFlags allowFlags)
+        public virtual DragTargetList GenerateDragTargets(PageDragEndData dragEndData, KryptonPageFlags allowFlags)
         {
             DragTargetList targets = new DragTargetList();
 
             int visibleCells = 0;
             int numPages = 0;
 
-            if (MaximizedCell != null && MaximizedCell.AllowDroppingPages)
+            if ((MaximizedCell != null)
+                && MaximizedCell.AllowDroppingPages
+                )
             {
                 // Generate targets for maximized cell only
                 visibleCells = CellVisibleCount;
@@ -1791,7 +1793,7 @@ namespace ComponentFactory.Krypton.Workspace
                 // No cell showing so need to show as a transfer into the whole control
                 targets.Insert(0, new DragTargetWorkspaceEdge(screenRect, screenRect, screenRect, DragTargetHint.Transfer | DragTargetHint.ExcludeCluster, this, allowFlags));
             }
-            
+
             return targets;
         }
 
@@ -1881,15 +1883,15 @@ namespace ComponentFactory.Krypton.Workspace
             try
             {
                 // Associate a version number with the root element so that future versions of the code
-                // will be able to be backwards compatible or at least recognise incompatible versions
-                xmlWriter.WriteStartElement("KW");
-                xmlWriter.WriteAttributeString("V", "1");
+                // will be able to be backwards compatible or at least recognize incompatible versions
+                xmlWriter.WriteStartElement(@"KW");
+                xmlWriter.WriteAttributeString(@"V", @"1");
 
                 // Remember which page was the active one
-                xmlWriter.WriteAttributeString("A", ActivePage != null ? ActivePage.UniqueName : "(null)");
+                xmlWriter.WriteAttributeString(@"A", ActivePage != null ? ActivePage.UniqueName : @"(null)");
 
                 // Give event handlers chance to embed custom data
-                xmlWriter.WriteStartElement("CGD");
+                xmlWriter.WriteStartElement(@"CGD");
                 OnGlobalSaving(new XmlSavingEventArgs(this, xmlWriter));
                 xmlWriter.WriteEndElement();
 
@@ -1906,10 +1908,10 @@ namespace ComponentFactory.Krypton.Workspace
             }
         }
 
-		/// <summary>
-		/// Loads workspace layout information from given array of bytes.
-		/// </summary>
-		/// <param name="buffer">Array of source bytes.</param>
+        /// <summary>
+        /// Loads workspace layout information from given array of bytes.
+        /// </summary>
+        /// <param name="buffer">Array of source bytes.</param>
         public void LoadLayoutFromArray(byte[] buffer)
         {
             MemoryStream ms = new MemoryStream(buffer);
@@ -1917,31 +1919,31 @@ namespace ComponentFactory.Krypton.Workspace
             ms.Close();
         }
 
-		/// <summary>
-		/// Loads workspace layout information from given filename.
-		/// </summary>
-		/// <param name="filename">Name of file to read from.</param>
+        /// <summary>
+        /// Loads workspace layout information from given filename.
+        /// </summary>
+        /// <param name="filename">Name of file to read from.</param>
         public void LoadLayoutFromFile(string filename)
         {
             // Open existing file
             FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.Read);
-			
-			try
-			{
-				// Load from the file stream
-				LoadLayoutFromStream(fs);		
-			}
-			catch
-			{
-				// Must remember to close
-				fs.Close();
-			}
+
+            try
+            {
+                // Load from the file stream
+                LoadLayoutFromStream(fs);
+            }
+            catch
+            {
+                // Must remember to close
+                fs.Close();
+            }
         }
 
-		/// <summary>
-		/// Loads workspace layout information from given stream object.
-		/// </summary>
-		/// <param name="stream">Stream object.</param>
+        /// <summary>
+        /// Loads workspace layout information from given stream object.
+        /// </summary>
+        /// <param name="stream">Stream object.</param>
         public void LoadLayoutFromStream(Stream stream)
         {
             XmlTextReader xmlReader = new XmlTextReader(stream)
@@ -1952,21 +1954,21 @@ namespace ComponentFactory.Krypton.Workspace
 
             // Use existing method to load from xml
             LoadLayoutFromXml(xmlReader);
-            xmlReader.Close();			
+            xmlReader.Close();
         }
 
-		/// <summary>
-		/// Loads workspace layout information using the provided xml reader.
-		/// </summary>
+        /// <summary>
+        /// Loads workspace layout information using the provided xml reader.
+        /// </summary>
         /// <param name="xmlReader">Xml reader object.</param>
         public void LoadLayoutFromXml(XmlReader xmlReader)
         {
             LoadLayoutFromXml(xmlReader, CopyToPageCollection());
         }
-        
-		/// <summary>
-		/// Loads workspace layout information using the provided xml reader.
-		/// </summary>
+
+        /// <summary>
+        /// Loads workspace layout information using the provided xml reader.
+        /// </summary>
         /// <param name="xmlReader">Xml reader object.</param>
         /// <param name="availablePages">List of pages available for use when loading.</param>
         public void LoadLayoutFromXml(XmlReader xmlReader, KryptonPageCollection availablePages)
@@ -1977,22 +1979,22 @@ namespace ComponentFactory.Krypton.Workspace
             try
             {
                 // Double check this has the correct element name
-                if (xmlReader.Name != "KW")
+                if (xmlReader.Name != @"KW")
                 {
-                    throw new ArgumentException("Root element must be named 'KW'");
+                    throw new ArgumentException(@"Root element must be named 'KW'");
                 }
 
                 // Load the format version number
                 string version = xmlReader.GetAttribute("V");
-                string activePageUniqueName = xmlReader.GetAttribute("A");
+                string activePageUniqueName = xmlReader.GetAttribute(@"A");
 
                 // Convert format version from string to double
                 int formatVersion = (int)Convert.ToDouble(version);
-                
+
                 // We can only load 1 upward version formats
                 if (formatVersion < 1)
                 {
-                    throw new ArgumentException("Can only load Version 1 and upwards of KryptonWorkspace persisted data.");
+                    throw new ArgumentException(@"Can only load Version 1 and upwards of KryptonWorkspace persisted data.");
                 }
 
                 ScreenObscurer obscurer = new ScreenObscurer();
@@ -2017,12 +2019,12 @@ namespace ComponentFactory.Krypton.Workspace
                     // Read to custom data element
                     if (!xmlReader.Read())
                     {
-                        throw new ArgumentException("An element was expected but could not be read in.");
+                        throw new ArgumentException(@"An element was expected but could not be read in.");
                     }
 
-                    if (xmlReader.Name != "CGD")
+                    if (xmlReader.Name != @"CGD")
                     {
-                        throw new ArgumentException("Expected 'CGD' element was not found.");
+                        throw new ArgumentException(@"Expected 'CGD' element was not found.");
                     }
 
                     bool finished = xmlReader.IsEmptyElement;
@@ -2036,14 +2038,14 @@ namespace ComponentFactory.Krypton.Workspace
                         // Check it has the expected name
                         if (xmlReader.NodeType == XmlNodeType.EndElement)
                         {
-                            finished = (xmlReader.Name == "CGD");
+                            finished = (xmlReader.Name == @"CGD");
                         }
 
                         if (!finished)
                         {
                             if (!xmlReader.Read())
                             {
-                                throw new ArgumentException("An element was expected but could not be read in.");
+                                throw new ArgumentException(@"An element was expected but could not be read in.");
                             }
                         }
                     }
@@ -2051,13 +2053,13 @@ namespace ComponentFactory.Krypton.Workspace
                     // Read the next well known element
                     if (!xmlReader.Read())
                     {
-                        throw new ArgumentException("An element was expected but could not be read in.");
+                        throw new ArgumentException(@"An element was expected but could not be read in.");
                     }
 
                     // Is it the expected element?
-                    if (xmlReader.Name != "WS")
+                    if (xmlReader.Name != @"WS")
                     {
-                        throw new ArgumentException("Element 'WS' was expected but not found.");
+                        throw new ArgumentException(@"Element 'WS' was expected but not found.");
                     }
 
                     // Reload the root sequence
@@ -2066,13 +2068,13 @@ namespace ComponentFactory.Krypton.Workspace
                     // Move past the end element
                     if (!xmlReader.Read())
                     {
-                        throw new ArgumentException("Could not read in next expected node.");
+                        throw new ArgumentException(@"Could not read in next expected node.");
                     }
 
                     // Check it has the expected name
                     if (xmlReader.NodeType != XmlNodeType.EndElement)
                     {
-                        throw new ArgumentException("EndElement expected but not found.");
+                        throw new ArgumentException(@"EndElement expected but not found.");
                     }
 
                     // Are there any unmatched pages?
@@ -2086,7 +2088,7 @@ namespace ComponentFactory.Krypton.Workspace
                         }
 
                         // Allow the unmatched pages to be processed by event handlers
-                        OnPagesUnmatched(new PagesUnmatchedEventArgs(this, unmatched));                    
+                        OnPagesUnmatched(new PagesUnmatchedEventArgs(this, unmatched));
                     }
 
                     // Update incoming collection with new entries because of RecreateLoadingPage events
@@ -2135,21 +2137,21 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="cell">Reference to cell.</param>
         public virtual void WriteCellElement(XmlWriter xmlWriter, KryptonWorkspaceCell cell)
         {
-            xmlWriter.WriteAttributeString("UN", cell.UniqueName);
-            xmlWriter.WriteAttributeString("S", cell.WorkspaceStarSize.PersistString);
-            xmlWriter.WriteAttributeString("NM", cell.NavigatorMode.ToString());
-            CommonHelper.TextToXmlAttribute(xmlWriter, "UM", CommonHelper.BoolToString(cell.UseMnemonic), "True");
-            CommonHelper.TextToXmlAttribute(xmlWriter, "ATF", CommonHelper.BoolToString(cell.AllowTabFocus), "False");
-            CommonHelper.TextToXmlAttribute(xmlWriter, "APD", CommonHelper.BoolToString(cell.AllowPageDrag), "True");
-            CommonHelper.TextToXmlAttribute(xmlWriter, "AR", CommonHelper.BoolToString(cell.AllowResizing), "False");
-            CommonHelper.TextToXmlAttribute(xmlWriter, "E", CommonHelper.BoolToString(cell.Enabled), "True");
-            CommonHelper.TextToXmlAttribute(xmlWriter, "V", CommonHelper.BoolToString(cell.LastVisibleSet), "True");
-            CommonHelper.TextToXmlAttribute(xmlWriter, "DOR", CommonHelper.BoolToString(cell.DisposeOnRemove), "True");
-            CommonHelper.TextToXmlAttribute(xmlWriter, "MINS", CommonHelper.SizeToString(cell.MinimumSize), "0, 0");
-            CommonHelper.TextToXmlAttribute(xmlWriter, "MAXS", CommonHelper.SizeToString(cell.MaximumSize), "0, 0");
+            xmlWriter.WriteAttributeString(@"UN", cell.UniqueName);
+            xmlWriter.WriteAttributeString(@"S", cell.WorkspaceStarSize.PersistString);
+            xmlWriter.WriteAttributeString(@"NM", cell.NavigatorMode.ToString());
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"UM", CommonHelper.BoolToString(cell.UseMnemonic), @"True");
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"ATF", CommonHelper.BoolToString(cell.AllowTabFocus), @"False");
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"APD", CommonHelper.BoolToString(cell.AllowPageDrag), @"True");
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"AR", CommonHelper.BoolToString(cell.AllowResizing), @"False");
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"E", CommonHelper.BoolToString(cell.Enabled), @"True");
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"V", CommonHelper.BoolToString(cell.LastVisibleSet), @"True");
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"DOR", CommonHelper.BoolToString(cell.DisposeOnRemove), @"True");
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"MINS", CommonHelper.SizeToString(cell.MinimumSize), @"0, 0");
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"MAXS", CommonHelper.SizeToString(cell.MaximumSize), @"0, 0");
 
             // Remember which page was the active one
-            xmlWriter.WriteAttributeString("SP", cell.SelectedPage != null ? cell.SelectedPage.UniqueName : "(null)");
+            xmlWriter.WriteAttributeString(@"SP", cell.SelectedPage != null ? cell.SelectedPage.UniqueName : @"(null)");
         }
 
         /// <summary>
@@ -2161,19 +2163,19 @@ namespace ComponentFactory.Krypton.Workspace
         public virtual string ReadCellElement(XmlReader xmlReader, KryptonWorkspaceCell cell)
         {
             // Grab the mandatory attributes
-            cell.UniqueName = xmlReader.GetAttribute("UN");
-            cell.WorkspaceStarSize.PersistString = xmlReader.GetAttribute("S");
-            string selectedPageUniqueName = xmlReader.GetAttribute("SP");
-            cell.NavigatorMode = (NavigatorMode)Enum.Parse(typeof(NavigatorMode), xmlReader.GetAttribute("NM"));
-            cell.UseMnemonic = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, "UM", "True"));
-            cell.AllowTabFocus = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, "ATF", "False"));
-            cell.AllowPageDrag = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, "APD", "True"));
-            cell.AllowResizing = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, "AR", "False"));
-            cell.Enabled = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, "E", "True"));
-            cell.Visible = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, "V", "True"));
-            cell.DisposeOnRemove = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, "DOR", "True"));
-            cell.MinimumSize = CommonHelper.StringToSize(CommonHelper.XmlAttributeToText(xmlReader, "MINS", "0, 0"));
-            cell.MaximumSize = CommonHelper.StringToSize(CommonHelper.XmlAttributeToText(xmlReader, "MAXS", "0, 0"));
+            cell.UniqueName = xmlReader.GetAttribute(@"UN");
+            cell.WorkspaceStarSize.PersistString = xmlReader.GetAttribute(@"S");
+            string selectedPageUniqueName = xmlReader.GetAttribute(@"SP");
+            cell.NavigatorMode = (NavigatorMode)Enum.Parse(typeof(NavigatorMode), xmlReader.GetAttribute(@"NM"));
+            cell.UseMnemonic = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, @"UM", @"True"));
+            cell.AllowTabFocus = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, @"ATF", @"False"));
+            cell.AllowPageDrag = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, @"APD", @"True"));
+            cell.AllowResizing = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, @"AR", @"False"));
+            cell.Enabled = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, @"E", @"True"));
+            cell.Visible = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, @"V", @"True"));
+            cell.DisposeOnRemove = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, @"DOR", @"True"));
+            cell.MinimumSize = CommonHelper.StringToSize(CommonHelper.XmlAttributeToText(xmlReader, @"MINS", @"0, 0"));
+            cell.MaximumSize = CommonHelper.StringToSize(CommonHelper.XmlAttributeToText(xmlReader, @"MAXS", @"0, 0"));
             return selectedPageUniqueName;
         }
 
@@ -2184,9 +2186,9 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="sequence">Reference to sequence.</param>
         public virtual void WriteSequenceElement(XmlWriter xmlWriter, KryptonWorkspaceSequence sequence)
         {
-            xmlWriter.WriteAttributeString("UN", sequence.UniqueName);
-            xmlWriter.WriteAttributeString("S", sequence.WorkspaceStarSize.PersistString);
-            xmlWriter.WriteAttributeString("D", sequence.Orientation.ToString());
+            xmlWriter.WriteAttributeString(@"UN", sequence.UniqueName);
+            xmlWriter.WriteAttributeString(@"S", sequence.WorkspaceStarSize.PersistString);
+            xmlWriter.WriteAttributeString(@"D", sequence.Orientation.ToString());
         }
 
         /// <summary>
@@ -2196,9 +2198,9 @@ namespace ComponentFactory.Krypton.Workspace
         /// <param name="sequence">Reference to sequence.</param>
         public virtual void ReadSequenceElement(XmlReader xmlReader, KryptonWorkspaceSequence sequence)
         {
-            sequence.UniqueName = xmlReader.GetAttribute("UN");
-            sequence.WorkspaceStarSize.PersistString = xmlReader.GetAttribute("S");
-            sequence.Orientation = (Orientation)Enum.Parse(typeof(Orientation), xmlReader.GetAttribute("D"));
+            sequence.UniqueName = xmlReader.GetAttribute(@"UN");
+            sequence.WorkspaceStarSize.PersistString = xmlReader.GetAttribute(@"S");
+            sequence.Orientation = (Orientation)Enum.Parse(typeof(Orientation), xmlReader.GetAttribute(@"D"));
         }
 
         /// <summary>
@@ -2209,31 +2211,31 @@ namespace ComponentFactory.Krypton.Workspace
         public virtual void WritePageElement(XmlWriter xmlWriter, KryptonPage page)
         {
             // Write values that can be stored as attributes
-            CommonHelper.TextToXmlAttribute(xmlWriter, "T", page.Text);
-            CommonHelper.TextToXmlAttribute(xmlWriter, "TT", page.TextTitle);
-            CommonHelper.TextToXmlAttribute(xmlWriter, "TD", page.TextDescription);
-            CommonHelper.TextToXmlAttribute(xmlWriter, "TTB", page.ToolTipBody);
-            CommonHelper.TextToXmlAttribute(xmlWriter, "TTITC", CommonHelper.ColorToString(page.ToolTipImageTransparentColor));
-            CommonHelper.TextToXmlAttribute(xmlWriter, "TTS", page.ToolTipStyle.ToString(), "ToolTip");
-            CommonHelper.TextToXmlAttribute(xmlWriter, "TTT", page.ToolTipTitle);
-            CommonHelper.TextToXmlAttribute(xmlWriter, "UN", page.UniqueName);
-            CommonHelper.TextToXmlAttribute(xmlWriter, "E", CommonHelper.BoolToString(page.Enabled), "True");
-            CommonHelper.TextToXmlAttribute(xmlWriter, "V", CommonHelper.BoolToString(page.LastVisibleSet), "True");
-            CommonHelper.TextToXmlAttribute(xmlWriter, "MINS", CommonHelper.SizeToString(page.MinimumSize), "50, 50");
-            CommonHelper.TextToXmlAttribute(xmlWriter, "MAXS", CommonHelper.SizeToString(page.MaximumSize), "0, 0");
-            CommonHelper.TextToXmlAttribute(xmlWriter, "AHSS", CommonHelper.SizeToString(page.AutoHiddenSlideSize), "150, 150");
-            CommonHelper.TextToXmlAttribute(xmlWriter, "F", page.Flags.ToString());
-            
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"T", page.Text);
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"TT", page.TextTitle);
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"TD", page.TextDescription);
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"TTB", page.ToolTipBody);
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"TTITC", CommonHelper.ColorToString(page.ToolTipImageTransparentColor));
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"TTS", page.ToolTipStyle.ToString(), "ToolTip");
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"TTT", page.ToolTipTitle);
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"UN", page.UniqueName);
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"E", CommonHelper.BoolToString(page.Enabled), "True");
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"V", CommonHelper.BoolToString(page.LastVisibleSet), "True");
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"MINS", CommonHelper.SizeToString(page.MinimumSize), "50, 50");
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"MAXS", CommonHelper.SizeToString(page.MaximumSize), "0, 0");
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"AHSS", CommonHelper.SizeToString(page.AutoHiddenSlideSize), "150, 150");
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"F", page.Flags.ToString());
+
             //Seb
             //TODO store object instead of strings
-            CommonHelper.TextToXmlAttribute(xmlWriter, "TAG", page.Tag.ToString());
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"TAG", page.Tag.ToString());
             //End Seb
 
             // Write out images as child elements
-            CommonHelper.ImageToXmlCData(xmlWriter, "IS", page.ImageSmall);
-            CommonHelper.ImageToXmlCData(xmlWriter, "IM", page.ImageMedium);
-            CommonHelper.ImageToXmlCData(xmlWriter, "IL", page.ImageLarge);
-            CommonHelper.ImageToXmlCData(xmlWriter, "TTI", page.ToolTipImage);
+            CommonHelper.ImageToXmlCData(xmlWriter, @"IS", page.ImageSmall);
+            CommonHelper.ImageToXmlCData(xmlWriter, @"IM", page.ImageMedium);
+            CommonHelper.ImageToXmlCData(xmlWriter, @"IL", page.ImageLarge);
+            CommonHelper.ImageToXmlCData(xmlWriter, @"TTI", page.ToolTipImage);
         }
 
         /// <summary>
@@ -2273,52 +2275,52 @@ namespace ComponentFactory.Krypton.Workspace
             if (page != null)
             {
                 // Read values that can be stored as attributes
-                page.Text = CommonHelper.XmlAttributeToText(xmlReader, "T");
-                page.TextTitle = CommonHelper.XmlAttributeToText(xmlReader, "TT");
-                page.TextDescription = CommonHelper.XmlAttributeToText(xmlReader, "TD");
-                page.ToolTipBody = CommonHelper.XmlAttributeToText(xmlReader, "TTB");
-                page.ToolTipImageTransparentColor = CommonHelper.StringToColor(CommonHelper.XmlAttributeToText(xmlReader, "TTITC"));
-                page.ToolTipStyle = (LabelStyle)Enum.Parse(typeof(LabelStyle), CommonHelper.XmlAttributeToText(xmlReader, "TTS", "ToolTip"));
-                page.ToolTipTitle = CommonHelper.XmlAttributeToText(xmlReader, "TTT");
-                page.UniqueName = CommonHelper.XmlAttributeToText(xmlReader, "UN");
-                page.Enabled = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, "E", "True"));
-                page.Visible = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, "V", "True"));
-                page.MinimumSize = CommonHelper.StringToSize(CommonHelper.XmlAttributeToText(xmlReader, "MINS", "50, 50"));
-                page.MaximumSize = CommonHelper.StringToSize(CommonHelper.XmlAttributeToText(xmlReader, "MAXS", "0, 0"));
-                page.AutoHiddenSlideSize = CommonHelper.StringToSize(CommonHelper.XmlAttributeToText(xmlReader, "AHSS", "150, 150"));
-                page.Flags = int.Parse(CommonHelper.XmlAttributeToText(xmlReader, "F", page.Flags.ToString()));
+                page.Text = CommonHelper.XmlAttributeToText(xmlReader, @"T");
+                page.TextTitle = CommonHelper.XmlAttributeToText(xmlReader, @"TT");
+                page.TextDescription = CommonHelper.XmlAttributeToText(xmlReader, @"TD");
+                page.ToolTipBody = CommonHelper.XmlAttributeToText(xmlReader, @"TTB");
+                page.ToolTipImageTransparentColor = CommonHelper.StringToColor(CommonHelper.XmlAttributeToText(xmlReader, @"TTITC"));
+                page.ToolTipStyle = (LabelStyle)Enum.Parse(typeof(LabelStyle), CommonHelper.XmlAttributeToText(xmlReader, @"TTS", @"ToolTip"));
+                page.ToolTipTitle = CommonHelper.XmlAttributeToText(xmlReader, @"TTT");
+                page.UniqueName = CommonHelper.XmlAttributeToText(xmlReader, @"UN");
+                page.Enabled = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, @"E", @"True"));
+                page.Visible = CommonHelper.StringToBool(CommonHelper.XmlAttributeToText(xmlReader, @"V", @"True"));
+                page.MinimumSize = CommonHelper.StringToSize(CommonHelper.XmlAttributeToText(xmlReader, @"MINS", @"50, 50"));
+                page.MaximumSize = CommonHelper.StringToSize(CommonHelper.XmlAttributeToText(xmlReader, @"MAXS", @"0, 0"));
+                page.AutoHiddenSlideSize = CommonHelper.StringToSize(CommonHelper.XmlAttributeToText(xmlReader, @"AHSS", @"150, 150"));
+                page.Flags = int.Parse(CommonHelper.XmlAttributeToText(xmlReader, @"F", page.Flags.ToString()));
 
                 //Seb
-                page.Tag = CommonHelper.XmlAttributeToText(xmlReader, "TAG");
+                page.Tag = CommonHelper.XmlAttributeToText(xmlReader, @"TAG");
                 //End Seb
             }
 
             // Read the next Element
             if (!xmlReader.Read())
             {
-                throw new ArgumentException("An element was expected but could not be read in.");
+                throw new ArgumentException(@"An element was expected but could not be read in.");
             }
 
             if (page != null)
             {
                 // Load any optional images that are present
-                page.ImageSmall = ReadOptionalImageElement(xmlReader, "IS");
-                page.ImageMedium = ReadOptionalImageElement(xmlReader, "IM");
-                page.ImageLarge = ReadOptionalImageElement(xmlReader, "IL");
-                page.ToolTipImage = ReadOptionalImageElement(xmlReader, "TTI");
+                page.ImageSmall = ReadOptionalImageElement(xmlReader, @"IS");
+                page.ImageMedium = ReadOptionalImageElement(xmlReader, @"IM");
+                page.ImageLarge = ReadOptionalImageElement(xmlReader, @"IL");
+                page.ToolTipImage = ReadOptionalImageElement(xmlReader, @"TTI");
             }
             else
             {
                 // Read past the optional images
-                ReadOptionalImageElement(xmlReader, "IS");
-                ReadOptionalImageElement(xmlReader, "IM");
-                ReadOptionalImageElement(xmlReader, "IL");
-                ReadOptionalImageElement(xmlReader, "TTI");
+                ReadOptionalImageElement(xmlReader, @"IS");
+                ReadOptionalImageElement(xmlReader, @"IM");
+                ReadOptionalImageElement(xmlReader, @"IL");
+                ReadOptionalImageElement(xmlReader, @"TTI");
             }
 
             return page;
         }
-        
+
         /// <summary>
         /// Raises the GlobalSaving event.
         /// </summary>
@@ -2464,10 +2466,10 @@ namespace ComponentFactory.Krypton.Workspace
             }
         }
 
-		/// <summary>
-		/// Processes a dialog key.
-		/// </summary>
-		/// <returns>true if key processed; otherwise false.</returns>
+        /// <summary>
+        /// Processes a dialog key.
+        /// </summary>
+        /// <returns>true if key processed; otherwise false.</returns>
         protected override bool ProcessDialogKey(Keys keyData)
         {
             // Only if enabled and with an active cell/page are we able to do something with keys
@@ -2534,7 +2536,7 @@ namespace ComponentFactory.Krypton.Workspace
             // We have not intercepted key press
             return base.ProcessDialogKey(keyData);
         }
-        
+
         /// <summary>
         /// Raises the GotFocus event.
         /// </summary>
@@ -2559,8 +2561,9 @@ namespace ComponentFactory.Krypton.Workspace
             _drawPanel.Enabled = Enabled;
 
             // Update all the separators to match control state
-            foreach (ViewDrawWorkspaceSeparator separator in _drawPanel)
+            foreach (ViewBase viewBase in _drawPanel)
             {
+                ViewDrawWorkspaceSeparator separator = (ViewDrawWorkspaceSeparator)viewBase;
                 separator.Enabled = Enabled;
             }
 
@@ -2689,14 +2692,19 @@ namespace ComponentFactory.Krypton.Workspace
                 {
                     // We need to find a new active cell if we do not currently have a setting or if we have a 
                     // setting but that cell is no longer present or the cell is present but not actually visible
-                    if ((ActiveCell == null) || !Controls.Contains(ActiveCell) || !ActiveCell.WorkspaceVisible)
+                    if ((ActiveCell == null)
+                        || !Controls.Contains(ActiveCell)
+                        || !ActiveCell.WorkspaceVisible
+                        )
                     {
                         SetActiveCellRaw(FirstVisibleCell());
                     }
                 }
 
                 // If we have a maximized cell then ensure it has focus and not some other cell
-                if ((MaximizedCell != null) && !MaximizedCell.ContainsFocus && ContainsFocus)
+                if ((MaximizedCell != null)
+                    && !MaximizedCell.ContainsFocus && ContainsFocus
+                    )
                 {
                     MaximizedCell.Select();
                 }
@@ -2890,9 +2898,11 @@ namespace ComponentFactory.Krypton.Workspace
 
             // Are both items allowed to be resized by the user?
             // (at design time we can get null references)
-            if ((after == null) || (before == null) || 
-                !before.WorkspaceAllowResizing || 
-                !after.WorkspaceAllowResizing)
+            if ((after == null)
+                || !after.WorkspaceAllowResizing
+                || (before == null)
+                || !before.WorkspaceAllowResizing
+                )
             {
                 return false;
             }
@@ -2921,18 +2931,18 @@ namespace ComponentFactory.Krypton.Workspace
 
             if (separator.Orientation == Orientation.Horizontal)
             {
-                return new Rectangle(separator.ClientLocation.X, separator.ClientLocation.Y - moveBefore, 
+                return new Rectangle(separator.ClientLocation.X, separator.ClientLocation.Y - moveBefore,
                     separator.ClientWidth, moveBefore + moveAfter);
             }
             else
             {
-                return new Rectangle(separator.ClientLocation.X - moveBefore, separator.ClientLocation.Y, 
+                return new Rectangle(separator.ClientLocation.X - moveBefore, separator.ClientLocation.Y,
                     moveBefore + moveAfter, separator.ClientHeight);
             }
         }
 
         internal void SeparatorMoved(ViewDrawWorkspaceSeparator separator,
-                                     Point mouse, 
+                                     Point mouse,
                                      Point splitter)
         {
             // Get the sequence that contains the items moved
@@ -2942,7 +2952,7 @@ namespace ComponentFactory.Krypton.Workspace
             // At design time we can get null references
             if ((after != null) && (before != null))
             {
-                // Find the direction dependant change
+                // Find the direction dependent change
                 int offset;
                 if (separator.Orientation == Orientation.Vertical)
                 {
@@ -2996,7 +3006,7 @@ namespace ComponentFactory.Krypton.Workspace
                             }
                             else
                             {
-                                directionStarSize.Value = newStar.ToString() + "*";
+                                directionStarSize.Value = newStar.ToString() + @"*";
                             }
                         }
                     }
@@ -3028,7 +3038,7 @@ namespace ComponentFactory.Krypton.Workspace
                 }
                 else
                 {
-                    // Create drag mananager the first time it is needed
+                    // Create drag mananger the first time it is needed
                     if (_dragManager == null)
                     {
                         _dragManager = new DragManager();
@@ -3134,7 +3144,7 @@ namespace ComponentFactory.Krypton.Workspace
             }
         }
 
-        private void LayoutSequenceNonMaximized(KryptonWorkspaceSequence seq, 
+        private void LayoutSequenceNonMaximized(KryptonWorkspaceSequence seq,
                                                 Rectangle client,
                                                 ControlList controls,
                                                 SeparatorList separators,
@@ -3152,7 +3162,7 @@ namespace ComponentFactory.Krypton.Workspace
             int visibleChildren = 0;
             int visibleStarChildren = 0;
             double starTotal = 0.0f;
-            
+
             // Pass #1, Determine which children are visible and cache sizing information
             for (int i = 0; i < seq.Children.Count; i++)
             {
@@ -3269,7 +3279,7 @@ namespace ComponentFactory.Krypton.Workspace
                                 // If the calculation is less than the minimum
                                 if ((info[i].CacheMinSize > 0) && (itemSpace < info[i].CacheMinSize))
                                 {
-                                    // Enfore minimum setting
+                                    // Enforce minimum setting
                                     info[i].AllocatedSpace = true;
                                     info[i].DisplaySpace = info[i].CacheMinSize;
 
@@ -3282,7 +3292,7 @@ namespace ComponentFactory.Krypton.Workspace
                                 }
                                 else if ((info[i].CacheMaxSize > 0) && (itemSpace > info[i].CacheMaxSize))
                                 {
-                                    // Enfore maximum setting
+                                    // Enforce maximum setting
                                     info[i].AllocatedSpace = true;
                                     info[i].DisplaySpace = info[i].CacheMaxSize;
 
@@ -3491,7 +3501,7 @@ namespace ComponentFactory.Krypton.Workspace
                 }
             }
         }
-        
+
         private bool RecursiveSearchCellInSequence(KryptonWorkspaceSequence sequence,
                                                    KryptonWorkspaceCell target)
         {
@@ -3515,7 +3525,7 @@ namespace ComponentFactory.Krypton.Workspace
         }
 
         private KryptonWorkspaceCell RecursiveFindCellInSequence(KryptonWorkspaceSequence sequence,
-                                                                 Component target, 
+                                                                 Component target,
                                                                  bool forwards,
                                                                  bool onlyVisible)
         {
@@ -3584,7 +3594,7 @@ namespace ComponentFactory.Krypton.Workspace
             }
         }
 
-        private KryptonWorkspaceCell RecursiveFindCellInSequence(KryptonWorkspaceSequence sequence, 
+        private KryptonWorkspaceCell RecursiveFindCellInSequence(KryptonWorkspaceSequence sequence,
                                                                  bool forwards,
                                                                  bool onlyVisible)
         {
@@ -3718,7 +3728,7 @@ namespace ComponentFactory.Krypton.Workspace
             KryptonWorkspaceCell cell = FirstCell();
             while (cell != null)
             {
-                foreach(KryptonPage page in cell.Pages)
+                foreach (KryptonPage page in cell.Pages)
                 {
                     pages.Add(page);
                 }
@@ -3762,6 +3772,7 @@ namespace ComponentFactory.Krypton.Workspace
                     cell.HideAllPages(excludeType);
                 }
 
+                cell.Visible = cell.Pages.VisibleCount > 0;
                 cell = NextCell(cell);
             }
         }
@@ -3774,7 +3785,7 @@ namespace ComponentFactory.Krypton.Workspace
             Rectangle[] rectsHot = SubdivideRectangle(screenRect, 3, int.MaxValue);
 
             // If the cell has no pages and we compact away empty cells then do not allow the user to drop at edges
-            // of the cell as this will only cause the exsiting cell to be compacted away and leave the new drop in
+            // of the cell as this will only cause the existing cell to be compacted away and leave the new drop in
             // exactly the place as the original cell. The same effect is to just transfer the page into the cell
             if ((cell.Pages.VisibleCount > 0) || (!DesignMode && ((CompactFlags & CompactFlags.RemoveEmptyCells) == 0)))
             {
@@ -3789,7 +3800,7 @@ namespace ComponentFactory.Krypton.Workspace
             targets.Add(new DragTargetWorkspaceCellTransfer(screenRect, rectsHot[4], screenRect, this, cell, allowFlags));
         }
 
-        private Rectangle[] SubdivideRectangle(Rectangle area, 
+        private Rectangle[] SubdivideRectangle(Rectangle area,
                                                int divisor,
                                                int maxLength)
         {
@@ -3800,7 +3811,7 @@ namespace ComponentFactory.Krypton.Workspace
                                     new Rectangle(area.Right - length, area.Y, length, area.Height),
                                     new Rectangle(area.X, area.Y, area.Width, length),
                                     new Rectangle(area.X, area.Bottom - length, area.Width, length),
-                                    new Rectangle(area.X + length, area.Y + length, 
+                                    new Rectangle(area.X + length, area.Y + length,
                                                   area.Width - (length * 2), area.Height - (length * 2))};
         }
 
@@ -3908,7 +3919,7 @@ namespace ComponentFactory.Krypton.Workspace
                     _menuItems = new KryptonContextMenuItems(new KryptonContextMenuItemBase[] { _menuClose,
                                                                                                 _menuCloseAllButThis,
                                                                                                 _menuSeparator2,
-                                                                                                _menuMoveNext, _menuMovePrevious, 
+                                                                                                _menuMoveNext, _menuMovePrevious,
                                                                                                 _menuSeparator3,
                                                                                                 _menuSplitVert, _menuSplitHorz,
                                                                                                 _menuSeparator4,
@@ -3932,11 +3943,11 @@ namespace ComponentFactory.Krypton.Workspace
                 _menuSplitHorz.Visible = _menuSplitVert.Visible;
                 _menuMaximizeRestore.Text = (MaximizedCell == null ? ContextMenus.TextMaximize : ContextMenus.TextRestore);
                 _menuRebalance.Visible = (CellVisibleCount > 1);
-                
+
                 // Only need the top separator if there is already something in the menu and we need to add at least one entry
-                _menuSeparator1.Visible = (e.KryptonContextMenu.Items.Count > 0) && 
-                                          (_menuClose.Visible || _menuCloseAllButThis.Visible || _menuMoveNext.Visible || 
-                                           _menuMovePrevious.Visible || _menuSplitVert.Visible || _menuSplitHorz.Visible || 
+                _menuSeparator1.Visible = (e.KryptonContextMenu.Items.Count > 0) &&
+                                          (_menuClose.Visible || _menuCloseAllButThis.Visible || _menuMoveNext.Visible ||
+                                           _menuMovePrevious.Visible || _menuSplitVert.Visible || _menuSplitHorz.Visible ||
                                            _menuRebalance.Visible);
 
                 // Decide if we need the rest of the separators
@@ -3967,7 +3978,7 @@ namespace ComponentFactory.Krypton.Workspace
             contextMenu.Items.Remove(_menuSeparator1);
             contextMenu.Items.Remove(_menuItems);
 
-            // Must unreference the page/cell so they can be gargabe collected
+            // Must unreference the page/cell so they can be garbage collected
             if (e.CloseReason != ToolStripDropDownCloseReason.ItemClicked)
             {
                 ClearContextMenuCache();
@@ -4187,7 +4198,7 @@ namespace ComponentFactory.Krypton.Workspace
             // Add each page that has a non-null unique name but only add the same unique name once
             foreach (KryptonPage page in pages)
             {
-                if (!string.IsNullOrEmpty(page.UniqueName) && 
+                if (!string.IsNullOrEmpty(page.UniqueName) &&
                     !dict.ContainsKey(page.UniqueName))
                 {
                     dict.Add(page.UniqueName, page);

@@ -10,13 +10,14 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
 using System.ComponentModel;
+using System.Drawing;
 using System.Runtime.InteropServices;
-using System.Windows.Forms;
 using System.Security.Permissions;
-using ComponentFactory.Krypton.Toolkit;
+using System.Windows.Forms;
+
 using ComponentFactory.Krypton.Navigator;
+using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Workspace;
 // ReSharper disable MemberCanBeInternal
 
@@ -28,7 +29,7 @@ namespace ComponentFactory.Krypton.Docking
     [ToolboxItem(false)]
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
-    public class KryptonAutoHiddenSlidePanel : KryptonPanel, 
+    public class KryptonAutoHiddenSlidePanel : KryptonPanel,
                                                IMessageFilter
     {
         #region Static Fields
@@ -47,7 +48,7 @@ namespace ComponentFactory.Krypton.Docking
         private readonly KryptonAutoHiddenPanel _panel;
         private KryptonAutoHiddenGroup _group;
         private readonly KryptonDockspaceSlide _dockspaceSlide;
-        private readonly EventHandler _checkMakeHidden; 
+        private readonly EventHandler _checkMakeHidden;
         private readonly KryptonPanel _inner;
         private readonly Button _dummyTarget;
         private DockingAutoHiddenShowState _state;
@@ -66,7 +67,7 @@ namespace ComponentFactory.Krypton.Docking
         [Category("Behavior")]
         [Description("Occurs when the separator is about to be moved and requests the rectangle of allowed movement.")]
         public event EventHandler<SplitterMoveRectMenuArgs> SplitterMoveRect;
-        
+
         /// <summary>
         /// Occurs when the separator move finishes and a move has occured.
         /// </summary>
@@ -94,7 +95,7 @@ namespace ComponentFactory.Krypton.Docking
         [Category("Behavior")]
         [Description("Occurs when the user clicks the auto hidden button for a page.")]
         public event EventHandler<UniqueNameEventArgs> PageAutoHiddenClicked;
-        
+
         /// <summary>
         /// Occurs when a page requests that a drop down menu be shown.
         /// </summary>
@@ -107,7 +108,7 @@ namespace ComponentFactory.Krypton.Docking
         /// </summary>
         [Category("Behavior")]
         [Description("Occurs when an auto hidden page showing state changes.")]
-        public event EventHandler<AutoHiddenShowingStateEventArgs> AutoHiddenShowingStateChanged;        
+        public event EventHandler<AutoHiddenShowingStateEventArgs> AutoHiddenShowingStateChanged;
         #endregion
 
         #region Identity
@@ -149,7 +150,7 @@ namespace ComponentFactory.Krypton.Docking
             _dockspaceSlide.PageCloseClicked += OnDockspacePageCloseClicked;
             _dockspaceSlide.PageAutoHiddenClicked += OnDockspacePageAutoHiddenClicked;
             _dockspaceSlide.PageDropDownClicked += OnDockspacePageDropDownClicked;
-            
+
             SeparatorControl = new KryptonDockspaceSeparator(edge, true);
             SeparatorControl.SplitterMoving += OnDockspaceSeparatorMoving;
             SeparatorControl.SplitterMoved += OnDockspaceSeparatorMoved;
@@ -169,7 +170,7 @@ namespace ComponentFactory.Krypton.Docking
                 Size = new Size(100, 100)
             };
             Controls.Add(_dummyTarget);
-            
+
             // Add ourself into the target control for docking
             control.SizeChanged += OnControlSizeChanged;
             control.Controls.Add(this);
@@ -479,11 +480,11 @@ namespace ComponentFactory.Krypton.Docking
             }
         }
 
-		/// <summary>
-		/// Filters out a message before it is dispatched.
-		/// </summary>
-		/// <param name="msg">The message to be dispatched. You cannot modify this message. </param>
-		/// <returns>true to filter out; false otherwise.</returns>
+        /// <summary>
+        /// Filters out a message before it is dispatched.
+        /// </summary>
+        /// <param name="msg">The message to be dispatched. You cannot modify this message. </param>
+        /// <returns>true to filter out; false otherwise.</returns>
         [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         public bool PreFilterMessage(ref Message msg)
         {
@@ -496,15 +497,16 @@ namespace ComponentFactory.Krypton.Docking
             //    We are not in the hidden state                                        AND
             //    We have an associated auto hidden group control that is not disposed  AND
             //    We are not disposed
-            if ( (parentForm != null) 
-                 && ( (parentForm == Form.ActiveForm) 
-                      || ( (parentMdi != null) 
+            if ((parentForm != null)
+                 && ((parentForm == Form.ActiveForm)
+                      || ((parentMdi != null)
                            && (parentMdi.ActiveMdiChild == parentForm)
                       )
-                 ) 
-                 && parentForm.ContainsFocus 
-                 && (_state != DockingAutoHiddenShowState.Hidden) 
-                 && _group?.IsDisposed == false 
+                 )
+                 && parentForm.ContainsFocus
+                 && (_state != DockingAutoHiddenShowState.Hidden)
+                 && (_group != null)
+                 && !_group.IsDisposed
                  && !IsDisposed
                  )
             {
@@ -534,7 +536,7 @@ namespace ComponentFactory.Krypton.Docking
                         Point screenPt = CommonHelper.ClientMouseMessageToScreenPt(msg);
 
                         // Is the mouse over ourself or over the associated auto hidden group
-                        if (RectangleToScreen(ClientRectangle).Contains(screenPt) 
+                        if (RectangleToScreen(ClientRectangle).Contains(screenPt)
                             || _group.RectangleToScreen(_group.ClientRectangle).Contains(screenPt)
                             )
                         {
@@ -670,7 +672,7 @@ namespace ComponentFactory.Krypton.Docking
             // Find the preferred size of the slider area by combining the separator and dockspace
             Size dockspacePreferred = Page.AutoHiddenSlideSize;
             Size separatorPreferred = SeparatorControl.GetPreferredSize(_control.Size);
-            Size slideSize = new Size(separatorPreferred.Width + dockspacePreferred.Width, 
+            Size slideSize = new Size(separatorPreferred.Width + dockspacePreferred.Width,
                                       separatorPreferred.Height + dockspacePreferred.Height);
 
             // Find the maximum allowed size based on the owning control client area reduced by a sensible minimum
