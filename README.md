@@ -4,6 +4,8 @@
 
 [![NuGet](https://img.shields.io/badge/NuGet-Krypton%20.NET%205.470-green.svg)](https://www.nuget.org/packages/KryptonToolkitSuite5470/)
 
+![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg)
+
 # ["Toolkit help index"](https://rawgit.com/Wagnerp/Krypton-NET-4.7/master/Help/Output/index.html)
 
 =======
