@@ -923,6 +923,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private SeparatorMessageFilter _filter;
         private ISeparatorSource _source;
         private SeparatorIndicator _indicator;
+        private KryptonPalette _palette = new KryptonPalette();
         #endregion
 
         #region Identity

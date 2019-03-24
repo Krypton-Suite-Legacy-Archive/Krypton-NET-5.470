@@ -2,11 +2,21 @@
 
 =======
 
+| NuGet | Current NuGet Version | Github License |
+|---|---|---|
+| [![NuGet](https://img.shields.io/badge/NuGet-Krypton%20.NET%205.470-green.svg)](https://www.nuget.org/packages/KryptonToolkitSuite5470/) | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470.svg)| ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) |
+
 # ["Toolkit help index"](https://rawgit.com/Wagnerp/Krypton-NET-4.7/master/Help/Output/index.html)
 
 =======
 
 ## NOTE: With the advent of Windows 10 1803 being released to the general public, I am pleased to announce the availability of a 5.472 release that will support the .NET 4.7.2 framework. You can follow the project [here](https://github.com/Wagnerp/Krypton-NET-5.472).
+
+=======
+
+## 2019-03-18 Build 794
+* Fixes to `KryptonDockingManager`, issue [#98](https://github.com/Wagnerp/Krypton-NET-5.470/issues/98)
+* Build 794 (build date Monday 18th March, 2019) is now available on NuGet
 
 =======
 
