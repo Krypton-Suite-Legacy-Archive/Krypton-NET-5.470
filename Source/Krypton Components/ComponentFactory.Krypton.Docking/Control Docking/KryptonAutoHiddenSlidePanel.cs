@@ -5,7 +5,7 @@
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to license terms.
 // 
-//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
+//  Modifications by MegaKraken, Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
@@ -35,7 +35,7 @@ namespace ComponentFactory.Krypton.Docking
         #region Static Fields
 
         private const int SLIDE_MINIMUM = 27;
-        private const int SLIDE_DISTANCE = 16;
+        private const int SLIDE_DISTANCE = int.MaxValue ; // = 16;
         private const int SLIDE_INTERVAL = 15;
         private const int CLIENT_MINIMUM = 22;
         private const int DISMISS_INTERVAL = 300;
