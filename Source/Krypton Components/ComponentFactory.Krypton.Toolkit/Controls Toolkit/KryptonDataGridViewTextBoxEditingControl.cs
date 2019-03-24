@@ -198,10 +198,8 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             base.OnTextChanged(e);
 
-            if (Focused)
-            {
+            //if (Focused)
                 NotifyDataGridViewOfValueChange();
-            }
         }
 
         /// <summary>

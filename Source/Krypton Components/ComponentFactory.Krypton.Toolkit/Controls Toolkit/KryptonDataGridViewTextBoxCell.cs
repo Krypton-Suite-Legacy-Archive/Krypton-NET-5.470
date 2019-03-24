@@ -5,7 +5,7 @@
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to license terms.
 // 
-//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
+//  Modifications by MegaKraken, Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
@@ -22,12 +22,17 @@ namespace ComponentFactory.Krypton.Toolkit
     /// </summary>
     public class KryptonDataGridViewTextBoxCell : DataGridViewTextBoxCell
     {
+        #region Instance Fields
+        private bool _multiline;
+        private bool _multilineStringEditor;
+        #endregion
+        
         #region Static Fields
         [ThreadStatic]
         private static KryptonTextBox _paintingTextBox;
         private static readonly Type _defaultEditType = typeof(KryptonDataGridViewTextBoxEditingControl);
         private static readonly Type _defaultValueType = typeof(String);
-        private static readonly Size _sizeLarge = new Size(10000, 10000);
+
         #endregion
 
         #region Identity
@@ -43,6 +48,40 @@ namespace ComponentFactory.Krypton.Toolkit
                 _paintingTextBox.StateCommon.Border.Width = 0;
                 _paintingTextBox.StateCommon.Border.Draw = InheritBool.False;
                 _paintingTextBox.StateCommon.Back.Color1 = Color.Empty;
+            }
+        }
+
+        /// <summary>
+        /// The Multiline property replicates the one from the KryptonTextBox control
+        /// </summary>
+        [DefaultValue(false)]
+        public bool Multiline
+        {
+            get => _multiline;
+            set
+            {
+                if (_multiline != value)
+                {
+                    SetMultiline(RowIndex, value);
+                    OnCommonChange();
+                }
+            }
+        }
+
+        /// <summary>
+        /// The MultilineStringEditor property replicates the one from the KryptonTextBox control
+        /// </summary>
+        [DefaultValue(false)]
+        public bool MultilineStringEditor
+        {
+            get => _multilineStringEditor;
+            set
+            {
+                if (_multilineStringEditor != value)
+                {
+                    SetMultilineStringEditor(RowIndex, value);
+                    OnCommonChange();
+                }
             }
         }
 
@@ -95,14 +134,14 @@ namespace ComponentFactory.Krypton.Toolkit
 
             if (dataGridView.EditingControl is KryptonTextBox kryptonTextBox)
             {
-                if (OwningColumn is KryptonDataGridViewTextBoxColumn textBoxColumn)
+                if (OwningColumn is KryptonDataGridViewTextBoxColumn)
                 {
                     foreach (ButtonSpec bs in kryptonTextBox.ButtonSpecs)
                     {
                         bs.Click -= OnButtonClick;
                     }
 
-                    kryptonTextBox.ButtonSpecs.Clear();
+                    //kryptonTextBox.ButtonSpecs.Clear();
 
                     if (kryptonTextBox.Controls[0] is TextBox textBox)
                     {
@@ -127,18 +166,6 @@ namespace ComponentFactory.Krypton.Toolkit
 
             if (DataGridView.EditingControl is KryptonTextBox textBox)
             {
-                if (OwningColumn is KryptonDataGridViewTextBoxColumn textBoxColumn)
-                {
-                    // Set this cell as the owner of the buttonspecs
-                    textBox.ButtonSpecs.Clear();
-                    textBox.ButtonSpecs.Owner = DataGridView.Rows[rowIndex].Cells[ColumnIndex];
-                    foreach (ButtonSpec bs in textBoxColumn.ButtonSpecs)
-                    {
-                        bs.Click += OnButtonClick;
-                        textBox.ButtonSpecs.Add(bs);
-                    }
-                }
-
                 if (!(initialFormattedValue is string initialFormattedValueStr))
                 {
                     textBox.Text = string.Empty;
@@ -155,6 +182,19 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 textBox.WordWrap = textBox.Multiline = (wrapMode == DataGridViewTriState.True);
+
+                if (OwningColumn is KryptonDataGridViewTextBoxColumn textBoxColumn)
+                {
+                    textBox.Multiline = textBoxColumn.Multiline;
+                    textBox.MultilineStringEditor = textBoxColumn.MultilineStringEditor;
+                    // Set this cell as the owner of the buttonspecs
+                    //textBox.ButtonSpecs.Clear();
+                    //textBox.ButtonSpecs.Owner = DataGridView.Rows[rowIndex].Cells[ColumnIndex];
+                    //foreach (ButtonSpec bs in textBoxColumn.ButtonSpecs) {
+                    //    bs.Click += new EventHandler(OnButtonClick);
+                    //    textBox.ButtonSpecs.Add(bs);
+                    //}
+                }
             }
         }
 
@@ -189,16 +229,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected override Rectangle GetErrorIconBounds(Graphics graphics, DataGridViewCellStyle cellStyle, int rowIndex)
         {
-            const int ButtonsWidth = 16;
+            const int BUTTONS_WIDTH = 16;
 
             Rectangle errorIconBounds = base.GetErrorIconBounds(graphics, cellStyle, rowIndex);
             if (DataGridView.RightToLeft == RightToLeft.Yes)
             {
-                errorIconBounds.X = errorIconBounds.Left + ButtonsWidth;
+                errorIconBounds.X = errorIconBounds.Left + BUTTONS_WIDTH;
             }
             else
             {
-                errorIconBounds.X = errorIconBounds.Left - ButtonsWidth;
+                errorIconBounds.X = errorIconBounds.Left - BUTTONS_WIDTH;
             }
 
             return errorIconBounds;
@@ -217,9 +257,9 @@ namespace ComponentFactory.Krypton.Toolkit
             Size preferredSize = base.GetPreferredSize(graphics, cellStyle, rowIndex, constraintSize);
             if (constraintSize.Width == 0)
             {
-                const int ButtonsWidth = 16; // Account for the width of the up/down buttons.
-                const int ButtonMargin = 8;  // Account for some blank pixels between the text and buttons.
-                preferredSize.Width += ButtonsWidth + ButtonMargin;
+                const int BUTTONS_WIDTH = 16; // Account for the width of the up/down buttons.
+                const int BUTTON_MARGIN = 8;  // Account for some blank pixels between the text and buttons.
+                preferredSize.Width += BUTTONS_WIDTH + BUTTON_MARGIN;
             }
 
             return preferredSize;
@@ -231,7 +271,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             KryptonDataGridViewTextBoxColumn textColumn = OwningColumn as KryptonDataGridViewTextBoxColumn;
             DataGridViewButtonSpecClickEventArgs args = new DataGridViewButtonSpecClickEventArgs(textColumn, this, (ButtonSpecAny)sender);
-            textColumn.PerfomButtonSpecClick(args);
+            textColumn.PerformButtonSpecClick(args);
         }
 
         private KryptonDataGridViewTextBoxEditingControl EditingTextBox => DataGridView.EditingControl as KryptonDataGridViewTextBoxEditingControl;
@@ -290,6 +330,26 @@ namespace ComponentFactory.Krypton.Toolkit
         private static bool PartPainted(DataGridViewPaintParts paintParts, DataGridViewPaintParts paintPart)
         {
             return (paintParts & paintPart) != 0;
+        }
+        #endregion
+
+        #region Internal
+        internal void SetMultiline(int rowIndex, bool value)
+        {
+            _multiline = value;
+            if (OwnsEditingTextBox(rowIndex))
+            {
+                EditingTextBox.Multiline = value;
+            }
+        }
+
+        internal void SetMultilineStringEditor(int rowIndex, bool value)
+        {
+            _multilineStringEditor = value;
+            if (OwnsEditingTextBox(rowIndex))
+            {
+                EditingTextBox.MultilineStringEditor = value;
+            }
         }
         #endregion
     }

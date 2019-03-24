@@ -5,12 +5,11 @@
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to license terms.
 // 
-//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
+//  Modifications byMegaKraken,  Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
@@ -80,7 +79,8 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 cloned.ButtonSpecs.Add(bs.Clone());
             }
-
+            cloned.Multiline = Multiline;
+            cloned.MultilineStringEditor = MultilineStringEditor;
             return cloned;
         }
 
@@ -175,6 +175,94 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public DataGridViewColumnSpecCollection ButtonSpecs { get; }
 
+
+        /// <summary>
+        /// Replicates the Multiline property of the KryptonDataGridViewTextBoxCell cell type.
+        /// </summary>
+        [Category("Behavior")]
+        [DefaultValue(false)]
+        [Description("Indicates whether the text in the editing control can span more than one line.")]
+        public bool Multiline
+        {
+            get
+            {
+                if (TextBoxCellTemplate == null)
+                {
+                    throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
+
+                return TextBoxCellTemplate.Multiline;
+            }
+            set
+            {
+                if (TextBoxCellTemplate == null)
+                {
+                    throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
+
+                TextBoxCellTemplate.Multiline = value;
+                if (DataGridView != null)
+                {
+                    DataGridViewRowCollection dataGridViewRows = DataGridView.Rows;
+                    int rowCount = dataGridViewRows.Count;
+                    for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
+                    {
+                        DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewTextBoxCell dataGridViewCell)
+                        {
+                            dataGridViewCell.SetMultiline(rowIndex, value);
+                        }
+                    }
+
+                    DataGridView.InvalidateColumn(Index);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Replicates the MultilineStringEditor property of the KryptonDataGridViewTextBoxCell cell type.
+        /// </summary>
+        [Category("Behavior")]
+        [DefaultValue(false)]
+        [Description("Indicates whether the editing control uses the multiline string editor widget.")]
+        public bool MultilineStringEditor
+        {
+            get
+            {
+                if (TextBoxCellTemplate == null)
+                {
+                    throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
+
+                return TextBoxCellTemplate.MultilineStringEditor;
+            }
+            set
+            {
+                if (TextBoxCellTemplate == null)
+                {
+                    throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
+
+                TextBoxCellTemplate.MultilineStringEditor = value;
+                if (DataGridView != null)
+                {
+                    DataGridViewRowCollection dataGridViewRows = DataGridView.Rows;
+                    int rowCount = dataGridViewRows.Count;
+                    for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
+                    {
+                        DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
+                        if (dataGridViewRow.Cells[Index] is KryptonDataGridViewTextBoxCell dataGridViewCell)
+                        {
+                            dataGridViewCell.SetMultilineStringEditor(rowIndex, value);
+                        }
+                    }
+
+                    DataGridView.InvalidateColumn(Index);
+                }
+            }
+        }
+
+
         #endregion
 
         #region Private
@@ -183,7 +271,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Internal
-        internal void PerfomButtonSpecClick(DataGridViewButtonSpecClickEventArgs args)
+        internal void PerformButtonSpecClick(DataGridViewButtonSpecClickEventArgs args)
         {
             ButtonSpecClick?.Invoke(this, args);
         }
