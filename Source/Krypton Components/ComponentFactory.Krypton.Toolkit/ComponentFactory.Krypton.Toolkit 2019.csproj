@@ -135,6 +135,9 @@
     <Compile Include="Controls Toolkit\KryptonDataGridViewComboBoxCell.cs" />
     <Compile Include="Controls Toolkit\KryptonDataGridViewComboBoxColumn.cs" />
     <Compile Include="Controls Toolkit\KryptonDataGridViewComboBoxEditingControl.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewCustomCell.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewCustomColumn.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewCustomEditingControl.cs" />
     <Compile Include="Controls Toolkit\KryptonDataGridViewDateTimePickerCell.cs" />
     <Compile Include="Controls Toolkit\KryptonDataGridViewDateTimePickerColumn.cs" />
     <Compile Include="Controls Toolkit\KryptonDataGridViewDateTimePickerEditingControl.cs" />
@@ -545,6 +548,7 @@
     <Compile Include="Toolkit\KryptonContextMenuItemCollectionEditor.cs" />
     <Compile Include="Toolkit\KryptonContextMenuItemDesigner.cs" />
     <Compile Include="Toolkit\KryptonContextMenuItemsDesigner.cs" />
+    <Compile Include="Toolkit\KryptonCustomColumnDesigner.cs" />
     <Compile Include="Toolkit\KryptonDataGridViewDesigner.cs" />
     <Compile Include="Toolkit\KryptonDateTimePickerActionList.cs" />
     <Compile Include="Toolkit\KryptonDateTimePickerColumnDesigner.cs" />

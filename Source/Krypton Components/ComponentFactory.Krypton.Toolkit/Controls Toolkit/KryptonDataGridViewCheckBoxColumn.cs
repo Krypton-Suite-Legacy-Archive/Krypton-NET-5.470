@@ -15,6 +15,8 @@ using System.Drawing;
 using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
+// ReSharper disable UnusedMember.Local
+// ReSharper disable UnusedMember.Global
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -251,11 +253,17 @@ namespace ComponentFactory.Krypton.Toolkit
                         DataGridView.InvalidateColumn(Index);
                     }
 
-                    if ((value && (DefaultCellStyle.NullValue is bool)) && !((bool)DefaultCellStyle.NullValue))
+                    if (value 
+                        && DefaultCellStyle.NullValue is bool b 
+                        && !b
+                        )
                     {
                         DefaultCellStyle.NullValue = CheckState.Indeterminate;
                     }
-                    else if ((!value && (DefaultCellStyle.NullValue is CheckState)) && (((CheckState)DefaultCellStyle.NullValue) == CheckState.Indeterminate))
+                    else if (!value 
+                             && (DefaultCellStyle.NullValue is CheckState state) 
+                             && (state == CheckState.Indeterminate)
+                             )
                     {
                         DefaultCellStyle.NullValue = false;
                     }
