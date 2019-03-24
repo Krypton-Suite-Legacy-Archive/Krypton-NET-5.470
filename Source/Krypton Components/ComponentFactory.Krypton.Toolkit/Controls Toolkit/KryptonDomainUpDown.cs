@@ -24,9 +24,9 @@ namespace ComponentFactory.Krypton.Toolkit
     [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonDomainUpDown), "ToolboxBitmaps.KryptonDomainUpDown.bmp")]
     [DefaultEvent("SelectedItemChanged")]
-	[DefaultProperty("Items")]
+    [DefaultProperty("Items")]
     [DefaultBindingProperty("SelectedItem")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonDomainUpDownDesigner))]
+    [Designer(typeof(KryptonDomainUpDownDesigner))]
     [DesignerCategory("code")]
     [Description("Represents a Windows spin box (also known as an up-down control) that displays string values.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
@@ -79,7 +79,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 get => _mouseOver;
 
-                set 
+                set
                 {
                     // Only interested in changes
                     if (_mouseOver != value)
@@ -605,7 +605,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
             #endregion
         }
-        
+
         private class SubclassButtons : SubclassEdit, IContentValues, IDisposable
         {
             #region Instance Fields
@@ -804,22 +804,22 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Position and draw the up/down buttons
                 using (ViewLayoutContext layoutContext = new ViewLayoutContext(DomainUpDown, DomainUpDown.Renderer))
-                    using (RenderContext renderContext = new RenderContext(DomainUpDown, g, clientRect, DomainUpDown.Renderer))
-                    {
-                        // Up button
-                        layoutContext.DisplayRectangle = upRect;
-                        _viewButton.ElementState = ButtonElementState(upRect);
-                        _viewButton.Layout(layoutContext);
-                        _viewButton.Render(renderContext);
-                        renderContext.Renderer.RenderGlyph.DrawInputControlNumericUpGlyph(renderContext, _viewButton.ClientRectangle, _palette.PaletteContent, _viewButton.ElementState);
+                using (RenderContext renderContext = new RenderContext(DomainUpDown, g, clientRect, DomainUpDown.Renderer))
+                {
+                    // Up button
+                    layoutContext.DisplayRectangle = upRect;
+                    _viewButton.ElementState = ButtonElementState(upRect);
+                    _viewButton.Layout(layoutContext);
+                    _viewButton.Render(renderContext);
+                    renderContext.Renderer.RenderGlyph.DrawInputControlNumericUpGlyph(renderContext, _viewButton.ClientRectangle, _palette.PaletteContent, _viewButton.ElementState);
 
-                        // Down button
-                        layoutContext.DisplayRectangle = downRect;
-                        _viewButton.ElementState = ButtonElementState(downRect);
-                        _viewButton.Layout(layoutContext);
-                        _viewButton.Render(renderContext);
-                        renderContext.Renderer.RenderGlyph.DrawInputControlNumericDownGlyph(renderContext, _viewButton.ClientRectangle, _palette.PaletteContent, _viewButton.ElementState);
-                    }
+                    // Down button
+                    layoutContext.DisplayRectangle = downRect;
+                    _viewButton.ElementState = ButtonElementState(downRect);
+                    _viewButton.Layout(layoutContext);
+                    _viewButton.Render(renderContext);
+                    renderContext.Renderer.RenderGlyph.DrawInputControlNumericDownGlyph(renderContext, _viewButton.ClientRectangle, _palette.PaletteContent, _viewButton.ElementState);
+                }
             }
 
             private PaletteState ButtonElementState(Rectangle buttonRect)
@@ -860,8 +860,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Collection for managing ButtonSpecAny instances.
         /// </summary>
-        public class DomainUpDownButtonSpecCollection : ButtonSpecCollection<ButtonSpecAny> 
-        { 
+        public class DomainUpDownButtonSpecCollection : ButtonSpecCollection<ButtonSpecAny>
+        {
             #region Identity
             /// <summary>
             /// Initialize a new instance of the DomainUpDownButtonSpecCollection class.
@@ -1071,7 +1071,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Public
+        #region Public
         /// <summary>
         /// Gets and sets if the control is in the tab chain.
         /// </summary>
@@ -1299,21 +1299,21 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets and sets the input control style.
 		/// </summary>
 		[Category("Visuals")]
-		[Description("Input control style.")]
+        [Description("Input control style.")]
         public InputControlStyle InputControlStyle
-		{
+        {
             get => _inputControlStyle;
 
             set
-			{
+            {
                 if (_inputControlStyle != value)
-				{
+                {
                     _inputControlStyle = value;
                     StateCommon.SetStyles(value);
-					PerformNeedPaint(true);
-				}
-			}
-		}
+                    PerformNeedPaint(true);
+                }
+            }
+        }
 
         private void ResetInputControlStyle() => InputControlStyle = InputControlStyle.Standalone;
 
@@ -1372,8 +1372,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets access to the disabled textbox appearance entries.
         /// </summary>
         [Category("Visuals")]
-		[Description("Overrides for defining disabled textbox appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [Description("Overrides for defining disabled textbox appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteInputControlTripleStates StateDisabled { get; }
 
         private bool ShouldSerializeStateDisabled() => !StateDisabled.IsDefault;
@@ -1382,8 +1382,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets access to the normal textbox appearance entries.
         /// </summary>
         [Category("Visuals")]
-		[Description("Overrides for defining normal textbox appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [Description("Overrides for defining normal textbox appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteInputControlTripleStates StateNormal { get; }
 
         private bool ShouldSerializeStateNormal() => !StateNormal.IsDefault;
@@ -1510,16 +1510,16 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets the rectangle that represents the display area of the control.
 		/// </summary>
 		public override Rectangle DisplayRectangle
-		{
-			get
-			{
+        {
+            get
+            {
                 // Ensure that the layout is calculated in order to know the remaining display space
                 ForceViewLayout();
 
                 // The inside text box is the client rectangle size
                 return new Rectangle(DomainUpDown.Location, DomainUpDown.Size);
-			}
-		}
+            }
+        }
 
         /// <summary>
         /// Override the display padding for the layout fill.
@@ -1658,8 +1658,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		/// <param name="e">An EventArgs that contains the event data.</param>
 		protected override void OnEnabledChanged(EventArgs e)
-		{
-			// Change in enabled state requires a layout and repaint
+        {
+            // Change in enabled state requires a layout and repaint
             UpdateStateAndPalettes();
 
             // Ensure we have subclassed the contained edit control
@@ -1806,8 +1806,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="width">The new Width property value of the control.</param>
         /// <param name="height">The new Height property value of the control.</param>
         /// <param name="specified">A bitwise combination of the BoundsSpecified values.</param>
-        protected override void SetBoundsCore(int x, int y, 
-                                              int width, int height, 
+        protected override void SetBoundsCore(int x, int y,
+                                              int width, int height,
                                               BoundsSpecified specified)
         {
             // If setting the actual height
@@ -1869,7 +1869,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     _domainUpDown.Font = font;
                 }
             }
-            
+
             base.OnNeedPaint(sender, e);
         }
 
@@ -1944,7 +1944,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void SubclassEditControl()
         {
-            if (_subclassEdit != null) 
+            if (_subclassEdit != null)
             {
                 if (_domainUpDown.Controls.Count >= 2)
                 {
@@ -2004,7 +2004,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Get the correct palette settings to use
             IPaletteTriple tripleState = GetTripleState();
             _drawDockerOuter.SetPalettes(tripleState.PaletteBack, tripleState.PaletteBorder);
-            
+
             // Update enabled state
             _drawDockerOuter.Enabled = Enabled;
 

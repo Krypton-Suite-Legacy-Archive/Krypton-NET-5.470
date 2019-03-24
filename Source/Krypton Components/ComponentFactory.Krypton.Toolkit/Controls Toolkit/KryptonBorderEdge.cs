@@ -10,45 +10,45 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
 using System.ComponentModel;
-using System.Windows.Forms;
+using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Display text and images with the styling features of the Krypton Toolkit
-	/// </summary>
-	[ToolboxItem(true)]
+    /// </summary>
+    [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonBorderEdge), "ToolboxBitmaps.KryptonBorderEdge.bmp")]
-    [DefaultEvent("Paint")]                             
+    [DefaultEvent("Paint")]
     [DefaultProperty("Orientation")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonBorderEdgeDesigner))]
+    [Designer(typeof(KryptonBorderEdgeDesigner))]
     [DesignerCategory("code")]
     [Description("Displays a vertical or horizontal border edge.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     public class KryptonBorderEdge : VisualControlBase
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private Orientation _orientation;
         private readonly PaletteBorderInheritRedirect _borderRedirect;
-	    private PaletteBorderEdge _stateCurrent;
+        private PaletteBorderEdge _stateCurrent;
         private PaletteState _state;
         private readonly ViewDrawPanel _drawPanel;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the KryptonBorderEdge class.
-		/// </summary>
+        /// </summary>
         public KryptonBorderEdge()
-		{
-			// The label cannot take the focus
-			SetStyle(ControlStyles.Selectable, false);
+        {
+            // The label cannot take the focus
+            SetStyle(ControlStyles.Selectable, false);
 
-			// Set default label style
+            // Set default label style
             _orientation = Orientation.Horizontal;
 
             // Create the palette storage
@@ -69,9 +69,9 @@ namespace ComponentFactory.Krypton.Toolkit
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
         }
-		#endregion
+        #endregion
 
-		#region Public
+        #region Public
         /// <summary>
         /// Gets or sets the background color for the control.
         /// </summary>
@@ -215,26 +215,26 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             return (BorderStyle != PaletteBorderStyle.ControlClient);
         }
-        
+
         /// <summary>
-		/// Gets and sets the orientation of the border edge used to determine sizing.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Orientation of border edge used to determine sizing.")]
-		[DefaultValue(typeof(Orientation), "Horizontal")]
-		public virtual Orientation Orientation
-		{
-			get => _orientation;
+        /// Gets and sets the orientation of the border edge used to determine sizing.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Orientation of border edge used to determine sizing.")]
+        [DefaultValue(typeof(Orientation), "Horizontal")]
+        public virtual Orientation Orientation
+        {
+            get => _orientation;
 
             set
-			{
-				if (_orientation != value)
-				{
-					_orientation = value;
-					PerformNeedPaint(true);
-				}
-			}
-		}
+            {
+                if (_orientation != value)
+                {
+                    _orientation = value;
+                    PerformNeedPaint(true);
+                }
+            }
+        }
 
         /// <summary>
         /// Gets access to the common border edge appearance that other states can override.
@@ -244,7 +244,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteBorderEdgeRedirect StateCommon { get; }
 
-	    private bool ShouldSerializeStateCommon()
+        private bool ShouldSerializeStateCommon()
         {
             return !StateCommon.IsDefault;
         }
@@ -257,7 +257,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteBorderEdge StateDisabled { get; }
 
-	    private bool ShouldSerializeStateDisabled()
+        private bool ShouldSerializeStateDisabled()
         {
             return !StateDisabled.IsDefault;
         }
@@ -270,7 +270,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteBorderEdge StateNormal { get; }
 
-	    private bool ShouldSerializeStateNormal()
+        private bool ShouldSerializeStateNormal()
         {
             return !StateNormal.IsDefault;
         }
@@ -318,7 +318,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected override Size DefaultSize => new Size(50, 50);
 
-	    /// <summary>
+        /// <summary>
         /// Raises the EnabledChanged event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>

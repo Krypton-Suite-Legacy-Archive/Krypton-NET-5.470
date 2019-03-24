@@ -10,41 +10,41 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
 using System.ComponentModel;
-using System.Windows.Forms;
+using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Group related controls together with Krypton Toolkit styling.
-	/// </summary>
-	[ToolboxItem(true)]
+    /// </summary>
+    [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonGroup), "ToolboxBitmaps.KryptonGroup.bmp")]
     [DefaultEvent("Paint")]
-	[DefaultProperty("GroupBackStyle")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonGroupDesigner))]
+    [DefaultProperty("GroupBackStyle")]
+    [Designer(typeof(KryptonGroupDesigner))]
     [DesignerCategory("code")]
     [Description("Enables you to group collections of controls.")]
     [Docking(DockingBehavior.Ask)]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     public class KryptonGroup : VisualControlContainment
-	{
-		#region Instance Fields
-		private readonly ViewDrawDocker _drawDocker;
-	    private readonly ViewLayoutFill _layoutFill;
-	    private bool _forcedLayout;
+    {
+        #region Instance Fields
+        private readonly ViewDrawDocker _drawDocker;
+        private readonly ViewLayoutFill _layoutFill;
+        private bool _forcedLayout;
         private bool _layingOut;
         #endregion
 
-		#region Identity
-		/// <summary>
-		/// Initialize a new instance of the KryptonGroup class.
-		/// </summary>
-		public KryptonGroup()
-		{            
+        #region Identity
+        /// <summary>
+        /// Initialize a new instance of the KryptonGroup class.
+        /// </summary>
+        public KryptonGroup()
+        {
             // Create the palette storage
             StateCommon = new PaletteDoubleRedirect(Redirector, PaletteBackStyle.ControlClient, PaletteBorderStyle.ControlClient, NeedPaintDelegate);
             StateDisabled = new PaletteDouble(StateCommon, NeedPaintDelegate);
@@ -76,9 +76,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // Add panel to the controls collection
             ((KryptonReadOnlyControls)Controls).AddInternal(Panel);
         }
-		#endregion
+        #endregion
 
-		#region Public
+        #region Public
         /// <summary>
         /// Gets and sets the name of the control.
         /// </summary>
@@ -159,24 +159,24 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public KryptonGroupPanel Panel { get; }
 
-	    /// <summary>
-		/// Gets and sets the border style.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Border style.")]
-		public PaletteBorderStyle GroupBorderStyle
-		{
+        /// <summary>
+        /// Gets and sets the border style.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Border style.")]
+        public PaletteBorderStyle GroupBorderStyle
+        {
             get => StateCommon.BorderStyle;
 
-	        set
-			{
+            set
+            {
                 if (StateCommon.BorderStyle != value)
-				{
+                {
                     StateCommon.BorderStyle = value;
-					PerformNeedPaint(true);
-				}
-			}
-		}
+                    PerformNeedPaint(true);
+                }
+            }
+        }
 
         private bool ShouldSerializeGroupBorderStyle() => (GroupBorderStyle != PaletteBorderStyle.ControlClient);
 
@@ -186,27 +186,27 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets and sets the background style.
         /// </summary>
         [Category("Visuals")]
-		[Description("Background style.")]
-		public PaletteBackStyle GroupBackStyle
-		{
-			get => StateCommon.BackStyle;
+        [Description("Background style.")]
+        public PaletteBackStyle GroupBackStyle
+        {
+            get => StateCommon.BackStyle;
 
             set
-			{
+            {
                 if (StateCommon.BackStyle != value)
-				{
+                {
                     StateCommon.BackStyle = value;
                     Panel.PanelBackStyle = value;
                     PerformNeedPaint(true);
-				}
-			}
-		}
+                }
+            }
+        }
 
         private bool ShouldSerializeGroupBackStyle() => (GroupBackStyle != PaletteBackStyle.ControlClient);
 
-	    private void ResetGroupBackStyle() => GroupBackStyle = PaletteBackStyle.ControlClient;
+        private void ResetGroupBackStyle() => GroupBackStyle = PaletteBackStyle.ControlClient;
 
-	    /// <summary>
+        /// <summary>
         /// Gets access to the common group appearance entries that other states can override.
         /// </summary>
         [Category("Visuals")]
@@ -220,23 +220,23 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets access to the disabled group appearance entries.
         /// </summary>
         [Category("Visuals")]
-		[Description("Overrides for defining disabled group appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [Description("Overrides for defining disabled group appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteDouble StateDisabled { get; }
 
-	    private bool ShouldSerializeStateDisabled() => !StateDisabled.IsDefault;
+        private bool ShouldSerializeStateDisabled() => !StateDisabled.IsDefault;
 
-	    /// <summary>
-		/// Gets access to the normal group appearance entries.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Overrides for defining normal group appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        /// <summary>
+        /// Gets access to the normal group appearance entries.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Overrides for defining normal group appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteDouble StateNormal { get; }
 
-	    private bool ShouldSerializeStateNormal() => !StateNormal.IsDefault;
+        private bool ShouldSerializeStateNormal() => !StateNormal.IsDefault;
 
-	    /// <summary>
+        /// <summary>
         /// Get the preferred size of the control based on a proposed size.
         /// </summary>
         /// <param name="proposedSize">Starting size proposed by the caller.</param>
@@ -279,21 +279,21 @@ namespace ComponentFactory.Krypton.Toolkit
                 return base.GetPreferredSize(proposedSize);
             }
         }
-        
+
         /// <summary>
-		/// Gets the rectangle that represents the display area of the control.
-		/// </summary>
-		public override Rectangle DisplayRectangle
-		{
-			get
-			{
+        /// Gets the rectangle that represents the display area of the control.
+        /// </summary>
+        public override Rectangle DisplayRectangle
+        {
+            get
+            {
                 // Ensure that the layout is calculated in order to know the remaining display space
                 ForceViewLayout();
 
                 // The inside panel is the client rectangle size
                 return new Rectangle(Panel.Location, Panel.Size);
-			}
-		}
+            }
+        }
 
         /// <summary>
         /// Fix the control to a particular palette state.
@@ -305,7 +305,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawDocker.FixedState = state;
             Panel.SetFixedState(state);
         }
-		#endregion
+        #endregion
 
         #region Protected
         /// <summary>
@@ -366,9 +366,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		/// <param name="e">An EventArgs that contains the event data.</param>
 		protected override void OnEnabledChanged(EventArgs e)
-		{
-			// Push correct palettes into the view
-			if (Enabled)
+        {
+            // Push correct palettes into the view
+            if (Enabled)
             {
                 _drawDocker.SetPalettes(StateNormal.Back, StateNormal.Border);
             }
@@ -379,8 +379,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
             _drawDocker.Enabled = Enabled;
 
-			// Change in enabled state requires a layout and repaint
-			PerformNeedPaint(true);
+            // Change in enabled state requires a layout and repaint
+            PerformNeedPaint(true);
 
             // Let base class fire standard event
             base.OnEnabledChanged(e);

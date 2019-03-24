@@ -10,37 +10,37 @@
 // *****************************************************************************
 
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
-using System.ComponentModel;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Display text and images with the styling features of the Krypton Toolkit
-	/// </summary>
-	[ToolboxItem(true)]
+    /// </summary>
+    [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonLabel), "ToolboxBitmaps.KryptonLabel.bmp")]
     [DefaultEvent("Paint")]
-	[DefaultProperty("Text")]
+    [DefaultProperty("Text")]
     [DefaultBindingProperty("Text")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonLabelDesigner))]
+    [Designer(typeof(KryptonLabelDesigner))]
     [DesignerCategory("code")]
     [Description("Displays descriptive information.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     public class KryptonLabel : VisualSimpleBase, IContentValues
-	{
-		#region Instance Fields
-		private LabelStyle _style;
-	    private VisualOrientation _orientation;
+    {
+        #region Instance Fields
+        private LabelStyle _style;
+        private VisualOrientation _orientation;
         private readonly ViewDrawContent _drawContent;
-		private readonly PaletteContentInheritRedirect _paletteCommonRedirect;
-	    private KryptonCommand _command;
+        private readonly PaletteContentInheritRedirect _paletteCommonRedirect;
+        private KryptonCommand _command;
         private bool _useMnemonic;
-	    private bool _wasEnabled;
+        private bool _wasEnabled;
         private Control _target;
         #endregion
 
@@ -58,25 +58,25 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Initialize a new instance of the KryptonLabel class.
 		/// </summary>
 		public KryptonLabel()
-		{
-			// The label cannot take the focus
-			SetStyle(ControlStyles.Selectable, false);
+        {
+            // The label cannot take the focus
+            SetStyle(ControlStyles.Selectable, false);
 
-			// Set default properties
+            // Set default properties
             _style = LabelStyle.NormalControl;
             _useMnemonic = true;
             _orientation = VisualOrientation.Top;
             _target = null;
             EnabledTarget = true;
 
-			// Create content storage
+            // Create content storage
             Values = new LabelValues(NeedPaintDelegate);
             Values.TextChanged += OnLabelTextChanged;
 
-			// Create palette redirector
+            // Create palette redirector
             _paletteCommonRedirect = new PaletteContentInheritRedirect(Redirector, PaletteContentStyle.LabelNormalControl);
 
-			// Create the palette provider
+            // Create the palette provider
             StateCommon = new PaletteContent(_paletteCommonRedirect, NeedPaintDelegate);
             StateDisabled = new PaletteContent(StateCommon, NeedPaintDelegate);
             StateNormal = new PaletteContent(StateCommon, NeedPaintDelegate);
@@ -90,13 +90,13 @@ namespace ComponentFactory.Krypton.Toolkit
             // Create the view manager instance
             ViewManager = new ViewManager(this, _drawContent);
 
-			// We want to be auto sized by default, but not the property default!
-			AutoSize = true;
+            // We want to be auto sized by default, but not the property default!
+            AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-		}
-		#endregion
+        }
+        #endregion
 
-		#region Public
+        #region Public
         /// <summary>
         /// Gets and sets the automatic resize of the control to fit contents.
         /// </summary>
@@ -144,27 +144,27 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         [Localizable(false)]
-		public override string Text
-		{
-			get => Values.Text;
+        public override string Text
+        {
+            get => Values.Text;
 
             set => Values.Text = value;
         }
 
-		private bool ShouldSerializeText()
-		{
-			// Never serialize, let the label values serialize instead
-			return false;
-		}
+        private bool ShouldSerializeText()
+        {
+            // Never serialize, let the label values serialize instead
+            return false;
+        }
 
-		/// <summary>
-		/// Resets the Text property to its default value.
-		/// </summary>
-		public override void ResetText()
-		{
-			// Map onto the text property from the label values
-			Values.ResetText();
-		}
+        /// <summary>
+        /// Resets the Text property to its default value.
+        /// </summary>
+        public override void ResetText()
+        {
+            // Map onto the text property from the label values
+            Values.ResetText();
+        }
 
         /// <summary>
         /// Gets and sets the visual orientation of the control.
@@ -173,42 +173,42 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Visual orientation of the control.")]
         [DefaultValue(typeof(VisualOrientation), "Top")]
         public virtual VisualOrientation Orientation
-		{
-			get => _orientation;
+        {
+            get => _orientation;
 
             set
-			{
+            {
                 if (_orientation != value)
-				{
+                {
                     _orientation = value;
 
-					// Update the associated visual element that is effected
-					_drawContent.Orientation = value;
+                    // Update the associated visual element that is effected
+                    _drawContent.Orientation = value;
 
                     PerformNeedPaint(true);
-				}
-			}
-		}
+                }
+            }
+        }
 
-		/// <summary>
-		/// Gets and sets the label style.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Label style.")]
-		public LabelStyle LabelStyle
-		{
-			get => _style;
+        /// <summary>
+        /// Gets and sets the label style.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Label style.")]
+        public LabelStyle LabelStyle
+        {
+            get => _style;
 
-		    set
-			{
-				if (_style != value)
-				{
-					_style = value;
+            set
+            {
+                if (_style != value)
+                {
+                    _style = value;
                     SetLabelStyle(_style);
-					PerformNeedPaint(true);
-				}
-			}
-		}
+                    PerformNeedPaint(true);
+                }
+            }
+        }
 
         private bool ShouldSerializeLabelStyle()
         {
@@ -220,18 +220,18 @@ namespace ComponentFactory.Krypton.Toolkit
             LabelStyle = LabelStyle.NormalControl;
         }
 
-		/// <summary>
-		/// Gets access to the label content.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Label values")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public LabelValues Values { get; }
+        /// <summary>
+        /// Gets access to the label content.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Label values")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public LabelValues Values { get; }
 
-	    private bool ShouldSerializeValues()
-		{
-			return !Values.IsDefault;
-		}
+        private bool ShouldSerializeValues()
+        {
+            return !Values.IsDefault;
+        }
 
         /// <summary>
         /// Gets access to the common label appearance that other states can override.
@@ -241,36 +241,36 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteContent StateCommon { get; }
 
-	    private bool ShouldSerializeStateCommon()
+        private bool ShouldSerializeStateCommon()
         {
             return !StateCommon.IsDefault;
         }
 
-		/// <summary>
-		/// Gets access to the disabled label appearance entries.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Overrides for defining disabled label appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteContent StateDisabled { get; }
+        /// <summary>
+        /// Gets access to the disabled label appearance entries.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Overrides for defining disabled label appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public PaletteContent StateDisabled { get; }
 
-	    private bool ShouldSerializeStateDisabled()
-		{
-			return !StateDisabled.IsDefault;
-		}
+        private bool ShouldSerializeStateDisabled()
+        {
+            return !StateDisabled.IsDefault;
+        }
 
-		/// <summary>
-		/// Gets access to the normal label appearance entries.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Overrides for defining normal label appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteContent StateNormal { get; }
+        /// <summary>
+        /// Gets access to the normal label appearance entries.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Overrides for defining normal label appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public PaletteContent StateNormal { get; }
 
-	    private bool ShouldSerializeStateNormal()
-		{
-			return !StateNormal.IsDefault;
-		}
+        private bool ShouldSerializeStateNormal()
+        {
+            return !StateNormal.IsDefault;
+        }
 
         /// <summary>
         /// Gets or sets a value indicating whether an ampersand is included in the text of the control. 
@@ -361,21 +361,21 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>String value.</returns>
         public string GetShortText() => KryptonCommand?.Text ?? Values.GetShortText();
 
-	    /// <summary>
+        /// <summary>
         /// Gets the content long text.
         /// </summary>
         /// <returns>String value.</returns>
         public string GetLongText() => KryptonCommand?.ExtraText ?? Values.GetLongText();
 
-	    /// <summary>
+        /// <summary>
         /// Gets the content image.
         /// </summary>
         /// <param name="state">The state for which the image is needed.</param>
         /// <returns>Image value.</returns>
         public Image GetImage(PaletteState state)
-	    {
-	        return KryptonCommand?.ImageSmall ?? Values.GetImage(state);
-	    }
+        {
+            return KryptonCommand?.ImageSmall ?? Values.GetImage(state);
+        }
 
         /// <summary>
         /// Gets the image color that should be transparent.
@@ -391,12 +391,12 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected virtual ViewDrawContent ViewDrawContent => _drawContent;
 
-	    /// <summary>
+        /// <summary>
         /// Gets and sets the enabled state of the target functionality.
         /// </summary>
         protected bool EnabledTarget { get; set; }
 
-	    /// <summary>
+        /// <summary>
         /// Update the view elements based on the requested label style.
         /// </summary>
         /// <param name="style">New label style.</param>
@@ -498,25 +498,25 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		/// <param name="e">An EventArgs that contains the event data.</param>
 		protected override void OnEnabledChanged(EventArgs e)
-		{
-			// Push correct palettes into the view
-		    _drawContent.SetPalette(Enabled ? StateNormal : StateDisabled);
+        {
+            // Push correct palettes into the view
+            _drawContent.SetPalette(Enabled ? StateNormal : StateDisabled);
 
-		    _drawContent.Enabled = Enabled;
-            
+            _drawContent.Enabled = Enabled;
+
             // Need to relayout to reflect the change in state
             MarkLayoutDirty();
 
-			// Let base class fire standard event
-			base.OnEnabledChanged(e);
-		}
+            // Let base class fire standard event
+            base.OnEnabledChanged(e);
+        }
 
-		/// <summary>
-		/// Gets the default size of the control.
-		/// </summary>
-		protected override Size DefaultSize => new Size(90, 25);
+        /// <summary>
+        /// Gets the default size of the control.
+        /// </summary>
+        protected override Size DefaultSize => new Size(90, 25);
 
-	    /// <summary>
+        /// <summary>
         /// Work out if this control needs to paint transparent areas.
         /// </summary>
         /// <returns>True if paint required; otherwise false.</returns>
@@ -525,7 +525,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Always need to draw the background because always transparent
             return true;
         }
-		#endregion
+        #endregion
 
         #region Implementation
         private void OnLabelTextChanged(object sender, EventArgs e)

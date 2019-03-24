@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
-using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -22,14 +22,14 @@ namespace ComponentFactory.Krypton.Toolkit
     [ToolboxItem(false)]
     [ToolboxBitmap(typeof(KryptonBreadCrumb), "ToolboxBitmaps.KryptonBreadCrumbItem.bmp")]
     [DesignTimeVisible(false)]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItemDesigner))]
+    [Designer(typeof(KryptonBreadCrumbItemDesigner))]
     public class KryptonBreadCrumbItem : KryptonListItem
     {
         #region Type Definitons
         /// <summary>
         /// Manages a collection of KryptonBreadCrumbItems
         /// </summary>
-        [Editor(typeof(ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbItemsEditor), typeof(UITypeEditor))]
+        [Editor(typeof(KryptonBreadCrumbItemsEditor), typeof(UITypeEditor))]
         public class BreadCrumbItems : TypedCollection<KryptonBreadCrumbItem>
         {
             #region Instance Fields
@@ -59,7 +59,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (!string.IsNullOrEmpty(name))
                     {
-                        foreach(KryptonBreadCrumbItem item in this)
+                        foreach (KryptonBreadCrumbItem item in this)
                         {
                             string text = item.ShortText;
                             if (!string.IsNullOrEmpty(text) && (text == name))

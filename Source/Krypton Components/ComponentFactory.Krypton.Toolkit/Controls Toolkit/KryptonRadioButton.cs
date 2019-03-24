@@ -10,41 +10,41 @@
 // *****************************************************************************
 
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
-using System.ComponentModel;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Display radio button with text and images with the styling features of the Krypton Toolkit
-	/// </summary>
-	[ToolboxItem(true)]
+    /// </summary>
+    [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonCheckBox), "ToolboxBitmaps.KryptonRadioButton.bmp")]
     [DefaultEvent("CheckedChanged")]
-	[DefaultProperty("Text")]
+    [DefaultProperty("Text")]
     [DefaultBindingProperty("Checked")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonRadioButtonDesigner))]
+    [Designer(typeof(KryptonRadioButtonDesigner))]
     [DesignerCategory("code")]
     [Description("Allow user to set or clear the associated option.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     public class KryptonRadioButton : VisualSimpleBase
-	{
-		#region Instance Fields
-		private LabelStyle _style;
-	    private VisualOrientation _orientation;
+    {
+        #region Instance Fields
+        private LabelStyle _style;
+        private VisualOrientation _orientation;
         private readonly RadioButtonController _controller;
         private readonly ViewLayoutDocker _layoutDocker;
         private readonly ViewLayoutCenter _layoutCenter;
         private readonly ViewDrawRadioButton _drawRadioButton;
         private readonly ViewDrawContent _drawContent;
-		private readonly PaletteContentInheritRedirect _paletteCommonRedirect;
+        private readonly PaletteContentInheritRedirect _paletteCommonRedirect;
         private readonly PaletteRedirectRadioButton _paletteRadioButtonImages;
-	    private readonly PaletteContentInheritOverride _overrideNormal;
-	    private VisualOrientation _checkPosition;
+        private readonly PaletteContentInheritOverride _overrideNormal;
+        private VisualOrientation _checkPosition;
         private bool _checked;
         private bool _useMnemonic;
         private bool _autoCheck;
@@ -83,17 +83,17 @@ namespace ComponentFactory.Krypton.Toolkit
         public event EventHandler CheckedChanged;
         #endregion
 
-		#region Identity
+        #region Identity
         /// <summary>
         /// Initialize a new instance of the RadioButton class.
-		/// </summary>
+        /// </summary>
         public KryptonRadioButton()
-		{
+        {
             // Turn off standard click and double click events, we do that manually
-			SetStyle(ControlStyles.StandardClick |
-					 ControlStyles.StandardDoubleClick, false);
-					 
-			// Set default properties
+            SetStyle(ControlStyles.StandardClick |
+                     ControlStyles.StandardDoubleClick, false);
+
+            // Set default properties
             _style = LabelStyle.NormalControl;
             _orientation = VisualOrientation.Top;
             _checkPosition = VisualOrientation.Left;
@@ -101,16 +101,16 @@ namespace ComponentFactory.Krypton.Toolkit
             _useMnemonic = true;
             _autoCheck = true;
 
-			// Create content storage
+            // Create content storage
             Values = new LabelValues(NeedPaintDelegate);
             Values.TextChanged += OnRadioButtonTextChanged;
             Images = new RadioButtonImages(NeedPaintDelegate);
 
-			// Create palette redirector
+            // Create palette redirector
             _paletteCommonRedirect = new PaletteContentInheritRedirect(Redirector, PaletteContentStyle.LabelNormalControl);
             _paletteRadioButtonImages = new PaletteRedirectRadioButton(Redirector, Images);
 
-			// Create the palette provider
+            // Create the palette provider
             StateCommon = new PaletteContent(_paletteCommonRedirect, NeedPaintDelegate);
             StateDisabled = new PaletteContent(StateCommon, NeedPaintDelegate);
             StateNormal = new PaletteContent(StateCommon, NeedPaintDelegate);
@@ -155,16 +155,16 @@ namespace ComponentFactory.Krypton.Toolkit
             // Change the layout to match the inital right to left setting and orientation
             UpdateForOrientation();
 
-			// Create the view manager instance
+            // Create the view manager instance
             ViewManager = new ViewManager(this, _layoutDocker);
 
-			// We want to be auto sized by default, but not the property default!
-			AutoSize = true;
+            // We want to be auto sized by default, but not the property default!
+            AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-		}
-		#endregion
+        }
+        #endregion
 
-		#region Public
+        #region Public
         /// <summary>
         /// Gets and sets the automatic resize of the control to fit contents.
         /// </summary>
@@ -212,26 +212,26 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         public override string Text
-		{
-			get => Values.Text;
+        {
+            get => Values.Text;
 
             set => Values.Text = value;
         }
 
-		private bool ShouldSerializeText()
-		{
-			// Never serialize, let the label values serialize instead
-			return false;
-		}
+        private bool ShouldSerializeText()
+        {
+            // Never serialize, let the label values serialize instead
+            return false;
+        }
 
-		/// <summary>
-		/// Resets the Text property to its default value.
-		/// </summary>
-		public override void ResetText()
-		{
-			// Map onto the text property from the label values
-			Values.ResetText();
-		}
+        /// <summary>
+        /// Resets the Text property to its default value.
+        /// </summary>
+        public override void ResetText()
+        {
+            // Map onto the text property from the label values
+            Values.ResetText();
+        }
 
         /// <summary>
         /// Gets and sets the visual orientation of the control.
@@ -240,25 +240,25 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Visual orientation of the control.")]
         [DefaultValue(typeof(VisualOrientation), "Top")]
         public virtual VisualOrientation Orientation
-		{
-			get => _orientation;
+        {
+            get => _orientation;
 
             set
-			{
+            {
                 if (_orientation != value)
-				{
+                {
                     _orientation = value;
 
-					// Update the associated visual element that is effected
-					_drawContent.Orientation = value;
+                    // Update the associated visual element that is effected
+                    _drawContent.Orientation = value;
 
                     // Update the layout according to the new orientation value
                     UpdateForOrientation();
 
                     PerformNeedPaint(true);
-				}
-			}
-		}
+                }
+            }
+        }
 
         /// <summary>
         /// Gets and sets the position of the radio button.
@@ -284,26 +284,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
         }
-        
+
         /// <summary>
-		/// Gets and sets the label style.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Label style.")]
-		public LabelStyle LabelStyle
-		{
-			get => _style;
+        /// Gets and sets the label style.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Label style.")]
+        public LabelStyle LabelStyle
+        {
+            get => _style;
 
             set
-			{
-				if (_style != value)
-				{
-					_style = value;
+            {
+                if (_style != value)
+                {
+                    _style = value;
                     SetLabelStyle(_style);
-					PerformNeedPaint(true);
-				}
-			}
-		}
+                    PerformNeedPaint(true);
+                }
+            }
+        }
 
         private void ResetLabelStyle()
         {
@@ -314,19 +314,19 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             return (LabelStyle != LabelStyle.NormalControl);
         }
-        
-        /// <summary>
-		/// Gets access to the label content.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Label values")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public LabelValues Values { get; }
 
-	    private bool ShouldSerializeValues()
-		{
-			return !Values.IsDefault;
-		}
+        /// <summary>
+        /// Gets access to the label content.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Label values")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public LabelValues Values { get; }
+
+        private bool ShouldSerializeValues()
+        {
+            return !Values.IsDefault;
+        }
 
         /// <summary>
         /// Gets access to the image value overrides.
@@ -336,7 +336,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public RadioButtonImages Images { get; }
 
-	    private bool ShouldSerializeImages()
+        private bool ShouldSerializeImages()
         {
             return !Images.IsDefault;
         }
@@ -349,36 +349,36 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteContent StateCommon { get; }
 
-	    private bool ShouldSerializeStateCommon()
+        private bool ShouldSerializeStateCommon()
         {
             return !StateCommon.IsDefault;
         }
 
-		/// <summary>
-		/// Gets access to the disabled label appearance entries.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Overrides for defining disabled label appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteContent StateDisabled { get; }
+        /// <summary>
+        /// Gets access to the disabled label appearance entries.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Overrides for defining disabled label appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public PaletteContent StateDisabled { get; }
 
-	    private bool ShouldSerializeStateDisabled()
-		{
-			return !StateDisabled.IsDefault;
-		}
+        private bool ShouldSerializeStateDisabled()
+        {
+            return !StateDisabled.IsDefault;
+        }
 
-		/// <summary>
-		/// Gets access to the normal label appearance entries.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Overrides for defining normal label appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteContent StateNormal { get; }
+        /// <summary>
+        /// Gets access to the normal label appearance entries.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Overrides for defining normal label appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public PaletteContent StateNormal { get; }
 
-	    private bool ShouldSerializeStateNormal()
-		{
-			return !StateNormal.IsDefault;
-		}
+        private bool ShouldSerializeStateNormal()
+        {
+            return !StateNormal.IsDefault;
+        }
 
         /// <summary>
         /// Gets access to the label appearance when it has focus.
@@ -388,7 +388,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteContent OverrideFocus { get; }
 
-	    private bool ShouldSerializeOverrideFocus()
+        private bool ShouldSerializeOverrideFocus()
         {
             return !OverrideFocus.IsDefault;
         }
@@ -453,7 +453,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get => _autoCheck;
 
-            set 
+            set
             {
                 if (_autoCheck != value)
                 {
@@ -499,7 +499,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Prevent controller from changing drawing state
             _controller.Enabled = false;
-            
+
             // Request fixed state from the view
             _overrideNormal.Apply = focus;
             _drawContent.FixedState = (enabled ? PaletteState.Normal : PaletteState.Disabled);
@@ -641,9 +641,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// </summary>
 		/// <param name="e">An EventArgs that contains the event data.</param>
 		protected override void OnEnabledChanged(EventArgs e)
-		{
-			// Push correct palettes into the view
-			if (Enabled)
+        {
+            // Push correct palettes into the view
+            if (Enabled)
             {
                 _drawContent.SetPalette(_overrideNormal);
             }
@@ -654,13 +654,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
             _drawContent.Enabled = Enabled;
             _drawRadioButton.Enabled = Enabled;
-            
+
             // Need to relayout to reflect the change in state
             MarkLayoutDirty();
 
-			// Let base class fire standard event
-			base.OnEnabledChanged(e);
-		}
+            // Let base class fire standard event
+            base.OnEnabledChanged(e);
+        }
 
         /// <summary>
         /// Raises the RightToLeftChanged event.
@@ -673,12 +673,12 @@ namespace ComponentFactory.Krypton.Toolkit
             base.OnRightToLeftChanged(e);
         }
 
-		/// <summary>
-		/// Gets the default size of the control.
-		/// </summary>
-		protected override Size DefaultSize => new Size(90, 25);
+        /// <summary>
+        /// Gets the default size of the control.
+        /// </summary>
+        protected override Size DefaultSize => new Size(90, 25);
 
-	    /// <summary>
+        /// <summary>
         /// Work out if this control needs to paint transparent areas.
         /// </summary>
         /// <returns>True if paint required; otherwise false.</returns>
@@ -687,7 +687,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Always need to draw the background because always transparent
             return true;
         }
-		#endregion
+        #endregion
 
         #region Implementation
         private void OnRadioButtonTextChanged(object sender, EventArgs e)

@@ -10,49 +10,49 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
 using System.ComponentModel;
-using System.Windows.Forms;
 using System.Diagnostics;
+using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Provides an identifiable area for containing other controls.
-	/// </summary>
-	[ToolboxItem(true)]
+    /// </summary>
+    [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonPanel), "ToolboxBitmaps.KryptonPanel.bmp")]
     [DefaultEvent("Paint")]
-	[DefaultProperty("PanelStyle")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonPanelDesigner))]
+    [DefaultProperty("PanelStyle")]
+    [Designer(typeof(KryptonPanelDesigner))]
     [DesignerCategory("code")]
     [Description("Enables you to group collections of controls.")]
     [Docking(DockingBehavior.Ask)]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     public class KryptonPanel : VisualPanel
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
 
-	    private readonly PaletteDoubleRedirect _stateCommon;
+        private readonly PaletteDoubleRedirect _stateCommon;
         private readonly PaletteDouble _stateDisabled;
-		private readonly PaletteDouble _stateNormal;
-		#endregion
+        private readonly PaletteDouble _stateNormal;
+        #endregion
 
-		#region Identity
-		/// <summary>
-		/// Initialize a new instance of the KryptonPanel class.
-		/// </summary>
-		public KryptonPanel()
-		{
-			// Create the palette storage
+        #region Identity
+        /// <summary>
+        /// Initialize a new instance of the KryptonPanel class.
+        /// </summary>
+        public KryptonPanel()
+        {
+            // Create the palette storage
             _stateCommon = new PaletteDoubleRedirect(Redirector, PaletteBackStyle.PanelClient, PaletteBorderStyle.ControlClient, NeedPaintDelegate);
             _stateDisabled = new PaletteDouble(_stateCommon, NeedPaintDelegate);
             _stateNormal = new PaletteDouble(_stateCommon, NeedPaintDelegate);
 
             Construct();
-		}
+        }
 
         /// <summary>
         /// Initialize a new instance of the KryptonPanel class.
@@ -77,25 +77,25 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Public
-		/// <summary>
-		/// Gets and sets the panel style.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Panel style.")]
-		public PaletteBackStyle PanelBackStyle
-		{
+        #region Public
+        /// <summary>
+        /// Gets and sets the panel style.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Panel style.")]
+        public PaletteBackStyle PanelBackStyle
+        {
             get => _stateCommon.BackStyle;
 
-		    set
-			{
-				if (_stateCommon.BackStyle != value)
-				{
+            set
+            {
+                if (_stateCommon.BackStyle != value)
+                {
                     _stateCommon.BackStyle = value;
-					PerformNeedPaint(true);
-				}
-			}
-		}
+                    PerformNeedPaint(true);
+                }
+            }
+        }
 
         private bool ShouldSerializePanelBackStyle()
         {
@@ -115,36 +115,36 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteBack StateCommon => _stateCommon.Back;
 
-	    private bool ShouldSerializeStateCommon()
+        private bool ShouldSerializeStateCommon()
         {
             return !_stateCommon.Back.IsDefault;
         }
-        
+
         /// <summary>
-		/// Gets access to the disabled panel appearance.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Overrides for defining disabled panel appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteBack StateDisabled => _stateDisabled.Back;
+        /// Gets access to the disabled panel appearance.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Overrides for defining disabled panel appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public PaletteBack StateDisabled => _stateDisabled.Back;
 
-	    private bool ShouldSerializeStateDisabled()
-		{
+        private bool ShouldSerializeStateDisabled()
+        {
             return !_stateDisabled.Back.IsDefault;
-		}
+        }
 
-		/// <summary>
-		/// Gets access to the normal panel appearance.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Overrides for defining normal panel appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        /// <summary>
+        /// Gets access to the normal panel appearance.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Overrides for defining normal panel appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteBack StateNormal => _stateNormal.Back;
 
-	    private bool ShouldSerializeStateNormal()
-		{
+        private bool ShouldSerializeStateNormal()
+        {
             return !_stateNormal.Back.IsDefault;
-		}
+        }
 
         /// <summary>
         /// Fix the control to a particular palette state.
@@ -157,31 +157,31 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Protected
+        #region Protected
         /// <summary>
         /// Gets access to the view element used to draw the KryptonPanel.
         /// </summary>
         protected ViewDrawPanel ViewDrawPanel { get; private set; }
 
-	    /// <summary>
-		/// Raises the EnabledChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
-		protected override void OnEnabledChanged(EventArgs e)
-		{
-			// Push correct palettes into the view
+        /// <summary>
+        /// Raises the EnabledChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        protected override void OnEnabledChanged(EventArgs e)
+        {
+            // Push correct palettes into the view
             ViewDrawPanel.SetPalettes(Enabled ? _stateNormal.Back : _stateDisabled.Back);
 
             // Update with latest enabled state
             ViewDrawPanel.Enabled = Enabled;
 
-			// Change in enabled state requires a layout and repaint
-			PerformNeedPaint(true);
+            // Change in enabled state requires a layout and repaint
+            PerformNeedPaint(true);
 
-			// Let base class fire standard event
-			base.OnEnabledChanged(e);
-		}
-		#endregion
+            // Let base class fire standard event
+            base.OnEnabledChanged(e);
+        }
+        #endregion
 
         #region Implementation
         private void Construct()

@@ -123,6 +123,31 @@
     <Compile Include="Controller\MenuLinkLabelController.cs" />
     <Compile Include="Controller\MenuItemController.cs" />
     <Compile Include="Controller\RadioButtonController.cs" />
+    <Compile Include="Controls Toolkit\DataGridViewButtonSpecClickEventArgs.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewButtonCell.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewButtonColumn.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewCheckBoxCell.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewCheckBoxColumn.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewComboBoxCell.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewComboBoxColumn.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewComboBoxEditingControl.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewDateTimePickerCell.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewDateTimePickerColumn.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewDateTimePickerEditingControl.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewDomainUpDownCell.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewDomainUpDownColumn.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewDomainUpDownEditingControl.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewLinkCell.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewLinkColumn.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewMaskedTextBoxCell.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewMaskedTextBoxColumn.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewMaskedTextBoxEditingControl.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewNumericUpDownCell.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewNumericUpDownColumn.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewNumericUpDownEditingControl.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewTextBoxCell.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewTextBoxColumn.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewTextBoxEditingControl.cs" />
     <Compile Include="Controls Toolkit\KryptonTreeNode.cs" />
     <Compile Include="Controls Toolkit\KryptonTreeView.cs" />
     <Compile Include="Controls Toolkit\KryptonInputBox.cs" />
@@ -167,7 +192,7 @@
     <Compile Include="Controls Toolkit\KryptonRichTextBox.cs" />
     <Compile Include="Controls Toolkit\KryptonComboBox.cs" />
     <Compile Include="Controls Toolkit\KryptonDataGridView.cs" />
-    <Compile Include="Controls Toolkit\KryptonDataGridViewColumns.cs" />
+    <Compile Include="Controls Toolkit\DataGridViewColumnSpecCollection.cs" />
     <Compile Include="Controls Toolkit\KryptonRadioButton.cs" />
     <Compile Include="Controls Toolkit\KryptonCheckBox.cs" />
     <Compile Include="Controls Toolkit\KryptonForm.cs">
@@ -1336,7 +1361,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_StartDate="2000/1/1" DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" />
+      <UserProperties DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" BuildVersion_StartDate="2000/1/1" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

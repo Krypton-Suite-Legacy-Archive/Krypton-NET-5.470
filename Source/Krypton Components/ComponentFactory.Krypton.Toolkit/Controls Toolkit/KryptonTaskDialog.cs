@@ -10,10 +10,10 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
 using System.ComponentModel;
-using System.Windows.Forms;
+using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -94,7 +94,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             base.Dispose(disposing);
-        }        
+        }
         #endregion
 
         #region Public
@@ -110,7 +110,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get => _windowTitle;
 
-            set 
+            set
             {
                 if (_windowTitle != value)
                 {
@@ -285,7 +285,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
         }
-        
+
         /// <summary>
         /// Gets and sets the predefined footer icon.
         /// </summary>
