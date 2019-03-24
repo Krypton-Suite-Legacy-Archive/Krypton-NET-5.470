@@ -38,13 +38,16 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <TargetFrameworkProfile />
     <ShouldCreateLogs>True</ShouldCreateLogs>
-    <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
+    <AdvancedSettingsExpanded>True</AdvancedSettingsExpanded>
     <UpdateAssemblyVersion>True</UpdateAssemblyVersion>
     <UpdateAssemblyFileVersion>True</UpdateAssemblyFileVersion>
     <UpdateAssemblyInfoVersion>True</UpdateAssemblyInfoVersion>
     <AssemblyVersionSettings>None.None.Increment.None</AssemblyVersionSettings>
     <AssemblyFileVersionSettings>None.None.Increment.None</AssemblyFileVersionSettings>
     <AssemblyInfoVersionSettings>None.None.Increment.None</AssemblyInfoVersionSettings>
+    <UpdatePackageVersion>False</UpdatePackageVersion>
+    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+    <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -137,6 +140,7 @@
     <Compile Include="Controls Toolkit\KryptonDataGridViewDomainUpDownCell.cs" />
     <Compile Include="Controls Toolkit\KryptonDataGridViewDomainUpDownColumn.cs" />
     <Compile Include="Controls Toolkit\KryptonDataGridViewDomainUpDownEditingControl.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewIconColumn.cs" />
     <Compile Include="Controls Toolkit\KryptonDataGridViewLinkCell.cs" />
     <Compile Include="Controls Toolkit\KryptonDataGridViewLinkColumn.cs" />
     <Compile Include="Controls Toolkit\KryptonDataGridViewMaskedTextBoxCell.cs" />
@@ -1361,7 +1365,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" BuildVersion_StartDate="2000/1/1" />
+      <UserProperties BuildVersion_StartDate="2000/1/1" DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

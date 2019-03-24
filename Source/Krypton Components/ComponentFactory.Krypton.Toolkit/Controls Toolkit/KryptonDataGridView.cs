@@ -1204,6 +1204,25 @@ namespace ComponentFactory.Krypton.Toolkit
                                 // Draw the sort glyph and update the remainder cell bounds left over
                                 tempCellBounds = Renderer.RenderGlyph.DrawGridSortGlyph(renderContext, Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection, tempCellBounds, paletteContent, state, rtl);
                             }
+
+                            // If this column supports icons, see if it has any.
+                            IIconColumn iconColumn = Columns[e.ColumnIndex] as IIconColumn;
+                            if (iconColumn != null)
+                            {
+                                foreach (IconSpec spec in iconColumn.IconSpecs)
+                                {
+                                    if (spec.Icon == null)
+                                        continue;
+                                    // Draw icon and update the remainder cell bounds left over
+                                    int iconWidth = spec.Icon.Width + 5;
+                                    int width = tempCellBounds.Width - iconWidth;
+                                    Rectangle iconBounds = new Rectangle(tempCellBounds.X + (spec.Alignment == IconSpec.IconAlignment.Left ? 5 : width),
+                                        tempCellBounds.Y + 3, spec.Icon.Width, spec.Icon.Height);
+                                    renderContext.Graphics.DrawImage(spec.Icon, iconBounds);
+                                    tempCellBounds = new Rectangle(tempCellBounds.X +
+                                                                   (spec.Alignment == IconSpec.IconAlignment.Left ? iconWidth : 0), tempCellBounds.Y, width, tempCellBounds.Height);
+                                }
+                            }
                         }
                         else
                         {

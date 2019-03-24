@@ -10,6 +10,7 @@
 // *****************************************************************************
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
@@ -25,7 +26,7 @@ namespace ComponentFactory.Krypton.Toolkit
     /// </summary>
     [Designer(typeof(KryptonTextBoxColumnDesigner))]
     [ToolboxBitmap(typeof(KryptonDataGridViewTextBoxColumn), "ToolboxBitmaps.KryptonTextBox.bmp")]
-    public class KryptonDataGridViewTextBoxColumn : DataGridViewColumn
+    public class KryptonDataGridViewTextBoxColumn : KryptonDataGridViewIconColumn
     {
         #region Instance Fields
 

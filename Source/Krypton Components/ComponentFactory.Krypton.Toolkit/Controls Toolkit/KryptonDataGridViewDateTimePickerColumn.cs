@@ -23,7 +23,7 @@ namespace ComponentFactory.Krypton.Toolkit
     /// </summary>
     [Designer(typeof(KryptonDateTimePickerColumnDesigner))]
     [ToolboxBitmap(typeof(KryptonDataGridViewDateTimePickerColumn), "ToolboxBitmaps.KryptonDateTimePicker.bmp")]
-    public class KryptonDataGridViewDateTimePickerColumn : DataGridViewColumn
+    public class KryptonDataGridViewDateTimePickerColumn : KryptonDataGridViewIconColumn
     {
         #region Instance Fields
 

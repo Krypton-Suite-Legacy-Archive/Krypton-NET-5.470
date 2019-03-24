@@ -1,4 +1,15 @@
-﻿using System;
+﻿// *****************************************************************************
+// BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
+//  © Component Factory Pty Ltd, 2006-2019, All rights reserved.
+// The software and associated documentation supplied hereunder are the 
+//  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
+//  Mornington, Vic 3931, Australia and are supplied subject to license terms.
+// 
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
+//  Version 5.470.0.0  www.ComponentFactory.com
+// *****************************************************************************
+
+using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
@@ -92,61 +103,61 @@ namespace ComponentFactory.Krypton.Toolkit
             switch (keyData & Keys.KeyCode)
             {
                 case Keys.Right:
-                {
-                    if (Controls[0].Controls[1] is TextBox textBox)
                     {
-                        // If the end of the selection is at the end of the string, let the DataGridView treat the key message
-                        if (((RightToLeft == RightToLeft.No) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == textBox.Text.Length))) ||
-                            ((RightToLeft == RightToLeft.Yes) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == 0))))
+                        if (Controls[0].Controls[1] is TextBox textBox)
                         {
-                            return true;
+                            // If the end of the selection is at the end of the string, let the DataGridView treat the key message
+                            if (((RightToLeft == RightToLeft.No) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == textBox.Text.Length))) ||
+                                ((RightToLeft == RightToLeft.Yes) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == 0))))
+                            {
+                                return true;
+                            }
                         }
+                        break;
                     }
-                    break;
-                }
                 case Keys.Left:
-                {
-                    if (Controls[0].Controls[1] is TextBox textBox)
                     {
-                        // If the end of the selection is at the begining of the string or if the entire text is selected 
-                        // and we did not start editing, send this character to the dataGridView, else process the key message
-                        if (((RightToLeft == RightToLeft.No) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == 0))) ||
-                            ((RightToLeft == RightToLeft.Yes) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == textBox.Text.Length))))
+                        if (Controls[0].Controls[1] is TextBox textBox)
                         {
-                            return true;
+                            // If the end of the selection is at the begining of the string or if the entire text is selected 
+                            // and we did not start editing, send this character to the dataGridView, else process the key message
+                            if (((RightToLeft == RightToLeft.No) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == 0))) ||
+                                ((RightToLeft == RightToLeft.Yes) && !((textBox.SelectionLength == 0) && (textBox.SelectionStart == textBox.Text.Length))))
+                            {
+                                return true;
+                            }
                         }
+                        break;
                     }
-                    break;
-                }
                 case Keys.Down:
                 case Keys.Up:
                     return true;
                 case Keys.Home:
                 case Keys.End:
-                {
-                    // Let the grid handle the key if the entire text is selected.
-                    if (Controls[0].Controls[1] is TextBox textBox)
                     {
-                        if (textBox.SelectionLength != textBox.Text.Length)
+                        // Let the grid handle the key if the entire text is selected.
+                        if (Controls[0].Controls[1] is TextBox textBox)
                         {
-                            return true;
+                            if (textBox.SelectionLength != textBox.Text.Length)
+                            {
+                                return true;
+                            }
                         }
+                        break;
                     }
-                    break;
-                }
                 case Keys.Delete:
-                {
-                    // Let the grid handle the key if the carret is at the end of the text.
-                    if (Controls[0].Controls[1] is TextBox textBox)
                     {
-                        if ((textBox.SelectionLength > 0) ||
-                            (textBox.SelectionStart < textBox.Text.Length))
+                        // Let the grid handle the key if the carret is at the end of the text.
+                        if (Controls[0].Controls[1] is TextBox textBox)
                         {
-                            return true;
+                            if ((textBox.SelectionLength > 0) ||
+                                (textBox.SelectionStart < textBox.Text.Length))
+                            {
+                                return true;
+                            }
                         }
+                        break;
                     }
-                    break;
-                }
             }
 
             return !dataGridViewWantsInputKey;

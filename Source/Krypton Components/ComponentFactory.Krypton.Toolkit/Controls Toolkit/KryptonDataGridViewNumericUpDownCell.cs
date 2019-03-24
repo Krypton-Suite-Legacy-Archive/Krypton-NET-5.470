@@ -1,4 +1,15 @@
-﻿using System;
+﻿// *****************************************************************************
+// BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
+//  © Component Factory Pty Ltd, 2006-2019, All rights reserved.
+// The software and associated documentation supplied hereunder are the 
+//  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
+//  Mornington, Vic 3931, Australia and are supplied subject to license terms.
+// 
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
+//  Version 5.470.0.0  www.ComponentFactory.com
+// *****************************************************************************
+
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
@@ -68,7 +79,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public override string ToString()
         {
-            return "DataGridViewNumericUpDownCell { ColumnIndex=" + ColumnIndex.ToString(CultureInfo.CurrentCulture) + 
+            return "DataGridViewNumericUpDownCell { ColumnIndex=" + ColumnIndex.ToString(CultureInfo.CurrentCulture) +
                    ", RowIndex=" + RowIndex.ToString(CultureInfo.CurrentCulture) + " }";
         }
         #endregion
@@ -287,8 +298,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// at the beginning of an editing session. It makes sure that the properties of the KryptonNumericUpDown editing control are 
         /// set according to the cell properties.
         /// </summary>
-        public override void InitializeEditingControl(int rowIndex, 
-            object initialFormattedValue, 
+        public override void InitializeEditingControl(int rowIndex,
+            object initialFormattedValue,
             DataGridViewCellStyle dataGridViewCellStyle)
         {
             base.InitializeEditingControl(rowIndex, initialFormattedValue, dataGridViewCellStyle);
@@ -466,7 +477,7 @@ namespace ComponentFactory.Krypton.Toolkit
             return value;
         }
 
-        private Rectangle GetAdjustedEditingControlBounds(Rectangle editingControlBounds, 
+        private Rectangle GetAdjustedEditingControlBounds(Rectangle editingControlBounds,
             DataGridViewCellStyle cellStyle)
         {
             // Adjust the vertical location of the editing control:
@@ -513,7 +524,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 return false;
             }
 
-            return (DataGridView.EditingControl is KryptonDataGridViewNumericUpDownEditingControl control) 
+            return (DataGridView.EditingControl is KryptonDataGridViewNumericUpDownEditingControl control)
                    && (rowIndex == ((IDataGridViewEditingControl)control).EditingControlRowIndex);
         }
 

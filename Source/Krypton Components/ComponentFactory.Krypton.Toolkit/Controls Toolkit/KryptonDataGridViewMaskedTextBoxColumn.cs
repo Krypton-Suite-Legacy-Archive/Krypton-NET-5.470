@@ -23,7 +23,7 @@ namespace ComponentFactory.Krypton.Toolkit
     /// </summary>
     [Designer(typeof(KryptonMaskedTextBoxColumnDesigner))]
     [ToolboxBitmap(typeof(KryptonDataGridViewMaskedTextBoxColumn), "ToolboxBitmaps.KryptonMaskedTextBox.bmp")]
-    public class KryptonDataGridViewMaskedTextBoxColumn : DataGridViewColumn
+    public class KryptonDataGridViewMaskedTextBoxColumn : KryptonDataGridViewIconColumn
     {
         #region Instance Fields
 

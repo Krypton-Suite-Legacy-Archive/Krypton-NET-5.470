@@ -1,4 +1,15 @@
-﻿using System;
+﻿// *****************************************************************************
+// BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
+//  © Component Factory Pty Ltd, 2006-2019, All rights reserved.
+// The software and associated documentation supplied hereunder are the 
+//  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
+//  Mornington, Vic 3931, Australia and are supplied subject to license terms.
+// 
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
+//  Version 5.470.0.0  www.ComponentFactory.com
+// *****************************************************************************
+
+using System;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Drawing;
@@ -14,7 +25,7 @@ namespace ComponentFactory.Krypton.Toolkit
     /// </summary>
     [Designer(typeof(KryptonComboBoxColumnDesigner))]
     [ToolboxBitmap(typeof(KryptonDataGridViewComboBoxColumn), "ToolboxBitmaps.KryptonComboBox.bmp")]
-    public class KryptonDataGridViewComboBoxColumn : DataGridViewColumn
+    public class KryptonDataGridViewComboBoxColumn : KryptonDataGridViewIconColumn
     {
         #region Instance Fields
 
@@ -142,7 +153,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [RefreshProperties(RefreshProperties.Repaint)]
         public ComboBoxStyle DropDownStyle
         {
-            get 
+            get
             {
                 if (ComboBoxCellTemplate == null)
                 {
@@ -191,7 +202,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(8)]
         public int MaxDropDownItems
         {
-            get 
+            get
             {
                 if (ComboBoxCellTemplate == null)
                 {
@@ -241,7 +252,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(true)]
         public int DropDownHeight
         {
-            get 
+            get
             {
                 if (ComboBoxCellTemplate == null)
                 {
@@ -290,7 +301,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(true)]
         public int DropDownWidth
         {
-            get 
+            get
             {
                 if (ComboBoxCellTemplate == null)
                 {
