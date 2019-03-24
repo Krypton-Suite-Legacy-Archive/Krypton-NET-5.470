@@ -84,16 +84,15 @@ namespace ComponentFactory.Krypton.Toolkit
         private readonly int SCROLLBAR_HEIGHT = SystemInformation.HorizontalScrollBarHeight;
         private readonly int SCROLLBAR_WIDTH = SystemInformation.VerticalScrollBarWidth;
 
-        private VScrollBarEx scrollBar;
-        private TextBox edit;
-        private int columnCount = 16;
-        private int rowCount = 25;
-        private byte[] dataBuf;
-        private int startLine;
-        private int displayLinesCount;
-        private int linesCount;
-        private DisplayMode displayMode;
-        private DisplayMode realDisplayMode;
+        private VScrollBarEx _scrollBar;
+        private TextBox _edit;
+        private int _columnCount = 16;
+        private int _rowCount = 25;
+        private byte[] _dataBuf;
+        private int _startLine;
+        private int _displayLinesCount;
+        private int _linesCount;
+        private DisplayMode _displayMode;
         #endregion
 
         #region Identity
@@ -110,8 +109,7 @@ namespace ComponentFactory.Krypton.Toolkit
             RowStyles.Add(new RowStyle(SizeType.Percent, 100f));
             InitUI();
             ResumeLayout();
-            displayMode = DisplayMode.Hexdump;
-            realDisplayMode = DisplayMode.Hexdump;
+            _displayMode = DisplayMode.Hexdump;
             DoubleBuffered = true;
             SetStyle(ControlStyles.ResizeRedraw, value: true);
             SetBytes(new byte[] { });
@@ -119,232 +117,26 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Private
-        private static int AnalizeByteOrderMark(byte[] buffer, int index)
-        {
-            int c = (buffer[index + 0] << 8) | buffer[index + 1];
-            int c2 = (buffer[index + 2] << 8) | buffer[index + 3];
-            int encodingIndex = GetEncodingIndex(c);
-            int encodingIndex2 = GetEncodingIndex(c2);
-            int[,] array = new int[13, 13]
-            {
-            {
-                1,
-                5,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1
-            },
-            {
-                1,
-                1,
-                1,
-                11,
-                1,
-                10,
-                4,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1
-            },
-            {
-                2,
-                9,
-                5,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2
-            },
-            {
-                3,
-                7,
-                3,
-                7,
-                3,
-                3,
-                3,
-                3,
-                3,
-                3,
-                3,
-                3,
-                3
-            },
-            {
-                14,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1
-            },
-            {
-                1,
-                6,
-                1,
-                1,
-                1,
-                1,
-                1,
-                3,
-                1,
-                1,
-                1,
-                1,
-                1
-            },
-            {
-                1,
-                8,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                2,
-                1,
-                1,
-                1,
-                1
-            },
-            {
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1
-            },
-            {
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1
-            },
-            {
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                13,
-                1,
-                1
-            },
-            {
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1
-            },
-            {
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                12
-            },
-            {
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1
-            }
-            };
-            return array[encodingIndex, encodingIndex2];
-        }
 
         private int CellToIndex(int column, int row)
         {
-            return row * columnCount + column;
+            return row * _columnCount + column;
         }
 
         private byte[] ComposeLineBuffer(int startLine, int line)
         {
-            int num = startLine * columnCount;
-            byte[] array = (num + (line + 1) * columnCount <= dataBuf.Length) ? new byte[columnCount] : new byte[dataBuf.Length % columnCount];
+            int num = startLine * _columnCount;
+            byte[] array = (num + (line + 1) * _columnCount <= _dataBuf.Length) ? new byte[_columnCount] : new byte[_dataBuf.Length % _columnCount];
             for (int i = 0; i < array.Length; i++)
             {
-                array[i] = dataBuf[num + CellToIndex(i, line)];
+                array[i] = _dataBuf[num + CellToIndex(i, line)];
             }
             return array;
         }
 
         private void DrawAddress(Graphics g, int startLine, int line)
         {
-            string s = ((startLine + line) * columnCount).ToString("X8", CultureInfo.InvariantCulture);
+            string s = ((startLine + line) * _columnCount).ToString("X8", CultureInfo.InvariantCulture);
             Brush brush = new SolidBrush(ForeColor);
             try
             {
@@ -360,12 +152,12 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             using (Brush brush = new SolidBrush(SystemColors.ControlLightLight))
             {
-                g.FillRectangle(brush, new Rectangle(74, 5, 538, rowCount * 21));
+                g.FillRectangle(brush, new Rectangle(74, 5, 538, _rowCount * 21));
             }
             using (Pen pen = new Pen(SystemColors.ControlDark))
             {
-                g.DrawRectangle(pen, new Rectangle(74, 5, 537, rowCount * 21 - 1));
-                g.DrawLine(pen, 474, 5, 474, 5 + rowCount * 21 - 1);
+                g.DrawRectangle(pen, new Rectangle(74, 5, 537, _rowCount * 21 - 1));
+                g.DrawLine(pen, 474, 5, 474, 5 + _rowCount * 21 - 1);
             }
         }
 
@@ -414,7 +206,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 stringBuilder.Append(lineBuffer[i].ToString("X2", CultureInfo.InvariantCulture));
                 stringBuilder.Append(" ");
-                if (i == columnCount / 2 - 1)
+                if (i == _columnCount / 2 - 1)
                 {
                     stringBuilder.Append(" ");
                 }
@@ -442,109 +234,11 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private DisplayMode GetAutoDisplayMode()
-        {
-            int num = 0;
-            int num2 = 0;
-            if (dataBuf != null && (dataBuf.Length < 0 || dataBuf.Length >= 8))
-            {
-                switch (AnalizeByteOrderMark(dataBuf, 0))
-                {
-                    case 2:
-                        return DisplayMode.Hexdump;
-                    case 3:
-                        return DisplayMode.Unicode;
-                    case 4:
-                    case 5:
-                        return DisplayMode.Hexdump;
-                    case 6:
-                    case 7:
-                        return DisplayMode.Hexdump;
-                    case 8:
-                    case 9:
-                        return DisplayMode.Hexdump;
-                    case 10:
-                    case 11:
-                        return DisplayMode.Hexdump;
-                    case 12:
-                        return DisplayMode.Hexdump;
-                    case 13:
-                        return DisplayMode.Ansi;
-                    case 14:
-                        return DisplayMode.Ansi;
-                    default:
-                        {
-                            int num3 = (dataBuf.Length <= 1024) ? (dataBuf.Length / 2) : 512;
-                            for (int i = 0; i < num3; i++)
-                            {
-                                char c = (char)dataBuf[i];
-                                if (char.IsLetterOrDigit(c) || char.IsWhiteSpace(c))
-                                {
-                                    num++;
-                                }
-                            }
-                            for (int j = 0; j < num3; j += 2)
-                            {
-                                char[] array = new char[1];
-                                Encoding.Unicode.GetChars(dataBuf, j, 2, array, 0);
-                                if (CharIsPrintable(array[0]))
-                                {
-                                    num2++;
-                                }
-                            }
-                            if (num2 * 100 / (num3 / 2) > 80)
-                            {
-                                return DisplayMode.Unicode;
-                            }
-                            if (num * 100 / num3 > 80)
-                            {
-                                return DisplayMode.Ansi;
-                            }
-                            return DisplayMode.Hexdump;
-                        }
-                }
-            }
-            return DisplayMode.Hexdump;
-        }
-
-        private static int GetEncodingIndex(int c1)
-        {
-            switch (c1)
-            {
-                case 0:
-                    return 1;
-                case 65279:
-                    return 2;
-                case 65534:
-                    return 3;
-                case 61371:
-                    return 4;
-                case 15360:
-                    return 5;
-                case 60:
-                    return 6;
-                case 16128:
-                    return 7;
-                case 63:
-                    return 8;
-                case 15423:
-                    return 9;
-                case 30829:
-                    return 10;
-                case 19567:
-                    return 11;
-                case 42900:
-                    return 12;
-                default:
-                    return 0;
-            }
-        }
-
         private void InitAnsi()
         {
-            int num = dataBuf.Length;
+            int num = _dataBuf.Length;
             char[] array = new char[num + 1];
-            num = MultiByteToWideChar(0, 0, dataBuf, num, array, num);
+            num = MultiByteToWideChar(0, 0, _dataBuf, num, array, num);
             array[num] = '\0';
             for (int i = 0; i < num; i++)
             {
@@ -553,13 +247,13 @@ namespace ComponentFactory.Krypton.Toolkit
                     array[i] = '\v';
                 }
             }
-            edit.Text = new string(array);
+            _edit.Text = new string(array);
         }
 
         private void InitUnicode()
         {
-            char[] array = new char[dataBuf.Length / 2 + 1];
-            Encoding.Unicode.GetChars(dataBuf, 0, dataBuf.Length, array, 0);
+            char[] array = new char[_dataBuf.Length / 2 + 1];
+            Encoding.Unicode.GetChars(_dataBuf, 0, _dataBuf.Length, array, 0);
             for (int i = 0; i < array.Length; i++)
             {
                 if (array[i] == '\0')
@@ -568,18 +262,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
             array[array.Length - 1] = '\0';
-            edit.Text = new string(array);
+            _edit.Text = new string(array);
         }
 
         private void InitUI()
         {
-            Size = new Size(612 + SCROLLBAR_WIDTH + 2 + 3, 10 + rowCount * 21);
-            scrollBar = new VScrollBarEx();
-            scrollBar.ValueChanged += ScrollChanged;
-            scrollBar.TabStop = false;
-            scrollBar.Dock = DockStyle.Right;
-            scrollBar.Visible = false;
-            edit = new TextBox()
+            Size = new Size(612 + SCROLLBAR_WIDTH + 2 + 3, 10 + _rowCount * 21);
+            _scrollBar = new VScrollBarEx();
+            _scrollBar.ValueChanged += ScrollChanged;
+            _scrollBar.TabStop = false;
+            _scrollBar.Dock = DockStyle.Right;
+            _scrollBar.Visible = false;
+            _edit = new TextBox()
             {
                 AutoSize = false,
                 BorderStyle = BorderStyle.None,
@@ -594,31 +288,31 @@ namespace ComponentFactory.Krypton.Toolkit
                 Visible = false,
                 Font = HEXDUMP_FONT
             };
-            Controls.Add(scrollBar, 0, 0);
-            Controls.Add(edit, 0, 0);
+            Controls.Add(_scrollBar, 0, 0);
+            Controls.Add(_edit, 0, 0);
         }
 
         private void InitState()
         {
-            linesCount = (dataBuf.Length + columnCount - 1) / columnCount;
-            startLine = 0;
-            if (linesCount > rowCount)
+            _linesCount = (_dataBuf.Length + _columnCount - 1) / _columnCount;
+            _startLine = 0;
+            if (_linesCount > _rowCount)
             {
-                displayLinesCount = rowCount;
-                scrollBar.Hide();
-                scrollBar.Maximum = linesCount - 1;
-                scrollBar.LargeChange = rowCount;
-                scrollBar.Show();
-                scrollBar.Enabled = true;
+                _displayLinesCount = _rowCount;
+                _scrollBar.Hide();
+                _scrollBar.Maximum = _linesCount - 1;
+                _scrollBar.LargeChange = _rowCount;
+                _scrollBar.Show();
+                _scrollBar.Enabled = true;
             }
             else
             {
-                displayLinesCount = linesCount;
-                scrollBar.Hide();
-                scrollBar.Maximum = rowCount;
-                scrollBar.LargeChange = rowCount;
-                scrollBar.Show();
-                scrollBar.Enabled = false;
+                _displayLinesCount = _linesCount;
+                _scrollBar.Hide();
+                _scrollBar.Maximum = _rowCount;
+                _scrollBar.LargeChange = _rowCount;
+                _scrollBar.Show();
+                _scrollBar.Enabled = false;
             }
             //            scrollBar.Select();
             // Select the panel instead so we can forward its Key and Mousewheel events
@@ -640,8 +334,8 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void OnKeyDown(KeyEventArgs e)
         {
             //         scrollBar.Select();
-            if (scrollBar.Enabled)
-                scrollBar._OnKeyDown(e);
+            if (_scrollBar.Enabled)
+                _scrollBar._OnKeyDown(e);
         }
 
         /// <summary>
@@ -653,8 +347,8 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void OnMouseWheel(MouseEventArgs e)
         {
             base.OnMouseWheel(e);
-            if (scrollBar.Enabled)
-                scrollBar._OnMouseWheel(e);
+            if (_scrollBar.Enabled)
+                _scrollBar._OnMouseWheel(e);
         }
 
         /// <summary>
@@ -684,21 +378,21 @@ namespace ComponentFactory.Krypton.Toolkit
             base.OnPaint(e);
             Graphics graphics = e.Graphics;
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            switch (realDisplayMode)
+            switch (_displayMode)
             {
                 case DisplayMode.Hexdump:
                     SuspendLayout();
-                    edit.Hide();
-                    scrollBar.Show();
+                    _edit.Hide();
+                    _scrollBar.Show();
                     ResumeLayout();
                     DrawClient(graphics);
-                    DrawLines(graphics, startLine, displayLinesCount);
+                    DrawLines(graphics, _startLine, _displayLinesCount);
                     break;
                 case DisplayMode.Ansi:
-                    edit.Invalidate();
+                    _edit.Invalidate();
                     break;
                 case DisplayMode.Unicode:
-                    edit.Invalidate();
+                    _edit.Invalidate();
                     break;
             }
         }
@@ -709,31 +403,31 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             base.OnLayout(e);
             int num = (ClientSize.Height - 10) / 21;
-            if (num >= 0 && num != rowCount)
+            if (num >= 0 && num != _rowCount)
             {
-                rowCount = num;
+                _rowCount = num;
                 if (Dock == DockStyle.None)
                 {
-                    Size = new Size(612 + SCROLLBAR_WIDTH + 2 + 3, 10 + rowCount * 21);
+                    Size = new Size(612 + SCROLLBAR_WIDTH + 2 + 3, 10 + _rowCount * 21);
                 }
-                if (scrollBar != null)
+                if (_scrollBar != null)
                 {
-                    if (linesCount > rowCount)
+                    if (_linesCount > _rowCount)
                     {
-                        scrollBar.Hide();
-                        scrollBar.Maximum = linesCount - 1;
-                        scrollBar.LargeChange = rowCount;
-                        scrollBar.Show();
-                        scrollBar.Enabled = true;
+                        _scrollBar.Hide();
+                        _scrollBar.Maximum = _linesCount - 1;
+                        _scrollBar.LargeChange = _rowCount;
+                        _scrollBar.Show();
+                        _scrollBar.Enabled = true;
                         //             scrollBar.Select();
                         Select();
                     }
                     else
                     {
-                        scrollBar.Enabled = false;
+                        _scrollBar.Enabled = false;
                     }
                 }
-                displayLinesCount = ((startLine + rowCount < linesCount) ? rowCount : (linesCount - startLine));
+                _displayLinesCount = ((_startLine + _rowCount < _linesCount) ? _rowCount : (_linesCount - _startLine));
             }
         }
         #endregion
@@ -744,7 +438,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">A <see cref="T:System.EventArgs" /> that contains the event data. </param>
         protected virtual void ScrollChanged(object source, EventArgs e)
         {
-            startLine = scrollBar.Value;
+            _startLine = _scrollBar.Value;
             Invalidate();
         }
         #endregion
@@ -754,14 +448,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>The unsigned byte array reference.</returns>
         public virtual byte[] GetBytes()
         {
-            return dataBuf;
+            return _dataBuf;
         }
 
         /// <summary>Gets the display mode for the control.</summary>
         /// <returns>The display mode that this control uses. The returned value is defined in <see cref="T:System.ComponentModel.Design.DisplayMode" />.</returns>
         public virtual DisplayMode GetDisplayMode()
         {
-            return displayMode;
+            return _displayMode;
         }
 
         /// <summary>Writes the raw data from the data buffer to a file.</summary>
@@ -776,12 +470,12 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <exception cref="T:System.UnauthorizedAccessException">The access requested is not permitted by the operating system for the specified <paramref name="path" />, such as when access is Write or ReadWrite and the file or directory is set for read-only access. </exception>
         public virtual void SaveToFile(string path)
         {
-            if (dataBuf != null)
+            if (_dataBuf != null)
             {
                 FileStream fileStream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None);
                 try
                 {
-                    fileStream.Write(dataBuf, 0, dataBuf.Length);
+                    fileStream.Write(_dataBuf, 0, _dataBuf.Length);
                     fileStream.Close();
                 }
                 catch
@@ -797,13 +491,13 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <exception cref="T:System.ArgumentNullException">The specified byte array is null. </exception>
         public virtual void SetBytes(byte[] bytes)
         {
-            if (dataBuf != null)
+            if (_dataBuf != null)
             {
-                dataBuf = null;
+                _dataBuf = null;
             }
-            dataBuf = bytes ?? throw new ArgumentNullException("bytes");
+            _dataBuf = bytes ?? throw new ArgumentNullException("bytes");
             InitState();
-            SetDisplayMode(displayMode);
+            SetDisplayMode(_displayMode);
         }
 
         /// <summary>Sets the current display mode.</summary>
@@ -815,36 +509,37 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 throw new InvalidEnumArgumentException("mode", (int)mode, typeof(DisplayMode));
             }
-            displayMode = mode;
-            realDisplayMode = ((mode == DisplayMode.Auto) ? GetAutoDisplayMode() : mode);
-            switch (realDisplayMode)
+            _displayMode = mode;
+            switch (_displayMode)
             {
                 case DisplayMode.Ansi:
                     InitAnsi();
                     SuspendLayout();
-                    edit.Show();
-                    scrollBar.Hide();
+                    _edit.Show();
+                    _scrollBar.Hide();
                     ResumeLayout();
                     Invalidate();
                     break;
                 case DisplayMode.Unicode:
                     InitUnicode();
                     SuspendLayout();
-                    edit.Show();
-                    scrollBar.Hide();
+                    _edit.Show();
+                    _scrollBar.Hide();
                     ResumeLayout();
                     Invalidate();
                     break;
+                // Auto detection doesn't really work well, so just default to hexdump mode.
+                case DisplayMode.Auto:
                 case DisplayMode.Hexdump:
                     SuspendLayout();
-                    edit.Hide();
-                    if (linesCount > rowCount)
+                    _edit.Hide();
+                    if (_linesCount > _rowCount)
                     {
-                        if (!scrollBar.Visible)
+                        if (!_scrollBar.Visible)
                         {
-                            scrollBar.Show();
+                            _scrollBar.Show();
                             ResumeLayout();
-                            scrollBar.Invalidate();
+                            _scrollBar.Invalidate();
                             //               scrollBar.Select();
                             Select();
 
@@ -894,20 +589,20 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="line">The current line to display from. </param>
         public virtual void SetStartLine(int line)
         {
-            if (line < 0 || line >= linesCount || line > dataBuf.Length / columnCount)
+            if (line < 0 || line >= _linesCount || line > _dataBuf.Length / _columnCount)
             {
-                startLine = 0;
+                _startLine = 0;
             }
             else
             {
-                startLine = line;
+                _startLine = line;
             }
         }
         #endregion
 
         #region Internal
         [DllImport("kernel32.dll", CharSet = CharSet.Unicode, ExactSpelling = true)]
-        private static extern int MultiByteToWideChar(int CodePage, int dwFlags, byte[] lpMultiByteStr,
+        private static extern int MultiByteToWideChar(int codePage, int dwFlags, byte[] lpMultiByteStr,
             int cchMultiByte, char[] lpWideCharStr, int cchWideChar);
         #endregion
     }
