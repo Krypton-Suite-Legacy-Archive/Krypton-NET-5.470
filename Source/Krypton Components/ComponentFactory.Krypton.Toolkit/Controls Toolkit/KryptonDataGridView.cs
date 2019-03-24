@@ -1212,7 +1212,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                 foreach (IconSpec spec in iconColumn.IconSpecs)
                                 {
                                     if (spec.Icon == null)
+                                    {
                                         continue;
+                                    }
                                     // Draw icon and update the remainder cell bounds left over
                                     int iconWidth = spec.Icon.Width + 5;
                                     int width = tempCellBounds.Width - iconWidth;

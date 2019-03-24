@@ -79,6 +79,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -157,6 +158,9 @@
     <Compile Include="Controls Toolkit\KryptonInputBox.cs" />
     <Compile Include="Controls Toolkit\KryptonTaskDialogCommand.cs" />
     <Compile Include="Controls Toolkit\KryptonTaskDialog.cs" />
+    <Compile Include="Controls Visuals\MultilineStringEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Controls Visuals\VisualTaskDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1197,6 +1201,7 @@
     <None Include="Resources\navigate_minus.png" />
     <None Include="Resources\navigate_plus.png" />
     <None Include="Resources\paint_bucket_green.png" />
+    <Content Include="Resources\SelectParentControlFlipped.png" />
     <Content Include="Resources\SilverDropDownButton.png" />
     <None Include="Resources\WhitePendantRibbonMinimize.bmp" />
     <None Include="Resources\WhitePendantRibbonExpand.bmp" />

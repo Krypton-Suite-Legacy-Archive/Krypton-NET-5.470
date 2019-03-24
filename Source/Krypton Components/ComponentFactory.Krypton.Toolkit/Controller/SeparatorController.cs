@@ -897,7 +897,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     m.Result = (IntPtr)PI.HTTRANSPARENT;
                 }
                 else
+                {
                     base.WndProc(ref m);
+                }
             }
             #endregion
         }
@@ -982,9 +984,13 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // Cursor depends on orientation direction
                 if (_source.SeparatorOrientation == Orientation.Vertical)
+                {
                     _source.SeparatorControl.Cursor = (_splitCursors ? _cursorVSplit : _cursorVMove);
+                }
                 else
+                {
                     _source.SeparatorControl.Cursor = (_splitCursors ? _cursorHSplit : _cursorHMove);
+                }
             }
 
             // If we are currently capturing input
@@ -996,7 +1002,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Callback to the source to show movement
                 if (_source.SeparatorMoving(pt, splitPt))
+                {
                     AbortMoving();
+                }
             }
 
             // Let base class do standard processing
@@ -1099,7 +1107,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // If leaving when currently moving, then abort the movement
             if (_moving)
+            {
                 AbortMoving();
+            }
 
             // Reset the cursor back to the default
             _source.SeparatorControl.Cursor = Cursors.Default;
@@ -1131,14 +1141,19 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(e != null);
 
             // Validate reference parameter
-            if (e == null) throw new ArgumentNullException("e");
+            if (e == null)
+            {
+                throw new ArgumentNullException("e");
+            }
 
             // If the user pressed the escape key
             if (e.KeyCode == Keys.Escape)
             {
                 // If we are capturing mouse input
                 if (_moving)
+                {
                     AbortMoving();
+                }
             }
 
             return _moving;
@@ -1154,7 +1169,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // If we are capturing mouse input
             if (_moving)
+            {
                 AbortMoving();
+            }
         }
         #endregion
 
@@ -1181,7 +1198,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Remove the capturing of mouse input messages
                 if (_source.SeparatorControl.Capture)
+                {
                     _source.SeparatorControl.Capture = false;
+                }
 
                 // Remove the message filter, as long as it is registered 
                 // it will prevent the class from being garbage collected.
@@ -1275,18 +1294,26 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_separatorOrientation == Orientation.Vertical)
             {
                 if (Target.ClientLocation.X + xDelta < _separatorBox.Left)
+                {
                     xDelta = _separatorBox.Left - Target.ClientLocation.X;
+                }
 
                 if (Target.ClientLocation.X + xDelta > _separatorBox.Right)
+                {
                     xDelta = _separatorBox.Right - Target.ClientLocation.X;
+                }
             }
             else
             {
                 if (Target.ClientLocation.Y + yDelta < _separatorBox.Top)
+                {
                     yDelta = _separatorBox.Top - Target.ClientLocation.Y;
+                }
 
                 if (Target.ClientLocation.Y + yDelta > _separatorBox.Bottom)
+                {
                     yDelta = _separatorBox.Bottom - Target.ClientLocation.Y;
+                }
             }
 
             // Enforce the increments on the deltas
@@ -1337,9 +1364,13 @@ namespace ComponentFactory.Krypton.Toolkit
         private Rectangle SplitRectangleFromPoint(Point pt)
         {
             if (_separatorOrientation == Orientation.Vertical)
+            {
                 return SplitRectangleFromPoint(pt, Target.ClientWidth);
+            }
             else
+            {
                 return SplitRectangleFromPoint(pt, Target.ClientHeight);
+            }
         }
 
         private Rectangle SplitRectangleFromPoint(Point pt, int length)
@@ -1348,9 +1379,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Find the splitter rectangle based on the orientation
             if (_separatorOrientation == Orientation.Vertical)
+            {
                 splitRectangle = new Rectangle(pt.X, _separatorBox.Y, length, Target.ClientHeight);
+            }
             else
+            {
                 splitRectangle = new Rectangle(_separatorBox.X, pt.Y, Target.ClientWidth, length);
+            }
 
             return _source.SeparatorControl.RectangleToScreen(splitRectangle);
         }
@@ -1424,11 +1459,15 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // We are only interested in filtering when moving the separator
             if (!_controller.IsMoving)
+            {
                 return false;
+            }
 
             // We allow all non-keyboard messages
             if ((m.Msg < 0x100) || (m.Msg > 0x108))
+            {
                 return false;
+            }
 
             // If the user presses the escape key, windows keys or any system key
             if (((m.Msg == 0x100) && (((int)m.WParam.ToInt64()) == 0x1B)) ||

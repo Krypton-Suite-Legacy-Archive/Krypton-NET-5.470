@@ -358,7 +358,10 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (_command == value)
+                {
                     return;
+                }
+
                 if (_command != null)
                 {
                     _command.PropertyChanged -= OnCommandPropertyChanged;

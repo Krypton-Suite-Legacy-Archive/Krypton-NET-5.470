@@ -119,13 +119,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (NumericUpDownCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
+
                 return NumericUpDownCellTemplate.AllowDecimals;
             }
             set
             {
                 if (NumericUpDownCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 NumericUpDownCellTemplate.AllowDecimals = value;
@@ -141,7 +146,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
                         KryptonDataGridViewNumericUpDownCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewNumericUpDownCell;
                         if (dataGridViewCell != null)
+                        {
                             dataGridViewCell.SetAllowDecimals(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);
@@ -161,13 +168,18 @@ namespace ComponentFactory.Krypton.Toolkit
             get
             {
                 if (NumericUpDownCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
+
                 return NumericUpDownCellTemplate.TrailingZeroes;
             }
             set
             {
                 if (NumericUpDownCellTemplate == null)
+                {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+                }
 
                 // Update the template cell so that subsequent cloned cells use the new value.
                 NumericUpDownCellTemplate.TrailingZeroes = value;
@@ -183,7 +195,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
                         KryptonDataGridViewNumericUpDownCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewNumericUpDownCell;
                         if (dataGridViewCell != null)
+                        {
                             dataGridViewCell.SetTrailingZeroes(rowIndex, value);
+                        }
                     }
 
                     DataGridView.InvalidateColumn(Index);

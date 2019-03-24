@@ -420,7 +420,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (unformattedDecimal == formattedDecimal)
                 {
                     if (!Hexadecimal && !TrailingZeroes)
+                    {
                         return formattedDecimal.ToString("0.##############################");
+                    }
                     // The base implementation of GetFormattedValue (which triggers the CellFormatting event) did nothing else than 
                     // the typical 1234.5 to "1234.5" conversion. But depending on the values of ThousandsSeparator and DecimalPlaces,
                     // this may not be the actual string displayed. The real formatted value may be "1,234.500"
@@ -548,7 +550,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             _trailingZeroes = value;
             if (OwnsEditingNumericUpDown(rowIndex))
+            {
                 EditingNumericUpDown.TrailingZeroes = value;
+            }
         }
 
         internal void SetDecimalPlaces(int rowIndex, int value)

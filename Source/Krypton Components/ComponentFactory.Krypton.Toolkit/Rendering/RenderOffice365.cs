@@ -62,7 +62,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(colourPalette != null);
 
             // Validate passed parameter
-            if (colourPalette == null) throw new ArgumentNullException(nameof(colourPalette));
+            if (colourPalette == null)
+            {
+                throw new ArgumentNullException(nameof(colourPalette));
+            }
 
             KryptonOffice365Renderer renderer = new KryptonOffice365Renderer(colourPalette.ColorTable)
             {
