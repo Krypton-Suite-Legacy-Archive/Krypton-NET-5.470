@@ -128,6 +128,9 @@
     <Compile Include="Controller\MenuItemController.cs" />
     <Compile Include="Controller\RadioButtonController.cs" />
     <Compile Include="Controls Toolkit\DataGridViewButtonSpecClickEventArgs.cs" />
+    <Compile Include="Controls Toolkit\KryptonByteViewer.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls Toolkit\KryptonDataGridViewButtonCell.cs" />
     <Compile Include="Controls Toolkit\KryptonDataGridViewButtonColumn.cs" />
     <Compile Include="Controls Toolkit\KryptonDataGridViewCheckBoxCell.cs" />
@@ -135,8 +138,8 @@
     <Compile Include="Controls Toolkit\KryptonDataGridViewComboBoxCell.cs" />
     <Compile Include="Controls Toolkit\KryptonDataGridViewComboBoxColumn.cs" />
     <Compile Include="Controls Toolkit\KryptonDataGridViewComboBoxEditingControl.cs" />
-    <Compile Include="Controls Toolkit\KryptonDataGridViewCustomCell.cs" />
-    <Compile Include="Controls Toolkit\KryptonDataGridViewCustomColumn.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewBinaryCell.cs" />
+    <Compile Include="Controls Toolkit\KryptonDataGridViewBinaryColumn.cs" />
     <Compile Include="Controls Toolkit\KryptonDataGridViewCustomEditingControl.cs" />
     <Compile Include="Controls Toolkit\KryptonDataGridViewDateTimePickerCell.cs" />
     <Compile Include="Controls Toolkit\KryptonDataGridViewDateTimePickerColumn.cs" />
@@ -161,6 +164,9 @@
     <Compile Include="Controls Toolkit\KryptonInputBox.cs" />
     <Compile Include="Controls Toolkit\KryptonTaskDialogCommand.cs" />
     <Compile Include="Controls Toolkit\KryptonTaskDialog.cs" />
+    <Compile Include="Controls Visuals\ByteViewerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Controls Visuals\MultilineStringEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -548,7 +554,6 @@
     <Compile Include="Toolkit\KryptonContextMenuItemCollectionEditor.cs" />
     <Compile Include="Toolkit\KryptonContextMenuItemDesigner.cs" />
     <Compile Include="Toolkit\KryptonContextMenuItemsDesigner.cs" />
-    <Compile Include="Toolkit\KryptonCustomColumnDesigner.cs" />
     <Compile Include="Toolkit\KryptonDataGridViewDesigner.cs" />
     <Compile Include="Toolkit\KryptonDateTimePickerActionList.cs" />
     <Compile Include="Toolkit\KryptonDateTimePickerColumnDesigner.cs" />
