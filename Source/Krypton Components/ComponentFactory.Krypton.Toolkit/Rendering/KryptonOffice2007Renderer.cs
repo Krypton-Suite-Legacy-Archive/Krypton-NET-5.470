@@ -353,7 +353,7 @@ namespace ComponentFactory.Krypton.Toolkit
             Rectangle checkBox = e.ImageRectangle;
 
             // Make the border of the check box 1 pixel bigger on all sides, as a minimum
-            checkBox.Inflate(2, 2);
+            checkBox.Inflate(1, 1);
 
             //// Can we extend upwards?
             //if (checkBox.Top > CHECK_INSET)
@@ -557,7 +557,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             }
                             else
                             {
-                                DrawGradientContextMenuItem(e.Graphics, e.Item, _gradientItem);
+                                DrawGradientContextMenuItem(e.Graphics, e.Item, _gradientTracking);
                             }
                         }
                         else
