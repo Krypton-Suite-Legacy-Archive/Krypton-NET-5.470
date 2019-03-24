@@ -11,8 +11,8 @@
 
 using System;
 using System.ComponentModel;
-using System.Drawing;
 using System.Globalization;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -122,13 +122,13 @@ namespace ComponentFactory.Krypton.Toolkit
             TypeConverter valueTypeConverter, TypeConverter formattedValueTypeConverter,
             DataGridViewDataErrorContexts context)
         {
-            if (value is byte[])
+            if (value is byte[] bytes)
             {
                 byte[] firstBytes = new byte[128];
-                byte[] bytes = value as byte[];
                 int count = Math.Min(bytes.Length, firstBytes.Length);
                 Array.Copy(bytes, firstBytes, count);
-                return BitConverter.ToString(firstBytes, 0, count).Replace("-", " ");
+                string strval = BitConverter.ToString(firstBytes, 0, count).Replace("-", " ");
+                return Regex.Replace(strval, "(.{23})", "$1" + Environment.NewLine);
             }
             return base.GetFormattedValue(value, rowIndex, ref cellStyle, valueTypeConverter,
                 formattedValueTypeConverter, context);
@@ -143,7 +143,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void OnClick(DataGridViewCellEventArgs e)
         {
             base.OnClick(e);
-            Form editor = null;
+            Form editor;
             // If the user has provided a custom editor type, use that instead of the default
             // form.
             if (_editorType != null)
@@ -166,7 +166,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Private
-        
+
 
         private void OnCommonChange()
         {

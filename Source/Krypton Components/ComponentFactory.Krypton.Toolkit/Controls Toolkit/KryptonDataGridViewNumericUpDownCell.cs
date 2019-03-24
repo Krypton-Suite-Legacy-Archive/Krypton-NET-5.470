@@ -413,7 +413,10 @@ namespace ComponentFactory.Krypton.Toolkit
             // By default, the base implementation converts the Decimal 1234.5 into the string "1234.5"
             object formattedValue = base.GetFormattedValue(value, rowIndex, ref cellStyle, valueTypeConverter, formattedValueTypeConverter, context);
             string formattedNumber = formattedValue as string;
-            if (!string.IsNullOrEmpty(formattedNumber) && (value != null))
+            if (!string.IsNullOrEmpty(formattedNumber) 
+                && (value != null) 
+                && (value != DBNull.Value)
+                )
             {
                 Decimal unformattedDecimal = Convert.ToDecimal(value);
                 Decimal formattedDecimal = Convert.ToDecimal(formattedNumber);

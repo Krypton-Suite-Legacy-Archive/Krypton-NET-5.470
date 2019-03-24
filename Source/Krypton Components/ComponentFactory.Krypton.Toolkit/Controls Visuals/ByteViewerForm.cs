@@ -104,17 +104,17 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 if (sfd.ShowDialog(this) == DialogResult.OK)
                 {
-                    byte[] bytes = Tag as byte[];
-                    if (bytes != null)
+                    if (Tag is byte[] bytes)
                     {
                         File.WriteAllBytes(sfd.FileName, bytes);
                         // FIXME: string literal.
-                        KryptonMessageBox.Show($"Data exported to {sfd.FileName}", "Data Export",
+                        KryptonMessageBox.Show(this, $"Data exported to {sfd.FileName}", "Data Export",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
         }
+
         /// <summary>
         /// Initializes the Form's components.
         /// </summary>
