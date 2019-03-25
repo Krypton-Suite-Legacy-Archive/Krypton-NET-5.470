@@ -240,6 +240,7 @@
     <Compile Include="EventArgs\BreadCrumbMenuArgs.cs" />
     <Compile Include="EventArgs\ButtonDragOffsetEventArgs.cs" />
     <Compile Include="EventArgs\HoveredSelectionChangedEventArgs.cs" />
+    <Compile Include="EventArgs\ToolTipNeededEventArgs.cs" />
     <Compile Include="EventArgs\ViewControlHitTestArgs.cs" />
     <Compile Include="EventArgs\PointOffsetEventCancelArgs.cs" />
     <Compile Include="EventArgs\SplitterMoveRectEventArgs.cs" />
