@@ -77,10 +77,10 @@ namespace ComponentFactory.Krypton.Toolkit
     }
 
     /// <summary>
-    /// An interface that is implemented by KryptonDataGridViewColumn classes that support
-    /// column header icons.
+    /// An interface that is implemented by KryptonDataGridView column and cell classes that 
+    /// support column header or cell icons.
     /// </summary>
-    public interface IIconColumn
+    public interface IIconCell
     {
         /// <summary>
         /// Gets the list of icon specifications.
@@ -92,7 +92,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
     }
 
-    public class KryptonDataGridViewIconColumn : DataGridViewColumn, IIconColumn
+    public class KryptonDataGridViewIconColumn : DataGridViewColumn, IIconCell
     {
         #region Instance Fields
 

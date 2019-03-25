@@ -10,6 +10,7 @@
 // *****************************************************************************
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
@@ -20,7 +21,7 @@ namespace ComponentFactory.Krypton.Toolkit
     /// <summary>
     /// Displays editable text information in a KryptonDataGridView control.
     /// </summary>
-    public class KryptonDataGridViewTextBoxCell : DataGridViewTextBoxCell
+    public class KryptonDataGridViewTextBoxCell : DataGridViewTextBoxCell, IIconCell
     {
         #region Instance Fields
         private bool _multiline;
@@ -49,6 +50,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 _paintingTextBox.StateCommon.Border.Draw = InheritBool.False;
                 _paintingTextBox.StateCommon.Back.Color1 = Color.Empty;
             }
+            IconSpecs = new List<IconSpec>();
         }
 
         /// <summary>
@@ -92,6 +94,23 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             return "KryptonDataGridViewTextBoxCell { ColumnIndex=" + ColumnIndex.ToString(CultureInfo.CurrentCulture) +
                    ", RowIndex=" + RowIndex.ToString(CultureInfo.CurrentCulture) + " }";
+        }
+
+        /// <summary>
+        /// Creates an exact copy of this cell.
+        /// </summary>
+        /// <returns></returns>
+        public override object Clone()
+        {
+            KryptonDataGridViewTextBoxCell cloned = base.Clone() as KryptonDataGridViewTextBoxCell;
+            foreach (IconSpec sp in IconSpecs)
+            {
+                cloned.IconSpecs.Add(sp.Clone() as IconSpec);
+            }
+
+            cloned.Multiline = Multiline;
+            cloned.MultilineStringEditor = MultilineStringEditor;
+            return cloned;
         }
 
         /// <summary>
@@ -352,5 +371,13 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
         #endregion
+
+        /// <summary>
+        /// Gets the collection of the icon specifications.
+        /// </summary>
+        [Category("Data")]
+        [Description("Set of extra icons to appear with control.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public List<IconSpec> IconSpecs { get; }
     }
 }

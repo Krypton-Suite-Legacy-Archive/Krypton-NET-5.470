@@ -1206,7 +1206,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             }
 
                             // If this column supports icons, see if it has any.
-                            IIconColumn iconColumn = Columns[e.ColumnIndex] as IIconColumn;
+                            IIconCell iconColumn = Columns[e.ColumnIndex] as IIconCell;
                             if (iconColumn != null)
                             {
                                 foreach (IconSpec spec in iconColumn.IconSpecs)
@@ -1313,6 +1313,28 @@ namespace ComponentFactory.Krypton.Toolkit
                                 // Is this a data cell
                                 if ((e.RowIndex >= 0) && (e.ColumnIndex >= 0))
                                 {
+                                    // If this cell supports icons, see if it has any.
+                                    IIconCell iconColumn = Rows[e.RowIndex].Cells[e.ColumnIndex] as IIconCell;
+                                    if (iconColumn != null)
+                                    {
+                                        foreach (IconSpec spec in iconColumn.IconSpecs)
+                                        {
+                                            if (spec.Icon == null)
+                                            {
+                                                continue;
+                                            }
+
+                                            // Draw icon and update the remainder cell bounds left over
+                                            int iconWidth = spec.Icon.Width + 5;
+                                            int width = tempCellBounds.Width - iconWidth;
+                                            Rectangle iconBounds = new Rectangle(tempCellBounds.X + (spec.Alignment == IconSpec.IconAlignment.Left ? 5 : width),
+                                                tempCellBounds.Y + 3, spec.Icon.Width, spec.Icon.Height);
+                                            renderContext.Graphics.DrawImage(spec.Icon, iconBounds);
+                                            tempCellBounds = new Rectangle(tempCellBounds.X +
+                                                                           (spec.Alignment == IconSpec.IconAlignment.Left ? iconWidth : 0), tempCellBounds.Y, width, tempCellBounds.Height);
+                                        }
+                                    }                                    
+                                    
                                     // Is there an error icon associated with the cell that needs showing
                                     if (ShowCellErrors && !string.IsNullOrEmpty(Rows[e.RowIndex].Cells[e.ColumnIndex].ErrorText))
                                     {
