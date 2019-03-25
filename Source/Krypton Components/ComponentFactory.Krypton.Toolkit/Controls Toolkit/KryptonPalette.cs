@@ -11073,7 +11073,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     return GetPaletteBackGridBackground(GridStyles.GridSheet, state);
                 case PaletteBackStyle.GridBackgroundCustom1:
                     return GetPaletteBackGridBackground(GridStyles.GridCustom1, state);
-                case PaletteBackStyle.GridBackgroundCustom3:
+                case PaletteBackStyle.GridBackgroundCustom2:
                     return GetPaletteBackGridBackground(GridStyles.GridCustom2, state);
                 case PaletteBackStyle.GridBackgroundCustom3:
                     return GetPaletteBackGridBackground(GridStyles.GridCustom3, state);

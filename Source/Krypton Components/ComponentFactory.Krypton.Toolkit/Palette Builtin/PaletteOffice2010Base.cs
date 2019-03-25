@@ -5692,12 +5692,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlCustom1:
                 case PaletteContentStyle.InputControlCustom2:
                 case PaletteContentStyle.InputControlCustom3:
-                    return _ribbonColors[(int)SchemeOfficeColors.InputControlTextDisabled];
-            }
+                    if (state != PaletteState.Normal)
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.InputControlTextDisabled];
+                    }
                     else
                     {
-                return _ribbonColors[(int)SchemeOfficeColors.InputControlTextNormal];
-            }
+                        return _ribbonColors[(int)SchemeOfficeColors.InputControlTextNormal];
+                    }
 
                 case PaletteContentStyle.LabelNormalPanel:
                 case PaletteContentStyle.LabelBoldPanel:
@@ -5739,25 +5741,25 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ButtonCustom2:
                 case PaletteContentStyle.ButtonCustom3:
                     if (state != PaletteState.Normal)
-            {
-                return _ribbonColors[(int)SchemeOfficeColors.TextButtonChecked];
-            }
-            else
-            {
-                return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
-            }
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.TextButtonChecked];
+                    }
+                    else
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
+                    }
 
                 case PaletteContentStyle.TabDockAutoHidden:
                     return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
                 case PaletteContentStyle.ButtonCalendarDay:
                     if (state == PaletteState.Disabled)
-            {
-                return _disabledText2;
-            }
-            else
-            {
-                return Color.Black;
-            }
+                    {
+                        return _disabledText2;
+                    }
+                    else
+                    {
+                        return Color.Black;
+                    }
 
                 case PaletteContentStyle.ButtonListItem:
                 case PaletteContentStyle.ButtonCommand:
@@ -5765,144 +5767,146 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ButtonBreadCrumb:
                 case PaletteContentStyle.ButtonButtonSpec:
                     switch (state)
-            {
-                case PaletteState.Normal:
-                    if (style == PaletteContentStyle.ButtonListItem)
                     {
-                        return _ribbonColors[(int)SchemeOfficeColors.TextLabelControl];
-                    }
-                    else
-                    {
-                        return _ribbonColors[(int)SchemeOfficeColors.TextLabelPanel];
-                    }
+                        case PaletteState.Normal:
+                            if (style == PaletteContentStyle.ButtonListItem)
+                            {
+                                return _ribbonColors[(int)SchemeOfficeColors.TextLabelControl];
+                            }
+                            else
+                            {
+                                return _ribbonColors[(int)SchemeOfficeColors.TextLabelPanel];
+                            }
 
-                case PaletteState.CheckedNormal:
-                case PaletteState.CheckedTracking:
-                case PaletteState.CheckedPressed:
-                    return _ribbonColors[(int)SchemeOfficeColors.TextButtonChecked];
-                default:
-                    return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
-            }
+                        case PaletteState.CheckedNormal:
+                        case PaletteState.CheckedTracking:
+                        case PaletteState.CheckedPressed:
+                            return _ribbonColors[(int)SchemeOfficeColors.TextButtonChecked];
+                        default:
+                            return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
+                    }
                 case PaletteContentStyle.ButtonForm:
                 case PaletteContentStyle.ButtonFormClose:
                     switch (state)
-            {
-                case PaletteState.Tracking:
-                case PaletteState.CheckedTracking:
-                    return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormTracking];
-                case PaletteState.Pressed:
-                case PaletteState.CheckedPressed:
-                case PaletteState.CheckedNormal:
-                    return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormPressed];
-                default:
-                    return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormNormal];
-            }
+                    {
+                        case PaletteState.Tracking:
+                        case PaletteState.CheckedTracking:
+                            return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormTracking];
+                        case PaletteState.Pressed:
+                        case PaletteState.CheckedPressed:
+                        case PaletteState.CheckedNormal:
+                            return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormPressed];
+                        default:
+                            return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormNormal];
+                    }
                 case PaletteContentStyle.ButtonInputControl:
                     if (state != PaletteState.Disabled)
-            {
-                return _ribbonColors[(int)SchemeOfficeColors.InputDropDownNormal1];
-            }
-            else
-            {
-                return _ribbonColors[(int)SchemeOfficeColors.InputDropDownDisabled1];
-            }
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.InputDropDownNormal1];
+                    }
+                    else
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.InputDropDownDisabled1];
+                    }
 
                 case PaletteContentStyle.ButtonNavigatorMini:
                 case PaletteContentStyle.ButtonNavigatorStack:
                 case PaletteContentStyle.ButtonNavigatorOverflow:
                     if (state != PaletteState.Normal)
-            {
-                return _ribbonColors[(int)SchemeOfficeColors.ButtonNavigatorText];
-            }
-            else
-            {
-                return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
-            }
-
-            default:
-                    throw new ArgumentOutOfRangeException(nameof(style));
-        }
-    }
-
-    /// <summary>
-    /// Gets the second back color for the short text.
-    /// </summary>
-    /// <param name="style">Content style.</param>
-    /// <param name="state">Palette value should be applicable to this state.</param>
-    /// <returns>Color value.</returns>
-    public override Color GetContentShortTextColor2(PaletteContentStyle style, PaletteState state)
-    {
-        // We do not provide override values
-        if (CommonHelper.IsOverrideState(state))
-        {
-            return Color.Empty;
-        }
-
-        switch (style)
-        {
-            case PaletteContentStyle.HeaderForm:
-                if (state == PaletteState.Disabled)
-                {
-                    return _ribbonColors[(int)SchemeOfficeColors.FormHeaderShortInactive];
-                }
-                else
-                {
-                    return _ribbonColors[(int)SchemeOfficeColors.FormHeaderShortActive];
-                }
-        }
-
-        if ((state == PaletteState.Disabled) &&
-            (style != PaletteContentStyle.LabelToolTip) &&
-            (style != PaletteContentStyle.LabelSuperTip) &&
-            (style != PaletteContentStyle.LabelKeyTip) &&
-            (style != PaletteContentStyle.InputControlStandalone) &&
-            (style != PaletteContentStyle.InputControlRibbon) &&
-            (style != PaletteContentStyle.InputControlCustom1) &&
-            (style != PaletteContentStyle.ButtonInputControl) &&
-            (style != PaletteContentStyle.ButtonCalendarDay))
-        {
-            return _disabledText;
-        }
-
-        switch (style)
-        {
-            case PaletteContentStyle.GridHeaderColumnList:
-            case PaletteContentStyle.GridHeaderColumnSheet:
-            case PaletteContentStyle.GridHeaderColumnCustom1:
-            case PaletteContentStyle.GridHeaderColumnCustom2:
-            case PaletteContentStyle.GridHeaderColumnCustom3:
-            case PaletteContentStyle.GridHeaderRowList:
-            case PaletteContentStyle.GridHeaderRowSheet:
-            case PaletteContentStyle.GridHeaderRowCustom1:
-            case PaletteContentStyle.GridHeaderRowCustom2:
-            case PaletteContentStyle.GridHeaderRowCustom3:
-            case PaletteContentStyle.GridDataCellList:
-            case PaletteContentStyle.GridDataCellSheet:
-            case PaletteContentStyle.GridDataCellCustom1:
-            case PaletteContentStyle.GridDataCellCustom2:
-            case PaletteContentStyle.GridDataCellCustom3:
-            case PaletteContentStyle.HeaderCalendar:
-                return _gridTextColor;
-            case PaletteContentStyle.HeaderSecondary:
-            case PaletteContentStyle.HeaderPrimary:
-            case PaletteContentStyle.HeaderDockInactive:
-            case PaletteContentStyle.HeaderCustom1:
-            case PaletteContentStyle.HeaderCustom2:
-            case PaletteContentStyle.HeaderCustom3:
-                return _ribbonColors[(int)SchemeOfficeColors.HeaderText];
-            case PaletteContentStyle.HeaderDockActive:
-                return Color.Black;
-            case PaletteContentStyle.InputControlStandalone:
-            case PaletteContentStyle.InputControlRibbon:
-            case PaletteContentStyle.InputControlCustom1:
-            case PaletteContentStyle.InputControlCustom2:
-            case PaletteContentStyle.InputControlCustom3:
-                return _ribbonColors[(int)SchemeOfficeColors.InputControlTextDisabled];
-        }
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.ButtonNavigatorText];
+                    }
                     else
                     {
-            return _ribbonColors[(int)SchemeOfficeColors.InputControlTextNormal];
+                        return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
+                    }
+
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
         }
+
+        /// <summary>
+        /// Gets the second back color for the short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetContentShortTextColor2(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return Color.Empty;
+            }
+
+            switch (style)
+            {
+                case PaletteContentStyle.HeaderForm:
+                    if (state == PaletteState.Disabled)
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.FormHeaderShortInactive];
+                    }
+                    else
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.FormHeaderShortActive];
+                    }
+            }
+
+            if ((state == PaletteState.Disabled) &&
+                (style != PaletteContentStyle.LabelToolTip) &&
+                (style != PaletteContentStyle.LabelSuperTip) &&
+                (style != PaletteContentStyle.LabelKeyTip) &&
+                (style != PaletteContentStyle.InputControlStandalone) &&
+                (style != PaletteContentStyle.InputControlRibbon) &&
+                (style != PaletteContentStyle.InputControlCustom1) &&
+                (style != PaletteContentStyle.ButtonInputControl) &&
+                (style != PaletteContentStyle.ButtonCalendarDay))
+            {
+                return _disabledText;
+            }
+
+            switch (style)
+            {
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                case PaletteContentStyle.HeaderCalendar:
+                    return _gridTextColor;
+                case PaletteContentStyle.HeaderSecondary:
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                    return _ribbonColors[(int)SchemeOfficeColors.HeaderText];
+                case PaletteContentStyle.HeaderDockActive:
+                    return Color.Black;
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                    if (state != PaletteState.Normal)
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.InputControlTextDisabled];
+                    }
+                    else
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.InputControlTextNormal];
+                    }
 
                 case PaletteContentStyle.LabelNormalPanel:
                 case PaletteContentStyle.LabelBoldPanel:
@@ -5944,25 +5948,25 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ButtonCustom2:
                 case PaletteContentStyle.ButtonCustom3:
                     if (state != PaletteState.Normal)
-        {
-            return _ribbonColors[(int)SchemeOfficeColors.TextButtonChecked];
-        }
-        else
-        {
-            return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
-        }
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.TextButtonChecked];
+                    }
+                    else
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
+                    }
 
                 case PaletteContentStyle.TabDockAutoHidden:
                     return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
                 case PaletteContentStyle.ButtonCalendarDay:
                     if (state == PaletteState.Disabled)
-        {
-            return _disabledText2;
-        }
-        else
-        {
-            return Color.Black;
-        }
+                    {
+                        return _disabledText2;
+                    }
+                    else
+                    {
+                        return Color.Black;
+                    }
 
                 case PaletteContentStyle.ButtonListItem:
                 case PaletteContentStyle.ButtonCommand:
@@ -5970,1540 +5974,1542 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ButtonBreadCrumb:
                 case PaletteContentStyle.ButtonButtonSpec:
                     switch (state)
-        {
-            case PaletteState.Normal:
-                if (style == PaletteContentStyle.ButtonListItem)
-                {
-                    return _ribbonColors[(int)SchemeOfficeColors.TextLabelControl];
-                }
-                else
-                {
-                    return _ribbonColors[(int)SchemeOfficeColors.TextLabelPanel];
-                }
+                    {
+                        case PaletteState.Normal:
+                            if (style == PaletteContentStyle.ButtonListItem)
+                            {
+                                return _ribbonColors[(int)SchemeOfficeColors.TextLabelControl];
+                            }
+                            else
+                            {
+                                return _ribbonColors[(int)SchemeOfficeColors.TextLabelPanel];
+                            }
 
-            case PaletteState.CheckedNormal:
-            case PaletteState.CheckedTracking:
-            case PaletteState.CheckedPressed:
-                return _ribbonColors[(int)SchemeOfficeColors.TextButtonChecked];
-            default:
-                return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
-        }
+                        case PaletteState.CheckedNormal:
+                        case PaletteState.CheckedTracking:
+                        case PaletteState.CheckedPressed:
+                            return _ribbonColors[(int)SchemeOfficeColors.TextButtonChecked];
+                        default:
+                            return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
+                    }
                 case PaletteContentStyle.ButtonForm:
                 case PaletteContentStyle.ButtonFormClose:
                     switch (state)
-        {
-            case PaletteState.Tracking:
-            case PaletteState.CheckedTracking:
-                return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormTracking];
-            case PaletteState.Pressed:
-            case PaletteState.CheckedPressed:
-                return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormPressed];
-            default:
-                return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormNormal];
-        }
+                    {
+                        case PaletteState.Tracking:
+                        case PaletteState.CheckedTracking:
+                            return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormTracking];
+                        case PaletteState.Pressed:
+                        case PaletteState.CheckedPressed:
+                            return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormPressed];
+                        default:
+                            return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormNormal];
+                    }
                 case PaletteContentStyle.ButtonInputControl:
                     if (state != PaletteState.Disabled)
-        {
-            return _ribbonColors[(int)SchemeOfficeColors.InputDropDownNormal2];
-        }
-        else
-        {
-            return _ribbonColors[(int)SchemeOfficeColors.InputDropDownDisabled2];
-        }
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.InputDropDownNormal2];
+                    }
+                    else
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.InputDropDownDisabled2];
+                    }
 
                 case PaletteContentStyle.ButtonNavigatorMini:
                 case PaletteContentStyle.ButtonNavigatorStack:
                 case PaletteContentStyle.ButtonNavigatorOverflow:
                     if (state != PaletteState.Normal)
-        {
-            return _ribbonColors[(int)SchemeOfficeColors.ButtonNavigatorText];
-        }
-        else
-        {
-            return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
-        }
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.ButtonNavigatorText];
+                    }
+                    else
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
+                    }
 
-        default:
-                    throw new ArgumentOutOfRangeException(nameof(style));
-    }
-}
-
-/// <summary>
-/// Gets the color drawing style for the short text.
-/// </summary>
-/// <param name="style">Content style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color drawing style.</returns>
-public override PaletteColorStyle GetContentShortTextColorStyle(PaletteContentStyle style, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return PaletteColorStyle.Inherit;
-    }
-
-    switch (style)
-    {
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderDockActive:
-        case PaletteContentStyle.HeaderCalendar:
-        case PaletteContentStyle.HeaderSecondary:
-        case PaletteContentStyle.HeaderForm:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-        case PaletteContentStyle.LabelNormalControl:
-        case PaletteContentStyle.LabelBoldControl:
-        case PaletteContentStyle.LabelItalicControl:
-        case PaletteContentStyle.LabelTitleControl:
-        case PaletteContentStyle.LabelNormalPanel:
-        case PaletteContentStyle.LabelBoldPanel:
-        case PaletteContentStyle.LabelItalicPanel:
-        case PaletteContentStyle.LabelTitlePanel:
-        case PaletteContentStyle.LabelGroupBoxCaption:
-        case PaletteContentStyle.LabelToolTip:
-        case PaletteContentStyle.LabelSuperTip:
-        case PaletteContentStyle.LabelKeyTip:
-        case PaletteContentStyle.LabelCustom1:
-        case PaletteContentStyle.LabelCustom2:
-        case PaletteContentStyle.LabelCustom3:
-        case PaletteContentStyle.ContextMenuHeading:
-        case PaletteContentStyle.ContextMenuItemImage:
-        case PaletteContentStyle.ContextMenuItemTextStandard:
-        case PaletteContentStyle.ContextMenuItemTextAlternate:
-        case PaletteContentStyle.ContextMenuItemShortcutText:
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-        case PaletteContentStyle.TabLowProfile:
-        case PaletteContentStyle.TabOneNote:
-        case PaletteContentStyle.TabDock:
-        case PaletteContentStyle.TabDockAutoHidden:
-        case PaletteContentStyle.TabCustom1:
-        case PaletteContentStyle.TabCustom2:
-        case PaletteContentStyle.TabCustom3:
-        case PaletteContentStyle.ButtonStandalone:
-        case PaletteContentStyle.ButtonGallery:
-        case PaletteContentStyle.ButtonAlternate:
-        case PaletteContentStyle.ButtonLowProfile:
-        case PaletteContentStyle.ButtonBreadCrumb:
-        case PaletteContentStyle.ButtonListItem:
-        case PaletteContentStyle.ButtonCommand:
-        case PaletteContentStyle.ButtonButtonSpec:
-        case PaletteContentStyle.ButtonCalendarDay:
-        case PaletteContentStyle.ButtonCluster:
-        case PaletteContentStyle.ButtonNavigatorMini:
-        case PaletteContentStyle.ButtonNavigatorStack:
-        case PaletteContentStyle.ButtonNavigatorOverflow:
-        case PaletteContentStyle.ButtonForm:
-        case PaletteContentStyle.ButtonFormClose:
-        case PaletteContentStyle.ButtonCustom1:
-        case PaletteContentStyle.ButtonCustom2:
-        case PaletteContentStyle.ButtonCustom3:
-        case PaletteContentStyle.ButtonInputControl:
-        case PaletteContentStyle.GridHeaderColumnList:
-        case PaletteContentStyle.GridHeaderColumnSheet:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-            return PaletteColorStyle.Solid;
-        default:
-            throw new ArgumentOutOfRangeException(nameof(style));
-    }
-}
-
-/// <summary>
-/// Gets the color alignment for the short text.
-/// </summary>
-/// <param name="style">Content style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color alignment style.</returns>
-public override PaletteRectangleAlign GetContentShortTextColorAlign(PaletteContentStyle style, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return PaletteRectangleAlign.Inherit;
-    }
-
-    switch (style)
-    {
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderDockActive:
-        case PaletteContentStyle.HeaderCalendar:
-        case PaletteContentStyle.HeaderSecondary:
-        case PaletteContentStyle.HeaderForm:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-        case PaletteContentStyle.LabelNormalControl:
-        case PaletteContentStyle.LabelBoldControl:
-        case PaletteContentStyle.LabelItalicControl:
-        case PaletteContentStyle.LabelTitleControl:
-        case PaletteContentStyle.LabelNormalPanel:
-        case PaletteContentStyle.LabelBoldPanel:
-        case PaletteContentStyle.LabelItalicPanel:
-        case PaletteContentStyle.LabelTitlePanel:
-        case PaletteContentStyle.LabelGroupBoxCaption:
-        case PaletteContentStyle.LabelToolTip:
-        case PaletteContentStyle.LabelSuperTip:
-        case PaletteContentStyle.LabelKeyTip:
-        case PaletteContentStyle.LabelCustom1:
-        case PaletteContentStyle.LabelCustom2:
-        case PaletteContentStyle.LabelCustom3:
-        case PaletteContentStyle.ContextMenuHeading:
-        case PaletteContentStyle.ContextMenuItemImage:
-        case PaletteContentStyle.ContextMenuItemTextStandard:
-        case PaletteContentStyle.ContextMenuItemTextAlternate:
-        case PaletteContentStyle.ContextMenuItemShortcutText:
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-        case PaletteContentStyle.TabLowProfile:
-        case PaletteContentStyle.TabOneNote:
-        case PaletteContentStyle.TabDock:
-        case PaletteContentStyle.TabDockAutoHidden:
-        case PaletteContentStyle.TabCustom1:
-        case PaletteContentStyle.TabCustom2:
-        case PaletteContentStyle.TabCustom3:
-        case PaletteContentStyle.ButtonStandalone:
-        case PaletteContentStyle.ButtonGallery:
-        case PaletteContentStyle.ButtonAlternate:
-        case PaletteContentStyle.ButtonLowProfile:
-        case PaletteContentStyle.ButtonBreadCrumb:
-        case PaletteContentStyle.ButtonListItem:
-        case PaletteContentStyle.ButtonCommand:
-        case PaletteContentStyle.ButtonButtonSpec:
-        case PaletteContentStyle.ButtonCalendarDay:
-        case PaletteContentStyle.ButtonCluster:
-        case PaletteContentStyle.ButtonNavigatorMini:
-        case PaletteContentStyle.ButtonNavigatorStack:
-        case PaletteContentStyle.ButtonNavigatorOverflow:
-        case PaletteContentStyle.ButtonForm:
-        case PaletteContentStyle.ButtonFormClose:
-        case PaletteContentStyle.ButtonCustom1:
-        case PaletteContentStyle.ButtonCustom2:
-        case PaletteContentStyle.ButtonCustom3:
-        case PaletteContentStyle.ButtonInputControl:
-        case PaletteContentStyle.GridHeaderColumnList:
-        case PaletteContentStyle.GridHeaderColumnSheet:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-            return PaletteRectangleAlign.Local;
-        default:
-            throw new ArgumentOutOfRangeException(nameof(style));
-    }
-}
-
-/// <summary>
-/// Gets the color background angle for the short text.
-/// </summary>
-/// <param name="style">Content style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Angle used for color drawing.</returns>
-public override float GetContentShortTextColorAngle(PaletteContentStyle style, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return -1f;
-    }
-
-    switch (style)
-    {
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderDockActive:
-        case PaletteContentStyle.HeaderCalendar:
-        case PaletteContentStyle.HeaderSecondary:
-        case PaletteContentStyle.HeaderForm:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-        case PaletteContentStyle.LabelNormalControl:
-        case PaletteContentStyle.LabelBoldControl:
-        case PaletteContentStyle.LabelItalicControl:
-        case PaletteContentStyle.LabelTitleControl:
-        case PaletteContentStyle.LabelNormalPanel:
-        case PaletteContentStyle.LabelBoldPanel:
-        case PaletteContentStyle.LabelItalicPanel:
-        case PaletteContentStyle.LabelTitlePanel:
-        case PaletteContentStyle.LabelGroupBoxCaption:
-        case PaletteContentStyle.LabelToolTip:
-        case PaletteContentStyle.LabelSuperTip:
-        case PaletteContentStyle.LabelKeyTip:
-        case PaletteContentStyle.LabelCustom1:
-        case PaletteContentStyle.LabelCustom2:
-        case PaletteContentStyle.LabelCustom3:
-        case PaletteContentStyle.ContextMenuHeading:
-        case PaletteContentStyle.ContextMenuItemImage:
-        case PaletteContentStyle.ContextMenuItemTextStandard:
-        case PaletteContentStyle.ContextMenuItemTextAlternate:
-        case PaletteContentStyle.ContextMenuItemShortcutText:
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-        case PaletteContentStyle.TabLowProfile:
-        case PaletteContentStyle.TabOneNote:
-        case PaletteContentStyle.TabDock:
-        case PaletteContentStyle.TabDockAutoHidden:
-        case PaletteContentStyle.TabCustom1:
-        case PaletteContentStyle.TabCustom2:
-        case PaletteContentStyle.TabCustom3:
-        case PaletteContentStyle.ButtonStandalone:
-        case PaletteContentStyle.ButtonGallery:
-        case PaletteContentStyle.ButtonAlternate:
-        case PaletteContentStyle.ButtonLowProfile:
-        case PaletteContentStyle.ButtonBreadCrumb:
-        case PaletteContentStyle.ButtonListItem:
-        case PaletteContentStyle.ButtonCommand:
-        case PaletteContentStyle.ButtonButtonSpec:
-        case PaletteContentStyle.ButtonCalendarDay:
-        case PaletteContentStyle.ButtonCluster:
-        case PaletteContentStyle.ButtonNavigatorMini:
-        case PaletteContentStyle.ButtonNavigatorStack:
-        case PaletteContentStyle.ButtonNavigatorOverflow:
-        case PaletteContentStyle.ButtonForm:
-        case PaletteContentStyle.ButtonFormClose:
-        case PaletteContentStyle.ButtonCustom1:
-        case PaletteContentStyle.ButtonCustom2:
-        case PaletteContentStyle.ButtonCustom3:
-        case PaletteContentStyle.ButtonInputControl:
-        case PaletteContentStyle.GridHeaderColumnList:
-        case PaletteContentStyle.GridHeaderColumnSheet:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-            return 90f;
-        default:
-            throw new ArgumentOutOfRangeException(nameof(style));
-    }
-}
-
-/// <summary>
-/// Gets a background image for the short text.
-/// </summary>
-/// <param name="style">Content style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Image instance.</returns>
-public override Image GetContentShortTextImage(PaletteContentStyle style, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return null;
-    }
-
-    switch (style)
-    {
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderDockActive:
-        case PaletteContentStyle.HeaderCalendar:
-        case PaletteContentStyle.HeaderSecondary:
-        case PaletteContentStyle.HeaderForm:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-        case PaletteContentStyle.LabelNormalControl:
-        case PaletteContentStyle.LabelBoldControl:
-        case PaletteContentStyle.LabelItalicControl:
-        case PaletteContentStyle.LabelTitleControl:
-        case PaletteContentStyle.LabelNormalPanel:
-        case PaletteContentStyle.LabelBoldPanel:
-        case PaletteContentStyle.LabelItalicPanel:
-        case PaletteContentStyle.LabelTitlePanel:
-        case PaletteContentStyle.LabelGroupBoxCaption:
-        case PaletteContentStyle.LabelToolTip:
-        case PaletteContentStyle.LabelSuperTip:
-        case PaletteContentStyle.LabelKeyTip:
-        case PaletteContentStyle.LabelCustom1:
-        case PaletteContentStyle.LabelCustom2:
-        case PaletteContentStyle.LabelCustom3:
-        case PaletteContentStyle.ContextMenuHeading:
-        case PaletteContentStyle.ContextMenuItemImage:
-        case PaletteContentStyle.ContextMenuItemTextStandard:
-        case PaletteContentStyle.ContextMenuItemTextAlternate:
-        case PaletteContentStyle.ContextMenuItemShortcutText:
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-        case PaletteContentStyle.TabLowProfile:
-        case PaletteContentStyle.TabOneNote:
-        case PaletteContentStyle.TabDock:
-        case PaletteContentStyle.TabDockAutoHidden:
-        case PaletteContentStyle.TabCustom1:
-        case PaletteContentStyle.TabCustom2:
-        case PaletteContentStyle.TabCustom3:
-        case PaletteContentStyle.ButtonStandalone:
-        case PaletteContentStyle.ButtonGallery:
-        case PaletteContentStyle.ButtonAlternate:
-        case PaletteContentStyle.ButtonLowProfile:
-        case PaletteContentStyle.ButtonBreadCrumb:
-        case PaletteContentStyle.ButtonListItem:
-        case PaletteContentStyle.ButtonCommand:
-        case PaletteContentStyle.ButtonButtonSpec:
-        case PaletteContentStyle.ButtonCalendarDay:
-        case PaletteContentStyle.ButtonCluster:
-        case PaletteContentStyle.ButtonNavigatorMini:
-        case PaletteContentStyle.ButtonNavigatorStack:
-        case PaletteContentStyle.ButtonNavigatorOverflow:
-        case PaletteContentStyle.ButtonForm:
-        case PaletteContentStyle.ButtonFormClose:
-        case PaletteContentStyle.ButtonCustom1:
-        case PaletteContentStyle.ButtonCustom2:
-        case PaletteContentStyle.ButtonCustom3:
-        case PaletteContentStyle.ButtonInputControl:
-        case PaletteContentStyle.GridHeaderColumnList:
-        case PaletteContentStyle.GridHeaderColumnSheet:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-            return null;
-        default:
-            throw new ArgumentOutOfRangeException(nameof(style));
-    }
-}
-
-/// <summary>
-/// Gets the background image style.
-/// </summary>
-/// <param name="style">Content style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Image style value.</returns>
-public override PaletteImageStyle GetContentShortTextImageStyle(PaletteContentStyle style, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return PaletteImageStyle.Inherit;
-    }
-
-    switch (style)
-    {
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderDockActive:
-        case PaletteContentStyle.HeaderCalendar:
-        case PaletteContentStyle.HeaderSecondary:
-        case PaletteContentStyle.HeaderForm:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-        case PaletteContentStyle.LabelNormalControl:
-        case PaletteContentStyle.LabelBoldControl:
-        case PaletteContentStyle.LabelItalicControl:
-        case PaletteContentStyle.LabelTitleControl:
-        case PaletteContentStyle.LabelNormalPanel:
-        case PaletteContentStyle.LabelBoldPanel:
-        case PaletteContentStyle.LabelItalicPanel:
-        case PaletteContentStyle.LabelTitlePanel:
-        case PaletteContentStyle.LabelGroupBoxCaption:
-        case PaletteContentStyle.LabelToolTip:
-        case PaletteContentStyle.LabelSuperTip:
-        case PaletteContentStyle.LabelKeyTip:
-        case PaletteContentStyle.LabelCustom1:
-        case PaletteContentStyle.LabelCustom2:
-        case PaletteContentStyle.LabelCustom3:
-        case PaletteContentStyle.ContextMenuHeading:
-        case PaletteContentStyle.ContextMenuItemImage:
-        case PaletteContentStyle.ContextMenuItemTextStandard:
-        case PaletteContentStyle.ContextMenuItemTextAlternate:
-        case PaletteContentStyle.ContextMenuItemShortcutText:
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-        case PaletteContentStyle.TabLowProfile:
-        case PaletteContentStyle.TabOneNote:
-        case PaletteContentStyle.TabDock:
-        case PaletteContentStyle.TabDockAutoHidden:
-        case PaletteContentStyle.TabCustom1:
-        case PaletteContentStyle.TabCustom2:
-        case PaletteContentStyle.TabCustom3:
-        case PaletteContentStyle.ButtonStandalone:
-        case PaletteContentStyle.ButtonGallery:
-        case PaletteContentStyle.ButtonAlternate:
-        case PaletteContentStyle.ButtonLowProfile:
-        case PaletteContentStyle.ButtonBreadCrumb:
-        case PaletteContentStyle.ButtonListItem:
-        case PaletteContentStyle.ButtonCommand:
-        case PaletteContentStyle.ButtonButtonSpec:
-        case PaletteContentStyle.ButtonCalendarDay:
-        case PaletteContentStyle.ButtonCluster:
-        case PaletteContentStyle.ButtonNavigatorMini:
-        case PaletteContentStyle.ButtonNavigatorStack:
-        case PaletteContentStyle.ButtonNavigatorOverflow:
-        case PaletteContentStyle.ButtonForm:
-        case PaletteContentStyle.ButtonFormClose:
-        case PaletteContentStyle.ButtonCustom1:
-        case PaletteContentStyle.ButtonCustom2:
-        case PaletteContentStyle.ButtonCustom3:
-        case PaletteContentStyle.ButtonInputControl:
-        case PaletteContentStyle.GridHeaderColumnList:
-        case PaletteContentStyle.GridHeaderColumnSheet:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-            return PaletteImageStyle.TileFlipXY;
-        default:
-            throw new ArgumentOutOfRangeException(nameof(style));
-    }
-}
-
-/// <summary>
-/// Gets the image alignment for the short text.
-/// </summary>
-/// <param name="style">Content style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Image alignment style.</returns>
-public override PaletteRectangleAlign GetContentShortTextImageAlign(PaletteContentStyle style, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return PaletteRectangleAlign.Inherit;
-    }
-
-    switch (style)
-    {
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderDockActive:
-        case PaletteContentStyle.HeaderCalendar:
-        case PaletteContentStyle.HeaderSecondary:
-        case PaletteContentStyle.HeaderForm:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-        case PaletteContentStyle.LabelNormalControl:
-        case PaletteContentStyle.LabelBoldControl:
-        case PaletteContentStyle.LabelItalicControl:
-        case PaletteContentStyle.LabelTitleControl:
-        case PaletteContentStyle.LabelNormalPanel:
-        case PaletteContentStyle.LabelBoldPanel:
-        case PaletteContentStyle.LabelItalicPanel:
-        case PaletteContentStyle.LabelTitlePanel:
-        case PaletteContentStyle.LabelGroupBoxCaption:
-        case PaletteContentStyle.LabelToolTip:
-        case PaletteContentStyle.LabelSuperTip:
-        case PaletteContentStyle.LabelKeyTip:
-        case PaletteContentStyle.LabelCustom1:
-        case PaletteContentStyle.LabelCustom2:
-        case PaletteContentStyle.LabelCustom3:
-        case PaletteContentStyle.ContextMenuHeading:
-        case PaletteContentStyle.ContextMenuItemImage:
-        case PaletteContentStyle.ContextMenuItemTextStandard:
-        case PaletteContentStyle.ContextMenuItemTextAlternate:
-        case PaletteContentStyle.ContextMenuItemShortcutText:
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-        case PaletteContentStyle.TabLowProfile:
-        case PaletteContentStyle.TabOneNote:
-        case PaletteContentStyle.TabDock:
-        case PaletteContentStyle.TabDockAutoHidden:
-        case PaletteContentStyle.TabCustom1:
-        case PaletteContentStyle.TabCustom2:
-        case PaletteContentStyle.TabCustom3:
-        case PaletteContentStyle.ButtonStandalone:
-        case PaletteContentStyle.ButtonGallery:
-        case PaletteContentStyle.ButtonAlternate:
-        case PaletteContentStyle.ButtonLowProfile:
-        case PaletteContentStyle.ButtonBreadCrumb:
-        case PaletteContentStyle.ButtonListItem:
-        case PaletteContentStyle.ButtonCommand:
-        case PaletteContentStyle.ButtonButtonSpec:
-        case PaletteContentStyle.ButtonCalendarDay:
-        case PaletteContentStyle.ButtonCluster:
-        case PaletteContentStyle.ButtonNavigatorMini:
-        case PaletteContentStyle.ButtonNavigatorStack:
-        case PaletteContentStyle.ButtonNavigatorOverflow:
-        case PaletteContentStyle.ButtonForm:
-        case PaletteContentStyle.ButtonFormClose:
-        case PaletteContentStyle.ButtonCustom1:
-        case PaletteContentStyle.ButtonCustom2:
-        case PaletteContentStyle.ButtonCustom3:
-        case PaletteContentStyle.ButtonInputControl:
-        case PaletteContentStyle.GridHeaderColumnList:
-        case PaletteContentStyle.GridHeaderColumnSheet:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-            return PaletteRectangleAlign.Local;
-        default:
-            throw new ArgumentOutOfRangeException(nameof(style));
-    }
-}
-
-/// <summary>
-/// Gets the font for the long text.
-/// </summary>
-/// <param name="style">Content style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Font value.</returns>
-public override Font GetContentLongTextFont(PaletteContentStyle style, PaletteState state)
-{
-    if (CommonHelper.IsOverrideState(state))
-    {
-        if ((state == PaletteState.BoldedOverride) && (style == PaletteContentStyle.ButtonCalendarDay))
-        {
-            return _calendarBoldFont;
-        }
-        else
-        {
-            return null;
-        }
-    }
-
-    switch (style)
-    {
-        case PaletteContentStyle.ButtonCalendarDay:
-            return _calendarFont;
-        case PaletteContentStyle.GridHeaderColumnList:
-        case PaletteContentStyle.GridHeaderColumnSheet:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-        case PaletteContentStyle.HeaderCalendar:
-            return _gridFont;
-        case PaletteContentStyle.LabelTitleControl:
-        case PaletteContentStyle.LabelTitlePanel:
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderDockActive:
-        case PaletteContentStyle.HeaderForm:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-            return _header1LongFont;
-        case PaletteContentStyle.LabelNormalControl:
-        case PaletteContentStyle.LabelBoldControl:
-        case PaletteContentStyle.LabelItalicControl:
-        case PaletteContentStyle.LabelNormalPanel:
-        case PaletteContentStyle.LabelBoldPanel:
-        case PaletteContentStyle.LabelItalicPanel:
-        case PaletteContentStyle.LabelGroupBoxCaption:
-        case PaletteContentStyle.LabelToolTip:
-        case PaletteContentStyle.LabelSuperTip:
-        case PaletteContentStyle.LabelKeyTip:
-        case PaletteContentStyle.LabelCustom1:
-        case PaletteContentStyle.LabelCustom2:
-        case PaletteContentStyle.LabelCustom3:
-        case PaletteContentStyle.ContextMenuHeading:
-        case PaletteContentStyle.ContextMenuItemImage:
-        case PaletteContentStyle.ContextMenuItemTextStandard:
-        case PaletteContentStyle.ContextMenuItemTextAlternate:
-        case PaletteContentStyle.ContextMenuItemShortcutText:
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-        case PaletteContentStyle.TabLowProfile:
-        case PaletteContentStyle.TabDock:
-        case PaletteContentStyle.TabDockAutoHidden:
-            return _tabFontNormal;
-        case PaletteContentStyle.TabHighProfile:
-        case PaletteContentStyle.TabStandardProfile:
-        case PaletteContentStyle.TabOneNote:
-        case PaletteContentStyle.TabCustom1:
-        case PaletteContentStyle.TabCustom2:
-        case PaletteContentStyle.TabCustom3:
-            switch (state)
-            {
-                case PaletteState.CheckedNormal:
-                case PaletteState.CheckedPressed:
-                case PaletteState.CheckedTracking:
-                    return _tabFontSelected;
                 default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
+
+        /// <summary>
+        /// Gets the color drawing style for the short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color drawing style.</returns>
+        public override PaletteColorStyle GetContentShortTextColorStyle(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return PaletteColorStyle.Inherit;
+            }
+
+            switch (style)
+            {
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderDockActive:
+                case PaletteContentStyle.HeaderCalendar:
+                case PaletteContentStyle.HeaderSecondary:
+                case PaletteContentStyle.HeaderForm:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                case PaletteContentStyle.LabelNormalControl:
+                case PaletteContentStyle.LabelBoldControl:
+                case PaletteContentStyle.LabelItalicControl:
+                case PaletteContentStyle.LabelTitleControl:
+                case PaletteContentStyle.LabelNormalPanel:
+                case PaletteContentStyle.LabelBoldPanel:
+                case PaletteContentStyle.LabelItalicPanel:
+                case PaletteContentStyle.LabelTitlePanel:
+                case PaletteContentStyle.LabelGroupBoxCaption:
+                case PaletteContentStyle.LabelToolTip:
+                case PaletteContentStyle.LabelSuperTip:
+                case PaletteContentStyle.LabelKeyTip:
+                case PaletteContentStyle.LabelCustom1:
+                case PaletteContentStyle.LabelCustom2:
+                case PaletteContentStyle.LabelCustom3:
+                case PaletteContentStyle.ContextMenuHeading:
+                case PaletteContentStyle.ContextMenuItemImage:
+                case PaletteContentStyle.ContextMenuItemTextStandard:
+                case PaletteContentStyle.ContextMenuItemTextAlternate:
+                case PaletteContentStyle.ContextMenuItemShortcutText:
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                case PaletteContentStyle.TabLowProfile:
+                case PaletteContentStyle.TabOneNote:
+                case PaletteContentStyle.TabDock:
+                case PaletteContentStyle.TabDockAutoHidden:
+                case PaletteContentStyle.TabCustom1:
+                case PaletteContentStyle.TabCustom2:
+                case PaletteContentStyle.TabCustom3:
+                case PaletteContentStyle.ButtonStandalone:
+                case PaletteContentStyle.ButtonGallery:
+                case PaletteContentStyle.ButtonAlternate:
+                case PaletteContentStyle.ButtonLowProfile:
+                case PaletteContentStyle.ButtonBreadCrumb:
+                case PaletteContentStyle.ButtonListItem:
+                case PaletteContentStyle.ButtonCommand:
+                case PaletteContentStyle.ButtonButtonSpec:
+                case PaletteContentStyle.ButtonCalendarDay:
+                case PaletteContentStyle.ButtonCluster:
+                case PaletteContentStyle.ButtonNavigatorMini:
+                case PaletteContentStyle.ButtonNavigatorStack:
+                case PaletteContentStyle.ButtonNavigatorOverflow:
+                case PaletteContentStyle.ButtonForm:
+                case PaletteContentStyle.ButtonFormClose:
+                case PaletteContentStyle.ButtonCustom1:
+                case PaletteContentStyle.ButtonCustom2:
+                case PaletteContentStyle.ButtonCustom3:
+                case PaletteContentStyle.ButtonInputControl:
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                    return PaletteColorStyle.Solid;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
+
+        /// <summary>
+        /// Gets the color alignment for the short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color alignment style.</returns>
+        public override PaletteRectangleAlign GetContentShortTextColorAlign(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return PaletteRectangleAlign.Inherit;
+            }
+
+            switch (style)
+            {
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderDockActive:
+                case PaletteContentStyle.HeaderCalendar:
+                case PaletteContentStyle.HeaderSecondary:
+                case PaletteContentStyle.HeaderForm:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                case PaletteContentStyle.LabelNormalControl:
+                case PaletteContentStyle.LabelBoldControl:
+                case PaletteContentStyle.LabelItalicControl:
+                case PaletteContentStyle.LabelTitleControl:
+                case PaletteContentStyle.LabelNormalPanel:
+                case PaletteContentStyle.LabelBoldPanel:
+                case PaletteContentStyle.LabelItalicPanel:
+                case PaletteContentStyle.LabelTitlePanel:
+                case PaletteContentStyle.LabelGroupBoxCaption:
+                case PaletteContentStyle.LabelToolTip:
+                case PaletteContentStyle.LabelSuperTip:
+                case PaletteContentStyle.LabelKeyTip:
+                case PaletteContentStyle.LabelCustom1:
+                case PaletteContentStyle.LabelCustom2:
+                case PaletteContentStyle.LabelCustom3:
+                case PaletteContentStyle.ContextMenuHeading:
+                case PaletteContentStyle.ContextMenuItemImage:
+                case PaletteContentStyle.ContextMenuItemTextStandard:
+                case PaletteContentStyle.ContextMenuItemTextAlternate:
+                case PaletteContentStyle.ContextMenuItemShortcutText:
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                case PaletteContentStyle.TabLowProfile:
+                case PaletteContentStyle.TabOneNote:
+                case PaletteContentStyle.TabDock:
+                case PaletteContentStyle.TabDockAutoHidden:
+                case PaletteContentStyle.TabCustom1:
+                case PaletteContentStyle.TabCustom2:
+                case PaletteContentStyle.TabCustom3:
+                case PaletteContentStyle.ButtonStandalone:
+                case PaletteContentStyle.ButtonGallery:
+                case PaletteContentStyle.ButtonAlternate:
+                case PaletteContentStyle.ButtonLowProfile:
+                case PaletteContentStyle.ButtonBreadCrumb:
+                case PaletteContentStyle.ButtonListItem:
+                case PaletteContentStyle.ButtonCommand:
+                case PaletteContentStyle.ButtonButtonSpec:
+                case PaletteContentStyle.ButtonCalendarDay:
+                case PaletteContentStyle.ButtonCluster:
+                case PaletteContentStyle.ButtonNavigatorMini:
+                case PaletteContentStyle.ButtonNavigatorStack:
+                case PaletteContentStyle.ButtonNavigatorOverflow:
+                case PaletteContentStyle.ButtonForm:
+                case PaletteContentStyle.ButtonFormClose:
+                case PaletteContentStyle.ButtonCustom1:
+                case PaletteContentStyle.ButtonCustom2:
+                case PaletteContentStyle.ButtonCustom3:
+                case PaletteContentStyle.ButtonInputControl:
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                    return PaletteRectangleAlign.Local;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
+
+        /// <summary>
+        /// Gets the color background angle for the short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Angle used for color drawing.</returns>
+        public override float GetContentShortTextColorAngle(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return -1f;
+            }
+
+            switch (style)
+            {
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderDockActive:
+                case PaletteContentStyle.HeaderCalendar:
+                case PaletteContentStyle.HeaderSecondary:
+                case PaletteContentStyle.HeaderForm:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                case PaletteContentStyle.LabelNormalControl:
+                case PaletteContentStyle.LabelBoldControl:
+                case PaletteContentStyle.LabelItalicControl:
+                case PaletteContentStyle.LabelTitleControl:
+                case PaletteContentStyle.LabelNormalPanel:
+                case PaletteContentStyle.LabelBoldPanel:
+                case PaletteContentStyle.LabelItalicPanel:
+                case PaletteContentStyle.LabelTitlePanel:
+                case PaletteContentStyle.LabelGroupBoxCaption:
+                case PaletteContentStyle.LabelToolTip:
+                case PaletteContentStyle.LabelSuperTip:
+                case PaletteContentStyle.LabelKeyTip:
+                case PaletteContentStyle.LabelCustom1:
+                case PaletteContentStyle.LabelCustom2:
+                case PaletteContentStyle.LabelCustom3:
+                case PaletteContentStyle.ContextMenuHeading:
+                case PaletteContentStyle.ContextMenuItemImage:
+                case PaletteContentStyle.ContextMenuItemTextStandard:
+                case PaletteContentStyle.ContextMenuItemTextAlternate:
+                case PaletteContentStyle.ContextMenuItemShortcutText:
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                case PaletteContentStyle.TabLowProfile:
+                case PaletteContentStyle.TabOneNote:
+                case PaletteContentStyle.TabDock:
+                case PaletteContentStyle.TabDockAutoHidden:
+                case PaletteContentStyle.TabCustom1:
+                case PaletteContentStyle.TabCustom2:
+                case PaletteContentStyle.TabCustom3:
+                case PaletteContentStyle.ButtonStandalone:
+                case PaletteContentStyle.ButtonGallery:
+                case PaletteContentStyle.ButtonAlternate:
+                case PaletteContentStyle.ButtonLowProfile:
+                case PaletteContentStyle.ButtonBreadCrumb:
+                case PaletteContentStyle.ButtonListItem:
+                case PaletteContentStyle.ButtonCommand:
+                case PaletteContentStyle.ButtonButtonSpec:
+                case PaletteContentStyle.ButtonCalendarDay:
+                case PaletteContentStyle.ButtonCluster:
+                case PaletteContentStyle.ButtonNavigatorMini:
+                case PaletteContentStyle.ButtonNavigatorStack:
+                case PaletteContentStyle.ButtonNavigatorOverflow:
+                case PaletteContentStyle.ButtonForm:
+                case PaletteContentStyle.ButtonFormClose:
+                case PaletteContentStyle.ButtonCustom1:
+                case PaletteContentStyle.ButtonCustom2:
+                case PaletteContentStyle.ButtonCustom3:
+                case PaletteContentStyle.ButtonInputControl:
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                    return 90f;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
+
+        /// <summary>
+        /// Gets a background image for the short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image instance.</returns>
+        public override Image GetContentShortTextImage(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return null;
+            }
+
+            switch (style)
+            {
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderDockActive:
+                case PaletteContentStyle.HeaderCalendar:
+                case PaletteContentStyle.HeaderSecondary:
+                case PaletteContentStyle.HeaderForm:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                case PaletteContentStyle.LabelNormalControl:
+                case PaletteContentStyle.LabelBoldControl:
+                case PaletteContentStyle.LabelItalicControl:
+                case PaletteContentStyle.LabelTitleControl:
+                case PaletteContentStyle.LabelNormalPanel:
+                case PaletteContentStyle.LabelBoldPanel:
+                case PaletteContentStyle.LabelItalicPanel:
+                case PaletteContentStyle.LabelTitlePanel:
+                case PaletteContentStyle.LabelGroupBoxCaption:
+                case PaletteContentStyle.LabelToolTip:
+                case PaletteContentStyle.LabelSuperTip:
+                case PaletteContentStyle.LabelKeyTip:
+                case PaletteContentStyle.LabelCustom1:
+                case PaletteContentStyle.LabelCustom2:
+                case PaletteContentStyle.LabelCustom3:
+                case PaletteContentStyle.ContextMenuHeading:
+                case PaletteContentStyle.ContextMenuItemImage:
+                case PaletteContentStyle.ContextMenuItemTextStandard:
+                case PaletteContentStyle.ContextMenuItemTextAlternate:
+                case PaletteContentStyle.ContextMenuItemShortcutText:
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                case PaletteContentStyle.TabLowProfile:
+                case PaletteContentStyle.TabOneNote:
+                case PaletteContentStyle.TabDock:
+                case PaletteContentStyle.TabDockAutoHidden:
+                case PaletteContentStyle.TabCustom1:
+                case PaletteContentStyle.TabCustom2:
+                case PaletteContentStyle.TabCustom3:
+                case PaletteContentStyle.ButtonStandalone:
+                case PaletteContentStyle.ButtonGallery:
+                case PaletteContentStyle.ButtonAlternate:
+                case PaletteContentStyle.ButtonLowProfile:
+                case PaletteContentStyle.ButtonBreadCrumb:
+                case PaletteContentStyle.ButtonListItem:
+                case PaletteContentStyle.ButtonCommand:
+                case PaletteContentStyle.ButtonButtonSpec:
+                case PaletteContentStyle.ButtonCalendarDay:
+                case PaletteContentStyle.ButtonCluster:
+                case PaletteContentStyle.ButtonNavigatorMini:
+                case PaletteContentStyle.ButtonNavigatorStack:
+                case PaletteContentStyle.ButtonNavigatorOverflow:
+                case PaletteContentStyle.ButtonForm:
+                case PaletteContentStyle.ButtonFormClose:
+                case PaletteContentStyle.ButtonCustom1:
+                case PaletteContentStyle.ButtonCustom2:
+                case PaletteContentStyle.ButtonCustom3:
+                case PaletteContentStyle.ButtonInputControl:
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                    return null;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
+
+        /// <summary>
+        /// Gets the background image style.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image style value.</returns>
+        public override PaletteImageStyle GetContentShortTextImageStyle(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return PaletteImageStyle.Inherit;
+            }
+
+            switch (style)
+            {
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderDockActive:
+                case PaletteContentStyle.HeaderCalendar:
+                case PaletteContentStyle.HeaderSecondary:
+                case PaletteContentStyle.HeaderForm:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                case PaletteContentStyle.LabelNormalControl:
+                case PaletteContentStyle.LabelBoldControl:
+                case PaletteContentStyle.LabelItalicControl:
+                case PaletteContentStyle.LabelTitleControl:
+                case PaletteContentStyle.LabelNormalPanel:
+                case PaletteContentStyle.LabelBoldPanel:
+                case PaletteContentStyle.LabelItalicPanel:
+                case PaletteContentStyle.LabelTitlePanel:
+                case PaletteContentStyle.LabelGroupBoxCaption:
+                case PaletteContentStyle.LabelToolTip:
+                case PaletteContentStyle.LabelSuperTip:
+                case PaletteContentStyle.LabelKeyTip:
+                case PaletteContentStyle.LabelCustom1:
+                case PaletteContentStyle.LabelCustom2:
+                case PaletteContentStyle.LabelCustom3:
+                case PaletteContentStyle.ContextMenuHeading:
+                case PaletteContentStyle.ContextMenuItemImage:
+                case PaletteContentStyle.ContextMenuItemTextStandard:
+                case PaletteContentStyle.ContextMenuItemTextAlternate:
+                case PaletteContentStyle.ContextMenuItemShortcutText:
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                case PaletteContentStyle.TabLowProfile:
+                case PaletteContentStyle.TabOneNote:
+                case PaletteContentStyle.TabDock:
+                case PaletteContentStyle.TabDockAutoHidden:
+                case PaletteContentStyle.TabCustom1:
+                case PaletteContentStyle.TabCustom2:
+                case PaletteContentStyle.TabCustom3:
+                case PaletteContentStyle.ButtonStandalone:
+                case PaletteContentStyle.ButtonGallery:
+                case PaletteContentStyle.ButtonAlternate:
+                case PaletteContentStyle.ButtonLowProfile:
+                case PaletteContentStyle.ButtonBreadCrumb:
+                case PaletteContentStyle.ButtonListItem:
+                case PaletteContentStyle.ButtonCommand:
+                case PaletteContentStyle.ButtonButtonSpec:
+                case PaletteContentStyle.ButtonCalendarDay:
+                case PaletteContentStyle.ButtonCluster:
+                case PaletteContentStyle.ButtonNavigatorMini:
+                case PaletteContentStyle.ButtonNavigatorStack:
+                case PaletteContentStyle.ButtonNavigatorOverflow:
+                case PaletteContentStyle.ButtonForm:
+                case PaletteContentStyle.ButtonFormClose:
+                case PaletteContentStyle.ButtonCustom1:
+                case PaletteContentStyle.ButtonCustom2:
+                case PaletteContentStyle.ButtonCustom3:
+                case PaletteContentStyle.ButtonInputControl:
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                    return PaletteImageStyle.TileFlipXY;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
+
+        /// <summary>
+        /// Gets the image alignment for the short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image alignment style.</returns>
+        public override PaletteRectangleAlign GetContentShortTextImageAlign(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return PaletteRectangleAlign.Inherit;
+            }
+
+            switch (style)
+            {
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderDockActive:
+                case PaletteContentStyle.HeaderCalendar:
+                case PaletteContentStyle.HeaderSecondary:
+                case PaletteContentStyle.HeaderForm:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                case PaletteContentStyle.LabelNormalControl:
+                case PaletteContentStyle.LabelBoldControl:
+                case PaletteContentStyle.LabelItalicControl:
+                case PaletteContentStyle.LabelTitleControl:
+                case PaletteContentStyle.LabelNormalPanel:
+                case PaletteContentStyle.LabelBoldPanel:
+                case PaletteContentStyle.LabelItalicPanel:
+                case PaletteContentStyle.LabelTitlePanel:
+                case PaletteContentStyle.LabelGroupBoxCaption:
+                case PaletteContentStyle.LabelToolTip:
+                case PaletteContentStyle.LabelSuperTip:
+                case PaletteContentStyle.LabelKeyTip:
+                case PaletteContentStyle.LabelCustom1:
+                case PaletteContentStyle.LabelCustom2:
+                case PaletteContentStyle.LabelCustom3:
+                case PaletteContentStyle.ContextMenuHeading:
+                case PaletteContentStyle.ContextMenuItemImage:
+                case PaletteContentStyle.ContextMenuItemTextStandard:
+                case PaletteContentStyle.ContextMenuItemTextAlternate:
+                case PaletteContentStyle.ContextMenuItemShortcutText:
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                case PaletteContentStyle.TabLowProfile:
+                case PaletteContentStyle.TabOneNote:
+                case PaletteContentStyle.TabDock:
+                case PaletteContentStyle.TabDockAutoHidden:
+                case PaletteContentStyle.TabCustom1:
+                case PaletteContentStyle.TabCustom2:
+                case PaletteContentStyle.TabCustom3:
+                case PaletteContentStyle.ButtonStandalone:
+                case PaletteContentStyle.ButtonGallery:
+                case PaletteContentStyle.ButtonAlternate:
+                case PaletteContentStyle.ButtonLowProfile:
+                case PaletteContentStyle.ButtonBreadCrumb:
+                case PaletteContentStyle.ButtonListItem:
+                case PaletteContentStyle.ButtonCommand:
+                case PaletteContentStyle.ButtonButtonSpec:
+                case PaletteContentStyle.ButtonCalendarDay:
+                case PaletteContentStyle.ButtonCluster:
+                case PaletteContentStyle.ButtonNavigatorMini:
+                case PaletteContentStyle.ButtonNavigatorStack:
+                case PaletteContentStyle.ButtonNavigatorOverflow:
+                case PaletteContentStyle.ButtonForm:
+                case PaletteContentStyle.ButtonFormClose:
+                case PaletteContentStyle.ButtonCustom1:
+                case PaletteContentStyle.ButtonCustom2:
+                case PaletteContentStyle.ButtonCustom3:
+                case PaletteContentStyle.ButtonInputControl:
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                    return PaletteRectangleAlign.Local;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
+
+        /// <summary>
+        /// Gets the font for the long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Font value.</returns>
+        public override Font GetContentLongTextFont(PaletteContentStyle style, PaletteState state)
+        {
+            if (CommonHelper.IsOverrideState(state))
+            {
+                if ((state == PaletteState.BoldedOverride) && (style == PaletteContentStyle.ButtonCalendarDay))
+                {
+                    return _calendarBoldFont;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+
+            switch (style)
+            {
+                case PaletteContentStyle.ButtonCalendarDay:
+                    return _calendarFont;
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                case PaletteContentStyle.HeaderCalendar:
+                    return _gridFont;
+                case PaletteContentStyle.LabelTitleControl:
+                case PaletteContentStyle.LabelTitlePanel:
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderDockActive:
+                case PaletteContentStyle.HeaderForm:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                    return _header1LongFont;
+                case PaletteContentStyle.LabelNormalControl:
+                case PaletteContentStyle.LabelBoldControl:
+                case PaletteContentStyle.LabelItalicControl:
+                case PaletteContentStyle.LabelNormalPanel:
+                case PaletteContentStyle.LabelBoldPanel:
+                case PaletteContentStyle.LabelItalicPanel:
+                case PaletteContentStyle.LabelGroupBoxCaption:
+                case PaletteContentStyle.LabelToolTip:
+                case PaletteContentStyle.LabelSuperTip:
+                case PaletteContentStyle.LabelKeyTip:
+                case PaletteContentStyle.LabelCustom1:
+                case PaletteContentStyle.LabelCustom2:
+                case PaletteContentStyle.LabelCustom3:
+                case PaletteContentStyle.ContextMenuHeading:
+                case PaletteContentStyle.ContextMenuItemImage:
+                case PaletteContentStyle.ContextMenuItemTextStandard:
+                case PaletteContentStyle.ContextMenuItemTextAlternate:
+                case PaletteContentStyle.ContextMenuItemShortcutText:
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                case PaletteContentStyle.TabLowProfile:
+                case PaletteContentStyle.TabDock:
+                case PaletteContentStyle.TabDockAutoHidden:
                     return _tabFontNormal;
+                case PaletteContentStyle.TabHighProfile:
+                case PaletteContentStyle.TabStandardProfile:
+                case PaletteContentStyle.TabOneNote:
+                case PaletteContentStyle.TabCustom1:
+                case PaletteContentStyle.TabCustom2:
+                case PaletteContentStyle.TabCustom3:
+                    switch (state)
+                    {
+                        case PaletteState.CheckedNormal:
+                        case PaletteState.CheckedPressed:
+                        case PaletteState.CheckedTracking:
+                            return _tabFontSelected;
+                        default:
+                            return _tabFontNormal;
+                    }
+                case PaletteContentStyle.ButtonStandalone:
+                case PaletteContentStyle.ButtonGallery:
+                case PaletteContentStyle.ButtonAlternate:
+                case PaletteContentStyle.ButtonLowProfile:
+                case PaletteContentStyle.ButtonBreadCrumb:
+                case PaletteContentStyle.ButtonListItem:
+                case PaletteContentStyle.ButtonCommand:
+                case PaletteContentStyle.ButtonButtonSpec:
+                case PaletteContentStyle.ButtonCluster:
+                case PaletteContentStyle.ButtonNavigatorMini:
+                case PaletteContentStyle.ButtonNavigatorStack:
+                case PaletteContentStyle.ButtonNavigatorOverflow:
+                case PaletteContentStyle.ButtonForm:
+                case PaletteContentStyle.ButtonFormClose:
+                case PaletteContentStyle.ButtonCustom1:
+                case PaletteContentStyle.ButtonCustom2:
+                case PaletteContentStyle.ButtonCustom3:
+                case PaletteContentStyle.ButtonInputControl:
+                    return _buttonFont;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
             }
-        case PaletteContentStyle.ButtonStandalone:
-        case PaletteContentStyle.ButtonGallery:
-        case PaletteContentStyle.ButtonAlternate:
-        case PaletteContentStyle.ButtonLowProfile:
-        case PaletteContentStyle.ButtonBreadCrumb:
-        case PaletteContentStyle.ButtonListItem:
-        case PaletteContentStyle.ButtonCommand:
-        case PaletteContentStyle.ButtonButtonSpec:
-        case PaletteContentStyle.ButtonCluster:
-        case PaletteContentStyle.ButtonNavigatorMini:
-        case PaletteContentStyle.ButtonNavigatorStack:
-        case PaletteContentStyle.ButtonNavigatorOverflow:
-        case PaletteContentStyle.ButtonForm:
-        case PaletteContentStyle.ButtonFormClose:
-        case PaletteContentStyle.ButtonCustom1:
-        case PaletteContentStyle.ButtonCustom2:
-        case PaletteContentStyle.ButtonCustom3:
-        case PaletteContentStyle.ButtonInputControl:
-            return _buttonFont;
-        default:
-            throw new ArgumentOutOfRangeException(nameof(style));
-    }
-}
+        }
 
-/// <summary>
-/// Gets the font for the long text by generating a new font instance.
-/// </summary>
-/// <param name="style">Content style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Font value.</returns>
-public override Font GetContentLongTextNewFont(PaletteContentStyle style, PaletteState state)
-{
-    DefineFonts();
-    return GetContentLongTextFont(style, state);
-}
+        /// <summary>
+        /// Gets the font for the long text by generating a new font instance.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Font value.</returns>
+        public override Font GetContentLongTextNewFont(PaletteContentStyle style, PaletteState state)
+        {
+            DefineFonts();
+            return GetContentLongTextFont(style, state);
+        }
 
-/// <summary>
-/// Gets the rendering hint for the long text.
-/// </summary>
-/// <param name="style">Content style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>PaletteTextHint value.</returns>
-public override PaletteTextHint GetContentLongTextHint(PaletteContentStyle style, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return PaletteTextHint.Inherit;
-    }
-
-    switch (style)
-    {
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderDockActive:
-        case PaletteContentStyle.HeaderCalendar:
-        case PaletteContentStyle.HeaderSecondary:
-        case PaletteContentStyle.HeaderForm:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-        case PaletteContentStyle.LabelNormalControl:
-        case PaletteContentStyle.LabelBoldControl:
-        case PaletteContentStyle.LabelItalicControl:
-        case PaletteContentStyle.LabelTitleControl:
-        case PaletteContentStyle.LabelNormalPanel:
-        case PaletteContentStyle.LabelBoldPanel:
-        case PaletteContentStyle.LabelItalicPanel:
-        case PaletteContentStyle.LabelTitlePanel:
-        case PaletteContentStyle.LabelGroupBoxCaption:
-        case PaletteContentStyle.LabelToolTip:
-        case PaletteContentStyle.LabelSuperTip:
-        case PaletteContentStyle.LabelKeyTip:
-        case PaletteContentStyle.LabelCustom1:
-        case PaletteContentStyle.LabelCustom2:
-        case PaletteContentStyle.LabelCustom3:
-        case PaletteContentStyle.ContextMenuHeading:
-        case PaletteContentStyle.ContextMenuItemImage:
-        case PaletteContentStyle.ContextMenuItemTextStandard:
-        case PaletteContentStyle.ContextMenuItemTextAlternate:
-        case PaletteContentStyle.ContextMenuItemShortcutText:
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-        case PaletteContentStyle.TabLowProfile:
-        case PaletteContentStyle.TabOneNote:
-        case PaletteContentStyle.TabDock:
-        case PaletteContentStyle.TabDockAutoHidden:
-        case PaletteContentStyle.TabCustom1:
-        case PaletteContentStyle.TabCustom2:
-        case PaletteContentStyle.TabCustom3:
-        case PaletteContentStyle.ButtonStandalone:
-        case PaletteContentStyle.ButtonGallery:
-        case PaletteContentStyle.ButtonAlternate:
-        case PaletteContentStyle.ButtonLowProfile:
-        case PaletteContentStyle.ButtonBreadCrumb:
-        case PaletteContentStyle.ButtonListItem:
-        case PaletteContentStyle.ButtonCommand:
-        case PaletteContentStyle.ButtonButtonSpec:
-        case PaletteContentStyle.ButtonCalendarDay:
-        case PaletteContentStyle.ButtonCluster:
-        case PaletteContentStyle.ButtonNavigatorMini:
-        case PaletteContentStyle.ButtonNavigatorStack:
-        case PaletteContentStyle.ButtonNavigatorOverflow:
-        case PaletteContentStyle.ButtonForm:
-        case PaletteContentStyle.ButtonFormClose:
-        case PaletteContentStyle.ButtonCustom1:
-        case PaletteContentStyle.ButtonCustom2:
-        case PaletteContentStyle.ButtonCustom3:
-        case PaletteContentStyle.ButtonInputControl:
-        case PaletteContentStyle.GridHeaderColumnList:
-        case PaletteContentStyle.GridHeaderColumnSheet:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-            return PaletteTextHint.ClearTypeGridFit;
-        default:
-            throw new ArgumentOutOfRangeException(nameof(style));
-    }
-}
-
-/// <summary>
-/// Gets the flag indicating if multiline text is allowed for long text.
-/// </summary>
-/// <param name="style">Content style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>InheritBool value.</returns>
-public override InheritBool GetContentLongTextMultiLine(PaletteContentStyle style, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return InheritBool.Inherit;
-    }
-
-    switch (style)
-    {
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderDockActive:
-        case PaletteContentStyle.HeaderCalendar:
-        case PaletteContentStyle.HeaderSecondary:
-        case PaletteContentStyle.HeaderForm:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-        case PaletteContentStyle.LabelNormalControl:
-        case PaletteContentStyle.LabelBoldControl:
-        case PaletteContentStyle.LabelItalicControl:
-        case PaletteContentStyle.LabelTitleControl:
-        case PaletteContentStyle.LabelNormalPanel:
-        case PaletteContentStyle.LabelBoldPanel:
-        case PaletteContentStyle.LabelItalicPanel:
-        case PaletteContentStyle.LabelTitlePanel:
-        case PaletteContentStyle.LabelGroupBoxCaption:
-        case PaletteContentStyle.LabelToolTip:
-        case PaletteContentStyle.LabelSuperTip:
-        case PaletteContentStyle.LabelKeyTip:
-        case PaletteContentStyle.LabelCustom1:
-        case PaletteContentStyle.LabelCustom2:
-        case PaletteContentStyle.LabelCustom3:
-        case PaletteContentStyle.ContextMenuHeading:
-        case PaletteContentStyle.ContextMenuItemImage:
-        case PaletteContentStyle.ContextMenuItemTextStandard:
-        case PaletteContentStyle.ContextMenuItemTextAlternate:
-        case PaletteContentStyle.ContextMenuItemShortcutText:
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-        case PaletteContentStyle.TabLowProfile:
-        case PaletteContentStyle.TabOneNote:
-        case PaletteContentStyle.TabDock:
-        case PaletteContentStyle.TabDockAutoHidden:
-        case PaletteContentStyle.TabCustom1:
-        case PaletteContentStyle.TabCustom2:
-        case PaletteContentStyle.TabCustom3:
-        case PaletteContentStyle.ButtonStandalone:
-        case PaletteContentStyle.ButtonGallery:
-        case PaletteContentStyle.ButtonAlternate:
-        case PaletteContentStyle.ButtonLowProfile:
-        case PaletteContentStyle.ButtonBreadCrumb:
-        case PaletteContentStyle.ButtonListItem:
-        case PaletteContentStyle.ButtonCommand:
-        case PaletteContentStyle.ButtonButtonSpec:
-        case PaletteContentStyle.ButtonCalendarDay:
-        case PaletteContentStyle.ButtonCluster:
-        case PaletteContentStyle.ButtonNavigatorMini:
-        case PaletteContentStyle.ButtonNavigatorStack:
-        case PaletteContentStyle.ButtonNavigatorOverflow:
-        case PaletteContentStyle.ButtonForm:
-        case PaletteContentStyle.ButtonFormClose:
-        case PaletteContentStyle.ButtonCustom1:
-        case PaletteContentStyle.ButtonCustom2:
-        case PaletteContentStyle.ButtonCustom3:
-        case PaletteContentStyle.ButtonInputControl:
-        case PaletteContentStyle.GridHeaderColumnList:
-        case PaletteContentStyle.GridHeaderColumnSheet:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-            return InheritBool.True;
-        default:
-            throw new ArgumentOutOfRangeException(nameof(style));
-    }
-}
-
-/// <summary>
-/// Gets the text trimming to use for long text.
-/// </summary>
-/// <param name="style">Content style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>PaletteTextTrim value.</returns>
-public override PaletteTextTrim GetContentLongTextTrim(PaletteContentStyle style, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return PaletteTextTrim.Inherit;
-    }
-
-    switch (style)
-    {
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderDockActive:
-        case PaletteContentStyle.HeaderCalendar:
-        case PaletteContentStyle.HeaderSecondary:
-        case PaletteContentStyle.HeaderForm:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-        case PaletteContentStyle.LabelNormalControl:
-        case PaletteContentStyle.LabelBoldControl:
-        case PaletteContentStyle.LabelItalicControl:
-        case PaletteContentStyle.LabelTitleControl:
-        case PaletteContentStyle.LabelNormalPanel:
-        case PaletteContentStyle.LabelBoldPanel:
-        case PaletteContentStyle.LabelItalicPanel:
-        case PaletteContentStyle.LabelTitlePanel:
-        case PaletteContentStyle.LabelGroupBoxCaption:
-        case PaletteContentStyle.LabelToolTip:
-        case PaletteContentStyle.LabelSuperTip:
-        case PaletteContentStyle.LabelKeyTip:
-        case PaletteContentStyle.LabelCustom1:
-        case PaletteContentStyle.LabelCustom2:
-        case PaletteContentStyle.LabelCustom3:
-        case PaletteContentStyle.ContextMenuHeading:
-        case PaletteContentStyle.ContextMenuItemImage:
-        case PaletteContentStyle.ContextMenuItemTextStandard:
-        case PaletteContentStyle.ContextMenuItemTextAlternate:
-        case PaletteContentStyle.ContextMenuItemShortcutText:
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-        case PaletteContentStyle.TabLowProfile:
-        case PaletteContentStyle.TabOneNote:
-        case PaletteContentStyle.TabDock:
-        case PaletteContentStyle.TabDockAutoHidden:
-        case PaletteContentStyle.TabCustom1:
-        case PaletteContentStyle.TabCustom2:
-        case PaletteContentStyle.TabCustom3:
-        case PaletteContentStyle.ButtonStandalone:
-        case PaletteContentStyle.ButtonGallery:
-        case PaletteContentStyle.ButtonAlternate:
-        case PaletteContentStyle.ButtonLowProfile:
-        case PaletteContentStyle.ButtonBreadCrumb:
-        case PaletteContentStyle.ButtonListItem:
-        case PaletteContentStyle.ButtonCommand:
-        case PaletteContentStyle.ButtonButtonSpec:
-        case PaletteContentStyle.ButtonCalendarDay:
-        case PaletteContentStyle.ButtonCluster:
-        case PaletteContentStyle.ButtonNavigatorMini:
-        case PaletteContentStyle.ButtonNavigatorStack:
-        case PaletteContentStyle.ButtonNavigatorOverflow:
-        case PaletteContentStyle.ButtonForm:
-        case PaletteContentStyle.ButtonFormClose:
-        case PaletteContentStyle.ButtonCustom1:
-        case PaletteContentStyle.ButtonCustom2:
-        case PaletteContentStyle.ButtonCustom3:
-        case PaletteContentStyle.ButtonInputControl:
-        case PaletteContentStyle.GridHeaderColumnList:
-        case PaletteContentStyle.GridHeaderColumnSheet:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-            return PaletteTextTrim.EllipsisCharacter;
-        default:
-            throw new ArgumentOutOfRangeException(nameof(style));
-    }
-}
-
-/// <summary>
-/// Gets the prefix drawing setting for long text.
-/// </summary>
-/// <param name="style">Content style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>PaletteTextPrefix value.</returns>
-public override PaletteTextHotkeyPrefix GetContentLongTextPrefix(PaletteContentStyle style, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return PaletteTextHotkeyPrefix.Inherit;
-    }
-
-    switch (style)
-    {
-        case PaletteContentStyle.TabHighProfile:
-        case PaletteContentStyle.TabStandardProfile:
-        case PaletteContentStyle.TabLowProfile:
-        case PaletteContentStyle.TabOneNote:
-        case PaletteContentStyle.TabDock:
-        case PaletteContentStyle.TabDockAutoHidden:
-        case PaletteContentStyle.TabCustom1:
-        case PaletteContentStyle.TabCustom2:
-        case PaletteContentStyle.TabCustom3:
-        case PaletteContentStyle.ButtonStandalone:
-        case PaletteContentStyle.ButtonGallery:
-        case PaletteContentStyle.ButtonAlternate:
-        case PaletteContentStyle.ButtonLowProfile:
-        case PaletteContentStyle.ButtonBreadCrumb:
-        case PaletteContentStyle.ButtonCommand:
-        case PaletteContentStyle.ButtonButtonSpec:
-        case PaletteContentStyle.ButtonCalendarDay:
-        case PaletteContentStyle.ButtonCluster:
-        case PaletteContentStyle.ButtonNavigatorMini:
-        case PaletteContentStyle.ButtonNavigatorStack:
-        case PaletteContentStyle.ButtonNavigatorOverflow:
-        case PaletteContentStyle.ButtonForm:
-        case PaletteContentStyle.ButtonFormClose:
-        case PaletteContentStyle.ButtonCustom1:
-        case PaletteContentStyle.ButtonCustom2:
-        case PaletteContentStyle.ButtonCustom3:
-        case PaletteContentStyle.ButtonInputControl:
-            return PaletteTextHotkeyPrefix.Show;
-        case PaletteContentStyle.ButtonListItem:
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderDockActive:
-        case PaletteContentStyle.HeaderCalendar:
-        case PaletteContentStyle.HeaderSecondary:
-        case PaletteContentStyle.HeaderForm:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-        case PaletteContentStyle.LabelNormalControl:
-        case PaletteContentStyle.LabelBoldControl:
-        case PaletteContentStyle.LabelItalicControl:
-        case PaletteContentStyle.LabelTitleControl:
-        case PaletteContentStyle.LabelNormalPanel:
-        case PaletteContentStyle.LabelBoldPanel:
-        case PaletteContentStyle.LabelItalicPanel:
-        case PaletteContentStyle.LabelTitlePanel:
-        case PaletteContentStyle.LabelGroupBoxCaption:
-        case PaletteContentStyle.LabelToolTip:
-        case PaletteContentStyle.LabelSuperTip:
-        case PaletteContentStyle.LabelKeyTip:
-        case PaletteContentStyle.LabelCustom1:
-        case PaletteContentStyle.LabelCustom2:
-        case PaletteContentStyle.LabelCustom3:
-        case PaletteContentStyle.ContextMenuHeading:
-        case PaletteContentStyle.ContextMenuItemImage:
-        case PaletteContentStyle.ContextMenuItemShortcutText:
-        case PaletteContentStyle.ContextMenuItemTextStandard:
-        case PaletteContentStyle.ContextMenuItemTextAlternate:
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-            return PaletteTextHotkeyPrefix.None;
-        default:
-            throw new ArgumentOutOfRangeException(nameof(style));
-    }
-}
-
-/// <summary>
-/// Gets the horizontal relative alignment of the long text.
-/// </summary>
-/// <param name="style">Content style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>RelativeAlignment value.</returns>
-public override PaletteRelativeAlign GetContentLongTextH(PaletteContentStyle style, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return PaletteRelativeAlign.Inherit;
-    }
-
-    switch (style)
-    {
-        case PaletteContentStyle.LabelSuperTip:
-        case PaletteContentStyle.LabelToolTip:
-        case PaletteContentStyle.LabelKeyTip:
-        case PaletteContentStyle.ContextMenuItemTextAlternate:
-            return PaletteRelativeAlign.Near;
-        case PaletteContentStyle.LabelNormalControl:
-        case PaletteContentStyle.LabelBoldControl:
-        case PaletteContentStyle.LabelItalicControl:
-        case PaletteContentStyle.LabelTitleControl:
-        case PaletteContentStyle.LabelNormalPanel:
-        case PaletteContentStyle.LabelBoldPanel:
-        case PaletteContentStyle.LabelItalicPanel:
-        case PaletteContentStyle.LabelTitlePanel:
-        case PaletteContentStyle.LabelGroupBoxCaption:
-        case PaletteContentStyle.LabelCustom1:
-        case PaletteContentStyle.LabelCustom2:
-        case PaletteContentStyle.LabelCustom3:
-        case PaletteContentStyle.HeaderForm:
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderDockActive:
-        case PaletteContentStyle.HeaderCalendar:
-        case PaletteContentStyle.HeaderSecondary:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-        case PaletteContentStyle.ContextMenuHeading:
-        case PaletteContentStyle.ContextMenuItemImage:
-        case PaletteContentStyle.ContextMenuItemTextStandard:
-        case PaletteContentStyle.ContextMenuItemShortcutText:
-        case PaletteContentStyle.ButtonNavigatorStack:
-        case PaletteContentStyle.ButtonNavigatorOverflow:
-        case PaletteContentStyle.ButtonListItem:
-        case PaletteContentStyle.ButtonCommand:
-        case PaletteContentStyle.GridHeaderColumnList:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-            return PaletteRelativeAlign.Far;
-        case PaletteContentStyle.GridHeaderColumnSheet:
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-        case PaletteContentStyle.TabLowProfile:
-        case PaletteContentStyle.TabOneNote:
-        case PaletteContentStyle.TabDock:
-        case PaletteContentStyle.TabDockAutoHidden:
-        case PaletteContentStyle.TabCustom1:
-        case PaletteContentStyle.TabCustom2:
-        case PaletteContentStyle.TabCustom3:
-        case PaletteContentStyle.ButtonStandalone:
-        case PaletteContentStyle.ButtonGallery:
-        case PaletteContentStyle.ButtonAlternate:
-        case PaletteContentStyle.ButtonLowProfile:
-        case PaletteContentStyle.ButtonBreadCrumb:
-        case PaletteContentStyle.ButtonButtonSpec:
-        case PaletteContentStyle.ButtonCluster:
-        case PaletteContentStyle.ButtonForm:
-        case PaletteContentStyle.ButtonFormClose:
-        case PaletteContentStyle.ButtonNavigatorMini:
-        case PaletteContentStyle.ButtonCustom1:
-        case PaletteContentStyle.ButtonCustom2:
-        case PaletteContentStyle.ButtonCustom3:
-        case PaletteContentStyle.ButtonInputControl:
-            return PaletteRelativeAlign.Center;
-        case PaletteContentStyle.ButtonCalendarDay:
-            return PaletteRelativeAlign.Far;
-        default:
-            throw new ArgumentOutOfRangeException(nameof(style));
-    }
-}
-
-/// <summary>
-/// Gets the vertical relative alignment of the long text.
-/// </summary>
-/// <param name="style">Content style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>RelativeAlignment value.</returns>
-public override PaletteRelativeAlign GetContentLongTextV(PaletteContentStyle style, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return PaletteRelativeAlign.Inherit;
-    }
-
-    switch (style)
-    {
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderDockActive:
-        case PaletteContentStyle.HeaderCalendar:
-        case PaletteContentStyle.HeaderSecondary:
-        case PaletteContentStyle.HeaderForm:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-        case PaletteContentStyle.LabelNormalControl:
-        case PaletteContentStyle.LabelBoldControl:
-        case PaletteContentStyle.LabelItalicControl:
-        case PaletteContentStyle.LabelTitleControl:
-        case PaletteContentStyle.LabelNormalPanel:
-        case PaletteContentStyle.LabelBoldPanel:
-        case PaletteContentStyle.LabelItalicPanel:
-        case PaletteContentStyle.LabelTitlePanel:
-        case PaletteContentStyle.LabelGroupBoxCaption:
-        case PaletteContentStyle.LabelCustom1:
-        case PaletteContentStyle.LabelCustom2:
-        case PaletteContentStyle.LabelCustom3:
-        case PaletteContentStyle.ContextMenuHeading:
-        case PaletteContentStyle.ContextMenuItemImage:
-        case PaletteContentStyle.ContextMenuItemTextStandard:
-        case PaletteContentStyle.ContextMenuItemShortcutText:
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-        case PaletteContentStyle.TabLowProfile:
-        case PaletteContentStyle.TabOneNote:
-        case PaletteContentStyle.TabDock:
-        case PaletteContentStyle.TabDockAutoHidden:
-        case PaletteContentStyle.TabCustom1:
-        case PaletteContentStyle.TabCustom2:
-        case PaletteContentStyle.TabCustom3:
-        case PaletteContentStyle.ButtonStandalone:
-        case PaletteContentStyle.ButtonGallery:
-        case PaletteContentStyle.ButtonAlternate:
-        case PaletteContentStyle.ButtonLowProfile:
-        case PaletteContentStyle.ButtonBreadCrumb:
-        case PaletteContentStyle.ButtonListItem:
-        case PaletteContentStyle.ButtonCommand:
-        case PaletteContentStyle.ButtonButtonSpec:
-        case PaletteContentStyle.ButtonCalendarDay:
-        case PaletteContentStyle.ButtonCluster:
-        case PaletteContentStyle.ButtonNavigatorMini:
-        case PaletteContentStyle.ButtonNavigatorStack:
-        case PaletteContentStyle.ButtonNavigatorOverflow:
-        case PaletteContentStyle.ButtonForm:
-        case PaletteContentStyle.ButtonFormClose:
-        case PaletteContentStyle.ButtonCustom1:
-        case PaletteContentStyle.ButtonCustom2:
-        case PaletteContentStyle.ButtonCustom3:
-        case PaletteContentStyle.ButtonInputControl:
-        case PaletteContentStyle.GridHeaderColumnList:
-        case PaletteContentStyle.GridHeaderColumnSheet:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-            return PaletteRelativeAlign.Center;
-        case PaletteContentStyle.LabelToolTip:
-        case PaletteContentStyle.LabelKeyTip:
-        case PaletteContentStyle.ContextMenuItemTextAlternate:
-            return PaletteRelativeAlign.Far;
-        case PaletteContentStyle.LabelSuperTip:
-            return PaletteRelativeAlign.Center;
-        default:
-            throw new ArgumentOutOfRangeException(nameof(style));
-    }
-}
-
-/// <summary>
-/// Gets the horizontal relative alignment of multiline long text.
-/// </summary>
-/// <param name="style">Content style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>RelativeAlignment value.</returns>
-public override PaletteRelativeAlign GetContentLongTextMultiLineH(PaletteContentStyle style, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return PaletteRelativeAlign.Inherit;
-    }
-
-    switch (style)
-    {
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderDockActive:
-        case PaletteContentStyle.HeaderCalendar:
-        case PaletteContentStyle.HeaderSecondary:
-        case PaletteContentStyle.HeaderForm:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-        case PaletteContentStyle.LabelNormalControl:
-        case PaletteContentStyle.LabelBoldControl:
-        case PaletteContentStyle.LabelItalicControl:
-        case PaletteContentStyle.LabelTitleControl:
-        case PaletteContentStyle.LabelNormalPanel:
-        case PaletteContentStyle.LabelBoldPanel:
-        case PaletteContentStyle.LabelItalicPanel:
-        case PaletteContentStyle.LabelTitlePanel:
-        case PaletteContentStyle.LabelGroupBoxCaption:
-        case PaletteContentStyle.LabelCustom1:
-        case PaletteContentStyle.LabelCustom2:
-        case PaletteContentStyle.LabelCustom3:
-        case PaletteContentStyle.ContextMenuHeading:
-        case PaletteContentStyle.ContextMenuItemImage:
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-        case PaletteContentStyle.TabLowProfile:
-        case PaletteContentStyle.TabOneNote:
-        case PaletteContentStyle.TabDock:
-        case PaletteContentStyle.TabDockAutoHidden:
-        case PaletteContentStyle.TabCustom1:
-        case PaletteContentStyle.TabCustom2:
-        case PaletteContentStyle.TabCustom3:
-        case PaletteContentStyle.ButtonStandalone:
-        case PaletteContentStyle.ButtonGallery:
-        case PaletteContentStyle.ButtonAlternate:
-        case PaletteContentStyle.ButtonLowProfile:
-        case PaletteContentStyle.ButtonBreadCrumb:
-        case PaletteContentStyle.ButtonListItem:
-        case PaletteContentStyle.ButtonButtonSpec:
-        case PaletteContentStyle.ButtonCalendarDay:
-        case PaletteContentStyle.ButtonCluster:
-        case PaletteContentStyle.ButtonNavigatorMini:
-        case PaletteContentStyle.ButtonNavigatorStack:
-        case PaletteContentStyle.ButtonNavigatorOverflow:
-        case PaletteContentStyle.ButtonForm:
-        case PaletteContentStyle.ButtonFormClose:
-        case PaletteContentStyle.ButtonCustom1:
-        case PaletteContentStyle.ButtonCustom2:
-        case PaletteContentStyle.ButtonCustom3:
-        case PaletteContentStyle.ButtonInputControl:
-        case PaletteContentStyle.GridHeaderColumnList:
-        case PaletteContentStyle.GridHeaderColumnSheet:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-            return PaletteRelativeAlign.Center;
-        case PaletteContentStyle.LabelToolTip:
-        case PaletteContentStyle.LabelSuperTip:
-        case PaletteContentStyle.LabelKeyTip:
-        case PaletteContentStyle.ContextMenuItemTextStandard:
-        case PaletteContentStyle.ContextMenuItemTextAlternate:
-        case PaletteContentStyle.ButtonCommand:
-            return PaletteRelativeAlign.Near;
-        case PaletteContentStyle.ContextMenuItemShortcutText:
-            return PaletteRelativeAlign.Far;
-        default:
-            throw new ArgumentOutOfRangeException(nameof(style));
-    }
-}
-
-/// <summary>
-/// Gets the first back color for the long text.
-/// </summary>
-/// <param name="style">Content style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetContentLongTextColor1(PaletteContentStyle style, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return Color.Empty;
-    }
-
-    switch (style)
-    {
-        case PaletteContentStyle.HeaderForm:
-            if (state == PaletteState.Disabled)
+        /// <summary>
+        /// Gets the rendering hint for the long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteTextHint value.</returns>
+        public override PaletteTextHint GetContentLongTextHint(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
             {
-                return _ribbonColors[(int)SchemeOfficeColors.FormHeaderLongInactive];
+                return PaletteTextHint.Inherit;
             }
-            else
+
+            switch (style)
             {
-                return _ribbonColors[(int)SchemeOfficeColors.FormHeaderLongActive];
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderDockActive:
+                case PaletteContentStyle.HeaderCalendar:
+                case PaletteContentStyle.HeaderSecondary:
+                case PaletteContentStyle.HeaderForm:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                case PaletteContentStyle.LabelNormalControl:
+                case PaletteContentStyle.LabelBoldControl:
+                case PaletteContentStyle.LabelItalicControl:
+                case PaletteContentStyle.LabelTitleControl:
+                case PaletteContentStyle.LabelNormalPanel:
+                case PaletteContentStyle.LabelBoldPanel:
+                case PaletteContentStyle.LabelItalicPanel:
+                case PaletteContentStyle.LabelTitlePanel:
+                case PaletteContentStyle.LabelGroupBoxCaption:
+                case PaletteContentStyle.LabelToolTip:
+                case PaletteContentStyle.LabelSuperTip:
+                case PaletteContentStyle.LabelKeyTip:
+                case PaletteContentStyle.LabelCustom1:
+                case PaletteContentStyle.LabelCustom2:
+                case PaletteContentStyle.LabelCustom3:
+                case PaletteContentStyle.ContextMenuHeading:
+                case PaletteContentStyle.ContextMenuItemImage:
+                case PaletteContentStyle.ContextMenuItemTextStandard:
+                case PaletteContentStyle.ContextMenuItemTextAlternate:
+                case PaletteContentStyle.ContextMenuItemShortcutText:
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                case PaletteContentStyle.TabLowProfile:
+                case PaletteContentStyle.TabOneNote:
+                case PaletteContentStyle.TabDock:
+                case PaletteContentStyle.TabDockAutoHidden:
+                case PaletteContentStyle.TabCustom1:
+                case PaletteContentStyle.TabCustom2:
+                case PaletteContentStyle.TabCustom3:
+                case PaletteContentStyle.ButtonStandalone:
+                case PaletteContentStyle.ButtonGallery:
+                case PaletteContentStyle.ButtonAlternate:
+                case PaletteContentStyle.ButtonLowProfile:
+                case PaletteContentStyle.ButtonBreadCrumb:
+                case PaletteContentStyle.ButtonListItem:
+                case PaletteContentStyle.ButtonCommand:
+                case PaletteContentStyle.ButtonButtonSpec:
+                case PaletteContentStyle.ButtonCalendarDay:
+                case PaletteContentStyle.ButtonCluster:
+                case PaletteContentStyle.ButtonNavigatorMini:
+                case PaletteContentStyle.ButtonNavigatorStack:
+                case PaletteContentStyle.ButtonNavigatorOverflow:
+                case PaletteContentStyle.ButtonForm:
+                case PaletteContentStyle.ButtonFormClose:
+                case PaletteContentStyle.ButtonCustom1:
+                case PaletteContentStyle.ButtonCustom2:
+                case PaletteContentStyle.ButtonCustom3:
+                case PaletteContentStyle.ButtonInputControl:
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                    return PaletteTextHint.ClearTypeGridFit;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
             }
-    }
+        }
 
-    if ((state == PaletteState.Disabled) &&
-        (style != PaletteContentStyle.LabelToolTip) &&
-        (style != PaletteContentStyle.LabelSuperTip) &&
-        (style != PaletteContentStyle.LabelKeyTip) &&
-        (style != PaletteContentStyle.InputControlStandalone) &&
-        (style != PaletteContentStyle.InputControlRibbon) &&
-        (style != PaletteContentStyle.InputControlCustom1) &&
-        (style != PaletteContentStyle.ButtonInputControl))
-    {
-        return _disabledText;
-    }
+        /// <summary>
+        /// Gets the flag indicating if multiline text is allowed for long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
+        public override InheritBool GetContentLongTextMultiLine(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return InheritBool.Inherit;
+            }
 
-    switch (style)
-    {
-        case PaletteContentStyle.GridHeaderColumnList:
-        case PaletteContentStyle.GridHeaderColumnSheet:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-        case PaletteContentStyle.HeaderCalendar:
-            return _gridTextColor;
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderSecondary:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-            return _ribbonColors[(int)SchemeOfficeColors.HeaderText];
-        case PaletteContentStyle.HeaderDockActive:
-            return Color.Black;
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-            return _ribbonColors[(int)SchemeOfficeColors.InputControlTextDisabled];
-    }
+            switch (style)
+            {
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderDockActive:
+                case PaletteContentStyle.HeaderCalendar:
+                case PaletteContentStyle.HeaderSecondary:
+                case PaletteContentStyle.HeaderForm:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                case PaletteContentStyle.LabelNormalControl:
+                case PaletteContentStyle.LabelBoldControl:
+                case PaletteContentStyle.LabelItalicControl:
+                case PaletteContentStyle.LabelTitleControl:
+                case PaletteContentStyle.LabelNormalPanel:
+                case PaletteContentStyle.LabelBoldPanel:
+                case PaletteContentStyle.LabelItalicPanel:
+                case PaletteContentStyle.LabelTitlePanel:
+                case PaletteContentStyle.LabelGroupBoxCaption:
+                case PaletteContentStyle.LabelToolTip:
+                case PaletteContentStyle.LabelSuperTip:
+                case PaletteContentStyle.LabelKeyTip:
+                case PaletteContentStyle.LabelCustom1:
+                case PaletteContentStyle.LabelCustom2:
+                case PaletteContentStyle.LabelCustom3:
+                case PaletteContentStyle.ContextMenuHeading:
+                case PaletteContentStyle.ContextMenuItemImage:
+                case PaletteContentStyle.ContextMenuItemTextStandard:
+                case PaletteContentStyle.ContextMenuItemTextAlternate:
+                case PaletteContentStyle.ContextMenuItemShortcutText:
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                case PaletteContentStyle.TabLowProfile:
+                case PaletteContentStyle.TabOneNote:
+                case PaletteContentStyle.TabDock:
+                case PaletteContentStyle.TabDockAutoHidden:
+                case PaletteContentStyle.TabCustom1:
+                case PaletteContentStyle.TabCustom2:
+                case PaletteContentStyle.TabCustom3:
+                case PaletteContentStyle.ButtonStandalone:
+                case PaletteContentStyle.ButtonGallery:
+                case PaletteContentStyle.ButtonAlternate:
+                case PaletteContentStyle.ButtonLowProfile:
+                case PaletteContentStyle.ButtonBreadCrumb:
+                case PaletteContentStyle.ButtonListItem:
+                case PaletteContentStyle.ButtonCommand:
+                case PaletteContentStyle.ButtonButtonSpec:
+                case PaletteContentStyle.ButtonCalendarDay:
+                case PaletteContentStyle.ButtonCluster:
+                case PaletteContentStyle.ButtonNavigatorMini:
+                case PaletteContentStyle.ButtonNavigatorStack:
+                case PaletteContentStyle.ButtonNavigatorOverflow:
+                case PaletteContentStyle.ButtonForm:
+                case PaletteContentStyle.ButtonFormClose:
+                case PaletteContentStyle.ButtonCustom1:
+                case PaletteContentStyle.ButtonCustom2:
+                case PaletteContentStyle.ButtonCustom3:
+                case PaletteContentStyle.ButtonInputControl:
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                    return InheritBool.True;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
+
+        /// <summary>
+        /// Gets the text trimming to use for long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteTextTrim value.</returns>
+        public override PaletteTextTrim GetContentLongTextTrim(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return PaletteTextTrim.Inherit;
+            }
+
+            switch (style)
+            {
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderDockActive:
+                case PaletteContentStyle.HeaderCalendar:
+                case PaletteContentStyle.HeaderSecondary:
+                case PaletteContentStyle.HeaderForm:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                case PaletteContentStyle.LabelNormalControl:
+                case PaletteContentStyle.LabelBoldControl:
+                case PaletteContentStyle.LabelItalicControl:
+                case PaletteContentStyle.LabelTitleControl:
+                case PaletteContentStyle.LabelNormalPanel:
+                case PaletteContentStyle.LabelBoldPanel:
+                case PaletteContentStyle.LabelItalicPanel:
+                case PaletteContentStyle.LabelTitlePanel:
+                case PaletteContentStyle.LabelGroupBoxCaption:
+                case PaletteContentStyle.LabelToolTip:
+                case PaletteContentStyle.LabelSuperTip:
+                case PaletteContentStyle.LabelKeyTip:
+                case PaletteContentStyle.LabelCustom1:
+                case PaletteContentStyle.LabelCustom2:
+                case PaletteContentStyle.LabelCustom3:
+                case PaletteContentStyle.ContextMenuHeading:
+                case PaletteContentStyle.ContextMenuItemImage:
+                case PaletteContentStyle.ContextMenuItemTextStandard:
+                case PaletteContentStyle.ContextMenuItemTextAlternate:
+                case PaletteContentStyle.ContextMenuItemShortcutText:
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                case PaletteContentStyle.TabLowProfile:
+                case PaletteContentStyle.TabOneNote:
+                case PaletteContentStyle.TabDock:
+                case PaletteContentStyle.TabDockAutoHidden:
+                case PaletteContentStyle.TabCustom1:
+                case PaletteContentStyle.TabCustom2:
+                case PaletteContentStyle.TabCustom3:
+                case PaletteContentStyle.ButtonStandalone:
+                case PaletteContentStyle.ButtonGallery:
+                case PaletteContentStyle.ButtonAlternate:
+                case PaletteContentStyle.ButtonLowProfile:
+                case PaletteContentStyle.ButtonBreadCrumb:
+                case PaletteContentStyle.ButtonListItem:
+                case PaletteContentStyle.ButtonCommand:
+                case PaletteContentStyle.ButtonButtonSpec:
+                case PaletteContentStyle.ButtonCalendarDay:
+                case PaletteContentStyle.ButtonCluster:
+                case PaletteContentStyle.ButtonNavigatorMini:
+                case PaletteContentStyle.ButtonNavigatorStack:
+                case PaletteContentStyle.ButtonNavigatorOverflow:
+                case PaletteContentStyle.ButtonForm:
+                case PaletteContentStyle.ButtonFormClose:
+                case PaletteContentStyle.ButtonCustom1:
+                case PaletteContentStyle.ButtonCustom2:
+                case PaletteContentStyle.ButtonCustom3:
+                case PaletteContentStyle.ButtonInputControl:
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                    return PaletteTextTrim.EllipsisCharacter;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
+
+        /// <summary>
+        /// Gets the prefix drawing setting for long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteTextPrefix value.</returns>
+        public override PaletteTextHotkeyPrefix GetContentLongTextPrefix(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return PaletteTextHotkeyPrefix.Inherit;
+            }
+
+            switch (style)
+            {
+                case PaletteContentStyle.TabHighProfile:
+                case PaletteContentStyle.TabStandardProfile:
+                case PaletteContentStyle.TabLowProfile:
+                case PaletteContentStyle.TabOneNote:
+                case PaletteContentStyle.TabDock:
+                case PaletteContentStyle.TabDockAutoHidden:
+                case PaletteContentStyle.TabCustom1:
+                case PaletteContentStyle.TabCustom2:
+                case PaletteContentStyle.TabCustom3:
+                case PaletteContentStyle.ButtonStandalone:
+                case PaletteContentStyle.ButtonGallery:
+                case PaletteContentStyle.ButtonAlternate:
+                case PaletteContentStyle.ButtonLowProfile:
+                case PaletteContentStyle.ButtonBreadCrumb:
+                case PaletteContentStyle.ButtonCommand:
+                case PaletteContentStyle.ButtonButtonSpec:
+                case PaletteContentStyle.ButtonCalendarDay:
+                case PaletteContentStyle.ButtonCluster:
+                case PaletteContentStyle.ButtonNavigatorMini:
+                case PaletteContentStyle.ButtonNavigatorStack:
+                case PaletteContentStyle.ButtonNavigatorOverflow:
+                case PaletteContentStyle.ButtonForm:
+                case PaletteContentStyle.ButtonFormClose:
+                case PaletteContentStyle.ButtonCustom1:
+                case PaletteContentStyle.ButtonCustom2:
+                case PaletteContentStyle.ButtonCustom3:
+                case PaletteContentStyle.ButtonInputControl:
+                    return PaletteTextHotkeyPrefix.Show;
+                case PaletteContentStyle.ButtonListItem:
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderDockActive:
+                case PaletteContentStyle.HeaderCalendar:
+                case PaletteContentStyle.HeaderSecondary:
+                case PaletteContentStyle.HeaderForm:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                case PaletteContentStyle.LabelNormalControl:
+                case PaletteContentStyle.LabelBoldControl:
+                case PaletteContentStyle.LabelItalicControl:
+                case PaletteContentStyle.LabelTitleControl:
+                case PaletteContentStyle.LabelNormalPanel:
+                case PaletteContentStyle.LabelBoldPanel:
+                case PaletteContentStyle.LabelItalicPanel:
+                case PaletteContentStyle.LabelTitlePanel:
+                case PaletteContentStyle.LabelGroupBoxCaption:
+                case PaletteContentStyle.LabelToolTip:
+                case PaletteContentStyle.LabelSuperTip:
+                case PaletteContentStyle.LabelKeyTip:
+                case PaletteContentStyle.LabelCustom1:
+                case PaletteContentStyle.LabelCustom2:
+                case PaletteContentStyle.LabelCustom3:
+                case PaletteContentStyle.ContextMenuHeading:
+                case PaletteContentStyle.ContextMenuItemImage:
+                case PaletteContentStyle.ContextMenuItemShortcutText:
+                case PaletteContentStyle.ContextMenuItemTextStandard:
+                case PaletteContentStyle.ContextMenuItemTextAlternate:
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                    return PaletteTextHotkeyPrefix.None;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
+
+        /// <summary>
+        /// Gets the horizontal relative alignment of the long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
+        public override PaletteRelativeAlign GetContentLongTextH(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return PaletteRelativeAlign.Inherit;
+            }
+
+            switch (style)
+            {
+                case PaletteContentStyle.LabelSuperTip:
+                case PaletteContentStyle.LabelToolTip:
+                case PaletteContentStyle.LabelKeyTip:
+                case PaletteContentStyle.ContextMenuItemTextAlternate:
+                    return PaletteRelativeAlign.Near;
+                case PaletteContentStyle.LabelNormalControl:
+                case PaletteContentStyle.LabelBoldControl:
+                case PaletteContentStyle.LabelItalicControl:
+                case PaletteContentStyle.LabelTitleControl:
+                case PaletteContentStyle.LabelNormalPanel:
+                case PaletteContentStyle.LabelBoldPanel:
+                case PaletteContentStyle.LabelItalicPanel:
+                case PaletteContentStyle.LabelTitlePanel:
+                case PaletteContentStyle.LabelGroupBoxCaption:
+                case PaletteContentStyle.LabelCustom1:
+                case PaletteContentStyle.LabelCustom2:
+                case PaletteContentStyle.LabelCustom3:
+                case PaletteContentStyle.HeaderForm:
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderDockActive:
+                case PaletteContentStyle.HeaderCalendar:
+                case PaletteContentStyle.HeaderSecondary:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                case PaletteContentStyle.ContextMenuHeading:
+                case PaletteContentStyle.ContextMenuItemImage:
+                case PaletteContentStyle.ContextMenuItemTextStandard:
+                case PaletteContentStyle.ContextMenuItemShortcutText:
+                case PaletteContentStyle.ButtonNavigatorStack:
+                case PaletteContentStyle.ButtonNavigatorOverflow:
+                case PaletteContentStyle.ButtonListItem:
+                case PaletteContentStyle.ButtonCommand:
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                    return PaletteRelativeAlign.Far;
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                case PaletteContentStyle.TabLowProfile:
+                case PaletteContentStyle.TabOneNote:
+                case PaletteContentStyle.TabDock:
+                case PaletteContentStyle.TabDockAutoHidden:
+                case PaletteContentStyle.TabCustom1:
+                case PaletteContentStyle.TabCustom2:
+                case PaletteContentStyle.TabCustom3:
+                case PaletteContentStyle.ButtonStandalone:
+                case PaletteContentStyle.ButtonGallery:
+                case PaletteContentStyle.ButtonAlternate:
+                case PaletteContentStyle.ButtonLowProfile:
+                case PaletteContentStyle.ButtonBreadCrumb:
+                case PaletteContentStyle.ButtonButtonSpec:
+                case PaletteContentStyle.ButtonCluster:
+                case PaletteContentStyle.ButtonForm:
+                case PaletteContentStyle.ButtonFormClose:
+                case PaletteContentStyle.ButtonNavigatorMini:
+                case PaletteContentStyle.ButtonCustom1:
+                case PaletteContentStyle.ButtonCustom2:
+                case PaletteContentStyle.ButtonCustom3:
+                case PaletteContentStyle.ButtonInputControl:
+                    return PaletteRelativeAlign.Center;
+                case PaletteContentStyle.ButtonCalendarDay:
+                    return PaletteRelativeAlign.Far;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
+
+        /// <summary>
+        /// Gets the vertical relative alignment of the long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
+        public override PaletteRelativeAlign GetContentLongTextV(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return PaletteRelativeAlign.Inherit;
+            }
+
+            switch (style)
+            {
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderDockActive:
+                case PaletteContentStyle.HeaderCalendar:
+                case PaletteContentStyle.HeaderSecondary:
+                case PaletteContentStyle.HeaderForm:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                case PaletteContentStyle.LabelNormalControl:
+                case PaletteContentStyle.LabelBoldControl:
+                case PaletteContentStyle.LabelItalicControl:
+                case PaletteContentStyle.LabelTitleControl:
+                case PaletteContentStyle.LabelNormalPanel:
+                case PaletteContentStyle.LabelBoldPanel:
+                case PaletteContentStyle.LabelItalicPanel:
+                case PaletteContentStyle.LabelTitlePanel:
+                case PaletteContentStyle.LabelGroupBoxCaption:
+                case PaletteContentStyle.LabelCustom1:
+                case PaletteContentStyle.LabelCustom2:
+                case PaletteContentStyle.LabelCustom3:
+                case PaletteContentStyle.ContextMenuHeading:
+                case PaletteContentStyle.ContextMenuItemImage:
+                case PaletteContentStyle.ContextMenuItemTextStandard:
+                case PaletteContentStyle.ContextMenuItemShortcutText:
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                case PaletteContentStyle.TabLowProfile:
+                case PaletteContentStyle.TabOneNote:
+                case PaletteContentStyle.TabDock:
+                case PaletteContentStyle.TabDockAutoHidden:
+                case PaletteContentStyle.TabCustom1:
+                case PaletteContentStyle.TabCustom2:
+                case PaletteContentStyle.TabCustom3:
+                case PaletteContentStyle.ButtonStandalone:
+                case PaletteContentStyle.ButtonGallery:
+                case PaletteContentStyle.ButtonAlternate:
+                case PaletteContentStyle.ButtonLowProfile:
+                case PaletteContentStyle.ButtonBreadCrumb:
+                case PaletteContentStyle.ButtonListItem:
+                case PaletteContentStyle.ButtonCommand:
+                case PaletteContentStyle.ButtonButtonSpec:
+                case PaletteContentStyle.ButtonCalendarDay:
+                case PaletteContentStyle.ButtonCluster:
+                case PaletteContentStyle.ButtonNavigatorMini:
+                case PaletteContentStyle.ButtonNavigatorStack:
+                case PaletteContentStyle.ButtonNavigatorOverflow:
+                case PaletteContentStyle.ButtonForm:
+                case PaletteContentStyle.ButtonFormClose:
+                case PaletteContentStyle.ButtonCustom1:
+                case PaletteContentStyle.ButtonCustom2:
+                case PaletteContentStyle.ButtonCustom3:
+                case PaletteContentStyle.ButtonInputControl:
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                    return PaletteRelativeAlign.Center;
+                case PaletteContentStyle.LabelToolTip:
+                case PaletteContentStyle.LabelKeyTip:
+                case PaletteContentStyle.ContextMenuItemTextAlternate:
+                    return PaletteRelativeAlign.Far;
+                case PaletteContentStyle.LabelSuperTip:
+                    return PaletteRelativeAlign.Center;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
+
+        /// <summary>
+        /// Gets the horizontal relative alignment of multiline long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
+        public override PaletteRelativeAlign GetContentLongTextMultiLineH(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return PaletteRelativeAlign.Inherit;
+            }
+
+            switch (style)
+            {
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderDockActive:
+                case PaletteContentStyle.HeaderCalendar:
+                case PaletteContentStyle.HeaderSecondary:
+                case PaletteContentStyle.HeaderForm:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                case PaletteContentStyle.LabelNormalControl:
+                case PaletteContentStyle.LabelBoldControl:
+                case PaletteContentStyle.LabelItalicControl:
+                case PaletteContentStyle.LabelTitleControl:
+                case PaletteContentStyle.LabelNormalPanel:
+                case PaletteContentStyle.LabelBoldPanel:
+                case PaletteContentStyle.LabelItalicPanel:
+                case PaletteContentStyle.LabelTitlePanel:
+                case PaletteContentStyle.LabelGroupBoxCaption:
+                case PaletteContentStyle.LabelCustom1:
+                case PaletteContentStyle.LabelCustom2:
+                case PaletteContentStyle.LabelCustom3:
+                case PaletteContentStyle.ContextMenuHeading:
+                case PaletteContentStyle.ContextMenuItemImage:
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                case PaletteContentStyle.TabLowProfile:
+                case PaletteContentStyle.TabOneNote:
+                case PaletteContentStyle.TabDock:
+                case PaletteContentStyle.TabDockAutoHidden:
+                case PaletteContentStyle.TabCustom1:
+                case PaletteContentStyle.TabCustom2:
+                case PaletteContentStyle.TabCustom3:
+                case PaletteContentStyle.ButtonStandalone:
+                case PaletteContentStyle.ButtonGallery:
+                case PaletteContentStyle.ButtonAlternate:
+                case PaletteContentStyle.ButtonLowProfile:
+                case PaletteContentStyle.ButtonBreadCrumb:
+                case PaletteContentStyle.ButtonListItem:
+                case PaletteContentStyle.ButtonButtonSpec:
+                case PaletteContentStyle.ButtonCalendarDay:
+                case PaletteContentStyle.ButtonCluster:
+                case PaletteContentStyle.ButtonNavigatorMini:
+                case PaletteContentStyle.ButtonNavigatorStack:
+                case PaletteContentStyle.ButtonNavigatorOverflow:
+                case PaletteContentStyle.ButtonForm:
+                case PaletteContentStyle.ButtonFormClose:
+                case PaletteContentStyle.ButtonCustom1:
+                case PaletteContentStyle.ButtonCustom2:
+                case PaletteContentStyle.ButtonCustom3:
+                case PaletteContentStyle.ButtonInputControl:
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                    return PaletteRelativeAlign.Center;
+                case PaletteContentStyle.LabelToolTip:
+                case PaletteContentStyle.LabelSuperTip:
+                case PaletteContentStyle.LabelKeyTip:
+                case PaletteContentStyle.ContextMenuItemTextStandard:
+                case PaletteContentStyle.ContextMenuItemTextAlternate:
+                case PaletteContentStyle.ButtonCommand:
+                    return PaletteRelativeAlign.Near;
+                case PaletteContentStyle.ContextMenuItemShortcutText:
+                    return PaletteRelativeAlign.Far;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
+
+        /// <summary>
+        /// Gets the first back color for the long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetContentLongTextColor1(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return Color.Empty;
+            }
+
+            switch (style)
+            {
+                case PaletteContentStyle.HeaderForm:
+                    if (state == PaletteState.Disabled)
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.FormHeaderLongInactive];
+                    }
                     else
                     {
-        return _ribbonColors[(int)SchemeOfficeColors.InputControlTextNormal];
-    }
+                        return _ribbonColors[(int)SchemeOfficeColors.FormHeaderLongActive];
+                    }
+            }
+
+            if ((state == PaletteState.Disabled) &&
+                (style != PaletteContentStyle.LabelToolTip) &&
+                (style != PaletteContentStyle.LabelSuperTip) &&
+                (style != PaletteContentStyle.LabelKeyTip) &&
+                (style != PaletteContentStyle.InputControlStandalone) &&
+                (style != PaletteContentStyle.InputControlRibbon) &&
+                (style != PaletteContentStyle.InputControlCustom1) &&
+                (style != PaletteContentStyle.ButtonInputControl))
+            {
+                return _disabledText;
+            }
+
+            switch (style)
+            {
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                case PaletteContentStyle.HeaderCalendar:
+                    return _gridTextColor;
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderSecondary:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                    return _ribbonColors[(int)SchemeOfficeColors.HeaderText];
+                case PaletteContentStyle.HeaderDockActive:
+                    return Color.Black;
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                    if (state != PaletteState.Normal)
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.InputControlTextDisabled];
+                    }
+                    else
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.InputControlTextNormal];
+                    }
 
                 case PaletteContentStyle.LabelNormalPanel:
                 case PaletteContentStyle.LabelBoldPanel:
@@ -7545,13 +7551,13 @@ public override Color GetContentLongTextColor1(PaletteContentStyle style, Palett
                 case PaletteContentStyle.ButtonCustom2:
                 case PaletteContentStyle.ButtonCustom3:
                     if (state != PaletteState.Normal)
-    {
-        return _ribbonColors[(int)SchemeOfficeColors.TextButtonChecked];
-    }
-    else
-    {
-        return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
-    }
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.TextButtonChecked];
+                    }
+                    else
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
+                    }
 
                 case PaletteContentStyle.TabDockAutoHidden:
                     return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
@@ -7562,62 +7568,62 @@ public override Color GetContentLongTextColor1(PaletteContentStyle style, Palett
                 case PaletteContentStyle.ButtonButtonSpec:
                 case PaletteContentStyle.ButtonCalendarDay:
                     switch (state)
-    {
-        case PaletteState.Normal:
-            if (style == PaletteContentStyle.ButtonListItem)
-            {
-                return _ribbonColors[(int)SchemeOfficeColors.TextLabelControl];
-            }
-            else
-            {
-                return _ribbonColors[(int)SchemeOfficeColors.TextLabelPanel];
-            }
+                    {
+                        case PaletteState.Normal:
+                            if (style == PaletteContentStyle.ButtonListItem)
+                            {
+                                return _ribbonColors[(int)SchemeOfficeColors.TextLabelControl];
+                            }
+                            else
+                            {
+                                return _ribbonColors[(int)SchemeOfficeColors.TextLabelPanel];
+                            }
 
-        case PaletteState.CheckedNormal:
-        case PaletteState.CheckedTracking:
-        case PaletteState.CheckedPressed:
-            return _ribbonColors[(int)SchemeOfficeColors.TextButtonChecked];
-        default:
-            return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
-    }
+                        case PaletteState.CheckedNormal:
+                        case PaletteState.CheckedTracking:
+                        case PaletteState.CheckedPressed:
+                            return _ribbonColors[(int)SchemeOfficeColors.TextButtonChecked];
+                        default:
+                            return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
+                    }
                 case PaletteContentStyle.ButtonForm:
                 case PaletteContentStyle.ButtonFormClose:
                     switch (state)
-    {
-        case PaletteState.Tracking:
-        case PaletteState.CheckedTracking:
-            return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormTracking];
-        case PaletteState.Pressed:
-        case PaletteState.CheckedPressed:
-            return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormPressed];
-        default:
-            return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormNormal];
-    }
+                    {
+                        case PaletteState.Tracking:
+                        case PaletteState.CheckedTracking:
+                            return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormTracking];
+                        case PaletteState.Pressed:
+                        case PaletteState.CheckedPressed:
+                            return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormPressed];
+                        default:
+                            return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormNormal];
+                    }
                 case PaletteContentStyle.ButtonInputControl:
                     if (state != PaletteState.Disabled)
-    {
-        return _ribbonColors[(int)SchemeOfficeColors.InputDropDownNormal1];
-    }
-    else
-    {
-        return _ribbonColors[(int)SchemeOfficeColors.InputDropDownDisabled1];
-    }
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.InputDropDownNormal1];
+                    }
+                    else
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.InputDropDownDisabled1];
+                    }
 
                 case PaletteContentStyle.ButtonNavigatorMini:
                 case PaletteContentStyle.ButtonNavigatorStack:
                 case PaletteContentStyle.ButtonNavigatorOverflow:
                     if (state != PaletteState.Normal)
-    {
-        return _ribbonColors[(int)SchemeOfficeColors.ButtonNavigatorText];
-    }
-    else
-    {
-        return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
-    }
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.ButtonNavigatorText];
+                    }
+                    else
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
+                    }
 
-    default:
+                default:
                     throw new ArgumentOutOfRangeException(nameof(style));
-}
+            }
         }
 
         /// <summary>
@@ -7627,77 +7633,79 @@ public override Color GetContentLongTextColor1(PaletteContentStyle style, Palett
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color value.</returns>
         public override Color GetContentLongTextColor2(PaletteContentStyle style, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return Color.Empty;
-    }
-
-    switch (style)
-    {
-        case PaletteContentStyle.HeaderForm:
-            if (state == PaletteState.Disabled)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
             {
-                return _ribbonColors[(int)SchemeOfficeColors.FormHeaderLongInactive];
+                return Color.Empty;
             }
-            else
+
+            switch (style)
             {
-                return _ribbonColors[(int)SchemeOfficeColors.FormHeaderLongActive];
-            }
-    }
-
-    if ((state == PaletteState.Disabled) &&
-        (style != PaletteContentStyle.LabelToolTip) &&
-        (style != PaletteContentStyle.LabelSuperTip) &&
-        (style != PaletteContentStyle.LabelKeyTip) &&
-        (style != PaletteContentStyle.InputControlStandalone) &&
-        (style != PaletteContentStyle.InputControlRibbon) &&
-        (style != PaletteContentStyle.InputControlCustom1) &&
-        (style != PaletteContentStyle.ButtonInputControl))
-    {
-        return _disabledText;
-    }
-
-    switch (style)
-    {
-        case PaletteContentStyle.GridHeaderColumnList:
-        case PaletteContentStyle.GridHeaderColumnSheet:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-        case PaletteContentStyle.HeaderCalendar:
-            return _gridTextColor;
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderSecondary:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-            return _ribbonColors[(int)SchemeOfficeColors.HeaderText];
-        case PaletteContentStyle.HeaderDockActive:
-            return Color.Black;
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-            return _ribbonColors[(int)SchemeOfficeColors.InputControlTextDisabled];
-    }
+                case PaletteContentStyle.HeaderForm:
+                    if (state == PaletteState.Disabled)
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.FormHeaderLongInactive];
+                    }
                     else
                     {
-        return _ribbonColors[(int)SchemeOfficeColors.InputControlTextNormal];
-    }
+                        return _ribbonColors[(int)SchemeOfficeColors.FormHeaderLongActive];
+                    }
+            }
+
+            if ((state == PaletteState.Disabled) &&
+                (style != PaletteContentStyle.LabelToolTip) &&
+                (style != PaletteContentStyle.LabelSuperTip) &&
+                (style != PaletteContentStyle.LabelKeyTip) &&
+                (style != PaletteContentStyle.InputControlStandalone) &&
+                (style != PaletteContentStyle.InputControlRibbon) &&
+                (style != PaletteContentStyle.InputControlCustom1) &&
+                (style != PaletteContentStyle.ButtonInputControl))
+            {
+                return _disabledText;
+            }
+
+            switch (style)
+            {
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                case PaletteContentStyle.HeaderCalendar:
+                    return _gridTextColor;
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderSecondary:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                    return _ribbonColors[(int)SchemeOfficeColors.HeaderText];
+                case PaletteContentStyle.HeaderDockActive:
+                    return Color.Black;
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                    if (state != PaletteState.Normal)
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.InputControlTextDisabled];
+                    }
+                    else
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.InputControlTextNormal];
+                    }
 
                 case PaletteContentStyle.LabelNormalPanel:
                 case PaletteContentStyle.LabelBoldPanel:
@@ -7739,13 +7747,13 @@ public override Color GetContentLongTextColor1(PaletteContentStyle style, Palett
                 case PaletteContentStyle.ButtonCustom2:
                 case PaletteContentStyle.ButtonCustom3:
                     if (state != PaletteState.Normal)
-    {
-        return _ribbonColors[(int)SchemeOfficeColors.TextButtonChecked];
-    }
-    else
-    {
-        return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
-    }
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.TextButtonChecked];
+                    }
+                    else
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
+                    }
 
                 case PaletteContentStyle.TabDockAutoHidden:
                     return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
@@ -7756,62 +7764,62 @@ public override Color GetContentLongTextColor1(PaletteContentStyle style, Palett
                 case PaletteContentStyle.ButtonButtonSpec:
                 case PaletteContentStyle.ButtonCalendarDay:
                     switch (state)
-    {
-        case PaletteState.Normal:
-            if (style == PaletteContentStyle.ButtonListItem)
-            {
-                return _ribbonColors[(int)SchemeOfficeColors.TextLabelControl];
-            }
-            else
-            {
-                return _ribbonColors[(int)SchemeOfficeColors.TextLabelPanel];
-            }
+                    {
+                        case PaletteState.Normal:
+                            if (style == PaletteContentStyle.ButtonListItem)
+                            {
+                                return _ribbonColors[(int)SchemeOfficeColors.TextLabelControl];
+                            }
+                            else
+                            {
+                                return _ribbonColors[(int)SchemeOfficeColors.TextLabelPanel];
+                            }
 
-        case PaletteState.CheckedNormal:
-        case PaletteState.CheckedTracking:
-        case PaletteState.CheckedPressed:
-            return _ribbonColors[(int)SchemeOfficeColors.TextButtonChecked];
-        default:
-            return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
-    }
+                        case PaletteState.CheckedNormal:
+                        case PaletteState.CheckedTracking:
+                        case PaletteState.CheckedPressed:
+                            return _ribbonColors[(int)SchemeOfficeColors.TextButtonChecked];
+                        default:
+                            return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
+                    }
                 case PaletteContentStyle.ButtonForm:
                 case PaletteContentStyle.ButtonFormClose:
                     switch (state)
-    {
-        case PaletteState.Tracking:
-        case PaletteState.CheckedTracking:
-            return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormTracking];
-        case PaletteState.Pressed:
-        case PaletteState.CheckedPressed:
-            return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormPressed];
-        default:
-            return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormNormal];
-    }
+                    {
+                        case PaletteState.Tracking:
+                        case PaletteState.CheckedTracking:
+                            return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormTracking];
+                        case PaletteState.Pressed:
+                        case PaletteState.CheckedPressed:
+                            return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormPressed];
+                        default:
+                            return _ribbonColors[(int)SchemeOfficeColors.TextButtonFormNormal];
+                    }
                 case PaletteContentStyle.ButtonInputControl:
                     if (state != PaletteState.Disabled)
-    {
-        return _ribbonColors[(int)SchemeOfficeColors.InputDropDownNormal2];
-    }
-    else
-    {
-        return _ribbonColors[(int)SchemeOfficeColors.InputDropDownDisabled2];
-    }
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.InputDropDownNormal2];
+                    }
+                    else
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.InputDropDownDisabled2];
+                    }
 
                 case PaletteContentStyle.ButtonNavigatorMini:
                 case PaletteContentStyle.ButtonNavigatorStack:
                 case PaletteContentStyle.ButtonNavigatorOverflow:
                     if (state != PaletteState.Normal)
-    {
-        return _ribbonColors[(int)SchemeOfficeColors.ButtonNavigatorText];
-    }
-    else
-    {
-        return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
-    }
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.ButtonNavigatorText];
+                    }
+                    else
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.TextButtonNormal];
+                    }
 
-    default:
+                default:
                     throw new ArgumentOutOfRangeException(nameof(style));
-}
+            }
         }
 
         /// <summary>
@@ -7821,2818 +7829,2818 @@ public override Color GetContentLongTextColor1(PaletteContentStyle style, Palett
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Color drawing style.</returns>
         public override PaletteColorStyle GetContentLongTextColorStyle(PaletteContentStyle style, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return PaletteColorStyle.Inherit;
-    }
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return PaletteColorStyle.Inherit;
+            }
 
-    switch (style)
-    {
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderDockActive:
-        case PaletteContentStyle.HeaderCalendar:
-        case PaletteContentStyle.HeaderSecondary:
-        case PaletteContentStyle.HeaderForm:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-        case PaletteContentStyle.LabelNormalControl:
-        case PaletteContentStyle.LabelBoldControl:
-        case PaletteContentStyle.LabelItalicControl:
-        case PaletteContentStyle.LabelTitleControl:
-        case PaletteContentStyle.LabelNormalPanel:
-        case PaletteContentStyle.LabelBoldPanel:
-        case PaletteContentStyle.LabelItalicPanel:
-        case PaletteContentStyle.LabelTitlePanel:
-        case PaletteContentStyle.LabelGroupBoxCaption:
-        case PaletteContentStyle.LabelToolTip:
-        case PaletteContentStyle.LabelSuperTip:
-        case PaletteContentStyle.LabelKeyTip:
-        case PaletteContentStyle.LabelCustom1:
-        case PaletteContentStyle.LabelCustom2:
-        case PaletteContentStyle.LabelCustom3:
-        case PaletteContentStyle.ContextMenuHeading:
-        case PaletteContentStyle.ContextMenuItemImage:
-        case PaletteContentStyle.ContextMenuItemTextStandard:
-        case PaletteContentStyle.ContextMenuItemTextAlternate:
-        case PaletteContentStyle.ContextMenuItemShortcutText:
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-        case PaletteContentStyle.TabLowProfile:
-        case PaletteContentStyle.TabOneNote:
-        case PaletteContentStyle.TabDock:
-        case PaletteContentStyle.TabDockAutoHidden:
-        case PaletteContentStyle.TabCustom1:
-        case PaletteContentStyle.TabCustom2:
-        case PaletteContentStyle.TabCustom3:
-        case PaletteContentStyle.ButtonStandalone:
-        case PaletteContentStyle.ButtonGallery:
-        case PaletteContentStyle.ButtonAlternate:
-        case PaletteContentStyle.ButtonLowProfile:
-        case PaletteContentStyle.ButtonBreadCrumb:
-        case PaletteContentStyle.ButtonListItem:
-        case PaletteContentStyle.ButtonCommand:
-        case PaletteContentStyle.ButtonButtonSpec:
-        case PaletteContentStyle.ButtonCalendarDay:
-        case PaletteContentStyle.ButtonCluster:
-        case PaletteContentStyle.ButtonNavigatorMini:
-        case PaletteContentStyle.ButtonNavigatorStack:
-        case PaletteContentStyle.ButtonNavigatorOverflow:
-        case PaletteContentStyle.ButtonForm:
-        case PaletteContentStyle.ButtonFormClose:
-        case PaletteContentStyle.ButtonCustom1:
-        case PaletteContentStyle.ButtonCustom2:
-        case PaletteContentStyle.ButtonCustom3:
-        case PaletteContentStyle.ButtonInputControl:
-        case PaletteContentStyle.GridHeaderColumnList:
-        case PaletteContentStyle.GridHeaderColumnSheet:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-            return PaletteColorStyle.Solid;
-        default:
-            throw new ArgumentOutOfRangeException(nameof(style));
-    }
-}
+            switch (style)
+            {
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderDockActive:
+                case PaletteContentStyle.HeaderCalendar:
+                case PaletteContentStyle.HeaderSecondary:
+                case PaletteContentStyle.HeaderForm:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                case PaletteContentStyle.LabelNormalControl:
+                case PaletteContentStyle.LabelBoldControl:
+                case PaletteContentStyle.LabelItalicControl:
+                case PaletteContentStyle.LabelTitleControl:
+                case PaletteContentStyle.LabelNormalPanel:
+                case PaletteContentStyle.LabelBoldPanel:
+                case PaletteContentStyle.LabelItalicPanel:
+                case PaletteContentStyle.LabelTitlePanel:
+                case PaletteContentStyle.LabelGroupBoxCaption:
+                case PaletteContentStyle.LabelToolTip:
+                case PaletteContentStyle.LabelSuperTip:
+                case PaletteContentStyle.LabelKeyTip:
+                case PaletteContentStyle.LabelCustom1:
+                case PaletteContentStyle.LabelCustom2:
+                case PaletteContentStyle.LabelCustom3:
+                case PaletteContentStyle.ContextMenuHeading:
+                case PaletteContentStyle.ContextMenuItemImage:
+                case PaletteContentStyle.ContextMenuItemTextStandard:
+                case PaletteContentStyle.ContextMenuItemTextAlternate:
+                case PaletteContentStyle.ContextMenuItemShortcutText:
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                case PaletteContentStyle.TabLowProfile:
+                case PaletteContentStyle.TabOneNote:
+                case PaletteContentStyle.TabDock:
+                case PaletteContentStyle.TabDockAutoHidden:
+                case PaletteContentStyle.TabCustom1:
+                case PaletteContentStyle.TabCustom2:
+                case PaletteContentStyle.TabCustom3:
+                case PaletteContentStyle.ButtonStandalone:
+                case PaletteContentStyle.ButtonGallery:
+                case PaletteContentStyle.ButtonAlternate:
+                case PaletteContentStyle.ButtonLowProfile:
+                case PaletteContentStyle.ButtonBreadCrumb:
+                case PaletteContentStyle.ButtonListItem:
+                case PaletteContentStyle.ButtonCommand:
+                case PaletteContentStyle.ButtonButtonSpec:
+                case PaletteContentStyle.ButtonCalendarDay:
+                case PaletteContentStyle.ButtonCluster:
+                case PaletteContentStyle.ButtonNavigatorMini:
+                case PaletteContentStyle.ButtonNavigatorStack:
+                case PaletteContentStyle.ButtonNavigatorOverflow:
+                case PaletteContentStyle.ButtonForm:
+                case PaletteContentStyle.ButtonFormClose:
+                case PaletteContentStyle.ButtonCustom1:
+                case PaletteContentStyle.ButtonCustom2:
+                case PaletteContentStyle.ButtonCustom3:
+                case PaletteContentStyle.ButtonInputControl:
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                    return PaletteColorStyle.Solid;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-/// <summary>
-/// Gets the color alignment for the long text.
-/// </summary>
-/// <param name="style">Content style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color alignment style.</returns>
-public override PaletteRectangleAlign GetContentLongTextColorAlign(PaletteContentStyle style, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return PaletteRectangleAlign.Inherit;
-    }
+        /// <summary>
+        /// Gets the color alignment for the long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color alignment style.</returns>
+        public override PaletteRectangleAlign GetContentLongTextColorAlign(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return PaletteRectangleAlign.Inherit;
+            }
 
-    switch (style)
-    {
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderDockActive:
-        case PaletteContentStyle.HeaderCalendar:
-        case PaletteContentStyle.HeaderSecondary:
-        case PaletteContentStyle.HeaderForm:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-        case PaletteContentStyle.LabelNormalControl:
-        case PaletteContentStyle.LabelBoldControl:
-        case PaletteContentStyle.LabelItalicControl:
-        case PaletteContentStyle.LabelTitleControl:
-        case PaletteContentStyle.LabelNormalPanel:
-        case PaletteContentStyle.LabelBoldPanel:
-        case PaletteContentStyle.LabelItalicPanel:
-        case PaletteContentStyle.LabelTitlePanel:
-        case PaletteContentStyle.LabelGroupBoxCaption:
-        case PaletteContentStyle.LabelToolTip:
-        case PaletteContentStyle.LabelSuperTip:
-        case PaletteContentStyle.LabelKeyTip:
-        case PaletteContentStyle.LabelCustom1:
-        case PaletteContentStyle.LabelCustom2:
-        case PaletteContentStyle.LabelCustom3:
-        case PaletteContentStyle.ContextMenuHeading:
-        case PaletteContentStyle.ContextMenuItemImage:
-        case PaletteContentStyle.ContextMenuItemTextStandard:
-        case PaletteContentStyle.ContextMenuItemTextAlternate:
-        case PaletteContentStyle.ContextMenuItemShortcutText:
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-        case PaletteContentStyle.TabLowProfile:
-        case PaletteContentStyle.TabOneNote:
-        case PaletteContentStyle.TabDock:
-        case PaletteContentStyle.TabDockAutoHidden:
-        case PaletteContentStyle.TabCustom1:
-        case PaletteContentStyle.TabCustom2:
-        case PaletteContentStyle.TabCustom3:
-        case PaletteContentStyle.ButtonStandalone:
-        case PaletteContentStyle.ButtonGallery:
-        case PaletteContentStyle.ButtonAlternate:
-        case PaletteContentStyle.ButtonLowProfile:
-        case PaletteContentStyle.ButtonBreadCrumb:
-        case PaletteContentStyle.ButtonListItem:
-        case PaletteContentStyle.ButtonCommand:
-        case PaletteContentStyle.ButtonButtonSpec:
-        case PaletteContentStyle.ButtonCalendarDay:
-        case PaletteContentStyle.ButtonCluster:
-        case PaletteContentStyle.ButtonNavigatorMini:
-        case PaletteContentStyle.ButtonNavigatorStack:
-        case PaletteContentStyle.ButtonNavigatorOverflow:
-        case PaletteContentStyle.ButtonForm:
-        case PaletteContentStyle.ButtonFormClose:
-        case PaletteContentStyle.ButtonCustom1:
-        case PaletteContentStyle.ButtonCustom2:
-        case PaletteContentStyle.ButtonCustom3:
-        case PaletteContentStyle.ButtonInputControl:
-        case PaletteContentStyle.GridHeaderColumnList:
-        case PaletteContentStyle.GridHeaderColumnSheet:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-            return PaletteRectangleAlign.Local;
-        default:
-            throw new ArgumentOutOfRangeException(nameof(style));
-    }
-}
+            switch (style)
+            {
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderDockActive:
+                case PaletteContentStyle.HeaderCalendar:
+                case PaletteContentStyle.HeaderSecondary:
+                case PaletteContentStyle.HeaderForm:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                case PaletteContentStyle.LabelNormalControl:
+                case PaletteContentStyle.LabelBoldControl:
+                case PaletteContentStyle.LabelItalicControl:
+                case PaletteContentStyle.LabelTitleControl:
+                case PaletteContentStyle.LabelNormalPanel:
+                case PaletteContentStyle.LabelBoldPanel:
+                case PaletteContentStyle.LabelItalicPanel:
+                case PaletteContentStyle.LabelTitlePanel:
+                case PaletteContentStyle.LabelGroupBoxCaption:
+                case PaletteContentStyle.LabelToolTip:
+                case PaletteContentStyle.LabelSuperTip:
+                case PaletteContentStyle.LabelKeyTip:
+                case PaletteContentStyle.LabelCustom1:
+                case PaletteContentStyle.LabelCustom2:
+                case PaletteContentStyle.LabelCustom3:
+                case PaletteContentStyle.ContextMenuHeading:
+                case PaletteContentStyle.ContextMenuItemImage:
+                case PaletteContentStyle.ContextMenuItemTextStandard:
+                case PaletteContentStyle.ContextMenuItemTextAlternate:
+                case PaletteContentStyle.ContextMenuItemShortcutText:
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                case PaletteContentStyle.TabLowProfile:
+                case PaletteContentStyle.TabOneNote:
+                case PaletteContentStyle.TabDock:
+                case PaletteContentStyle.TabDockAutoHidden:
+                case PaletteContentStyle.TabCustom1:
+                case PaletteContentStyle.TabCustom2:
+                case PaletteContentStyle.TabCustom3:
+                case PaletteContentStyle.ButtonStandalone:
+                case PaletteContentStyle.ButtonGallery:
+                case PaletteContentStyle.ButtonAlternate:
+                case PaletteContentStyle.ButtonLowProfile:
+                case PaletteContentStyle.ButtonBreadCrumb:
+                case PaletteContentStyle.ButtonListItem:
+                case PaletteContentStyle.ButtonCommand:
+                case PaletteContentStyle.ButtonButtonSpec:
+                case PaletteContentStyle.ButtonCalendarDay:
+                case PaletteContentStyle.ButtonCluster:
+                case PaletteContentStyle.ButtonNavigatorMini:
+                case PaletteContentStyle.ButtonNavigatorStack:
+                case PaletteContentStyle.ButtonNavigatorOverflow:
+                case PaletteContentStyle.ButtonForm:
+                case PaletteContentStyle.ButtonFormClose:
+                case PaletteContentStyle.ButtonCustom1:
+                case PaletteContentStyle.ButtonCustom2:
+                case PaletteContentStyle.ButtonCustom3:
+                case PaletteContentStyle.ButtonInputControl:
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                    return PaletteRectangleAlign.Local;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-/// <summary>
-/// Gets the color background angle for the long text.
-/// </summary>
-/// <param name="style">Content style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Angle used for color drawing.</returns>
-public override float GetContentLongTextColorAngle(PaletteContentStyle style, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return -1f;
-    }
+        /// <summary>
+        /// Gets the color background angle for the long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Angle used for color drawing.</returns>
+        public override float GetContentLongTextColorAngle(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return -1f;
+            }
 
-    switch (style)
-    {
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderDockActive:
-        case PaletteContentStyle.HeaderCalendar:
-        case PaletteContentStyle.HeaderSecondary:
-        case PaletteContentStyle.HeaderForm:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-        case PaletteContentStyle.LabelNormalControl:
-        case PaletteContentStyle.LabelBoldControl:
-        case PaletteContentStyle.LabelItalicControl:
-        case PaletteContentStyle.LabelTitleControl:
-        case PaletteContentStyle.LabelNormalPanel:
-        case PaletteContentStyle.LabelBoldPanel:
-        case PaletteContentStyle.LabelItalicPanel:
-        case PaletteContentStyle.LabelTitlePanel:
-        case PaletteContentStyle.LabelGroupBoxCaption:
-        case PaletteContentStyle.LabelToolTip:
-        case PaletteContentStyle.LabelSuperTip:
-        case PaletteContentStyle.LabelKeyTip:
-        case PaletteContentStyle.LabelCustom1:
-        case PaletteContentStyle.LabelCustom2:
-        case PaletteContentStyle.LabelCustom3:
-        case PaletteContentStyle.ContextMenuHeading:
-        case PaletteContentStyle.ContextMenuItemImage:
-        case PaletteContentStyle.ContextMenuItemTextStandard:
-        case PaletteContentStyle.ContextMenuItemTextAlternate:
-        case PaletteContentStyle.ContextMenuItemShortcutText:
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-        case PaletteContentStyle.TabLowProfile:
-        case PaletteContentStyle.TabOneNote:
-        case PaletteContentStyle.TabDock:
-        case PaletteContentStyle.TabDockAutoHidden:
-        case PaletteContentStyle.TabCustom1:
-        case PaletteContentStyle.TabCustom2:
-        case PaletteContentStyle.TabCustom3:
-        case PaletteContentStyle.ButtonStandalone:
-        case PaletteContentStyle.ButtonGallery:
-        case PaletteContentStyle.ButtonAlternate:
-        case PaletteContentStyle.ButtonLowProfile:
-        case PaletteContentStyle.ButtonBreadCrumb:
-        case PaletteContentStyle.ButtonListItem:
-        case PaletteContentStyle.ButtonCommand:
-        case PaletteContentStyle.ButtonButtonSpec:
-        case PaletteContentStyle.ButtonCalendarDay:
-        case PaletteContentStyle.ButtonCluster:
-        case PaletteContentStyle.ButtonNavigatorMini:
-        case PaletteContentStyle.ButtonNavigatorStack:
-        case PaletteContentStyle.ButtonNavigatorOverflow:
-        case PaletteContentStyle.ButtonForm:
-        case PaletteContentStyle.ButtonFormClose:
-        case PaletteContentStyle.ButtonCustom1:
-        case PaletteContentStyle.ButtonCustom2:
-        case PaletteContentStyle.ButtonCustom3:
-        case PaletteContentStyle.ButtonInputControl:
-        case PaletteContentStyle.GridHeaderColumnList:
-        case PaletteContentStyle.GridHeaderColumnSheet:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-            return 90f;
-        default:
-            throw new ArgumentOutOfRangeException(nameof(style));
-    }
-}
+            switch (style)
+            {
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderDockActive:
+                case PaletteContentStyle.HeaderCalendar:
+                case PaletteContentStyle.HeaderSecondary:
+                case PaletteContentStyle.HeaderForm:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                case PaletteContentStyle.LabelNormalControl:
+                case PaletteContentStyle.LabelBoldControl:
+                case PaletteContentStyle.LabelItalicControl:
+                case PaletteContentStyle.LabelTitleControl:
+                case PaletteContentStyle.LabelNormalPanel:
+                case PaletteContentStyle.LabelBoldPanel:
+                case PaletteContentStyle.LabelItalicPanel:
+                case PaletteContentStyle.LabelTitlePanel:
+                case PaletteContentStyle.LabelGroupBoxCaption:
+                case PaletteContentStyle.LabelToolTip:
+                case PaletteContentStyle.LabelSuperTip:
+                case PaletteContentStyle.LabelKeyTip:
+                case PaletteContentStyle.LabelCustom1:
+                case PaletteContentStyle.LabelCustom2:
+                case PaletteContentStyle.LabelCustom3:
+                case PaletteContentStyle.ContextMenuHeading:
+                case PaletteContentStyle.ContextMenuItemImage:
+                case PaletteContentStyle.ContextMenuItemTextStandard:
+                case PaletteContentStyle.ContextMenuItemTextAlternate:
+                case PaletteContentStyle.ContextMenuItemShortcutText:
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                case PaletteContentStyle.TabLowProfile:
+                case PaletteContentStyle.TabOneNote:
+                case PaletteContentStyle.TabDock:
+                case PaletteContentStyle.TabDockAutoHidden:
+                case PaletteContentStyle.TabCustom1:
+                case PaletteContentStyle.TabCustom2:
+                case PaletteContentStyle.TabCustom3:
+                case PaletteContentStyle.ButtonStandalone:
+                case PaletteContentStyle.ButtonGallery:
+                case PaletteContentStyle.ButtonAlternate:
+                case PaletteContentStyle.ButtonLowProfile:
+                case PaletteContentStyle.ButtonBreadCrumb:
+                case PaletteContentStyle.ButtonListItem:
+                case PaletteContentStyle.ButtonCommand:
+                case PaletteContentStyle.ButtonButtonSpec:
+                case PaletteContentStyle.ButtonCalendarDay:
+                case PaletteContentStyle.ButtonCluster:
+                case PaletteContentStyle.ButtonNavigatorMini:
+                case PaletteContentStyle.ButtonNavigatorStack:
+                case PaletteContentStyle.ButtonNavigatorOverflow:
+                case PaletteContentStyle.ButtonForm:
+                case PaletteContentStyle.ButtonFormClose:
+                case PaletteContentStyle.ButtonCustom1:
+                case PaletteContentStyle.ButtonCustom2:
+                case PaletteContentStyle.ButtonCustom3:
+                case PaletteContentStyle.ButtonInputControl:
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                    return 90f;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-/// <summary>
-/// Gets a background image for the long text.
-/// </summary>
-/// <param name="style">Content style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Image instance.</returns>
-public override Image GetContentLongTextImage(PaletteContentStyle style, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return null;
-    }
+        /// <summary>
+        /// Gets a background image for the long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image instance.</returns>
+        public override Image GetContentLongTextImage(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return null;
+            }
 
-    switch (style)
-    {
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderDockActive:
-        case PaletteContentStyle.HeaderCalendar:
-        case PaletteContentStyle.HeaderSecondary:
-        case PaletteContentStyle.HeaderForm:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-        case PaletteContentStyle.LabelNormalControl:
-        case PaletteContentStyle.LabelBoldControl:
-        case PaletteContentStyle.LabelItalicControl:
-        case PaletteContentStyle.LabelTitleControl:
-        case PaletteContentStyle.LabelNormalPanel:
-        case PaletteContentStyle.LabelBoldPanel:
-        case PaletteContentStyle.LabelItalicPanel:
-        case PaletteContentStyle.LabelTitlePanel:
-        case PaletteContentStyle.LabelGroupBoxCaption:
-        case PaletteContentStyle.LabelToolTip:
-        case PaletteContentStyle.LabelSuperTip:
-        case PaletteContentStyle.LabelKeyTip:
-        case PaletteContentStyle.LabelCustom1:
-        case PaletteContentStyle.LabelCustom2:
-        case PaletteContentStyle.LabelCustom3:
-        case PaletteContentStyle.ContextMenuHeading:
-        case PaletteContentStyle.ContextMenuItemImage:
-        case PaletteContentStyle.ContextMenuItemTextStandard:
-        case PaletteContentStyle.ContextMenuItemTextAlternate:
-        case PaletteContentStyle.ContextMenuItemShortcutText:
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-        case PaletteContentStyle.TabLowProfile:
-        case PaletteContentStyle.TabOneNote:
-        case PaletteContentStyle.TabDock:
-        case PaletteContentStyle.TabDockAutoHidden:
-        case PaletteContentStyle.TabCustom1:
-        case PaletteContentStyle.TabCustom2:
-        case PaletteContentStyle.TabCustom3:
-        case PaletteContentStyle.ButtonStandalone:
-        case PaletteContentStyle.ButtonGallery:
-        case PaletteContentStyle.ButtonAlternate:
-        case PaletteContentStyle.ButtonLowProfile:
-        case PaletteContentStyle.ButtonBreadCrumb:
-        case PaletteContentStyle.ButtonListItem:
-        case PaletteContentStyle.ButtonCommand:
-        case PaletteContentStyle.ButtonButtonSpec:
-        case PaletteContentStyle.ButtonCalendarDay:
-        case PaletteContentStyle.ButtonCluster:
-        case PaletteContentStyle.ButtonNavigatorMini:
-        case PaletteContentStyle.ButtonNavigatorStack:
-        case PaletteContentStyle.ButtonNavigatorOverflow:
-        case PaletteContentStyle.ButtonForm:
-        case PaletteContentStyle.ButtonFormClose:
-        case PaletteContentStyle.ButtonCustom1:
-        case PaletteContentStyle.ButtonCustom2:
-        case PaletteContentStyle.ButtonCustom3:
-        case PaletteContentStyle.ButtonInputControl:
-        case PaletteContentStyle.GridHeaderColumnList:
-        case PaletteContentStyle.GridHeaderColumnSheet:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-            return null;
-        default:
-            throw new ArgumentOutOfRangeException(nameof(style));
-    }
-}
+            switch (style)
+            {
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderDockActive:
+                case PaletteContentStyle.HeaderCalendar:
+                case PaletteContentStyle.HeaderSecondary:
+                case PaletteContentStyle.HeaderForm:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                case PaletteContentStyle.LabelNormalControl:
+                case PaletteContentStyle.LabelBoldControl:
+                case PaletteContentStyle.LabelItalicControl:
+                case PaletteContentStyle.LabelTitleControl:
+                case PaletteContentStyle.LabelNormalPanel:
+                case PaletteContentStyle.LabelBoldPanel:
+                case PaletteContentStyle.LabelItalicPanel:
+                case PaletteContentStyle.LabelTitlePanel:
+                case PaletteContentStyle.LabelGroupBoxCaption:
+                case PaletteContentStyle.LabelToolTip:
+                case PaletteContentStyle.LabelSuperTip:
+                case PaletteContentStyle.LabelKeyTip:
+                case PaletteContentStyle.LabelCustom1:
+                case PaletteContentStyle.LabelCustom2:
+                case PaletteContentStyle.LabelCustom3:
+                case PaletteContentStyle.ContextMenuHeading:
+                case PaletteContentStyle.ContextMenuItemImage:
+                case PaletteContentStyle.ContextMenuItemTextStandard:
+                case PaletteContentStyle.ContextMenuItemTextAlternate:
+                case PaletteContentStyle.ContextMenuItemShortcutText:
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                case PaletteContentStyle.TabLowProfile:
+                case PaletteContentStyle.TabOneNote:
+                case PaletteContentStyle.TabDock:
+                case PaletteContentStyle.TabDockAutoHidden:
+                case PaletteContentStyle.TabCustom1:
+                case PaletteContentStyle.TabCustom2:
+                case PaletteContentStyle.TabCustom3:
+                case PaletteContentStyle.ButtonStandalone:
+                case PaletteContentStyle.ButtonGallery:
+                case PaletteContentStyle.ButtonAlternate:
+                case PaletteContentStyle.ButtonLowProfile:
+                case PaletteContentStyle.ButtonBreadCrumb:
+                case PaletteContentStyle.ButtonListItem:
+                case PaletteContentStyle.ButtonCommand:
+                case PaletteContentStyle.ButtonButtonSpec:
+                case PaletteContentStyle.ButtonCalendarDay:
+                case PaletteContentStyle.ButtonCluster:
+                case PaletteContentStyle.ButtonNavigatorMini:
+                case PaletteContentStyle.ButtonNavigatorStack:
+                case PaletteContentStyle.ButtonNavigatorOverflow:
+                case PaletteContentStyle.ButtonForm:
+                case PaletteContentStyle.ButtonFormClose:
+                case PaletteContentStyle.ButtonCustom1:
+                case PaletteContentStyle.ButtonCustom2:
+                case PaletteContentStyle.ButtonCustom3:
+                case PaletteContentStyle.ButtonInputControl:
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                    return null;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-/// <summary>
-/// Gets the background image style for the long text.
-/// </summary>
-/// <param name="style">Content style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Image style value.</returns>
-public override PaletteImageStyle GetContentLongTextImageStyle(PaletteContentStyle style, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return PaletteImageStyle.Inherit;
-    }
+        /// <summary>
+        /// Gets the background image style for the long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image style value.</returns>
+        public override PaletteImageStyle GetContentLongTextImageStyle(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return PaletteImageStyle.Inherit;
+            }
 
-    switch (style)
-    {
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderDockActive:
-        case PaletteContentStyle.HeaderCalendar:
-        case PaletteContentStyle.HeaderSecondary:
-        case PaletteContentStyle.HeaderForm:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-        case PaletteContentStyle.LabelNormalControl:
-        case PaletteContentStyle.LabelBoldControl:
-        case PaletteContentStyle.LabelItalicControl:
-        case PaletteContentStyle.LabelTitleControl:
-        case PaletteContentStyle.LabelNormalPanel:
-        case PaletteContentStyle.LabelBoldPanel:
-        case PaletteContentStyle.LabelItalicPanel:
-        case PaletteContentStyle.LabelTitlePanel:
-        case PaletteContentStyle.LabelGroupBoxCaption:
-        case PaletteContentStyle.LabelToolTip:
-        case PaletteContentStyle.LabelSuperTip:
-        case PaletteContentStyle.LabelKeyTip:
-        case PaletteContentStyle.LabelCustom1:
-        case PaletteContentStyle.LabelCustom2:
-        case PaletteContentStyle.LabelCustom3:
-        case PaletteContentStyle.ContextMenuHeading:
-        case PaletteContentStyle.ContextMenuItemImage:
-        case PaletteContentStyle.ContextMenuItemTextStandard:
-        case PaletteContentStyle.ContextMenuItemTextAlternate:
-        case PaletteContentStyle.ContextMenuItemShortcutText:
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-        case PaletteContentStyle.TabLowProfile:
-        case PaletteContentStyle.TabOneNote:
-        case PaletteContentStyle.TabDock:
-        case PaletteContentStyle.TabDockAutoHidden:
-        case PaletteContentStyle.TabCustom1:
-        case PaletteContentStyle.TabCustom2:
-        case PaletteContentStyle.TabCustom3:
-        case PaletteContentStyle.ButtonStandalone:
-        case PaletteContentStyle.ButtonGallery:
-        case PaletteContentStyle.ButtonAlternate:
-        case PaletteContentStyle.ButtonLowProfile:
-        case PaletteContentStyle.ButtonBreadCrumb:
-        case PaletteContentStyle.ButtonListItem:
-        case PaletteContentStyle.ButtonCommand:
-        case PaletteContentStyle.ButtonButtonSpec:
-        case PaletteContentStyle.ButtonCalendarDay:
-        case PaletteContentStyle.ButtonCluster:
-        case PaletteContentStyle.ButtonNavigatorMini:
-        case PaletteContentStyle.ButtonNavigatorStack:
-        case PaletteContentStyle.ButtonNavigatorOverflow:
-        case PaletteContentStyle.ButtonForm:
-        case PaletteContentStyle.ButtonFormClose:
-        case PaletteContentStyle.ButtonCustom1:
-        case PaletteContentStyle.ButtonCustom2:
-        case PaletteContentStyle.ButtonCustom3:
-        case PaletteContentStyle.ButtonInputControl:
-        case PaletteContentStyle.GridHeaderColumnList:
-        case PaletteContentStyle.GridHeaderColumnSheet:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-            return PaletteImageStyle.TileFlipXY;
-        default:
-            throw new ArgumentOutOfRangeException(nameof(style));
-    }
-}
+            switch (style)
+            {
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderDockActive:
+                case PaletteContentStyle.HeaderCalendar:
+                case PaletteContentStyle.HeaderSecondary:
+                case PaletteContentStyle.HeaderForm:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                case PaletteContentStyle.LabelNormalControl:
+                case PaletteContentStyle.LabelBoldControl:
+                case PaletteContentStyle.LabelItalicControl:
+                case PaletteContentStyle.LabelTitleControl:
+                case PaletteContentStyle.LabelNormalPanel:
+                case PaletteContentStyle.LabelBoldPanel:
+                case PaletteContentStyle.LabelItalicPanel:
+                case PaletteContentStyle.LabelTitlePanel:
+                case PaletteContentStyle.LabelGroupBoxCaption:
+                case PaletteContentStyle.LabelToolTip:
+                case PaletteContentStyle.LabelSuperTip:
+                case PaletteContentStyle.LabelKeyTip:
+                case PaletteContentStyle.LabelCustom1:
+                case PaletteContentStyle.LabelCustom2:
+                case PaletteContentStyle.LabelCustom3:
+                case PaletteContentStyle.ContextMenuHeading:
+                case PaletteContentStyle.ContextMenuItemImage:
+                case PaletteContentStyle.ContextMenuItemTextStandard:
+                case PaletteContentStyle.ContextMenuItemTextAlternate:
+                case PaletteContentStyle.ContextMenuItemShortcutText:
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                case PaletteContentStyle.TabLowProfile:
+                case PaletteContentStyle.TabOneNote:
+                case PaletteContentStyle.TabDock:
+                case PaletteContentStyle.TabDockAutoHidden:
+                case PaletteContentStyle.TabCustom1:
+                case PaletteContentStyle.TabCustom2:
+                case PaletteContentStyle.TabCustom3:
+                case PaletteContentStyle.ButtonStandalone:
+                case PaletteContentStyle.ButtonGallery:
+                case PaletteContentStyle.ButtonAlternate:
+                case PaletteContentStyle.ButtonLowProfile:
+                case PaletteContentStyle.ButtonBreadCrumb:
+                case PaletteContentStyle.ButtonListItem:
+                case PaletteContentStyle.ButtonCommand:
+                case PaletteContentStyle.ButtonButtonSpec:
+                case PaletteContentStyle.ButtonCalendarDay:
+                case PaletteContentStyle.ButtonCluster:
+                case PaletteContentStyle.ButtonNavigatorMini:
+                case PaletteContentStyle.ButtonNavigatorStack:
+                case PaletteContentStyle.ButtonNavigatorOverflow:
+                case PaletteContentStyle.ButtonForm:
+                case PaletteContentStyle.ButtonFormClose:
+                case PaletteContentStyle.ButtonCustom1:
+                case PaletteContentStyle.ButtonCustom2:
+                case PaletteContentStyle.ButtonCustom3:
+                case PaletteContentStyle.ButtonInputControl:
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                    return PaletteImageStyle.TileFlipXY;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-/// <summary>
-/// Gets the image alignment for the long text.
-/// </summary>
-/// <param name="style">Content style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Image alignment style.</returns>
-public override PaletteRectangleAlign GetContentLongTextImageAlign(PaletteContentStyle style, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return PaletteRectangleAlign.Inherit;
-    }
+        /// <summary>
+        /// Gets the image alignment for the long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image alignment style.</returns>
+        public override PaletteRectangleAlign GetContentLongTextImageAlign(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return PaletteRectangleAlign.Inherit;
+            }
 
-    switch (style)
-    {
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderDockActive:
-        case PaletteContentStyle.HeaderCalendar:
-        case PaletteContentStyle.HeaderSecondary:
-        case PaletteContentStyle.HeaderForm:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-        case PaletteContentStyle.LabelNormalControl:
-        case PaletteContentStyle.LabelBoldControl:
-        case PaletteContentStyle.LabelItalicControl:
-        case PaletteContentStyle.LabelTitleControl:
-        case PaletteContentStyle.LabelNormalPanel:
-        case PaletteContentStyle.LabelBoldPanel:
-        case PaletteContentStyle.LabelItalicPanel:
-        case PaletteContentStyle.LabelTitlePanel:
-        case PaletteContentStyle.LabelGroupBoxCaption:
-        case PaletteContentStyle.LabelToolTip:
-        case PaletteContentStyle.LabelSuperTip:
-        case PaletteContentStyle.LabelKeyTip:
-        case PaletteContentStyle.LabelCustom1:
-        case PaletteContentStyle.LabelCustom2:
-        case PaletteContentStyle.LabelCustom3:
-        case PaletteContentStyle.ContextMenuHeading:
-        case PaletteContentStyle.ContextMenuItemImage:
-        case PaletteContentStyle.ContextMenuItemTextStandard:
-        case PaletteContentStyle.ContextMenuItemTextAlternate:
-        case PaletteContentStyle.ContextMenuItemShortcutText:
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-        case PaletteContentStyle.TabLowProfile:
-        case PaletteContentStyle.TabOneNote:
-        case PaletteContentStyle.TabDock:
-        case PaletteContentStyle.TabDockAutoHidden:
-        case PaletteContentStyle.TabCustom1:
-        case PaletteContentStyle.TabCustom2:
-        case PaletteContentStyle.TabCustom3:
-        case PaletteContentStyle.ButtonStandalone:
-        case PaletteContentStyle.ButtonGallery:
-        case PaletteContentStyle.ButtonAlternate:
-        case PaletteContentStyle.ButtonLowProfile:
-        case PaletteContentStyle.ButtonBreadCrumb:
-        case PaletteContentStyle.ButtonListItem:
-        case PaletteContentStyle.ButtonCommand:
-        case PaletteContentStyle.ButtonButtonSpec:
-        case PaletteContentStyle.ButtonCalendarDay:
-        case PaletteContentStyle.ButtonCluster:
-        case PaletteContentStyle.ButtonNavigatorMini:
-        case PaletteContentStyle.ButtonNavigatorStack:
-        case PaletteContentStyle.ButtonNavigatorOverflow:
-        case PaletteContentStyle.ButtonForm:
-        case PaletteContentStyle.ButtonFormClose:
-        case PaletteContentStyle.ButtonCustom1:
-        case PaletteContentStyle.ButtonCustom2:
-        case PaletteContentStyle.ButtonCustom3:
-        case PaletteContentStyle.ButtonInputControl:
-        case PaletteContentStyle.GridHeaderColumnList:
-        case PaletteContentStyle.GridHeaderColumnSheet:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-            return PaletteRectangleAlign.Local;
-        default:
-            throw new ArgumentOutOfRangeException(nameof(style));
-    }
-}
+            switch (style)
+            {
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderDockActive:
+                case PaletteContentStyle.HeaderCalendar:
+                case PaletteContentStyle.HeaderSecondary:
+                case PaletteContentStyle.HeaderForm:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                case PaletteContentStyle.LabelNormalControl:
+                case PaletteContentStyle.LabelBoldControl:
+                case PaletteContentStyle.LabelItalicControl:
+                case PaletteContentStyle.LabelTitleControl:
+                case PaletteContentStyle.LabelNormalPanel:
+                case PaletteContentStyle.LabelBoldPanel:
+                case PaletteContentStyle.LabelItalicPanel:
+                case PaletteContentStyle.LabelTitlePanel:
+                case PaletteContentStyle.LabelGroupBoxCaption:
+                case PaletteContentStyle.LabelToolTip:
+                case PaletteContentStyle.LabelSuperTip:
+                case PaletteContentStyle.LabelKeyTip:
+                case PaletteContentStyle.LabelCustom1:
+                case PaletteContentStyle.LabelCustom2:
+                case PaletteContentStyle.LabelCustom3:
+                case PaletteContentStyle.ContextMenuHeading:
+                case PaletteContentStyle.ContextMenuItemImage:
+                case PaletteContentStyle.ContextMenuItemTextStandard:
+                case PaletteContentStyle.ContextMenuItemTextAlternate:
+                case PaletteContentStyle.ContextMenuItemShortcutText:
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                case PaletteContentStyle.TabLowProfile:
+                case PaletteContentStyle.TabOneNote:
+                case PaletteContentStyle.TabDock:
+                case PaletteContentStyle.TabDockAutoHidden:
+                case PaletteContentStyle.TabCustom1:
+                case PaletteContentStyle.TabCustom2:
+                case PaletteContentStyle.TabCustom3:
+                case PaletteContentStyle.ButtonStandalone:
+                case PaletteContentStyle.ButtonGallery:
+                case PaletteContentStyle.ButtonAlternate:
+                case PaletteContentStyle.ButtonLowProfile:
+                case PaletteContentStyle.ButtonBreadCrumb:
+                case PaletteContentStyle.ButtonListItem:
+                case PaletteContentStyle.ButtonCommand:
+                case PaletteContentStyle.ButtonButtonSpec:
+                case PaletteContentStyle.ButtonCalendarDay:
+                case PaletteContentStyle.ButtonCluster:
+                case PaletteContentStyle.ButtonNavigatorMini:
+                case PaletteContentStyle.ButtonNavigatorStack:
+                case PaletteContentStyle.ButtonNavigatorOverflow:
+                case PaletteContentStyle.ButtonForm:
+                case PaletteContentStyle.ButtonFormClose:
+                case PaletteContentStyle.ButtonCustom1:
+                case PaletteContentStyle.ButtonCustom2:
+                case PaletteContentStyle.ButtonCustom3:
+                case PaletteContentStyle.ButtonInputControl:
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                    return PaletteRectangleAlign.Local;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-/// <summary>
-/// Gets the padding between the border and content drawing.
-/// </summary>
-/// <param name="style">Content style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Padding value.</returns>
-public override Padding GetContentPadding(PaletteContentStyle style, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return CommonHelper.InheritPadding;
-    }
+        /// <summary>
+        /// Gets the padding between the border and content drawing.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Padding value.</returns>
+        public override Padding GetContentPadding(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return CommonHelper.InheritPadding;
+            }
 
-    switch (style)
-    {
-        case PaletteContentStyle.GridHeaderColumnList:
-        case PaletteContentStyle.GridHeaderColumnSheet:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-            return _contentPaddingGrid;
-        case PaletteContentStyle.HeaderForm:
-            return _contentPaddingHeaderForm;
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-            return _contentPaddingHeader1;
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderDockActive:
-            return _contentPaddingDock;
-        case PaletteContentStyle.HeaderSecondary:
-            return _contentPaddingHeader2;
-        case PaletteContentStyle.HeaderCalendar:
-            return _contentPaddingCalendar;
-        case PaletteContentStyle.LabelNormalControl:
-        case PaletteContentStyle.LabelBoldControl:
-        case PaletteContentStyle.LabelItalicControl:
-        case PaletteContentStyle.LabelTitleControl:
-        case PaletteContentStyle.LabelNormalPanel:
-        case PaletteContentStyle.LabelBoldPanel:
-        case PaletteContentStyle.LabelItalicPanel:
-        case PaletteContentStyle.LabelTitlePanel:
-        case PaletteContentStyle.LabelCustom1:
-        case PaletteContentStyle.LabelCustom2:
-        case PaletteContentStyle.LabelCustom3:
-            return _contentPaddingLabel;
-        case PaletteContentStyle.LabelGroupBoxCaption:
-            return _contentPaddingLabel2;
-        case PaletteContentStyle.ContextMenuItemTextStandard:
-            return _contentPaddingContextMenuItemText;
-        case PaletteContentStyle.ContextMenuItemTextAlternate:
-            return _contentPaddingContextMenuItemTextAlt;
-        case PaletteContentStyle.ContextMenuItemShortcutText:
-            return _contentPaddingContextMenuItemShortcutText;
-        case PaletteContentStyle.ContextMenuItemImage:
-            return _contentPaddingContextMenuImage;
-        case PaletteContentStyle.LabelToolTip:
-            return _contentPaddingToolTip;
-        case PaletteContentStyle.LabelSuperTip:
-            return _contentPaddingSuperTip;
-        case PaletteContentStyle.LabelKeyTip:
-            return _contentPaddingKeyTip;
-        case PaletteContentStyle.ContextMenuHeading:
-            return _contentPaddingContextMenuHeading;
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-        case PaletteContentStyle.ButtonCommand:
-        case PaletteContentStyle.ButtonAlternate:
-        case PaletteContentStyle.ButtonLowProfile:
-        case PaletteContentStyle.ButtonCluster:
-        case PaletteContentStyle.ButtonNavigatorMini:
-        case PaletteContentStyle.ButtonCustom1:
-        case PaletteContentStyle.ButtonCustom2:
-        case PaletteContentStyle.ButtonCustom3:
-            return _contentPaddingButton12;
-        case PaletteContentStyle.ButtonInputControl:
-        case PaletteContentStyle.ButtonCalendarDay:
-            return _contentPaddingButtonInputControl;
-        case PaletteContentStyle.ButtonButtonSpec:
-            return _contentPaddingButton3;
-        case PaletteContentStyle.ButtonNavigatorStack:
-        case PaletteContentStyle.ButtonNavigatorOverflow:
-            return _contentPaddingButton4;
-        case PaletteContentStyle.ButtonForm:
-        case PaletteContentStyle.ButtonFormClose:
-            return _contentPaddingButtonForm;
-        case PaletteContentStyle.ButtonGallery:
-            return _contentPaddingButtonGallery;
-        case PaletteContentStyle.ButtonListItem:
-            return _contentPaddingButtonListItem;
-        case PaletteContentStyle.ButtonBreadCrumb:
-            return _contentPaddingButton6;
-        case PaletteContentStyle.TabHighProfile:
-        case PaletteContentStyle.TabStandardProfile:
-        case PaletteContentStyle.TabLowProfile:
-        case PaletteContentStyle.TabOneNote:
-        case PaletteContentStyle.TabCustom1:
-        case PaletteContentStyle.TabCustom2:
-        case PaletteContentStyle.TabCustom3:
-            return _contentPaddingButton5;
-        case PaletteContentStyle.TabDock:
-        case PaletteContentStyle.TabDockAutoHidden:
-            return _contentPaddingButton7;
-        default:
-            throw new ArgumentOutOfRangeException(nameof(style));
-    }
-}
+            switch (style)
+            {
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                    return _contentPaddingGrid;
+                case PaletteContentStyle.HeaderForm:
+                    return _contentPaddingHeaderForm;
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                    return _contentPaddingHeader1;
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderDockActive:
+                    return _contentPaddingDock;
+                case PaletteContentStyle.HeaderSecondary:
+                    return _contentPaddingHeader2;
+                case PaletteContentStyle.HeaderCalendar:
+                    return _contentPaddingCalendar;
+                case PaletteContentStyle.LabelNormalControl:
+                case PaletteContentStyle.LabelBoldControl:
+                case PaletteContentStyle.LabelItalicControl:
+                case PaletteContentStyle.LabelTitleControl:
+                case PaletteContentStyle.LabelNormalPanel:
+                case PaletteContentStyle.LabelBoldPanel:
+                case PaletteContentStyle.LabelItalicPanel:
+                case PaletteContentStyle.LabelTitlePanel:
+                case PaletteContentStyle.LabelCustom1:
+                case PaletteContentStyle.LabelCustom2:
+                case PaletteContentStyle.LabelCustom3:
+                    return _contentPaddingLabel;
+                case PaletteContentStyle.LabelGroupBoxCaption:
+                    return _contentPaddingLabel2;
+                case PaletteContentStyle.ContextMenuItemTextStandard:
+                    return _contentPaddingContextMenuItemText;
+                case PaletteContentStyle.ContextMenuItemTextAlternate:
+                    return _contentPaddingContextMenuItemTextAlt;
+                case PaletteContentStyle.ContextMenuItemShortcutText:
+                    return _contentPaddingContextMenuItemShortcutText;
+                case PaletteContentStyle.ContextMenuItemImage:
+                    return _contentPaddingContextMenuImage;
+                case PaletteContentStyle.LabelToolTip:
+                    return _contentPaddingToolTip;
+                case PaletteContentStyle.LabelSuperTip:
+                    return _contentPaddingSuperTip;
+                case PaletteContentStyle.LabelKeyTip:
+                    return _contentPaddingKeyTip;
+                case PaletteContentStyle.ContextMenuHeading:
+                    return _contentPaddingContextMenuHeading;
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                case PaletteContentStyle.ButtonCommand:
+                case PaletteContentStyle.ButtonAlternate:
+                case PaletteContentStyle.ButtonLowProfile:
+                case PaletteContentStyle.ButtonCluster:
+                case PaletteContentStyle.ButtonNavigatorMini:
+                case PaletteContentStyle.ButtonCustom1:
+                case PaletteContentStyle.ButtonCustom2:
+                case PaletteContentStyle.ButtonCustom3:
+                    return _contentPaddingButton12;
+                case PaletteContentStyle.ButtonInputControl:
+                case PaletteContentStyle.ButtonCalendarDay:
+                    return _contentPaddingButtonInputControl;
+                case PaletteContentStyle.ButtonButtonSpec:
+                    return _contentPaddingButton3;
+                case PaletteContentStyle.ButtonNavigatorStack:
+                case PaletteContentStyle.ButtonNavigatorOverflow:
+                    return _contentPaddingButton4;
+                case PaletteContentStyle.ButtonForm:
+                case PaletteContentStyle.ButtonFormClose:
+                    return _contentPaddingButtonForm;
+                case PaletteContentStyle.ButtonGallery:
+                    return _contentPaddingButtonGallery;
+                case PaletteContentStyle.ButtonListItem:
+                    return _contentPaddingButtonListItem;
+                case PaletteContentStyle.ButtonBreadCrumb:
+                    return _contentPaddingButton6;
+                case PaletteContentStyle.TabHighProfile:
+                case PaletteContentStyle.TabStandardProfile:
+                case PaletteContentStyle.TabLowProfile:
+                case PaletteContentStyle.TabOneNote:
+                case PaletteContentStyle.TabCustom1:
+                case PaletteContentStyle.TabCustom2:
+                case PaletteContentStyle.TabCustom3:
+                    return _contentPaddingButton5;
+                case PaletteContentStyle.TabDock:
+                case PaletteContentStyle.TabDockAutoHidden:
+                    return _contentPaddingButton7;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-/// <summary>
-/// Gets the padding between adjacent content items.
-/// </summary>
-/// <param name="style">Content style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Integer value.</returns>
-public override int GetContentAdjacentGap(PaletteContentStyle style, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return -1;
-    }
+        /// <summary>
+        /// Gets the padding between adjacent content items.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Integer value.</returns>
+        public override int GetContentAdjacentGap(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return -1;
+            }
 
-    switch (style)
-    {
-        case PaletteContentStyle.HeaderPrimary:
-        case PaletteContentStyle.HeaderDockInactive:
-        case PaletteContentStyle.HeaderDockActive:
-        case PaletteContentStyle.HeaderCalendar:
-        case PaletteContentStyle.HeaderSecondary:
-        case PaletteContentStyle.HeaderForm:
-        case PaletteContentStyle.HeaderCustom1:
-        case PaletteContentStyle.HeaderCustom2:
-        case PaletteContentStyle.HeaderCustom3:
-        case PaletteContentStyle.LabelNormalControl:
-        case PaletteContentStyle.LabelBoldControl:
-        case PaletteContentStyle.LabelItalicControl:
-        case PaletteContentStyle.LabelTitleControl:
-        case PaletteContentStyle.LabelNormalPanel:
-        case PaletteContentStyle.LabelBoldPanel:
-        case PaletteContentStyle.LabelItalicPanel:
-        case PaletteContentStyle.LabelTitlePanel:
-        case PaletteContentStyle.LabelGroupBoxCaption:
-        case PaletteContentStyle.LabelToolTip:
-        case PaletteContentStyle.LabelKeyTip:
-        case PaletteContentStyle.LabelCustom1:
-        case PaletteContentStyle.LabelCustom2:
-        case PaletteContentStyle.LabelCustom3:
-        case PaletteContentStyle.ContextMenuHeading:
-        case PaletteContentStyle.ContextMenuItemImage:
-        case PaletteContentStyle.ContextMenuItemTextStandard:
-        case PaletteContentStyle.ContextMenuItemTextAlternate:
-        case PaletteContentStyle.ContextMenuItemShortcutText:
-        case PaletteContentStyle.InputControlStandalone:
-        case PaletteContentStyle.InputControlRibbon:
-        case PaletteContentStyle.InputControlCustom1:
-        case PaletteContentStyle.InputControlCustom2:
-        case PaletteContentStyle.InputControlCustom3:
-        case PaletteContentStyle.TabLowProfile:
-        case PaletteContentStyle.TabOneNote:
-        case PaletteContentStyle.TabDock:
-        case PaletteContentStyle.TabDockAutoHidden:
-        case PaletteContentStyle.TabCustom1:
-        case PaletteContentStyle.TabCustom2:
-        case PaletteContentStyle.TabCustom3:
-        case PaletteContentStyle.ButtonStandalone:
-        case PaletteContentStyle.ButtonGallery:
-        case PaletteContentStyle.ButtonAlternate:
-        case PaletteContentStyle.ButtonLowProfile:
-        case PaletteContentStyle.ButtonBreadCrumb:
-        case PaletteContentStyle.ButtonListItem:
-        case PaletteContentStyle.ButtonCommand:
-        case PaletteContentStyle.ButtonButtonSpec:
-        case PaletteContentStyle.ButtonCalendarDay:
-        case PaletteContentStyle.ButtonCluster:
-        case PaletteContentStyle.ButtonNavigatorMini:
-        case PaletteContentStyle.ButtonNavigatorStack:
-        case PaletteContentStyle.ButtonNavigatorOverflow:
-        case PaletteContentStyle.ButtonForm:
-        case PaletteContentStyle.ButtonFormClose:
-        case PaletteContentStyle.ButtonCustom1:
-        case PaletteContentStyle.ButtonCustom2:
-        case PaletteContentStyle.ButtonCustom3:
-        case PaletteContentStyle.ButtonInputControl:
-        case PaletteContentStyle.GridHeaderColumnList:
-        case PaletteContentStyle.GridHeaderColumnSheet:
-        case PaletteContentStyle.GridHeaderColumnCustom1:
-        case PaletteContentStyle.GridHeaderColumnCustom2:
-        case PaletteContentStyle.GridHeaderColumnCustom3:
-        case PaletteContentStyle.GridHeaderRowList:
-        case PaletteContentStyle.GridHeaderRowSheet:
-        case PaletteContentStyle.GridHeaderRowCustom1:
-        case PaletteContentStyle.GridHeaderRowCustom2:
-        case PaletteContentStyle.GridHeaderRowCustom3:
-        case PaletteContentStyle.GridDataCellList:
-        case PaletteContentStyle.GridDataCellSheet:
-        case PaletteContentStyle.GridDataCellCustom1:
-        case PaletteContentStyle.GridDataCellCustom2:
-        case PaletteContentStyle.GridDataCellCustom3:
-            return 1;
-        case PaletteContentStyle.LabelSuperTip:
-            return 5;
-        default:
-            throw new ArgumentOutOfRangeException(nameof(style));
-    }
-}
-#endregion
+            switch (style)
+            {
+                case PaletteContentStyle.HeaderPrimary:
+                case PaletteContentStyle.HeaderDockInactive:
+                case PaletteContentStyle.HeaderDockActive:
+                case PaletteContentStyle.HeaderCalendar:
+                case PaletteContentStyle.HeaderSecondary:
+                case PaletteContentStyle.HeaderForm:
+                case PaletteContentStyle.HeaderCustom1:
+                case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
+                case PaletteContentStyle.LabelNormalControl:
+                case PaletteContentStyle.LabelBoldControl:
+                case PaletteContentStyle.LabelItalicControl:
+                case PaletteContentStyle.LabelTitleControl:
+                case PaletteContentStyle.LabelNormalPanel:
+                case PaletteContentStyle.LabelBoldPanel:
+                case PaletteContentStyle.LabelItalicPanel:
+                case PaletteContentStyle.LabelTitlePanel:
+                case PaletteContentStyle.LabelGroupBoxCaption:
+                case PaletteContentStyle.LabelToolTip:
+                case PaletteContentStyle.LabelKeyTip:
+                case PaletteContentStyle.LabelCustom1:
+                case PaletteContentStyle.LabelCustom2:
+                case PaletteContentStyle.LabelCustom3:
+                case PaletteContentStyle.ContextMenuHeading:
+                case PaletteContentStyle.ContextMenuItemImage:
+                case PaletteContentStyle.ContextMenuItemTextStandard:
+                case PaletteContentStyle.ContextMenuItemTextAlternate:
+                case PaletteContentStyle.ContextMenuItemShortcutText:
+                case PaletteContentStyle.InputControlStandalone:
+                case PaletteContentStyle.InputControlRibbon:
+                case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
+                case PaletteContentStyle.TabLowProfile:
+                case PaletteContentStyle.TabOneNote:
+                case PaletteContentStyle.TabDock:
+                case PaletteContentStyle.TabDockAutoHidden:
+                case PaletteContentStyle.TabCustom1:
+                case PaletteContentStyle.TabCustom2:
+                case PaletteContentStyle.TabCustom3:
+                case PaletteContentStyle.ButtonStandalone:
+                case PaletteContentStyle.ButtonGallery:
+                case PaletteContentStyle.ButtonAlternate:
+                case PaletteContentStyle.ButtonLowProfile:
+                case PaletteContentStyle.ButtonBreadCrumb:
+                case PaletteContentStyle.ButtonListItem:
+                case PaletteContentStyle.ButtonCommand:
+                case PaletteContentStyle.ButtonButtonSpec:
+                case PaletteContentStyle.ButtonCalendarDay:
+                case PaletteContentStyle.ButtonCluster:
+                case PaletteContentStyle.ButtonNavigatorMini:
+                case PaletteContentStyle.ButtonNavigatorStack:
+                case PaletteContentStyle.ButtonNavigatorOverflow:
+                case PaletteContentStyle.ButtonForm:
+                case PaletteContentStyle.ButtonFormClose:
+                case PaletteContentStyle.ButtonCustom1:
+                case PaletteContentStyle.ButtonCustom2:
+                case PaletteContentStyle.ButtonCustom3:
+                case PaletteContentStyle.ButtonInputControl:
+                case PaletteContentStyle.GridHeaderColumnList:
+                case PaletteContentStyle.GridHeaderColumnSheet:
+                case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderRowSheet:
+                case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                case PaletteContentStyle.GridDataCellList:
+                case PaletteContentStyle.GridDataCellSheet:
+                case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
+                    return 1;
+                case PaletteContentStyle.LabelSuperTip:
+                    return 5;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
+        #endregion
 
-#region Metric
-/// <summary>
-/// Gets an integer metric value.
-/// </summary>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <param name="metric">Requested metric.</param>
-/// <returns>Integer value.</returns>
-public override int GetMetricInt(PaletteState state, PaletteMetricInt metric)
-{
-    switch (metric)
-    {
-        case PaletteMetricInt.PageButtonInset:
-        case PaletteMetricInt.RibbonTabGap:
-        case PaletteMetricInt.HeaderButtonEdgeInsetCalendar:
-            return 2;
-        case PaletteMetricInt.CheckButtonGap:
-            return 5;
-        case PaletteMetricInt.HeaderButtonEdgeInsetForm:
-            return 4;
-        case PaletteMetricInt.HeaderButtonEdgeInsetInputControl:
-            return 1;
-        case PaletteMetricInt.HeaderButtonEdgeInsetPrimary:
-        case PaletteMetricInt.HeaderButtonEdgeInsetSecondary:
-        case PaletteMetricInt.HeaderButtonEdgeInsetDockInactive:
-        case PaletteMetricInt.HeaderButtonEdgeInsetDockActive:
-        case PaletteMetricInt.HeaderButtonEdgeInsetCustom1:
-        case PaletteMetricInt.HeaderButtonEdgeInsetCustom2:
-        case PaletteMetricInt.HeaderButtonEdgeInsetCustom3:
-        case PaletteMetricInt.BarButtonEdgeOutside:
-        case PaletteMetricInt.BarButtonEdgeInside:
-            return 3;
-        case PaletteMetricInt.None:
-            return 0;
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            break;
-    }
+        #region Metric
+        /// <summary>
+        /// Gets an integer metric value.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <param name="metric">Requested metric.</param>
+        /// <returns>Integer value.</returns>
+        public override int GetMetricInt(PaletteState state, PaletteMetricInt metric)
+        {
+            switch (metric)
+            {
+                case PaletteMetricInt.PageButtonInset:
+                case PaletteMetricInt.RibbonTabGap:
+                case PaletteMetricInt.HeaderButtonEdgeInsetCalendar:
+                    return 2;
+                case PaletteMetricInt.CheckButtonGap:
+                    return 5;
+                case PaletteMetricInt.HeaderButtonEdgeInsetForm:
+                    return 4;
+                case PaletteMetricInt.HeaderButtonEdgeInsetInputControl:
+                    return 1;
+                case PaletteMetricInt.HeaderButtonEdgeInsetPrimary:
+                case PaletteMetricInt.HeaderButtonEdgeInsetSecondary:
+                case PaletteMetricInt.HeaderButtonEdgeInsetDockInactive:
+                case PaletteMetricInt.HeaderButtonEdgeInsetDockActive:
+                case PaletteMetricInt.HeaderButtonEdgeInsetCustom1:
+                case PaletteMetricInt.HeaderButtonEdgeInsetCustom2:
+                case PaletteMetricInt.HeaderButtonEdgeInsetCustom3:
+                case PaletteMetricInt.BarButtonEdgeOutside:
+                case PaletteMetricInt.BarButtonEdgeInside:
+                    return 3;
+                case PaletteMetricInt.None:
+                    return 0;
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    break;
+            }
 
-    return -1;
-}
+            return -1;
+        }
 
-/// <summary>
-/// Gets a boolean metric value.
-/// </summary>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <param name="metric">Requested metric.</param>
-/// <returns>InheritBool value.</returns>
-public override InheritBool GetMetricBool(PaletteState state, PaletteMetricBool metric)
-{
-    switch (metric)
-    {
-        case PaletteMetricBool.HeaderGroupOverlay:
-        case PaletteMetricBool.SplitWithFading:
-        case PaletteMetricBool.RibbonTabsSpareCaption:
-            return InheritBool.True;
-        case PaletteMetricBool.TreeViewLines:
-            return InheritBool.False;
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            break;
-    }
+        /// <summary>
+        /// Gets a boolean metric value.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <param name="metric">Requested metric.</param>
+        /// <returns>InheritBool value.</returns>
+        public override InheritBool GetMetricBool(PaletteState state, PaletteMetricBool metric)
+        {
+            switch (metric)
+            {
+                case PaletteMetricBool.HeaderGroupOverlay:
+                case PaletteMetricBool.SplitWithFading:
+                case PaletteMetricBool.RibbonTabsSpareCaption:
+                    return InheritBool.True;
+                case PaletteMetricBool.TreeViewLines:
+                    return InheritBool.False;
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    break;
+            }
 
-    return InheritBool.Inherit;
-}
+            return InheritBool.Inherit;
+        }
 
-/// <summary>
-/// Gets a padding metric value.
-/// </summary>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <param name="metric">Requested metric.</param>
-/// <returns>Padding value.</returns>
-public override Padding GetMetricPadding(PaletteState state, PaletteMetricPadding metric)
-{
-    switch (metric)
-    {
-        case PaletteMetricPadding.PageButtonPadding:
-            return _metricPaddingPageButtons;
-        case PaletteMetricPadding.BarPaddingTabs:
-            return _metricPaddingBarTabs;
-        case PaletteMetricPadding.BarPaddingInside:
-        case PaletteMetricPadding.BarPaddingOnly:
-            return _metricPaddingBarInside;
-        case PaletteMetricPadding.BarPaddingOutside:
-            return _metricPaddingBarOutside;
-        case PaletteMetricPadding.HeaderButtonPaddingForm:
-            return _metricPaddingHeaderForm;
-        case PaletteMetricPadding.RibbonButtonPadding:
-            return _metricPaddingRibbon;
-        case PaletteMetricPadding.RibbonAppButton:
-            return _metricPaddingRibbonAppButton;
-        case PaletteMetricPadding.HeaderButtonPaddingInputControl:
-            return _metricPaddingInputControl;
-        case PaletteMetricPadding.HeaderButtonPaddingPrimary:
-        case PaletteMetricPadding.HeaderButtonPaddingSecondary:
-        case PaletteMetricPadding.HeaderButtonPaddingDockInactive:
-        case PaletteMetricPadding.HeaderButtonPaddingDockActive:
-        case PaletteMetricPadding.HeaderButtonPaddingCustom1:
-        case PaletteMetricPadding.HeaderButtonPaddingCustom2:
-        case PaletteMetricPadding.HeaderButtonPaddingCustom3:
-        case PaletteMetricPadding.HeaderButtonPaddingCalendar:
-        case PaletteMetricPadding.BarButtonPadding:
-            return _metricPaddingHeader;
-        case PaletteMetricPadding.HeaderGroupPaddingPrimary:
-        case PaletteMetricPadding.HeaderGroupPaddingSecondary:
-        case PaletteMetricPadding.HeaderGroupPaddingDockInactive:
-        case PaletteMetricPadding.HeaderGroupPaddingDockActive:
-        case PaletteMetricPadding.SeparatorPaddingLowProfile:
-        case PaletteMetricPadding.SeparatorPaddingHighInternalProfile:
-        case PaletteMetricPadding.SeparatorPaddingHighProfile:
-        case PaletteMetricPadding.SeparatorPaddingCustom1:
-        case PaletteMetricPadding.SeparatorPaddingCustom2:
-        case PaletteMetricPadding.SeparatorPaddingCustom3:
-        case PaletteMetricPadding.ContextMenuItemHighlight:
-        case PaletteMetricPadding.ContextMenuItemsCollection:
-        case PaletteMetricPadding.ContextMenuItemOuter:
+        /// <summary>
+        /// Gets a padding metric value.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <param name="metric">Requested metric.</param>
+        /// <returns>Padding value.</returns>
+        public override Padding GetMetricPadding(PaletteState state, PaletteMetricPadding metric)
+        {
+            switch (metric)
+            {
+                case PaletteMetricPadding.PageButtonPadding:
+                    return _metricPaddingPageButtons;
+                case PaletteMetricPadding.BarPaddingTabs:
+                    return _metricPaddingBarTabs;
+                case PaletteMetricPadding.BarPaddingInside:
+                case PaletteMetricPadding.BarPaddingOnly:
+                    return _metricPaddingBarInside;
+                case PaletteMetricPadding.BarPaddingOutside:
+                    return _metricPaddingBarOutside;
+                case PaletteMetricPadding.HeaderButtonPaddingForm:
+                    return _metricPaddingHeaderForm;
+                case PaletteMetricPadding.RibbonButtonPadding:
+                    return _metricPaddingRibbon;
+                case PaletteMetricPadding.RibbonAppButton:
+                    return _metricPaddingRibbonAppButton;
+                case PaletteMetricPadding.HeaderButtonPaddingInputControl:
+                    return _metricPaddingInputControl;
+                case PaletteMetricPadding.HeaderButtonPaddingPrimary:
+                case PaletteMetricPadding.HeaderButtonPaddingSecondary:
+                case PaletteMetricPadding.HeaderButtonPaddingDockInactive:
+                case PaletteMetricPadding.HeaderButtonPaddingDockActive:
+                case PaletteMetricPadding.HeaderButtonPaddingCustom1:
+                case PaletteMetricPadding.HeaderButtonPaddingCustom2:
+                case PaletteMetricPadding.HeaderButtonPaddingCustom3:
+                case PaletteMetricPadding.HeaderButtonPaddingCalendar:
+                case PaletteMetricPadding.BarButtonPadding:
+                    return _metricPaddingHeader;
+                case PaletteMetricPadding.HeaderGroupPaddingPrimary:
+                case PaletteMetricPadding.HeaderGroupPaddingSecondary:
+                case PaletteMetricPadding.HeaderGroupPaddingDockInactive:
+                case PaletteMetricPadding.HeaderGroupPaddingDockActive:
+                case PaletteMetricPadding.SeparatorPaddingLowProfile:
+                case PaletteMetricPadding.SeparatorPaddingHighInternalProfile:
+                case PaletteMetricPadding.SeparatorPaddingHighProfile:
+                case PaletteMetricPadding.SeparatorPaddingCustom1:
+                case PaletteMetricPadding.SeparatorPaddingCustom2:
+                case PaletteMetricPadding.SeparatorPaddingCustom3:
+                case PaletteMetricPadding.ContextMenuItemHighlight:
+                case PaletteMetricPadding.ContextMenuItemsCollection:
+                case PaletteMetricPadding.ContextMenuItemOuter:
+                    return Padding.Empty;
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    break;
+            }
+
             return Padding.Empty;
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            break;
-    }
+        }
+        #endregion
 
-    return Padding.Empty;
-}
-#endregion
-
-#region Images
-/// <summary>
-/// Gets a tree view image appropriate for the provided state.
-/// </summary>
-/// <param name="expanded">Is the node expanded</param>
-/// <returns>Appropriate image for drawing; otherwise null.</returns>
-public override Image GetTreeViewImage(bool expanded)
-{
-    if (expanded)
-    {
-        return _treeCollapseBlack;
-    }
-    else
-    {
-        return _treeExpandWhite;
-    }
-}
-
-/// <summary>
-/// Gets a check box image appropriate for the provided state.
-/// </summary>
-/// <param name="enabled">Is the check box enabled.</param>
-/// <param name="checkState">Is the check box checked/unchecked/indeterminate.</param>
-/// <param name="tracking">Is the check box being hot tracked.</param>
-/// <param name="pressed">Is the check box being pressed.</param>
-/// <returns>Appropriate image for drawing; otherwise null.</returns>
-public override Image GetCheckBoxImage(bool enabled, CheckState checkState, bool tracking, bool pressed)
-{
-    switch (checkState)
-    {
-        default:
-        case CheckState.Unchecked:
-            if (!enabled)
+        #region Images
+        /// <summary>
+        /// Gets a tree view image appropriate for the provided state.
+        /// </summary>
+        /// <param name="expanded">Is the node expanded</param>
+        /// <returns>Appropriate image for drawing; otherwise null.</returns>
+        public override Image GetTreeViewImage(bool expanded)
+        {
+            if (expanded)
             {
-                return _checkBoxList.Images[0];
-            }
-            else if (pressed)
-            {
-                return _checkBoxList.Images[3];
-            }
-            else if (tracking)
-            {
-                return _checkBoxList.Images[2];
+                return _treeCollapseBlack;
             }
             else
             {
-                return _checkBoxList.Images[1];
+                return _treeExpandWhite;
             }
+        }
 
-        case CheckState.Checked:
-            if (!enabled)
+        /// <summary>
+        /// Gets a check box image appropriate for the provided state.
+        /// </summary>
+        /// <param name="enabled">Is the check box enabled.</param>
+        /// <param name="checkState">Is the check box checked/unchecked/indeterminate.</param>
+        /// <param name="tracking">Is the check box being hot tracked.</param>
+        /// <param name="pressed">Is the check box being pressed.</param>
+        /// <returns>Appropriate image for drawing; otherwise null.</returns>
+        public override Image GetCheckBoxImage(bool enabled, CheckState checkState, bool tracking, bool pressed)
+        {
+            switch (checkState)
             {
-                return _checkBoxList.Images[4];
+                default:
+                case CheckState.Unchecked:
+                    if (!enabled)
+                    {
+                        return _checkBoxList.Images[0];
+                    }
+                    else if (pressed)
+                    {
+                        return _checkBoxList.Images[3];
+                    }
+                    else if (tracking)
+                    {
+                        return _checkBoxList.Images[2];
+                    }
+                    else
+                    {
+                        return _checkBoxList.Images[1];
+                    }
+
+                case CheckState.Checked:
+                    if (!enabled)
+                    {
+                        return _checkBoxList.Images[4];
+                    }
+                    else if (pressed)
+                    {
+                        return _checkBoxList.Images[7];
+                    }
+                    else if (tracking)
+                    {
+                        return _checkBoxList.Images[6];
+                    }
+                    else
+                    {
+                        return _checkBoxList.Images[5];
+                    }
+
+                case CheckState.Indeterminate:
+                    if (!enabled)
+                    {
+                        return _checkBoxList.Images[8];
+                    }
+                    else if (pressed)
+                    {
+                        return _checkBoxList.Images[11];
+                    }
+                    else if (tracking)
+                    {
+                        return _checkBoxList.Images[10];
+                    }
+                    else
+                    {
+                        return _checkBoxList.Images[9];
+                    }
             }
-            else if (pressed)
+        }
+
+        /// <summary>
+        /// Gets a check box image appropriate for the provided state.
+        /// </summary>
+        /// <param name="enabled">Is the radio button enabled.</param>
+        /// <param name="checkState">Is the radio button checked.</param>
+        /// <param name="tracking">Is the radio button being hot tracked.</param>
+        /// <param name="pressed">Is the radio button being pressed.</param>
+        /// <returns>Appropriate image for drawing; otherwise null.</returns>
+        public override Image GetRadioButtonImage(bool enabled, bool checkState, bool tracking, bool pressed)
+        {
+            if (!checkState)
             {
-                return _checkBoxList.Images[7];
-            }
-            else if (tracking)
-            {
-                return _checkBoxList.Images[6];
+                if (!enabled)
+                {
+                    return _radioButtonArray[0];
+                }
+                else if (pressed)
+                {
+                    return _radioButtonArray[3];
+                }
+                else if (tracking)
+                {
+                    return _radioButtonArray[2];
+                }
+                else
+                {
+                    return _radioButtonArray[1];
+                }
             }
             else
             {
-                return _checkBoxList.Images[5];
+                if (!enabled)
+                {
+                    return _radioButtonArray[4];
+                }
+                else if (pressed)
+                {
+                    return _radioButtonArray[7];
+                }
+                else if (tracking)
+                {
+                    return _radioButtonArray[6];
+                }
+                else
+                {
+                    return _radioButtonArray[5];
+                }
             }
-
-        case CheckState.Indeterminate:
-            if (!enabled)
-            {
-                return _checkBoxList.Images[8];
-            }
-            else if (pressed)
-            {
-                return _checkBoxList.Images[11];
-            }
-            else if (tracking)
-            {
-                return _checkBoxList.Images[10];
-            }
-            else
-            {
-                return _checkBoxList.Images[9];
-            }
-    }
-}
-
-/// <summary>
-/// Gets a check box image appropriate for the provided state.
-/// </summary>
-/// <param name="enabled">Is the radio button enabled.</param>
-/// <param name="checkState">Is the radio button checked.</param>
-/// <param name="tracking">Is the radio button being hot tracked.</param>
-/// <param name="pressed">Is the radio button being pressed.</param>
-/// <returns>Appropriate image for drawing; otherwise null.</returns>
-public override Image GetRadioButtonImage(bool enabled, bool checkState, bool tracking, bool pressed)
-{
-    if (!checkState)
-    {
-        if (!enabled)
-        {
-            return _radioButtonArray[0];
         }
-        else if (pressed)
+
+        /// <summary>
+        /// Gets a drop down button image appropriate for the provided state.
+        /// </summary>
+        /// <param name="state">PaletteState for which image is required.</param>
+        public override Image GetDropDownButtonImage(PaletteState state)
         {
-            return _radioButtonArray[3];
+            return _disabledDropDown;
         }
-        else if (tracking)
+
+        /// <summary>
+        /// Gets a checked image appropriate for a context menu item.
+        /// </summary>
+        /// <returns>Appropriate image for drawing; otherwise null.</returns>
+        public override Image GetContextMenuCheckedImage()
         {
-            return _radioButtonArray[2];
+            return _contextMenuChecked;
         }
-        else
+
+        /// <summary>
+        /// Gets a indeterminate image appropriate for a context menu item.
+        /// </summary>
+        /// <returns>Appropriate image for drawing; otherwise null.</returns>
+        public override Image GetContextMenuIndeterminateImage()
         {
-            return _radioButtonArray[1];
+            return _contextMenuIndeterminate;
         }
-    }
-    else
-    {
-        if (!enabled)
+
+        /// <summary>
+        /// Gets a check box image appropriate for the provided state.
+        /// </summary>
+        /// <param name="button">Enum of the button to fetch.</param>
+        /// <param name="state">State of the button to fetch.</param>
+        /// <returns>Appropriate image for drawing; otherwise null.</returns>
+        public override Image GetGalleryButtonImage(PaletteRibbonGalleryButton button, PaletteState state)
         {
-            return _radioButtonArray[4];
-        }
-        else if (pressed)
-        {
-            return _radioButtonArray[7];
-        }
-        else if (tracking)
-        {
-            return _radioButtonArray[6];
-        }
-        else
-        {
-            return _radioButtonArray[5];
-        }
-    }
-}
-
-/// <summary>
-/// Gets a drop down button image appropriate for the provided state.
-/// </summary>
-/// <param name="state">PaletteState for which image is required.</param>
-public override Image GetDropDownButtonImage(PaletteState state)
-{
-    return _disabledDropDown;
-}
-
-/// <summary>
-/// Gets a checked image appropriate for a context menu item.
-/// </summary>
-/// <returns>Appropriate image for drawing; otherwise null.</returns>
-public override Image GetContextMenuCheckedImage()
-{
-    return _contextMenuChecked;
-}
-
-/// <summary>
-/// Gets a indeterminate image appropriate for a context menu item.
-/// </summary>
-/// <returns>Appropriate image for drawing; otherwise null.</returns>
-public override Image GetContextMenuIndeterminateImage()
-{
-    return _contextMenuIndeterminate;
-}
-
-/// <summary>
-/// Gets a check box image appropriate for the provided state.
-/// </summary>
-/// <param name="button">Enum of the button to fetch.</param>
-/// <param name="state">State of the button to fetch.</param>
-/// <returns>Appropriate image for drawing; otherwise null.</returns>
-public override Image GetGalleryButtonImage(PaletteRibbonGalleryButton button, PaletteState state)
-{
-    switch (button)
-    {
-        default:
-        case PaletteRibbonGalleryButton.Down:
-            return _galleryButtonList.Images[0];
-        case PaletteRibbonGalleryButton.Up:
-            return _galleryButtonList.Images[1];
-        case PaletteRibbonGalleryButton.DropDown:
-            return _galleryButtonList.Images[2];
-    }
-}
-#endregion
-
-#region ButtonSpec
-/// <summary>
-/// Gets the icon to display for the button.
-/// </summary>
-/// <param name="style">Style of button spec.</param>
-/// <returns>Icon value.</returns>
-public override Icon GetButtonSpecIcon(PaletteButtonSpecStyle style)
-{
-    switch (style)
-    {
-        case PaletteButtonSpecStyle.Generic:
-        case PaletteButtonSpecStyle.Close:
-        case PaletteButtonSpecStyle.Context:
-        case PaletteButtonSpecStyle.Next:
-        case PaletteButtonSpecStyle.Previous:
-        case PaletteButtonSpecStyle.ArrowLeft:
-        case PaletteButtonSpecStyle.ArrowRight:
-        case PaletteButtonSpecStyle.ArrowUp:
-        case PaletteButtonSpecStyle.ArrowDown:
-        case PaletteButtonSpecStyle.DropDown:
-        case PaletteButtonSpecStyle.PinVertical:
-        case PaletteButtonSpecStyle.PinHorizontal:
-        case PaletteButtonSpecStyle.FormClose:
-        case PaletteButtonSpecStyle.FormMin:
-        case PaletteButtonSpecStyle.FormMax:
-        case PaletteButtonSpecStyle.FormRestore:
-        case PaletteButtonSpecStyle.PendantClose:
-        case PaletteButtonSpecStyle.PendantMin:
-        case PaletteButtonSpecStyle.PendantRestore:
-        case PaletteButtonSpecStyle.WorkspaceMaximize:
-        case PaletteButtonSpecStyle.WorkspaceRestore:
-        case PaletteButtonSpecStyle.RibbonMinimize:
-        case PaletteButtonSpecStyle.RibbonExpand:
-            return null;
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            return null;
-    }
-}
-
-/// <summary>
-/// Gets the image to display for the button.
-/// </summary>
-/// <param name="style">Style of button spec.</param>
-/// <param name="state">State for which image is required.</param>
-/// <returns>Image value.</returns>
-public override Image GetButtonSpecImage(PaletteButtonSpecStyle style,
-                                         PaletteState state)
-{
-    switch (style)
-    {
-        case PaletteButtonSpecStyle.Close:
-            return _buttonSpecClose;
-        case PaletteButtonSpecStyle.Context:
-            return _buttonSpecContext;
-        case PaletteButtonSpecStyle.Next:
-            return _buttonSpecNext;
-        case PaletteButtonSpecStyle.Previous:
-            return _buttonSpecPrevious;
-        case PaletteButtonSpecStyle.ArrowLeft:
-            return _buttonSpecArrowLeft;
-        case PaletteButtonSpecStyle.ArrowRight:
-            return _buttonSpecArrowRight;
-        case PaletteButtonSpecStyle.ArrowUp:
-            return _buttonSpecArrowUp;
-        case PaletteButtonSpecStyle.ArrowDown:
-            return _buttonSpecArrowDown;
-        case PaletteButtonSpecStyle.DropDown:
-            return _buttonSpecDropDown;
-        case PaletteButtonSpecStyle.PinVertical:
-            return _buttonSpecPinVertical;
-        case PaletteButtonSpecStyle.PinHorizontal:
-            return _buttonSpecPinHorizontal;
-        case PaletteButtonSpecStyle.PendantClose:
-            return _buttonSpecPendantClose;
-        case PaletteButtonSpecStyle.PendantMin:
-            return _buttonSpecPendantMin;
-        case PaletteButtonSpecStyle.PendantRestore:
-            return _buttonSpecPendantRestore;
-        case PaletteButtonSpecStyle.WorkspaceMaximize:
-            return _buttonSpecWorkspaceMaximize;
-        case PaletteButtonSpecStyle.WorkspaceRestore:
-            return _buttonSpecWorkspaceRestore;
-        case PaletteButtonSpecStyle.RibbonMinimize:
-            return _buttonSpecRibbonMinimize;
-        case PaletteButtonSpecStyle.RibbonExpand:
-            return _buttonSpecRibbonExpand;
-        case PaletteButtonSpecStyle.Generic:
-            return null;
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            return null;
-    }
-}
-
-/// <summary>
-/// Gets the image transparent color.
-/// </summary>
-/// <param name="style">Style of button spec.</param>
-/// <returns>Color value.</returns>
-public override Color GetButtonSpecImageTransparentColor(PaletteButtonSpecStyle style)
-{
-    switch (style)
-    {
-        case PaletteButtonSpecStyle.Generic:
-            return Color.Empty;
-        case PaletteButtonSpecStyle.Close:
-        case PaletteButtonSpecStyle.Context:
-        case PaletteButtonSpecStyle.Next:
-        case PaletteButtonSpecStyle.Previous:
-        case PaletteButtonSpecStyle.ArrowLeft:
-        case PaletteButtonSpecStyle.ArrowRight:
-        case PaletteButtonSpecStyle.ArrowUp:
-        case PaletteButtonSpecStyle.ArrowDown:
-        case PaletteButtonSpecStyle.DropDown:
-        case PaletteButtonSpecStyle.PinVertical:
-        case PaletteButtonSpecStyle.PinHorizontal:
-        case PaletteButtonSpecStyle.FormClose:
-        case PaletteButtonSpecStyle.FormMin:
-        case PaletteButtonSpecStyle.FormMax:
-        case PaletteButtonSpecStyle.FormRestore:
-        case PaletteButtonSpecStyle.PendantClose:
-        case PaletteButtonSpecStyle.PendantMin:
-        case PaletteButtonSpecStyle.PendantRestore:
-        case PaletteButtonSpecStyle.WorkspaceMaximize:
-        case PaletteButtonSpecStyle.WorkspaceRestore:
-        case PaletteButtonSpecStyle.RibbonMinimize:
-        case PaletteButtonSpecStyle.RibbonExpand:
-            return Color.Magenta;
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            return Color.Empty;
-    }
-}
-
-/// <summary>
-/// Gets the short text to display for the button.
-/// </summary>
-/// <param name="style">Style of button spec.</param>
-/// <returns>String value.</returns>
-public override string GetButtonSpecShortText(PaletteButtonSpecStyle style)
-{
-    switch (style)
-    {
-        case PaletteButtonSpecStyle.Generic:
-        case PaletteButtonSpecStyle.Close:
-        case PaletteButtonSpecStyle.Context:
-        case PaletteButtonSpecStyle.Next:
-        case PaletteButtonSpecStyle.Previous:
-        case PaletteButtonSpecStyle.ArrowLeft:
-        case PaletteButtonSpecStyle.ArrowRight:
-        case PaletteButtonSpecStyle.ArrowUp:
-        case PaletteButtonSpecStyle.ArrowDown:
-        case PaletteButtonSpecStyle.DropDown:
-        case PaletteButtonSpecStyle.PinVertical:
-        case PaletteButtonSpecStyle.PinHorizontal:
-        case PaletteButtonSpecStyle.FormClose:
-        case PaletteButtonSpecStyle.FormMin:
-        case PaletteButtonSpecStyle.FormMax:
-        case PaletteButtonSpecStyle.FormRestore:
-        case PaletteButtonSpecStyle.PendantClose:
-        case PaletteButtonSpecStyle.PendantMin:
-        case PaletteButtonSpecStyle.PendantRestore:
-        case PaletteButtonSpecStyle.WorkspaceMaximize:
-        case PaletteButtonSpecStyle.WorkspaceRestore:
-        case PaletteButtonSpecStyle.RibbonMinimize:
-        case PaletteButtonSpecStyle.RibbonExpand:
-            return string.Empty;
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            return null;
-    }
-}
-
-/// <summary>
-/// Gets the long text to display for the button.
-/// </summary>
-/// <param name="style">Style of button spec.</param>
-/// <returns>String value.</returns>
-public override string GetButtonSpecLongText(PaletteButtonSpecStyle style)
-{
-    switch (style)
-    {
-        case PaletteButtonSpecStyle.Generic:
-        case PaletteButtonSpecStyle.Close:
-        case PaletteButtonSpecStyle.Context:
-        case PaletteButtonSpecStyle.Next:
-        case PaletteButtonSpecStyle.Previous:
-        case PaletteButtonSpecStyle.ArrowLeft:
-        case PaletteButtonSpecStyle.ArrowRight:
-        case PaletteButtonSpecStyle.ArrowUp:
-        case PaletteButtonSpecStyle.ArrowDown:
-        case PaletteButtonSpecStyle.DropDown:
-        case PaletteButtonSpecStyle.PinVertical:
-        case PaletteButtonSpecStyle.PinHorizontal:
-        case PaletteButtonSpecStyle.FormClose:
-        case PaletteButtonSpecStyle.FormMin:
-        case PaletteButtonSpecStyle.FormMax:
-        case PaletteButtonSpecStyle.FormRestore:
-        case PaletteButtonSpecStyle.PendantClose:
-        case PaletteButtonSpecStyle.PendantMin:
-        case PaletteButtonSpecStyle.PendantRestore:
-        case PaletteButtonSpecStyle.WorkspaceMaximize:
-        case PaletteButtonSpecStyle.WorkspaceRestore:
-        case PaletteButtonSpecStyle.RibbonMinimize:
-        case PaletteButtonSpecStyle.RibbonExpand:
-            return string.Empty;
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            return null;
-    }
-}
-
-/// <summary>
-/// Gets the color to remap from the image to the container foreground.
-/// </summary>
-/// <param name="style">Style of button spec.</param>
-/// <returns>Color value.</returns>
-public override Color GetButtonSpecColorMap(PaletteButtonSpecStyle style)
-{
-    switch (style)
-    {
-        case PaletteButtonSpecStyle.FormClose:
-        case PaletteButtonSpecStyle.FormMin:
-        case PaletteButtonSpecStyle.FormMax:
-        case PaletteButtonSpecStyle.FormRestore:
-        case PaletteButtonSpecStyle.PendantClose:
-        case PaletteButtonSpecStyle.PendantMin:
-        case PaletteButtonSpecStyle.PendantRestore:
-        case PaletteButtonSpecStyle.Generic:
-            return Color.Empty;
-        case PaletteButtonSpecStyle.Close:
-        case PaletteButtonSpecStyle.Context:
-        case PaletteButtonSpecStyle.Next:
-        case PaletteButtonSpecStyle.Previous:
-        case PaletteButtonSpecStyle.ArrowLeft:
-        case PaletteButtonSpecStyle.ArrowRight:
-        case PaletteButtonSpecStyle.ArrowUp:
-        case PaletteButtonSpecStyle.ArrowDown:
-        case PaletteButtonSpecStyle.DropDown:
-        case PaletteButtonSpecStyle.PinVertical:
-        case PaletteButtonSpecStyle.PinHorizontal:
-        case PaletteButtonSpecStyle.WorkspaceMaximize:
-        case PaletteButtonSpecStyle.WorkspaceRestore:
-        case PaletteButtonSpecStyle.RibbonMinimize:
-        case PaletteButtonSpecStyle.RibbonExpand:
-            return Color.Black;
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            return Color.Empty;
-    }
-}
-
-/// <summary>
-/// Gets the color to remap to transparent.
-/// </summary>
-/// <param name="style">Style of button spec.</param>
-/// <returns>Color value.</returns>
-public override Color GetButtonSpecColorTransparent(PaletteButtonSpecStyle style)
-{
-    switch (style)
-    {
-        case PaletteButtonSpecStyle.Generic:
-            return Color.Empty;
-        case PaletteButtonSpecStyle.Close:
-        case PaletteButtonSpecStyle.Context:
-        case PaletteButtonSpecStyle.Next:
-        case PaletteButtonSpecStyle.Previous:
-        case PaletteButtonSpecStyle.ArrowLeft:
-        case PaletteButtonSpecStyle.ArrowRight:
-        case PaletteButtonSpecStyle.ArrowUp:
-        case PaletteButtonSpecStyle.DropDown:
-        case PaletteButtonSpecStyle.PinVertical:
-        case PaletteButtonSpecStyle.PinHorizontal:
-        case PaletteButtonSpecStyle.FormClose:
-        case PaletteButtonSpecStyle.FormMin:
-        case PaletteButtonSpecStyle.FormMax:
-        case PaletteButtonSpecStyle.FormRestore:
-        case PaletteButtonSpecStyle.PendantClose:
-        case PaletteButtonSpecStyle.PendantMin:
-        case PaletteButtonSpecStyle.PendantRestore:
-        case PaletteButtonSpecStyle.WorkspaceMaximize:
-        case PaletteButtonSpecStyle.WorkspaceRestore:
-        case PaletteButtonSpecStyle.RibbonMinimize:
-        case PaletteButtonSpecStyle.RibbonExpand:
-            return Color.Magenta;
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            return Color.Empty;
-    }
-}
-
-/// <summary>
-/// Gets the button style used for drawing the button.
-/// </summary>
-/// <param name="style">Style of button spec.</param>
-/// <returns>PaletteButtonStyle value.</returns>
-public override PaletteButtonStyle GetButtonSpecStyle(PaletteButtonSpecStyle style)
-{
-    switch (style)
-    {
-        case PaletteButtonSpecStyle.FormMin:
-        case PaletteButtonSpecStyle.FormMax:
-        case PaletteButtonSpecStyle.FormRestore:
-            return PaletteButtonStyle.Form;
-        case PaletteButtonSpecStyle.FormClose:
-            return PaletteButtonStyle.FormClose;
-        case PaletteButtonSpecStyle.Generic:
-        case PaletteButtonSpecStyle.Close:
-        case PaletteButtonSpecStyle.Context:
-        case PaletteButtonSpecStyle.Next:
-        case PaletteButtonSpecStyle.Previous:
-        case PaletteButtonSpecStyle.ArrowLeft:
-        case PaletteButtonSpecStyle.ArrowRight:
-        case PaletteButtonSpecStyle.ArrowUp:
-        case PaletteButtonSpecStyle.ArrowDown:
-        case PaletteButtonSpecStyle.DropDown:
-        case PaletteButtonSpecStyle.PinVertical:
-        case PaletteButtonSpecStyle.PinHorizontal:
-        case PaletteButtonSpecStyle.PendantClose:
-        case PaletteButtonSpecStyle.PendantMin:
-        case PaletteButtonSpecStyle.PendantRestore:
-        case PaletteButtonSpecStyle.WorkspaceMaximize:
-        case PaletteButtonSpecStyle.WorkspaceRestore:
-        case PaletteButtonSpecStyle.RibbonMinimize:
-        case PaletteButtonSpecStyle.RibbonExpand:
-            return PaletteButtonStyle.ButtonSpec;
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            return PaletteButtonStyle.ButtonSpec;
-    }
-}
-
-/// <summary>
-/// Get the location for the button.
-/// </summary>
-/// <param name="style">Style of button spec.</param>
-/// <returns>HeaderLocation value.</returns>
-public override HeaderLocation GetButtonSpecLocation(PaletteButtonSpecStyle style)
-{
-    switch (style)
-    {
-        case PaletteButtonSpecStyle.Generic:
-        case PaletteButtonSpecStyle.Close:
-        case PaletteButtonSpecStyle.Context:
-        case PaletteButtonSpecStyle.Next:
-        case PaletteButtonSpecStyle.Previous:
-        case PaletteButtonSpecStyle.ArrowLeft:
-        case PaletteButtonSpecStyle.ArrowRight:
-        case PaletteButtonSpecStyle.ArrowUp:
-        case PaletteButtonSpecStyle.ArrowDown:
-        case PaletteButtonSpecStyle.DropDown:
-        case PaletteButtonSpecStyle.PinVertical:
-        case PaletteButtonSpecStyle.PinHorizontal:
-        case PaletteButtonSpecStyle.FormClose:
-        case PaletteButtonSpecStyle.FormMin:
-        case PaletteButtonSpecStyle.FormMax:
-        case PaletteButtonSpecStyle.FormRestore:
-        case PaletteButtonSpecStyle.PendantClose:
-        case PaletteButtonSpecStyle.PendantMin:
-        case PaletteButtonSpecStyle.PendantRestore:
-        case PaletteButtonSpecStyle.WorkspaceMaximize:
-        case PaletteButtonSpecStyle.WorkspaceRestore:
-        case PaletteButtonSpecStyle.RibbonMinimize:
-        case PaletteButtonSpecStyle.RibbonExpand:
-            return HeaderLocation.PrimaryHeader;
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            return HeaderLocation.PrimaryHeader;
-    }
-}
-
-/// <summary>
-/// Gets the edge to positon the button against.
-/// </summary>
-/// <param name="style">Style of button spec.</param>
-/// <returns>PaletteRelativeEdgeAlign value.</returns>
-public override PaletteRelativeEdgeAlign GetButtonSpecEdge(PaletteButtonSpecStyle style)
-{
-    switch (style)
-    {
-        case PaletteButtonSpecStyle.Generic:
-        case PaletteButtonSpecStyle.Close:
-        case PaletteButtonSpecStyle.Context:
-        case PaletteButtonSpecStyle.Next:
-        case PaletteButtonSpecStyle.Previous:
-        case PaletteButtonSpecStyle.ArrowLeft:
-        case PaletteButtonSpecStyle.ArrowRight:
-        case PaletteButtonSpecStyle.ArrowUp:
-        case PaletteButtonSpecStyle.ArrowDown:
-        case PaletteButtonSpecStyle.DropDown:
-        case PaletteButtonSpecStyle.PinVertical:
-        case PaletteButtonSpecStyle.PinHorizontal:
-        case PaletteButtonSpecStyle.FormClose:
-        case PaletteButtonSpecStyle.FormMin:
-        case PaletteButtonSpecStyle.FormMax:
-        case PaletteButtonSpecStyle.FormRestore:
-        case PaletteButtonSpecStyle.PendantClose:
-        case PaletteButtonSpecStyle.PendantMin:
-        case PaletteButtonSpecStyle.PendantRestore:
-        case PaletteButtonSpecStyle.WorkspaceMaximize:
-        case PaletteButtonSpecStyle.WorkspaceRestore:
-        case PaletteButtonSpecStyle.RibbonMinimize:
-        case PaletteButtonSpecStyle.RibbonExpand:
-            return PaletteRelativeEdgeAlign.Far;
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            return PaletteRelativeEdgeAlign.Far;
-    }
-}
-
-/// <summary>
-/// Gets the button orientation.
-/// </summary>
-/// <param name="style">Style of button spec.</param>
-/// <returns>PaletteButtonOrientation value.</returns>
-public override PaletteButtonOrientation GetButtonSpecOrientation(PaletteButtonSpecStyle style)
-{
-    switch (style)
-    {
-        case PaletteButtonSpecStyle.Close:
-        case PaletteButtonSpecStyle.Context:
-        case PaletteButtonSpecStyle.ArrowLeft:
-        case PaletteButtonSpecStyle.ArrowRight:
-        case PaletteButtonSpecStyle.ArrowUp:
-        case PaletteButtonSpecStyle.ArrowDown:
-        case PaletteButtonSpecStyle.DropDown:
-        case PaletteButtonSpecStyle.PinVertical:
-        case PaletteButtonSpecStyle.PinHorizontal:
-        case PaletteButtonSpecStyle.FormClose:
-        case PaletteButtonSpecStyle.FormMin:
-        case PaletteButtonSpecStyle.FormMax:
-        case PaletteButtonSpecStyle.FormRestore:
-        case PaletteButtonSpecStyle.PendantClose:
-        case PaletteButtonSpecStyle.PendantMin:
-        case PaletteButtonSpecStyle.PendantRestore:
-        case PaletteButtonSpecStyle.WorkspaceMaximize:
-        case PaletteButtonSpecStyle.WorkspaceRestore:
-        case PaletteButtonSpecStyle.RibbonMinimize:
-        case PaletteButtonSpecStyle.RibbonExpand:
-            return PaletteButtonOrientation.FixedTop;
-        case PaletteButtonSpecStyle.Generic:
-        case PaletteButtonSpecStyle.Next:
-        case PaletteButtonSpecStyle.Previous:
-            return PaletteButtonOrientation.Auto;
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            return PaletteButtonOrientation.Auto;
-    }
-}
-#endregion
-
-#region RibbonGeneral
-/// <summary>
-/// Gets the ribbon shape that should be used.
-/// </summary>
-/// <returns>Ribbon shape value.</returns>
-public override PaletteRibbonShape GetRibbonShape()
-{
-    return PaletteRibbonShape.Office2010;
-}
-
-/// <summary>
-/// Gets the text alignment for the ribbon context text.
-/// </summary>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Font value.</returns>
-public override PaletteRelativeAlign GetRibbonContextTextAlign(PaletteState state)
-{
-    return PaletteRelativeAlign.Center;
-}
-
-/// <summary>
-/// Gets the font for the ribbon context text.
-/// </summary>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Font value.</returns>
-public override Font GetRibbonContextTextFont(PaletteState state)
-{
-    return _ribbonTabContextFont;
-}
-
-/// <summary>
-/// Gets the color for the ribbon context text.
-/// </summary>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Font value.</returns>
-public override Color GetRibbonContextTextColor(PaletteState state)
-{
-    return _contextTextColor;
-}
-
-/// <summary>
-/// Gets the dark disabled color used for ribbon glyphs.
-/// </summary>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetRibbonDisabledDark(PaletteState state)
-{
-    return _disabledGlyphDark;
-}
-
-/// <summary>
-/// Gets the light disabled color used for ribbon glyphs.
-/// </summary>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetRibbonDisabledLight(PaletteState state)
-{
-    return _disabledGlyphLight;
-}
-
-/// <summary>
-/// Gets the color for the drop arrow light.
-/// </summary>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetRibbonDropArrowLight(PaletteState state)
-{
-    return _ribbonColors[(int)SchemeOfficeColors.RibbonDropArrowLight];
-}
-
-/// <summary>
-/// Gets the color for the drop arrow dark.
-/// </summary>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetRibbonDropArrowDark(PaletteState state)
-{
-    return _ribbonColors[(int)SchemeOfficeColors.RibbonDropArrowDark];
-}
-
-/// <summary>
-/// Gets the color for the dialog launcher dark.
-/// </summary>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetRibbonGroupDialogDark(PaletteState state)
-{
-    return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupDialogDark];
-}
-
-/// <summary>
-/// Gets the color for the dialog launcher light.
-/// </summary>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetRibbonGroupDialogLight(PaletteState state)
-{
-    return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupDialogLight];
-}
-
-/// <summary>
-/// Gets the color for the group separator dark.
-/// </summary>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetRibbonGroupSeparatorDark(PaletteState state)
-{
-    return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupSeparatorDark];
-}
-
-/// <summary>
-/// Gets the color for the group separator light.
-/// </summary>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetRibbonGroupSeparatorLight(PaletteState state)
-{
-    return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupSeparatorLight];
-}
-
-/// <summary>
-/// Gets the color for the minimize bar dark.
-/// </summary>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetRibbonMinimizeBarDark(PaletteState state)
-{
-    return _ribbonColors[(int)SchemeOfficeColors.RibbonMinimizeBarDark];
-}
-
-/// <summary>
-/// Gets the color for the minimize bar light.
-/// </summary>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetRibbonMinimizeBarLight(PaletteState state)
-{
-    return _ribbonColors[(int)SchemeOfficeColors.RibbonMinimizeBarLight];
-}
-
-/// <summary>
-/// Gets the color for the tab separator.
-/// </summary>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetRibbonTabSeparatorColor(PaletteState state)
-{
-    return _ribbonColors[(int)SchemeOfficeColors.RibbonTabSeparatorColor];
-}
-
-/// <summary>
-/// Gets the color for the tab context separators.
-/// </summary>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetRibbonTabSeparatorContextColor(PaletteState state)
-{
-    return _contextTabSeparator;
-}
-
-/// <summary>
-/// Gets the font for the ribbon text.
-/// </summary>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Font value.</returns>
-public override Font GetRibbonTextFont(PaletteState state)
-{
-    return _ribbonTabFont;
-}
-
-/// <summary>
-/// Gets the rendering hint for the ribbon font.
-/// </summary>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>PaletteTextHint value.</returns>
-public override PaletteTextHint GetRibbonTextHint(PaletteState state)
-{
-    return PaletteTextHint.ClearTypeGridFit;
-}
-
-/// <summary>
-/// Gets the color for the extra QAT button dark content color.
-/// </summary>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetRibbonQATButtonDark(PaletteState state)
-{
-    return _ribbonColors[(int)SchemeOfficeColors.RibbonQATButtonDark];
-}
-
-/// <summary>
-/// Gets the color for the extra QAT button light content color.
-/// </summary>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetRibbonQATButtonLight(PaletteState state)
-{
-    return _ribbonColors[(int)SchemeOfficeColors.RibbonQATButtonLight];
-}
-#endregion
-
-#region RibbonBack
-/// <summary>
-/// Gets the method used to draw the background of a ribbon item.
-/// </summary>
-/// <param name="style">Background style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>PaletteRibbonBackStyle value.</returns>
-public override PaletteRibbonColorStyle GetRibbonBackColorStyle(PaletteRibbonBackStyle style, PaletteState state)
-{
-    switch (style)
-    {
-        case PaletteRibbonBackStyle.RibbonAppMenuDocs:
-            return PaletteRibbonColorStyle.Solid;
-        case PaletteRibbonBackStyle.RibbonAppMenuInner:
-            return PaletteRibbonColorStyle.RibbonAppMenuInner;
-        case PaletteRibbonBackStyle.RibbonAppMenuOuter:
-            return PaletteRibbonColorStyle.RibbonAppMenuOuter;
-        case PaletteRibbonBackStyle.RibbonQATMinibar:
-            if (state == PaletteState.CheckedNormal)
+            switch (button)
             {
-                return PaletteRibbonColorStyle.RibbonQATMinibarDouble;
+                default:
+                case PaletteRibbonGalleryButton.Down:
+                    return _galleryButtonList.Images[0];
+                case PaletteRibbonGalleryButton.Up:
+                    return _galleryButtonList.Images[1];
+                case PaletteRibbonGalleryButton.DropDown:
+                    return _galleryButtonList.Images[2];
             }
-            else
-            {
-                return PaletteRibbonColorStyle.RibbonQATMinibarSingle;
-            }
+        }
+        #endregion
 
-        case PaletteRibbonBackStyle.RibbonQATFullbar:
-            return PaletteRibbonColorStyle.RibbonQATFullbarSquare;
-        case PaletteRibbonBackStyle.RibbonQATOverflow:
-            return PaletteRibbonColorStyle.RibbonQATOverflow;
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBorder:
-            return PaletteRibbonColorStyle.LinearBorder;
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBack:
-            if (state == PaletteState.Pressed)
+        #region ButtonSpec
+        /// <summary>
+        /// Gets the icon to display for the button.
+        /// </summary>
+        /// <param name="style">Style of button spec.</param>
+        /// <returns>Icon value.</returns>
+        public override Icon GetButtonSpecIcon(PaletteButtonSpecStyle style)
+        {
+            switch (style)
             {
-                return PaletteRibbonColorStyle.Empty;
-            }
-            else
-            {
-                return PaletteRibbonColorStyle.Linear;
-            }
-
-        case PaletteRibbonBackStyle.RibbonGroupNormalBorder:
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedBorder:
-            switch (state)
-            {
-                case PaletteState.Normal:
-                case PaletteState.ContextNormal:
-                    return PaletteRibbonColorStyle.RibbonGroupNormalBorderSep;
-                case PaletteState.Tracking:
-                case PaletteState.ContextTracking:
-                    return PaletteRibbonColorStyle.RibbonGroupNormalBorderSepTrackingLight;
-                case PaletteState.Pressed:
-                case PaletteState.ContextPressed:
-                    return PaletteRibbonColorStyle.RibbonGroupNormalBorderSepPressedLight;
+                case PaletteButtonSpecStyle.Generic:
+                case PaletteButtonSpecStyle.Close:
+                case PaletteButtonSpecStyle.Context:
+                case PaletteButtonSpecStyle.Next:
+                case PaletteButtonSpecStyle.Previous:
+                case PaletteButtonSpecStyle.ArrowLeft:
+                case PaletteButtonSpecStyle.ArrowRight:
+                case PaletteButtonSpecStyle.ArrowUp:
+                case PaletteButtonSpecStyle.ArrowDown:
+                case PaletteButtonSpecStyle.DropDown:
+                case PaletteButtonSpecStyle.PinVertical:
+                case PaletteButtonSpecStyle.PinHorizontal:
+                case PaletteButtonSpecStyle.FormClose:
+                case PaletteButtonSpecStyle.FormMin:
+                case PaletteButtonSpecStyle.FormMax:
+                case PaletteButtonSpecStyle.FormRestore:
+                case PaletteButtonSpecStyle.PendantClose:
+                case PaletteButtonSpecStyle.PendantMin:
+                case PaletteButtonSpecStyle.PendantRestore:
+                case PaletteButtonSpecStyle.WorkspaceMaximize:
+                case PaletteButtonSpecStyle.WorkspaceRestore:
+                case PaletteButtonSpecStyle.RibbonMinimize:
+                case PaletteButtonSpecStyle.RibbonExpand:
+                    return null;
                 default:
                     // Should never happen!
                     Debug.Assert(false);
-                    break;
+                    return null;
             }
-            break;
-        case PaletteRibbonBackStyle.RibbonGroupNormalTitle:
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedBack:
-            return PaletteRibbonColorStyle.Empty;
-        case PaletteRibbonBackStyle.RibbonGroupArea:
-            switch (state)
+        }
+
+        /// <summary>
+        /// Gets the image to display for the button.
+        /// </summary>
+        /// <param name="style">Style of button spec.</param>
+        /// <param name="state">State for which image is required.</param>
+        /// <returns>Image value.</returns>
+        public override Image GetButtonSpecImage(PaletteButtonSpecStyle style,
+                                                 PaletteState state)
+        {
+            switch (style)
             {
-                case PaletteState.Normal:
-                case PaletteState.CheckedNormal:
-                    return PaletteRibbonColorStyle.RibbonGroupAreaBorder3;
-                case PaletteState.ContextCheckedNormal:
-                    return PaletteRibbonColorStyle.RibbonGroupAreaBorder4;
+                case PaletteButtonSpecStyle.Close:
+                    return _buttonSpecClose;
+                case PaletteButtonSpecStyle.Context:
+                    return _buttonSpecContext;
+                case PaletteButtonSpecStyle.Next:
+                    return _buttonSpecNext;
+                case PaletteButtonSpecStyle.Previous:
+                    return _buttonSpecPrevious;
+                case PaletteButtonSpecStyle.ArrowLeft:
+                    return _buttonSpecArrowLeft;
+                case PaletteButtonSpecStyle.ArrowRight:
+                    return _buttonSpecArrowRight;
+                case PaletteButtonSpecStyle.ArrowUp:
+                    return _buttonSpecArrowUp;
+                case PaletteButtonSpecStyle.ArrowDown:
+                    return _buttonSpecArrowDown;
+                case PaletteButtonSpecStyle.DropDown:
+                    return _buttonSpecDropDown;
+                case PaletteButtonSpecStyle.PinVertical:
+                    return _buttonSpecPinVertical;
+                case PaletteButtonSpecStyle.PinHorizontal:
+                    return _buttonSpecPinHorizontal;
+                case PaletteButtonSpecStyle.PendantClose:
+                    return _buttonSpecPendantClose;
+                case PaletteButtonSpecStyle.PendantMin:
+                    return _buttonSpecPendantMin;
+                case PaletteButtonSpecStyle.PendantRestore:
+                    return _buttonSpecPendantRestore;
+                case PaletteButtonSpecStyle.WorkspaceMaximize:
+                    return _buttonSpecWorkspaceMaximize;
+                case PaletteButtonSpecStyle.WorkspaceRestore:
+                    return _buttonSpecWorkspaceRestore;
+                case PaletteButtonSpecStyle.RibbonMinimize:
+                    return _buttonSpecRibbonMinimize;
+                case PaletteButtonSpecStyle.RibbonExpand:
+                    return _buttonSpecRibbonExpand;
+                case PaletteButtonSpecStyle.Generic:
+                    return null;
                 default:
                     // Should never happen!
                     Debug.Assert(false);
-                    break;
+                    return null;
             }
-            break;
-        case PaletteRibbonBackStyle.RibbonTab:
-            switch (state)
+        }
+
+        /// <summary>
+        /// Gets the image transparent color.
+        /// </summary>
+        /// <param name="style">Style of button spec.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetButtonSpecImageTransparentColor(PaletteButtonSpecStyle style)
+        {
+            switch (style)
             {
-                case PaletteState.Disabled:
-                case PaletteState.Normal:
+                case PaletteButtonSpecStyle.Generic:
+                    return Color.Empty;
+                case PaletteButtonSpecStyle.Close:
+                case PaletteButtonSpecStyle.Context:
+                case PaletteButtonSpecStyle.Next:
+                case PaletteButtonSpecStyle.Previous:
+                case PaletteButtonSpecStyle.ArrowLeft:
+                case PaletteButtonSpecStyle.ArrowRight:
+                case PaletteButtonSpecStyle.ArrowUp:
+                case PaletteButtonSpecStyle.ArrowDown:
+                case PaletteButtonSpecStyle.DropDown:
+                case PaletteButtonSpecStyle.PinVertical:
+                case PaletteButtonSpecStyle.PinHorizontal:
+                case PaletteButtonSpecStyle.FormClose:
+                case PaletteButtonSpecStyle.FormMin:
+                case PaletteButtonSpecStyle.FormMax:
+                case PaletteButtonSpecStyle.FormRestore:
+                case PaletteButtonSpecStyle.PendantClose:
+                case PaletteButtonSpecStyle.PendantMin:
+                case PaletteButtonSpecStyle.PendantRestore:
+                case PaletteButtonSpecStyle.WorkspaceMaximize:
+                case PaletteButtonSpecStyle.WorkspaceRestore:
+                case PaletteButtonSpecStyle.RibbonMinimize:
+                case PaletteButtonSpecStyle.RibbonExpand:
+                    return Color.Magenta;
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    return Color.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Gets the short text to display for the button.
+        /// </summary>
+        /// <param name="style">Style of button spec.</param>
+        /// <returns>String value.</returns>
+        public override string GetButtonSpecShortText(PaletteButtonSpecStyle style)
+        {
+            switch (style)
+            {
+                case PaletteButtonSpecStyle.Generic:
+                case PaletteButtonSpecStyle.Close:
+                case PaletteButtonSpecStyle.Context:
+                case PaletteButtonSpecStyle.Next:
+                case PaletteButtonSpecStyle.Previous:
+                case PaletteButtonSpecStyle.ArrowLeft:
+                case PaletteButtonSpecStyle.ArrowRight:
+                case PaletteButtonSpecStyle.ArrowUp:
+                case PaletteButtonSpecStyle.ArrowDown:
+                case PaletteButtonSpecStyle.DropDown:
+                case PaletteButtonSpecStyle.PinVertical:
+                case PaletteButtonSpecStyle.PinHorizontal:
+                case PaletteButtonSpecStyle.FormClose:
+                case PaletteButtonSpecStyle.FormMin:
+                case PaletteButtonSpecStyle.FormMax:
+                case PaletteButtonSpecStyle.FormRestore:
+                case PaletteButtonSpecStyle.PendantClose:
+                case PaletteButtonSpecStyle.PendantMin:
+                case PaletteButtonSpecStyle.PendantRestore:
+                case PaletteButtonSpecStyle.WorkspaceMaximize:
+                case PaletteButtonSpecStyle.WorkspaceRestore:
+                case PaletteButtonSpecStyle.RibbonMinimize:
+                case PaletteButtonSpecStyle.RibbonExpand:
+                    return string.Empty;
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    return null;
+            }
+        }
+
+        /// <summary>
+        /// Gets the long text to display for the button.
+        /// </summary>
+        /// <param name="style">Style of button spec.</param>
+        /// <returns>String value.</returns>
+        public override string GetButtonSpecLongText(PaletteButtonSpecStyle style)
+        {
+            switch (style)
+            {
+                case PaletteButtonSpecStyle.Generic:
+                case PaletteButtonSpecStyle.Close:
+                case PaletteButtonSpecStyle.Context:
+                case PaletteButtonSpecStyle.Next:
+                case PaletteButtonSpecStyle.Previous:
+                case PaletteButtonSpecStyle.ArrowLeft:
+                case PaletteButtonSpecStyle.ArrowRight:
+                case PaletteButtonSpecStyle.ArrowUp:
+                case PaletteButtonSpecStyle.ArrowDown:
+                case PaletteButtonSpecStyle.DropDown:
+                case PaletteButtonSpecStyle.PinVertical:
+                case PaletteButtonSpecStyle.PinHorizontal:
+                case PaletteButtonSpecStyle.FormClose:
+                case PaletteButtonSpecStyle.FormMin:
+                case PaletteButtonSpecStyle.FormMax:
+                case PaletteButtonSpecStyle.FormRestore:
+                case PaletteButtonSpecStyle.PendantClose:
+                case PaletteButtonSpecStyle.PendantMin:
+                case PaletteButtonSpecStyle.PendantRestore:
+                case PaletteButtonSpecStyle.WorkspaceMaximize:
+                case PaletteButtonSpecStyle.WorkspaceRestore:
+                case PaletteButtonSpecStyle.RibbonMinimize:
+                case PaletteButtonSpecStyle.RibbonExpand:
+                    return string.Empty;
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    return null;
+            }
+        }
+
+        /// <summary>
+        /// Gets the color to remap from the image to the container foreground.
+        /// </summary>
+        /// <param name="style">Style of button spec.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetButtonSpecColorMap(PaletteButtonSpecStyle style)
+        {
+            switch (style)
+            {
+                case PaletteButtonSpecStyle.FormClose:
+                case PaletteButtonSpecStyle.FormMin:
+                case PaletteButtonSpecStyle.FormMax:
+                case PaletteButtonSpecStyle.FormRestore:
+                case PaletteButtonSpecStyle.PendantClose:
+                case PaletteButtonSpecStyle.PendantMin:
+                case PaletteButtonSpecStyle.PendantRestore:
+                case PaletteButtonSpecStyle.Generic:
+                    return Color.Empty;
+                case PaletteButtonSpecStyle.Close:
+                case PaletteButtonSpecStyle.Context:
+                case PaletteButtonSpecStyle.Next:
+                case PaletteButtonSpecStyle.Previous:
+                case PaletteButtonSpecStyle.ArrowLeft:
+                case PaletteButtonSpecStyle.ArrowRight:
+                case PaletteButtonSpecStyle.ArrowUp:
+                case PaletteButtonSpecStyle.ArrowDown:
+                case PaletteButtonSpecStyle.DropDown:
+                case PaletteButtonSpecStyle.PinVertical:
+                case PaletteButtonSpecStyle.PinHorizontal:
+                case PaletteButtonSpecStyle.WorkspaceMaximize:
+                case PaletteButtonSpecStyle.WorkspaceRestore:
+                case PaletteButtonSpecStyle.RibbonMinimize:
+                case PaletteButtonSpecStyle.RibbonExpand:
+                    return Color.Black;
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    return Color.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Gets the color to remap to transparent.
+        /// </summary>
+        /// <param name="style">Style of button spec.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetButtonSpecColorTransparent(PaletteButtonSpecStyle style)
+        {
+            switch (style)
+            {
+                case PaletteButtonSpecStyle.Generic:
+                    return Color.Empty;
+                case PaletteButtonSpecStyle.Close:
+                case PaletteButtonSpecStyle.Context:
+                case PaletteButtonSpecStyle.Next:
+                case PaletteButtonSpecStyle.Previous:
+                case PaletteButtonSpecStyle.ArrowLeft:
+                case PaletteButtonSpecStyle.ArrowRight:
+                case PaletteButtonSpecStyle.ArrowUp:
+                case PaletteButtonSpecStyle.DropDown:
+                case PaletteButtonSpecStyle.PinVertical:
+                case PaletteButtonSpecStyle.PinHorizontal:
+                case PaletteButtonSpecStyle.FormClose:
+                case PaletteButtonSpecStyle.FormMin:
+                case PaletteButtonSpecStyle.FormMax:
+                case PaletteButtonSpecStyle.FormRestore:
+                case PaletteButtonSpecStyle.PendantClose:
+                case PaletteButtonSpecStyle.PendantMin:
+                case PaletteButtonSpecStyle.PendantRestore:
+                case PaletteButtonSpecStyle.WorkspaceMaximize:
+                case PaletteButtonSpecStyle.WorkspaceRestore:
+                case PaletteButtonSpecStyle.RibbonMinimize:
+                case PaletteButtonSpecStyle.RibbonExpand:
+                    return Color.Magenta;
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    return Color.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Gets the button style used for drawing the button.
+        /// </summary>
+        /// <param name="style">Style of button spec.</param>
+        /// <returns>PaletteButtonStyle value.</returns>
+        public override PaletteButtonStyle GetButtonSpecStyle(PaletteButtonSpecStyle style)
+        {
+            switch (style)
+            {
+                case PaletteButtonSpecStyle.FormMin:
+                case PaletteButtonSpecStyle.FormMax:
+                case PaletteButtonSpecStyle.FormRestore:
+                    return PaletteButtonStyle.Form;
+                case PaletteButtonSpecStyle.FormClose:
+                    return PaletteButtonStyle.FormClose;
+                case PaletteButtonSpecStyle.Generic:
+                case PaletteButtonSpecStyle.Close:
+                case PaletteButtonSpecStyle.Context:
+                case PaletteButtonSpecStyle.Next:
+                case PaletteButtonSpecStyle.Previous:
+                case PaletteButtonSpecStyle.ArrowLeft:
+                case PaletteButtonSpecStyle.ArrowRight:
+                case PaletteButtonSpecStyle.ArrowUp:
+                case PaletteButtonSpecStyle.ArrowDown:
+                case PaletteButtonSpecStyle.DropDown:
+                case PaletteButtonSpecStyle.PinVertical:
+                case PaletteButtonSpecStyle.PinHorizontal:
+                case PaletteButtonSpecStyle.PendantClose:
+                case PaletteButtonSpecStyle.PendantMin:
+                case PaletteButtonSpecStyle.PendantRestore:
+                case PaletteButtonSpecStyle.WorkspaceMaximize:
+                case PaletteButtonSpecStyle.WorkspaceRestore:
+                case PaletteButtonSpecStyle.RibbonMinimize:
+                case PaletteButtonSpecStyle.RibbonExpand:
+                    return PaletteButtonStyle.ButtonSpec;
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    return PaletteButtonStyle.ButtonSpec;
+            }
+        }
+
+        /// <summary>
+        /// Get the location for the button.
+        /// </summary>
+        /// <param name="style">Style of button spec.</param>
+        /// <returns>HeaderLocation value.</returns>
+        public override HeaderLocation GetButtonSpecLocation(PaletteButtonSpecStyle style)
+        {
+            switch (style)
+            {
+                case PaletteButtonSpecStyle.Generic:
+                case PaletteButtonSpecStyle.Close:
+                case PaletteButtonSpecStyle.Context:
+                case PaletteButtonSpecStyle.Next:
+                case PaletteButtonSpecStyle.Previous:
+                case PaletteButtonSpecStyle.ArrowLeft:
+                case PaletteButtonSpecStyle.ArrowRight:
+                case PaletteButtonSpecStyle.ArrowUp:
+                case PaletteButtonSpecStyle.ArrowDown:
+                case PaletteButtonSpecStyle.DropDown:
+                case PaletteButtonSpecStyle.PinVertical:
+                case PaletteButtonSpecStyle.PinHorizontal:
+                case PaletteButtonSpecStyle.FormClose:
+                case PaletteButtonSpecStyle.FormMin:
+                case PaletteButtonSpecStyle.FormMax:
+                case PaletteButtonSpecStyle.FormRestore:
+                case PaletteButtonSpecStyle.PendantClose:
+                case PaletteButtonSpecStyle.PendantMin:
+                case PaletteButtonSpecStyle.PendantRestore:
+                case PaletteButtonSpecStyle.WorkspaceMaximize:
+                case PaletteButtonSpecStyle.WorkspaceRestore:
+                case PaletteButtonSpecStyle.RibbonMinimize:
+                case PaletteButtonSpecStyle.RibbonExpand:
+                    return HeaderLocation.PrimaryHeader;
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    return HeaderLocation.PrimaryHeader;
+            }
+        }
+
+        /// <summary>
+        /// Gets the edge to positon the button against.
+        /// </summary>
+        /// <param name="style">Style of button spec.</param>
+        /// <returns>PaletteRelativeEdgeAlign value.</returns>
+        public override PaletteRelativeEdgeAlign GetButtonSpecEdge(PaletteButtonSpecStyle style)
+        {
+            switch (style)
+            {
+                case PaletteButtonSpecStyle.Generic:
+                case PaletteButtonSpecStyle.Close:
+                case PaletteButtonSpecStyle.Context:
+                case PaletteButtonSpecStyle.Next:
+                case PaletteButtonSpecStyle.Previous:
+                case PaletteButtonSpecStyle.ArrowLeft:
+                case PaletteButtonSpecStyle.ArrowRight:
+                case PaletteButtonSpecStyle.ArrowUp:
+                case PaletteButtonSpecStyle.ArrowDown:
+                case PaletteButtonSpecStyle.DropDown:
+                case PaletteButtonSpecStyle.PinVertical:
+                case PaletteButtonSpecStyle.PinHorizontal:
+                case PaletteButtonSpecStyle.FormClose:
+                case PaletteButtonSpecStyle.FormMin:
+                case PaletteButtonSpecStyle.FormMax:
+                case PaletteButtonSpecStyle.FormRestore:
+                case PaletteButtonSpecStyle.PendantClose:
+                case PaletteButtonSpecStyle.PendantMin:
+                case PaletteButtonSpecStyle.PendantRestore:
+                case PaletteButtonSpecStyle.WorkspaceMaximize:
+                case PaletteButtonSpecStyle.WorkspaceRestore:
+                case PaletteButtonSpecStyle.RibbonMinimize:
+                case PaletteButtonSpecStyle.RibbonExpand:
+                    return PaletteRelativeEdgeAlign.Far;
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    return PaletteRelativeEdgeAlign.Far;
+            }
+        }
+
+        /// <summary>
+        /// Gets the button orientation.
+        /// </summary>
+        /// <param name="style">Style of button spec.</param>
+        /// <returns>PaletteButtonOrientation value.</returns>
+        public override PaletteButtonOrientation GetButtonSpecOrientation(PaletteButtonSpecStyle style)
+        {
+            switch (style)
+            {
+                case PaletteButtonSpecStyle.Close:
+                case PaletteButtonSpecStyle.Context:
+                case PaletteButtonSpecStyle.ArrowLeft:
+                case PaletteButtonSpecStyle.ArrowRight:
+                case PaletteButtonSpecStyle.ArrowUp:
+                case PaletteButtonSpecStyle.ArrowDown:
+                case PaletteButtonSpecStyle.DropDown:
+                case PaletteButtonSpecStyle.PinVertical:
+                case PaletteButtonSpecStyle.PinHorizontal:
+                case PaletteButtonSpecStyle.FormClose:
+                case PaletteButtonSpecStyle.FormMin:
+                case PaletteButtonSpecStyle.FormMax:
+                case PaletteButtonSpecStyle.FormRestore:
+                case PaletteButtonSpecStyle.PendantClose:
+                case PaletteButtonSpecStyle.PendantMin:
+                case PaletteButtonSpecStyle.PendantRestore:
+                case PaletteButtonSpecStyle.WorkspaceMaximize:
+                case PaletteButtonSpecStyle.WorkspaceRestore:
+                case PaletteButtonSpecStyle.RibbonMinimize:
+                case PaletteButtonSpecStyle.RibbonExpand:
+                    return PaletteButtonOrientation.FixedTop;
+                case PaletteButtonSpecStyle.Generic:
+                case PaletteButtonSpecStyle.Next:
+                case PaletteButtonSpecStyle.Previous:
+                    return PaletteButtonOrientation.Auto;
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    return PaletteButtonOrientation.Auto;
+            }
+        }
+        #endregion
+
+        #region RibbonGeneral
+        /// <summary>
+        /// Gets the ribbon shape that should be used.
+        /// </summary>
+        /// <returns>Ribbon shape value.</returns>
+        public override PaletteRibbonShape GetRibbonShape()
+        {
+            return PaletteRibbonShape.Office2010;
+        }
+
+        /// <summary>
+        /// Gets the text alignment for the ribbon context text.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Font value.</returns>
+        public override PaletteRelativeAlign GetRibbonContextTextAlign(PaletteState state)
+        {
+            return PaletteRelativeAlign.Center;
+        }
+
+        /// <summary>
+        /// Gets the font for the ribbon context text.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Font value.</returns>
+        public override Font GetRibbonContextTextFont(PaletteState state)
+        {
+            return _ribbonTabContextFont;
+        }
+
+        /// <summary>
+        /// Gets the color for the ribbon context text.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Font value.</returns>
+        public override Color GetRibbonContextTextColor(PaletteState state)
+        {
+            return _contextTextColor;
+        }
+
+        /// <summary>
+        /// Gets the dark disabled color used for ribbon glyphs.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetRibbonDisabledDark(PaletteState state)
+        {
+            return _disabledGlyphDark;
+        }
+
+        /// <summary>
+        /// Gets the light disabled color used for ribbon glyphs.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetRibbonDisabledLight(PaletteState state)
+        {
+            return _disabledGlyphLight;
+        }
+
+        /// <summary>
+        /// Gets the color for the drop arrow light.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetRibbonDropArrowLight(PaletteState state)
+        {
+            return _ribbonColors[(int)SchemeOfficeColors.RibbonDropArrowLight];
+        }
+
+        /// <summary>
+        /// Gets the color for the drop arrow dark.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetRibbonDropArrowDark(PaletteState state)
+        {
+            return _ribbonColors[(int)SchemeOfficeColors.RibbonDropArrowDark];
+        }
+
+        /// <summary>
+        /// Gets the color for the dialog launcher dark.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetRibbonGroupDialogDark(PaletteState state)
+        {
+            return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupDialogDark];
+        }
+
+        /// <summary>
+        /// Gets the color for the dialog launcher light.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetRibbonGroupDialogLight(PaletteState state)
+        {
+            return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupDialogLight];
+        }
+
+        /// <summary>
+        /// Gets the color for the group separator dark.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetRibbonGroupSeparatorDark(PaletteState state)
+        {
+            return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupSeparatorDark];
+        }
+
+        /// <summary>
+        /// Gets the color for the group separator light.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetRibbonGroupSeparatorLight(PaletteState state)
+        {
+            return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupSeparatorLight];
+        }
+
+        /// <summary>
+        /// Gets the color for the minimize bar dark.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetRibbonMinimizeBarDark(PaletteState state)
+        {
+            return _ribbonColors[(int)SchemeOfficeColors.RibbonMinimizeBarDark];
+        }
+
+        /// <summary>
+        /// Gets the color for the minimize bar light.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetRibbonMinimizeBarLight(PaletteState state)
+        {
+            return _ribbonColors[(int)SchemeOfficeColors.RibbonMinimizeBarLight];
+        }
+
+        /// <summary>
+        /// Gets the color for the tab separator.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetRibbonTabSeparatorColor(PaletteState state)
+        {
+            return _ribbonColors[(int)SchemeOfficeColors.RibbonTabSeparatorColor];
+        }
+
+        /// <summary>
+        /// Gets the color for the tab context separators.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetRibbonTabSeparatorContextColor(PaletteState state)
+        {
+            return _contextTabSeparator;
+        }
+
+        /// <summary>
+        /// Gets the font for the ribbon text.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Font value.</returns>
+        public override Font GetRibbonTextFont(PaletteState state)
+        {
+            return _ribbonTabFont;
+        }
+
+        /// <summary>
+        /// Gets the rendering hint for the ribbon font.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteTextHint value.</returns>
+        public override PaletteTextHint GetRibbonTextHint(PaletteState state)
+        {
+            return PaletteTextHint.ClearTypeGridFit;
+        }
+
+        /// <summary>
+        /// Gets the color for the extra QAT button dark content color.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetRibbonQATButtonDark(PaletteState state)
+        {
+            return _ribbonColors[(int)SchemeOfficeColors.RibbonQATButtonDark];
+        }
+
+        /// <summary>
+        /// Gets the color for the extra QAT button light content color.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetRibbonQATButtonLight(PaletteState state)
+        {
+            return _ribbonColors[(int)SchemeOfficeColors.RibbonQATButtonLight];
+        }
+        #endregion
+
+        #region RibbonBack
+        /// <summary>
+        /// Gets the method used to draw the background of a ribbon item.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteRibbonBackStyle value.</returns>
+        public override PaletteRibbonColorStyle GetRibbonBackColorStyle(PaletteRibbonBackStyle style, PaletteState state)
+        {
+            switch (style)
+            {
+                case PaletteRibbonBackStyle.RibbonAppMenuDocs:
+                    return PaletteRibbonColorStyle.Solid;
+                case PaletteRibbonBackStyle.RibbonAppMenuInner:
+                    return PaletteRibbonColorStyle.RibbonAppMenuInner;
+                case PaletteRibbonBackStyle.RibbonAppMenuOuter:
+                    return PaletteRibbonColorStyle.RibbonAppMenuOuter;
+                case PaletteRibbonBackStyle.RibbonQATMinibar:
+                    if (state == PaletteState.CheckedNormal)
+                    {
+                        return PaletteRibbonColorStyle.RibbonQATMinibarDouble;
+                    }
+                    else
+                    {
+                        return PaletteRibbonColorStyle.RibbonQATMinibarSingle;
+                    }
+
+                case PaletteRibbonBackStyle.RibbonQATFullbar:
+                    return PaletteRibbonColorStyle.RibbonQATFullbarSquare;
+                case PaletteRibbonBackStyle.RibbonQATOverflow:
+                    return PaletteRibbonColorStyle.RibbonQATOverflow;
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBorder:
+                    return PaletteRibbonColorStyle.LinearBorder;
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBack:
+                    if (state == PaletteState.Pressed)
+                    {
+                        return PaletteRibbonColorStyle.Empty;
+                    }
+                    else
+                    {
+                        return PaletteRibbonColorStyle.Linear;
+                    }
+
+                case PaletteRibbonBackStyle.RibbonGroupNormalBorder:
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedBorder:
+                    switch (state)
+                    {
+                        case PaletteState.Normal:
+                        case PaletteState.ContextNormal:
+                            return PaletteRibbonColorStyle.RibbonGroupNormalBorderSep;
+                        case PaletteState.Tracking:
+                        case PaletteState.ContextTracking:
+                            return PaletteRibbonColorStyle.RibbonGroupNormalBorderSepTrackingLight;
+                        case PaletteState.Pressed:
+                        case PaletteState.ContextPressed:
+                            return PaletteRibbonColorStyle.RibbonGroupNormalBorderSepPressedLight;
+                        default:
+                            // Should never happen!
+                            Debug.Assert(false);
+                            break;
+                    }
+                    break;
+                case PaletteRibbonBackStyle.RibbonGroupNormalTitle:
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedBack:
                     return PaletteRibbonColorStyle.Empty;
-                case PaletteState.Tracking:
-                case PaletteState.Pressed:
-                case PaletteState.ContextTracking:
-                    return PaletteRibbonColorStyle.RibbonTabTracking2010;
-                case PaletteState.FocusOverride:
-                    return PaletteRibbonColorStyle.RibbonTabFocus2010;
-                case PaletteState.CheckedNormal:
-                case PaletteState.CheckedTracking:
-                case PaletteState.CheckedPressed:
-                case PaletteState.ContextCheckedNormal:
-                case PaletteState.ContextCheckedTracking:
-                    return PaletteRibbonColorStyle.RibbonTabSelected2010;
+                case PaletteRibbonBackStyle.RibbonGroupArea:
+                    switch (state)
+                    {
+                        case PaletteState.Normal:
+                        case PaletteState.CheckedNormal:
+                            return PaletteRibbonColorStyle.RibbonGroupAreaBorder3;
+                        case PaletteState.ContextCheckedNormal:
+                            return PaletteRibbonColorStyle.RibbonGroupAreaBorder4;
+                        default:
+                            // Should never happen!
+                            Debug.Assert(false);
+                            break;
+                    }
+                    break;
+                case PaletteRibbonBackStyle.RibbonTab:
+                    switch (state)
+                    {
+                        case PaletteState.Disabled:
+                        case PaletteState.Normal:
+                            return PaletteRibbonColorStyle.Empty;
+                        case PaletteState.Tracking:
+                        case PaletteState.Pressed:
+                        case PaletteState.ContextTracking:
+                            return PaletteRibbonColorStyle.RibbonTabTracking2010;
+                        case PaletteState.FocusOverride:
+                            return PaletteRibbonColorStyle.RibbonTabFocus2010;
+                        case PaletteState.CheckedNormal:
+                        case PaletteState.CheckedTracking:
+                        case PaletteState.CheckedPressed:
+                        case PaletteState.ContextCheckedNormal:
+                        case PaletteState.ContextCheckedTracking:
+                            return PaletteRibbonColorStyle.RibbonTabSelected2010;
+                        default:
+                            // Should never happen!
+                            Debug.Assert(false);
+                            break;
+                    }
+                    break;
                 default:
                     // Should never happen!
                     Debug.Assert(false);
                     break;
             }
-            break;
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            break;
-    }
 
-    return PaletteRibbonColorStyle.Empty;
-}
-
-/// <summary>
-/// Gets the first background color for the ribbon item.
-/// </summary>
-/// <param name="style">Background style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetRibbonBackColor1(PaletteRibbonBackStyle style, PaletteState state)
-{
-    switch (style)
-    {
-        case PaletteRibbonBackStyle.RibbonGalleryBack:
-            switch (state)
-            {
-                case PaletteState.Disabled:
-                    return _disabledBack;
-                case PaletteState.Tracking:
-                    return _ribbonColors[(int)SchemeOfficeColors.RibbonGalleryBackTracking];
-                case PaletteState.Normal:
-                default:
-                    return _ribbonColors[(int)SchemeOfficeColors.RibbonGalleryBackNormal];
-            }
-        case PaletteRibbonBackStyle.RibbonGalleryBorder:
-            switch (state)
-            {
-                case PaletteState.Disabled:
-                    return _disabledBorder;
-                case PaletteState.Normal:
-                case PaletteState.Tracking:
-                default:
-                    return _ribbonColors[(int)SchemeOfficeColors.RibbonGalleryBorder];
-            }
-        case PaletteRibbonBackStyle.RibbonAppMenuDocs:
-            return _ribbonColors[(int)SchemeOfficeColors.AppButtonMenuDocsBack];
-        case PaletteRibbonBackStyle.RibbonAppMenuInner:
-            return _ribbonColors[(int)SchemeOfficeColors.AppButtonInner1];
-        case PaletteRibbonBackStyle.RibbonAppMenuOuter:
-            return _ribbonColors[(int)SchemeOfficeColors.AppButtonOuter1];
-        case PaletteRibbonBackStyle.RibbonQATMinibar:
-            if (state == PaletteState.Normal)
-            {
-                return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini1];
-            }
-            else
-            {
-                return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini1I];
-            }
-
-        case PaletteRibbonBackStyle.RibbonQATFullbar:
-            return _ribbonColors[(int)SchemeOfficeColors.RibbonQATFullbar1];
-        case PaletteRibbonBackStyle.RibbonQATOverflow:
-            return _ribbonColors[(int)SchemeOfficeColors.RibbonQATOverflow1];
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBorder:
-            return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupFrameBorder1];
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBack:
-            return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupFrameInside1];
-        case PaletteRibbonBackStyle.RibbonGroupNormalTitle:
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedBack:
-            return Color.Empty;
-        case PaletteRibbonBackStyle.RibbonGroupNormalBorder:
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedBorder:
-            switch (state)
-            {
-                case PaletteState.Normal:
-                case PaletteState.Tracking:
-                case PaletteState.Pressed:
-                case PaletteState.ContextNormal:
-                case PaletteState.ContextTracking:
-                case PaletteState.ContextPressed:
-                    return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupBorder1];
-                default:
-                    // Should never happen!
-                    Debug.Assert(false);
-                    break;
-            }
-            break;
-        case PaletteRibbonBackStyle.RibbonAppButton:
-            switch (state)
-            {
-                case PaletteState.Normal:
-                    return _appButtonNormal[0];
-                case PaletteState.Tracking:
-                    return _appButtonTrack[0];
-                case PaletteState.Pressed:
-                    return _appButtonPressed[0];
-                default:
-                    // Should never happen!
-                    Debug.Assert(false);
-                    break;
-            }
-            break;
-        case PaletteRibbonBackStyle.RibbonGroupArea:
-            if (state == PaletteState.ContextCheckedNormal)
-            {
-                return Color.Empty;
-            }
-            else
-            {
-                return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupsArea1];
-            }
-
-        case PaletteRibbonBackStyle.RibbonTab:
-            switch (state)
-            {
-                case PaletteState.Tracking:
-                case PaletteState.Pressed:
-                case PaletteState.ContextTracking:
-                    return _ribbonColors[(int)SchemeOfficeColors.RibbonTabTracking1];
-                case PaletteState.CheckedNormal:
-                case PaletteState.CheckedTracking:
-                case PaletteState.CheckedPressed:
-                case PaletteState.ContextCheckedNormal:
-                case PaletteState.ContextCheckedTracking:
-                    return _ribbonColors[(int)SchemeOfficeColors.RibbonTabSelected1];
-                case PaletteState.FocusOverride:
-                    return _contextCheckedTabBorder1;
-                case PaletteState.Normal:
-                    return Color.Empty;
-                default:
-                    // Should never happen!
-                    Debug.Assert(false);
-                    break;
-            }
-            break;
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            break;
-    }
-
-    return Color.Red;
-}
-
-/// <summary>
-/// Gets the second background color for the ribbon item.
-/// </summary>
-/// <param name="style">Background style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetRibbonBackColor2(PaletteRibbonBackStyle style, PaletteState state)
-{
-    switch (style)
-    {
-        case PaletteRibbonBackStyle.RibbonAppMenuInner:
-            return _ribbonColors[(int)SchemeOfficeColors.AppButtonInner2];
-        case PaletteRibbonBackStyle.RibbonAppMenuOuter:
-            return _ribbonColors[(int)SchemeOfficeColors.AppButtonOuter2];
-        case PaletteRibbonBackStyle.RibbonQATMinibar:
-            if (state == PaletteState.Normal)
-            {
-                return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini2];
-            }
-            else
-            {
-                return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini2I];
-            }
-
-        case PaletteRibbonBackStyle.RibbonQATFullbar:
-            return _ribbonColors[(int)SchemeOfficeColors.RibbonQATFullbar2];
-        case PaletteRibbonBackStyle.RibbonQATOverflow:
-            return _ribbonColors[(int)SchemeOfficeColors.RibbonQATOverflow2];
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBorder:
-            return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupFrameBorder2];
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBack:
-            return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupFrameInside2];
-        case PaletteRibbonBackStyle.RibbonGroupNormalTitle:
-            switch (state)
-            {
-                case PaletteState.Normal:
-                    return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupTitle2];
-                case PaletteState.ContextNormal:
-                    return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupTitleContext2];
-                case PaletteState.Tracking:
-                case PaletteState.ContextTracking:
-                    return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupTitleTracking2];
-                default:
-                    // Should never happen!
-                    Debug.Assert(false);
-                    break;
-            }
-            break;
-        case PaletteRibbonBackStyle.RibbonGroupNormalBorder:
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedBorder:
-            switch (state)
-            {
-                case PaletteState.Normal:
-                case PaletteState.Tracking:
-                case PaletteState.Pressed:
-                case PaletteState.ContextNormal:
-                case PaletteState.ContextTracking:
-                case PaletteState.ContextPressed:
-                    return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupBorder2];
-                default:
-                    // Should never happen!
-                    Debug.Assert(false);
-                    break;
-            }
-            break;
-        case PaletteRibbonBackStyle.RibbonAppButton:
-            switch (state)
-            {
-                case PaletteState.Normal:
-                    return _appButtonNormal[1];
-                case PaletteState.Tracking:
-                    return _appButtonTrack[1];
-                case PaletteState.Pressed:
-                    return _appButtonPressed[1];
-                default:
-                    // Should never happen!
-                    Debug.Assert(false);
-                    break;
-            }
-            break;
-        case PaletteRibbonBackStyle.RibbonGroupArea:
-            return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupsArea2];
-        case PaletteRibbonBackStyle.RibbonTab:
-            switch (state)
-            {
-                case PaletteState.Tracking:
-                case PaletteState.Pressed:
-                case PaletteState.ContextTracking:
-                    return _ribbonColors[(int)SchemeOfficeColors.RibbonTabTracking2];
-                case PaletteState.CheckedNormal:
-                case PaletteState.CheckedTracking:
-                case PaletteState.CheckedPressed:
-                case PaletteState.ContextCheckedTracking:
-                case PaletteState.ContextCheckedNormal:
-                    return _ribbonColors[(int)SchemeOfficeColors.RibbonTabSelected2];
-                case PaletteState.FocusOverride:
-                    return _contextCheckedTabBorder2;
-                case PaletteState.Normal:
-                    return Color.Empty;
-                default:
-                    // Should never happen!
-                    Debug.Assert(false);
-                    break;
-            }
-            break;
-        case PaletteRibbonBackStyle.RibbonAppMenuDocs:
-        case PaletteRibbonBackStyle.RibbonGalleryBack:
-        case PaletteRibbonBackStyle.RibbonGalleryBorder:
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedBack:
-            return Color.Empty;
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            break;
-    }
-
-    return Color.Red;
-}
-
-/// <summary>
-/// Gets the third background color for the ribbon item.
-/// </summary>
-/// <param name="style">Background style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetRibbonBackColor3(PaletteRibbonBackStyle style, PaletteState state)
-{
-    switch (style)
-    {
-        case PaletteRibbonBackStyle.RibbonAppMenuOuter:
-            return _ribbonColors[(int)SchemeOfficeColors.AppButtonOuter3];
-        case PaletteRibbonBackStyle.RibbonQATMinibar:
-            if (state == PaletteState.Normal)
-            {
-                return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini3];
-            }
-            else
-            {
-                return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini3I];
-            }
-
-        case PaletteRibbonBackStyle.RibbonQATFullbar:
-            return _ribbonColors[(int)SchemeOfficeColors.RibbonQATFullbar3];
-        case PaletteRibbonBackStyle.RibbonGroupNormalBorder:
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedBorder:
-            return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupBorder3];
-        case PaletteRibbonBackStyle.RibbonAppMenuDocs:
-        case PaletteRibbonBackStyle.RibbonAppMenuInner:
-        case PaletteRibbonBackStyle.RibbonQATOverflow:
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBorder:
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBack:
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedBack:
-        case PaletteRibbonBackStyle.RibbonGroupNormalTitle:
-        case PaletteRibbonBackStyle.RibbonGalleryBack:
-        case PaletteRibbonBackStyle.RibbonGalleryBorder:
-            return Color.Empty;
-        case PaletteRibbonBackStyle.RibbonAppButton:
-            switch (state)
-            {
-                case PaletteState.Normal:
-                    return _appButtonNormal[2];
-                case PaletteState.Tracking:
-                    return _appButtonTrack[2];
-                case PaletteState.Pressed:
-                    return _appButtonPressed[2];
-                default:
-                    // Should never happen!
-                    Debug.Assert(false);
-                    break;
-            }
-            break;
-        case PaletteRibbonBackStyle.RibbonGroupArea:
-            return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupsArea3];
-        case PaletteRibbonBackStyle.RibbonTab:
-            switch (state)
-            {
-                case PaletteState.Tracking:
-                case PaletteState.Pressed:
-                case PaletteState.ContextTracking:
-                    return _ribbonColors[(int)SchemeOfficeColors.RibbonTabTracking3];
-                case PaletteState.CheckedNormal:
-                case PaletteState.CheckedTracking:
-                case PaletteState.CheckedPressed:
-                case PaletteState.ContextCheckedNormal:
-                case PaletteState.ContextCheckedTracking:
-                    return _ribbonColors[(int)SchemeOfficeColors.RibbonTabSelected3];
-                case PaletteState.FocusOverride:
-                    return _contextCheckedTabBorder3;
-                case PaletteState.Normal:
-                    return Color.Empty;
-                default:
-                    // Should never happen!
-                    Debug.Assert(false);
-                    break;
-            }
-            break;
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            break;
-    }
-
-    return Color.Red;
-}
-
-/// <summary>
-/// Gets the fourth background color for the ribbon item.
-/// </summary>
-/// <param name="style">Background style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetRibbonBackColor4(PaletteRibbonBackStyle style, PaletteState state)
-{
-    switch (style)
-    {
-        case PaletteRibbonBackStyle.RibbonQATMinibar:
-            if (state == PaletteState.Normal)
-            {
-                return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini4];
-            }
-            else
-            {
-                return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini4I];
-            }
-
-        case PaletteRibbonBackStyle.RibbonGroupNormalBorder:
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedBorder:
-            return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupBorder4];
-        case PaletteRibbonBackStyle.RibbonAppMenuDocs:
-        case PaletteRibbonBackStyle.RibbonAppMenuInner:
-        case PaletteRibbonBackStyle.RibbonAppMenuOuter:
-        case PaletteRibbonBackStyle.RibbonQATFullbar:
-        case PaletteRibbonBackStyle.RibbonQATOverflow:
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedBack:
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBorder:
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBack:
-        case PaletteRibbonBackStyle.RibbonGroupNormalTitle:
-        case PaletteRibbonBackStyle.RibbonGalleryBack:
-        case PaletteRibbonBackStyle.RibbonGalleryBorder:
-            return Color.Empty;
-        case PaletteRibbonBackStyle.RibbonAppButton:
-            switch (state)
-            {
-                case PaletteState.Normal:
-                    return _appButtonNormal[3];
-                case PaletteState.Tracking:
-                    return _appButtonTrack[3];
-                case PaletteState.Pressed:
-                    return _appButtonPressed[3];
-                default:
-                    // Should never happen!
-                    Debug.Assert(false);
-                    break;
-            }
-            break;
-        case PaletteRibbonBackStyle.RibbonGroupArea:
-            return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupsArea4];
-        case PaletteRibbonBackStyle.RibbonTab:
-            switch (state)
-            {
-                case PaletteState.Tracking:
-                case PaletteState.Pressed:
-                case PaletteState.ContextTracking:
-                    return _ribbonColors[(int)SchemeOfficeColors.RibbonTabTracking4];
-                case PaletteState.CheckedNormal:
-                case PaletteState.CheckedTracking:
-                case PaletteState.CheckedPressed:
-                case PaletteState.ContextCheckedNormal:
-                case PaletteState.ContextCheckedTracking:
-                    return _ribbonColors[(int)SchemeOfficeColors.RibbonTabSelected4];
-                case PaletteState.FocusOverride:
-                    return _contextCheckedTabBorder4;
-                case PaletteState.Normal:
-                    return Color.Empty;
-                default:
-                    // Should never happen!
-                    Debug.Assert(false);
-                    break;
-            }
-            break;
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            break;
-    }
-
-    return Color.Red;
-}
-
-/// <summary>
-/// Gets the fifth background color for the ribbon item.
-/// </summary>
-/// <param name="style">Background style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetRibbonBackColor5(PaletteRibbonBackStyle style, PaletteState state)
-{
-    switch (style)
-    {
-        case PaletteRibbonBackStyle.RibbonAppMenuDocs:
-        case PaletteRibbonBackStyle.RibbonAppMenuInner:
-        case PaletteRibbonBackStyle.RibbonAppMenuOuter:
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBorder:
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBack:
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedBack:
-        case PaletteRibbonBackStyle.RibbonGroupNormalTitle:
-        case PaletteRibbonBackStyle.RibbonQATFullbar:
-        case PaletteRibbonBackStyle.RibbonQATOverflow:
-        case PaletteRibbonBackStyle.RibbonGalleryBack:
-        case PaletteRibbonBackStyle.RibbonGalleryBorder:
-            return Color.Empty;
-        case PaletteRibbonBackStyle.RibbonGroupNormalBorder:
-        case PaletteRibbonBackStyle.RibbonGroupCollapsedBorder:
-            return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupBorder5];
-        case PaletteRibbonBackStyle.RibbonQATMinibar:
-            if (state == PaletteState.Normal)
-            {
-                return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini5];
-            }
-            else
-            {
-                return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini5I];
-            }
-
-        case PaletteRibbonBackStyle.RibbonAppButton:
-            switch (state)
-            {
-                case PaletteState.Normal:
-                    return _appButtonNormal[4];
-                case PaletteState.Tracking:
-                    return _appButtonTrack[4];
-                case PaletteState.Pressed:
-                    return _appButtonPressed[4];
-                default:
-                    // Should never happen!
-                    Debug.Assert(false);
-                    break;
-            }
-            break;
-        case PaletteRibbonBackStyle.RibbonGroupArea:
-            return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupsArea5];
-        case PaletteRibbonBackStyle.RibbonTab:
-            switch (state)
-            {
-                case PaletteState.Disabled:
-                    return _disabledText;
-                case PaletteState.Pressed:
-                    return _ribbonColors[(int)SchemeOfficeColors.RibbonTabTracking2];
-                case PaletteState.Tracking:
-                case PaletteState.CheckedNormal:
-                case PaletteState.CheckedTracking:
-                case PaletteState.CheckedPressed:
-                case PaletteState.ContextTracking:
-                case PaletteState.ContextCheckedNormal:
-                case PaletteState.ContextCheckedTracking:
-                case PaletteState.FocusOverride:
-                case PaletteState.Normal:
-                    return Color.Empty;
-                default:
-                    // Should never happen!
-                    Debug.Assert(false);
-                    break;
-            }
-            break;
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            break;
-    }
-
-    return Color.Red;
-}
-#endregion
-
-#region RibbonText
-/// <summary>
-/// Gets the =color for the item text.
-/// </summary>
-/// <param name="style">Text style.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetRibbonTextColor(PaletteRibbonTextStyle style, PaletteState state)
-{
-    switch (style)
-    {
-        case PaletteRibbonTextStyle.RibbonAppMenuDocsTitle:
-        case PaletteRibbonTextStyle.RibbonAppMenuDocsEntry:
-            return _ribbonColors[(int)SchemeOfficeColors.AppButtonMenuDocsText];
-        case PaletteRibbonTextStyle.RibbonGroupNormalTitle:
-            switch (state)
-            {
-                case PaletteState.Disabled:
-                    return _disabledText;
-                default:
-                    return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupTitleText];
-            }
-        case PaletteRibbonTextStyle.RibbonTab:
-            switch (state)
-            {
-                case PaletteState.Disabled:
-                    return _disabledText;
-                case PaletteState.CheckedNormal:
-                case PaletteState.CheckedPressed:
-                case PaletteState.CheckedTracking:
-                case PaletteState.ContextCheckedNormal:
-                case PaletteState.ContextCheckedTracking:
-                case PaletteState.FocusOverride:
-                    return _ribbonColors[(int)SchemeOfficeColors.RibbonTabTextChecked];
-                default:
-                    return _ribbonColors[(int)SchemeOfficeColors.RibbonTabTextNormal];
-            }
-        case PaletteRibbonTextStyle.RibbonGroupCollapsedText:
-            return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupCollapsedText];
-        case PaletteRibbonTextStyle.RibbonGroupButtonText:
-        case PaletteRibbonTextStyle.RibbonGroupLabelText:
-        case PaletteRibbonTextStyle.RibbonGroupCheckBoxText:
-        case PaletteRibbonTextStyle.RibbonGroupRadioButtonText:
-            if (state == PaletteState.Disabled)
-            {
-                return _disabledText;
-            }
-            else
-            {
-                return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupCollapsedText];
-            }
-
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            break;
-    }
-
-    return Color.Red;
-}
-#endregion
-
-#region ElementColor
-/// <summary>
-/// Gets the first element color.
-/// </summary>
-/// <param name="element">Element for which color is required.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetElementColor1(PaletteElement element, PaletteState state)
-{
-    // We do not provide override values
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return Color.Empty;
-    }
-
-    switch (element)
-    {
-        case PaletteElement.TrackBarTick:
-            return _trackBarColors[0];
-        case PaletteElement.TrackBarTrack:
-            return _trackBarColors[1];
-        case PaletteElement.TrackBarPosition:
-            switch (state)
-            {
-                case PaletteState.Disabled:
-                    return Color.Empty;
-                default:
-                    return _trackBarColors[4];
-            }
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            break;
-    }
-
-    return Color.Red;
-}
-
-/// <summary>
-/// Gets the second element color.
-/// </summary>
-/// <param name="element">Element for which color is required.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetElementColor2(PaletteElement element, PaletteState state)
-{
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return Color.Empty;
-    }
-
-    switch (element)
-    {
-        case PaletteElement.TrackBarTick:
-            return _trackBarColors[0];
-        case PaletteElement.TrackBarTrack:
-            return _trackBarColors[2];
-        case PaletteElement.TrackBarPosition:
-            switch (state)
-            {
-                case PaletteState.Disabled:
-                    return ControlPaint.Light(_ribbonColors[(int)SchemeOfficeColors.ButtonNormalBorder]);
-                case PaletteState.Normal:
-                    return _ribbonColors[(int)SchemeOfficeColors.ButtonNormalBorder];
-                case PaletteState.Tracking:
-                case PaletteState.FocusOverride:
-                    return _buttonBorderColors[1];
-                case PaletteState.Pressed:
-                    return _buttonBorderColors[3];
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(state));
-            }
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            break;
-    }
-
-    return Color.Red;
-}
-
-/// <summary>
-/// Gets the third element color.
-/// </summary>
-/// <param name="element">Element for which color is required.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetElementColor3(PaletteElement element, PaletteState state)
-{
-    if (CommonHelper.IsOverrideState(state))
-    {
-        return Color.Empty;
-    }
-
-    switch (element)
-    {
-        case PaletteElement.TrackBarTick:
-            return _trackBarColors[0];
-        case PaletteElement.TrackBarTrack:
-            return _trackBarColors[3];
-        case PaletteElement.TrackBarPosition:
-            switch (state)
-            {
-                case PaletteState.Disabled:
-                    return ControlPaint.LightLight(_ribbonColors[(int)SchemeOfficeColors.ButtonNormalBack1]);
-                case PaletteState.Normal:
-                    return ControlPaint.Light(_ribbonColors[(int)SchemeOfficeColors.ButtonNormalBack1]);
-                case PaletteState.Tracking:
-                    return ControlPaint.Light(_buttonBackColors[2]);
-                case PaletteState.Pressed:
-                    return ControlPaint.Light(_buttonBackColors[4]);
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(state));
-            }
-
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            break;
-    }
-
-    return Color.Red;
-}
-
-/// <summary>
-/// Gets the fourth element color.
-/// </summary>
-/// <param name="element">Element for which color is required.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetElementColor4(PaletteElement element, PaletteState state)
-{
-    switch (element)
-    {
-        case PaletteElement.TrackBarTick:
-            if (CommonHelper.IsOverrideState(state))
-            {
-                return Color.Empty;
-            }
-
-            return _trackBarColors[0];
-        case PaletteElement.TrackBarTrack:
-            if (CommonHelper.IsOverrideState(state))
-            {
-                return Color.Empty;
-            }
-
-            return _trackBarColors[3];
-        case PaletteElement.TrackBarPosition:
-            if (CommonHelper.IsOverrideStateExclude(state, PaletteState.FocusOverride))
-            {
-                return Color.Empty;
-            }
-
-            switch (state)
-            {
-                case PaletteState.Disabled:
-                    return ControlPaint.LightLight(_ribbonColors[(int)SchemeOfficeColors.ButtonNormalBack1]);
-                case PaletteState.Normal:
-                    return _ribbonColors[(int)SchemeOfficeColors.ButtonNormalBack1];
-                case PaletteState.Tracking:
-                case PaletteState.FocusOverride:
-                    return _buttonBackColors[2];
-                case PaletteState.Pressed:
-                    return _buttonBackColors[4];
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(state));
-            }
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            break;
-    }
-
-    return Color.Red;
-}
-
-/// <summary>
-/// Gets the fifth element color.
-/// </summary>
-/// <param name="element">Element for which color is required.</param>
-/// <param name="state">Palette value should be applicable to this state.</param>
-/// <returns>Color value.</returns>
-public override Color GetElementColor5(PaletteElement element, PaletteState state)
-{
-    switch (element)
-    {
-        case PaletteElement.TrackBarTick:
-            if (CommonHelper.IsOverrideState(state))
-            {
-                return Color.Empty;
-            }
-
-            return _trackBarColors[0];
-        case PaletteElement.TrackBarTrack:
-            if (CommonHelper.IsOverrideState(state))
-            {
-                return Color.Empty;
-            }
-
-            return _trackBarColors[3];
-        case PaletteElement.TrackBarPosition:
-            if (CommonHelper.IsOverrideStateExclude(state, PaletteState.FocusOverride))
-            {
-                return Color.Empty;
-            }
-
-            switch (state)
-            {
-                case PaletteState.Disabled:
-                    return ControlPaint.LightLight(_ribbonColors[(int)SchemeOfficeColors.ButtonNormalBack1]);
-                case PaletteState.Normal:
-                    return _ribbonColors[(int)SchemeOfficeColors.ButtonNormalBack2];
-                case PaletteState.Tracking:
-                case PaletteState.FocusOverride:
-                    return _buttonBackColors[3];
-                case PaletteState.Pressed:
-                    return _buttonBackColors[5];
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(state));
-            }
-        default:
-            // Should never happen!
-            Debug.Assert(false);
-            break;
-    }
-
-    return Color.Red;
-}
-#endregion
-
-#region Public
-/// <summary>
-/// Gets and sets the base font name used when defining fonts.
-/// </summary>
-public virtual string BaseFontName
-{
-    get
-    {
-        if (string.IsNullOrEmpty(_baseFontName))
-        {
-            return "Segoe UI";
+            return PaletteRibbonColorStyle.Empty;
         }
-        else
+
+        /// <summary>
+        /// Gets the first background color for the ribbon item.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetRibbonBackColor1(PaletteRibbonBackStyle style, PaletteState state)
         {
-            return _baseFontName;
+            switch (style)
+            {
+                case PaletteRibbonBackStyle.RibbonGalleryBack:
+                    switch (state)
+                    {
+                        case PaletteState.Disabled:
+                            return _disabledBack;
+                        case PaletteState.Tracking:
+                            return _ribbonColors[(int)SchemeOfficeColors.RibbonGalleryBackTracking];
+                        case PaletteState.Normal:
+                        default:
+                            return _ribbonColors[(int)SchemeOfficeColors.RibbonGalleryBackNormal];
+                    }
+                case PaletteRibbonBackStyle.RibbonGalleryBorder:
+                    switch (state)
+                    {
+                        case PaletteState.Disabled:
+                            return _disabledBorder;
+                        case PaletteState.Normal:
+                        case PaletteState.Tracking:
+                        default:
+                            return _ribbonColors[(int)SchemeOfficeColors.RibbonGalleryBorder];
+                    }
+                case PaletteRibbonBackStyle.RibbonAppMenuDocs:
+                    return _ribbonColors[(int)SchemeOfficeColors.AppButtonMenuDocsBack];
+                case PaletteRibbonBackStyle.RibbonAppMenuInner:
+                    return _ribbonColors[(int)SchemeOfficeColors.AppButtonInner1];
+                case PaletteRibbonBackStyle.RibbonAppMenuOuter:
+                    return _ribbonColors[(int)SchemeOfficeColors.AppButtonOuter1];
+                case PaletteRibbonBackStyle.RibbonQATMinibar:
+                    if (state == PaletteState.Normal)
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini1];
+                    }
+                    else
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini1I];
+                    }
+
+                case PaletteRibbonBackStyle.RibbonQATFullbar:
+                    return _ribbonColors[(int)SchemeOfficeColors.RibbonQATFullbar1];
+                case PaletteRibbonBackStyle.RibbonQATOverflow:
+                    return _ribbonColors[(int)SchemeOfficeColors.RibbonQATOverflow1];
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBorder:
+                    return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupFrameBorder1];
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBack:
+                    return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupFrameInside1];
+                case PaletteRibbonBackStyle.RibbonGroupNormalTitle:
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedBack:
+                    return Color.Empty;
+                case PaletteRibbonBackStyle.RibbonGroupNormalBorder:
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedBorder:
+                    switch (state)
+                    {
+                        case PaletteState.Normal:
+                        case PaletteState.Tracking:
+                        case PaletteState.Pressed:
+                        case PaletteState.ContextNormal:
+                        case PaletteState.ContextTracking:
+                        case PaletteState.ContextPressed:
+                            return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupBorder1];
+                        default:
+                            // Should never happen!
+                            Debug.Assert(false);
+                            break;
+                    }
+                    break;
+                case PaletteRibbonBackStyle.RibbonAppButton:
+                    switch (state)
+                    {
+                        case PaletteState.Normal:
+                            return _appButtonNormal[0];
+                        case PaletteState.Tracking:
+                            return _appButtonTrack[0];
+                        case PaletteState.Pressed:
+                            return _appButtonPressed[0];
+                        default:
+                            // Should never happen!
+                            Debug.Assert(false);
+                            break;
+                    }
+                    break;
+                case PaletteRibbonBackStyle.RibbonGroupArea:
+                    if (state == PaletteState.ContextCheckedNormal)
+                    {
+                        return Color.Empty;
+                    }
+                    else
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupsArea1];
+                    }
+
+                case PaletteRibbonBackStyle.RibbonTab:
+                    switch (state)
+                    {
+                        case PaletteState.Tracking:
+                        case PaletteState.Pressed:
+                        case PaletteState.ContextTracking:
+                            return _ribbonColors[(int)SchemeOfficeColors.RibbonTabTracking1];
+                        case PaletteState.CheckedNormal:
+                        case PaletteState.CheckedTracking:
+                        case PaletteState.CheckedPressed:
+                        case PaletteState.ContextCheckedNormal:
+                        case PaletteState.ContextCheckedTracking:
+                            return _ribbonColors[(int)SchemeOfficeColors.RibbonTabSelected1];
+                        case PaletteState.FocusOverride:
+                            return _contextCheckedTabBorder1;
+                        case PaletteState.Normal:
+                            return Color.Empty;
+                        default:
+                            // Should never happen!
+                            Debug.Assert(false);
+                            break;
+                    }
+                    break;
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    break;
+            }
+
+            return Color.Red;
         }
-    }
 
-    set
-    {
-        // Is there a change in value?
-        if ((string.IsNullOrEmpty(value) && !string.IsNullOrEmpty(_baseFontName)) ||
-            (!string.IsNullOrEmpty(value) && string.IsNullOrEmpty(_baseFontName)))
+        /// <summary>
+        /// Gets the second background color for the ribbon item.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetRibbonBackColor2(PaletteRibbonBackStyle style, PaletteState state)
         {
-            // Cache new value
-            _baseFontName = value;
+            switch (style)
+            {
+                case PaletteRibbonBackStyle.RibbonAppMenuInner:
+                    return _ribbonColors[(int)SchemeOfficeColors.AppButtonInner2];
+                case PaletteRibbonBackStyle.RibbonAppMenuOuter:
+                    return _ribbonColors[(int)SchemeOfficeColors.AppButtonOuter2];
+                case PaletteRibbonBackStyle.RibbonQATMinibar:
+                    if (state == PaletteState.Normal)
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini2];
+                    }
+                    else
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini2I];
+                    }
 
-            // Update fonts to reflect change
+                case PaletteRibbonBackStyle.RibbonQATFullbar:
+                    return _ribbonColors[(int)SchemeOfficeColors.RibbonQATFullbar2];
+                case PaletteRibbonBackStyle.RibbonQATOverflow:
+                    return _ribbonColors[(int)SchemeOfficeColors.RibbonQATOverflow2];
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBorder:
+                    return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupFrameBorder2];
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBack:
+                    return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupFrameInside2];
+                case PaletteRibbonBackStyle.RibbonGroupNormalTitle:
+                    switch (state)
+                    {
+                        case PaletteState.Normal:
+                            return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupTitle2];
+                        case PaletteState.ContextNormal:
+                            return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupTitleContext2];
+                        case PaletteState.Tracking:
+                        case PaletteState.ContextTracking:
+                            return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupTitleTracking2];
+                        default:
+                            // Should never happen!
+                            Debug.Assert(false);
+                            break;
+                    }
+                    break;
+                case PaletteRibbonBackStyle.RibbonGroupNormalBorder:
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedBorder:
+                    switch (state)
+                    {
+                        case PaletteState.Normal:
+                        case PaletteState.Tracking:
+                        case PaletteState.Pressed:
+                        case PaletteState.ContextNormal:
+                        case PaletteState.ContextTracking:
+                        case PaletteState.ContextPressed:
+                            return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupBorder2];
+                        default:
+                            // Should never happen!
+                            Debug.Assert(false);
+                            break;
+                    }
+                    break;
+                case PaletteRibbonBackStyle.RibbonAppButton:
+                    switch (state)
+                    {
+                        case PaletteState.Normal:
+                            return _appButtonNormal[1];
+                        case PaletteState.Tracking:
+                            return _appButtonTrack[1];
+                        case PaletteState.Pressed:
+                            return _appButtonPressed[1];
+                        default:
+                            // Should never happen!
+                            Debug.Assert(false);
+                            break;
+                    }
+                    break;
+                case PaletteRibbonBackStyle.RibbonGroupArea:
+                    return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupsArea2];
+                case PaletteRibbonBackStyle.RibbonTab:
+                    switch (state)
+                    {
+                        case PaletteState.Tracking:
+                        case PaletteState.Pressed:
+                        case PaletteState.ContextTracking:
+                            return _ribbonColors[(int)SchemeOfficeColors.RibbonTabTracking2];
+                        case PaletteState.CheckedNormal:
+                        case PaletteState.CheckedTracking:
+                        case PaletteState.CheckedPressed:
+                        case PaletteState.ContextCheckedTracking:
+                        case PaletteState.ContextCheckedNormal:
+                            return _ribbonColors[(int)SchemeOfficeColors.RibbonTabSelected2];
+                        case PaletteState.FocusOverride:
+                            return _contextCheckedTabBorder2;
+                        case PaletteState.Normal:
+                            return Color.Empty;
+                        default:
+                            // Should never happen!
+                            Debug.Assert(false);
+                            break;
+                    }
+                    break;
+                case PaletteRibbonBackStyle.RibbonAppMenuDocs:
+                case PaletteRibbonBackStyle.RibbonGalleryBack:
+                case PaletteRibbonBackStyle.RibbonGalleryBorder:
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedBack:
+                    return Color.Empty;
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    break;
+            }
+
+            return Color.Red;
+        }
+
+        /// <summary>
+        /// Gets the third background color for the ribbon item.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetRibbonBackColor3(PaletteRibbonBackStyle style, PaletteState state)
+        {
+            switch (style)
+            {
+                case PaletteRibbonBackStyle.RibbonAppMenuOuter:
+                    return _ribbonColors[(int)SchemeOfficeColors.AppButtonOuter3];
+                case PaletteRibbonBackStyle.RibbonQATMinibar:
+                    if (state == PaletteState.Normal)
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini3];
+                    }
+                    else
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini3I];
+                    }
+
+                case PaletteRibbonBackStyle.RibbonQATFullbar:
+                    return _ribbonColors[(int)SchemeOfficeColors.RibbonQATFullbar3];
+                case PaletteRibbonBackStyle.RibbonGroupNormalBorder:
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedBorder:
+                    return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupBorder3];
+                case PaletteRibbonBackStyle.RibbonAppMenuDocs:
+                case PaletteRibbonBackStyle.RibbonAppMenuInner:
+                case PaletteRibbonBackStyle.RibbonQATOverflow:
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBorder:
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBack:
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedBack:
+                case PaletteRibbonBackStyle.RibbonGroupNormalTitle:
+                case PaletteRibbonBackStyle.RibbonGalleryBack:
+                case PaletteRibbonBackStyle.RibbonGalleryBorder:
+                    return Color.Empty;
+                case PaletteRibbonBackStyle.RibbonAppButton:
+                    switch (state)
+                    {
+                        case PaletteState.Normal:
+                            return _appButtonNormal[2];
+                        case PaletteState.Tracking:
+                            return _appButtonTrack[2];
+                        case PaletteState.Pressed:
+                            return _appButtonPressed[2];
+                        default:
+                            // Should never happen!
+                            Debug.Assert(false);
+                            break;
+                    }
+                    break;
+                case PaletteRibbonBackStyle.RibbonGroupArea:
+                    return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupsArea3];
+                case PaletteRibbonBackStyle.RibbonTab:
+                    switch (state)
+                    {
+                        case PaletteState.Tracking:
+                        case PaletteState.Pressed:
+                        case PaletteState.ContextTracking:
+                            return _ribbonColors[(int)SchemeOfficeColors.RibbonTabTracking3];
+                        case PaletteState.CheckedNormal:
+                        case PaletteState.CheckedTracking:
+                        case PaletteState.CheckedPressed:
+                        case PaletteState.ContextCheckedNormal:
+                        case PaletteState.ContextCheckedTracking:
+                            return _ribbonColors[(int)SchemeOfficeColors.RibbonTabSelected3];
+                        case PaletteState.FocusOverride:
+                            return _contextCheckedTabBorder3;
+                        case PaletteState.Normal:
+                            return Color.Empty;
+                        default:
+                            // Should never happen!
+                            Debug.Assert(false);
+                            break;
+                    }
+                    break;
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    break;
+            }
+
+            return Color.Red;
+        }
+
+        /// <summary>
+        /// Gets the fourth background color for the ribbon item.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetRibbonBackColor4(PaletteRibbonBackStyle style, PaletteState state)
+        {
+            switch (style)
+            {
+                case PaletteRibbonBackStyle.RibbonQATMinibar:
+                    if (state == PaletteState.Normal)
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini4];
+                    }
+                    else
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini4I];
+                    }
+
+                case PaletteRibbonBackStyle.RibbonGroupNormalBorder:
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedBorder:
+                    return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupBorder4];
+                case PaletteRibbonBackStyle.RibbonAppMenuDocs:
+                case PaletteRibbonBackStyle.RibbonAppMenuInner:
+                case PaletteRibbonBackStyle.RibbonAppMenuOuter:
+                case PaletteRibbonBackStyle.RibbonQATFullbar:
+                case PaletteRibbonBackStyle.RibbonQATOverflow:
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedBack:
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBorder:
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBack:
+                case PaletteRibbonBackStyle.RibbonGroupNormalTitle:
+                case PaletteRibbonBackStyle.RibbonGalleryBack:
+                case PaletteRibbonBackStyle.RibbonGalleryBorder:
+                    return Color.Empty;
+                case PaletteRibbonBackStyle.RibbonAppButton:
+                    switch (state)
+                    {
+                        case PaletteState.Normal:
+                            return _appButtonNormal[3];
+                        case PaletteState.Tracking:
+                            return _appButtonTrack[3];
+                        case PaletteState.Pressed:
+                            return _appButtonPressed[3];
+                        default:
+                            // Should never happen!
+                            Debug.Assert(false);
+                            break;
+                    }
+                    break;
+                case PaletteRibbonBackStyle.RibbonGroupArea:
+                    return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupsArea4];
+                case PaletteRibbonBackStyle.RibbonTab:
+                    switch (state)
+                    {
+                        case PaletteState.Tracking:
+                        case PaletteState.Pressed:
+                        case PaletteState.ContextTracking:
+                            return _ribbonColors[(int)SchemeOfficeColors.RibbonTabTracking4];
+                        case PaletteState.CheckedNormal:
+                        case PaletteState.CheckedTracking:
+                        case PaletteState.CheckedPressed:
+                        case PaletteState.ContextCheckedNormal:
+                        case PaletteState.ContextCheckedTracking:
+                            return _ribbonColors[(int)SchemeOfficeColors.RibbonTabSelected4];
+                        case PaletteState.FocusOverride:
+                            return _contextCheckedTabBorder4;
+                        case PaletteState.Normal:
+                            return Color.Empty;
+                        default:
+                            // Should never happen!
+                            Debug.Assert(false);
+                            break;
+                    }
+                    break;
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    break;
+            }
+
+            return Color.Red;
+        }
+
+        /// <summary>
+        /// Gets the fifth background color for the ribbon item.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetRibbonBackColor5(PaletteRibbonBackStyle style, PaletteState state)
+        {
+            switch (style)
+            {
+                case PaletteRibbonBackStyle.RibbonAppMenuDocs:
+                case PaletteRibbonBackStyle.RibbonAppMenuInner:
+                case PaletteRibbonBackStyle.RibbonAppMenuOuter:
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBorder:
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedFrameBack:
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedBack:
+                case PaletteRibbonBackStyle.RibbonGroupNormalTitle:
+                case PaletteRibbonBackStyle.RibbonQATFullbar:
+                case PaletteRibbonBackStyle.RibbonQATOverflow:
+                case PaletteRibbonBackStyle.RibbonGalleryBack:
+                case PaletteRibbonBackStyle.RibbonGalleryBorder:
+                    return Color.Empty;
+                case PaletteRibbonBackStyle.RibbonGroupNormalBorder:
+                case PaletteRibbonBackStyle.RibbonGroupCollapsedBorder:
+                    return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupBorder5];
+                case PaletteRibbonBackStyle.RibbonQATMinibar:
+                    if (state == PaletteState.Normal)
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini5];
+                    }
+                    else
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.RibbonQATMini5I];
+                    }
+
+                case PaletteRibbonBackStyle.RibbonAppButton:
+                    switch (state)
+                    {
+                        case PaletteState.Normal:
+                            return _appButtonNormal[4];
+                        case PaletteState.Tracking:
+                            return _appButtonTrack[4];
+                        case PaletteState.Pressed:
+                            return _appButtonPressed[4];
+                        default:
+                            // Should never happen!
+                            Debug.Assert(false);
+                            break;
+                    }
+                    break;
+                case PaletteRibbonBackStyle.RibbonGroupArea:
+                    return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupsArea5];
+                case PaletteRibbonBackStyle.RibbonTab:
+                    switch (state)
+                    {
+                        case PaletteState.Disabled:
+                            return _disabledText;
+                        case PaletteState.Pressed:
+                            return _ribbonColors[(int)SchemeOfficeColors.RibbonTabTracking2];
+                        case PaletteState.Tracking:
+                        case PaletteState.CheckedNormal:
+                        case PaletteState.CheckedTracking:
+                        case PaletteState.CheckedPressed:
+                        case PaletteState.ContextTracking:
+                        case PaletteState.ContextCheckedNormal:
+                        case PaletteState.ContextCheckedTracking:
+                        case PaletteState.FocusOverride:
+                        case PaletteState.Normal:
+                            return Color.Empty;
+                        default:
+                            // Should never happen!
+                            Debug.Assert(false);
+                            break;
+                    }
+                    break;
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    break;
+            }
+
+            return Color.Red;
+        }
+        #endregion
+
+        #region RibbonText
+        /// <summary>
+        /// Gets the =color for the item text.
+        /// </summary>
+        /// <param name="style">Text style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetRibbonTextColor(PaletteRibbonTextStyle style, PaletteState state)
+        {
+            switch (style)
+            {
+                case PaletteRibbonTextStyle.RibbonAppMenuDocsTitle:
+                case PaletteRibbonTextStyle.RibbonAppMenuDocsEntry:
+                    return _ribbonColors[(int)SchemeOfficeColors.AppButtonMenuDocsText];
+                case PaletteRibbonTextStyle.RibbonGroupNormalTitle:
+                    switch (state)
+                    {
+                        case PaletteState.Disabled:
+                            return _disabledText;
+                        default:
+                            return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupTitleText];
+                    }
+                case PaletteRibbonTextStyle.RibbonTab:
+                    switch (state)
+                    {
+                        case PaletteState.Disabled:
+                            return _disabledText;
+                        case PaletteState.CheckedNormal:
+                        case PaletteState.CheckedPressed:
+                        case PaletteState.CheckedTracking:
+                        case PaletteState.ContextCheckedNormal:
+                        case PaletteState.ContextCheckedTracking:
+                        case PaletteState.FocusOverride:
+                            return _ribbonColors[(int)SchemeOfficeColors.RibbonTabTextChecked];
+                        default:
+                            return _ribbonColors[(int)SchemeOfficeColors.RibbonTabTextNormal];
+                    }
+                case PaletteRibbonTextStyle.RibbonGroupCollapsedText:
+                    return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupCollapsedText];
+                case PaletteRibbonTextStyle.RibbonGroupButtonText:
+                case PaletteRibbonTextStyle.RibbonGroupLabelText:
+                case PaletteRibbonTextStyle.RibbonGroupCheckBoxText:
+                case PaletteRibbonTextStyle.RibbonGroupRadioButtonText:
+                    if (state == PaletteState.Disabled)
+                    {
+                        return _disabledText;
+                    }
+                    else
+                    {
+                        return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupCollapsedText];
+                    }
+
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    break;
+            }
+
+            return Color.Red;
+        }
+        #endregion
+
+        #region ElementColor
+        /// <summary>
+        /// Gets the first element color.
+        /// </summary>
+        /// <param name="element">Element for which color is required.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetElementColor1(PaletteElement element, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return Color.Empty;
+            }
+
+            switch (element)
+            {
+                case PaletteElement.TrackBarTick:
+                    return _trackBarColors[0];
+                case PaletteElement.TrackBarTrack:
+                    return _trackBarColors[1];
+                case PaletteElement.TrackBarPosition:
+                    switch (state)
+                    {
+                        case PaletteState.Disabled:
+                            return Color.Empty;
+                        default:
+                            return _trackBarColors[4];
+                    }
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    break;
+            }
+
+            return Color.Red;
+        }
+
+        /// <summary>
+        /// Gets the second element color.
+        /// </summary>
+        /// <param name="element">Element for which color is required.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetElementColor2(PaletteElement element, PaletteState state)
+        {
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return Color.Empty;
+            }
+
+            switch (element)
+            {
+                case PaletteElement.TrackBarTick:
+                    return _trackBarColors[0];
+                case PaletteElement.TrackBarTrack:
+                    return _trackBarColors[2];
+                case PaletteElement.TrackBarPosition:
+                    switch (state)
+                    {
+                        case PaletteState.Disabled:
+                            return ControlPaint.Light(_ribbonColors[(int)SchemeOfficeColors.ButtonNormalBorder]);
+                        case PaletteState.Normal:
+                            return _ribbonColors[(int)SchemeOfficeColors.ButtonNormalBorder];
+                        case PaletteState.Tracking:
+                        case PaletteState.FocusOverride:
+                            return _buttonBorderColors[1];
+                        case PaletteState.Pressed:
+                            return _buttonBorderColors[3];
+                        default:
+                            throw new ArgumentOutOfRangeException(nameof(state));
+                    }
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    break;
+            }
+
+            return Color.Red;
+        }
+
+        /// <summary>
+        /// Gets the third element color.
+        /// </summary>
+        /// <param name="element">Element for which color is required.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetElementColor3(PaletteElement element, PaletteState state)
+        {
+            if (CommonHelper.IsOverrideState(state))
+            {
+                return Color.Empty;
+            }
+
+            switch (element)
+            {
+                case PaletteElement.TrackBarTick:
+                    return _trackBarColors[0];
+                case PaletteElement.TrackBarTrack:
+                    return _trackBarColors[3];
+                case PaletteElement.TrackBarPosition:
+                    switch (state)
+                    {
+                        case PaletteState.Disabled:
+                            return ControlPaint.LightLight(_ribbonColors[(int)SchemeOfficeColors.ButtonNormalBack1]);
+                        case PaletteState.Normal:
+                            return ControlPaint.Light(_ribbonColors[(int)SchemeOfficeColors.ButtonNormalBack1]);
+                        case PaletteState.Tracking:
+                            return ControlPaint.Light(_buttonBackColors[2]);
+                        case PaletteState.Pressed:
+                            return ControlPaint.Light(_buttonBackColors[4]);
+                        default:
+                            throw new ArgumentOutOfRangeException(nameof(state));
+                    }
+
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    break;
+            }
+
+            return Color.Red;
+        }
+
+        /// <summary>
+        /// Gets the fourth element color.
+        /// </summary>
+        /// <param name="element">Element for which color is required.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetElementColor4(PaletteElement element, PaletteState state)
+        {
+            switch (element)
+            {
+                case PaletteElement.TrackBarTick:
+                    if (CommonHelper.IsOverrideState(state))
+                    {
+                        return Color.Empty;
+                    }
+
+                    return _trackBarColors[0];
+                case PaletteElement.TrackBarTrack:
+                    if (CommonHelper.IsOverrideState(state))
+                    {
+                        return Color.Empty;
+                    }
+
+                    return _trackBarColors[3];
+                case PaletteElement.TrackBarPosition:
+                    if (CommonHelper.IsOverrideStateExclude(state, PaletteState.FocusOverride))
+                    {
+                        return Color.Empty;
+                    }
+
+                    switch (state)
+                    {
+                        case PaletteState.Disabled:
+                            return ControlPaint.LightLight(_ribbonColors[(int)SchemeOfficeColors.ButtonNormalBack1]);
+                        case PaletteState.Normal:
+                            return _ribbonColors[(int)SchemeOfficeColors.ButtonNormalBack1];
+                        case PaletteState.Tracking:
+                        case PaletteState.FocusOverride:
+                            return _buttonBackColors[2];
+                        case PaletteState.Pressed:
+                            return _buttonBackColors[4];
+                        default:
+                            throw new ArgumentOutOfRangeException(nameof(state));
+                    }
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    break;
+            }
+
+            return Color.Red;
+        }
+
+        /// <summary>
+        /// Gets the fifth element color.
+        /// </summary>
+        /// <param name="element">Element for which color is required.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetElementColor5(PaletteElement element, PaletteState state)
+        {
+            switch (element)
+            {
+                case PaletteElement.TrackBarTick:
+                    if (CommonHelper.IsOverrideState(state))
+                    {
+                        return Color.Empty;
+                    }
+
+                    return _trackBarColors[0];
+                case PaletteElement.TrackBarTrack:
+                    if (CommonHelper.IsOverrideState(state))
+                    {
+                        return Color.Empty;
+                    }
+
+                    return _trackBarColors[3];
+                case PaletteElement.TrackBarPosition:
+                    if (CommonHelper.IsOverrideStateExclude(state, PaletteState.FocusOverride))
+                    {
+                        return Color.Empty;
+                    }
+
+                    switch (state)
+                    {
+                        case PaletteState.Disabled:
+                            return ControlPaint.LightLight(_ribbonColors[(int)SchemeOfficeColors.ButtonNormalBack1]);
+                        case PaletteState.Normal:
+                            return _ribbonColors[(int)SchemeOfficeColors.ButtonNormalBack2];
+                        case PaletteState.Tracking:
+                        case PaletteState.FocusOverride:
+                            return _buttonBackColors[3];
+                        case PaletteState.Pressed:
+                            return _buttonBackColors[5];
+                        default:
+                            throw new ArgumentOutOfRangeException(nameof(state));
+                    }
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    break;
+            }
+
+            return Color.Red;
+        }
+        #endregion
+
+        #region Public
+        /// <summary>
+        /// Gets and sets the base font name used when defining fonts.
+        /// </summary>
+        public virtual string BaseFontName
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_baseFontName))
+                {
+                    return "Segoe UI";
+                }
+                else
+                {
+                    return _baseFontName;
+                }
+            }
+
+            set
+            {
+                // Is there a change in value?
+                if ((string.IsNullOrEmpty(value) && !string.IsNullOrEmpty(_baseFontName)) ||
+                    (!string.IsNullOrEmpty(value) && string.IsNullOrEmpty(_baseFontName)))
+                {
+                    // Cache new value
+                    _baseFontName = value;
+
+                    // Update fonts to reflect change
+                    DefineFonts();
+
+                    // Use event to indicate palette has caused layout changes
+                    OnPalettePaint(this, new PaletteLayoutEventArgs(true, false));
+                }
+            }
+        }
+        #endregion
+
+        #region Protected
+        /// <summary>
+        /// Update the fonts to reflect system or user defined changes.
+        /// </summary>
+        protected override void DefineFonts()
+        {
+            // Release existing resources
+            _header1ShortFont?.Dispose();
+
+            _header2ShortFont?.Dispose();
+
+            _headerFormFont?.Dispose();
+
+            _header1LongFont?.Dispose();
+
+            _header2LongFont?.Dispose();
+
+            _buttonFont?.Dispose();
+
+            _buttonFontNavigatorStack?.Dispose();
+
+            _buttonFontNavigatorMini?.Dispose();
+
+            _tabFontSelected?.Dispose();
+
+            _tabFontNormal?.Dispose();
+
+            _ribbonTabFont?.Dispose();
+
+            _ribbonTabContextFont?.Dispose();
+
+            _gridFont?.Dispose();
+
+            _calendarFont?.Dispose();
+
+            _calendarBoldFont?.Dispose();
+
+            _superToolFont?.Dispose();
+
+            _boldFont?.Dispose();
+
+            _italicFont?.Dispose();
+
+            float baseFontSize = BaseFontSize;
+            string baseFontName = BaseFontName;
+            _header1ShortFont = new Font(baseFontName, baseFontSize + 4.5f, FontStyle.Bold);
+            _header2ShortFont = new Font(baseFontName, baseFontSize, FontStyle.Regular);
+            _headerFormFont = new Font(baseFontName, SystemFonts.CaptionFont.SizeInPoints, FontStyle.Regular);
+            _header1LongFont = new Font(baseFontName, baseFontSize + 1.5f, FontStyle.Regular);
+            _header2LongFont = new Font(baseFontName, baseFontSize, FontStyle.Regular);
+            _buttonFont = new Font(baseFontName, baseFontSize, FontStyle.Regular);
+            _buttonFontNavigatorStack = new Font(_buttonFont, FontStyle.Bold);
+            _buttonFontNavigatorMini = new Font(baseFontName, baseFontSize + 3.0f, FontStyle.Bold);
+            _tabFontNormal = new Font(baseFontName, baseFontSize, FontStyle.Regular);
+            _tabFontSelected = new Font(_tabFontNormal, FontStyle.Bold);
+            _ribbonTabFont = new Font(baseFontName, baseFontSize, FontStyle.Regular);
+            _ribbonTabContextFont = new Font(_ribbonTabFont, FontStyle.Bold);
+            _gridFont = new Font(baseFontName, baseFontSize, FontStyle.Regular);
+            _superToolFont = new Font(baseFontName, baseFontSize, FontStyle.Bold);
+            _calendarFont = new Font(baseFontName, baseFontSize, FontStyle.Regular);
+            _calendarBoldFont = new Font(baseFontName, baseFontSize, FontStyle.Bold);
+            _boldFont = new Font(baseFontName, baseFontSize, FontStyle.Bold);
+            _italicFont = new Font(baseFontName, baseFontSize, FontStyle.Italic);
+        }
+        #endregion
+
+        #region ColorTable
+        /// <summary>
+        /// Gets access to the color table instance.
+        /// </summary>
+        public override KryptonColorTable ColorTable => _table ?? (_table = new KryptonColorTable2010(_ribbonColors, InheritBool.True, this));
+
+        #endregion
+
+        #region OnUserPreferenceChanged
+        /// <summary>
+        /// Handle a change in the user preferences.
+        /// </summary>
+        /// <param name="sender">Source of event.</param>
+        /// <param name="e">Event data.</param>
+        protected override void OnUserPreferenceChanged(object sender, UserPreferenceChangedEventArgs e)
+        {
+            // Remove the current table, so it gets regenerated when next requested
+            _table = null;
+
+            // Update fonts to reflect any change in system settings
             DefineFonts();
 
-            // Use event to indicate palette has caused layout changes
-            OnPalettePaint(this, new PaletteLayoutEventArgs(true, false));
+            base.OnUserPreferenceChanged(sender, e);
         }
-    }
-}
-#endregion
-
-#region Protected
-/// <summary>
-/// Update the fonts to reflect system or user defined changes.
-/// </summary>
-protected override void DefineFonts()
-{
-    // Release existing resources
-    _header1ShortFont?.Dispose();
-
-    _header2ShortFont?.Dispose();
-
-    _headerFormFont?.Dispose();
-
-    _header1LongFont?.Dispose();
-
-    _header2LongFont?.Dispose();
-
-    _buttonFont?.Dispose();
-
-    _buttonFontNavigatorStack?.Dispose();
-
-    _buttonFontNavigatorMini?.Dispose();
-
-    _tabFontSelected?.Dispose();
-
-    _tabFontNormal?.Dispose();
-
-    _ribbonTabFont?.Dispose();
-
-    _ribbonTabContextFont?.Dispose();
-
-    _gridFont?.Dispose();
-
-    _calendarFont?.Dispose();
-
-    _calendarBoldFont?.Dispose();
-
-    _superToolFont?.Dispose();
-
-    _boldFont?.Dispose();
-
-    _italicFont?.Dispose();
-
-    float baseFontSize = BaseFontSize;
-    string baseFontName = BaseFontName;
-    _header1ShortFont = new Font(baseFontName, baseFontSize + 4.5f, FontStyle.Bold);
-    _header2ShortFont = new Font(baseFontName, baseFontSize, FontStyle.Regular);
-    _headerFormFont = new Font(baseFontName, SystemFonts.CaptionFont.SizeInPoints, FontStyle.Regular);
-    _header1LongFont = new Font(baseFontName, baseFontSize + 1.5f, FontStyle.Regular);
-    _header2LongFont = new Font(baseFontName, baseFontSize, FontStyle.Regular);
-    _buttonFont = new Font(baseFontName, baseFontSize, FontStyle.Regular);
-    _buttonFontNavigatorStack = new Font(_buttonFont, FontStyle.Bold);
-    _buttonFontNavigatorMini = new Font(baseFontName, baseFontSize + 3.0f, FontStyle.Bold);
-    _tabFontNormal = new Font(baseFontName, baseFontSize, FontStyle.Regular);
-    _tabFontSelected = new Font(_tabFontNormal, FontStyle.Bold);
-    _ribbonTabFont = new Font(baseFontName, baseFontSize, FontStyle.Regular);
-    _ribbonTabContextFont = new Font(_ribbonTabFont, FontStyle.Bold);
-    _gridFont = new Font(baseFontName, baseFontSize, FontStyle.Regular);
-    _superToolFont = new Font(baseFontName, baseFontSize, FontStyle.Bold);
-    _calendarFont = new Font(baseFontName, baseFontSize, FontStyle.Regular);
-    _calendarBoldFont = new Font(baseFontName, baseFontSize, FontStyle.Bold);
-    _boldFont = new Font(baseFontName, baseFontSize, FontStyle.Bold);
-    _italicFont = new Font(baseFontName, baseFontSize, FontStyle.Italic);
-}
-#endregion
-
-#region ColorTable
-/// <summary>
-/// Gets access to the color table instance.
-/// </summary>
-public override KryptonColorTable ColorTable => _table ?? (_table = new KryptonColorTable2010(_ribbonColors, InheritBool.True, this));
-
-#endregion
-
-#region OnUserPreferenceChanged
-/// <summary>
-/// Handle a change in the user preferences.
-/// </summary>
-/// <param name="sender">Source of event.</param>
-/// <param name="e">Event data.</param>
-protected override void OnUserPreferenceChanged(object sender, UserPreferenceChangedEventArgs e)
-{
-    // Remove the current table, so it gets regenerated when next requested
-    _table = null;
-
-    // Update fonts to reflect any change in system settings
-    DefineFonts();
-
-    base.OnUserPreferenceChanged(sender, e);
-}
         #endregion
     }
 }

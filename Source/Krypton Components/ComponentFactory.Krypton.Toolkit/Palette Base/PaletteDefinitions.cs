@@ -3085,15 +3085,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies a background style appropriate for the first custom separator style.
         /// </summary>
         SeparatorCustom1,
-
-        /// <summary>
-        /// Specifies a background style appropriate for the first custom separator style.
-        /// </summary>
         SeparatorCustom2,
-
-        /// <summary>
-        /// Specifies a background style appropriate for the first custom separator style.
-        /// </summary>
         SeparatorCustom3,
 
         /// <summary>
