@@ -10,22 +10,22 @@
 // *****************************************************************************
 
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
-using System.ComponentModel;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Display frame around a group of related controls with an optional caption.
-	/// </summary>
-	[ToolboxItem(true)]
+    /// </summary>
+    [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonGroupBox), "ToolboxBitmaps.KryptonGroupBox.bmp")]
     [DefaultEvent("Paint")]
-	[DefaultProperty("ValuesPrimary")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonGroupBoxDesigner))]
+    [DefaultProperty("ValuesPrimary")]
+    [Designer(typeof(KryptonGroupBoxDesigner))]
     [DesignerCategory("code")]
     [Description("Display frame around a group of related controls with an optional caption.")]
     [Docking(DockingBehavior.Ask)]
@@ -35,7 +35,7 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private LabelStyle _captionStyle;
-		private VisualOrientation _captionEdge;
+        private VisualOrientation _captionEdge;
         private ButtonOrientation _captionOrientation;
         private readonly ViewDrawGroupBoxDocker _drawDocker;
         private readonly ViewDrawContent _drawContent;
@@ -53,18 +53,18 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Initialize a new instance of the KryptonGroupBox class.
 		/// </summary>
         public KryptonGroupBox()
-		{
+        {
             // Set default values
             _captionStyle = LabelStyle.GroupBoxCaption;
-			_captionEdge = VisualOrientation.Top;
+            _captionEdge = VisualOrientation.Top;
             _captionOrientation = ButtonOrientation.Auto;
             _captionVisible = true;
 
-			// Create storage objects
+            // Create storage objects
             Values = new CaptionValues(NeedPaintDelegate);
             Values.TextChanged += OnValuesTextChanged;
 
-			// Create the palette storage
+            // Create the palette storage
             StateCommon = new PaletteGroupBoxRedirect(Redirector, NeedPaintDelegate);
             StateDisabled = new PaletteGroupBox(StateCommon, NeedPaintDelegate);
             StateNormal = new PaletteGroupBox(StateCommon, NeedPaintDelegate);
@@ -79,18 +79,18 @@ namespace ComponentFactory.Krypton.Toolkit
 
             _drawContent = new ViewDrawContent(StateNormal.Content, Values, VisualOrientation.Top);
 
-			// Create view for the control border and background
+            // Create view for the control border and background
             _drawDocker = new ViewDrawGroupBoxDocker(StateNormal.Back, StateNormal.Border);
 
             // Create the element that fills the remainder space and remembers fill rectangle
             _layoutFill = new ViewLayoutFill(Panel);
 
-			// Add caption into the docker with initial dock edges defined
+            // Add caption into the docker with initial dock edges defined
             _drawDocker.Add(_drawContent, ViewDockStyle.Top);
             _drawDocker.Add(_layoutFill, ViewDockStyle.Fill);
 
-			// Create the view manager instance
-			ViewManager = new ViewManager(this, _drawDocker);
+            // Create the view manager instance
+            ViewManager = new ViewManager(this, _drawDocker);
 
             // We want to default to shrinking and growing (base class defaults to GrowOnly)
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -107,7 +107,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Add panel to the controls collection
             ((KryptonReadOnlyControls)Controls).AddInternal(Panel);
-            
+
             _ignoreLayout = false;
         }
 
@@ -136,7 +136,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Public
+        #region Public
         /// <summary>
         /// Gets and sets the name of the control.
         /// </summary>
@@ -213,14 +213,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         public override string Text
-		{
-			get => Values.Heading;
+        {
+            get => Values.Heading;
 
-		    set => Values.Heading = value;
-		}
+            set => Values.Heading = value;
+        }
 
         // Never serialize, let the values serialize instead
-		private bool ShouldSerializeText() => false;
+        private bool ShouldSerializeText() => false;
 
         /// <summary>
         /// Resets the Text property to its default value.
@@ -265,21 +265,21 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets and sets the border style.
 		/// </summary>
 		[Category("Visuals")]
-		[Description("Border style.")]
+        [Description("Border style.")]
         [DefaultValue(typeof(PaletteBorderStyle), "ControlGroupBox")]
         public PaletteBorderStyle GroupBorderStyle
-		{
-			get => StateCommon.BorderStyle;
+        {
+            get => StateCommon.BorderStyle;
 
             set
-			{
+            {
                 if (StateCommon.BorderStyle != value)
-				{
+                {
                     StateCommon.BorderStyle = value;
-					PerformNeedPaint(true);
-				}
-			}
-		}
+                    PerformNeedPaint(true);
+                }
+            }
+        }
 
         private void ResetGroupBorderStyle()
         {
@@ -290,27 +290,27 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             return (GroupBorderStyle != PaletteBorderStyle.ControlGroupBox);
         }
-        
+
         /// <summary>
-		/// Gets and sets the background style.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Background style.")]
+        /// Gets and sets the background style.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Background style.")]
         [DefaultValue(typeof(PaletteBackStyle), "ControlGroupBox")]
         public PaletteBackStyle GroupBackStyle
-		{
+        {
             get => StateCommon.BackStyle;
 
             set
-			{
+            {
                 if (StateCommon.BackStyle != value)
-				{
+                {
                     StateCommon.BackStyle = value;
                     Panel.PanelBackStyle = value;
-					PerformNeedPaint(true);
-				}
-			}
-		}
+                    PerformNeedPaint(true);
+                }
+            }
+        }
 
         private void ResetGroupBackStyle() => GroupBackStyle = PaletteBackStyle.ControlGroupBox;
 
@@ -320,22 +320,22 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets and sets the caption style.
         /// </summary>
         [Category("Visuals")]
-		[Description("Caption style.")]
+        [Description("Caption style.")]
         [DefaultValue(typeof(LabelStyle), "GroupBoxCaption")]
         public LabelStyle CaptionStyle
-		{
-			get => _captionStyle;
+        {
+            get => _captionStyle;
 
             set
-			{
-				if (_captionStyle != value)
-				{
-					_captionStyle = value;
+            {
+                if (_captionStyle != value)
+                {
+                    _captionStyle = value;
                     StateCommon.ContentStyle = CommonHelper.ContentStyleFromLabelStyle(_captionStyle);
                     PerformNeedPaint(true);
-				}
-			}
-		}
+                }
+            }
+        }
 
         private void ResetCaptionStyle() => CaptionStyle = LabelStyle.GroupBoxCaption;
 
@@ -345,17 +345,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets and sets the position of the caption.
         /// </summary>
         [Category("Visuals")]
-		[Description("Edge position of the caption.")]
-		[DefaultValue(typeof(VisualOrientation), "Top")]
-		public VisualOrientation CaptionEdge
-		{
-			get => _captionEdge;
+        [Description("Edge position of the caption.")]
+        [DefaultValue(typeof(VisualOrientation), "Top")]
+        public VisualOrientation CaptionEdge
+        {
+            get => _captionEdge;
 
-		    set
-			{
-				if (_captionEdge != value)
-				{
-					_captionEdge = value;
+            set
+            {
+                if (_captionEdge != value)
+                {
+                    _captionEdge = value;
                     switch (_captionEdge)
                     {
                         case VisualOrientation.Top:
@@ -393,9 +393,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
 
                     PerformNeedPaint(true);
-				}
-			}
-		}
+                }
+            }
+        }
 
         /// <summary>
         /// Gets and sets the orientation of the caption.
@@ -447,27 +447,27 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
         }
-        
+
         /// <summary>
-		/// Gets and sets the caption visibility.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Caption visibility.")]
-		[DefaultValue(true)]
-		public bool CaptionVisible
-		{
+        /// Gets and sets the caption visibility.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Caption visibility.")]
+        [DefaultValue(true)]
+        public bool CaptionVisible
+        {
             get => _captionVisible;
 
             set
-			{
+            {
                 if (_captionVisible != value)
-				{
+                {
                     _captionVisible = value;
                     ReapplyVisible();
-					PerformNeedPaint(true);
-				}
-			}
-		}
+                    PerformNeedPaint(true);
+                }
+            }
+        }
 
         /// <summary>
         /// Gets access to the common header group appearance that other states can override.
@@ -483,8 +483,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets access to the disabled header group appearance entries.
 		/// </summary>
 		[Category("Visuals")]
-		[Description("Overrides for defining disabled header group appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [Description("Overrides for defining disabled header group appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteGroupBox StateDisabled { get; }
 
         private bool ShouldSerializeStateDisabled() => !StateDisabled.IsDefault;
@@ -493,8 +493,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets access to the normal header group appearance entries.
 		/// </summary>
 		[Category("Visuals")]
-		[Description("Overrides for defining normal header group appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [Description("Overrides for defining normal header group appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteGroupBox StateNormal { get; }
 
         private bool ShouldSerializeStateNormal() => !StateNormal.IsDefault;
@@ -503,9 +503,9 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets access to the caption content.
 		/// </summary>
 		[Category("Visuals")]
-		[Description("Caption values")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public CaptionValues Values { get; }
+        [Description("Caption values")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public CaptionValues Values { get; }
 
         private bool ShouldSerializeValuesPrimary() => !Values.IsDefault;
 
@@ -553,20 +553,20 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Gets the rectangle that represents the display area of the control.
-		/// </summary>
-		public override Rectangle DisplayRectangle
-		{
-			get
-			{
+        /// <summary>
+        /// Gets the rectangle that represents the display area of the control.
+        /// </summary>
+        public override Rectangle DisplayRectangle
+        {
+            get
+            {
                 // Ensure that the layout is calculated in order to know the remaining display space
                 ForceViewLayout();
 
                 // The inside panel is the client rectangle size
                 return new Rectangle(Panel.Location, Panel.Size);
-			}
-		}
+            }
+        }
 
         /// <summary>
         /// Fix the control to a particular palette state.
@@ -666,35 +666,35 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             _layingOut = false;
-        }        
+        }
 
         /// <summary>
-		/// Raises the EnabledChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
-		protected override void OnEnabledChanged(EventArgs e)
-		{
-			// Push correct palettes into the view
-			if (Enabled)
-			{
+        /// Raises the EnabledChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        protected override void OnEnabledChanged(EventArgs e)
+        {
+            // Push correct palettes into the view
+            if (Enabled)
+            {
                 _drawContent.SetPalette(StateNormal.Content);
                 _drawDocker.SetPalettes(StateNormal.Back, StateNormal.Border);
-			}
-			else
-			{
+            }
+            else
+            {
                 _drawContent.SetPalette(StateDisabled.Content);
                 _drawDocker.SetPalettes(StateDisabled.Back, StateNormal.Border);
-			}
+            }
 
             _drawContent.Enabled = Enabled;
             _drawDocker.Enabled = Enabled;
 
-			// Change in enabled state requires a layout and repaint
-			PerformNeedPaint(true);
+            // Change in enabled state requires a layout and repaint
+            PerformNeedPaint(true);
 
-			// Let base class fire standard event
-			base.OnEnabledChanged(e);
-		}
+            // Let base class fire standard event
+            base.OnEnabledChanged(e);
+        }
 
         /// <summary>
         /// Raises the Resize event.

@@ -29,7 +29,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [DefaultProperty("Text")]
     [DefaultBindingProperty("Text")]
     [LookupBindingProperties("DataSource", "DisplayMember", "ValueMember", "SelectedValue")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonComboBoxDesigner))]
+    [Designer(typeof(KryptonComboBoxDesigner))]
     [DesignerCategory("code")]
     [Description("Displays an editable textbox with a drop-down list of permitted values.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
@@ -821,12 +821,15 @@ namespace ComponentFactory.Krypton.Toolkit
         private readonly ViewDrawPanel _drawPanel;
         private Padding _layoutPadding;
         private IntPtr _screenDC;
+        private ButtonSpecAny _toolTipSpec;
+        private VisualPopupToolTip _toolTip;
         private bool _firstTimePaint;
         private bool _trackingMouseEnter;
         private bool _forcedLayout;
         private bool _mouseOver;
         private bool _alwaysActive;
         private int _cachedHeight;
+        private int _hoverIndex;
         #endregion
 
         #region Events
@@ -936,6 +939,20 @@ namespace ComponentFactory.Krypton.Toolkit
         public event EventHandler TextUpdate;
 
         /// <summary>
+        /// Occurs when the hovered selection changed.
+        /// </summary>
+        [Description("Occurs when the hovered selection changed.")]
+        [Category("Behavior")]
+        public event EventHandler<HoveredSelectionChangedEventArgs> HoveredSelectionChanged;
+
+        /// <summary>
+        /// Occurs when the <see cref="KryptonComboBox"/> wants to display a tooltip.
+        /// </summary>
+        [Description("Occurs when the KryptonComboBox wants to display a tooltip.")]
+        [Category("Behavior")]
+        public event EventHandler<ToolTipNeededEventArgs> ToolTipNeeded;
+
+        /// <summary>
         /// Occurs when the mouse enters the control.
         /// </summary>
         [Description("Raises the TrackMouseEnter event in the wrapped control.")]
@@ -1031,7 +1048,13 @@ namespace ComponentFactory.Krypton.Toolkit
             _dropBackStyle = PaletteBackStyle.ControlClient;
             _style = ButtonStyle.ListItem;
             _firstTimePaint = true;
-
+            AutoCompleteMode = AutoCompleteMode.None;
+            AutoCompleteSource = AutoCompleteSource.None;
+            _hoverIndex = -1;
+            _toolTipSpec = new ButtonSpecAny
+            {
+                ToolTipStyle = LabelStyle.SuperTip,
+            };
             // Create storage properties
             ButtonSpecs = new ComboBoxButtonSpecCollection(this);
 
@@ -2251,19 +2274,42 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnTrackMouseLeave(EventArgs e) => TrackMouseLeave?.Invoke(this, e);
 
+
+        /// <summary>
+        /// Raises the HoveredSelectionChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs containing the event data.</param>
+        protected virtual void OnHoverSelectionChanged(HoveredSelectionChangedEventArgs e)
+        {
+            HoveredSelectionChanged?.Invoke(this, e);
+            // See if there is a tooltip to display for the new selection.
+            ToolTipNeededEventArgs args = new ToolTipNeededEventArgs(e.Index, e.Item);
+            OnToolTipNeeded(args);
+            if (!args.IsEmpty)
+            {
+                ShowToolTip(args, e.Bounds.Location);
+            }
+        }
+
         /// <summary>
         /// Raises the <see cref="E:DrawItem" /> event.
         /// </summary>
         /// <param name="e">The <see cref="DrawItemEventArgs"/> instance containing the event data.</param>
         protected virtual void OnDrawItem(DrawItemEventArgs e) => DrawItem?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the ToolTipNeeded event.
+        /// </summary>
+        /// <param name="e"></param>
+        protected virtual void OnToolTipNeeded(ToolTipNeededEventArgs e) => ToolTipNeeded?.Invoke(this, e);
         #endregion
 
-        #region Protected Overrides
-        /// <summary>
-        /// Creates a new instance of the control collection for the KryptonComboBox.
-        /// </summary>
-        /// <returns>A new instance of Control.ControlCollection assigned to the control.</returns>
-        [EditorBrowsable(EditorBrowsableState.Advanced)]
+    #region Protected Overrides
+    /// <summary>
+    /// Creates a new instance of the control collection for the KryptonComboBox.
+    /// </summary>
+    /// <returns>A new instance of Control.ControlCollection assigned to the control.</returns>
+    [EditorBrowsable(EditorBrowsableState.Advanced)]
         protected override ControlCollection CreateControlsInstance() => new KryptonReadOnlyControls(this);
 
         /// <summary>
@@ -2762,6 +2808,14 @@ namespace ComponentFactory.Krypton.Toolkit
                         if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
                         {
                             buttonState = PaletteState.Tracking;
+                            if (_hoverIndex != e.Index)
+                            {
+                                _hoverIndex = e.Index;
+                                // Raise the Hover event
+                                HoveredSelectionChangedEventArgs ev =
+                                    new HoveredSelectionChangedEventArgs(e.Bounds, e.Index, Items[e.Index]);
+                                OnHoverSelectionChanged(ev);
+                            }
                         }
                     }
 
@@ -2932,6 +2986,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnComboBoxDropDown(object sender, EventArgs e)
         {
             _comboBox.Dropped = true;
+            _hoverIndex = -1;
             Refresh();
             OnDropDown(e);
         }
@@ -3035,6 +3090,34 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Not showing a popup page any more
             _visualPopupToolTip = null;
+        }
+
+        VisualPopupToolTip GetToolTip()
+        {
+            if (_toolTip != null 
+                && !_toolTip.IsDisposed
+                )
+            {
+                return _toolTip;
+            }
+
+            PaletteRedirect redirector = new PaletteRedirect(KryptonManager.CurrentGlobalPalette);
+            _toolTip = new VisualPopupToolTip(redirector,
+                new ButtonSpecToContent(redirector, _toolTipSpec), KryptonManager
+                    .CurrentGlobalPalette.GetRenderer());
+            return _toolTip;
+        }
+
+        void ShowToolTip(ToolTipNeededEventArgs e, Point location)
+        {
+            _toolTipSpec.ToolTipTitle = e.Title;
+            _toolTipSpec.ToolTipBody = e.Body;
+            _toolTipSpec.ToolTipImage = e.Icon;
+            VisualPopupToolTip tip = GetToolTip();
+            // Needed to make Krypton update the tooltip data with the data of the spec.
+            tip.PerformNeedPaint(true);
+            Point point = new Point(location.X + DropDownWidth, location.Y);
+            tip.ShowCalculatingSize(PointToScreen(point));
         }
         #endregion
     }

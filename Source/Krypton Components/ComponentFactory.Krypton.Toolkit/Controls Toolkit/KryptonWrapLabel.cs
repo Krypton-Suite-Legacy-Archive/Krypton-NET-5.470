@@ -10,23 +10,24 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
-using System.Windows.Forms;
 using System.ComponentModel;
-using System.Runtime.InteropServices;
+using System.Drawing;
 using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
+
 using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Display a windows forms label but with Krypton palette text and font settings.
-	/// </summary>
-	[ToolboxItem(true)]
+    /// </summary>
+    [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonWrapLabel), "ToolboxBitmaps.KryptonWrapLabel.bmp")]
-	[DefaultProperty("Text")]
+    [DefaultProperty("Text")]
     [DefaultBindingProperty("Text")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonWrapLabelDesigner))]
+    [Designer(typeof(KryptonWrapLabelDesigner))]
     [DesignerCategory("code")]
     [Description("Displays descriptive information.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
@@ -621,7 +622,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 base.OnPaintBackground(pevent);
             }
         }
-        
+
         /// <summary>
         /// Create the redirector instance.
         /// </summary>

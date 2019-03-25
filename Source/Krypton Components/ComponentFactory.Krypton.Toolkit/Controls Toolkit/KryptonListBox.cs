@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [DefaultEvent("SelectedIndexChanged")]
     [DefaultProperty("Items")]
     [DefaultBindingProperty("SelectedValue")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonListBoxDesigner))]
+    [Designer(typeof(KryptonListBoxDesigner))]
     [DesignerCategory("code")]
     [Description("Represents a list box control that allows single or multiple item selection.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
@@ -323,7 +323,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             if (Items.Count == 0)
                             {
                                 using (Graphics g = Graphics.FromHdc(hdc))
-                                    using (RenderContext context = new RenderContext(this, _kryptonListBox, g, realRect, _kryptonListBox.Renderer))
+                                using (RenderContext context = new RenderContext(this, _kryptonListBox, g, realRect, _kryptonListBox.Renderer))
                                 {
                                     ViewDrawPanel.Render(context);
                                 }
@@ -510,7 +510,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Contains another control and needs marking as such for validation to work
             SetStyle(ControlStyles.ContainerControl, true);
-            
+
             // Cannot select this control, only the child ListBox and does not generate a click event
             SetStyle(ControlStyles.Selectable | ControlStyles.StandardClick, false);
 
@@ -546,7 +546,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                              _overrideTracking, _overridePressed,
                                              _overrideCheckedNormal, _overrideCheckedTracking,
                                              _overrideCheckedPressed,
-                                             new PaletteMetricRedirect(Redirector), 
+                                             new PaletteMetricRedirect(Redirector),
                                              _contentValues, VisualOrientation.Top, false);
 
             // Create the internal list box used for containing content
@@ -1750,7 +1750,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             return false;
-        }            
+        }
 
         private void OnListBoxSelectedValueChanged(object sender, EventArgs e)
         {

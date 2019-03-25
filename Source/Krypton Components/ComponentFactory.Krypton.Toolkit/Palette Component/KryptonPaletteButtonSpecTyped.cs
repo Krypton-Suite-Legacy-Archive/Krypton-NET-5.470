@@ -269,7 +269,11 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private bool ShouldSerializeColorMap()
         {
-            if (ColorMap != Color.Empty) return true;
+            if (ColorMap != Color.Empty)
+            {
+                return true;
+            }
+
             return false;
         }
 

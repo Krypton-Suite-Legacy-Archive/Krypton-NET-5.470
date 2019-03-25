@@ -38,7 +38,11 @@ namespace ComponentFactory.Krypton.Toolkit
         { new Pair(DataGridViewStyle.List,       "List"),
             new Pair(DataGridViewStyle.Sheet,      "Sheet"),
             new Pair(DataGridViewStyle.Custom1,    "Custom1"),
-            new Pair(DataGridViewStyle.Mixed,      "Mixed")};
+            new Pair(DataGridViewStyle.Custom2,    "Custom2"),
+            new Pair(DataGridViewStyle.Custom3,    "Custom3"),
+            new Pair(DataGridViewStyle.Mixed,      "Mixed")
+
+        };
 
         #endregion
     }

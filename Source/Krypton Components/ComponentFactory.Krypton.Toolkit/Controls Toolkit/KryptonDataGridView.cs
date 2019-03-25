@@ -12,13 +12,14 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Reflection;
+
 using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -29,7 +30,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonDataGridView), "ToolboxBitmaps.KryptonDataGridView.bmp")]
     [DesignerCategory("code")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDesigner))]
+    [Designer(typeof(KryptonDataGridViewDesigner))]
     [Description("Display rows and columns of data of a grid you can customize.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
@@ -1203,6 +1204,27 @@ namespace ComponentFactory.Krypton.Toolkit
                                 // Draw the sort glyph and update the remainder cell bounds left over
                                 tempCellBounds = Renderer.RenderGlyph.DrawGridSortGlyph(renderContext, Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection, tempCellBounds, paletteContent, state, rtl);
                             }
+
+                            // If this column supports icons, see if it has any.
+                            IIconCell iconColumn = Columns[e.ColumnIndex] as IIconCell;
+                            if (iconColumn != null)
+                            {
+                                foreach (IconSpec spec in iconColumn.IconSpecs)
+                                {
+                                    if (spec.Icon == null)
+                                    {
+                                        continue;
+                                    }
+                                    // Draw icon and update the remainder cell bounds left over
+                                    int iconWidth = spec.Icon.Width + 5;
+                                    int width = tempCellBounds.Width - iconWidth;
+                                    Rectangle iconBounds = new Rectangle(tempCellBounds.X + (spec.Alignment == IconSpec.IconAlignment.Left ? 5 : width),
+                                        tempCellBounds.Y + 3, spec.Icon.Width, spec.Icon.Height);
+                                    renderContext.Graphics.DrawImage(spec.Icon, iconBounds);
+                                    tempCellBounds = new Rectangle(tempCellBounds.X +
+                                                                   (spec.Alignment == IconSpec.IconAlignment.Left ? iconWidth : 0), tempCellBounds.Y, width, tempCellBounds.Height);
+                                }
+                            }
                         }
                         else
                         {
@@ -1291,6 +1313,28 @@ namespace ComponentFactory.Krypton.Toolkit
                                 // Is this a data cell
                                 if ((e.RowIndex >= 0) && (e.ColumnIndex >= 0))
                                 {
+                                    // If this cell supports icons, see if it has any.
+                                    IIconCell iconColumn = Rows[e.RowIndex].Cells[e.ColumnIndex] as IIconCell;
+                                    if (iconColumn != null)
+                                    {
+                                        foreach (IconSpec spec in iconColumn.IconSpecs)
+                                        {
+                                            if (spec.Icon == null)
+                                            {
+                                                continue;
+                                            }
+
+                                            // Draw icon and update the remainder cell bounds left over
+                                            int iconWidth = spec.Icon.Width + 5;
+                                            int width = tempCellBounds.Width - iconWidth;
+                                            Rectangle iconBounds = new Rectangle(tempCellBounds.X + (spec.Alignment == IconSpec.IconAlignment.Left ? 5 : width),
+                                                tempCellBounds.Y + 3, spec.Icon.Width, spec.Icon.Height);
+                                            renderContext.Graphics.DrawImage(spec.Icon, iconBounds);
+                                            tempCellBounds = new Rectangle(tempCellBounds.X +
+                                                                           (spec.Alignment == IconSpec.IconAlignment.Left ? iconWidth : 0), tempCellBounds.Y, width, tempCellBounds.Height);
+                                        }
+                                    }                                    
+                                    
                                     // Is there an error icon associated with the cell that needs showing
                                     if (ShowCellErrors && !string.IsNullOrEmpty(Rows[e.RowIndex].Cells[e.ColumnIndex].ErrorText))
                                     {

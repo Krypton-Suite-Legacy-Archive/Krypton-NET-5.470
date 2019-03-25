@@ -10,22 +10,22 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
 using System.ComponentModel;
-using System.Windows.Forms;
+using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Enables the user to select a date using a visual monthly calendar display.
-	/// </summary>
-	[ToolboxItem(true)]
+    /// </summary>
+    [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonMonthCalendar), "ToolboxBitmaps.KryptonMonthCalendar.bmp")]
     [DefaultEvent("DateChanged")]
     [DefaultProperty("SelectionRange")]
     [DefaultBindingProperty("SelectionRange")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonMonthCalendarDesigner))]
+    [Designer(typeof(KryptonMonthCalendarDesigner))]
     [DesignerCategory("code")]
     [Description("Select a date using a visual monthly calendar display.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
@@ -167,7 +167,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Initialize a new instance of the KryptonMonthCalendar class.
 		/// </summary>
         public KryptonMonthCalendar()
-		{
+        {
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
 
             // Create the palette storage
@@ -243,7 +243,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _scrollChange = 0;
             _todayFormat = "d";
         }
-		#endregion
+        #endregion
 
         #region Public
         /// <summary>
@@ -266,9 +266,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [Bindable(false)]
-        public override AutoSizeMode  AutoSizeMode
+        public override AutoSizeMode AutoSizeMode
         {
-	        get => base.AutoSizeMode;
+            get => base.AutoSizeMode;
             set => base.AutoSizeMode = value;
         }
 
@@ -278,7 +278,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new ImeMode ImeMode 
+        public new ImeMode ImeMode
         {
             get => base.ImeMode;
             set => base.ImeMode = value;
@@ -306,7 +306,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get => EffectiveMinDate(_minDate);
 
-            set 
+            set
             {
                 if (value != _minDate)
                 {
@@ -509,7 +509,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get => EffectiveMaxDate(_maxDate);
 
-            set 
+            set
             {
                 if (value != _maxDate)
                 {
@@ -546,7 +546,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get => _maxSelectionCount;
 
-            set 
+            set
             {
                 if (value < 1)
                 {
@@ -573,7 +573,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get => _selectionStart;
 
-            set 
+            set
             {
                 if (value != _selectionStart)
                 {
@@ -623,7 +623,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get => _selectionEnd;
 
-            set 
+            set
             {
                 if (value != _selectionEnd)
                 {
@@ -726,8 +726,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("First day of the week.")]
         [DefaultValue(typeof(Day), "Default")]
         [Localizable(true)]
-        public Day FirstDayOfWeek 
-        { 
+        public Day FirstDayOfWeek
+        {
             get => _firstDayOfWeek;
 
             set
@@ -1402,7 +1402,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // We take all regular input characters
             return char.IsLetterOrDigit(charCode);
         }
-        
+
         /// <summary>
         /// Determines whether the specified key is a regular input key or a special key that requires preprocessing.
         /// </summary>

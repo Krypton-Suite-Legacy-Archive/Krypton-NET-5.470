@@ -38,7 +38,11 @@ namespace ComponentFactory.Krypton.Toolkit
         { new Pair(SeparatorStyle.LowProfile,            "Low Profile"),
             new Pair(SeparatorStyle.HighProfile,           "High Profile"),  
             new Pair(SeparatorStyle.HighInternalProfile,   "High Internal Profile"),  
-            new Pair(SeparatorStyle.Custom1,               "Custom1"),  };
+            new Pair(SeparatorStyle.Custom1,               "Custom1"),
+            new Pair(SeparatorStyle.Custom2,               "Custom2"),
+            new Pair(SeparatorStyle.Custom3,               "Custom3")
+
+        };
 
         #endregion
     }

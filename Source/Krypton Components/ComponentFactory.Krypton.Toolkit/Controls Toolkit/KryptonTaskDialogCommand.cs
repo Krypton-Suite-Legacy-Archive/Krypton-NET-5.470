@@ -10,11 +10,11 @@
 // *****************************************************************************
 
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
-using System.ComponentModel;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -114,7 +114,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Behavior")]
         [Description("Indicates whether the command is enabled.")]
         [DefaultValue(true)]
-        public bool Enabled 
+        public bool Enabled
         {
             get => _enabled;
 
@@ -287,7 +287,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets and sets the command small image.
         /// </summary>
-        Image IKryptonCommand.ImageSmall 
+        Image IKryptonCommand.ImageSmall
         {
             get => Image;
             set => Image = value;

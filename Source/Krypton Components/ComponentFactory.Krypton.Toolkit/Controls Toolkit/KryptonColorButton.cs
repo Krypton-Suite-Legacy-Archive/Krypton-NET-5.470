@@ -1,4 +1,4 @@
-﻿  // *****************************************************************************
+﻿// *****************************************************************************
 // BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
 //  © Component Factory Pty Ltd, 2006-2019, All rights reserved.
 // The software and associated documentation supplied hereunder are the 
@@ -10,60 +10,60 @@
 // *****************************************************************************
 
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
-using System.ComponentModel;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Combines color button functionality with the styling features of the Krypton Toolkit.
-	/// </summary>
-	[ToolboxItem(true)]
+    /// </summary>
+    [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonColorButton), "ToolboxBitmaps.KryptonColorButton.bmp")]
     [DefaultEvent("SelectedColorChanged")]
     [DefaultProperty("SelectedColor")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonColorButtonDesigner))]
+    [Designer(typeof(KryptonColorButtonDesigner))]
     [DesignerCategory("code")]
     [Description("Raises an event when the user clicks it.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     public class KryptonColorButton : VisualSimpleBase, IButtonControl, IContentValues
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly ViewDrawButton _drawButton;
         private ButtonStyle _style;
-	    private readonly ButtonController _buttonController;
+        private readonly ButtonController _buttonController;
         private readonly PaletteRedirectDropDownButton _paletteDropDownButtonImages;
-	    private readonly PaletteTripleOverride _overrideFocus;
-		private readonly PaletteTripleOverride _overrideNormal;
-		private readonly PaletteTripleOverride _overrideTracking;
-		private readonly PaletteTripleOverride _overridePressed;
-	    private KryptonCommand _command;
-	    private Rectangle _selectedRect;
+        private readonly PaletteTripleOverride _overrideFocus;
+        private readonly PaletteTripleOverride _overrideNormal;
+        private readonly PaletteTripleOverride _overrideTracking;
+        private readonly PaletteTripleOverride _overridePressed;
+        private KryptonCommand _command;
+        private Rectangle _selectedRect;
         private Color _selectedColor;
         private Color _emptyBorderColor;
-	    private readonly List<Color> _recentColors;
-	    private Image _wasImage;
+        private readonly List<Color> _recentColors;
+        private Image _wasImage;
         private bool _wasEnabled;
-	    private bool _isDefault;
-		private bool _useMnemonic;
+        private bool _isDefault;
+        private bool _useMnemonic;
 
         // Context menu items
         private readonly KryptonContextMenu _kryptonContextMenu;
         private readonly KryptonContextMenuSeparator _separatorTheme;
-	    private readonly KryptonContextMenuSeparator _separatorStandard;
-	    private readonly KryptonContextMenuSeparator _separatorRecent;
-	    private readonly KryptonContextMenuHeading _headingTheme;
-	    private readonly KryptonContextMenuHeading _headingStandard;
-	    private readonly KryptonContextMenuHeading _headingRecent;
-	    private readonly KryptonContextMenuColorColumns _colorsTheme;
-	    private readonly KryptonContextMenuColorColumns _colorsStandard;
-	    private readonly KryptonContextMenuColorColumns _colorsRecent;
-	    private readonly KryptonContextMenuSeparator _separatorNoColor;
+        private readonly KryptonContextMenuSeparator _separatorStandard;
+        private readonly KryptonContextMenuSeparator _separatorRecent;
+        private readonly KryptonContextMenuHeading _headingTheme;
+        private readonly KryptonContextMenuHeading _headingStandard;
+        private readonly KryptonContextMenuHeading _headingRecent;
+        private readonly KryptonContextMenuColorColumns _colorsTheme;
+        private readonly KryptonContextMenuColorColumns _colorsStandard;
+        private readonly KryptonContextMenuColorColumns _colorsRecent;
+        private readonly KryptonContextMenuSeparator _separatorNoColor;
         private readonly KryptonContextMenuItems _itemsNoColor;
         private readonly KryptonContextMenuItem _itemNoColor;
         private readonly KryptonContextMenuSeparator _separatorMoreColors;
@@ -136,7 +136,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _useMnemonic = true;
             MaxRecentColors = 10;
             _recentColors = new List<Color>();
-            
+
             // Create the context menu items
             _kryptonContextMenu = new KryptonContextMenu();
             _separatorTheme = new KryptonContextMenuSeparator();
@@ -156,7 +156,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _itemMoreColors = new KryptonContextMenuItem("&More Colors...", OnClickMoreColors);
             _itemsMoreColors = new KryptonContextMenuItems();
             _itemsMoreColors.Items.Add(_itemMoreColors);
-            _kryptonContextMenu.Items.AddRange(new KryptonContextMenuItemBase[] { _separatorTheme, _headingTheme, _colorsTheme, 
+            _kryptonContextMenu.Items.AddRange(new KryptonContextMenuItemBase[] { _separatorTheme, _headingTheme, _colorsTheme,
                                                                                   _separatorStandard, _headingStandard, _colorsStandard,
                                                                                   _separatorRecent, _headingRecent, _colorsRecent,
                                                                                   _separatorNoColor, _itemsNoColor,
@@ -181,7 +181,7 @@ namespace ComponentFactory.Krypton.Toolkit
             OverrideFocus = new PaletteTripleRedirect(Redirector, PaletteBackStyle.ButtonStandalone, PaletteBorderStyle.ButtonStandalone, PaletteContentStyle.ButtonStandalone, NeedPaintDelegate);
 
             // Create the override handling classes
-            _overrideFocus = new PaletteTripleOverride(OverrideFocus, StateNormal,  PaletteState.FocusOverride);
+            _overrideFocus = new PaletteTripleOverride(OverrideFocus, StateNormal, PaletteState.FocusOverride);
             _overrideNormal = new PaletteTripleOverride(OverrideDefault, _overrideFocus, PaletteState.NormalDefaultOverride);
             _overrideTracking = new PaletteTripleOverride(OverrideFocus, StateTracking, PaletteState.FocusOverride);
             _overridePressed = new PaletteTripleOverride(OverrideFocus, StatePressed, PaletteState.FocusOverride);
@@ -222,9 +222,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // Create the view manager instance
             ViewManager = new ViewManager(this, _drawButton);
         }
-		#endregion
+        #endregion
 
-		#region Public
+        #region Public
         /// <summary>
         /// Gets and sets the automatic resize of the control to fit contents.
         /// </summary>
@@ -257,26 +257,26 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         public override string Text
-		{
-			get => Values.Text;
+        {
+            get => Values.Text;
 
             set => Values.Text = value;
         }
 
-		private bool ShouldSerializeText()
-		{
+        private bool ShouldSerializeText()
+        {
             // Never serialize, let the color button values serialize instead
-			return false;
-		}
+            return false;
+        }
 
-		/// <summary>
-		/// Resets the Text property to its default value.
-		/// </summary>
-		public override void ResetText()
-		{
+        /// <summary>
+        /// Resets the Text property to its default value.
+        /// </summary>
+        public override void ResetText()
+        {
             // Map onto the color button property from the values
-			Values.ResetText();
-		}
+            Values.ResetText();
+        }
 
         /// <summary>
         /// Gets or sets the ContextMenuStrip associated with this control.
@@ -310,7 +310,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(10)]
         public int MaxRecentColors { get; set; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets and sets the visible state of the themes color set.
         /// </summary>
         [Category("Behavior")]
@@ -318,7 +318,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool VisibleThemes { get; set; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets and sets the visible state of the standard color set.
         /// </summary>
         [Category("Behavior")]
@@ -326,7 +326,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool VisibleStandard { get; set; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets and sets the visible state of the recent color set.
         /// </summary>
         [Category("Behavior")]
@@ -334,7 +334,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool VisibleRecent { get; set; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets and sets the visible state of the no color menu item.
         /// </summary>
         [Category("Behavior")]
@@ -342,7 +342,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool VisibleNoColor { get; set; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets and sets the visible state of the more colors menu item.
         /// </summary>
         [Category("Behavior")]
@@ -350,7 +350,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool VisibleMoreColors { get; set; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets and sets if the recent colors should be automatically updated.
         /// </summary>
         [Category("Behavior")]
@@ -358,7 +358,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(true)]
         public bool AutoRecentColors { get; set; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets and sets the color scheme for the themes color set.
         /// </summary>
         [Category("Behavior")]
@@ -366,7 +366,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(ColorScheme), "OfficeThemes")]
         public ColorScheme SchemeThemes { get; set; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets and sets the color scheme for the standard color set.
         /// </summary>
         [Category("Behavior")]
@@ -374,7 +374,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(ColorScheme), "OfficeStandard")]
         public ColorScheme SchemeStandard { get; set; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets and sets the selected color.
         /// </summary>
         [Bindable(true)]
@@ -385,7 +385,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get => _selectedColor;
 
-	        set
+            set
             {
                 if (value != _selectedColor)
                 {
@@ -450,14 +450,14 @@ namespace ComponentFactory.Krypton.Toolkit
             get => _drawButton.Orientation;
 
             set
-			{
+            {
                 if (_drawButton.Orientation != value)
-				{
+                {
                     _drawButton.Orientation = value;
                     PerformNeedPaint(true);
-				}
-			}
-		}
+                }
+            }
+        }
 
         /// <summary>
         /// Gets and sets the position of the drop arrow within the color button.
@@ -487,7 +487,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(typeof(VisualOrientation), "Bottom")]
         public virtual VisualOrientation DropDownOrientation
         {
-            get 
+            get
             {
                 switch (_drawButton.DropDownOrientation)
                 {
@@ -555,21 +555,21 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Gets and sets the color button style.
 		/// </summary>
 		[Category("Visuals")]
-		[Description("Color button style.")]
-		public ButtonStyle ButtonStyle
-		{
-			get => _style;
+        [Description("Color button style.")]
+        public ButtonStyle ButtonStyle
+        {
+            get => _style;
 
             set
-			{
-				if (_style != value)
-				{
-					_style = value;
+            {
+                if (_style != value)
+                {
+                    _style = value;
                     SetStyles(_style);
-					PerformNeedPaint(true);
-				}
-			}
-		}
+                    PerformNeedPaint(true);
+                }
+            }
+        }
 
         private bool ShouldSerializeButtonStyle()
         {
@@ -580,19 +580,19 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             ButtonStyle = ButtonStyle.Standalone;
         }
-        
-        /// <summary>
-		/// Gets access to the color button content.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Color button values")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public ColorButtonValues Values { get; }
 
-	    private bool ShouldSerializeValues()
-		{
-			return !Values.IsDefault;
-		}
+        /// <summary>
+        /// Gets access to the color button content.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Color button values")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public ColorButtonValues Values { get; }
+
+        private bool ShouldSerializeValues()
+        {
+            return !Values.IsDefault;
+        }
 
         /// <summary>
         /// Gets access to the image value overrides.
@@ -602,7 +602,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public DropDownButtonImages Images { get; }
 
-	    private bool ShouldSerializeImages()
+        private bool ShouldSerializeImages()
         {
             return !Images.IsDefault;
         }
@@ -615,7 +615,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteColorButtonStrings Strings { get; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets access to the common color button appearance that other states can override.
         /// </summary>
         [Category("Visuals")]
@@ -623,98 +623,98 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTripleRedirect StateCommon { get; }
 
-	    private bool ShouldSerializeStateCommon()
+        private bool ShouldSerializeStateCommon()
         {
             return !StateCommon.IsDefault;
         }
-        
+
         /// <summary>
         /// Gets access to the disabled color button appearance entries.
-		/// </summary>
-		[Category("Visuals")]
+        /// </summary>
+        [Category("Visuals")]
         [Description("Overrides for defining disabled color button appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTriple StateDisabled { get; }
 
-	    private bool ShouldSerializeStateDisabled()
-		{
-			return !StateDisabled.IsDefault;
-		}
+        private bool ShouldSerializeStateDisabled()
+        {
+            return !StateDisabled.IsDefault;
+        }
 
-		/// <summary>
+        /// <summary>
         /// Gets access to the normal color button appearance entries.
-		/// </summary>
-		[Category("Visuals")]
+        /// </summary>
+        [Category("Visuals")]
         [Description("Overrides for defining normal color button appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTriple StateNormal { get; }
 
-	    private bool ShouldSerializeStateNormal()
-		{
-			return !StateNormal.IsDefault;
-		}
+        private bool ShouldSerializeStateNormal()
+        {
+            return !StateNormal.IsDefault;
+        }
 
-		/// <summary>
+        /// <summary>
         /// Gets access to the hot tracking color button appearance entries.
-		/// </summary>
-		[Category("Visuals")]
+        /// </summary>
+        [Category("Visuals")]
         [Description("Overrides for defining hot tracking color button appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTriple StateTracking { get; }
 
-	    private bool ShouldSerializeStateTracking()
-		{
-			return !StateTracking.IsDefault;
-		}
+        private bool ShouldSerializeStateTracking()
+        {
+            return !StateTracking.IsDefault;
+        }
 
-		/// <summary>
+        /// <summary>
         /// Gets access to the pressed color button appearance entries.
-		/// </summary>
-		[Category("Visuals")]
+        /// </summary>
+        [Category("Visuals")]
         [Description("Overrides for defining pressed color button appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTriple StatePressed { get; }
 
-	    private bool ShouldSerializeStatePressed()
-		{
-			return !StatePressed.IsDefault;
-		}
+        private bool ShouldSerializeStatePressed()
+        {
+            return !StatePressed.IsDefault;
+        }
 
-		/// <summary>
+        /// <summary>
         /// Gets access to the normal color button appearance when default.
-		/// </summary>
-		[Category("Visuals")]
+        /// </summary>
+        [Category("Visuals")]
         [Description("Overrides for defining normal color button appearance when default.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteTripleRedirect OverrideDefault { get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public PaletteTripleRedirect OverrideDefault { get; }
 
-	    private bool ShouldSerializeOverrideDefault()
-		{
-			return !OverrideDefault.IsDefault;
-		}
+        private bool ShouldSerializeOverrideDefault()
+        {
+            return !OverrideDefault.IsDefault;
+        }
 
-		/// <summary>
+        /// <summary>
         /// Gets access to the color button appearance when it has focus.
-		/// </summary>
-		[Category("Visuals")]
+        /// </summary>
+        [Category("Visuals")]
         [Description("Overrides for defining color button appearance when it has focus.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteTripleRedirect OverrideFocus { get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public PaletteTripleRedirect OverrideFocus { get; }
 
-	    private bool ShouldSerializeOverrideFocus()
-		{
-			return !OverrideFocus.IsDefault;
-		}
+        private bool ShouldSerializeOverrideFocus()
+        {
+            return !OverrideFocus.IsDefault;
+        }
 
-		/// <summary>
+        /// <summary>
         /// Gets or sets the value returned to the parent form when the color button is clicked.
-		/// </summary>
-		[Category("Behavior")]
+        /// </summary>
+        [Category("Behavior")]
         [Description("The dialog-box result produced in a modal form by clicking the color button.")]
-		[DefaultValue(typeof(DialogResult), "None")]
-		public DialogResult DialogResult { get; set; }
+        [DefaultValue(typeof(DialogResult), "None")]
+        public DialogResult DialogResult { get; set; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets and sets the associated KryptonCommand.
         /// </summary>
         [Category("Behavior")]
@@ -724,7 +724,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get => _command;
 
-	        set
+            set
             {
                 if (_command != value)
                 {
@@ -753,32 +753,32 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
         }
-        
+
         /// <summary>
         /// Notifies a control that it is the default color button so that its appearance and behavior is adjusted accordingly. 
-		/// </summary>
+        /// </summary>
         /// <param name="value">true if the control should behave as a default color button; otherwise false.</param>
-		public void NotifyDefault(bool value)
-		{
-			if (!ViewDrawButton.IsFixed && (_isDefault != value))
-			{
-				// Remember new default status
-				_isDefault = value;
+        public void NotifyDefault(bool value)
+        {
+            if (!ViewDrawButton.IsFixed && (_isDefault != value))
+            {
+                // Remember new default status
+                _isDefault = value;
 
-				// Decide if the default overrides should be applied
+                // Decide if the default overrides should be applied
                 _overrideNormal.Apply = value;
 
-				// Change in deault state requires a layout and repaint
-				PerformNeedPaint(true);
-			}
-		}
+                // Change in deault state requires a layout and repaint
+                PerformNeedPaint(true);
+            }
+        }
 
-		/// <summary>
-		/// Generates a Click event for the control.
-		/// </summary>
-		public void PerformClick()
-		{
-			if (CanSelect)
+        /// <summary>
+        /// Generates a Click event for the control.
+        /// </summary>
+        public void PerformClick()
+        {
+            if (CanSelect)
             {
                 OnClick(EventArgs.Empty);
             }
@@ -795,26 +795,26 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Gets or sets a value indicating whether an ampersand is included in the text of the control. 
-		/// </summary>
-		[Category("Appearance")]
-		[Description("When true the first character after an ampersand will be used as a mnemonic.")] 
-		[DefaultValue(true)]
-		public bool UseMnemonic
-		{
-			get => _useMnemonic;
+        /// <summary>
+        /// Gets or sets a value indicating whether an ampersand is included in the text of the control. 
+        /// </summary>
+        [Category("Appearance")]
+        [Description("When true the first character after an ampersand will be used as a mnemonic.")]
+        [DefaultValue(true)]
+        public bool UseMnemonic
+        {
+            get => _useMnemonic;
 
-		    set
-			{
-				if (_useMnemonic != value)
-				{
-					_useMnemonic = value;
-					_drawButton.UseMnemonic = value;
-					PerformNeedPaint(true);
-				}
-			}
-		}
+            set
+            {
+                if (_useMnemonic != value)
+                {
+                    _useMnemonic = value;
+                    _drawButton.UseMnemonic = value;
+                    PerformNeedPaint(true);
+                }
+            }
+        }
 
         /// <summary>
         /// Fix the control to a particular palette state.
@@ -836,16 +836,16 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawButton.FixedState = state;
         }
 
-		/// <summary>
-		/// Determins the IME status of the object when selected.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public new ImeMode ImeMode
-		{
-			get => base.ImeMode;
-		    set => base.ImeMode = value;
-		}
+        /// <summary>
+        /// Determins the IME status of the object when selected.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public new ImeMode ImeMode
+        {
+            get => base.ImeMode;
+            set => base.ImeMode = value;
+        }
         #endregion
 
         #region IContentValues
@@ -861,56 +861,56 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>String value.</returns>
         public string GetLongText() => KryptonCommand?.ExtraText ?? Values.GetLongText();
 
-	    /// <summary>
+        /// <summary>
         /// Gets the content image.
         /// </summary>
         /// <param name="state">The state for which the image is needed.</param>
         /// <returns>Image value.</returns>
         public Image GetImage(PaletteState state) => Values.GetImage(state);
 
-	    /// <summary>
+        /// <summary>
         /// Gets the image color that should be transparent.
         /// </summary>
         /// <param name="state">The state for which the image is needed.</param>
         /// <returns>Color value.</returns>
         public Color GetImageTransparentColor(PaletteState state) =>
-	        KryptonCommand?.ImageTransparentColor ?? Values.GetImageTransparentColor(state);
+            KryptonCommand?.ImageTransparentColor ?? Values.GetImageTransparentColor(state);
 
-	    #endregion
-        
+        #endregion
+
         #region Protected Overrides
-		/// <summary>
-		/// Gets the default size of the control.
-		/// </summary>
-		protected override Size DefaultSize => new Size(90, 25);
+        /// <summary>
+        /// Gets the default size of the control.
+        /// </summary>
+        protected override Size DefaultSize => new Size(90, 25);
 
-	    /// <summary>
-		/// Gets the default Input Method Editor (IME) mode supported by this control.
-		/// </summary>
-		protected override ImeMode DefaultImeMode => ImeMode.Disable;
+        /// <summary>
+        /// Gets the default Input Method Editor (IME) mode supported by this control.
+        /// </summary>
+        protected override ImeMode DefaultImeMode => ImeMode.Disable;
 
-	    /// <summary>
-		/// Raises the EnabledChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
-		protected override void OnEnabledChanged(EventArgs e)
-		{
+        /// <summary>
+        /// Raises the EnabledChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        protected override void OnEnabledChanged(EventArgs e)
+        {
             // Must inform the color button view which itself tells the embedded elements
             _drawButton.Enabled = Enabled;
 
-			// Change in enabled state requires a layout and repaint
-			PerformNeedPaint(true);
+            // Change in enabled state requires a layout and repaint
+            PerformNeedPaint(true);
 
-			// Let base class fire standard event
-			base.OnEnabledChanged(e);
-		}
+            // Let base class fire standard event
+            base.OnEnabledChanged(e);
+        }
 
-		/// <summary>
-		/// Raises the GotFocus event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
-		protected override void OnGotFocus(EventArgs e)
-		{
+        /// <summary>
+        /// Raises the GotFocus event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        protected override void OnGotFocus(EventArgs e)
+        {
             if (!ViewDrawButton.IsFixed)
             {
                 // Apply the focus overrides
@@ -922,16 +922,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 PerformNeedPaint(false);
             }
 
-			// Let base class fire standard event
-			base.OnGotFocus(e);
-		}
+            // Let base class fire standard event
+            base.OnGotFocus(e);
+        }
 
-		/// <summary>
-		/// Raises the LostFocus event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
-		protected override void OnLostFocus(EventArgs e)
-		{
+        /// <summary>
+        /// Raises the LostFocus event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        protected override void OnLostFocus(EventArgs e)
+        {
             if (!ViewDrawButton.IsFixed)
             {
                 // Apply the focus overrides
@@ -943,46 +943,46 @@ namespace ComponentFactory.Krypton.Toolkit
                 PerformNeedPaint(false);
             }
 
-			// Let base class fire standard event
-			base.OnLostFocus(e);
-		}
+            // Let base class fire standard event
+            base.OnLostFocus(e);
+        }
 
-		/// <summary>
-		/// Raises the Click event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
-		protected override void OnClick(EventArgs e)
-		{
+        /// <summary>
+        /// Raises the Click event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        protected override void OnClick(EventArgs e)
+        {
             // Find the form this color button is on
-			Form owner = FindForm();
+            Form owner = FindForm();
 
-			// If we find a valid owner
-			if (owner != null)
-			{
-				// Update owner with our dialog result setting
-				owner.DialogResult = DialogResult;
-			}
+            // If we find a valid owner
+            if (owner != null)
+            {
+                // Update owner with our dialog result setting
+                owner.DialogResult = DialogResult;
+            }
 
-			// Let base class fire standard event
-			base.OnClick(e);
+            // Let base class fire standard event
+            base.OnClick(e);
 
             // If we have an attached command then execute it
-		    KryptonCommand?.PerformExecute();
-		}
+            KryptonCommand?.PerformExecute();
+        }
 
-		/// <summary>
-		/// Processes a mnemonic character.
-		/// </summary>
-		/// <param name="charCode">The mnemonic character entered.</param>
-		/// <returns>true if the mnemonic was processsed; otherwise, false.</returns>
+        /// <summary>
+        /// Processes a mnemonic character.
+        /// </summary>
+        /// <param name="charCode">The mnemonic character entered.</param>
+        /// <returns>true if the mnemonic was processsed; otherwise, false.</returns>
         protected override bool ProcessMnemonic(char charCode)
-		{
-			// Are we allowed to process mnemonics?
-			if (UseMnemonic && CanProcessMnemonic())
-			{
+        {
+            // Are we allowed to process mnemonics?
+            if (UseMnemonic && CanProcessMnemonic())
+            {
                 // Does the color button primary text contain the mnemonic?
-				if (IsMnemonic(charCode, Values.Text))
-				{
+                if (IsMnemonic(charCode, Values.Text))
+                {
                     if (!Splitter)
                     {
                         PerformDropDown();
@@ -993,12 +993,12 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
 
                     return true;
-				}
-			}
+                }
+            }
 
-			// No match found, let base class do standard processing
-			return base.ProcessMnemonic(charCode);
-		}
+            // No match found, let base class do standard processing
+            return base.ProcessMnemonic(charCode);
+        }
 
         /// <summary>
         /// Called when a context menu has just been closed.
@@ -1105,7 +1105,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         protected virtual ColorButtonValues CreateButtonValues(NeedPaintHandler needPaint) => new ColorButtonValues(needPaint);
 
-	    /// <summary>
+        /// <summary>
         /// Gets access to the view element for the color button.
         /// </summary>
         protected virtual ViewDrawButton ViewDrawButton => _drawButton;
@@ -1116,7 +1116,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private void OnButtonTextChanged(object sender, EventArgs e) => OnTextChanged(EventArgs.Empty);
 
         private void OnButtonClick(object sender, MouseEventArgs e)
-		{
+        {
             bool showingContextMenu = false;
 
             // Do we need to show a drop down menu?
@@ -1263,10 +1263,10 @@ namespace ComponentFactory.Krypton.Toolkit
             HookContextMenuEvents(_kryptonContextMenu.Items, false);
         }
 
-		void OnButtonSelect(object sender, MouseEventArgs e)
-		{
-			// Take the focus if allowed
-			if (CanFocus)
+        void OnButtonSelect(object sender, MouseEventArgs e)
+        {
+            // Take the focus if allowed
+            if (CanFocus)
             {
                 Focus();
             }
@@ -1459,5 +1459,5 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
         #endregion
-	}
+    }
 }

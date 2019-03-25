@@ -6272,7 +6272,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(container != null);
 
             // Validate reference parameter
-            if (container == null) throw new ArgumentNullException("container");
+            if (container == null)
+            {
+                throw new ArgumentNullException("container");
+            }
 
             container.Add(this);
         }
@@ -6775,9 +6778,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public InheritBool GetAllowFormChrome()
         {
             if (AllowFormChrome == InheritBool.Inherit)
+            {
                 return _basePalette.GetAllowFormChrome();
+            }
             else
+            {
                 return AllowFormChrome;
+            }
         }
         #endregion
 
@@ -7609,6 +7616,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     return HeaderStyles.HeaderCustom1.StateCommon.GetMetricInt(state, metric);
                 case PaletteMetricInt.HeaderButtonEdgeInsetCustom2:
                     return HeaderStyles.HeaderCustom2.StateCommon.GetMetricInt(state, metric);
+                case PaletteMetricInt.HeaderButtonEdgeInsetCustom3:
+                    return HeaderStyles.HeaderCustom3.StateCommon.GetMetricInt(state, metric);
             }
 
             // Otherwise use base instance for the value instead
@@ -7670,6 +7679,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     return HeaderStyles.HeaderCustom1.StateCommon.GetMetricPadding(state, metric);
                 case PaletteMetricPadding.HeaderButtonPaddingCustom2:
                     return HeaderStyles.HeaderCustom2.StateCommon.GetMetricPadding(state, metric);
+                case PaletteMetricPadding.HeaderButtonPaddingCustom3:
+                    return HeaderStyles.HeaderCustom3.StateCommon.GetMetricPadding(state, metric);
                 case PaletteMetricPadding.SeparatorPaddingLowProfile:
                     switch (state)
                     {
@@ -7710,6 +7721,32 @@ namespace ComponentFactory.Krypton.Toolkit
                             return SeparatorStyles.SeparatorCustom1.StatePressed.GetMetricPadding(state, metric);
                     }
                     break;
+                case PaletteMetricPadding.SeparatorPaddingCustom2:
+                    switch (state)
+                    {
+                        case PaletteState.Disabled:
+                            return SeparatorStyles.SeparatorCustom2.StateDisabled.GetMetricPadding(state, metric);
+                        case PaletteState.Normal:
+                            return SeparatorStyles.SeparatorCustom2.StateNormal.GetMetricPadding(state, metric);
+                        case PaletteState.Tracking:
+                            return SeparatorStyles.SeparatorCustom2.StateTracking.GetMetricPadding(state, metric);
+                        case PaletteState.Pressed:
+                            return SeparatorStyles.SeparatorCustom2.StatePressed.GetMetricPadding(state, metric);
+                    }
+                    break;
+                case PaletteMetricPadding.SeparatorPaddingCustom3:
+                    switch (state)
+                    {
+                        case PaletteState.Disabled:
+                            return SeparatorStyles.SeparatorCustom3.StateDisabled.GetMetricPadding(state, metric);
+                        case PaletteState.Normal:
+                            return SeparatorStyles.SeparatorCustom3.StateNormal.GetMetricPadding(state, metric);
+                        case PaletteState.Tracking:
+                            return SeparatorStyles.SeparatorCustom3.StateTracking.GetMetricPadding(state, metric);
+                        case PaletteState.Pressed:
+                            return SeparatorStyles.SeparatorCustom3.StatePressed.GetMetricPadding(state, metric);
+                    }
+                    break;
             }
 
             // Otherwise use base instance for the value instead
@@ -7729,13 +7766,19 @@ namespace ComponentFactory.Krypton.Toolkit
             Image retImage = null;
 
             if (expanded)
+            {
                 retImage = _images.TreeView.Minus;
+            }
             else
+            {
                 retImage = _images.TreeView.Plus;
+            }
 
             // Not found, then inherit from target
             if (retImage == null)
+            {
                 retImage = _redirector.GetTreeViewImage(expanded);
+            }
 
             return retImage;
         }
@@ -7757,45 +7800,78 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case CheckState.Unchecked:
                     if (!enabled)
+                    {
                         retImage = _images.CheckBox.UncheckedDisabled;
+                    }
                     else if (pressed)
+                    {
                         retImage = _images.CheckBox.UncheckedPressed;
+                    }
                     else if (tracking)
+                    {
                         retImage = _images.CheckBox.UncheckedTracking;
+                    }
                     else
+                    {
                         retImage = _images.CheckBox.UncheckedNormal;
+                    }
+
                     break;
                 case CheckState.Checked:
                     if (!enabled)
+                    {
                         retImage = _images.CheckBox.CheckedDisabled;
+                    }
                     else if (pressed)
+                    {
                         retImage = _images.CheckBox.CheckedPressed;
+                    }
                     else if (tracking)
+                    {
                         retImage = _images.CheckBox.CheckedTracking;
+                    }
                     else
+                    {
                         retImage = _images.CheckBox.CheckedNormal;
+                    }
+
                     break;
                 case CheckState.Indeterminate:
                     if (!enabled)
+                    {
                         retImage = _images.CheckBox.IndeterminateDisabled;
+                    }
                     else if (pressed)
+                    {
                         retImage = _images.CheckBox.IndeterminatePressed;
+                    }
                     else if (tracking)
+                    {
                         retImage = _images.CheckBox.IndeterminateTracking;
+                    }
                     else
+                    {
                         retImage = _images.CheckBox.IndeterminateNormal;
+                    }
+
                     break;
             }
 
             // Use common image as the last resort
             if (retImage == null)
+            {
                 retImage = _images.CheckBox.Common;
+            }
 
             // If nothing found then use the base palette
             if (retImage == null)
+            {
                 return _redirector.GetCheckBoxImage(enabled, checkState, tracking, pressed);
+            }
             else
+            {
                 return retImage;
+            }
         }
 
         /// <summary>
@@ -7814,35 +7890,57 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!checkState)
             {
                 if (!enabled)
+                {
                     retImage = _images.RadioButton.UncheckedDisabled;
+                }
                 else if (pressed)
+                {
                     retImage = _images.RadioButton.UncheckedPressed;
+                }
                 else if (tracking)
+                {
                     retImage = _images.RadioButton.UncheckedTracking;
+                }
                 else
+                {
                     retImage = _images.RadioButton.UncheckedNormal;
+                }
             }
             else
             {
                 if (!enabled)
+                {
                     retImage = _images.RadioButton.CheckedDisabled;
+                }
                 else if (pressed)
+                {
                     retImage = _images.RadioButton.CheckedPressed;
+                }
                 else if (tracking)
+                {
                     retImage = _images.RadioButton.CheckedTracking;
+                }
                 else
+                {
                     retImage = _images.RadioButton.CheckedNormal;
+                }
             }
 
             // Use common image as the last resort
             if (retImage == null)
+            {
                 retImage = _images.RadioButton.Common;
+            }
 
             // If nothing found then use the base palette
             if (retImage == null)
+            {
                 return _redirector.GetRadioButtonImage(enabled, checkState, tracking, pressed);
+            }
             else
+            {
                 return retImage;
+            }
         }
 
         /// <summary>
@@ -7871,13 +7969,19 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Use common image as the last resort
             if (retImage == null)
+            {
                 retImage = _images.DropDownButton.Common;
+            }
 
             // If nothing found then use the base palette
             if (retImage == null)
+            {
                 return _redirector.GetDropDownButtonImage(state);
+            }
             else
+            {
                 return retImage;
+            }
         }
 
         /// <summary>
@@ -7890,9 +7994,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // If nothing found then use the base palette
             if (retImage == null)
+            {
                 return _redirector.GetContextMenuCheckedImage();
+            }
             else
+            {
                 return retImage;
+            }
         }
 
         /// <summary>
@@ -7905,9 +8013,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // If nothing found then use the base palette
             if (retImage == null)
+            {
                 return _redirector.GetContextMenuIndeterminateImage();
+            }
             else
+            {
                 return retImage;
+            }
         }
 
         /// <summary>
@@ -7920,9 +8032,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // If nothing found then use the base palette
             if (retImage == null)
+            {
                 return _redirector.GetContextMenuSubMenuImage();
+            }
             else
+            {
                 return retImage;
+            }
         }
 
         /// <summary>
@@ -7969,13 +8085,19 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Use common image if the state specific image is not available
             if (retImage == null)
+            {
                 retImage = images.Common;
+            }
 
             // If nothing found then use the base palette
             if (retImage == null)
+            {
                 return _redirector.GetGalleryButtonImage(button, state);
+            }
             else
+            {
                 return retImage;
+            }
         }
         #endregion
 
@@ -8585,7 +8707,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 SuspendUpdates();
 
                 if (silent)
+                {
                     ResetOperation(null);
+                }
                 else
                 {
                     // Perform the reset operation on a separate worker thread
@@ -8625,7 +8749,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 SuspendUpdates();
 
                 if (silent)
+                {
                     PopulateFromBaseOperation(null);
+                }
                 else
                 {
                     // Perform the reset operation on a separate worker thread
@@ -8713,7 +8839,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 SuspendUpdates();
 
                 if (silent)
+                {
                     ret = (string)ImportFromFile(filename);
+                }
                 else
                 {
                     // Perform the import operation on a separate worker thread
@@ -8770,7 +8898,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 SuspendUpdates();
 
                 if (silent)
+                {
                     ImportFromStream(stream);
+                }
                 else
                 {
                     // Perform the import operation on a separate worker thread
@@ -8825,7 +8955,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 SuspendUpdates();
 
                 if (silent)
+                {
                     ImportFromByteArray(byteArray);
+                }
                 else
                 {
                     // Perform the import operation on a separate worker thread
@@ -8915,7 +9047,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 SuspendUpdates();
 
                 if (silent)
+                {
                     ret = (string)ExportToFile(new object[] { filename, ignoreDefaults });
+                }
                 else
                 {
                     // Perform the import operation on a separate worker thread
@@ -8977,7 +9111,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 SuspendUpdates();
 
                 if (silent)
+                {
                     ExportToStream(new object[] { stream, ignoreDefaults });
+                }
                 else
                 {
                     // Perform the import operation on a separate worker thread
@@ -9035,7 +9171,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 SuspendUpdates();
 
                 if (silent)
+                {
                     ret = (byte[])ExportToByteArray(new object[] { ignoreDefaults });
+                }
                 else
                 {
                     // Perform the import operation on a separate worker thread
@@ -9251,9 +9389,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                             // If inheriting then we do not need a base renderer
                             if (value == RendererMode.Inherit)
+                            {
                                 _baseRenderer = null;
+                            }
                             else
+                            {
                                 _baseRenderer = KryptonManager.GetRendererForMode(_baseRenderMode);
+                            }
 
                             // Fire events to indicate a change in palette values
                             // (because renderer has changed the palette need redrawing)
@@ -9332,7 +9474,9 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_suspendCount == 0)
             {
                 if (PalettePaint != null)
+                {
                     PalettePaint(this, e);
+                }
             }
         }
 
@@ -9347,7 +9491,9 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_suspendCount == 0)
             {
                 if (AllowFormChromeChanged != null)
+                {
                     AllowFormChromeChanged(this, e);
+                }
             }
         }
 
@@ -9362,7 +9508,9 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_suspendCount == 0)
             {
                 if (BasePaletteChanged != null)
+                {
                     BasePaletteChanged(this, e);
+                }
             }
         }
 
@@ -9377,7 +9525,9 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_suspendCount == 0)
             {
                 if (BaseRendererChanged != null)
+                {
                     BaseRendererChanged(this, e);
+                }
             }
         }
 
@@ -9392,7 +9542,9 @@ namespace ComponentFactory.Krypton.Toolkit
             if (_suspendCount == 0)
             {
                 if (ButtonSpecChanged != null)
+                {
                     ButtonSpecChanged(this, e);
+                }
             }
         }
         #endregion
@@ -9411,7 +9563,9 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 // If the palette has already been encountered then it is a circular reference
                 if (paletteSet.ContainsKey(palette))
+                {
                     return true;
+                }
                 else
                 {
                     // Otherwise, add to the set
@@ -9426,14 +9580,22 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         // Get the next palette up in hierarchy
                         if (owner.BasePaletteMode == PaletteMode.Custom)
+                        {
                             palette = owner.BasePalette;
+                        }
                         else if (owner.BasePaletteMode == PaletteMode.Global)
+                        {
                             palette = KryptonManager.InternalGlobalPalette;
+                        }
                         else
+                        {
                             palette = null;
+                        }
                     }
                     else
+                    {
                         palette = null;
+                    }
                 }
             }
 
@@ -9490,7 +9652,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Check the target file actually exists
             if (!info.Exists)
+            {
                 throw new ArgumentException("Provided file does not exist.");
+            }
 
             // Create a new xml document for storing the palette settings
             XmlDocument doc = new XmlDocument();
@@ -9550,33 +9714,48 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // We insist on a root element
                 if (!doc.HasChildNodes)
+                {
                     throw new ArgumentException("Xml document does not have a root element.");
+                }
 
                 // Try and grab the root element
                 XmlElement root = (XmlElement)doc.SelectSingleNode("KryptonPalette");
 
                 // We insist the root is always present
                 if (root == null)
+                {
                     throw new ArgumentException("Root element must be called 'KryptonPalette'.");
+                }
 
                 // We insit the version number is always present
                 if (!root.HasAttribute("Version"))
+                {
                     throw new ArgumentException("Root element must have an attribute called 'Version'.");
+                }
 
                 // Grab the version number of the format being loaded
                 int version = int.Parse(root.GetAttribute("Version"));
 
                 if (version < _paletteVersion)
+                {
                     throw new ArgumentException("Version '" + version + "' number is incompatible, only version " + _paletteVersion.ToString() +
                                                 " or above can be imported.\nUse the PaletteUpgradeTool from the Application tab of the KryptonExplorer to upgrade.");
+                }
 
                 // Grab the properties and images elements
                 XmlElement props = (XmlElement)root.SelectSingleNode("Properties");
                 XmlElement images = (XmlElement)root.SelectSingleNode("Images");
 
                 // There must be both properties and images elements present
-                if (props == null) throw new ArgumentException("Element 'Properties' missing from the 'KryptonPalette'.");
-                if (images == null) throw new ArgumentException("Element 'Images' missing from the 'KryptonPalette'.");
+                if (props == null)
+                {
+                    throw new ArgumentException("Element 'Properties' missing from the 'KryptonPalette'.");
+                }
+
+                if (images == null)
+                {
+                    throw new ArgumentException("Element 'Images' missing from the 'KryptonPalette'.");
+                }
 
                 // Cache the images from the images element
                 ImageReverseDictionary imageCache = new ImageReverseDictionary();
@@ -9605,7 +9784,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Check the target directory actually exists
             if (!info.Directory.Exists)
+            {
                 throw new ArgumentException("Provided directory does not exist.");
+            }
 
             // Create an XmlDocument containing the saved palette details
             XmlDocument doc = ExportToXmlDocument(ignoreDefaults);
@@ -9894,7 +10075,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                         {
                                             // If the object 'IsDefault' then no need to persist it
                                             if ((bool)propertyIsDefault.GetValue(childObj))
+                                            {
                                                 childObj = null;
+                                            }
                                         }
                                     }
 
@@ -9930,9 +10113,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                                         // Decide if the property value matches the default described by the attribute
                                         if (defaultAttrib.Value == null)
+                                        {
                                             ignore = (childObj == null);
+                                        }
                                         else
+                                        {
                                             ignore = defaultAttrib.Value.Equals(childObj);
+                                        }
                                     }
                                 }
 
@@ -10061,7 +10248,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                     {
                                         // If the object 'IsDefault' then no need to reset it
                                         if ((bool)propertyIsDefault.GetValue(childObj))
+                                        {
                                             childObj = null;
+                                        }
                                     }
 
                                     // If we have an object to process
@@ -10120,63 +10309,128 @@ namespace ComponentFactory.Krypton.Toolkit
         private string TypeToString(Type t)
         {
             if (t.Equals(typeof(string)))
+            {
                 return "String";
+            }
+
             if (t.Equals(typeof(int)))
+            {
                 return "Int";
+            }
+
             if (t.Equals(typeof(float)))
+            {
                 return "Single";
+            }
+
             if (t.Equals(typeof(bool)))
+            {
                 return "Bool";
+            }
+
             if (t.Equals(typeof(Color)))
+            {
                 return "Color";
+            }
+
             if (t.Equals(typeof(Image)))
+            {
                 return "Image";
+            }
+
             if (t.Equals(typeof(Font)))
+            {
                 return "Font";
+            }
+
             if (t.Equals(typeof(Padding)))
+            {
                 return "Padding";
+            }
             else if (t.Equals(typeof(InheritBool)))
+            {
                 return "InheritBool";
+            }
             else if (t.Equals(typeof(PaletteRectangleAlign)))
+            {
                 return "PaletteRectangleAlign";
+            }
             else if (t.Equals(typeof(PaletteRelativeAlign)))
+            {
                 return "PaletteRelativeAlign";
+            }
             else if (t.Equals(typeof(PaletteImageEffect)))
+            {
                 return "PaletteImageEffect";
+            }
             else if (t.Equals(typeof(PaletteImageStyle)))
+            {
                 return "PaletteImageStyle";
+            }
             else if (t.Equals(typeof(PaletteTextHint)))
+            {
                 return "PaletteTextHint";
+            }
             else if (t.Equals(typeof(PaletteTextHotkeyPrefix)))
+            {
                 return "PaletteTextHotkeyPrefix";
+            }
             else if (t.Equals(typeof(PaletteTextTrim)))
+            {
                 return "PaletteTextTrim";
+            }
             else if (t.Equals(typeof(PaletteColorStyle)))
+            {
                 return "PaletteColorStyle";
+            }
             else if (t.Equals(typeof(PaletteGraphicsHint)))
+            {
                 return "PaletteGraphicsHint";
+            }
             else if (t.Equals(typeof(PaletteMode)))
+            {
                 return "PaletteMode";
+            }
             else if (t.Equals(typeof(PaletteButtonStyle)))
+            {
                 return "PaletteButtonStyle";
+            }
             else if (t.Equals(typeof(PaletteButtonOrientation)))
+            {
                 return "PaletteButtonOrientation";
+            }
             else if (t.Equals(typeof(PaletteRelativeEdgeAlign)))
+            {
                 return "PaletteRelativeEdgeAlign";
+            }
             else if (t.Equals(typeof(RendererMode)))
+            {
                 return "RendererMode";
+            }
             else if (t.Equals(typeof(PaletteDrawBorders)))
+            {
                 return "PaletteDrawBorders";
+            }
             else if (t.Equals(typeof(PaletteContentText)))
+            {
                 return "PaletteContentText";
+            }
             else if (t.Equals(typeof(PaletteContentImage)))
+            {
                 return "PaletteContentImage";
+            }
             else if (t.Equals(typeof(PaletteDragFeedback)))
+            {
                 return "PaletteDragFeedback";
+            }
             else if (t.Equals(typeof(PaletteRibbonShape)))
+            {
                 return "PaletteRibbonShape";
+            }
             else
+            {
                 throw new ApplicationException("Unrecognised type '" + t.ToString() + "' for export.");
+            }
         }
 
         private Type StringToType(string s)
@@ -10791,40 +11045,68 @@ namespace ComponentFactory.Krypton.Toolkit
                     return GetPaletteBackControl(ControlStyles.ControlRibbonAppMenu, state);
                 case PaletteBackStyle.ControlCustom1:
                     return GetPaletteBackControl(ControlStyles.ControlCustom1, state);
+                case PaletteBackStyle.ControlCustom2:
+                    return GetPaletteBackControl(ControlStyles.ControlCustom2, state);
+                case PaletteBackStyle.ControlCustom3:
+                    return GetPaletteBackControl(ControlStyles.ControlCustom3, state);
                 case PaletteBackStyle.InputControlStandalone:
                     return GetPaletteInputControl(InputControlStyles.InputControlStandalone, state).Back;
                 case PaletteBackStyle.InputControlRibbon:
                     return GetPaletteInputControl(InputControlStyles.InputControlRibbon, state).Back;
                 case PaletteBackStyle.InputControlCustom1:
                     return GetPaletteInputControl(InputControlStyles.InputControlCustom1, state).Back;
+                case PaletteBackStyle.InputControlCustom2:
+                    return GetPaletteInputControl(InputControlStyles.InputControlCustom2, state).Back;
+                case PaletteBackStyle.InputControlCustom3:
+                    return GetPaletteInputControl(InputControlStyles.InputControlCustom3, state).Back;
                 case PaletteBackStyle.FormMain:
                     return GetPaletteBackForm(FormStyles.FormMain, state);
                 case PaletteBackStyle.FormCustom1:
                     return GetPaletteBackForm(FormStyles.FormCustom1, state);
+                case PaletteBackStyle.FormCustom2:
+                    return GetPaletteBackForm(FormStyles.FormCustom2, state);
+                case PaletteBackStyle.FormCustom3:
+                    return GetPaletteBackForm(FormStyles.FormCustom3, state);
                 case PaletteBackStyle.GridBackgroundList:
                     return GetPaletteBackGridBackground(GridStyles.GridList, state);
                 case PaletteBackStyle.GridBackgroundSheet:
                     return GetPaletteBackGridBackground(GridStyles.GridSheet, state);
                 case PaletteBackStyle.GridBackgroundCustom1:
                     return GetPaletteBackGridBackground(GridStyles.GridCustom1, state);
+                case PaletteBackStyle.GridBackgroundCustom2:
+                    return GetPaletteBackGridBackground(GridStyles.GridCustom2, state);
+                case PaletteBackStyle.GridBackgroundCustom3:
+                    return GetPaletteBackGridBackground(GridStyles.GridCustom3, state);
                 case PaletteBackStyle.GridHeaderColumnList:
                     return GetPaletteBackGridHeaderColumn(GridStyles.GridList, state);
                 case PaletteBackStyle.GridHeaderColumnSheet:
                     return GetPaletteBackGridHeaderColumn(GridStyles.GridSheet, state);
                 case PaletteBackStyle.GridHeaderColumnCustom1:
                     return GetPaletteBackGridHeaderColumn(GridStyles.GridCustom1, state);
+                case PaletteBackStyle.GridHeaderColumnCustom2:
+                    return GetPaletteBackGridHeaderColumn(GridStyles.GridCustom2, state);
+                case PaletteBackStyle.GridHeaderColumnCustom3:
+                    return GetPaletteBackGridHeaderColumn(GridStyles.GridCustom3, state);
                 case PaletteBackStyle.GridHeaderRowList:
                     return GetPaletteBackGridHeaderRow(GridStyles.GridList, state);
                 case PaletteBackStyle.GridHeaderRowSheet:
                     return GetPaletteBackGridHeaderRow(GridStyles.GridSheet, state);
                 case PaletteBackStyle.GridHeaderRowCustom1:
                     return GetPaletteBackGridHeaderRow(GridStyles.GridCustom1, state);
+                case PaletteBackStyle.GridHeaderRowCustom2:
+                    return GetPaletteBackGridHeaderRow(GridStyles.GridCustom2, state);
+                case PaletteBackStyle.GridHeaderRowCustom3:
+                    return GetPaletteBackGridHeaderRow(GridStyles.GridCustom3, state);
                 case PaletteBackStyle.GridDataCellList:
                     return GetPaletteBackGridDataCell(GridStyles.GridList, state);
                 case PaletteBackStyle.GridDataCellSheet:
                     return GetPaletteBackGridDataCell(GridStyles.GridSheet, state);
                 case PaletteBackStyle.GridDataCellCustom1:
                     return GetPaletteBackGridDataCell(GridStyles.GridCustom1, state);
+                case PaletteBackStyle.GridDataCellCustom2:
+                    return GetPaletteBackGridDataCell(GridStyles.GridCustom2, state);
+                case PaletteBackStyle.GridDataCellCustom3:
+                    return GetPaletteBackGridDataCell(GridStyles.GridCustom3, state);
                 case PaletteBackStyle.HeaderPrimary:
                     return GetPaletteBackHeader(HeaderStyles.HeaderPrimary, state);
                 case PaletteBackStyle.HeaderSecondary:
@@ -10841,6 +11123,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     return GetPaletteBackHeader(HeaderStyles.HeaderCustom1, state);
                 case PaletteBackStyle.HeaderCustom2:
                     return GetPaletteBackHeader(HeaderStyles.HeaderCustom2, state);
+                case PaletteBackStyle.HeaderCustom3:
+                    return GetPaletteBackHeader(HeaderStyles.HeaderCustom3, state);
                 case PaletteBackStyle.PanelClient:
                     return GetPalettePanel(PanelStyles.PanelClient, state);
                 case PaletteBackStyle.PanelAlternate:
@@ -10849,6 +11133,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     return GetPalettePanel(PanelStyles.PanelRibbonInactive, state);
                 case PaletteBackStyle.PanelCustom1:
                     return GetPalettePanel(PanelStyles.PanelCustom1, state);
+                case PaletteBackStyle.PanelCustom2:
+                    return GetPalettePanel(PanelStyles.PanelCustom2, state);
+                case PaletteBackStyle.PanelCustom3:
+                    return GetPalettePanel(PanelStyles.PanelCustom3, state);
                 case PaletteBackStyle.SeparatorLowProfile:
                     return GetPaletteBackSeparator(SeparatorStyles.SeparatorLowProfile, state);
                 case PaletteBackStyle.SeparatorHighProfile:
@@ -10857,6 +11145,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     return GetPaletteBackSeparator(SeparatorStyles.SeparatorHighInternalProfile, state);
                 case PaletteBackStyle.SeparatorCustom1:
                     return GetPaletteBackSeparator(SeparatorStyles.SeparatorCustom1, state);
+                case PaletteBackStyle.SeparatorCustom2:
+                    return GetPaletteBackSeparator(SeparatorStyles.SeparatorCustom2, state);
+                case PaletteBackStyle.SeparatorCustom3:
+                    return GetPaletteBackSeparator(SeparatorStyles.SeparatorCustom3, state);
                 case PaletteBackStyle.TabHighProfile:
                     return GetPaletteBackTab(TabStyles.TabHighProfile, state);
                 case PaletteBackStyle.TabStandardProfile:
@@ -10957,34 +11249,58 @@ namespace ComponentFactory.Krypton.Toolkit
                     return GetPaletteBorderControl(ControlStyles.ControlRibbonAppMenu, state);
                 case PaletteBorderStyle.ControlCustom1:
                     return GetPaletteBorderControl(ControlStyles.ControlCustom1, state);
+                case PaletteBorderStyle.ControlCustom2:
+                    return GetPaletteBorderControl(ControlStyles.ControlCustom2, state);
+                case PaletteBorderStyle.ControlCustom3:
+                    return GetPaletteBorderControl(ControlStyles.ControlCustom3, state);
                 case PaletteBorderStyle.InputControlStandalone:
                     return GetPaletteInputControl(InputControlStyles.InputControlStandalone, state).Border;
                 case PaletteBorderStyle.InputControlRibbon:
                     return GetPaletteInputControl(InputControlStyles.InputControlRibbon, state).Border;
                 case PaletteBorderStyle.InputControlCustom1:
                     return GetPaletteInputControl(InputControlStyles.InputControlCustom1, state).Border;
+                case PaletteBorderStyle.InputControlCustom2:
+                    return GetPaletteInputControl(InputControlStyles.InputControlCustom2, state).Border;
+                case PaletteBorderStyle.InputControlCustom3:
+                    return GetPaletteInputControl(InputControlStyles.InputControlCustom3, state).Border;
                 case PaletteBorderStyle.FormMain:
                     return GetPaletteBorderForm(FormStyles.FormMain, state);
                 case PaletteBorderStyle.FormCustom1:
                     return GetPaletteBorderForm(FormStyles.FormCustom1, state);
+                case PaletteBorderStyle.FormCustom2:
+                    return GetPaletteBorderForm(FormStyles.FormCustom2, state);
+                case PaletteBorderStyle.FormCustom3:
+                    return GetPaletteBorderForm(FormStyles.FormCustom3, state);
                 case PaletteBorderStyle.GridHeaderColumnList:
                     return GetPaletteBorderGridHeaderColumn(GridStyles.GridList, state);
                 case PaletteBorderStyle.GridHeaderColumnSheet:
                     return GetPaletteBorderGridHeaderColumn(GridStyles.GridSheet, state);
                 case PaletteBorderStyle.GridHeaderColumnCustom1:
                     return GetPaletteBorderGridHeaderColumn(GridStyles.GridCustom1, state);
+                case PaletteBorderStyle.GridHeaderColumnCustom2:
+                    return GetPaletteBorderGridHeaderColumn(GridStyles.GridCustom2, state);
+                case PaletteBorderStyle.GridHeaderColumnCustom3:
+                    return GetPaletteBorderGridHeaderColumn(GridStyles.GridCustom3, state);
                 case PaletteBorderStyle.GridHeaderRowList:
                     return GetPaletteBorderGridHeaderRow(GridStyles.GridList, state);
                 case PaletteBorderStyle.GridHeaderRowSheet:
                     return GetPaletteBorderGridHeaderRow(GridStyles.GridSheet, state);
                 case PaletteBorderStyle.GridHeaderRowCustom1:
                     return GetPaletteBorderGridHeaderRow(GridStyles.GridCustom1, state);
+                case PaletteBorderStyle.GridHeaderRowCustom2:
+                    return GetPaletteBorderGridHeaderRow(GridStyles.GridCustom2, state);
+                case PaletteBorderStyle.GridHeaderRowCustom3:
+                    return GetPaletteBorderGridHeaderRow(GridStyles.GridCustom3, state);
                 case PaletteBorderStyle.GridDataCellList:
                     return GetPaletteBorderGridDataCell(GridStyles.GridList, state);
                 case PaletteBorderStyle.GridDataCellSheet:
                     return GetPaletteBorderGridDataCell(GridStyles.GridSheet, state);
                 case PaletteBorderStyle.GridDataCellCustom1:
                     return GetPaletteBorderGridDataCell(GridStyles.GridCustom1, state);
+                case PaletteBorderStyle.GridDataCellCustom2:
+                    return GetPaletteBorderGridDataCell(GridStyles.GridCustom2, state);
+                case PaletteBorderStyle.GridDataCellCustom3:
+                    return GetPaletteBorderGridDataCell(GridStyles.GridCustom3, state);
                 case PaletteBorderStyle.HeaderPrimary:
                     return GetPaletteBorderHeader(HeaderStyles.HeaderPrimary, state);
                 case PaletteBorderStyle.HeaderSecondary:
@@ -11001,6 +11317,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     return GetPaletteBorderHeader(HeaderStyles.HeaderCustom1, state);
                 case PaletteBorderStyle.HeaderCustom2:
                     return GetPaletteBorderHeader(HeaderStyles.HeaderCustom2, state);
+                case PaletteBorderStyle.HeaderCustom3:
+                    return GetPaletteBorderHeader(HeaderStyles.HeaderCustom3, state);
                 case PaletteBorderStyle.SeparatorLowProfile:
                     return GetPaletteBorderSeparator(SeparatorStyles.SeparatorLowProfile, state);
                 case PaletteBorderStyle.SeparatorHighProfile:
@@ -11009,6 +11327,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     return GetPaletteBorderSeparator(SeparatorStyles.SeparatorHighInternalProfile, state);
                 case PaletteBorderStyle.SeparatorCustom1:
                     return GetPaletteBorderSeparator(SeparatorStyles.SeparatorCustom1, state);
+                case PaletteBorderStyle.SeparatorCustom2:
+                    return GetPaletteBorderSeparator(SeparatorStyles.SeparatorCustom2, state);
+                case PaletteBorderStyle.SeparatorCustom3:
+                    return GetPaletteBorderSeparator(SeparatorStyles.SeparatorCustom3, state);
                 case PaletteBorderStyle.TabHighProfile:
                     return GetPaletteBorderTab(TabStyles.TabHighProfile, state);
                 case PaletteBorderStyle.TabStandardProfile:
@@ -11101,18 +11423,30 @@ namespace ComponentFactory.Krypton.Toolkit
                     return GetPaletteContentGridHeaderColumn(GridStyles.GridSheet, state);
                 case PaletteContentStyle.GridHeaderColumnCustom1:
                     return GetPaletteContentGridHeaderColumn(GridStyles.GridCustom1, state);
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                    return GetPaletteContentGridHeaderColumn(GridStyles.GridCustom2, state);
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                    return GetPaletteContentGridHeaderColumn(GridStyles.GridCustom3, state);
                 case PaletteContentStyle.GridHeaderRowList:
                     return GetPaletteContentGridHeaderRow(GridStyles.GridList, state);
                 case PaletteContentStyle.GridHeaderRowSheet:
                     return GetPaletteContentGridHeaderRow(GridStyles.GridSheet, state);
                 case PaletteContentStyle.GridHeaderRowCustom1:
                     return GetPaletteContentGridHeaderRow(GridStyles.GridCustom1, state);
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                    return GetPaletteContentGridHeaderRow(GridStyles.GridCustom2, state);
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                    return GetPaletteContentGridHeaderRow(GridStyles.GridCustom3, state);
                 case PaletteContentStyle.GridDataCellList:
                     return GetPaletteContentGridDataCell(GridStyles.GridList, state);
                 case PaletteContentStyle.GridDataCellSheet:
                     return GetPaletteContentGridDataCell(GridStyles.GridSheet, state);
                 case PaletteContentStyle.GridDataCellCustom1:
                     return GetPaletteContentGridDataCell(GridStyles.GridCustom1, state);
+                case PaletteContentStyle.GridDataCellCustom2:
+                    return GetPaletteContentGridDataCell(GridStyles.GridCustom2, state);
+                case PaletteContentStyle.GridDataCellCustom3:
+                    return GetPaletteContentGridDataCell(GridStyles.GridCustom3, state);
                 case PaletteContentStyle.HeaderPrimary:
                     return GetPaletteContentHeader(HeaderStyles.HeaderPrimary, state);
                 case PaletteContentStyle.HeaderSecondary:
@@ -11129,6 +11463,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     return GetPaletteContentHeader(HeaderStyles.HeaderCustom1, state);
                 case PaletteContentStyle.HeaderCustom2:
                     return GetPaletteContentHeader(HeaderStyles.HeaderCustom2, state);
+                case PaletteContentStyle.HeaderCustom3:
+                    return GetPaletteContentHeader(HeaderStyles.HeaderCustom3, state);
                 case PaletteContentStyle.LabelNormalControl:
                     return GetPaletteLabel(LabelStyles.LabelNormalControl, state);
                 case PaletteContentStyle.LabelBoldControl:
@@ -11165,6 +11501,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     return GetPaletteInputControl(InputControlStyles.InputControlRibbon, state).Content;
                 case PaletteContentStyle.InputControlCustom1:
                     return GetPaletteInputControl(InputControlStyles.InputControlCustom1, state).Content;
+                case PaletteContentStyle.InputControlCustom2:
+                    return GetPaletteInputControl(InputControlStyles.InputControlCustom2, state).Content;
+                case PaletteContentStyle.InputControlCustom3:
+                    return GetPaletteInputControl(InputControlStyles.InputControlCustom3, state).Content;
                 case PaletteContentStyle.TabHighProfile:
                     return GetPaletteContentTab(TabStyles.TabHighProfile, state);
                 case PaletteContentStyle.TabStandardProfile:
@@ -11216,7 +11556,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 default:
                     PaletteTriple buttonState = GetPaletteButton(button, state);
                     if (buttonState != null)
+                    {
                         return buttonState.Back;
+                    }
                     else
                     {
                         // Should never happen!
@@ -11242,7 +11584,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 default:
                     PaletteTriple buttonState = GetPaletteButton(button, state);
                     if (buttonState != null)
+                    {
                         return buttonState.Border;
+                    }
                     else
                     {
                         // Should never happen!
@@ -11268,7 +11612,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 default:
                     PaletteTriple buttonState = GetPaletteButton(button, state);
                     if (buttonState != null)
+                    {
                         return buttonState.Content;
+                    }
                     else
                     {
                         // Should never happen!
@@ -11317,7 +11663,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 default:
                     PaletteTriple buttonState = GetPaletteCalendarDay(button, state);
                     if (buttonState != null)
+                    {
                         return buttonState.Back;
+                    }
                     else
                     {
                         // Should never happen!
@@ -11341,7 +11689,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 default:
                     PaletteTriple buttonState = GetPaletteCalendarDay(button, state);
                     if (buttonState != null)
+                    {
                         return buttonState.Border;
+                    }
                     else
                     {
                         // Should never happen!
@@ -11365,7 +11715,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 default:
                     PaletteTriple buttonState = GetPaletteCalendarDay(button, state);
                     if (buttonState != null)
+                    {
                         return buttonState.Content;
+                    }
                     else
                     {
                         // Should never happen!
@@ -11428,7 +11780,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 default:
                     PaletteTabTriple buttonState = GetPaletteTab(button, state);
                     if (buttonState != null)
+                    {
                         return buttonState.Back;
+                    }
                     else
                     {
                         // Should never happen!
@@ -11448,7 +11802,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 default:
                     PaletteTabTriple buttonState = GetPaletteTab(button, state);
                     if (buttonState != null)
+                    {
                         return buttonState.Border;
+                    }
                     else
                     {
                         // Should never happen!
@@ -11468,7 +11824,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 default:
                     PaletteTabTriple buttonState = GetPaletteTab(button, state);
                     if (buttonState != null)
+                    {
                         return buttonState.Content;
+                    }
                     else
                     {
                         // Should never happen!
@@ -11506,7 +11864,9 @@ namespace ComponentFactory.Krypton.Toolkit
             PaletteSeparatorPadding separatorState = GetPaletteSeparator(separator, state);
 
             if (separatorState != null)
+            {
                 return separatorState.Back;
+            }
             else
             {
                 // Should never happen!
@@ -11520,7 +11880,9 @@ namespace ComponentFactory.Krypton.Toolkit
             PaletteSeparatorPadding separatorState = GetPaletteSeparator(separator, state);
 
             if (separatorState != null)
+            {
                 return separatorState.Border;
+            }
             else
             {
                 // Should never happen!
@@ -11553,7 +11915,9 @@ namespace ComponentFactory.Krypton.Toolkit
             PaletteDouble controlState = GetPaletteControl(control, state);
 
             if (controlState != null)
+            {
                 return controlState.Back;
+            }
             else
             {
                 // Should never happen!
@@ -11567,7 +11931,9 @@ namespace ComponentFactory.Krypton.Toolkit
             PaletteDouble controlState = GetPaletteControl(control, state);
 
             if (controlState != null)
+            {
                 return controlState.Border;
+            }
             else
             {
                 // Should never happen!
@@ -11596,7 +11962,9 @@ namespace ComponentFactory.Krypton.Toolkit
             PaletteDouble controlState = GetPaletteForm(form, state);
 
             if (controlState != null)
+            {
                 return controlState.Back;
+            }
             else
             {
                 // Should never happen!
@@ -11803,7 +12171,9 @@ namespace ComponentFactory.Krypton.Toolkit
             PaletteDouble controlState = GetPaletteForm(form, state);
 
             if (controlState != null)
+            {
                 return controlState.Border;
+            }
             else
             {
                 // Should never happen!
@@ -11832,7 +12202,9 @@ namespace ComponentFactory.Krypton.Toolkit
             PaletteTriple headerState = GetPaletteHeader(header, state);
 
             if (headerState != null)
+            {
                 return headerState.Back;
+            }
             else
             {
                 // Should never happen!
@@ -11846,7 +12218,9 @@ namespace ComponentFactory.Krypton.Toolkit
             PaletteTriple headerState = GetPaletteHeader(header, state);
 
             if (headerState != null)
+            {
                 return headerState.Border;
+            }
             else
             {
                 // Should never happen!
@@ -11860,7 +12234,9 @@ namespace ComponentFactory.Krypton.Toolkit
             PaletteTriple headerState = GetPaletteHeader(header, state);
 
             if (headerState != null)
+            {
                 return headerState.Content;
+            }
             else
             {
                 // Should never happen!

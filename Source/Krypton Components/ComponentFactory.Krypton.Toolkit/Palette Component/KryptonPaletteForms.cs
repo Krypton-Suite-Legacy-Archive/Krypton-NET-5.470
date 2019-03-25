@@ -38,6 +38,8 @@ namespace ComponentFactory.Krypton.Toolkit
             FormCommon = new KryptonPaletteForm(redirector, PaletteBackStyle.FormMain, PaletteBorderStyle.FormMain, needPaint);
             FormMain = new KryptonPaletteForm(redirector, PaletteBackStyle.FormMain, PaletteBorderStyle.FormMain, needPaint);
             FormCustom1 = new KryptonPaletteForm(redirector, PaletteBackStyle.FormCustom1, PaletteBorderStyle.FormCustom1, needPaint);
+            FormCustom2 = new KryptonPaletteForm(redirector, PaletteBackStyle.FormCustom2, PaletteBorderStyle.FormCustom2, needPaint);
+            FormCustom3 = new KryptonPaletteForm(redirector, PaletteBackStyle.FormCustom3, PaletteBorderStyle.FormCustom3, needPaint);
 
             // Create redirectors for inheriting from style specific to style common
             PaletteRedirectDouble redirectCommon = new PaletteRedirectDouble(redirector, FormCommon.StateInactive, FormCommon.StateActive);
@@ -45,6 +47,8 @@ namespace ComponentFactory.Krypton.Toolkit
             // Inform the form style to use the new redirector
             FormMain.SetRedirector(redirectCommon);
             FormCustom1.SetRedirector(redirectCommon);
+            FormCustom2.SetRedirector(redirectCommon);
+            FormCustom3.SetRedirector(redirectCommon);
         }
         #endregion
 
@@ -117,6 +121,38 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool ShouldSerializeFormCustom1()
         {
             return !FormCustom1.IsDefault;
+        }
+        #endregion
+
+        #region FormCustom2
+        /// <summary>
+        /// Gets access to the first custom form appearance.
+        /// </summary>
+        [KryptonPersist]
+        [Category("Visuals")]
+        [Description("Overrides for defining the first custom form appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public KryptonPaletteForm FormCustom2 { get; }
+
+        private bool ShouldSerializeFormCustom2()
+        {
+            return !FormCustom2.IsDefault;
+        }
+        #endregion
+
+        #region FormCustom3
+        /// <summary>
+        /// Gets access to the first custom form appearance.
+        /// </summary>
+        [KryptonPersist]
+        [Category("Visuals")]
+        [Description("Overrides for defining the thrid custom form appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public KryptonPaletteForm FormCustom3 { get; }
+
+        private bool ShouldSerializeFormCustom3()
+        {
+            return !FormCustom3.IsDefault;
         }
         #endregion
     }

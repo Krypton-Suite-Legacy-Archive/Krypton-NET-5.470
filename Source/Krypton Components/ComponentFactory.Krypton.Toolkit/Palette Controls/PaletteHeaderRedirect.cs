@@ -158,8 +158,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 (metric == PaletteMetricInt.HeaderButtonEdgeInsetDockActive) ||
                 (metric == PaletteMetricInt.HeaderButtonEdgeInsetForm) ||
                 (metric == PaletteMetricInt.HeaderButtonEdgeInsetInputControl) ||
-                (metric == PaletteMetricInt.HeaderButtonEdgeInsetCustom1) ||
-                (metric == PaletteMetricInt.HeaderButtonEdgeInsetCustom2))
+                (metric == PaletteMetricInt.HeaderButtonEdgeInsetCustom1) 
+                || (metric == PaletteMetricInt.HeaderButtonEdgeInsetCustom2)
+                || (metric == PaletteMetricInt.HeaderButtonEdgeInsetCustom3)
+                )
             {
                 // If the user has defined an actual value to use
                 if (ButtonEdgeInset != -1)
@@ -199,8 +201,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 (metric == PaletteMetricPadding.HeaderButtonPaddingDockActive) ||
                 (metric == PaletteMetricPadding.HeaderButtonPaddingForm) ||
                 (metric == PaletteMetricPadding.HeaderButtonPaddingInputControl) ||
-                (metric == PaletteMetricPadding.HeaderButtonPaddingCustom1) ||
-                (metric == PaletteMetricPadding.HeaderButtonPaddingCustom2))
+                (metric == PaletteMetricPadding.HeaderButtonPaddingCustom1) 
+                || (metric == PaletteMetricPadding.HeaderButtonPaddingCustom2)
+                || (metric == PaletteMetricPadding.HeaderButtonPaddingCustom3)
+                )
             {
                 // If the user has defined an actual value to use
                 if (!ButtonPadding.Equals(CommonHelper.InheritPadding))

@@ -10,29 +10,29 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
 using System.ComponentModel;
+using System.Drawing;
 using System.Runtime.InteropServices;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Presents the user with a binary choice such as Yes/No or True/False.
-	/// </summary>
-	[ToolboxItem(true)]
+    /// </summary>
+    [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonCheckButton), "ToolboxBitmaps.KryptonCheckButton.bmp")]
     [DefaultEvent("Click")]
-	[DefaultProperty("Text")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonCheckButtonDesigner))]
+    [DefaultProperty("Text")]
+    [Designer(typeof(KryptonCheckButtonDesigner))]
     [DesignerCategory("code")]
     [Description("Toggles checked state when user clicks button.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     public class KryptonCheckButton : KryptonButton
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
 
-	    private readonly PaletteTripleOverride _overrideCheckedFocus;
+        private readonly PaletteTripleOverride _overrideCheckedFocus;
         private readonly PaletteTripleOverride _overrideCheckedNormal;
         private readonly PaletteTripleOverride _overrideCheckedTracking;
         private readonly PaletteTripleOverride _overrideCheckedPressed;
@@ -56,18 +56,18 @@ namespace ComponentFactory.Krypton.Toolkit
         public event EventHandler CheckedChanged;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the KryptonCheckButton class.
-		/// </summary>
+        /// </summary>
         public KryptonCheckButton()
-		{
-			// Create the extra state needed for the checked additions the the base button
+        {
+            // Create the extra state needed for the checked additions the the base button
             StateCheckedNormal = new PaletteTriple(StateCommon, NeedPaintDelegate);
             StateCheckedTracking = new PaletteTriple(StateCommon, NeedPaintDelegate);
             StateCheckedPressed = new PaletteTriple(StateCommon, NeedPaintDelegate);
 
-			// Create the override handling classes
+            // Create the override handling classes
             _overrideCheckedFocus = new PaletteTripleOverride(OverrideFocus, StateCheckedNormal, PaletteState.FocusOverride);
             _overrideCheckedNormal = new PaletteTripleOverride(OverrideDefault, _overrideCheckedFocus, PaletteState.NormalDefaultOverride);
             _overrideCheckedTracking = new PaletteTripleOverride(OverrideFocus, StateCheckedTracking, PaletteState.FocusOverride);
@@ -77,48 +77,48 @@ namespace ComponentFactory.Krypton.Toolkit
             ViewDrawButton.SetCheckedPalettes(_overrideCheckedNormal,
                                               _overrideCheckedTracking,
                                               _overrideCheckedPressed);
-		}
-		#endregion
+        }
+        #endregion
 
-		#region Public
-		/// <summary>
-		/// Gets access to the normal checked button appearance entries.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Overrides for defining normal checked button appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteTriple StateCheckedNormal { get; }
+        #region Public
+        /// <summary>
+        /// Gets access to the normal checked button appearance entries.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Overrides for defining normal checked button appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public PaletteTriple StateCheckedNormal { get; }
 
-	    private bool ShouldSerializeStateCheckedNormal()
-		{
+        private bool ShouldSerializeStateCheckedNormal()
+        {
             return !StateCheckedNormal.IsDefault;
-		}
+        }
 
-		/// <summary>
+        /// <summary>
         /// Gets access to the hot tracking checked button appearance entries.
-		/// </summary>
-		[Category("Visuals")]
+        /// </summary>
+        [Category("Visuals")]
         [Description("Overrides for defining hot tracking checked button appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTriple StateCheckedTracking { get; }
 
-	    private bool ShouldSerializeStateCheckedTracking()
-		{
+        private bool ShouldSerializeStateCheckedTracking()
+        {
             return !StateCheckedTracking.IsDefault;
-		}
+        }
 
-		/// <summary>
+        /// <summary>
         /// Gets access to the pressed checked button appearance entries.
-		/// </summary>
-		[Category("Visuals")]
+        /// </summary>
+        [Category("Visuals")]
         [Description("Overrides for defining pressed checked button appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTriple StateCheckedPressed { get; }
 
-	    private bool ShouldSerializeStateCheckedPressed()
-		{
+        private bool ShouldSerializeStateCheckedPressed()
+        {
             return !StateCheckedPressed.IsDefault;
-		}
+        }
 
         /// <summary>
         /// Gets or sets a value indicating whether the KryptonCheckButton is in the checked state. 

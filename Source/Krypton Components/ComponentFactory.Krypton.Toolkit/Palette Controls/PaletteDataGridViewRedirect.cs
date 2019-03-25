@@ -14,51 +14,51 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Implement storage and redirection for a KryptonDataGridView state.
-	/// </summary>
-	public class PaletteDataGridViewRedirect : Storage
-	{
-		#region Instance Fields
+    /// <summary>
+    /// Implement storage and redirection for a KryptonDataGridView state.
+    /// </summary>
+    public class PaletteDataGridViewRedirect : Storage
+    {
+        #region Instance Fields
         private readonly PaletteDoubleRedirect _background;
         private readonly PaletteDataGridViewTripleRedirect _dataCell;
         private readonly PaletteDataGridViewTripleRedirect _headerColumn;
         private readonly PaletteDataGridViewTripleRedirect _headerRow;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteDataGridViewRedirect class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Source for inheriting values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteDataGridViewRedirect(PaletteRedirect redirect,
                                            NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(redirect != null);
 
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
 
-			// Create storage that maps onto the inherit instances
+            // Create storage that maps onto the inherit instances
             _background = new PaletteDoubleRedirect(redirect, PaletteBackStyle.GridBackgroundList, PaletteBorderStyle.GridDataCellList, needPaint);
             _dataCell = new PaletteDataGridViewTripleRedirect(redirect, PaletteBackStyle.GridDataCellList, PaletteBorderStyle.GridDataCellList, PaletteContentStyle.GridDataCellList, needPaint);
             _headerColumn = new PaletteDataGridViewTripleRedirect(redirect, PaletteBackStyle.GridHeaderColumnList, PaletteBorderStyle.GridHeaderColumnList, PaletteContentStyle.GridHeaderColumnList, needPaint);
             _headerRow = new PaletteDataGridViewTripleRedirect(redirect, PaletteBackStyle.GridHeaderRowList, PaletteBorderStyle.GridHeaderRowList, PaletteContentStyle.GridHeaderRowList, needPaint);
         }
-		#endregion
+        #endregion
 
         #region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (Background.IsDefault &&
-		                                   DataCell.IsDefault &&
-		                                   HeaderColumn.IsDefault &&
-		                                   HeaderRow.IsDefault);
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (Background.IsDefault &&
+                                           DataCell.IsDefault &&
+                                           HeaderColumn.IsDefault &&
+                                           HeaderRow.IsDefault);
 
-	    #endregion
+        #endregion
 
         #region SetRedirector
         /// <summary>
@@ -96,7 +96,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="dataCell">Style for the data cells.</param>
         public void SetGridStyles(GridStyle headerColumn,
                                   GridStyle headerRow,
-                                  GridStyle dataCell)   
+                                  GridStyle dataCell)
         {
             switch (headerColumn)
             {
@@ -108,6 +108,12 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case GridStyle.Custom1:
                     _headerColumn.SetStyles(PaletteBackStyle.GridHeaderColumnCustom1, PaletteBorderStyle.GridHeaderColumnCustom1, PaletteContentStyle.GridHeaderColumnCustom1);
+                    break;
+                case GridStyle.Custom2:
+                    _headerColumn.SetStyles(PaletteBackStyle.GridHeaderColumnCustom2, PaletteBorderStyle.GridHeaderColumnCustom2, PaletteContentStyle.GridHeaderColumnCustom2);
+                    break;
+                case GridStyle.Custom3:
+                    _headerColumn.SetStyles(PaletteBackStyle.GridHeaderColumnCustom3, PaletteBorderStyle.GridHeaderColumnCustom3, PaletteContentStyle.GridHeaderColumnCustom3);
                     break;
             }
 
@@ -122,6 +128,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 case GridStyle.Custom1:
                     _headerRow.SetStyles(PaletteBackStyle.GridHeaderRowCustom1, PaletteBorderStyle.GridHeaderRowCustom1, PaletteContentStyle.GridHeaderRowCustom1);
                     break;
+                case GridStyle.Custom2:
+                    _headerRow.SetStyles(PaletteBackStyle.GridHeaderRowCustom2, PaletteBorderStyle.GridHeaderRowCustom2, PaletteContentStyle.GridHeaderRowCustom2);
+                    break;
+                case GridStyle.Custom3:
+                    _headerRow.SetStyles(PaletteBackStyle.GridHeaderRowCustom3, PaletteBorderStyle.GridHeaderRowCustom3, PaletteContentStyle.GridHeaderRowCustom3);
+                    break;
             }
 
             switch (dataCell)
@@ -134,6 +146,12 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case GridStyle.Custom1:
                     _dataCell.SetStyles(PaletteBackStyle.GridDataCellCustom1, PaletteBorderStyle.GridDataCellCustom1, PaletteContentStyle.GridDataCellCustom1);
+                    break;
+                case GridStyle.Custom2:
+                    _dataCell.SetStyles(PaletteBackStyle.GridDataCellCustom2, PaletteBorderStyle.GridDataCellCustom2, PaletteContentStyle.GridDataCellCustom2);
+                    break;
+                case GridStyle.Custom3:
+                    _dataCell.SetStyles(PaletteBackStyle.GridDataCellCustom3, PaletteBorderStyle.GridDataCellCustom3, PaletteContentStyle.GridDataCellCustom3);
                     break;
             }
         }
@@ -149,14 +167,14 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteBack Background => _background.Back;
 
-	    private bool ShouldSerializeBackground()
+        private bool ShouldSerializeBackground()
         {
             return !_background.IsDefault;
         }
 
         internal IPaletteDouble BackgroundDouble => _background;
 
-	    #endregion
+        #endregion
 
         #region DataCell
         /// <summary>
@@ -168,7 +186,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteDataGridViewTripleRedirect DataCell => _dataCell;
 
-	    private bool ShouldSerializeDataCell()
+        private bool ShouldSerializeDataCell()
         {
             return !_dataCell.IsDefault;
         }
@@ -184,7 +202,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteDataGridViewTripleRedirect HeaderColumn => _headerColumn;
 
-	    private bool ShouldSerializeHeaderColumn()
+        private bool ShouldSerializeHeaderColumn()
         {
             return !_headerColumn.IsDefault;
         }
@@ -200,23 +218,23 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteDataGridViewTripleRedirect HeaderRow => _headerRow;
 
-	    private bool ShouldSerializeHeaderRow()
+        private bool ShouldSerializeHeaderRow()
         {
             return !_headerRow.IsDefault;
         }
         #endregion
 
-		#region Implementation
-		/// <summary>
-		/// Handle a change event from palette source.
-		/// </summary>
-		/// <param name="sender">Source of the event.</param>
-		/// <param name="needLayout">True if a layout is also needed.</param>
+        #region Implementation
+        /// <summary>
+        /// Handle a change event from palette source.
+        /// </summary>
+        /// <param name="sender">Source of the event.</param>
+        /// <param name="needLayout">True if a layout is also needed.</param>
         protected void OnNeedPaint(object sender, bool needLayout)
-		{
-			// Pass request from child to our own handler
-			PerformNeedPaint(needLayout);
-		}
-		#endregion
-	}
+        {
+            // Pass request from child to our own handler
+            PerformNeedPaint(needLayout);
+        }
+        #endregion
+    }
 }

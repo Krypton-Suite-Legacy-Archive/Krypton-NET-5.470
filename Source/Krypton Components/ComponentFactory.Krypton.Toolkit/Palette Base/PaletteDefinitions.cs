@@ -13,6 +13,9 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+// ReSharper disable UnusedMember.Global
+// ReSharper disable UnusedMemberInSuper.Global
+#pragma warning disable 1591
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -752,7 +755,7 @@ namespace ComponentFactory.Krypton.Toolkit
         HeaderLocation GetButtonSpecLocation(PaletteButtonSpecStyle style);
 
         /// <summary>
-        /// Gets the edge to positon the button against.
+        /// Gets the edge to position the button against.
         /// </summary>
         /// <param name="style">Style of button spec.</param>
         /// <returns>PaletteRelativeEdgeAlign value.</returns>
@@ -1717,7 +1720,7 @@ namespace ComponentFactory.Krypton.Toolkit
         HeaderLocation GetButtonSpecLocation(PaletteButtonSpecStyle style);
 
         /// <summary>
-        /// Gets the edge to positon the button against.
+        /// Gets the edge to position the button against.
         /// </summary>
         /// <param name="style">Style of button spec.</param>
         /// <returns>PaletteRelativeEdgeAlign value.</returns>
@@ -2414,11 +2417,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies how far to inset a button on a custom1 header.
         /// </summary>
         HeaderButtonEdgeInsetCustom1,
-
-        /// <summary>
-        /// Specifies how far to inset a button on a custom2 header.
-        /// </summary>
         HeaderButtonEdgeInsetCustom2,
+        HeaderButtonEdgeInsetCustom3,
 
         /// <summary>
         /// Specifies the padding from buttons to the outside control edge.
@@ -2555,11 +2555,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies the padding for buttons on a custom1 header.
         /// </summary>
         HeaderButtonPaddingCustom1,
-
-        /// <summary>
-        /// Specifies the padding for buttons on a custom1 header.
-        /// </summary>
         HeaderButtonPaddingCustom2,
+        HeaderButtonPaddingCustom3,
 
         /// <summary>
         /// Specifies the padding for the navigator bar when showing tabs.
@@ -2610,6 +2607,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies the padding for the first custom separator.
         /// </summary>
         SeparatorPaddingCustom1,
+
+        /// <summary>
+        /// Specifies the padding for the first custom separator.
+        /// </summary>
+        SeparatorPaddingCustom2,
+
+        /// <summary>
+        /// Specifies the padding for the first custom separator.
+        /// </summary>
+        SeparatorPaddingCustom3,
 
         /// <summary>
         /// Specifies the padding outside of each context menu item highlight.
@@ -2719,15 +2726,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies the first custom button style.
         /// </summary>
         Custom1,
-
-        /// <summary>
-        /// Specifies the second custom button style.
-        /// </summary>
         Custom2,
-
-        /// <summary>
-        /// Specifies the third custom button style.
-        /// </summary>
         Custom3
     }
     #endregion
@@ -2868,6 +2867,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies a background style appropriate for the first custom control style.
         /// </summary>
         ControlCustom1,
+        ControlCustom2,
+        ControlCustom3,
 
         /// <summary>
         /// Specifies a background style appropriate for the outer part of a context menu control.
@@ -2923,6 +2924,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies a background style appropriate for the first custom input control style.
         /// </summary>
         InputControlCustom1,
+        InputControlCustom2,
+        InputControlCustom3,
 
         /// <summary>
         /// Specifies a background style appropriate for column headers in a list style grid.
@@ -2968,21 +2971,29 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies a background style appropriate for column headers in a custom grid style.
         /// </summary>
         GridHeaderColumnCustom1,
+        GridHeaderColumnCustom2,
+        GridHeaderColumnCustom3,
 
         /// <summary>
         /// Specifies a background style appropriate for row headers in a custom grid style.
         /// </summary>
         GridHeaderRowCustom1,
+        GridHeaderRowCustom2,
+        GridHeaderRowCustom3,
 
         /// <summary>
         /// Specifies a background style appropriate for data cells in a custom grid style.
         /// </summary>
         GridDataCellCustom1,
+        GridDataCellCustom2,
+        GridDataCellCustom3,
 
         /// <summary>
         /// Specifies a background style appropriate for blank areas in a custom grid style.
         /// </summary>
         GridBackgroundCustom1,
+        GridBackgroundCustom2,
+        GridBackgroundCustom3,
 
         /// <summary>
         /// Specifies a background style appropriate for a primary header style.
@@ -3023,6 +3034,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies a background style appropriate for the second custom header style.
         /// </summary>
         HeaderCustom2,
+        HeaderCustom3,
 
         /// <summary>
         /// Specifies a background style appropriate for a client panel style.
@@ -3045,6 +3057,16 @@ namespace ComponentFactory.Krypton.Toolkit
         PanelCustom1,
 
         /// <summary>
+        /// Specifies a background style appropriate for the second  custom panel style.
+        /// </summary>
+        PanelCustom2,
+
+        /// <summary>
+        /// Specifies a background style appropriate for the third custom panel style.
+        /// </summary>
+        PanelCustom3,
+
+        /// <summary>
         /// Specifies a background style appropriate for a low profile separator style.
         /// </summary>
         SeparatorLowProfile,
@@ -3063,6 +3085,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies a background style appropriate for the first custom separator style.
         /// </summary>
         SeparatorCustom1,
+        SeparatorCustom2,
+        SeparatorCustom3,
 
         /// <summary>
         /// Specifies a background style appropriate for a high profile tab.
@@ -3118,6 +3142,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies a background style appropriate for the first custom form style.
         /// </summary>
         FormCustom1,
+        FormCustom2,
+        FormCustom3
     }
     #endregion
 
@@ -3257,6 +3283,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies a border style appropriate for the first custom control style.
         /// </summary>
         ControlCustom1,
+        ControlCustom2,
+        ControlCustom3,
 
         /// <summary>
         /// Specifies a border style appropriate for the outer part of a context menu control.
@@ -3312,6 +3340,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies a border style appropriate for the first custom input control style.
         /// </summary>
         InputControlCustom1,
+        InputControlCustom2,
+        InputControlCustom3,
 
         /// <summary>
         /// Specifies a border style appropriate for column headers in a list style grid.
@@ -3347,16 +3377,22 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies a border style appropriate for column headers in a custom grid style.
         /// </summary>
         GridHeaderColumnCustom1,
+        GridHeaderColumnCustom2,
+        GridHeaderColumnCustom3,
 
         /// <summary>
         /// Specifies a border style appropriate for row headers in a custom grid style.
         /// </summary>
         GridHeaderRowCustom1,
+        GridHeaderRowCustom2,
+        GridHeaderRowCustom3,
 
         /// <summary>
         /// Specifies a border style appropriate for data cells in a custom grid style.
         /// </summary>
         GridDataCellCustom1,
+        GridDataCellCustom2,
+        GridDataCellCustom3,
 
         /// <summary>
         /// Specifies a border style appropriate for a primary header style.
@@ -3397,6 +3433,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies a border style appropriate for the second custom header style.
         /// </summary>
         HeaderCustom2,
+        HeaderCustom3,
 
         /// <summary>
         /// Specifies a border style appropriate for a low profile separator style.
@@ -3417,6 +3454,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies a border style appropriate for the first custom separator style.
         /// </summary>
         SeparatorCustom1,
+
+        /// <summary>
+        /// Specifies a border style appropriate for the first custom separator style.
+        /// </summary>
+        SeparatorCustom2,
+
+        /// <summary>
+        /// Specifies a border style appropriate for the first custom separator style.
+        /// </summary>
+        SeparatorCustom3,
 
         /// <summary>
         /// Specifies a border style appropriate for a high profile tab.
@@ -3472,6 +3519,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies a border style appropriate for the first custom form style.
         /// </summary>
         FormCustom1,
+        FormCustom2,
+        FormCustom3
     }
     #endregion
 
@@ -3636,16 +3685,22 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies a border style appropriate for column headers in a custom grid style.
         /// </summary>
         GridHeaderColumnCustom1,
+        GridHeaderColumnCustom2,
+        GridHeaderColumnCustom3,
 
         /// <summary>
         /// Specifies a border style appropriate for column rows in a custom grid style.
         /// </summary>
         GridHeaderRowCustom1,
+        GridHeaderRowCustom2,
+        GridHeaderRowCustom3,
 
         /// <summary>
         /// Specifies a border style appropriate for data cells in a custom grid style.
         /// </summary>
         GridDataCellCustom1,
+        GridDataCellCustom2,
+        GridDataCellCustom3,
 
         /// <summary>
         /// Specifies a content style appropriate for a primary Header.
@@ -3686,6 +3741,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies a content style appropriate for the second custom header style.
         /// </summary>
         HeaderCustom2,
+        HeaderCustom3,
 
         /// <summary>
         /// Specifies a normal label for use on a control style background.
@@ -3821,6 +3877,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies a content style appropriate for the first custom input control style.
         /// </summary>
         InputControlCustom1,
+        InputControlCustom2,
+        InputControlCustom3
     }
     #endregion
 

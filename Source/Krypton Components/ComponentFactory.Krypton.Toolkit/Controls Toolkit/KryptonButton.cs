@@ -10,43 +10,43 @@
 // *****************************************************************************
 
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
-using System.ComponentModel;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 // ReSharper disable MemberCanBePrivate.Global
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Combines button functionality with the styling features of the Krypton Toolkit.
-	/// </summary>
-	[ToolboxItem(true)]
+    /// </summary>
+    [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonButton), "ToolboxBitmaps.KryptonButton.bmp")]
     [DefaultEvent("Click")]
-	[DefaultProperty("Text")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonButtonDesigner))]
+    [DefaultProperty("Text")]
+    [Designer(typeof(KryptonButtonDesigner))]
     [DesignerCategory("code")]
     [Description("Raises an event when the user clicks it.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     public class KryptonButton : VisualSimpleBase, IButtonControl, IContentValues
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly ViewDrawButton _drawButton;
         private ButtonStyle _style;
-	    private readonly ButtonController _buttonController;
+        private readonly ButtonController _buttonController;
         private VisualOrientation _orientation;
-	    private readonly PaletteTripleOverride _overrideFocus;
-		private readonly PaletteTripleOverride _overrideNormal;
-		private readonly PaletteTripleOverride _overrideTracking;
-		private readonly PaletteTripleOverride _overridePressed;
+        private readonly PaletteTripleOverride _overrideFocus;
+        private readonly PaletteTripleOverride _overrideNormal;
+        private readonly PaletteTripleOverride _overrideTracking;
+        private readonly PaletteTripleOverride _overridePressed;
         private IKryptonCommand _command;
-	    private bool _isDefault;
-		private bool _useMnemonic;
+        private bool _isDefault;
+        private bool _useMnemonic;
         private bool _wasEnabled;
-		#endregion
+        #endregion
 
         #region Events
         /// <summary>
@@ -88,7 +88,7 @@ namespace ComponentFactory.Krypton.Toolkit
             OverrideFocus = new PaletteTripleRedirect(Redirector, PaletteBackStyle.ButtonStandalone, PaletteBorderStyle.ButtonStandalone, PaletteContentStyle.ButtonStandalone, NeedPaintDelegate);
 
             // Create the override handling classes
-            _overrideFocus = new PaletteTripleOverride(OverrideFocus, StateNormal,  PaletteState.FocusOverride);
+            _overrideFocus = new PaletteTripleOverride(OverrideFocus, StateNormal, PaletteState.FocusOverride);
             _overrideNormal = new PaletteTripleOverride(OverrideDefault, _overrideFocus, PaletteState.NormalDefaultOverride);
             _overrideTracking = new PaletteTripleOverride(OverrideFocus, StateTracking, PaletteState.FocusOverride);
             _overridePressed = new PaletteTripleOverride(OverrideFocus, StatePressed, PaletteState.FocusOverride);
@@ -123,9 +123,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // Create the view manager instance
             ViewManager = new ViewManager(this, _drawButton);
         }
-		#endregion
+        #endregion
 
-		#region Public
+        #region Public
         /// <summary>
         /// Gets and sets the automatic resize of the control to fit contents.
         /// </summary>
@@ -158,26 +158,26 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         public override string Text
-		{
-			get => Values.Text;
+        {
+            get => Values.Text;
 
             set => Values.Text = value;
         }
 
-		private bool ShouldSerializeText()
-		{
-			// Never serialize, let the button values serialize instead
-			return false;
-		}
+        private bool ShouldSerializeText()
+        {
+            // Never serialize, let the button values serialize instead
+            return false;
+        }
 
-		/// <summary>
-		/// Resets the Text property to its default value.
-		/// </summary>
-		public override void ResetText()
-		{
-			// Map onto the button property from the values
-			Values.ResetText();
-		}
+        /// <summary>
+        /// Resets the Text property to its default value.
+        /// </summary>
+        public override void ResetText()
+        {
+            // Map onto the button property from the values
+            Values.ResetText();
+        }
 
         /// <summary>
         /// Gets and sets the visual orientation of the control.
@@ -190,38 +190,38 @@ namespace ComponentFactory.Krypton.Toolkit
             get => _orientation;
 
             set
-			{
+            {
                 if (_orientation != value)
-				{
+                {
                     _orientation = value;
 
                     // Update the associated visual elements that are effected
                     _drawButton.Orientation = value;
-                    
+
                     PerformNeedPaint(true);
-				}
-			}
-		}
+                }
+            }
+        }
 
-		/// <summary>
-		/// Gets and sets the button style.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Button style.")]
-		public ButtonStyle ButtonStyle
-		{
-			get => _style;
+        /// <summary>
+        /// Gets and sets the button style.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Button style.")]
+        public ButtonStyle ButtonStyle
+        {
+            get => _style;
 
-		    set
-			{
-				if (_style != value)
-				{
-					_style = value;
+            set
+            {
+                if (_style != value)
+                {
+                    _style = value;
                     SetStyles(_style);
-					PerformNeedPaint(true);
-				}
-			}
-		}
+                    PerformNeedPaint(true);
+                }
+            }
+        }
 
         private bool ShouldSerializeButtonStyle()
         {
@@ -233,18 +233,18 @@ namespace ComponentFactory.Krypton.Toolkit
             ButtonStyle = ButtonStyle.Standalone;
         }
 
-		/// <summary>
-		/// Gets access to the button content.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Button values")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public ButtonValues Values { get; }
+        /// <summary>
+        /// Gets access to the button content.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Button values")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public ButtonValues Values { get; }
 
-	    private bool ShouldSerializeValues()
-		{
-			return !Values.IsDefault;
-		}
+        private bool ShouldSerializeValues()
+        {
+            return !Values.IsDefault;
+        }
 
         /// <summary>
         /// Gets access to the common button appearance that other states can override.
@@ -254,98 +254,98 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTripleRedirect StateCommon { get; }
 
-	    private bool ShouldSerializeStateCommon()
+        private bool ShouldSerializeStateCommon()
         {
             return !StateCommon.IsDefault;
         }
-        
+
         /// <summary>
-		/// Gets access to the disabled button appearance entries.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Overrides for defining disabled button appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        /// Gets access to the disabled button appearance entries.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Overrides for defining disabled button appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTriple StateDisabled { get; }
 
-	    private bool ShouldSerializeStateDisabled()
-		{
-			return !StateDisabled.IsDefault;
-		}
+        private bool ShouldSerializeStateDisabled()
+        {
+            return !StateDisabled.IsDefault;
+        }
 
-		/// <summary>
-		/// Gets access to the normal button appearance entries.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Overrides for defining normal button appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        /// <summary>
+        /// Gets access to the normal button appearance entries.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Overrides for defining normal button appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTriple StateNormal { get; }
 
-	    private bool ShouldSerializeStateNormal()
-		{
-			return !StateNormal.IsDefault;
-		}
+        private bool ShouldSerializeStateNormal()
+        {
+            return !StateNormal.IsDefault;
+        }
 
-		/// <summary>
-		/// Gets access to the hot tracking button appearance entries.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Overrides for defining hot tracking button appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        /// <summary>
+        /// Gets access to the hot tracking button appearance entries.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Overrides for defining hot tracking button appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTriple StateTracking { get; }
 
-	    private bool ShouldSerializeStateTracking()
-		{
-			return !StateTracking.IsDefault;
-		}
+        private bool ShouldSerializeStateTracking()
+        {
+            return !StateTracking.IsDefault;
+        }
 
-		/// <summary>
-		/// Gets access to the pressed button appearance entries.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Overrides for defining pressed button appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        /// <summary>
+        /// Gets access to the pressed button appearance entries.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Overrides for defining pressed button appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTriple StatePressed { get; }
 
-	    private bool ShouldSerializeStatePressed()
-		{
-			return !StatePressed.IsDefault;
-		}
+        private bool ShouldSerializeStatePressed()
+        {
+            return !StatePressed.IsDefault;
+        }
 
-		/// <summary>
-		/// Gets access to the normal button appearance when default.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Overrides for defining normal button appearance when default.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteTripleRedirect OverrideDefault { get; }
+        /// <summary>
+        /// Gets access to the normal button appearance when default.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Overrides for defining normal button appearance when default.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public PaletteTripleRedirect OverrideDefault { get; }
 
-	    private bool ShouldSerializeOverrideDefault()
-		{
-			return !OverrideDefault.IsDefault;
-		}
+        private bool ShouldSerializeOverrideDefault()
+        {
+            return !OverrideDefault.IsDefault;
+        }
 
-		/// <summary>
-		/// Gets access to the button appearance when it has focus.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Overrides for defining button appearance when it has focus.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteTripleRedirect OverrideFocus { get; }
+        /// <summary>
+        /// Gets access to the button appearance when it has focus.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Overrides for defining button appearance when it has focus.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public PaletteTripleRedirect OverrideFocus { get; }
 
-	    private bool ShouldSerializeOverrideFocus()
-		{
-			return !OverrideFocus.IsDefault;
-		}
+        private bool ShouldSerializeOverrideFocus()
+        {
+            return !OverrideFocus.IsDefault;
+        }
 
-		/// <summary>
-		/// Gets or sets the value returned to the parent form when the button is clicked.
-		/// </summary>
-		[Category("Behavior")]
-		[Description("The dialog-box result produced in a modal form by clicking the button.")]
-		[DefaultValue(typeof(DialogResult), "None")]
-		public DialogResult DialogResult { get; set; }
+        /// <summary>
+        /// Gets or sets the value returned to the parent form when the button is clicked.
+        /// </summary>
+        [Category("Behavior")]
+        [Description("The dialog-box result produced in a modal form by clicking the button.")]
+        [DefaultValue(typeof(DialogResult), "None")]
+        public DialogResult DialogResult { get; set; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets and sets the associated KryptonCommand.
         /// </summary>
         [Category("Behavior")]
@@ -355,10 +355,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get => _command;
 
-	        set
+            set
             {
-                if (_command == value) 
+                if (_command == value)
+                {
                     return;
+                }
+
                 if (_command != null)
                 {
                     _command.PropertyChanged -= OnCommandPropertyChanged;
@@ -382,56 +385,56 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Notifies a control that it is the default button so that its appearance and behavior is adjusted accordingly. 
-		/// </summary>
-		/// <param name="value">true if the control should behave as a default button; otherwise false.</param>
-		public void NotifyDefault(bool value)
-		{
-			if (!ViewDrawButton.IsFixed && (_isDefault != value))
-			{
-				// Remember new default status
-				_isDefault = value;
+        /// <summary>
+        /// Notifies a control that it is the default button so that its appearance and behavior is adjusted accordingly. 
+        /// </summary>
+        /// <param name="value">true if the control should behave as a default button; otherwise false.</param>
+        public void NotifyDefault(bool value)
+        {
+            if (!ViewDrawButton.IsFixed && (_isDefault != value))
+            {
+                // Remember new default status
+                _isDefault = value;
 
-				// Decide if the default overrides should be applied
+                // Decide if the default overrides should be applied
                 _overrideNormal.Apply = value;
 
-				// Change in default state requires a layout and repaint
-				PerformNeedPaint(true);
-			}
-		}
+                // Change in default state requires a layout and repaint
+                PerformNeedPaint(true);
+            }
+        }
 
-		/// <summary>
-		/// Generates a Click event for the control.
-		/// </summary>
-		public void PerformClick()
-		{
-			if (CanSelect)
+        /// <summary>
+        /// Generates a Click event for the control.
+        /// </summary>
+        public void PerformClick()
+        {
+            if (CanSelect)
             {
                 OnClick(EventArgs.Empty);
             }
         }
 
-		/// <summary>
-		/// Gets or sets a value indicating whether an ampersand is included in the text of the control. 
-		/// </summary>
-		[Category("Appearance")]
-		[Description("When true the first character after an ampersand will be used as a mnemonic.")] 
-		[DefaultValue(true)]
-		public bool UseMnemonic
-		{
-			get => _useMnemonic;
+        /// <summary>
+        /// Gets or sets a value indicating whether an ampersand is included in the text of the control. 
+        /// </summary>
+        [Category("Appearance")]
+        [Description("When true the first character after an ampersand will be used as a mnemonic.")]
+        [DefaultValue(true)]
+        public bool UseMnemonic
+        {
+            get => _useMnemonic;
 
-		    set
-			{
-				if (_useMnemonic != value)
-				{
-					_useMnemonic = value;
-					_drawButton.UseMnemonic = value;
-					PerformNeedPaint(true);
-				}
-			}
-		}
+            set
+            {
+                if (_useMnemonic != value)
+                {
+                    _useMnemonic = value;
+                    _drawButton.UseMnemonic = value;
+                    PerformNeedPaint(true);
+                }
+            }
+        }
 
         /// <summary>
         /// Fix the control to a particular palette state.
@@ -453,17 +456,17 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawButton.FixedState = state;
         }
 
-		/// <summary>
-		/// Determines the IME status of the object when selected.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public new ImeMode ImeMode
-		{
-			get => base.ImeMode;
-		    set => base.ImeMode = value;
-		}
-		#endregion
+        /// <summary>
+        /// Determines the IME status of the object when selected.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public new ImeMode ImeMode
+        {
+            get => base.ImeMode;
+            set => base.ImeMode = value;
+        }
+        #endregion
 
         #region IContentValues
         /// <summary>
@@ -500,30 +503,30 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected override Size DefaultSize => new Size(90, 25);
 
-	    /// <summary>
-		/// Gets the default Input Method Editor (IME) mode supported by this control.
-		/// </summary>
-		protected override ImeMode DefaultImeMode => ImeMode.Disable;
+        /// <summary>
+        /// Gets the default Input Method Editor (IME) mode supported by this control.
+        /// </summary>
+        protected override ImeMode DefaultImeMode => ImeMode.Disable;
 
-	    /// <summary>
-		/// Raises the EnabledChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
-		protected override void OnEnabledChanged(EventArgs e)
-		{
-			// Change in enabled state requires a layout and repaint
-			PerformNeedPaint(true);
+        /// <summary>
+        /// Raises the EnabledChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        protected override void OnEnabledChanged(EventArgs e)
+        {
+            // Change in enabled state requires a layout and repaint
+            PerformNeedPaint(true);
 
-			// Let base class fire standard event
-			base.OnEnabledChanged(e);
-		}
+            // Let base class fire standard event
+            base.OnEnabledChanged(e);
+        }
 
-		/// <summary>
-		/// Raises the GotFocus event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
-		protected override void OnGotFocus(EventArgs e)
-		{
+        /// <summary>
+        /// Raises the GotFocus event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        protected override void OnGotFocus(EventArgs e)
+        {
             if (!ViewDrawButton.IsFixed)
             {
                 // Apply the focus overrides
@@ -535,16 +538,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 PerformNeedPaint(false);
             }
 
-			// Let base class fire standard event
-			base.OnGotFocus(e);
-		}
+            // Let base class fire standard event
+            base.OnGotFocus(e);
+        }
 
-		/// <summary>
-		/// Raises the LostFocus event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
-		protected override void OnLostFocus(EventArgs e)
-		{
+        /// <summary>
+        /// Raises the LostFocus event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        protected override void OnLostFocus(EventArgs e)
+        {
             if (!ViewDrawButton.IsFixed)
             {
                 // Apply the focus overrides
@@ -556,55 +559,55 @@ namespace ComponentFactory.Krypton.Toolkit
                 PerformNeedPaint(false);
             }
 
-			// Let base class fire standard event
-			base.OnLostFocus(e);
-		}
+            // Let base class fire standard event
+            base.OnLostFocus(e);
+        }
 
-		/// <summary>
-		/// Raises the Click event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
-		protected override void OnClick(EventArgs e)
-		{
-			// Find the form this button is on
-			Form owner = FindForm();
+        /// <summary>
+        /// Raises the Click event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        protected override void OnClick(EventArgs e)
+        {
+            // Find the form this button is on
+            Form owner = FindForm();
 
-			// If we find a valid owner
-			if (owner != null)
-			{
-				// Update owner with our dialog result setting
-				owner.DialogResult = DialogResult;
-			}
+            // If we find a valid owner
+            if (owner != null)
+            {
+                // Update owner with our dialog result setting
+                owner.DialogResult = DialogResult;
+            }
 
-			// Let base class fire standard event
-			base.OnClick(e);
+            // Let base class fire standard event
+            base.OnClick(e);
 
             // If we have an attached command then execute it
-		    KryptonCommand?.PerformExecute();
-		}
+            KryptonCommand?.PerformExecute();
+        }
 
-		/// <summary>
-		/// Processes a mnemonic character.
-		/// </summary>
-		/// <param name="charCode">The mnemonic character entered.</param>
-		/// <returns>true if the mnemonic was processed; otherwise, false.</returns>
+        /// <summary>
+        /// Processes a mnemonic character.
+        /// </summary>
+        /// <param name="charCode">The mnemonic character entered.</param>
+        /// <returns>true if the mnemonic was processed; otherwise, false.</returns>
         protected override bool ProcessMnemonic(char charCode)
-		{
-			// Are we allowed to process mnemonics?
-			if (UseMnemonic && CanProcessMnemonic())
-			{
-				// Does the button primary text contain the mnemonic?
-				if (IsMnemonic(charCode, Values.Text))
-				{
-					// Perform default action for a button, click it!
-					PerformClick();
-					return true;
-				}
-			}
+        {
+            // Are we allowed to process mnemonics?
+            if (UseMnemonic && CanProcessMnemonic())
+            {
+                // Does the button primary text contain the mnemonic?
+                if (IsMnemonic(charCode, Values.Text))
+                {
+                    // Perform default action for a button, click it!
+                    PerformClick();
+                    return true;
+                }
+            }
 
-			// No match found, let base class do standard processing
-			return base.ProcessMnemonic(charCode);
-		}
+            // No match found, let base class do standard processing
+            return base.ProcessMnemonic(charCode);
+        }
 
         /// <summary>
         /// Called when a context menu has just been closed.
@@ -681,27 +684,27 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected virtual ViewDrawButton ViewDrawButton => _drawButton;
 
-	    #endregion
+        #endregion
 
         #region Implementation
         private void OnButtonTextChanged(object sender, EventArgs e)
         {
             OnTextChanged(EventArgs.Empty);
         }
-        
+
         private void OnButtonClick(object sender, MouseEventArgs e)
-		{
-			// Raise the standard click event
-			OnClick(EventArgs.Empty);
+        {
+            // Raise the standard click event
+            OnClick(EventArgs.Empty);
 
-			// Raise event to indicate it was a mouse activated click
-			OnMouseClick(e);
-		}
+            // Raise event to indicate it was a mouse activated click
+            OnMouseClick(e);
+        }
 
-		private void OnButtonSelect(object sender, MouseEventArgs e)
-		{
-			// Take the focus if allowed
-			if (CanFocus)
+        private void OnButtonSelect(object sender, MouseEventArgs e)
+        {
+            // Take the focus if allowed
+            if (CanFocus)
             {
                 Focus();
             }

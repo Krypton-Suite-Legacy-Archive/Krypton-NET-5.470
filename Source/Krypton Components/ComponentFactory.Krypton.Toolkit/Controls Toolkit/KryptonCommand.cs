@@ -10,11 +10,11 @@
 // *****************************************************************************
 
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
-using System.ComponentModel;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [DefaultEvent("Click")]
     [DefaultProperty("Text")]
     [DesignerCategory("code")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonCommandDesigner))]
+    [Designer(typeof(KryptonCommandDesigner))]
     [Description("Defines state and events for a single command.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
@@ -102,7 +102,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Behavior")]
         [Description("Indicates whether the command is enabled.")]
         [DefaultValue(true)]
-        public bool Enabled 
+        public bool Enabled
         {
             get => _enabled;
 

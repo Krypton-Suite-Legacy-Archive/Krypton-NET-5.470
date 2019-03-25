@@ -230,6 +230,11 @@ namespace ComponentFactory.Krypton.Navigator
                                                         PaletteMetricInt.HeaderButtonEdgeInsetCustom2,
                                                         PaletteMetricPadding.HeaderButtonPaddingCustom2);
                         break;
+                    case HeaderStyle.Custom3:
+                        _buttonManager.SetDockerMetrics(drawDocker, palette,
+                            PaletteMetricInt.HeaderButtonEdgeInsetCustom3,
+                            PaletteMetricPadding.HeaderButtonPaddingCustom3);
+                        break;
                 }
             }
         }

@@ -40,6 +40,8 @@ namespace ComponentFactory.Krypton.Toolkit
             SeparatorHighProfile = new KryptonPaletteSeparator(redirector, PaletteBackStyle.SeparatorHighProfile, PaletteBorderStyle.SeparatorHighProfile, needPaint);
             SeparatorHighInternalProfile = new KryptonPaletteSeparator(redirector, PaletteBackStyle.SeparatorHighInternalProfile, PaletteBorderStyle.SeparatorHighInternalProfile, needPaint);
             SeparatorCustom1 = new KryptonPaletteSeparator(redirector, PaletteBackStyle.SeparatorCustom1, PaletteBorderStyle.SeparatorCustom1, needPaint);
+            SeparatorCustom2 = new KryptonPaletteSeparator(redirector, PaletteBackStyle.SeparatorCustom2, PaletteBorderStyle.SeparatorCustom2, needPaint);
+            SeparatorCustom3 = new KryptonPaletteSeparator(redirector, PaletteBackStyle.SeparatorCustom3, PaletteBorderStyle.SeparatorCustom3, needPaint);
 
             // Create redirectors for inheriting from style specific to style common
             PaletteRedirectDouble redirectCommon = new PaletteRedirectDouble(redirector, 
@@ -51,6 +53,8 @@ namespace ComponentFactory.Krypton.Toolkit
             SeparatorHighProfile.SetRedirector(redirectCommon);
             SeparatorHighInternalProfile.SetRedirector(redirectCommon);
             SeparatorCustom1.SetRedirector(redirectCommon);
+            SeparatorCustom2.SetRedirector(redirectCommon);
+            SeparatorCustom3.SetRedirector(redirectCommon);
         }
         #endregion
 
@@ -61,8 +65,11 @@ namespace ComponentFactory.Krypton.Toolkit
         public override bool IsDefault => SeparatorCommon.IsDefault &&
                                           SeparatorLowProfile.IsDefault &&
                                           SeparatorHighProfile.IsDefault &&
-                                          SeparatorHighInternalProfile.IsDefault &&
-                                          SeparatorCustom1.IsDefault;
+                                          SeparatorHighInternalProfile.IsDefault 
+                                          && SeparatorCustom1.IsDefault
+                                          && SeparatorCustom2.IsDefault
+                                          && SeparatorCustom3.IsDefault
+        ;
 
         #endregion
 
@@ -163,6 +170,38 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool ShouldSerializeSeparatorCustom1()
         {
             return !SeparatorCustom1.IsDefault;
+        }
+        #endregion
+
+        #region SeparatorCustom2
+        /// <summary>
+        /// Gets access to the first custom separator appearance entries.
+        /// </summary>
+        [KryptonPersist]
+        [Category("Visuals")]
+        [Description("Overrides for defining first custom separator appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public KryptonPaletteSeparator SeparatorCustom2 { get; }
+
+        private bool ShouldSerializeSeparatorCustom2()
+        {
+            return !SeparatorCustom2.IsDefault;
+        }
+        #endregion
+
+        #region SeparatorCustom3
+        /// <summary>
+        /// Gets access to the first custom separator appearance entries.
+        /// </summary>
+        [KryptonPersist]
+        [Category("Visuals")]
+        [Description("Overrides for defining third custom separator appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public KryptonPaletteSeparator SeparatorCustom3 { get; }
+
+        private bool ShouldSerializeSeparatorCustom3()
+        {
+            return !SeparatorCustom3.IsDefault;
         }
         #endregion
     }

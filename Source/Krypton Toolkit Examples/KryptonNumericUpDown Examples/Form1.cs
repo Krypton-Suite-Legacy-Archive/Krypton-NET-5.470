@@ -281,7 +281,7 @@ namespace KryptonNumericUpDownExamples
         }
 
         /// <summary>
-        /// Gets or sets wheather the numeric up-down should display its value in hexadecimal.
+        /// Gets or sets whether the numeric up-down should display its value in hexadecimal.
         /// </summary>
         [Category("Appearance")]
         [Description("Indicates wheather the numeric up-down should display its value in hexadecimal.")]
@@ -290,6 +290,29 @@ namespace KryptonNumericUpDownExamples
             get { return _numericUpDown.Hexadecimal; }
             set { _numericUpDown.Hexadecimal = value; }
         }
+
+        /// <summary>
+        /// Gets or sets whether the control accepts decimal values.
+        /// </summary>
+        [Category("Behavior")]
+        [Description("Indicates whether the control can accept decimal values, rather than integer values only.")]
+        public bool AllowDecimals
+        {
+            get { return _numericUpDown.AllowDecimals; }
+            set { _numericUpDown.AllowDecimals = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets whether the control displays trailing zeroes.
+        /// </summary>
+        [Category("Behavior")]
+        [Description("Indicates whether the control will display traling zeroes.")]
+        public bool TrailingZeroes
+        {
+            get { return _numericUpDown.TrailingZeroes; }
+            set { _numericUpDown.TrailingZeroes = value; }
+        }
+
 
         /// <summary>
         /// Gets or sets how the up-down control will position the up down buttons relative to its text box.

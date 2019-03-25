@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [DefaultEvent("SelectedIndexChanged")]
     [DefaultProperty("Items")]
     [DefaultBindingProperty("SelectedValue")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonCheckedListBoxDesigner))]
+    [Designer(typeof(KryptonCheckedListBoxDesigner))]
     [DesignerCategory("code")]
     [Description("Represents a checked list box control that allows single or multiple item selection.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
@@ -852,7 +852,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 if (_miGetEntryObject == null)
                 {
-                    _miGetEntryObject = InnerArray.GetType().GetMethod("GetEntryObject", BindingFlags.NonPublic | BindingFlags.Instance );
+                    _miGetEntryObject = InnerArray.GetType().GetMethod("GetEntryObject", BindingFlags.NonPublic | BindingFlags.Instance);
                 }
 
                 return _miGetEntryObject.Invoke(InnerArray, new object[] { index, stateMask });
@@ -952,7 +952,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             if (Items.Count == 0)
                             {
                                 using (Graphics g = Graphics.FromHdc(hdc))
-                                    using (RenderContext context = new RenderContext(this, _kryptonCheckedListBox, g, realRect, _kryptonCheckedListBox.Renderer))
+                                using (RenderContext context = new RenderContext(this, _kryptonCheckedListBox, g, realRect, _kryptonCheckedListBox.Renderer))
                                 {
                                     ViewDrawPanel.Render(context);
                                 }
@@ -1212,7 +1212,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                              _overrideTracking, _overridePressed,
                                              _overrideCheckedNormal, _overrideCheckedTracking,
                                              _overrideCheckedPressed,
-                                             new PaletteMetricRedirect(Redirector), 
+                                             new PaletteMetricRedirect(Redirector),
                                              _contentValues, VisualOrientation.Top, false);
 
             // Place check box on the left and the label in the remainder
@@ -1545,8 +1545,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         return CheckedSelectionMode.One;
                 }
             }
-            
-            set 
+
+            set
             {
                 switch (value)
                 {
@@ -2457,7 +2457,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Update the view with the calculated state
             _drawButton.ElementState = buttonState;
-            
+
             // Update check box to show correct checked image
             _drawCheckBox.CheckState = GetItemCheckState(e.Index);
 

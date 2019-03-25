@@ -10,34 +10,34 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
 using System.ComponentModel;
-using System.Windows.Forms;
+using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Provides a flat navigation of hierarchical data.
-	/// </summary>
-	[ToolboxItem(true)]
+    /// </summary>
+    [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonBreadCrumb), "ToolboxBitmaps.KryptonBreadCrumb.bmp")]
     [DefaultEvent("SelectedItemChanged")]
     [DefaultProperty("RootItem")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonBreadCrumbDesigner))]
+    [Designer(typeof(KryptonBreadCrumbDesigner))]
     [DesignerCategory("code")]
     [Description("Flat navigation of hierarchical data.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     public class KryptonBreadCrumb : VisualSimpleBase,
                                      ISupportInitializeNotification
-	{
+    {
         #region Type Definitions
         /// <summary>
         /// Collection for managing ButtonSpecAny instances.
         /// </summary>
-        public class BreadCrumbButtonSpecCollection : ButtonSpecCollection<ButtonSpecAny> 
-        { 
+        public class BreadCrumbButtonSpecCollection : ButtonSpecCollection<ButtonSpecAny>
+        {
             #region Identity
             /// <summary>
             /// Initialize a new instance of the BreadCrumbButtonSpecCollection class.
@@ -50,14 +50,14 @@ namespace ComponentFactory.Krypton.Toolkit
             #endregion
         }
         #endregion
-        
+
         #region Instance Fields
 
-	    private bool _dropDownNavigaton;
+        private bool _dropDownNavigaton;
         private readonly ViewDrawDocker _drawDocker;
-	    private readonly ButtonSpecManagerDraw _buttonManager;
+        private readonly ButtonSpecManagerDraw _buttonManager;
         private VisualPopupToolTip _visualPopupToolTip;
-	    private KryptonBreadCrumbItem _selectedItem;
+        private KryptonBreadCrumbItem _selectedItem;
         private readonly ViewLayoutCrumbs _layoutCrumbs;
         private ButtonStyle _buttonStyle;
         #endregion
@@ -97,9 +97,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Initialize a new instance of the KryptonBreadCrumb class.
 		/// </summary>
         public KryptonBreadCrumb()
-		{
-			// The bread crumb cannot take the focus
-			SetStyle(ControlStyles.Selectable, false);
+        {
+            // The bread crumb cannot take the focus
+            SetStyle(ControlStyles.Selectable, false);
 
             // Set default values
             _selectedItem = null;
@@ -109,17 +109,17 @@ namespace ComponentFactory.Krypton.Toolkit
             RootItem.PropertyChanged += OnCrumbItemChanged;
             AllowButtonSpecToolTips = false;
 
-			// Create storage objects
+            // Create storage objects
             ButtonSpecs = new BreadCrumbButtonSpecCollection(this);
 
-			// Create the palette storage
+            // Create the palette storage
             StateCommon = new PaletteBreadCrumbRedirect(Redirector, NeedPaintDelegate);
             StateDisabled = new PaletteBreadCrumbDoubleState(StateCommon, NeedPaintDelegate);
             StateNormal = new PaletteBreadCrumbDoubleState(StateCommon, NeedPaintDelegate);
             StateTracking = new PaletteBreadCrumbState(StateCommon, NeedPaintDelegate);
             StatePressed = new PaletteBreadCrumbState(StateCommon, NeedPaintDelegate);
 
-			// Our view contains background and border with crumbs inside
+            // Our view contains background and border with crumbs inside
             _layoutCrumbs = new ViewLayoutCrumbs(this, NeedPaintDelegate);
             _drawDocker = new ViewDrawDocker(StateNormal.Back, StateNormal.Border, null)
             {
@@ -143,7 +143,7 @@ namespace ComponentFactory.Krypton.Toolkit
             ToolTipManager.ShowToolTip += OnShowToolTip;
             ToolTipManager.CancelToolTip += OnCancelToolTip;
             _buttonManager.ToolTipManager = ToolTipManager;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.
@@ -162,9 +162,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             base.Dispose(disposing);
         }
-		#endregion
+        #endregion
 
-		#region Public
+        #region Public
         /// <summary>
         /// Signals the object that initialization is starting.
         /// </summary>
@@ -206,21 +206,21 @@ namespace ComponentFactory.Krypton.Toolkit
             [System.Diagnostics.DebuggerStepThrough]
             get;
             private set;
-	    }
+        }
 
-	    /// <summary>
+        /// <summary>
         /// Gets a value indicating if the control is initialized.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public bool IsInitializing
-	    {
-	        [System.Diagnostics.DebuggerStepThrough]
-	        get;
-	        private set;
-	    }
+        {
+            [System.Diagnostics.DebuggerStepThrough]
+            get;
+            private set;
+        }
 
-	    /// <summary>
+        /// <summary>
         /// Gets or sets the text associated with this control.
         /// </summary>
         [Browsable(false)]
@@ -229,8 +229,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public override string Text
         {
             get => base.Text;
-	        set => base.Text = value;
-	    }
+            set => base.Text = value;
+        }
 
         /// <summary>
         /// Gets and sets the automatic resize of the control to fit contents.
@@ -267,15 +267,15 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Gets the collection of button specifications.
-		/// </summary>
+        /// <summary>
+        /// Gets the collection of button specifications.
+        /// </summary>
         [Category("Visuals")]
         [Description("Collection of button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public BreadCrumbButtonSpecCollection ButtonSpecs { get; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets and sets a value indicating if drop down buttons should allow navigation to children.
         /// </summary>
         [Category("Visuals")]
@@ -285,7 +285,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get => _dropDownNavigaton;
 
-	        set 
+            set
             {
                 if (_dropDownNavigaton != value)
                 {
@@ -303,16 +303,16 @@ namespace ComponentFactory.Krypton.Toolkit
         [DefaultValue(false)]
         public bool AllowButtonSpecToolTips { get; set; }
 
-	    /// <summary>
-		/// Gets and sets the background style for the control.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Background style for the control.")]
-		public PaletteBackStyle ControlBackStyle
-		{
+        /// <summary>
+        /// Gets and sets the background style for the control.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Background style for the control.")]
+        public PaletteBackStyle ControlBackStyle
+        {
             get => StateCommon.BackStyle;
 
-	        set
+            set
             {
                 if (StateCommon.BackStyle != value)
                 {
@@ -320,7 +320,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     PerformNeedPaint(true);
                 }
             }
-		}
+        }
 
         private bool ShouldSerializeControlBackStyle()
         {
@@ -400,7 +400,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public KryptonBreadCrumbItem RootItem { get; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets and sets the selected bread crumb item.
         /// </summary>
         [Category("Data")]
@@ -410,7 +410,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get => _selectedItem;
 
-	        set 
+            set
             {
                 if (value != _selectedItem)
                 {
@@ -442,36 +442,36 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteBreadCrumbRedirect StateCommon { get; }
 
-	    private bool ShouldSerializeStateCommon()
+        private bool ShouldSerializeStateCommon()
         {
             return !StateCommon.IsDefault;
         }
-        
+
         /// <summary>
         /// Gets access to the disabled appearance entries.
-		/// </summary>
-		[Category("Visuals")]
+        /// </summary>
+        [Category("Visuals")]
         [Description("Overrides for defining disabled appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteBreadCrumbDoubleState StateDisabled { get; }
 
-	    private bool ShouldSerializeStateDisabled()
-		{
-			return !StateDisabled.IsDefault;
-		}
+        private bool ShouldSerializeStateDisabled()
+        {
+            return !StateDisabled.IsDefault;
+        }
 
-		/// <summary>
+        /// <summary>
         /// Gets access to the normal appearance entries.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Overrides for defining normal appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Overrides for defining normal appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteBreadCrumbDoubleState StateNormal { get; }
 
-	    private bool ShouldSerializeStateNormal()
-		{
-			return !StateNormal.IsDefault;
-		}
+        private bool ShouldSerializeStateNormal()
+        {
+            return !StateNormal.IsDefault;
+        }
 
         /// <summary>
         /// Gets access to the tracking bread crumb appearance entries.
@@ -481,7 +481,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteBreadCrumbState StateTracking { get; }
 
-	    private bool ShouldSerializeStateTracking()
+        private bool ShouldSerializeStateTracking()
         {
             return !StateTracking.IsDefault;
         }
@@ -494,7 +494,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteBreadCrumbState StatePressed { get; }
 
-	    private bool ShouldSerializeStatePressed()
+        private bool ShouldSerializeStatePressed()
         {
             return !StatePressed.IsDefault;
         }
@@ -506,7 +506,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ToolTipManager ToolTipManager { get; }
 
-	    /// <summary>
+        /// <summary>
         /// Fix the control to a particular palette state.
         /// </summary>
         /// <param name="state">Palette state to fix.</param>
@@ -561,7 +561,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Protected Overrides
+        #region Protected Overrides
         /// <summary>
         /// Create the redirector instance.
         /// </summary>
@@ -593,14 +593,14 @@ namespace ComponentFactory.Krypton.Toolkit
             return base.ProcessMnemonic(charCode);
         }
 
-		/// <summary>
-		/// Raises the EnabledChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
-		protected override void OnEnabledChanged(EventArgs e)
-		{
-			// Push correct palettes into the view
-			if (Enabled)
+        /// <summary>
+        /// Raises the EnabledChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        protected override void OnEnabledChanged(EventArgs e)
+        {
+            // Push correct palettes into the view
+            if (Enabled)
             {
                 _drawDocker.SetPalettes(StateNormal.Back, StateNormal.Border);
             }
@@ -614,19 +614,19 @@ namespace ComponentFactory.Krypton.Toolkit
             // Update state to reflect change in enabled state
             _buttonManager.RefreshButtons();
 
-			// Change in enabled state requires a layout and repaint
-			PerformNeedPaint(true);
+            // Change in enabled state requires a layout and repaint
+            PerformNeedPaint(true);
 
-			// Let base class fire standard event
-			base.OnEnabledChanged(e);
-		}
+            // Let base class fire standard event
+            base.OnEnabledChanged(e);
+        }
 
         /// <summary>
 		/// Gets the default size of the control.
 		/// </summary>
 		protected override Size DefaultSize => new Size(200, 28);
 
-	    /// <summary>
+        /// <summary>
         /// Processes a notification from palette storage of a button spec change.
         /// </summary>
         /// <param name="sender">Source of notification.</param>
@@ -639,7 +639,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Let base class perform standard processing
             base.OnButtonSpecChanged(sender, e);
         }
-		#endregion
+        #endregion
 
         #region Protected Virtual
         /// <summary>

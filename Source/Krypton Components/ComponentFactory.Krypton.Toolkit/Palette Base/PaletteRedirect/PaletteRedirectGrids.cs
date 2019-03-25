@@ -9,9 +9,9 @@
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -865,14 +865,20 @@ namespace ComponentFactory.Krypton.Toolkit
                         case PaletteBackStyle.GridDataCellList:
                         case PaletteBackStyle.GridDataCellSheet:
                         case PaletteBackStyle.GridDataCellCustom1:
+                        case PaletteBackStyle.GridDataCellCustom2:
+                        case PaletteBackStyle.GridDataCellCustom3:
                             return _grid.StateDisabled.DataCell.Back;
                         case PaletteBackStyle.GridHeaderColumnList:
                         case PaletteBackStyle.GridHeaderColumnSheet:
                         case PaletteBackStyle.GridHeaderColumnCustom1:
+                        case PaletteBackStyle.GridHeaderColumnCustom2:
+                        case PaletteBackStyle.GridHeaderColumnCustom3:
                             return _grid.StateDisabled.HeaderColumn.Back;
                         case PaletteBackStyle.GridHeaderRowList:
                         case PaletteBackStyle.GridHeaderRowSheet:
                         case PaletteBackStyle.GridHeaderRowCustom1:
+                        case PaletteBackStyle.GridHeaderRowCustom2:
+                        case PaletteBackStyle.GridHeaderRowCustom3:
                             return _grid.StateDisabled.HeaderRow.Back;
                     }
                     break;
@@ -886,14 +892,20 @@ namespace ComponentFactory.Krypton.Toolkit
                         case PaletteBackStyle.GridDataCellList:
                         case PaletteBackStyle.GridDataCellSheet:
                         case PaletteBackStyle.GridDataCellCustom1:
+                        case PaletteBackStyle.GridDataCellCustom2:
+                        case PaletteBackStyle.GridDataCellCustom3:
                             return _grid.StateNormal.DataCell.Back;
                         case PaletteBackStyle.GridHeaderColumnList:
                         case PaletteBackStyle.GridHeaderColumnSheet:
                         case PaletteBackStyle.GridHeaderColumnCustom1:
+                        case PaletteBackStyle.GridHeaderColumnCustom2:
+                        case PaletteBackStyle.GridHeaderColumnCustom3:
                             return _grid.StateNormal.HeaderColumn.Back;
                         case PaletteBackStyle.GridHeaderRowList:
                         case PaletteBackStyle.GridHeaderRowSheet:
                         case PaletteBackStyle.GridHeaderRowCustom1:
+                        case PaletteBackStyle.GridHeaderRowCustom2:
+                        case PaletteBackStyle.GridHeaderRowCustom3:
                             return _grid.StateNormal.HeaderRow.Back;
                     }
                     break;
@@ -903,10 +915,14 @@ namespace ComponentFactory.Krypton.Toolkit
                         case PaletteBackStyle.GridHeaderColumnList:
                         case PaletteBackStyle.GridHeaderColumnSheet:
                         case PaletteBackStyle.GridHeaderColumnCustom1:
+                        case PaletteBackStyle.GridHeaderColumnCustom2:
+                        case PaletteBackStyle.GridHeaderColumnCustom3:
                             return _grid.StatePressed.HeaderColumn.Back;
                         case PaletteBackStyle.GridHeaderRowList:
                         case PaletteBackStyle.GridHeaderRowSheet:
                         case PaletteBackStyle.GridHeaderRowCustom1:
+                        case PaletteBackStyle.GridHeaderRowCustom2:
+                        case PaletteBackStyle.GridHeaderRowCustom3:
                             return _grid.StatePressed.HeaderRow.Back;
                     }
                     break;
@@ -916,10 +932,14 @@ namespace ComponentFactory.Krypton.Toolkit
                         case PaletteBackStyle.GridHeaderColumnList:
                         case PaletteBackStyle.GridHeaderColumnSheet:
                         case PaletteBackStyle.GridHeaderColumnCustom1:
+                        case PaletteBackStyle.GridHeaderColumnCustom2:
+                        case PaletteBackStyle.GridHeaderColumnCustom3:
                             return _grid.StateTracking.HeaderColumn.Back;
                         case PaletteBackStyle.GridHeaderRowList:
                         case PaletteBackStyle.GridHeaderRowSheet:
                         case PaletteBackStyle.GridHeaderRowCustom1:
+                        case PaletteBackStyle.GridHeaderRowCustom2:
+                        case PaletteBackStyle.GridHeaderRowCustom3:
                             return _grid.StateTracking.HeaderRow.Back;
                     }
                     break;
@@ -929,14 +949,20 @@ namespace ComponentFactory.Krypton.Toolkit
                         case PaletteBackStyle.GridDataCellList:
                         case PaletteBackStyle.GridDataCellSheet:
                         case PaletteBackStyle.GridDataCellCustom1:
+                        case PaletteBackStyle.GridDataCellCustom2:
+                        case PaletteBackStyle.GridDataCellCustom3:
                             return _grid.StateSelected.DataCell.Back;
                         case PaletteBackStyle.GridHeaderColumnList:
                         case PaletteBackStyle.GridHeaderColumnSheet:
                         case PaletteBackStyle.GridHeaderColumnCustom1:
+                        case PaletteBackStyle.GridHeaderColumnCustom2:
+                        case PaletteBackStyle.GridHeaderColumnCustom3:
                             return _grid.StateSelected.HeaderColumn.Back;
                         case PaletteBackStyle.GridHeaderRowList:
                         case PaletteBackStyle.GridHeaderRowSheet:
                         case PaletteBackStyle.GridHeaderRowCustom1:
+                        case PaletteBackStyle.GridHeaderRowCustom2:
+                        case PaletteBackStyle.GridHeaderRowCustom3:
                             return _grid.StateSelected.HeaderRow.Back;
                     }
                     break;
@@ -957,14 +983,20 @@ namespace ComponentFactory.Krypton.Toolkit
                         case PaletteBorderStyle.GridDataCellList:
                         case PaletteBorderStyle.GridDataCellSheet:
                         case PaletteBorderStyle.GridDataCellCustom1:
+                        case PaletteBorderStyle.GridDataCellCustom2:
+                        case PaletteBorderStyle.GridDataCellCustom3:
                             return _grid.StateDisabled.DataCell.Border;
                         case PaletteBorderStyle.GridHeaderColumnList:
                         case PaletteBorderStyle.GridHeaderColumnSheet:
                         case PaletteBorderStyle.GridHeaderColumnCustom1:
+                        case PaletteBorderStyle.GridHeaderColumnCustom2:
+                        case PaletteBorderStyle.GridHeaderColumnCustom3:
                             return _grid.StateDisabled.HeaderColumn.Border;
                         case PaletteBorderStyle.GridHeaderRowList:
                         case PaletteBorderStyle.GridHeaderRowSheet:
                         case PaletteBorderStyle.GridHeaderRowCustom1:
+                        case PaletteBorderStyle.GridHeaderRowCustom2:
+                        case PaletteBorderStyle.GridHeaderRowCustom3:
                             return _grid.StateDisabled.HeaderRow.Border;
                     }
                     break;
@@ -974,14 +1006,20 @@ namespace ComponentFactory.Krypton.Toolkit
                         case PaletteBorderStyle.GridDataCellList:
                         case PaletteBorderStyle.GridDataCellSheet:
                         case PaletteBorderStyle.GridDataCellCustom1:
+                        case PaletteBorderStyle.GridDataCellCustom2:
+                        case PaletteBorderStyle.GridDataCellCustom3:
                             return _grid.StateNormal.DataCell.Border;
                         case PaletteBorderStyle.GridHeaderColumnList:
                         case PaletteBorderStyle.GridHeaderColumnSheet:
                         case PaletteBorderStyle.GridHeaderColumnCustom1:
+                        case PaletteBorderStyle.GridHeaderColumnCustom2:
+                        case PaletteBorderStyle.GridHeaderColumnCustom3:
                             return _grid.StateNormal.HeaderColumn.Border;
                         case PaletteBorderStyle.GridHeaderRowList:
                         case PaletteBorderStyle.GridHeaderRowSheet:
                         case PaletteBorderStyle.GridHeaderRowCustom1:
+                        case PaletteBorderStyle.GridHeaderRowCustom2:
+                        case PaletteBorderStyle.GridHeaderRowCustom3:
                             return _grid.StateNormal.HeaderRow.Border;
                     }
                     break;
@@ -991,10 +1029,14 @@ namespace ComponentFactory.Krypton.Toolkit
                         case PaletteBorderStyle.GridHeaderColumnList:
                         case PaletteBorderStyle.GridHeaderColumnSheet:
                         case PaletteBorderStyle.GridHeaderColumnCustom1:
+                        case PaletteBorderStyle.GridHeaderColumnCustom2:
+                        case PaletteBorderStyle.GridHeaderColumnCustom3:
                             return _grid.StatePressed.HeaderColumn.Border;
                         case PaletteBorderStyle.GridHeaderRowList:
                         case PaletteBorderStyle.GridHeaderRowSheet:
                         case PaletteBorderStyle.GridHeaderRowCustom1:
+                        case PaletteBorderStyle.GridHeaderRowCustom2:
+                        case PaletteBorderStyle.GridHeaderRowCustom3:
                             return _grid.StatePressed.HeaderRow.Border;
                     }
                     break;
@@ -1004,10 +1046,14 @@ namespace ComponentFactory.Krypton.Toolkit
                         case PaletteBorderStyle.GridHeaderColumnList:
                         case PaletteBorderStyle.GridHeaderColumnSheet:
                         case PaletteBorderStyle.GridHeaderColumnCustom1:
+                        case PaletteBorderStyle.GridHeaderColumnCustom2:
+                        case PaletteBorderStyle.GridHeaderColumnCustom3:
                             return _grid.StateTracking.HeaderColumn.Border;
                         case PaletteBorderStyle.GridHeaderRowList:
                         case PaletteBorderStyle.GridHeaderRowSheet:
                         case PaletteBorderStyle.GridHeaderRowCustom1:
+                        case PaletteBorderStyle.GridHeaderRowCustom2:
+                        case PaletteBorderStyle.GridHeaderRowCustom3:
                             return _grid.StateTracking.HeaderRow.Border;
                     }
                     break;
@@ -1017,14 +1063,20 @@ namespace ComponentFactory.Krypton.Toolkit
                         case PaletteBorderStyle.GridDataCellList:
                         case PaletteBorderStyle.GridDataCellSheet:
                         case PaletteBorderStyle.GridDataCellCustom1:
+                        case PaletteBorderStyle.GridDataCellCustom2:
+                        case PaletteBorderStyle.GridDataCellCustom3:
                             return _grid.StateSelected.DataCell.Border;
                         case PaletteBorderStyle.GridHeaderColumnList:
                         case PaletteBorderStyle.GridHeaderColumnSheet:
                         case PaletteBorderStyle.GridHeaderColumnCustom1:
+                        case PaletteBorderStyle.GridHeaderColumnCustom2:
+                        case PaletteBorderStyle.GridHeaderColumnCustom3:
                             return _grid.StateSelected.HeaderColumn.Border;
                         case PaletteBorderStyle.GridHeaderRowList:
                         case PaletteBorderStyle.GridHeaderRowSheet:
                         case PaletteBorderStyle.GridHeaderRowCustom1:
+                        case PaletteBorderStyle.GridHeaderRowCustom2:
+                        case PaletteBorderStyle.GridHeaderRowCustom3:
                             return _grid.StateSelected.HeaderRow.Border;
                     }
                     break;
@@ -1045,14 +1097,20 @@ namespace ComponentFactory.Krypton.Toolkit
                         case PaletteContentStyle.GridDataCellList:
                         case PaletteContentStyle.GridDataCellSheet:
                         case PaletteContentStyle.GridDataCellCustom1:
+                        case PaletteContentStyle.GridDataCellCustom2:
+                        case PaletteContentStyle.GridDataCellCustom3:
                             return _grid.StateDisabled.DataCell.Content;
                         case PaletteContentStyle.GridHeaderColumnList:
                         case PaletteContentStyle.GridHeaderColumnSheet:
                         case PaletteContentStyle.GridHeaderColumnCustom1:
+                        case PaletteContentStyle.GridHeaderColumnCustom2:
+                        case PaletteContentStyle.GridHeaderColumnCustom3:
                             return _grid.StateDisabled.HeaderColumn.Content;
                         case PaletteContentStyle.GridHeaderRowList:
                         case PaletteContentStyle.GridHeaderRowSheet:
                         case PaletteContentStyle.GridHeaderRowCustom1:
+                        case PaletteContentStyle.GridHeaderRowCustom2:
+                        case PaletteContentStyle.GridHeaderRowCustom3:
                             return _grid.StateDisabled.HeaderRow.Content;
                     }
                     break;
@@ -1062,14 +1120,18 @@ namespace ComponentFactory.Krypton.Toolkit
                         case PaletteContentStyle.GridDataCellList:
                         case PaletteContentStyle.GridDataCellSheet:
                         case PaletteContentStyle.GridDataCellCustom1:
-                            return _grid.StateNormal.DataCell.Content;
-                        case PaletteContentStyle.GridHeaderColumnList:
+                        case PaletteContentStyle.GridDataCellCustom2:
+                        case PaletteContentStyle.GridDataCellCustom3:
                         case PaletteContentStyle.GridHeaderColumnSheet:
                         case PaletteContentStyle.GridHeaderColumnCustom1:
+                        case PaletteContentStyle.GridHeaderColumnCustom2:
+                        case PaletteContentStyle.GridHeaderColumnCustom3:
                             return _grid.StateNormal.HeaderColumn.Content;
                         case PaletteContentStyle.GridHeaderRowList:
                         case PaletteContentStyle.GridHeaderRowSheet:
                         case PaletteContentStyle.GridHeaderRowCustom1:
+                        case PaletteContentStyle.GridHeaderRowCustom2:
+                        case PaletteContentStyle.GridHeaderRowCustom3:
                             return _grid.StateNormal.HeaderRow.Content;
                     }
                     break;
@@ -1079,10 +1141,14 @@ namespace ComponentFactory.Krypton.Toolkit
                         case PaletteContentStyle.GridHeaderColumnList:
                         case PaletteContentStyle.GridHeaderColumnSheet:
                         case PaletteContentStyle.GridHeaderColumnCustom1:
+                        case PaletteContentStyle.GridHeaderColumnCustom2:
+                        case PaletteContentStyle.GridHeaderColumnCustom3:
                             return _grid.StatePressed.HeaderColumn.Content;
                         case PaletteContentStyle.GridHeaderRowList:
                         case PaletteContentStyle.GridHeaderRowSheet:
                         case PaletteContentStyle.GridHeaderRowCustom1:
+                        case PaletteContentStyle.GridHeaderRowCustom2:
+                        case PaletteContentStyle.GridHeaderRowCustom3:
                             return _grid.StatePressed.HeaderRow.Content;
                     }
                     break;
@@ -1092,10 +1158,14 @@ namespace ComponentFactory.Krypton.Toolkit
                         case PaletteContentStyle.GridHeaderColumnList:
                         case PaletteContentStyle.GridHeaderColumnSheet:
                         case PaletteContentStyle.GridHeaderColumnCustom1:
+                        case PaletteContentStyle.GridHeaderColumnCustom2:
+                        case PaletteContentStyle.GridHeaderColumnCustom3:
                             return _grid.StateTracking.HeaderColumn.Content;
                         case PaletteContentStyle.GridHeaderRowList:
                         case PaletteContentStyle.GridHeaderRowSheet:
                         case PaletteContentStyle.GridHeaderRowCustom1:
+                        case PaletteContentStyle.GridHeaderRowCustom2:
+                        case PaletteContentStyle.GridHeaderRowCustom3:
                             return _grid.StateTracking.HeaderRow.Content;
                     }
                     break;
@@ -1105,14 +1175,18 @@ namespace ComponentFactory.Krypton.Toolkit
                         case PaletteContentStyle.GridDataCellList:
                         case PaletteContentStyle.GridDataCellSheet:
                         case PaletteContentStyle.GridDataCellCustom1:
-                            return _grid.StateSelected.DataCell.Content;
-                        case PaletteContentStyle.GridHeaderColumnList:
+                        case PaletteContentStyle.GridDataCellCustom2:
+                        case PaletteContentStyle.GridDataCellCustom3:
                         case PaletteContentStyle.GridHeaderColumnSheet:
                         case PaletteContentStyle.GridHeaderColumnCustom1:
+                        case PaletteContentStyle.GridHeaderColumnCustom2:
+                        case PaletteContentStyle.GridHeaderColumnCustom3:
                             return _grid.StateSelected.HeaderColumn.Content;
                         case PaletteContentStyle.GridHeaderRowList:
                         case PaletteContentStyle.GridHeaderRowSheet:
                         case PaletteContentStyle.GridHeaderRowCustom1:
+                        case PaletteContentStyle.GridHeaderRowCustom2:
+                        case PaletteContentStyle.GridHeaderRowCustom3:
                             return _grid.StateSelected.HeaderRow.Content;
                     }
                     break;

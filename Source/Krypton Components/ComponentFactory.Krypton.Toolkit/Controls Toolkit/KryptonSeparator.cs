@@ -10,10 +10,10 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
 using System.ComponentModel;
-using System.Windows.Forms;
+using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [DefaultEvent("SplitterMoved")]
     [DefaultProperty("Orientation")]
     [DesignerCategory("code")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonSeparatorDesigner))]
+    [Designer(typeof(KryptonSeparatorDesigner))]
     [Description("Display a separator generated events to operation.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
@@ -91,7 +91,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Behavior")]
         [Description("Occurs when the separator is about to be moved and requests the rectangle of allowed movement.")]
         public event EventHandler<SplitterMoveRectMenuArgs> SplitterMoveRect;
-        
+
         /// <summary>
         /// Occurs when the separator move finishes and a move has occured.
         /// </summary>
@@ -128,7 +128,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 PaletteBorderStyle.ControlClient, PaletteBackStyle.SeparatorHighProfile,
                 PaletteBorderStyle.SeparatorHighProfile, NeedPaintDelegate)
             {
-                BorderRedirect = {OverrideBorderToFalse = true}
+                BorderRedirect = { OverrideBorderToFalse = true }
             };
 
             // Never draw the border around the background
@@ -195,7 +195,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // message filter that would prevent it from being garbage collected
                 _separatorController.Dispose();
             }
-            
+
             base.Dispose(disposing);
         }
         #endregion

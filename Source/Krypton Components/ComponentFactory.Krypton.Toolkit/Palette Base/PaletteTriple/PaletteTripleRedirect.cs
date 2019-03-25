@@ -283,6 +283,11 @@ namespace ComponentFactory.Krypton.Toolkit
                               PaletteBorderStyle.HeaderCustom2,
                               PaletteContentStyle.HeaderCustom2);
                     break;
+                case HeaderStyle.Custom3:
+                    SetStyles(PaletteBackStyle.HeaderCustom3,
+                        PaletteBorderStyle.HeaderCustom3,
+                        PaletteContentStyle.HeaderCustom3);
+                    break;
                 default:
                     // Should never happen!
                     Debug.Assert(false);

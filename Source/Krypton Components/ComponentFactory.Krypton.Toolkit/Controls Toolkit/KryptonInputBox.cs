@@ -10,8 +10,8 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -43,7 +43,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Identity
-        private KryptonInputBox(string prompt, 
+        private KryptonInputBox(string prompt,
                                 string caption,
                                 string defaultResposne)
         {
@@ -133,7 +133,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             return InternalShow(null, prompt, caption, defaultResponse);
         }
-        
+
         /// <summary>
         /// DDisplays an input box in front of the specified object and with the provided prompt and caption and defaulted response string.
         /// </summary>
@@ -150,7 +150,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Implementation
         private static string InternalShow(IWin32Window owner,
-                                           string prompt, 
+                                           string prompt,
                                            string caption,
                                            string defaultResponse)
         {
@@ -204,7 +204,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 float factorY = g.DpiY > 96 ? ((1.0f * g.DpiY) / 96) : 1.0f;
                 messageSize.Width = (int)(messageSize.Width * factorX);
                 messageSize.Height = (int)(messageSize.Height * factorY);
-                
+
                 _labelPrompt.Location = new Point(GAP, GAP);
                 _labelPrompt.Size = new Size(255, Math.Max(messageSize.Height, _buttonCancel.Bottom - _buttonOK.Top));
 

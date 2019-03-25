@@ -9,7 +9,6 @@
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +17,8 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
+using Microsoft.Win32;
+
 namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
@@ -25,7 +26,7 @@ namespace ComponentFactory.Krypton.Toolkit
     /// </summary>
     [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonManager), "ToolboxBitmaps.KryptonManager.bmp")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonManagerDesigner))]
+    [Designer(typeof(KryptonManagerDesigner))]
     [DefaultProperty("GlobalPaletteMode")]
     [Description("Access global Krypton settings.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]

@@ -1390,6 +1390,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     return PaletteMetricPadding.SeparatorPaddingHighInternalProfile;
                 case SeparatorStyle.Custom1:
                     return PaletteMetricPadding.SeparatorPaddingCustom1;
+                case SeparatorStyle.Custom2:
+                    return PaletteMetricPadding.SeparatorPaddingCustom2;
+                case SeparatorStyle.Custom3:
+                    return PaletteMetricPadding.SeparatorPaddingCustom3;
                 default:
                     // Should never happen!
                     Debug.Assert(false);

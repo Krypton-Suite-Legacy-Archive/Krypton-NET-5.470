@@ -42,7 +42,9 @@ namespace ComponentFactory.Krypton.Toolkit
             new Pair(HeaderStyle.Form,         "Form"), 
             new Pair(HeaderStyle.Calendar,     "Calendar"), 
             new Pair(HeaderStyle.Custom1,      "Custom1"),
-            new Pair(HeaderStyle.Custom2,      "Custom2"),  };
+            new Pair(HeaderStyle.Custom2,      "Custom2"),
+            new Pair(HeaderStyle.Custom3,      "Custom3")
+        };
 
         #endregion
     }

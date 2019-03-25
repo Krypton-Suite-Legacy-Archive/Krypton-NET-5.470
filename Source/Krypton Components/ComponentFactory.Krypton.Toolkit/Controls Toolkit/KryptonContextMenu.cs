@@ -10,11 +10,11 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
-using System.Windows.Forms;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [DefaultEvent("Opening")]
     [DefaultProperty("PaletteMode")]
     [DesignerCategory("code")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonContextMenuDesigner))]
+    [Designer(typeof(KryptonContextMenuDesigner))]
     [Description("Displays a shortcut menu in popup window.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
@@ -110,7 +110,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             base.Dispose(disposing);
-        }        
+        }
         #endregion
 
         #region Public
@@ -126,7 +126,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             return !Images.IsDefault;
         }
-        
+
         /// <summary>
         /// Gets access to the common context menu appearance entries that other states can override.
         /// </summary>
@@ -405,7 +405,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     CloseReason = ToolStripDropDownCloseReason.AppFocusChange;
 
                     // Create the actual control used to show the context menu
-                    VisualContextMenu = CreateContextMenu(this, Palette, PaletteMode, 
+                    VisualContextMenu = CreateContextMenu(this, Palette, PaletteMode,
                                                      _redirector, _redirectorImages,
                                                      Items, Enabled, keyboardActivated);
 

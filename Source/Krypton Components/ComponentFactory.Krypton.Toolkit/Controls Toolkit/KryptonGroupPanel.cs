@@ -1,4 +1,4 @@
-﻿    // *****************************************************************************
+﻿// *****************************************************************************
 // BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
 //  © Component Factory Pty Ltd, 2006-2019, All rights reserved.
 // The software and associated documentation supplied hereunder are the 
@@ -10,26 +10,26 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
 using System.ComponentModel;
-using System.Windows.Forms;
+using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Special panel used in the KryptonGroup and KryptonHeaderGroup controls.
-	/// </summary>
-	[ToolboxItem(false)]
-	[DesignerCategory("code")]
+    /// </summary>
+    [ToolboxItem(false)]
+    [DesignerCategory("code")]
     [ToolboxBitmap(typeof(KryptonGroupPanel), "ToolboxBitmaps.KryptonGroupPanel.bmp")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonGroupPanelDesigner))]
+    [Designer(typeof(KryptonGroupPanelDesigner))]
     [Description("Enables you to group collections of controls.")]
     [Docking(DockingBehavior.Never)]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     public sealed class KryptonGroupPanel : KryptonPanel
-	{
+    {
         #region Instance Fields
         private readonly PaletteBackInheritForced _forcedDisabled;
         private readonly PaletteBackInheritForced _forcedNormal;
@@ -41,52 +41,52 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// Occurs when the value of the AutoSize property changes.
 		/// </summary>
 		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new event EventHandler AutoSizeChanged;
 
-		/// <summary>
-		/// Occurs when the value of the Dock property changes.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new event EventHandler DockChanged;
+        /// <summary>
+        /// Occurs when the value of the Dock property changes.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new event EventHandler DockChanged;
 
-		/// <summary>
-		/// Occurs when the value of the Location property changes.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new event EventHandler LocationChanged;
+        /// <summary>
+        /// Occurs when the value of the Location property changes.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new event EventHandler LocationChanged;
 
-		/// <summary>
-		/// Occurs when the value of the TabIndex property changes.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new event EventHandler TabIndexChanged;
+        /// <summary>
+        /// Occurs when the value of the TabIndex property changes.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new event EventHandler TabIndexChanged;
 
-		/// <summary>
-		/// Occurs when the value of the TabStop property changes.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new event EventHandler TabStopChanged;
+        /// <summary>
+        /// Occurs when the value of the TabStop property changes.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new event EventHandler TabStopChanged;
 
-		/// <summary>
-		/// Occurs when the value of the Visible property changes.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new event EventHandler VisibleChanged;
-		#endregion
+        /// <summary>
+        /// Occurs when the value of the Visible property changes.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new event EventHandler VisibleChanged;
+        #endregion
 
-		#region Identity
+        #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonGroupPanel class.
         /// </summary>
@@ -118,129 +118,129 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Make sure the alignment of the group panel is as that of the parent
             ViewManager.AlignControl = alignControl;
-		}
+        }
         #endregion
 
-		#region Public
-		/// <summary>
-		/// Gets or sets how a KryptonSplitterPanel attaches to the edges of the KryptonSplitContainer.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public override AnchorStyles Anchor
-		{
-			get { return base.Anchor; }
-            set { /* Ignore request */ }
-		}
-
-		/// <summary>
-		/// Gets or sets a value indicating whether the KryptonSplitterPanel is automatically resized to display its entire contents.
-		/// </summary>
-		[Browsable(false)]
-		[Bindable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public override bool AutoSize
-		{
-			get { return base.AutoSize; }
-            set { /* Ignore request */ }
-		}
-
-		/// <summary>
-		/// Gets or sets a value indicating whether the control is automatically resized to display its entire contents.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public override AutoSizeMode AutoSizeMode
-		{
-			get { return base.AutoSizeMode; }
-			set { /* Ignore request */ }
-		}
-
-		/// <summary>
-		/// Gets or sets the border style for the KryptonSplitterPanel. 
-		/// </summary>
+        #region Public
+        /// <summary>
+        /// Gets or sets how a KryptonSplitterPanel attaches to the edges of the KryptonSplitContainer.
+        /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new BorderStyle BorderStyle
-		{
-			get { return base.BorderStyle; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public override AnchorStyles Anchor
+        {
+            get { return base.Anchor; }
             set { /* Ignore request */ }
-		}
+        }
 
-		/// <summary>
-		/// Gets or sets which edge of the KryptonSplitContainer that the KryptonSplitterPanel is docked to. 
-		/// </summary>
-		[Browsable(false)]
-		[Bindable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public override DockStyle Dock
-		{
-			get { return base.Dock; }
-            set { /* Ignore request */ }
-		}
-
-		/// <summary>
-		/// Gets the internal spacing between the KryptonSplitterPanel and its edges.
-		/// </summary>
-		[Browsable(false)]
-		[Bindable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new DockPaddingEdges DockPadding => base.DockPadding;
-
-	    /// <summary>
-		/// Gets or sets the height of the KryptonGroupPanel. 
-		/// </summary>
+        /// <summary>
+        /// Gets or sets a value indicating whether the KryptonSplitterPanel is automatically resized to display its entire contents.
+        /// </summary>
         [Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Always)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new int Height
-		{
-			get => base.Height;
-		    set => base.Height = value;
-		}
+        [Bindable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public override bool AutoSize
+        {
+            get { return base.AutoSize; }
+            set { /* Ignore request */ }
+        }
 
-		/// <summary>
-		/// Gets or sets the coordinates of the upper-left corner of the KryptonSplitterPanel relative to the upper-left corner of its KryptonSplitContainer. 
-		/// </summary>
-		[Browsable(false)]
-		[Bindable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new Point Location
-		{
-			get => base.Location;
-		    set => base.Location = value;
-		}
+        /// <summary>
+        /// Gets or sets a value indicating whether the control is automatically resized to display its entire contents.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public override AutoSizeMode AutoSizeMode
+        {
+            get { return base.AutoSizeMode; }
+            set { /* Ignore request */ }
+        }
 
-		/// <summary>
-		/// The name of this KryptonSplitterPanel.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new string Name
-		{
-			get => base.Name;
-		    set => base.Name = value;
-		}
+        /// <summary>
+        /// Gets or sets the border style for the KryptonSplitterPanel. 
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new BorderStyle BorderStyle
+        {
+            get { return base.BorderStyle; }
+            set { /* Ignore request */ }
+        }
 
-		/// <summary>
-		/// The name of this KryptonSplitterPanel.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new Control Parent
-		{
-			get => base.Parent;
-		    set => base.Parent = value;
-		}
+        /// <summary>
+        /// Gets or sets which edge of the KryptonSplitContainer that the KryptonSplitterPanel is docked to. 
+        /// </summary>
+        [Browsable(false)]
+        [Bindable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public override DockStyle Dock
+        {
+            get { return base.Dock; }
+            set { /* Ignore request */ }
+        }
+
+        /// <summary>
+        /// Gets the internal spacing between the KryptonSplitterPanel and its edges.
+        /// </summary>
+        [Browsable(false)]
+        [Bindable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new DockPaddingEdges DockPadding => base.DockPadding;
+
+        /// <summary>
+        /// Gets or sets the height of the KryptonGroupPanel. 
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new int Height
+        {
+            get => base.Height;
+            set => base.Height = value;
+        }
+
+        /// <summary>
+        /// Gets or sets the coordinates of the upper-left corner of the KryptonSplitterPanel relative to the upper-left corner of its KryptonSplitContainer. 
+        /// </summary>
+        [Browsable(false)]
+        [Bindable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new Point Location
+        {
+            get => base.Location;
+            set => base.Location = value;
+        }
+
+        /// <summary>
+        /// The name of this KryptonSplitterPanel.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new string Name
+        {
+            get => base.Name;
+            set => base.Name = value;
+        }
+
+        /// <summary>
+        /// The name of this KryptonSplitterPanel.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new Control Parent
+        {
+            get => base.Parent;
+            set => base.Parent = value;
+        }
 
         /// <summary>
         /// Gets or sets the height and width of the KryptonSplitterPanel.
@@ -255,53 +255,53 @@ namespace ComponentFactory.Krypton.Toolkit
             set => base.Size = value;
         }
 
-		/// <summary>
-		/// Gets or sets the tab order of the KryptonSplitterPanel within its KryptonSplitContainer.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new int TabIndex
-		{
-			get => base.TabIndex;
-		    set => base.TabIndex = value;
-		}
+        /// <summary>
+        /// Gets or sets the tab order of the KryptonSplitterPanel within its KryptonSplitContainer.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new int TabIndex
+        {
+            get => base.TabIndex;
+            set => base.TabIndex = value;
+        }
 
-		/// <summary>
-		/// Gets or sets a value indicating whether the user can give the focus to this KryptonSplitterPanel using the TAB key.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new bool TabStop
-		{
-			get => base.TabStop;
-		    set => base.TabStop = value;
-		}
+        /// <summary>
+        /// Gets or sets a value indicating whether the user can give the focus to this KryptonSplitterPanel using the TAB key.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new bool TabStop
+        {
+            get => base.TabStop;
+            set => base.TabStop = value;
+        }
 
-		/// <summary>
-		/// Gets or sets a value indicating whether the KryptonSplitterPanel is displayed.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new bool Visible
-		{
-			get => base.Visible;
-		    set => base.Visible = value;
-		}
+        /// <summary>
+        /// Gets or sets a value indicating whether the KryptonSplitterPanel is displayed.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new bool Visible
+        {
+            get => base.Visible;
+            set => base.Visible = value;
+        }
 
-		/// <summary>
-		/// Gets or sets the width of the KryptonSplitterPanel. 
-		/// </summary>
+        /// <summary>
+        /// Gets or sets the width of the KryptonSplitterPanel. 
+        /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Always)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new int Width
-		{
-			get => base.Width;
-		    set => base.Width = value;
-		}
+        {
+            get => base.Width;
+            set => base.Width = value;
+        }
 
         /// <summary>
         /// Gets or sets the palette to be applied.
@@ -338,7 +338,7 @@ namespace ComponentFactory.Krypton.Toolkit
             get => base.PanelBackStyle;
             set => base.PanelBackStyle = value;
         }
-        
+
         /// <summary>
         /// Gets access to the common panel appearance that other states can override.
         /// </summary>
@@ -347,7 +347,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new PaletteBack StateCommon => base.StateCommon;
 
-	    /// <summary>
+        /// <summary>
         /// Gets access to the disabled panel appearance.
         /// </summary>
         [Browsable(false)]
@@ -355,7 +355,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new PaletteBack StateDisabled => base.StateDisabled;
 
-	    /// <summary>
+        /// <summary>
         /// Gets access to the normal panel appearance.
         /// </summary>
         [Browsable(false)]
@@ -363,15 +363,15 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new PaletteBack StateNormal => base.StateNormal;
 
-	    #endregion
+        #endregion
 
-		#region Protected Overrides
-		/// <summary>
-		/// Gets the space, in pixels, that is specified by default between controls.
-		/// </summary>
-		protected override Padding DefaultMargin => new Padding(0, 0, 0, 0);
+        #region Protected Overrides
+        /// <summary>
+        /// Gets the space, in pixels, that is specified by default between controls.
+        /// </summary>
+        protected override Padding DefaultMargin => new Padding(0, 0, 0, 0);
 
-	    /// <summary>
+        /// <summary>
         /// Raises the Layout event.
         /// </summary>
         /// <param name="levent">A LayoutEventArgs that contains the event data.</param>
@@ -401,7 +401,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected override Control TransparentParent
         {
-            get 
+            get
             {
                 // Just in case there is not a parent yet
                 if (Parent == null)
@@ -418,67 +418,67 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Raises the AutoSizeChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs containing the event data.</param>
-		protected override void OnAutoSizeChanged(EventArgs e)
-		{
+        /// <summary>
+        /// Raises the AutoSizeChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs containing the event data.</param>
+        protected override void OnAutoSizeChanged(EventArgs e)
+        {
             AutoSizeChanged?.Invoke(this, e);
 
             base.OnAutoSizeChanged(e);
-		}
+        }
 
-		/// <summary>
-		/// Raises the DockChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs containing the event data.</param>
-		protected override void OnDockChanged(EventArgs e)
-		{
+        /// <summary>
+        /// Raises the DockChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs containing the event data.</param>
+        protected override void OnDockChanged(EventArgs e)
+        {
             DockChanged?.Invoke(this, e);
 
             base.OnDockChanged(e);
         }
 
-		/// <summary>
-		/// Raises the LocationChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs containing the event data.</param>
-		protected override void OnLocationChanged(EventArgs e)
-		{
+        /// <summary>
+        /// Raises the LocationChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs containing the event data.</param>
+        protected override void OnLocationChanged(EventArgs e)
+        {
             LocationChanged?.Invoke(this, e);
 
             base.OnLocationChanged(e);
         }
 
-		/// <summary>
-		/// Raises the TabIndexChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs containing the event data.</param>
-		protected override void OnTabIndexChanged(EventArgs e)
-		{
+        /// <summary>
+        /// Raises the TabIndexChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs containing the event data.</param>
+        protected override void OnTabIndexChanged(EventArgs e)
+        {
             TabIndexChanged?.Invoke(this, e);
 
             base.OnTabIndexChanged(e);
         }
 
-		/// <summary>
-		/// Raises the TabStopChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs containing the event data.</param>
-		protected override void OnTabStopChanged(EventArgs e)
-		{
+        /// <summary>
+        /// Raises the TabStopChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs containing the event data.</param>
+        protected override void OnTabStopChanged(EventArgs e)
+        {
             TabStopChanged?.Invoke(this, e);
 
             base.OnTabStopChanged(e);
         }
 
-		/// <summary>
-		/// Raises the VisibleChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs containing the event data.</param>
-		protected override void OnVisibleChanged(EventArgs e)
-		{
+        /// <summary>
+        /// Raises the VisibleChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs containing the event data.</param>
+        protected override void OnVisibleChanged(EventArgs e)
+        {
             VisibleChanged?.Invoke(this, e);
 
             base.OnVisibleChanged(e);
