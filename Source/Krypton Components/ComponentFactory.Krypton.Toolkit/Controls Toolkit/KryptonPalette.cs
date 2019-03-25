@@ -7616,6 +7616,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     return HeaderStyles.HeaderCustom1.StateCommon.GetMetricInt(state, metric);
                 case PaletteMetricInt.HeaderButtonEdgeInsetCustom2:
                     return HeaderStyles.HeaderCustom2.StateCommon.GetMetricInt(state, metric);
+                case PaletteMetricInt.HeaderButtonEdgeInsetCustom3:
+                    return HeaderStyles.HeaderCustom3.StateCommon.GetMetricInt(state, metric);
             }
 
             // Otherwise use base instance for the value instead
@@ -7677,6 +7679,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     return HeaderStyles.HeaderCustom1.StateCommon.GetMetricPadding(state, metric);
                 case PaletteMetricPadding.HeaderButtonPaddingCustom2:
                     return HeaderStyles.HeaderCustom2.StateCommon.GetMetricPadding(state, metric);
+                case PaletteMetricPadding.HeaderButtonPaddingCustom3:
+                    return HeaderStyles.HeaderCustom3.StateCommon.GetMetricPadding(state, metric);
                 case PaletteMetricPadding.SeparatorPaddingLowProfile:
                     switch (state)
                     {
@@ -7715,6 +7719,32 @@ namespace ComponentFactory.Krypton.Toolkit
                             return SeparatorStyles.SeparatorCustom1.StateTracking.GetMetricPadding(state, metric);
                         case PaletteState.Pressed:
                             return SeparatorStyles.SeparatorCustom1.StatePressed.GetMetricPadding(state, metric);
+                    }
+                    break;
+                case PaletteMetricPadding.SeparatorPaddingCustom2:
+                    switch (state)
+                    {
+                        case PaletteState.Disabled:
+                            return SeparatorStyles.SeparatorCustom2.StateDisabled.GetMetricPadding(state, metric);
+                        case PaletteState.Normal:
+                            return SeparatorStyles.SeparatorCustom2.StateNormal.GetMetricPadding(state, metric);
+                        case PaletteState.Tracking:
+                            return SeparatorStyles.SeparatorCustom2.StateTracking.GetMetricPadding(state, metric);
+                        case PaletteState.Pressed:
+                            return SeparatorStyles.SeparatorCustom2.StatePressed.GetMetricPadding(state, metric);
+                    }
+                    break;
+                case PaletteMetricPadding.SeparatorPaddingCustom3:
+                    switch (state)
+                    {
+                        case PaletteState.Disabled:
+                            return SeparatorStyles.SeparatorCustom3.StateDisabled.GetMetricPadding(state, metric);
+                        case PaletteState.Normal:
+                            return SeparatorStyles.SeparatorCustom3.StateNormal.GetMetricPadding(state, metric);
+                        case PaletteState.Tracking:
+                            return SeparatorStyles.SeparatorCustom3.StateTracking.GetMetricPadding(state, metric);
+                        case PaletteState.Pressed:
+                            return SeparatorStyles.SeparatorCustom3.StatePressed.GetMetricPadding(state, metric);
                     }
                     break;
             }
@@ -11015,40 +11045,68 @@ namespace ComponentFactory.Krypton.Toolkit
                     return GetPaletteBackControl(ControlStyles.ControlRibbonAppMenu, state);
                 case PaletteBackStyle.ControlCustom1:
                     return GetPaletteBackControl(ControlStyles.ControlCustom1, state);
+                case PaletteBackStyle.ControlCustom2:
+                    return GetPaletteBackControl(ControlStyles.ControlCustom2, state);
+                case PaletteBackStyle.ControlCustom3:
+                    return GetPaletteBackControl(ControlStyles.ControlCustom3, state);
                 case PaletteBackStyle.InputControlStandalone:
                     return GetPaletteInputControl(InputControlStyles.InputControlStandalone, state).Back;
                 case PaletteBackStyle.InputControlRibbon:
                     return GetPaletteInputControl(InputControlStyles.InputControlRibbon, state).Back;
                 case PaletteBackStyle.InputControlCustom1:
                     return GetPaletteInputControl(InputControlStyles.InputControlCustom1, state).Back;
+                case PaletteBackStyle.InputControlCustom2:
+                    return GetPaletteInputControl(InputControlStyles.InputControlCustom2, state).Back;
+                case PaletteBackStyle.InputControlCustom3:
+                    return GetPaletteInputControl(InputControlStyles.InputControlCustom3, state).Back;
                 case PaletteBackStyle.FormMain:
                     return GetPaletteBackForm(FormStyles.FormMain, state);
                 case PaletteBackStyle.FormCustom1:
                     return GetPaletteBackForm(FormStyles.FormCustom1, state);
+                case PaletteBackStyle.FormCustom2:
+                    return GetPaletteBackForm(FormStyles.FormCustom2, state);
+                case PaletteBackStyle.FormCustom3:
+                    return GetPaletteBackForm(FormStyles.FormCustom3, state);
                 case PaletteBackStyle.GridBackgroundList:
                     return GetPaletteBackGridBackground(GridStyles.GridList, state);
                 case PaletteBackStyle.GridBackgroundSheet:
                     return GetPaletteBackGridBackground(GridStyles.GridSheet, state);
                 case PaletteBackStyle.GridBackgroundCustom1:
                     return GetPaletteBackGridBackground(GridStyles.GridCustom1, state);
+                case PaletteBackStyle.GridBackgroundCustom3:
+                    return GetPaletteBackGridBackground(GridStyles.GridCustom2, state);
+                case PaletteBackStyle.GridBackgroundCustom3:
+                    return GetPaletteBackGridBackground(GridStyles.GridCustom3, state);
                 case PaletteBackStyle.GridHeaderColumnList:
                     return GetPaletteBackGridHeaderColumn(GridStyles.GridList, state);
                 case PaletteBackStyle.GridHeaderColumnSheet:
                     return GetPaletteBackGridHeaderColumn(GridStyles.GridSheet, state);
                 case PaletteBackStyle.GridHeaderColumnCustom1:
                     return GetPaletteBackGridHeaderColumn(GridStyles.GridCustom1, state);
+                case PaletteBackStyle.GridHeaderColumnCustom2:
+                    return GetPaletteBackGridHeaderColumn(GridStyles.GridCustom2, state);
+                case PaletteBackStyle.GridHeaderColumnCustom3:
+                    return GetPaletteBackGridHeaderColumn(GridStyles.GridCustom3, state);
                 case PaletteBackStyle.GridHeaderRowList:
                     return GetPaletteBackGridHeaderRow(GridStyles.GridList, state);
                 case PaletteBackStyle.GridHeaderRowSheet:
                     return GetPaletteBackGridHeaderRow(GridStyles.GridSheet, state);
                 case PaletteBackStyle.GridHeaderRowCustom1:
                     return GetPaletteBackGridHeaderRow(GridStyles.GridCustom1, state);
+                case PaletteBackStyle.GridHeaderRowCustom2:
+                    return GetPaletteBackGridHeaderRow(GridStyles.GridCustom2, state);
+                case PaletteBackStyle.GridHeaderRowCustom3:
+                    return GetPaletteBackGridHeaderRow(GridStyles.GridCustom3, state);
                 case PaletteBackStyle.GridDataCellList:
                     return GetPaletteBackGridDataCell(GridStyles.GridList, state);
                 case PaletteBackStyle.GridDataCellSheet:
                     return GetPaletteBackGridDataCell(GridStyles.GridSheet, state);
                 case PaletteBackStyle.GridDataCellCustom1:
                     return GetPaletteBackGridDataCell(GridStyles.GridCustom1, state);
+                case PaletteBackStyle.GridDataCellCustom2:
+                    return GetPaletteBackGridDataCell(GridStyles.GridCustom2, state);
+                case PaletteBackStyle.GridDataCellCustom3:
+                    return GetPaletteBackGridDataCell(GridStyles.GridCustom3, state);
                 case PaletteBackStyle.HeaderPrimary:
                     return GetPaletteBackHeader(HeaderStyles.HeaderPrimary, state);
                 case PaletteBackStyle.HeaderSecondary:
@@ -11065,6 +11123,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     return GetPaletteBackHeader(HeaderStyles.HeaderCustom1, state);
                 case PaletteBackStyle.HeaderCustom2:
                     return GetPaletteBackHeader(HeaderStyles.HeaderCustom2, state);
+                case PaletteBackStyle.HeaderCustom3:
+                    return GetPaletteBackHeader(HeaderStyles.HeaderCustom3, state);
                 case PaletteBackStyle.PanelClient:
                     return GetPalettePanel(PanelStyles.PanelClient, state);
                 case PaletteBackStyle.PanelAlternate:
@@ -11073,6 +11133,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     return GetPalettePanel(PanelStyles.PanelRibbonInactive, state);
                 case PaletteBackStyle.PanelCustom1:
                     return GetPalettePanel(PanelStyles.PanelCustom1, state);
+                case PaletteBackStyle.PanelCustom2:
+                    return GetPalettePanel(PanelStyles.PanelCustom2, state);
+                case PaletteBackStyle.PanelCustom3:
+                    return GetPalettePanel(PanelStyles.PanelCustom3, state);
                 case PaletteBackStyle.SeparatorLowProfile:
                     return GetPaletteBackSeparator(SeparatorStyles.SeparatorLowProfile, state);
                 case PaletteBackStyle.SeparatorHighProfile:
@@ -11081,6 +11145,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     return GetPaletteBackSeparator(SeparatorStyles.SeparatorHighInternalProfile, state);
                 case PaletteBackStyle.SeparatorCustom1:
                     return GetPaletteBackSeparator(SeparatorStyles.SeparatorCustom1, state);
+                case PaletteBackStyle.SeparatorCustom2:
+                    return GetPaletteBackSeparator(SeparatorStyles.SeparatorCustom2, state);
+                case PaletteBackStyle.SeparatorCustom3:
+                    return GetPaletteBackSeparator(SeparatorStyles.SeparatorCustom3, state);
                 case PaletteBackStyle.TabHighProfile:
                     return GetPaletteBackTab(TabStyles.TabHighProfile, state);
                 case PaletteBackStyle.TabStandardProfile:
@@ -11181,34 +11249,58 @@ namespace ComponentFactory.Krypton.Toolkit
                     return GetPaletteBorderControl(ControlStyles.ControlRibbonAppMenu, state);
                 case PaletteBorderStyle.ControlCustom1:
                     return GetPaletteBorderControl(ControlStyles.ControlCustom1, state);
+                case PaletteBorderStyle.ControlCustom2:
+                    return GetPaletteBorderControl(ControlStyles.ControlCustom2, state);
+                case PaletteBorderStyle.ControlCustom3:
+                    return GetPaletteBorderControl(ControlStyles.ControlCustom3, state);
                 case PaletteBorderStyle.InputControlStandalone:
                     return GetPaletteInputControl(InputControlStyles.InputControlStandalone, state).Border;
                 case PaletteBorderStyle.InputControlRibbon:
                     return GetPaletteInputControl(InputControlStyles.InputControlRibbon, state).Border;
                 case PaletteBorderStyle.InputControlCustom1:
                     return GetPaletteInputControl(InputControlStyles.InputControlCustom1, state).Border;
+                case PaletteBorderStyle.InputControlCustom2:
+                    return GetPaletteInputControl(InputControlStyles.InputControlCustom2, state).Border;
+                case PaletteBorderStyle.InputControlCustom3:
+                    return GetPaletteInputControl(InputControlStyles.InputControlCustom3, state).Border;
                 case PaletteBorderStyle.FormMain:
                     return GetPaletteBorderForm(FormStyles.FormMain, state);
                 case PaletteBorderStyle.FormCustom1:
                     return GetPaletteBorderForm(FormStyles.FormCustom1, state);
+                case PaletteBorderStyle.FormCustom2:
+                    return GetPaletteBorderForm(FormStyles.FormCustom2, state);
+                case PaletteBorderStyle.FormCustom3:
+                    return GetPaletteBorderForm(FormStyles.FormCustom3, state);
                 case PaletteBorderStyle.GridHeaderColumnList:
                     return GetPaletteBorderGridHeaderColumn(GridStyles.GridList, state);
                 case PaletteBorderStyle.GridHeaderColumnSheet:
                     return GetPaletteBorderGridHeaderColumn(GridStyles.GridSheet, state);
                 case PaletteBorderStyle.GridHeaderColumnCustom1:
                     return GetPaletteBorderGridHeaderColumn(GridStyles.GridCustom1, state);
+                case PaletteBorderStyle.GridHeaderColumnCustom2:
+                    return GetPaletteBorderGridHeaderColumn(GridStyles.GridCustom2, state);
+                case PaletteBorderStyle.GridHeaderColumnCustom3:
+                    return GetPaletteBorderGridHeaderColumn(GridStyles.GridCustom3, state);
                 case PaletteBorderStyle.GridHeaderRowList:
                     return GetPaletteBorderGridHeaderRow(GridStyles.GridList, state);
                 case PaletteBorderStyle.GridHeaderRowSheet:
                     return GetPaletteBorderGridHeaderRow(GridStyles.GridSheet, state);
                 case PaletteBorderStyle.GridHeaderRowCustom1:
                     return GetPaletteBorderGridHeaderRow(GridStyles.GridCustom1, state);
+                case PaletteBorderStyle.GridHeaderRowCustom2:
+                    return GetPaletteBorderGridHeaderRow(GridStyles.GridCustom2, state);
+                case PaletteBorderStyle.GridHeaderRowCustom3:
+                    return GetPaletteBorderGridHeaderRow(GridStyles.GridCustom3, state);
                 case PaletteBorderStyle.GridDataCellList:
                     return GetPaletteBorderGridDataCell(GridStyles.GridList, state);
                 case PaletteBorderStyle.GridDataCellSheet:
                     return GetPaletteBorderGridDataCell(GridStyles.GridSheet, state);
                 case PaletteBorderStyle.GridDataCellCustom1:
                     return GetPaletteBorderGridDataCell(GridStyles.GridCustom1, state);
+                case PaletteBorderStyle.GridDataCellCustom2:
+                    return GetPaletteBorderGridDataCell(GridStyles.GridCustom2, state);
+                case PaletteBorderStyle.GridDataCellCustom3:
+                    return GetPaletteBorderGridDataCell(GridStyles.GridCustom3, state);
                 case PaletteBorderStyle.HeaderPrimary:
                     return GetPaletteBorderHeader(HeaderStyles.HeaderPrimary, state);
                 case PaletteBorderStyle.HeaderSecondary:
@@ -11225,6 +11317,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     return GetPaletteBorderHeader(HeaderStyles.HeaderCustom1, state);
                 case PaletteBorderStyle.HeaderCustom2:
                     return GetPaletteBorderHeader(HeaderStyles.HeaderCustom2, state);
+                case PaletteBorderStyle.HeaderCustom3:
+                    return GetPaletteBorderHeader(HeaderStyles.HeaderCustom3, state);
                 case PaletteBorderStyle.SeparatorLowProfile:
                     return GetPaletteBorderSeparator(SeparatorStyles.SeparatorLowProfile, state);
                 case PaletteBorderStyle.SeparatorHighProfile:
@@ -11233,6 +11327,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     return GetPaletteBorderSeparator(SeparatorStyles.SeparatorHighInternalProfile, state);
                 case PaletteBorderStyle.SeparatorCustom1:
                     return GetPaletteBorderSeparator(SeparatorStyles.SeparatorCustom1, state);
+                case PaletteBorderStyle.SeparatorCustom2:
+                    return GetPaletteBorderSeparator(SeparatorStyles.SeparatorCustom2, state);
+                case PaletteBorderStyle.SeparatorCustom3:
+                    return GetPaletteBorderSeparator(SeparatorStyles.SeparatorCustom3, state);
                 case PaletteBorderStyle.TabHighProfile:
                     return GetPaletteBorderTab(TabStyles.TabHighProfile, state);
                 case PaletteBorderStyle.TabStandardProfile:
@@ -11325,18 +11423,30 @@ namespace ComponentFactory.Krypton.Toolkit
                     return GetPaletteContentGridHeaderColumn(GridStyles.GridSheet, state);
                 case PaletteContentStyle.GridHeaderColumnCustom1:
                     return GetPaletteContentGridHeaderColumn(GridStyles.GridCustom1, state);
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                    return GetPaletteContentGridHeaderColumn(GridStyles.GridCustom2, state);
+                case PaletteContentStyle.GridHeaderColumnCustom3:
+                    return GetPaletteContentGridHeaderColumn(GridStyles.GridCustom3, state);
                 case PaletteContentStyle.GridHeaderRowList:
                     return GetPaletteContentGridHeaderRow(GridStyles.GridList, state);
                 case PaletteContentStyle.GridHeaderRowSheet:
                     return GetPaletteContentGridHeaderRow(GridStyles.GridSheet, state);
                 case PaletteContentStyle.GridHeaderRowCustom1:
                     return GetPaletteContentGridHeaderRow(GridStyles.GridCustom1, state);
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                    return GetPaletteContentGridHeaderRow(GridStyles.GridCustom2, state);
+                case PaletteContentStyle.GridHeaderRowCustom3:
+                    return GetPaletteContentGridHeaderRow(GridStyles.GridCustom3, state);
                 case PaletteContentStyle.GridDataCellList:
                     return GetPaletteContentGridDataCell(GridStyles.GridList, state);
                 case PaletteContentStyle.GridDataCellSheet:
                     return GetPaletteContentGridDataCell(GridStyles.GridSheet, state);
                 case PaletteContentStyle.GridDataCellCustom1:
                     return GetPaletteContentGridDataCell(GridStyles.GridCustom1, state);
+                case PaletteContentStyle.GridDataCellCustom2:
+                    return GetPaletteContentGridDataCell(GridStyles.GridCustom2, state);
+                case PaletteContentStyle.GridDataCellCustom3:
+                    return GetPaletteContentGridDataCell(GridStyles.GridCustom3, state);
                 case PaletteContentStyle.HeaderPrimary:
                     return GetPaletteContentHeader(HeaderStyles.HeaderPrimary, state);
                 case PaletteContentStyle.HeaderSecondary:
@@ -11353,6 +11463,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     return GetPaletteContentHeader(HeaderStyles.HeaderCustom1, state);
                 case PaletteContentStyle.HeaderCustom2:
                     return GetPaletteContentHeader(HeaderStyles.HeaderCustom2, state);
+                case PaletteContentStyle.HeaderCustom3:
+                    return GetPaletteContentHeader(HeaderStyles.HeaderCustom3, state);
                 case PaletteContentStyle.LabelNormalControl:
                     return GetPaletteLabel(LabelStyles.LabelNormalControl, state);
                 case PaletteContentStyle.LabelBoldControl:
@@ -11389,6 +11501,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     return GetPaletteInputControl(InputControlStyles.InputControlRibbon, state).Content;
                 case PaletteContentStyle.InputControlCustom1:
                     return GetPaletteInputControl(InputControlStyles.InputControlCustom1, state).Content;
+                case PaletteContentStyle.InputControlCustom2:
+                    return GetPaletteInputControl(InputControlStyles.InputControlCustom2, state).Content;
+                case PaletteContentStyle.InputControlCustom3:
+                    return GetPaletteInputControl(InputControlStyles.InputControlCustom3, state).Content;
                 case PaletteContentStyle.TabHighProfile:
                     return GetPaletteContentTab(TabStyles.TabHighProfile, state);
                 case PaletteContentStyle.TabStandardProfile:

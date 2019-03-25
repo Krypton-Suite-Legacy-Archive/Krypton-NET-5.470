@@ -14,6 +14,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+// ReSharper disable EventNeverSubscribedTo.Global
+// ReSharper disable UnusedMemberInSuper.Global
+#pragma warning disable 1591
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -159,7 +162,7 @@ namespace ComponentFactory.Krypton.Toolkit
         HeaderLocation GetLocation(IPalette palette);
 
         /// <summary>
-        /// Gets the button orienation.
+        /// Gets the button orientation.
         /// </summary>
         /// <param name="palette">Palette to use for inheriting values.</param>
         /// <returns>Orientation value.</returns>
@@ -917,7 +920,7 @@ namespace ComponentFactory.Krypton.Toolkit
         SmoothOutsize,
 
         /// <summary>
-        /// Specifies docking tabs of requal size.
+        /// Specifies docking tabs of equal size.
         /// </summary>
         DockEqual,
 
@@ -1119,15 +1122,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies the first custom label style.
         /// </summary>
         Custom1,
-
-        /// <summary>
-        /// Specifies the second custom label style.
-        /// </summary>
         Custom2,
-
-        /// <summary>
-        /// Specifies the third custom label style.
-        /// </summary>
         Custom3
     }
     #endregion
@@ -1153,6 +1148,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies the first custom grid style.
         /// </summary>
         Custom1,
+        Custom2,
+        Custom3
     }
     #endregion
 
@@ -1177,6 +1174,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies the first custom grid style.
         /// </summary>
         Custom1,
+        Custom2,
+        Custom3,
 
         /// <summary>
         /// Specifies a mixed set of styles.
@@ -1226,11 +1225,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies the first custom header style.
         /// </summary>
         Custom1,
-
-        /// <summary>
-        /// Specifies the second custom header style.
-        /// </summary>
         Custom2,
+        Custom3
     }
     #endregion
 
@@ -1325,15 +1321,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies the first custom button style.
         /// </summary>
         Custom1,
-
-        /// <summary>
-        /// Specifies the second custom button style.
-        /// </summary>
         Custom2,
-
-        /// <summary>
-        /// Specifies the third custom button style.
-        /// </summary>
         Custom3
     }
     #endregion
@@ -1358,7 +1346,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Specifies a custom input button style.
         /// </summary>
-        Custom1
+        Custom1,
+        Custom2,
+        Custom3
     }
     #endregion
 
@@ -1387,7 +1377,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Specifies a custom separator.
         /// </summary>
-        Custom1
+        Custom1,
+        Custom2,
+        Custom3
     }
     #endregion
 
@@ -1432,15 +1424,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Specifies the first custom tab style.
         /// </summary>
         Custom1,
-
-        /// <summary>
-        /// Specifies the second custom tab style.
-        /// </summary>
         Custom2,
-
-        /// <summary>
-        /// Specifies the third custom tab style.
-        /// </summary>
         Custom3
     }
     #endregion
@@ -1790,7 +1774,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// A position of the Popup control relative to the upper-left corner of the screen and at an offset that is defined by the HorizontalOffset and VerticalOffset property values. If the screen edge obscures the Popup, the control then repositions itself to align with the edge.
         /// </summary>
         Absolute = 0,
-        
+
         /// <summary>
         /// A position of the Popup control relative to the upper-left corner of the screen and at an offset that is defined by the HorizontalOffset and VerticalOffset property values. If the screen edge obscures the Popup, the control extends in the opposite direction from the axis defined by the HorizontalOffset or VerticalOffset =.
         /// </summary>
@@ -1850,7 +1834,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// A position of the Popup control that aligns its lower edge with the upper edge of the PlacementTarget and aligns its left edge with the left edge of the PlacementTarget. If the upper screen-edge obscures the Popup, the control repositions itself so that its upper edge aligns with the lower edge of the PlacementTarget.If the lower screen-edge obscures the Popup, the lower edge of the control aligns with the lower screen-edge.If the left or right screen-edge obscures the Popup, it then repositions itself to align with the obscuring screen.
         /// </summary>
-        Top = 10,       
+        Top = 10,
     }
     #endregion Enum PlacementMode
 }

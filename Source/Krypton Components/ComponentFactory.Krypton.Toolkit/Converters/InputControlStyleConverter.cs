@@ -38,6 +38,8 @@ namespace ComponentFactory.Krypton.Toolkit
         { new Pair(InputControlStyle.Standalone, "Standalone"),
             new Pair(InputControlStyle.Ribbon,     "Ribbon"),
             new Pair(InputControlStyle.Custom1,    "Custom1"),
+            new Pair(InputControlStyle.Custom2,    "Custom2"),
+            new Pair(InputControlStyle.Custom3,    "Custom3")
         };
 
         #endregion

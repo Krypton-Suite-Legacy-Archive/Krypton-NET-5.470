@@ -10,19 +10,19 @@
 // *****************************************************************************
 
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Diagnostics;
 using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Provides a fixed blue variantion on the sparkle appearance.
-	/// </summary>
+    /// <summary>
+    /// Provides a fixed blue variantion on the sparkle appearance.
+    /// </summary>
     public class PaletteSparkleBase : PaletteBase
     {
-		#region Static Fields
+        #region Static Fields
         private static readonly Padding _contentPaddingGrid = new Padding(2, 1, 2, 1);
         private static readonly Padding _contentPaddingHeader1 = new Padding(3, 2, 2, 2);
         private static readonly Padding _contentPaddingHeader2 = new Padding(3, 2, 2, 2);
@@ -120,7 +120,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private static readonly Color[] _ribbonGroupCollapsedBackContext = { Color.FromArgb(48, 255, 255, 255), Color.FromArgb(235, 235, 235) };
         private static readonly Color[] _ribbonGroupCollapsedBackContextTracking = { Color.FromArgb(48, 255, 255, 255), Color.FromArgb(235, 235, 235) };
         private static readonly Color[] _ribbonGroupCollapsedBorderContext = { Color.FromArgb(128, 199, 199, 199), Color.FromArgb(199, 199, 199), Color.FromArgb(48, 255, 255, 255), Color.FromArgb(235, 235, 235) };
-        private static readonly Color[] _trackBarColors = { Color.FromArgb(180, 180, 180), Color.FromArgb( 33,  37,  50), Color.FromArgb(126, 131, 142), Color.FromArgb( 99,  99,  99), Color.FromArgb(32, Color.White), Color.FromArgb(35, 35, 35) };
+        private static readonly Color[] _trackBarColors = { Color.FromArgb(180, 180, 180), Color.FromArgb(33, 37, 50), Color.FromArgb(126, 131, 142), Color.FromArgb(99, 99, 99), Color.FromArgb(32, Color.White), Color.FromArgb(35, 35, 35) };
         private static readonly Color _inputControlTextDisabled = Color.FromArgb(172, 168, 153);
         private static readonly Color _colorDark00 = Color.Black;
         private static readonly Color _colorWhite119 = Color.FromArgb(119, 119, 119);
@@ -144,7 +144,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private static readonly Color _menuItemDisabledImageBorder = Color.FromArgb(200, 200, 200);
         #endregion
 
-		#region Instance Fields
+        #region Instance Fields
         private KryptonColorTableSparkle _table;
         private Font _header1ShortFont;
         private Font _header2ShortFont;
@@ -174,7 +174,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private string _baseFontName;
         #endregion
 
-		#region Identity
+        #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteSparkle class.
         /// </summary>
@@ -208,7 +208,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Get the font settings from the system
             DefineFonts();
         }
-		#endregion
+        #endregion
 
         #region AllowFormChrome
         /// <summary>
@@ -241,8 +241,8 @@ namespace ComponentFactory.Krypton.Toolkit
 		/// <param name="state">Palette value should be applicable to this state.</param>
 		/// <returns>InheritBool value.</returns>
 		public override InheritBool GetBackDraw(PaletteBackStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return InheritBool.Inherit;
@@ -252,6 +252,8 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case PaletteBackStyle.SeparatorLowProfile:
                 case PaletteBackStyle.SeparatorCustom1:
+                case PaletteBackStyle.SeparatorCustom2:
+                case PaletteBackStyle.SeparatorCustom3:
                     return InheritBool.False;
                 case PaletteBackStyle.ButtonLowProfile:
                 case PaletteBackStyle.ButtonBreadCrumb:
@@ -306,17 +308,17 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Default to drawing the background
                     return InheritBool.True;
             }
-		}
+        }
 
-		/// <summary>
-		/// Gets the graphics drawing hint for the background.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteGraphicsHint value.</returns>
-		public override PaletteGraphicsHint GetBackGraphicsHint(PaletteBackStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the graphics drawing hint for the background.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteGraphicsHint value.</returns>
+        public override PaletteGraphicsHint GetBackGraphicsHint(PaletteBackStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return PaletteGraphicsHint.Inherit;
@@ -326,6 +328,8 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 case PaletteBackStyle.FormMain:
                 case PaletteBackStyle.FormCustom1:
+                case PaletteBackStyle.FormCustom2:
+                case PaletteBackStyle.FormCustom3:
                 case PaletteBackStyle.HeaderForm:
                     return PaletteGraphicsHint.AntiAlias;
                 case PaletteBackStyle.TabHighProfile:
@@ -341,10 +345,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.PanelRibbonInactive:
                 case PaletteBackStyle.PanelAlternate:
                 case PaletteBackStyle.PanelCustom1:
+                case PaletteBackStyle.PanelCustom2:
+                case PaletteBackStyle.PanelCustom3:
                 case PaletteBackStyle.SeparatorHighInternalProfile:
                 case PaletteBackStyle.SeparatorHighProfile:
                 case PaletteBackStyle.SeparatorLowProfile:
                 case PaletteBackStyle.SeparatorCustom1:
+                case PaletteBackStyle.SeparatorCustom2:
+                case PaletteBackStyle.SeparatorCustom3:
                 case PaletteBackStyle.ControlClient:
                 case PaletteBackStyle.ControlAlternate:
                 case PaletteBackStyle.ControlGroupBox:
@@ -352,6 +360,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.ControlRibbon:
                 case PaletteBackStyle.ControlRibbonAppMenu:
                 case PaletteBackStyle.ControlCustom1:
+                case PaletteBackStyle.ControlCustom2:
+                case PaletteBackStyle.ControlCustom3:
                 case PaletteBackStyle.ContextMenuOuter:
                 case PaletteBackStyle.ContextMenuInner:
                 case PaletteBackStyle.ContextMenuHeading:
@@ -363,6 +373,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.InputControlStandalone:
                 case PaletteBackStyle.InputControlRibbon:
                 case PaletteBackStyle.InputControlCustom1:
+                case PaletteBackStyle.InputControlCustom2:
+                case PaletteBackStyle.InputControlCustom3:
                 case PaletteBackStyle.HeaderPrimary:
                 case PaletteBackStyle.HeaderDockInactive:
                 case PaletteBackStyle.HeaderDockActive:
@@ -370,6 +382,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.HeaderSecondary:
                 case PaletteBackStyle.HeaderCustom1:
                 case PaletteBackStyle.HeaderCustom2:
+                case PaletteBackStyle.HeaderCustom3:
                 case PaletteBackStyle.ButtonStandalone:
                 case PaletteBackStyle.ButtonGallery:
                 case PaletteBackStyle.ButtonAlternate:
@@ -395,42 +408,54 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.GridHeaderColumnList:
                 case PaletteBackStyle.GridHeaderColumnSheet:
                 case PaletteBackStyle.GridHeaderColumnCustom1:
+                case PaletteBackStyle.GridHeaderColumnCustom2:
+                case PaletteBackStyle.GridHeaderColumnCustom3:
                 case PaletteBackStyle.GridHeaderRowList:
                 case PaletteBackStyle.GridHeaderRowSheet:
                 case PaletteBackStyle.GridHeaderRowCustom1:
+                case PaletteBackStyle.GridHeaderRowCustom2:
+                case PaletteBackStyle.GridHeaderRowCustom3:
                 case PaletteBackStyle.GridDataCellList:
                 case PaletteBackStyle.GridDataCellSheet:
                 case PaletteBackStyle.GridDataCellCustom1:
+                case PaletteBackStyle.GridDataCellCustom2:
+                case PaletteBackStyle.GridDataCellCustom3:
                     return PaletteGraphicsHint.None;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style));
             }
-		}
+        }
 
-		/// <summary>
-		/// Gets the first background color.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color value.</returns>
-		public override Color GetBackColor1(PaletteBackStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the first background color.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetBackColor1(PaletteBackStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideStateExclude(state, PaletteState.NormalDefaultOverride))
             {
                 return Color.Empty;
             }
 
             switch (style)
-			{
+            {
                 case PaletteBackStyle.FormMain:
                 case PaletteBackStyle.FormCustom1:
+                case PaletteBackStyle.FormCustom2:
+                case PaletteBackStyle.FormCustom3:
                 case PaletteBackStyle.PanelClient:
                 case PaletteBackStyle.PanelRibbonInactive:
                 case PaletteBackStyle.PanelCustom1:
+                case PaletteBackStyle.PanelCustom2:
+                case PaletteBackStyle.PanelCustom3:
                 case PaletteBackStyle.ControlGroupBox:
                 case PaletteBackStyle.SeparatorLowProfile:
                 case PaletteBackStyle.SeparatorCustom1:
+                case PaletteBackStyle.SeparatorCustom2:
+                case PaletteBackStyle.SeparatorCustom3:
                 case PaletteBackStyle.GridBackgroundList:
                 case PaletteBackStyle.GridBackgroundSheet:
                 case PaletteBackStyle.GridBackgroundCustom1:
@@ -443,6 +468,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.HeaderDockInactive:
                 case PaletteBackStyle.HeaderCustom1:
                 case PaletteBackStyle.HeaderCustom2:
+                case PaletteBackStyle.HeaderCustom3:
                     if (state == PaletteState.Disabled)
                     {
                         return _disabledBack;
@@ -476,6 +502,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.ControlClient:
                 case PaletteBackStyle.ControlAlternate:
                 case PaletteBackStyle.ControlCustom1:
+                case PaletteBackStyle.ControlCustom2:
+                case PaletteBackStyle.ControlCustom3:
                     return _colorWhite238;
                 case PaletteBackStyle.ButtonStandalone:
                 case PaletteBackStyle.ButtonAlternate:
@@ -625,6 +653,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.InputControlStandalone:
                 case PaletteBackStyle.InputControlRibbon:
                 case PaletteBackStyle.InputControlCustom1:
+                case PaletteBackStyle.InputControlCustom2:
+                case PaletteBackStyle.InputControlCustom3:
                     if (state == PaletteState.Disabled)
                     {
                         return _disabledBack;
@@ -642,6 +672,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 case PaletteBackStyle.GridDataCellList:
                 case PaletteBackStyle.GridDataCellCustom1:
+                case PaletteBackStyle.GridDataCellCustom2:
+                case PaletteBackStyle.GridDataCellCustom3:
                     if (state == PaletteState.CheckedNormal)
                     {
                         return _sparkleColors[15];
@@ -663,6 +695,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 case PaletteBackStyle.GridHeaderColumnList:
                 case PaletteBackStyle.GridHeaderColumnCustom1:
+                case PaletteBackStyle.GridHeaderColumnCustom2:
+                case PaletteBackStyle.GridHeaderColumnCustom3:
                     switch (state)
                     {
                         case PaletteState.Disabled:
@@ -678,6 +712,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 case PaletteBackStyle.GridHeaderRowList:
                 case PaletteBackStyle.GridHeaderRowCustom1:
+                case PaletteBackStyle.GridHeaderRowCustom2:
+                case PaletteBackStyle.GridHeaderRowCustom3:
                     switch (state)
                     {
                         case PaletteState.Disabled:
@@ -814,35 +850,41 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.ControlRibbonAppMenu:
                     return _ribbonColors[(int)SchemeOfficeColors.AppButtonBack1];
                 default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the second back color.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color value.</returns>
-		public override Color GetBackColor2(PaletteBackStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the second back color.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetBackColor2(PaletteBackStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideStateExclude(state, PaletteState.NormalDefaultOverride))
             {
                 return Color.Empty;
             }
 
             switch (style)
-			{
+            {
                 case PaletteBackStyle.FormMain:
                 case PaletteBackStyle.FormCustom1:
+                case PaletteBackStyle.FormCustom2:
+                case PaletteBackStyle.FormCustom3:
                 case PaletteBackStyle.HeaderForm:
                 case PaletteBackStyle.PanelClient:
                 case PaletteBackStyle.PanelRibbonInactive:
                 case PaletteBackStyle.PanelCustom1:
+                case PaletteBackStyle.PanelCustom2:
+                case PaletteBackStyle.PanelCustom3:
                 case PaletteBackStyle.ControlGroupBox:
                 case PaletteBackStyle.SeparatorLowProfile:
                 case PaletteBackStyle.SeparatorCustom1:
+                case PaletteBackStyle.SeparatorCustom2:
+                case PaletteBackStyle.SeparatorCustom3:
                 case PaletteBackStyle.GridBackgroundList:
                 case PaletteBackStyle.GridBackgroundSheet:
                 case PaletteBackStyle.GridBackgroundCustom1:
@@ -864,6 +906,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.HeaderSecondary:
                 case PaletteBackStyle.HeaderCustom1:
                 case PaletteBackStyle.HeaderCustom2:
+                case PaletteBackStyle.HeaderCustom3:
                     if (state == PaletteState.Disabled)
                     {
                         return _disabledBack2;
@@ -886,6 +929,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.ControlClient:
                 case PaletteBackStyle.ControlAlternate:
                 case PaletteBackStyle.ControlCustom1:
+                case PaletteBackStyle.ControlCustom2:
+                case PaletteBackStyle.ControlCustom3:
                     return _colorWhite238;
                 case PaletteBackStyle.ButtonStandalone:
                 case PaletteBackStyle.ButtonAlternate:
@@ -1029,6 +1074,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.InputControlStandalone:
                 case PaletteBackStyle.InputControlRibbon:
                 case PaletteBackStyle.InputControlCustom1:
+                case PaletteBackStyle.InputControlCustom2:
+                case PaletteBackStyle.InputControlCustom3:
                     if (state == PaletteState.Disabled)
                     {
                         return _disabledBack2;
@@ -1046,6 +1093,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 case PaletteBackStyle.GridDataCellList:
                 case PaletteBackStyle.GridDataCellCustom1:
+                case PaletteBackStyle.GridDataCellCustom2:
+                case PaletteBackStyle.GridDataCellCustom3:
                     if (state == PaletteState.CheckedNormal)
                     {
                         return _sparkleColors[15];
@@ -1067,6 +1116,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 case PaletteBackStyle.GridHeaderColumnList:
                 case PaletteBackStyle.GridHeaderColumnCustom1:
+                case PaletteBackStyle.GridHeaderColumnCustom2:
+                case PaletteBackStyle.GridHeaderColumnCustom3:
                     switch (state)
                     {
                         case PaletteState.Disabled:
@@ -1082,6 +1133,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 case PaletteBackStyle.GridHeaderRowList:
                 case PaletteBackStyle.GridHeaderRowCustom1:
+                case PaletteBackStyle.GridHeaderRowCustom2:
+                case PaletteBackStyle.GridHeaderRowCustom3:
                     switch (state)
                     {
                         case PaletteState.Disabled:
@@ -1227,28 +1280,30 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.ControlToolTip:
                     return _toolTipBack2;
                 default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the color background drawing style.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color drawing style.</returns>
-		public override PaletteColorStyle GetBackColorStyle(PaletteBackStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the color background drawing style.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color drawing style.</returns>
+        public override PaletteColorStyle GetBackColorStyle(PaletteBackStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return PaletteColorStyle.Inherit;
             }
 
             switch (style)
-			{
+            {
                 case PaletteBackStyle.FormMain:
                 case PaletteBackStyle.FormCustom1:
+                case PaletteBackStyle.FormCustom2:
+                case PaletteBackStyle.FormCustom3:
                 case PaletteBackStyle.HeaderCalendar:
                 case PaletteBackStyle.ButtonCalendarDay:
                     return PaletteColorStyle.Solid;
@@ -1259,6 +1314,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.HeaderSecondary:
                 case PaletteBackStyle.HeaderCustom1:
                 case PaletteBackStyle.HeaderCustom2:
+                case PaletteBackStyle.HeaderCustom3:
                     if (state == PaletteState.Disabled)
                     {
                         return PaletteColorStyle.GlassBottom;
@@ -1274,12 +1330,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.PanelRibbonInactive:
                 case PaletteBackStyle.PanelAlternate:
                 case PaletteBackStyle.PanelCustom1:
+                case PaletteBackStyle.PanelCustom2:
+                case PaletteBackStyle.PanelCustom3:
                 case PaletteBackStyle.ControlClient:
                 case PaletteBackStyle.ControlAlternate:
                 case PaletteBackStyle.ControlGroupBox:
                 case PaletteBackStyle.ControlRibbon:
                 case PaletteBackStyle.ContextMenuInner:
                 case PaletteBackStyle.ControlCustom1:
+                case PaletteBackStyle.ControlCustom2:
+                case PaletteBackStyle.ControlCustom3:
                     return PaletteColorStyle.Solid;
                 case PaletteBackStyle.ContextMenuHeading:
                     return PaletteColorStyle.SolidBottomLine;
@@ -1313,12 +1373,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.GridBackgroundCustom1:
                 case PaletteBackStyle.GridDataCellList:
                 case PaletteBackStyle.GridDataCellCustom1:
+                case PaletteBackStyle.GridDataCellCustom2:
+                case PaletteBackStyle.GridDataCellCustom3:
                     return PaletteColorStyle.Solid;
                 case PaletteBackStyle.GridHeaderRowList:
                 case PaletteBackStyle.GridHeaderRowCustom1:
+                case PaletteBackStyle.GridHeaderRowCustom2:
+                case PaletteBackStyle.GridHeaderRowCustom3:
                     return PaletteColorStyle.Linear;
                 case PaletteBackStyle.GridHeaderColumnList:
                 case PaletteBackStyle.GridHeaderColumnCustom1:
+                case PaletteBackStyle.GridHeaderColumnCustom2:
+                case PaletteBackStyle.GridHeaderColumnCustom3:
                     return PaletteColorStyle.GlassBottom;
                 case PaletteBackStyle.GridDataCellSheet:
                     if (state == PaletteState.CheckedNormal)
@@ -1346,9 +1412,13 @@ namespace ComponentFactory.Krypton.Toolkit
                     return PaletteColorStyle.OneNote;
                 case PaletteBackStyle.SeparatorLowProfile:
                 case PaletteBackStyle.SeparatorCustom1:
+                case PaletteBackStyle.SeparatorCustom2:
+                case PaletteBackStyle.SeparatorCustom3:
                 case PaletteBackStyle.InputControlStandalone:
                 case PaletteBackStyle.InputControlRibbon:
                 case PaletteBackStyle.InputControlCustom1:
+                case PaletteBackStyle.InputControlCustom2:
+                case PaletteBackStyle.InputControlCustom3:
                     return PaletteColorStyle.Solid;
                 case PaletteBackStyle.ControlRibbonAppMenu:
                     return PaletteColorStyle.Switch90;
@@ -1389,41 +1459,49 @@ namespace ComponentFactory.Krypton.Toolkit
                             throw new ArgumentOutOfRangeException(nameof(state));
                     }
                 default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the color alignment.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color alignment style.</returns>
-		public override PaletteRectangleAlign GetBackColorAlign(PaletteBackStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the color alignment.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color alignment style.</returns>
+        public override PaletteRectangleAlign GetBackColorAlign(PaletteBackStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return PaletteRectangleAlign.Inherit;
             }
 
             switch (style)
-			{
+            {
                 case PaletteBackStyle.ControlClient:
                 case PaletteBackStyle.ControlAlternate:
                 case PaletteBackStyle.ControlGroupBox:
                 case PaletteBackStyle.ControlRibbon:
                 case PaletteBackStyle.ControlRibbonAppMenu:
                 case PaletteBackStyle.ControlCustom1:
+                case PaletteBackStyle.ControlCustom2:
+                case PaletteBackStyle.ControlCustom3:
                 case PaletteBackStyle.InputControlStandalone:
                 case PaletteBackStyle.InputControlRibbon:
                 case PaletteBackStyle.InputControlCustom1:
+                case PaletteBackStyle.InputControlCustom2:
+                case PaletteBackStyle.InputControlCustom3:
                 case PaletteBackStyle.FormMain:
                 case PaletteBackStyle.FormCustom1:
+                case PaletteBackStyle.FormCustom2:
+                case PaletteBackStyle.FormCustom3:
                 case PaletteBackStyle.PanelClient:
                 case PaletteBackStyle.PanelRibbonInactive:
                 case PaletteBackStyle.PanelAlternate:
                 case PaletteBackStyle.PanelCustom1:
+                case PaletteBackStyle.PanelCustom2:
+                case PaletteBackStyle.PanelCustom3:
                 case PaletteBackStyle.GridBackgroundList:
                 case PaletteBackStyle.GridBackgroundSheet:
                 case PaletteBackStyle.GridBackgroundCustom1:
@@ -1433,6 +1511,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.SeparatorHighInternalProfile:
                 case PaletteBackStyle.SeparatorHighProfile:
                 case PaletteBackStyle.SeparatorCustom1:
+                case PaletteBackStyle.SeparatorCustom2:
+                case PaletteBackStyle.SeparatorCustom3:
                 case PaletteBackStyle.HeaderPrimary:
                 case PaletteBackStyle.HeaderDockInactive:
                 case PaletteBackStyle.HeaderDockActive:
@@ -1441,6 +1521,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.HeaderForm:
                 case PaletteBackStyle.HeaderCustom1:
                 case PaletteBackStyle.HeaderCustom2:
+                case PaletteBackStyle.HeaderCustom3:
                 case PaletteBackStyle.TabHighProfile:
                 case PaletteBackStyle.TabStandardProfile:
                 case PaletteBackStyle.TabLowProfile:
@@ -1472,12 +1553,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.GridHeaderColumnList:
                 case PaletteBackStyle.GridHeaderColumnSheet:
                 case PaletteBackStyle.GridHeaderColumnCustom1:
+                case PaletteBackStyle.GridHeaderColumnCustom2:
+                case PaletteBackStyle.GridHeaderColumnCustom3:
                 case PaletteBackStyle.GridHeaderRowList:
                 case PaletteBackStyle.GridHeaderRowSheet:
                 case PaletteBackStyle.GridHeaderRowCustom1:
+                case PaletteBackStyle.GridHeaderRowCustom2:
+                case PaletteBackStyle.GridHeaderRowCustom3:
                 case PaletteBackStyle.GridDataCellList:
                 case PaletteBackStyle.GridDataCellSheet:
                 case PaletteBackStyle.GridDataCellCustom1:
+                case PaletteBackStyle.GridDataCellCustom2:
+                case PaletteBackStyle.GridDataCellCustom3:
                 case PaletteBackStyle.ContextMenuItemImage:
                 case PaletteBackStyle.ContextMenuItemHighlight:
                 case PaletteBackStyle.ContextMenuOuter:
@@ -1487,35 +1574,39 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.ContextMenuItemSplit:
                 case PaletteBackStyle.ContextMenuItemImageColumn:
                     return PaletteRectangleAlign.Local;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the color background angle.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Angle used for color drawing.</returns>
-		public override float GetBackColorAngle(PaletteBackStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the color background angle.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Angle used for color drawing.</returns>
+        public override float GetBackColorAngle(PaletteBackStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return -1f;
             }
 
             switch (style)
-			{
+            {
                 case PaletteBackStyle.PanelClient:
                 case PaletteBackStyle.PanelRibbonInactive:
                 case PaletteBackStyle.PanelAlternate:
                 case PaletteBackStyle.PanelCustom1:
+                case PaletteBackStyle.PanelCustom2:
+                case PaletteBackStyle.PanelCustom3:
                 case PaletteBackStyle.SeparatorLowProfile:
                 case PaletteBackStyle.SeparatorHighInternalProfile:
                 case PaletteBackStyle.SeparatorHighProfile:
                 case PaletteBackStyle.SeparatorCustom1:
+                case PaletteBackStyle.SeparatorCustom2:
+                case PaletteBackStyle.SeparatorCustom3:
                 case PaletteBackStyle.ControlClient:
                 case PaletteBackStyle.ControlAlternate:
                 case PaletteBackStyle.ControlGroupBox:
@@ -1523,6 +1614,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.ControlRibbon:
                 case PaletteBackStyle.ControlRibbonAppMenu:
                 case PaletteBackStyle.ControlCustom1:
+                case PaletteBackStyle.ControlCustom2:
+                case PaletteBackStyle.ControlCustom3:
                 case PaletteBackStyle.ContextMenuOuter:
                 case PaletteBackStyle.ContextMenuInner:
                 case PaletteBackStyle.ContextMenuHeading:
@@ -1532,8 +1625,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.InputControlStandalone:
                 case PaletteBackStyle.InputControlRibbon:
                 case PaletteBackStyle.InputControlCustom1:
+                case PaletteBackStyle.InputControlCustom2:
+                case PaletteBackStyle.InputControlCustom3:
                 case PaletteBackStyle.FormMain:
                 case PaletteBackStyle.FormCustom1:
+                case PaletteBackStyle.FormCustom2:
+                case PaletteBackStyle.FormCustom3:
                 case PaletteBackStyle.HeaderPrimary:
                 case PaletteBackStyle.HeaderDockInactive:
                 case PaletteBackStyle.HeaderDockActive:
@@ -1542,6 +1639,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.HeaderForm:
                 case PaletteBackStyle.HeaderCustom1:
                 case PaletteBackStyle.HeaderCustom2:
+                case PaletteBackStyle.HeaderCustom3:
                 case PaletteBackStyle.TabHighProfile:
                 case PaletteBackStyle.TabStandardProfile:
                 case PaletteBackStyle.TabLowProfile:
@@ -1578,42 +1676,52 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.GridHeaderColumnList:
                 case PaletteBackStyle.GridHeaderColumnSheet:
                 case PaletteBackStyle.GridHeaderColumnCustom1:
+                case PaletteBackStyle.GridHeaderColumnCustom2:
+                case PaletteBackStyle.GridHeaderColumnCustom3:
                 case PaletteBackStyle.GridHeaderRowList:
                 case PaletteBackStyle.GridHeaderRowSheet:
                 case PaletteBackStyle.GridHeaderRowCustom1:
+                case PaletteBackStyle.GridHeaderRowCustom2:
+                case PaletteBackStyle.GridHeaderRowCustom3:
                 case PaletteBackStyle.GridDataCellList:
                 case PaletteBackStyle.GridDataCellSheet:
                 case PaletteBackStyle.GridDataCellCustom1:
+                case PaletteBackStyle.GridDataCellCustom2:
+                case PaletteBackStyle.GridDataCellCustom3:
                     return 90f;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets a background image.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image instance.</returns>
-		public override Image GetBackImage(PaletteBackStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets a background image.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image instance.</returns>
+        public override Image GetBackImage(PaletteBackStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return null;
             }
 
             switch (style)
-			{
+            {
                 case PaletteBackStyle.PanelClient:
                 case PaletteBackStyle.PanelRibbonInactive:
                 case PaletteBackStyle.PanelAlternate:
                 case PaletteBackStyle.PanelCustom1:
+                case PaletteBackStyle.PanelCustom2:
+                case PaletteBackStyle.PanelCustom3:
                 case PaletteBackStyle.SeparatorLowProfile:
                 case PaletteBackStyle.SeparatorHighInternalProfile:
                 case PaletteBackStyle.SeparatorHighProfile:
                 case PaletteBackStyle.SeparatorCustom1:
+                case PaletteBackStyle.SeparatorCustom2:
+                case PaletteBackStyle.SeparatorCustom3:
                 case PaletteBackStyle.ControlClient:
                 case PaletteBackStyle.ControlAlternate:
                 case PaletteBackStyle.ControlGroupBox:
@@ -1621,6 +1729,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.ControlRibbon:
                 case PaletteBackStyle.ControlRibbonAppMenu:
                 case PaletteBackStyle.ControlCustom1:
+                case PaletteBackStyle.ControlCustom2:
+                case PaletteBackStyle.ControlCustom3:
                 case PaletteBackStyle.ContextMenuOuter:
                 case PaletteBackStyle.ContextMenuInner:
                 case PaletteBackStyle.ContextMenuHeading:
@@ -1630,8 +1740,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.InputControlStandalone:
                 case PaletteBackStyle.InputControlRibbon:
                 case PaletteBackStyle.InputControlCustom1:
+                case PaletteBackStyle.InputControlCustom2:
+                case PaletteBackStyle.InputControlCustom3:
                 case PaletteBackStyle.FormMain:
                 case PaletteBackStyle.FormCustom1:
+                case PaletteBackStyle.FormCustom2:
+                case PaletteBackStyle.FormCustom3:
                 case PaletteBackStyle.HeaderPrimary:
                 case PaletteBackStyle.HeaderDockInactive:
                 case PaletteBackStyle.HeaderDockActive:
@@ -1640,6 +1754,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.HeaderForm:
                 case PaletteBackStyle.HeaderCustom1:
                 case PaletteBackStyle.HeaderCustom2:
+                case PaletteBackStyle.HeaderCustom3:
                 case PaletteBackStyle.TabHighProfile:
                 case PaletteBackStyle.TabStandardProfile:
                 case PaletteBackStyle.TabLowProfile:
@@ -1676,42 +1791,52 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.GridHeaderColumnList:
                 case PaletteBackStyle.GridHeaderColumnSheet:
                 case PaletteBackStyle.GridHeaderColumnCustom1:
+                case PaletteBackStyle.GridHeaderColumnCustom2:
+                case PaletteBackStyle.GridHeaderColumnCustom3:
                 case PaletteBackStyle.GridHeaderRowList:
                 case PaletteBackStyle.GridHeaderRowSheet:
                 case PaletteBackStyle.GridHeaderRowCustom1:
+                case PaletteBackStyle.GridHeaderRowCustom2:
+                case PaletteBackStyle.GridHeaderRowCustom3:
                 case PaletteBackStyle.GridDataCellList:
                 case PaletteBackStyle.GridDataCellSheet:
                 case PaletteBackStyle.GridDataCellCustom1:
+                case PaletteBackStyle.GridDataCellCustom2:
+                case PaletteBackStyle.GridDataCellCustom3:
                     return null;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the background image style.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image style value.</returns>
-		public override PaletteImageStyle GetBackImageStyle(PaletteBackStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the background image style.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image style value.</returns>
+        public override PaletteImageStyle GetBackImageStyle(PaletteBackStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return PaletteImageStyle.Inherit;
             }
 
             switch (style)
-			{
+            {
                 case PaletteBackStyle.PanelClient:
                 case PaletteBackStyle.PanelRibbonInactive:
                 case PaletteBackStyle.PanelAlternate:
                 case PaletteBackStyle.PanelCustom1:
+                case PaletteBackStyle.PanelCustom2:
+                case PaletteBackStyle.PanelCustom3:
                 case PaletteBackStyle.SeparatorLowProfile:
                 case PaletteBackStyle.SeparatorHighInternalProfile:
                 case PaletteBackStyle.SeparatorHighProfile:
                 case PaletteBackStyle.SeparatorCustom1:
+                case PaletteBackStyle.SeparatorCustom2:
+                case PaletteBackStyle.SeparatorCustom3:
                 case PaletteBackStyle.ControlClient:
                 case PaletteBackStyle.ControlAlternate:
                 case PaletteBackStyle.ControlGroupBox:
@@ -1719,6 +1844,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.ControlRibbon:
                 case PaletteBackStyle.ControlRibbonAppMenu:
                 case PaletteBackStyle.ControlCustom1:
+                case PaletteBackStyle.ControlCustom2:
+                case PaletteBackStyle.ControlCustom3:
                 case PaletteBackStyle.ContextMenuOuter:
                 case PaletteBackStyle.ContextMenuInner:
                 case PaletteBackStyle.ContextMenuHeading:
@@ -1728,8 +1855,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.InputControlStandalone:
                 case PaletteBackStyle.InputControlRibbon:
                 case PaletteBackStyle.InputControlCustom1:
+                case PaletteBackStyle.InputControlCustom2:
+                case PaletteBackStyle.InputControlCustom3:
                 case PaletteBackStyle.FormMain:
                 case PaletteBackStyle.FormCustom1:
+                case PaletteBackStyle.FormCustom2:
+                case PaletteBackStyle.FormCustom3:
                 case PaletteBackStyle.HeaderPrimary:
                 case PaletteBackStyle.HeaderDockInactive:
                 case PaletteBackStyle.HeaderDockActive:
@@ -1738,6 +1869,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.HeaderForm:
                 case PaletteBackStyle.HeaderCustom1:
                 case PaletteBackStyle.HeaderCustom2:
+                case PaletteBackStyle.HeaderCustom3:
                 case PaletteBackStyle.TabHighProfile:
                 case PaletteBackStyle.TabStandardProfile:
                 case PaletteBackStyle.TabLowProfile:
@@ -1774,42 +1906,52 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.GridHeaderColumnList:
                 case PaletteBackStyle.GridHeaderColumnSheet:
                 case PaletteBackStyle.GridHeaderColumnCustom1:
+                case PaletteBackStyle.GridHeaderColumnCustom2:
+                case PaletteBackStyle.GridHeaderColumnCustom3:
                 case PaletteBackStyle.GridHeaderRowList:
                 case PaletteBackStyle.GridHeaderRowSheet:
                 case PaletteBackStyle.GridHeaderRowCustom1:
+                case PaletteBackStyle.GridHeaderRowCustom2:
+                case PaletteBackStyle.GridHeaderRowCustom3:
                 case PaletteBackStyle.GridDataCellList:
                 case PaletteBackStyle.GridDataCellSheet:
                 case PaletteBackStyle.GridDataCellCustom1:
+                case PaletteBackStyle.GridDataCellCustom2:
+                case PaletteBackStyle.GridDataCellCustom3:
                     return PaletteImageStyle.Tile;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the image alignment.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image alignment style.</returns>
-		public override PaletteRectangleAlign GetBackImageAlign(PaletteBackStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the image alignment.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image alignment style.</returns>
+        public override PaletteRectangleAlign GetBackImageAlign(PaletteBackStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return PaletteRectangleAlign.Inherit;
             }
 
             switch (style)
-			{
+            {
                 case PaletteBackStyle.PanelClient:
                 case PaletteBackStyle.PanelRibbonInactive:
                 case PaletteBackStyle.PanelAlternate:
                 case PaletteBackStyle.PanelCustom1:
+                case PaletteBackStyle.PanelCustom2:
+                case PaletteBackStyle.PanelCustom3:
                 case PaletteBackStyle.SeparatorLowProfile:
                 case PaletteBackStyle.SeparatorHighInternalProfile:
                 case PaletteBackStyle.SeparatorHighProfile:
                 case PaletteBackStyle.SeparatorCustom1:
+                case PaletteBackStyle.SeparatorCustom2:
+                case PaletteBackStyle.SeparatorCustom3:
                 case PaletteBackStyle.ControlClient:
                 case PaletteBackStyle.ControlAlternate:
                 case PaletteBackStyle.ControlGroupBox:
@@ -1817,6 +1959,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.ControlRibbon:
                 case PaletteBackStyle.ControlRibbonAppMenu:
                 case PaletteBackStyle.ControlCustom1:
+                case PaletteBackStyle.ControlCustom2:
+                case PaletteBackStyle.ControlCustom3:
                 case PaletteBackStyle.ContextMenuOuter:
                 case PaletteBackStyle.ContextMenuInner:
                 case PaletteBackStyle.ContextMenuHeading:
@@ -1826,8 +1970,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.InputControlStandalone:
                 case PaletteBackStyle.InputControlRibbon:
                 case PaletteBackStyle.InputControlCustom1:
+                case PaletteBackStyle.InputControlCustom2:
+                case PaletteBackStyle.InputControlCustom3:
                 case PaletteBackStyle.FormMain:
                 case PaletteBackStyle.FormCustom1:
+                case PaletteBackStyle.FormCustom2:
+                case PaletteBackStyle.FormCustom3:
                 case PaletteBackStyle.HeaderPrimary:
                 case PaletteBackStyle.HeaderDockInactive:
                 case PaletteBackStyle.HeaderDockActive:
@@ -1836,6 +1984,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.HeaderForm:
                 case PaletteBackStyle.HeaderCustom1:
                 case PaletteBackStyle.HeaderCustom2:
+                case PaletteBackStyle.HeaderCustom3:
                 case PaletteBackStyle.TabHighProfile:
                 case PaletteBackStyle.TabStandardProfile:
                 case PaletteBackStyle.TabLowProfile:
@@ -1872,28 +2021,34 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBackStyle.GridHeaderColumnList:
                 case PaletteBackStyle.GridHeaderColumnSheet:
                 case PaletteBackStyle.GridHeaderColumnCustom1:
+                case PaletteBackStyle.GridHeaderColumnCustom2:
+                case PaletteBackStyle.GridHeaderColumnCustom3:
                 case PaletteBackStyle.GridHeaderRowList:
                 case PaletteBackStyle.GridHeaderRowSheet:
                 case PaletteBackStyle.GridHeaderRowCustom1:
+                case PaletteBackStyle.GridHeaderRowCustom2:
+                case PaletteBackStyle.GridHeaderRowCustom3:
                 case PaletteBackStyle.GridDataCellList:
                 case PaletteBackStyle.GridDataCellSheet:
                 case PaletteBackStyle.GridDataCellCustom1:
+                case PaletteBackStyle.GridDataCellCustom2:
+                case PaletteBackStyle.GridDataCellCustom3:
                     return PaletteRectangleAlign.Local;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
         #endregion
 
-		#region Border
-		/// <summary>
-		/// Gets a value indicating if border should be drawn.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
-		public override InheritBool GetBorderDraw(PaletteBorderStyle style, PaletteState state)
-		{
+        #region Border
+        /// <summary>
+        /// Gets a value indicating if border should be drawn.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
+        public override InheritBool GetBorderDraw(PaletteBorderStyle style, PaletteState state)
+        {
             // Check for the calendar day today override
             if (state == PaletteState.TodayOverride)
             {
@@ -1910,12 +2065,14 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             switch (style)
-			{
+            {
                 case PaletteBorderStyle.HeaderForm:
                 case PaletteBorderStyle.SeparatorLowProfile:
                 case PaletteBorderStyle.SeparatorHighInternalProfile:
                 case PaletteBorderStyle.SeparatorHighProfile:
                 case PaletteBorderStyle.SeparatorCustom1:
+                case PaletteBorderStyle.SeparatorCustom2:
+                case PaletteBorderStyle.SeparatorCustom3:
                 case PaletteBorderStyle.ButtonNavigatorMini:
                 case PaletteBorderStyle.ContextMenuInner:
                     return InheritBool.False;
@@ -1926,6 +2083,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.ControlRibbon:
                 case PaletteBorderStyle.ControlRibbonAppMenu:
                 case PaletteBorderStyle.ControlCustom1:
+                case PaletteBorderStyle.ControlCustom2:
+                case PaletteBorderStyle.ControlCustom3:
                 case PaletteBorderStyle.ContextMenuOuter:
                 case PaletteBorderStyle.ContextMenuHeading:
                 case PaletteBorderStyle.ContextMenuSeparator:
@@ -1934,8 +2093,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.InputControlStandalone:
                 case PaletteBorderStyle.InputControlRibbon:
                 case PaletteBorderStyle.InputControlCustom1:
+                case PaletteBorderStyle.InputControlCustom2:
+                case PaletteBorderStyle.InputControlCustom3:
                 case PaletteBorderStyle.FormMain:
                 case PaletteBorderStyle.FormCustom1:
+                case PaletteBorderStyle.FormCustom2:
+                case PaletteBorderStyle.FormCustom3:
                 case PaletteBorderStyle.HeaderPrimary:
                 case PaletteBorderStyle.HeaderDockInactive:
                 case PaletteBorderStyle.HeaderDockActive:
@@ -1943,6 +2106,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.HeaderCalendar:
                 case PaletteBorderStyle.HeaderCustom1:
                 case PaletteBorderStyle.HeaderCustom2:
+                case PaletteBorderStyle.HeaderCustom3:
                 case PaletteBorderStyle.TabHighProfile:
                 case PaletteBorderStyle.TabStandardProfile:
                 case PaletteBorderStyle.TabOneNote:
@@ -1961,12 +2125,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.GridHeaderColumnList:
                 case PaletteBorderStyle.GridHeaderColumnSheet:
                 case PaletteBorderStyle.GridHeaderColumnCustom1:
+                case PaletteBorderStyle.GridHeaderColumnCustom2:
+                case PaletteBorderStyle.GridHeaderColumnCustom3:
                 case PaletteBorderStyle.GridHeaderRowList:
                 case PaletteBorderStyle.GridHeaderRowSheet:
                 case PaletteBorderStyle.GridHeaderRowCustom1:
+                case PaletteBorderStyle.GridHeaderRowCustom2:
+                case PaletteBorderStyle.GridHeaderRowCustom3:
                 case PaletteBorderStyle.GridDataCellList:
                 case PaletteBorderStyle.GridDataCellSheet:
                 case PaletteBorderStyle.GridDataCellCustom1:
+                case PaletteBorderStyle.GridDataCellCustom2:
+                case PaletteBorderStyle.GridDataCellCustom3:
                     return InheritBool.True;
                 case PaletteBorderStyle.ButtonInputControl:
                 case PaletteBorderStyle.ButtonListItem:
@@ -2008,10 +2178,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         default:
                             return InheritBool.False;
                     }
-                default:	
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
         /// <summary>
         /// Gets a value indicating which borders to draw.
@@ -2033,6 +2203,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.SeparatorHighInternalProfile:
                 case PaletteBorderStyle.SeparatorHighProfile:
                 case PaletteBorderStyle.SeparatorCustom1:
+                case PaletteBorderStyle.SeparatorCustom2:
+                case PaletteBorderStyle.SeparatorCustom3:
                 case PaletteBorderStyle.ControlClient:
                 case PaletteBorderStyle.ControlAlternate:
                 case PaletteBorderStyle.ControlGroupBox:
@@ -2040,12 +2212,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.ControlRibbon:
                 case PaletteBorderStyle.ControlRibbonAppMenu:
                 case PaletteBorderStyle.ControlCustom1:
+                case PaletteBorderStyle.ControlCustom2:
+                case PaletteBorderStyle.ControlCustom3:
                 case PaletteBorderStyle.ContextMenuOuter:
                 case PaletteBorderStyle.InputControlStandalone:
                 case PaletteBorderStyle.InputControlRibbon:
                 case PaletteBorderStyle.InputControlCustom1:
+                case PaletteBorderStyle.InputControlCustom2:
+                case PaletteBorderStyle.InputControlCustom3:
                 case PaletteBorderStyle.FormMain:
                 case PaletteBorderStyle.FormCustom1:
+                case PaletteBorderStyle.FormCustom2:
+                case PaletteBorderStyle.FormCustom3:
                 case PaletteBorderStyle.HeaderPrimary:
                 case PaletteBorderStyle.HeaderDockInactive:
                 case PaletteBorderStyle.HeaderDockActive:
@@ -2054,6 +2232,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.HeaderForm:
                 case PaletteBorderStyle.HeaderCustom1:
                 case PaletteBorderStyle.HeaderCustom2:
+                case PaletteBorderStyle.HeaderCustom3:
                 case PaletteBorderStyle.TabHighProfile:
                 case PaletteBorderStyle.TabStandardProfile:
                 case PaletteBorderStyle.TabLowProfile:
@@ -2083,12 +2262,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.GridHeaderColumnList:
                 case PaletteBorderStyle.GridHeaderColumnSheet:
                 case PaletteBorderStyle.GridHeaderColumnCustom1:
+                case PaletteBorderStyle.GridHeaderColumnCustom2:
+                case PaletteBorderStyle.GridHeaderColumnCustom3:
                 case PaletteBorderStyle.GridHeaderRowList:
                 case PaletteBorderStyle.GridHeaderRowSheet:
                 case PaletteBorderStyle.GridHeaderRowCustom1:
+                case PaletteBorderStyle.GridHeaderRowCustom2:
+                case PaletteBorderStyle.GridHeaderRowCustom3:
                 case PaletteBorderStyle.GridDataCellList:
                 case PaletteBorderStyle.GridDataCellSheet:
                 case PaletteBorderStyle.GridDataCellCustom1:
+                case PaletteBorderStyle.GridDataCellCustom2:
+                case PaletteBorderStyle.GridDataCellCustom3:
                     return PaletteDrawBorders.All;
                 case PaletteBorderStyle.ContextMenuHeading:
                     return PaletteDrawBorders.Bottom;
@@ -2107,16 +2292,16 @@ namespace ComponentFactory.Krypton.Toolkit
                     throw new ArgumentOutOfRangeException(nameof(style));
             }
         }
-        
+
         /// <summary>
-		/// Gets the graphics drawing hint for the border.
-		/// </summary>
+        /// Gets the graphics drawing hint for the border.
+        /// </summary>
         /// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteGraphicsHint value.</returns>
-		public override PaletteGraphicsHint GetBorderGraphicsHint(PaletteBorderStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteGraphicsHint value.</returns>
+        public override PaletteGraphicsHint GetBorderGraphicsHint(PaletteBorderStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return PaletteGraphicsHint.Inherit;
@@ -2137,6 +2322,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.SeparatorHighInternalProfile:
                 case PaletteBorderStyle.SeparatorHighProfile:
                 case PaletteBorderStyle.SeparatorCustom1:
+                case PaletteBorderStyle.SeparatorCustom2:
+                case PaletteBorderStyle.SeparatorCustom3:
                 case PaletteBorderStyle.ControlClient:
                 case PaletteBorderStyle.ControlAlternate:
                 case PaletteBorderStyle.ControlGroupBox:
@@ -2145,6 +2332,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.ControlToolTip:
                 case PaletteBorderStyle.ContextMenuInner:
                 case PaletteBorderStyle.ControlCustom1:
+                case PaletteBorderStyle.ControlCustom2:
+                case PaletteBorderStyle.ControlCustom3:
                 case PaletteBorderStyle.ContextMenuHeading:
                 case PaletteBorderStyle.ContextMenuSeparator:
                 case PaletteBorderStyle.ContextMenuItemSplit:
@@ -2154,8 +2343,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.InputControlStandalone:
                 case PaletteBorderStyle.InputControlRibbon:
                 case PaletteBorderStyle.InputControlCustom1:
+                case PaletteBorderStyle.InputControlCustom2:
+                case PaletteBorderStyle.InputControlCustom3:
                 case PaletteBorderStyle.FormMain:
                 case PaletteBorderStyle.FormCustom1:
+                case PaletteBorderStyle.FormCustom2:
+                case PaletteBorderStyle.FormCustom3:
                 case PaletteBorderStyle.HeaderPrimary:
                 case PaletteBorderStyle.HeaderDockInactive:
                 case PaletteBorderStyle.HeaderDockActive:
@@ -2164,6 +2357,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.HeaderForm:
                 case PaletteBorderStyle.HeaderCustom1:
                 case PaletteBorderStyle.HeaderCustom2:
+                case PaletteBorderStyle.HeaderCustom3:
                 case PaletteBorderStyle.ButtonStandalone:
                 case PaletteBorderStyle.ButtonGallery:
                 case PaletteBorderStyle.ButtonAlternate:
@@ -2186,28 +2380,34 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.GridHeaderColumnList:
                 case PaletteBorderStyle.GridHeaderColumnSheet:
                 case PaletteBorderStyle.GridHeaderColumnCustom1:
+                case PaletteBorderStyle.GridHeaderColumnCustom2:
+                case PaletteBorderStyle.GridHeaderColumnCustom3:
                 case PaletteBorderStyle.GridHeaderRowList:
                 case PaletteBorderStyle.GridHeaderRowSheet:
                 case PaletteBorderStyle.GridHeaderRowCustom1:
+                case PaletteBorderStyle.GridHeaderRowCustom2:
+                case PaletteBorderStyle.GridHeaderRowCustom3:
                 case PaletteBorderStyle.GridDataCellList:
                 case PaletteBorderStyle.GridDataCellSheet:
                 case PaletteBorderStyle.GridDataCellCustom1:
+                case PaletteBorderStyle.GridDataCellCustom2:
+                case PaletteBorderStyle.GridDataCellCustom3:
                     return PaletteGraphicsHint.AntiAlias;
                 case PaletteBorderStyle.ContextMenuOuter:
                     return PaletteGraphicsHint.None;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style));
             }
-		}
+        }
 
-		/// <summary>
-		/// Gets the first border color.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color value.</returns>
-		public override Color GetBorderColor1(PaletteBorderStyle style, PaletteState state)
-		{
+        /// <summary>
+        /// Gets the first border color.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetBorderColor1(PaletteBorderStyle style, PaletteState state)
+        {
             if (CommonHelper.IsOverrideState(state))
             {
                 // Check for the calendar day today override
@@ -2228,11 +2428,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 return Color.Empty;
             }
-            
-			switch (style)
-			{
+
+            switch (style)
+            {
                 case PaletteBorderStyle.FormMain:
                 case PaletteBorderStyle.FormCustom1:
+                case PaletteBorderStyle.FormCustom2:
+                case PaletteBorderStyle.FormCustom3:
                     return _sparkleColors[4];
                 case PaletteBorderStyle.HeaderForm:
                 case PaletteBorderStyle.ContextMenuOuter:
@@ -2329,6 +2531,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.InputControlStandalone:
                 case PaletteBorderStyle.InputControlRibbon:
                 case PaletteBorderStyle.InputControlCustom1:
+                case PaletteBorderStyle.InputControlCustom2:
+                case PaletteBorderStyle.InputControlCustom3:
                     if (state == PaletteState.Disabled)
                     {
                         return _disabledBorder;
@@ -2341,6 +2545,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.GridDataCellList:
                 case PaletteBorderStyle.GridDataCellSheet:
                 case PaletteBorderStyle.GridDataCellCustom1:
+                case PaletteBorderStyle.GridDataCellCustom2:
+                case PaletteBorderStyle.GridDataCellCustom3:
                     if (state == PaletteState.Disabled)
                     {
                         return _disabledBorder;
@@ -2353,9 +2559,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.GridHeaderColumnList:
                 case PaletteBorderStyle.GridHeaderColumnSheet:
                 case PaletteBorderStyle.GridHeaderColumnCustom1:
+                case PaletteBorderStyle.GridHeaderColumnCustom2:
+                case PaletteBorderStyle.GridHeaderColumnCustom3:
                 case PaletteBorderStyle.GridHeaderRowList:
                 case PaletteBorderStyle.GridHeaderRowSheet:
                 case PaletteBorderStyle.GridHeaderRowCustom1:
+                case PaletteBorderStyle.GridHeaderRowCustom2:
+                case PaletteBorderStyle.GridHeaderRowCustom3:
                     if (state == PaletteState.Disabled)
                     {
                         return _disabledBorder;
@@ -2391,16 +2601,21 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.SeparatorHighInternalProfile:
                 case PaletteBorderStyle.SeparatorHighProfile:
                 case PaletteBorderStyle.SeparatorCustom1:
+                case PaletteBorderStyle.SeparatorCustom2:
+                case PaletteBorderStyle.SeparatorCustom3:
                 case PaletteBorderStyle.HeaderPrimary:
                 case PaletteBorderStyle.HeaderDockInactive:
                 case PaletteBorderStyle.HeaderDockActive:
                 case PaletteBorderStyle.HeaderSecondary:
                 case PaletteBorderStyle.HeaderCustom1:
                 case PaletteBorderStyle.HeaderCustom2:
+                case PaletteBorderStyle.HeaderCustom3:
                 case PaletteBorderStyle.ControlClient:
                 case PaletteBorderStyle.ControlAlternate:
                 case PaletteBorderStyle.ControlGroupBox:
                 case PaletteBorderStyle.ControlCustom1:
+                case PaletteBorderStyle.ControlCustom2:
+                case PaletteBorderStyle.ControlCustom3:
                     if (state == PaletteState.Disabled)
                     {
                         return _disabledBorder;
@@ -2472,18 +2687,18 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
 
                 default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the second border color.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color value.</returns>
-		public override Color GetBorderColor2(PaletteBorderStyle style, PaletteState state)
-		{
+        /// <summary>
+        /// Gets the second border color.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public override Color GetBorderColor2(PaletteBorderStyle style, PaletteState state)
+        {
             if (CommonHelper.IsOverrideState(state))
             {
                 // Check for the calendar day today override
@@ -2505,10 +2720,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 return Color.Empty;
             }
 
-			switch (style)
-			{
+            switch (style)
+            {
                 case PaletteBorderStyle.FormMain:
                 case PaletteBorderStyle.FormCustom1:
+                case PaletteBorderStyle.FormCustom2:
+                case PaletteBorderStyle.FormCustom3:
                     return _sparkleColors[4];
                 case PaletteBorderStyle.HeaderForm:
                 case PaletteBorderStyle.ContextMenuOuter:
@@ -2604,6 +2821,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.InputControlStandalone:
                 case PaletteBorderStyle.InputControlRibbon:
                 case PaletteBorderStyle.InputControlCustom1:
+                case PaletteBorderStyle.InputControlCustom2:
+                case PaletteBorderStyle.InputControlCustom3:
                     if (state == PaletteState.Disabled)
                     {
                         return _disabledBorder;
@@ -2616,6 +2835,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.GridDataCellList:
                 case PaletteBorderStyle.GridDataCellSheet:
                 case PaletteBorderStyle.GridDataCellCustom1:
+                case PaletteBorderStyle.GridDataCellCustom2:
+                case PaletteBorderStyle.GridDataCellCustom3:
                     if (state == PaletteState.Disabled)
                     {
                         return _disabledBorder;
@@ -2628,9 +2849,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.GridHeaderColumnList:
                 case PaletteBorderStyle.GridHeaderColumnSheet:
                 case PaletteBorderStyle.GridHeaderColumnCustom1:
+                case PaletteBorderStyle.GridHeaderColumnCustom2:
+                case PaletteBorderStyle.GridHeaderColumnCustom3:
                 case PaletteBorderStyle.GridHeaderRowList:
                 case PaletteBorderStyle.GridHeaderRowSheet:
                 case PaletteBorderStyle.GridHeaderRowCustom1:
+                case PaletteBorderStyle.GridHeaderRowCustom2:
+                case PaletteBorderStyle.GridHeaderRowCustom3:
                     if (state == PaletteState.Disabled)
                     {
                         return _disabledBorder;
@@ -2656,16 +2881,21 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.SeparatorHighInternalProfile:
                 case PaletteBorderStyle.SeparatorHighProfile:
                 case PaletteBorderStyle.SeparatorCustom1:
+                case PaletteBorderStyle.SeparatorCustom2:
+                case PaletteBorderStyle.SeparatorCustom3:
                 case PaletteBorderStyle.HeaderPrimary:
                 case PaletteBorderStyle.HeaderDockInactive:
                 case PaletteBorderStyle.HeaderDockActive:
                 case PaletteBorderStyle.HeaderSecondary:
                 case PaletteBorderStyle.HeaderCustom1:
                 case PaletteBorderStyle.HeaderCustom2:
+                case PaletteBorderStyle.HeaderCustom3:
                 case PaletteBorderStyle.ControlClient:
                 case PaletteBorderStyle.ControlAlternate:
                 case PaletteBorderStyle.ControlGroupBox:
                 case PaletteBorderStyle.ControlCustom1:
+                case PaletteBorderStyle.ControlCustom2:
+                case PaletteBorderStyle.ControlCustom3:
                     if (state == PaletteState.Disabled)
                     {
                         return _disabledBorder;
@@ -2747,18 +2977,18 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
 
                 default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the color border drawing style.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color drawing style.</returns>
-		public override PaletteColorStyle GetBorderColorStyle(PaletteBorderStyle style, PaletteState state)
-		{
+        /// <summary>
+        /// Gets the color border drawing style.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color drawing style.</returns>
+        public override PaletteColorStyle GetBorderColorStyle(PaletteBorderStyle style, PaletteState state)
+        {
             // We do not provide override values
             if (CommonHelper.IsOverrideStateExclude(state, PaletteState.NormalDefaultOverride))
             {
@@ -2766,17 +2996,20 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             switch (style)
-			{
+            {
                 case PaletteBorderStyle.SeparatorLowProfile:
                 case PaletteBorderStyle.SeparatorHighInternalProfile:
                 case PaletteBorderStyle.SeparatorHighProfile:
                 case PaletteBorderStyle.SeparatorCustom1:
+                case PaletteBorderStyle.SeparatorCustom2:
+                case PaletteBorderStyle.SeparatorCustom3:
                 case PaletteBorderStyle.HeaderPrimary:
                 case PaletteBorderStyle.HeaderDockInactive:
                 case PaletteBorderStyle.HeaderDockActive:
                 case PaletteBorderStyle.HeaderSecondary:
                 case PaletteBorderStyle.HeaderCustom1:
                 case PaletteBorderStyle.HeaderCustom2:
+                case PaletteBorderStyle.HeaderCustom3:
                 case PaletteBorderStyle.TabHighProfile:
                 case PaletteBorderStyle.TabStandardProfile:
                 case PaletteBorderStyle.TabLowProfile:
@@ -2813,6 +3046,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.ControlRibbon:
                 case PaletteBorderStyle.ControlRibbonAppMenu:
                 case PaletteBorderStyle.ControlCustom1:
+                case PaletteBorderStyle.ControlCustom2:
+                case PaletteBorderStyle.ControlCustom3:
                 case PaletteBorderStyle.ContextMenuOuter:
                 case PaletteBorderStyle.ContextMenuInner:
                 case PaletteBorderStyle.ContextMenuHeading:
@@ -2821,18 +3056,28 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.InputControlStandalone:
                 case PaletteBorderStyle.InputControlRibbon:
                 case PaletteBorderStyle.InputControlCustom1:
+                case PaletteBorderStyle.InputControlCustom2:
+                case PaletteBorderStyle.InputControlCustom3:
                 case PaletteBorderStyle.FormMain:
                 case PaletteBorderStyle.FormCustom1:
+                case PaletteBorderStyle.FormCustom2:
+                case PaletteBorderStyle.FormCustom3:
                 case PaletteBorderStyle.HeaderForm:
                 case PaletteBorderStyle.GridHeaderColumnList:
                 case PaletteBorderStyle.GridHeaderColumnSheet:
                 case PaletteBorderStyle.GridHeaderColumnCustom1:
+                case PaletteBorderStyle.GridHeaderColumnCustom2:
+                case PaletteBorderStyle.GridHeaderColumnCustom3:
                 case PaletteBorderStyle.GridHeaderRowList:
                 case PaletteBorderStyle.GridHeaderRowSheet:
                 case PaletteBorderStyle.GridHeaderRowCustom1:
+                case PaletteBorderStyle.GridHeaderRowCustom2:
+                case PaletteBorderStyle.GridHeaderRowCustom3:
                 case PaletteBorderStyle.GridDataCellList:
                 case PaletteBorderStyle.GridDataCellSheet:
                 case PaletteBorderStyle.GridDataCellCustom1:
+                case PaletteBorderStyle.GridDataCellCustom2:
+                case PaletteBorderStyle.GridDataCellCustom3:
                 case PaletteBorderStyle.HeaderCalendar:
                     return PaletteColorStyle.Solid;
                 case PaletteBorderStyle.ContextMenuSeparator:
@@ -2871,26 +3116,26 @@ namespace ComponentFactory.Krypton.Toolkit
                             return PaletteColorStyle.Sigma;
                     }
                 default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the color border alignment.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color alignment style.</returns>
-		public override PaletteRectangleAlign GetBorderColorAlign(PaletteBorderStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the color border alignment.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color alignment style.</returns>
+        public override PaletteRectangleAlign GetBorderColorAlign(PaletteBorderStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return PaletteRectangleAlign.Inherit;
             }
 
             switch (style)
-			{
+            {
                 case PaletteBorderStyle.ControlClient:
                 case PaletteBorderStyle.ControlAlternate:
                 case PaletteBorderStyle.ControlGroupBox:
@@ -2898,16 +3143,24 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.ControlRibbon:
                 case PaletteBorderStyle.ControlRibbonAppMenu:
                 case PaletteBorderStyle.ControlCustom1:
+                case PaletteBorderStyle.ControlCustom2:
+                case PaletteBorderStyle.ControlCustom3:
                 case PaletteBorderStyle.InputControlStandalone:
                 case PaletteBorderStyle.InputControlRibbon:
                 case PaletteBorderStyle.InputControlCustom1:
+                case PaletteBorderStyle.InputControlCustom2:
+                case PaletteBorderStyle.InputControlCustom3:
                 case PaletteBorderStyle.FormMain:
                 case PaletteBorderStyle.FormCustom1:
+                case PaletteBorderStyle.FormCustom2:
+                case PaletteBorderStyle.FormCustom3:
                     return PaletteRectangleAlign.Control;
                 case PaletteBorderStyle.SeparatorLowProfile:
                 case PaletteBorderStyle.SeparatorHighInternalProfile:
                 case PaletteBorderStyle.SeparatorHighProfile:
                 case PaletteBorderStyle.SeparatorCustom1:
+                case PaletteBorderStyle.SeparatorCustom2:
+                case PaletteBorderStyle.SeparatorCustom3:
                 case PaletteBorderStyle.HeaderPrimary:
                 case PaletteBorderStyle.HeaderDockInactive:
                 case PaletteBorderStyle.HeaderDockActive:
@@ -2916,6 +3169,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.HeaderForm:
                 case PaletteBorderStyle.HeaderCustom1:
                 case PaletteBorderStyle.HeaderCustom2:
+                case PaletteBorderStyle.HeaderCustom3:
                 case PaletteBorderStyle.TabHighProfile:
                 case PaletteBorderStyle.TabStandardProfile:
                 case PaletteBorderStyle.TabLowProfile:
@@ -2949,12 +3203,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.GridHeaderColumnList:
                 case PaletteBorderStyle.GridHeaderColumnSheet:
                 case PaletteBorderStyle.GridHeaderColumnCustom1:
+                case PaletteBorderStyle.GridHeaderColumnCustom2:
+                case PaletteBorderStyle.GridHeaderColumnCustom3:
                 case PaletteBorderStyle.GridHeaderRowList:
                 case PaletteBorderStyle.GridHeaderRowSheet:
                 case PaletteBorderStyle.GridHeaderRowCustom1:
+                case PaletteBorderStyle.GridHeaderRowCustom2:
+                case PaletteBorderStyle.GridHeaderRowCustom3:
                 case PaletteBorderStyle.GridDataCellList:
                 case PaletteBorderStyle.GridDataCellSheet:
                 case PaletteBorderStyle.GridDataCellCustom1:
+                case PaletteBorderStyle.GridDataCellCustom2:
+                case PaletteBorderStyle.GridDataCellCustom3:
                 case PaletteBorderStyle.ContextMenuOuter:
                 case PaletteBorderStyle.ContextMenuInner:
                 case PaletteBorderStyle.ContextMenuHeading:
@@ -2962,31 +3222,33 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.ContextMenuSeparator:
                 case PaletteBorderStyle.ContextMenuItemSplit:
                     return PaletteRectangleAlign.Local;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the color border angle.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Angle used for color drawing.</returns>
-		public override float GetBorderColorAngle(PaletteBorderStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the color border angle.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Angle used for color drawing.</returns>
+        public override float GetBorderColorAngle(PaletteBorderStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return -1f;
             }
 
             switch (style)
-			{
+            {
                 case PaletteBorderStyle.SeparatorLowProfile:
                 case PaletteBorderStyle.SeparatorHighInternalProfile:
                 case PaletteBorderStyle.SeparatorHighProfile:
                 case PaletteBorderStyle.SeparatorCustom1:
+                case PaletteBorderStyle.SeparatorCustom2:
+                case PaletteBorderStyle.SeparatorCustom3:
                 case PaletteBorderStyle.ControlClient:
                 case PaletteBorderStyle.ControlAlternate:
                 case PaletteBorderStyle.ControlGroupBox:
@@ -2994,6 +3256,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.ControlRibbon:
                 case PaletteBorderStyle.ControlRibbonAppMenu:
                 case PaletteBorderStyle.ControlCustom1:
+                case PaletteBorderStyle.ControlCustom2:
+                case PaletteBorderStyle.ControlCustom3:
                 case PaletteBorderStyle.ContextMenuOuter:
                 case PaletteBorderStyle.ContextMenuInner:
                 case PaletteBorderStyle.ContextMenuHeading:
@@ -3003,8 +3267,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.InputControlStandalone:
                 case PaletteBorderStyle.InputControlRibbon:
                 case PaletteBorderStyle.InputControlCustom1:
+                case PaletteBorderStyle.InputControlCustom2:
+                case PaletteBorderStyle.InputControlCustom3:
                 case PaletteBorderStyle.FormMain:
                 case PaletteBorderStyle.FormCustom1:
+                case PaletteBorderStyle.FormCustom2:
+                case PaletteBorderStyle.FormCustom3:
                 case PaletteBorderStyle.HeaderPrimary:
                 case PaletteBorderStyle.HeaderDockInactive:
                 case PaletteBorderStyle.HeaderDockActive:
@@ -3013,6 +3281,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.HeaderForm:
                 case PaletteBorderStyle.HeaderCustom1:
                 case PaletteBorderStyle.HeaderCustom2:
+                case PaletteBorderStyle.HeaderCustom3:
                 case PaletteBorderStyle.TabHighProfile:
                 case PaletteBorderStyle.TabStandardProfile:
                 case PaletteBorderStyle.TabLowProfile:
@@ -3046,40 +3315,48 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.GridHeaderColumnList:
                 case PaletteBorderStyle.GridHeaderColumnSheet:
                 case PaletteBorderStyle.GridHeaderColumnCustom1:
+                case PaletteBorderStyle.GridHeaderColumnCustom2:
+                case PaletteBorderStyle.GridHeaderColumnCustom3:
                 case PaletteBorderStyle.GridHeaderRowList:
                 case PaletteBorderStyle.GridHeaderRowSheet:
                 case PaletteBorderStyle.GridHeaderRowCustom1:
+                case PaletteBorderStyle.GridHeaderRowCustom2:
+                case PaletteBorderStyle.GridHeaderRowCustom3:
                 case PaletteBorderStyle.GridDataCellList:
                 case PaletteBorderStyle.GridDataCellSheet:
                 case PaletteBorderStyle.GridDataCellCustom1:
+                case PaletteBorderStyle.GridDataCellCustom2:
+                case PaletteBorderStyle.GridDataCellCustom3:
                     return 90f;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the border width.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Integer width.</returns>
-		public override int GetBorderWidth(PaletteBorderStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the border width.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Integer width.</returns>
+        public override int GetBorderWidth(PaletteBorderStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return -1;
             }
 
             switch (style)
-			{
+            {
                 case PaletteBorderStyle.HeaderForm:
                     return 4;
                 case PaletteBorderStyle.SeparatorLowProfile:
                 case PaletteBorderStyle.SeparatorHighInternalProfile:
                 case PaletteBorderStyle.SeparatorHighProfile:
                 case PaletteBorderStyle.SeparatorCustom1:
+                case PaletteBorderStyle.SeparatorCustom2:
+                case PaletteBorderStyle.SeparatorCustom3:
                 case PaletteBorderStyle.ButtonInputControl:
                 case PaletteBorderStyle.ContextMenuInner:
                     return 0;
@@ -3090,6 +3367,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.ControlRibbon:
                 case PaletteBorderStyle.ControlRibbonAppMenu:
                 case PaletteBorderStyle.ControlCustom1:
+                case PaletteBorderStyle.ControlCustom2:
+                case PaletteBorderStyle.ControlCustom3:
                 case PaletteBorderStyle.ContextMenuOuter:
                 case PaletteBorderStyle.ContextMenuHeading:
                 case PaletteBorderStyle.ContextMenuSeparator:
@@ -3100,8 +3379,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.InputControlStandalone:
                 case PaletteBorderStyle.InputControlRibbon:
                 case PaletteBorderStyle.InputControlCustom1:
+                case PaletteBorderStyle.InputControlCustom2:
+                case PaletteBorderStyle.InputControlCustom3:
                 case PaletteBorderStyle.FormMain:
                 case PaletteBorderStyle.FormCustom1:
+                case PaletteBorderStyle.FormCustom2:
+                case PaletteBorderStyle.FormCustom3:
                 case PaletteBorderStyle.HeaderPrimary:
                 case PaletteBorderStyle.HeaderDockInactive:
                 case PaletteBorderStyle.HeaderDockActive:
@@ -3109,6 +3392,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.HeaderSecondary:
                 case PaletteBorderStyle.HeaderCustom1:
                 case PaletteBorderStyle.HeaderCustom2:
+                case PaletteBorderStyle.HeaderCustom3:
                 case PaletteBorderStyle.TabHighProfile:
                 case PaletteBorderStyle.TabStandardProfile:
                 case PaletteBorderStyle.TabLowProfile:
@@ -3139,42 +3423,52 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.GridHeaderColumnList:
                 case PaletteBorderStyle.GridHeaderColumnSheet:
                 case PaletteBorderStyle.GridHeaderColumnCustom1:
+                case PaletteBorderStyle.GridHeaderColumnCustom2:
+                case PaletteBorderStyle.GridHeaderColumnCustom3:
                 case PaletteBorderStyle.GridHeaderRowList:
                 case PaletteBorderStyle.GridHeaderRowSheet:
                 case PaletteBorderStyle.GridHeaderRowCustom1:
+                case PaletteBorderStyle.GridHeaderRowCustom2:
+                case PaletteBorderStyle.GridHeaderRowCustom3:
                 case PaletteBorderStyle.GridDataCellList:
                 case PaletteBorderStyle.GridDataCellSheet:
                 case PaletteBorderStyle.GridDataCellCustom1:
+                case PaletteBorderStyle.GridDataCellCustom2:
+                case PaletteBorderStyle.GridDataCellCustom3:
                     return 1;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the border corner rounding.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Integer rounding.</returns>
-		public override int GetBorderRounding(PaletteBorderStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the border corner rounding.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Integer rounding.</returns>
+        public override int GetBorderRounding(PaletteBorderStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return -1;
             }
 
             switch (style)
-			{
+            {
                 case PaletteBorderStyle.ControlClient:
                 case PaletteBorderStyle.ControlAlternate:
                 case PaletteBorderStyle.ControlCustom1:
+                case PaletteBorderStyle.ControlCustom2:
+                case PaletteBorderStyle.ControlCustom3:
                 case PaletteBorderStyle.ControlToolTip:
                 case PaletteBorderStyle.ContextMenuOuter:
                 case PaletteBorderStyle.InputControlStandalone:
                 case PaletteBorderStyle.InputControlRibbon:
                 case PaletteBorderStyle.InputControlCustom1:
+                case PaletteBorderStyle.InputControlCustom2:
+                case PaletteBorderStyle.InputControlCustom3:
                 case PaletteBorderStyle.ButtonListItem:
                 case PaletteBorderStyle.ButtonCommand:
                 case PaletteBorderStyle.ButtonInputControl:
@@ -3182,6 +3476,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.SeparatorHighInternalProfile:
                 case PaletteBorderStyle.SeparatorHighProfile:
                 case PaletteBorderStyle.SeparatorCustom1:
+                case PaletteBorderStyle.SeparatorCustom2:
+                case PaletteBorderStyle.SeparatorCustom3:
                 case PaletteBorderStyle.ContextMenuInner:
                 case PaletteBorderStyle.ContextMenuHeading:
                 case PaletteBorderStyle.ContextMenuSeparator:
@@ -3194,6 +3490,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.HeaderSecondary:
                 case PaletteBorderStyle.HeaderCustom1:
                 case PaletteBorderStyle.HeaderCustom2:
+                case PaletteBorderStyle.HeaderCustom3:
                 case PaletteBorderStyle.TabHighProfile:
                 case PaletteBorderStyle.TabStandardProfile:
                 case PaletteBorderStyle.TabLowProfile:
@@ -3206,12 +3503,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.GridHeaderColumnList:
                 case PaletteBorderStyle.GridHeaderColumnSheet:
                 case PaletteBorderStyle.GridHeaderColumnCustom1:
+                case PaletteBorderStyle.GridHeaderColumnCustom2:
+                case PaletteBorderStyle.GridHeaderColumnCustom3:
                 case PaletteBorderStyle.GridHeaderRowList:
                 case PaletteBorderStyle.GridHeaderRowSheet:
                 case PaletteBorderStyle.GridHeaderRowCustom1:
+                case PaletteBorderStyle.GridHeaderRowCustom2:
+                case PaletteBorderStyle.GridHeaderRowCustom3:
                 case PaletteBorderStyle.GridDataCellList:
                 case PaletteBorderStyle.GridDataCellSheet:
                 case PaletteBorderStyle.GridDataCellCustom1:
+                case PaletteBorderStyle.GridDataCellCustom2:
+                case PaletteBorderStyle.GridDataCellCustom3:
                 case PaletteBorderStyle.ButtonCalendarDay:
                     return 0;
                 case PaletteBorderStyle.ButtonStandalone:
@@ -3239,32 +3542,36 @@ namespace ComponentFactory.Krypton.Toolkit
                     return 3;
                 case PaletteBorderStyle.FormMain:
                 case PaletteBorderStyle.FormCustom1:
+                case PaletteBorderStyle.FormCustom2:
+                case PaletteBorderStyle.FormCustom3:
                     return 5;
                 default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets a border image.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image instance.</returns>
-		public override Image GetBorderImage(PaletteBorderStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets a border image.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image instance.</returns>
+        public override Image GetBorderImage(PaletteBorderStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return null;
             }
 
             switch (style)
-			{
+            {
                 case PaletteBorderStyle.SeparatorLowProfile:
                 case PaletteBorderStyle.SeparatorHighInternalProfile:
                 case PaletteBorderStyle.SeparatorHighProfile:
                 case PaletteBorderStyle.SeparatorCustom1:
+                case PaletteBorderStyle.SeparatorCustom2:
+                case PaletteBorderStyle.SeparatorCustom3:
                 case PaletteBorderStyle.ControlClient:
                 case PaletteBorderStyle.ControlAlternate:
                 case PaletteBorderStyle.ControlGroupBox:
@@ -3272,6 +3579,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.ControlRibbon:
                 case PaletteBorderStyle.ControlRibbonAppMenu:
                 case PaletteBorderStyle.ControlCustom1:
+                case PaletteBorderStyle.ControlCustom2:
+                case PaletteBorderStyle.ControlCustom3:
                 case PaletteBorderStyle.ContextMenuOuter:
                 case PaletteBorderStyle.ContextMenuInner:
                 case PaletteBorderStyle.ContextMenuHeading:
@@ -3283,8 +3592,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.InputControlStandalone:
                 case PaletteBorderStyle.InputControlRibbon:
                 case PaletteBorderStyle.InputControlCustom1:
+                case PaletteBorderStyle.InputControlCustom2:
+                case PaletteBorderStyle.InputControlCustom3:
                 case PaletteBorderStyle.FormMain:
                 case PaletteBorderStyle.FormCustom1:
+                case PaletteBorderStyle.FormCustom2:
+                case PaletteBorderStyle.FormCustom3:
                 case PaletteBorderStyle.HeaderPrimary:
                 case PaletteBorderStyle.HeaderDockInactive:
                 case PaletteBorderStyle.HeaderDockActive:
@@ -3293,6 +3606,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.HeaderForm:
                 case PaletteBorderStyle.HeaderCustom1:
                 case PaletteBorderStyle.HeaderCustom2:
+                case PaletteBorderStyle.HeaderCustom3:
                 case PaletteBorderStyle.TabHighProfile:
                 case PaletteBorderStyle.TabStandardProfile:
                 case PaletteBorderStyle.TabLowProfile:
@@ -3324,38 +3638,46 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.GridHeaderColumnList:
                 case PaletteBorderStyle.GridHeaderColumnSheet:
                 case PaletteBorderStyle.GridHeaderColumnCustom1:
+                case PaletteBorderStyle.GridHeaderColumnCustom2:
+                case PaletteBorderStyle.GridHeaderColumnCustom3:
                 case PaletteBorderStyle.GridHeaderRowList:
                 case PaletteBorderStyle.GridHeaderRowSheet:
                 case PaletteBorderStyle.GridHeaderRowCustom1:
+                case PaletteBorderStyle.GridHeaderRowCustom2:
+                case PaletteBorderStyle.GridHeaderRowCustom3:
                 case PaletteBorderStyle.GridDataCellList:
                 case PaletteBorderStyle.GridDataCellSheet:
                 case PaletteBorderStyle.GridDataCellCustom1:
+                case PaletteBorderStyle.GridDataCellCustom2:
+                case PaletteBorderStyle.GridDataCellCustom3:
                     return null;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the border image style.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image style value.</returns>
-		public override PaletteImageStyle GetBorderImageStyle(PaletteBorderStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the border image style.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image style value.</returns>
+        public override PaletteImageStyle GetBorderImageStyle(PaletteBorderStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return PaletteImageStyle.Inherit;
             }
 
             switch (style)
-			{
+            {
                 case PaletteBorderStyle.SeparatorLowProfile:
                 case PaletteBorderStyle.SeparatorHighInternalProfile:
                 case PaletteBorderStyle.SeparatorHighProfile:
                 case PaletteBorderStyle.SeparatorCustom1:
+                case PaletteBorderStyle.SeparatorCustom2:
+                case PaletteBorderStyle.SeparatorCustom3:
                 case PaletteBorderStyle.ControlClient:
                 case PaletteBorderStyle.ControlAlternate:
                 case PaletteBorderStyle.ControlGroupBox:
@@ -3363,6 +3685,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.ControlRibbon:
                 case PaletteBorderStyle.ControlRibbonAppMenu:
                 case PaletteBorderStyle.ControlCustom1:
+                case PaletteBorderStyle.ControlCustom2:
+                case PaletteBorderStyle.ControlCustom3:
                 case PaletteBorderStyle.ContextMenuOuter:
                 case PaletteBorderStyle.ContextMenuInner:
                 case PaletteBorderStyle.ContextMenuHeading:
@@ -3374,8 +3698,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.InputControlStandalone:
                 case PaletteBorderStyle.InputControlRibbon:
                 case PaletteBorderStyle.InputControlCustom1:
+                case PaletteBorderStyle.InputControlCustom2:
+                case PaletteBorderStyle.InputControlCustom3:
                 case PaletteBorderStyle.FormMain:
                 case PaletteBorderStyle.FormCustom1:
+                case PaletteBorderStyle.FormCustom2:
+                case PaletteBorderStyle.FormCustom3:
                 case PaletteBorderStyle.HeaderPrimary:
                 case PaletteBorderStyle.HeaderDockInactive:
                 case PaletteBorderStyle.HeaderDockActive:
@@ -3384,6 +3712,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.HeaderForm:
                 case PaletteBorderStyle.HeaderCustom1:
                 case PaletteBorderStyle.HeaderCustom2:
+                case PaletteBorderStyle.HeaderCustom3:
                 case PaletteBorderStyle.TabHighProfile:
                 case PaletteBorderStyle.TabStandardProfile:
                 case PaletteBorderStyle.TabLowProfile:
@@ -3415,38 +3744,46 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.GridHeaderColumnList:
                 case PaletteBorderStyle.GridHeaderColumnSheet:
                 case PaletteBorderStyle.GridHeaderColumnCustom1:
+                case PaletteBorderStyle.GridHeaderColumnCustom2:
+                case PaletteBorderStyle.GridHeaderColumnCustom3:
                 case PaletteBorderStyle.GridHeaderRowList:
                 case PaletteBorderStyle.GridHeaderRowSheet:
                 case PaletteBorderStyle.GridHeaderRowCustom1:
+                case PaletteBorderStyle.GridHeaderRowCustom2:
+                case PaletteBorderStyle.GridHeaderRowCustom3:
                 case PaletteBorderStyle.GridDataCellList:
                 case PaletteBorderStyle.GridDataCellSheet:
                 case PaletteBorderStyle.GridDataCellCustom1:
+                case PaletteBorderStyle.GridDataCellCustom2:
+                case PaletteBorderStyle.GridDataCellCustom3:
                     return PaletteImageStyle.Tile;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the image border alignment.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image alignment style.</returns>
-		public override PaletteRectangleAlign GetBorderImageAlign(PaletteBorderStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the image border alignment.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image alignment style.</returns>
+        public override PaletteRectangleAlign GetBorderImageAlign(PaletteBorderStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return PaletteRectangleAlign.Inherit;
             }
 
             switch (style)
-			{
+            {
                 case PaletteBorderStyle.SeparatorLowProfile:
                 case PaletteBorderStyle.SeparatorHighInternalProfile:
                 case PaletteBorderStyle.SeparatorHighProfile:
                 case PaletteBorderStyle.SeparatorCustom1:
+                case PaletteBorderStyle.SeparatorCustom2:
+                case PaletteBorderStyle.SeparatorCustom3:
                 case PaletteBorderStyle.ControlClient:
                 case PaletteBorderStyle.ControlAlternate:
                 case PaletteBorderStyle.ControlGroupBox:
@@ -3454,6 +3791,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.ControlRibbon:
                 case PaletteBorderStyle.ControlRibbonAppMenu:
                 case PaletteBorderStyle.ControlCustom1:
+                case PaletteBorderStyle.ControlCustom2:
+                case PaletteBorderStyle.ControlCustom3:
                 case PaletteBorderStyle.ContextMenuOuter:
                 case PaletteBorderStyle.ContextMenuInner:
                 case PaletteBorderStyle.ContextMenuHeading:
@@ -3465,8 +3804,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.InputControlStandalone:
                 case PaletteBorderStyle.InputControlRibbon:
                 case PaletteBorderStyle.InputControlCustom1:
+                case PaletteBorderStyle.InputControlCustom2:
+                case PaletteBorderStyle.InputControlCustom3:
                 case PaletteBorderStyle.FormMain:
                 case PaletteBorderStyle.FormCustom1:
+                case PaletteBorderStyle.FormCustom2:
+                case PaletteBorderStyle.FormCustom3:
                 case PaletteBorderStyle.HeaderPrimary:
                 case PaletteBorderStyle.HeaderDockInactive:
                 case PaletteBorderStyle.HeaderDockActive:
@@ -3475,6 +3818,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.HeaderForm:
                 case PaletteBorderStyle.HeaderCustom1:
                 case PaletteBorderStyle.HeaderCustom2:
+                case PaletteBorderStyle.HeaderCustom3:
                 case PaletteBorderStyle.TabHighProfile:
                 case PaletteBorderStyle.TabStandardProfile:
                 case PaletteBorderStyle.TabLowProfile:
@@ -3506,48 +3850,54 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.GridHeaderColumnList:
                 case PaletteBorderStyle.GridHeaderColumnSheet:
                 case PaletteBorderStyle.GridHeaderColumnCustom1:
+                case PaletteBorderStyle.GridHeaderColumnCustom2:
+                case PaletteBorderStyle.GridHeaderColumnCustom3:
                 case PaletteBorderStyle.GridHeaderRowList:
                 case PaletteBorderStyle.GridHeaderRowSheet:
                 case PaletteBorderStyle.GridHeaderRowCustom1:
+                case PaletteBorderStyle.GridHeaderRowCustom2:
+                case PaletteBorderStyle.GridHeaderRowCustom3:
                 case PaletteBorderStyle.GridDataCellList:
                 case PaletteBorderStyle.GridDataCellSheet:
                 case PaletteBorderStyle.GridDataCellCustom1:
+                case PaletteBorderStyle.GridDataCellCustom2:
+                case PaletteBorderStyle.GridDataCellCustom3:
                     return PaletteRectangleAlign.Local;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
         #endregion
 
-		#region Content
-		/// <summary>
-		/// Gets a value indicating if content should be drawn.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
-		public override InheritBool GetContentDraw(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
-			if (CommonHelper.IsOverrideState(state))
+        #region Content
+        /// <summary>
+        /// Gets a value indicating if content should be drawn.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
+        public override InheritBool GetContentDraw(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
+            if (CommonHelper.IsOverrideState(state))
             {
                 return InheritBool.Inherit;
             }
 
             // Always draw everything
             return InheritBool.True;
-		}
+        }
 
-		/// <summary>
-		/// Gets a value indicating if content should be drawn with focus indication.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
-		public override InheritBool GetContentDrawFocus(PaletteContentStyle style, PaletteState state)
-		{
-			// By default the focus override shows the focus!
-			if (state == PaletteState.FocusOverride)
+        /// <summary>
+        /// Gets a value indicating if content should be drawn with focus indication.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
+        public override InheritBool GetContentDrawFocus(PaletteContentStyle style, PaletteState state)
+        {
+            // By default the focus override shows the focus!
+            if (state == PaletteState.FocusOverride)
             {
                 return InheritBool.True;
             }
@@ -3561,24 +3911,24 @@ namespace ComponentFactory.Krypton.Toolkit
             // By default, never show the focus indication, we let individual controls
             // override this functionality as required by the controls requirements
             return InheritBool.False;
-		}
+        }
 
-		/// <summary>
-		/// Gets the horizontal relative alignment of the image.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
-		public override PaletteRelativeAlign GetContentImageH(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the horizontal relative alignment of the image.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
+        public override PaletteRelativeAlign GetContentImageH(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return PaletteRelativeAlign.Inherit;
             }
 
             switch (style)
-			{
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -3587,6 +3937,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.ButtonNavigatorStack:
                 case PaletteContentStyle.ButtonNavigatorOverflow:
                 case PaletteContentStyle.ButtonListItem:
@@ -3610,12 +3961,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return PaletteRelativeAlign.Near;
                 case PaletteContentStyle.ButtonNavigatorMini:
                 case PaletteContentStyle.ContextMenuItemImage:
@@ -3626,6 +3983,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -3650,27 +4009,27 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ButtonCustom3:
                 case PaletteContentStyle.ButtonInputControl:
                     return PaletteRelativeAlign.Center;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the vertical relative alignment of the image.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
-		public override PaletteRelativeAlign GetContentImageV(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the vertical relative alignment of the image.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
+        public override PaletteRelativeAlign GetContentImageV(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return PaletteRelativeAlign.Inherit;
             }
 
             switch (style)
-			{
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -3679,6 +4038,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -3702,6 +4062,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -3733,34 +4095,40 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return PaletteRelativeAlign.Center;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the effect applied to drawing of the image.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteImageEffect value.</returns>
-		public override PaletteImageEffect GetContentImageEffect(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the effect applied to drawing of the image.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteImageEffect value.</returns>
+        public override PaletteImageEffect GetContentImageEffect(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return PaletteImageEffect.Inherit;
             }
 
             switch (style)
-			{
+            {
                 case PaletteContentStyle.HeaderForm:
                     return PaletteImageEffect.Normal;
                 case PaletteContentStyle.HeaderPrimary:
@@ -3770,6 +4138,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderSecondary:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -3793,6 +4162,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -3824,12 +4195,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     if (state == PaletteState.Disabled)
                     {
                         return PaletteImageEffect.Disabled;
@@ -3840,9 +4217,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
 
                 default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
         /// <summary>
         /// Gets the image color to remap into another color.
@@ -3868,6 +4245,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -3891,6 +4269,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -3922,12 +4302,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return Color.Empty;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style));
@@ -3958,6 +4344,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -3981,6 +4368,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -4012,12 +4401,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return Color.Empty;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style));
@@ -4048,6 +4443,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -4071,6 +4467,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -4102,26 +4500,32 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return Color.Empty;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style));
             }
         }
 
-		/// <summary>
-		/// Gets the font for the short text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Font value.</returns>
-		public override Font GetContentShortTextFont(PaletteContentStyle style, PaletteState state)
-		{
+        /// <summary>
+        /// Gets the font for the short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Font value.</returns>
+        public override Font GetContentShortTextFont(PaletteContentStyle style, PaletteState state)
+        {
             if (CommonHelper.IsOverrideState(state))
             {
                 if ((state == PaletteState.BoldedOverride) && (style == PaletteContentStyle.ButtonCalendarDay))
@@ -4133,7 +4537,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     return null;
                 }
             }
-            
+
             switch (style)
             {
                 case PaletteContentStyle.HeaderForm:
@@ -4143,6 +4547,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.ButtonCommand:
                     return _header1ShortFont;
                 case PaletteContentStyle.LabelSuperTip:
@@ -4159,6 +4564,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.HeaderSecondary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -4216,12 +4623,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                 case PaletteContentStyle.HeaderCalendar:
                     return _gridFont;
                 case PaletteContentStyle.ButtonCalendarDay:
@@ -4229,7 +4642,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style));
             }
-		}
+        }
 
         /// <summary>
         /// Gets the font for the short text by generating a new font instance.
@@ -4242,23 +4655,23 @@ namespace ComponentFactory.Krypton.Toolkit
             DefineFonts();
             return GetContentShortTextFont(style, state);
         }
-        
+
         /// <summary>
-		/// Gets the rendering hint for the short text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteTextHint value.</returns>
-		public override PaletteTextHint GetContentShortTextHint(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// Gets the rendering hint for the short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteTextHint value.</returns>
+        public override PaletteTextHint GetContentShortTextHint(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return PaletteTextHint.Inherit;
             }
 
             switch (style)
-			{
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -4267,6 +4680,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -4290,6 +4704,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -4321,17 +4737,23 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return PaletteTextHint.ClearTypeGridFit;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
         /// <summary>
         /// Gets the prefix drawing setting for short text.
@@ -4393,6 +4815,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.HeaderForm:
                     return PaletteTextHotkeyPrefix.Show;
                 case PaletteContentStyle.ButtonListItem:
@@ -4406,15 +4830,22 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderSecondary:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                 case PaletteContentStyle.ContextMenuHeading:
                 case PaletteContentStyle.ContextMenuItemImage:
                 case PaletteContentStyle.ContextMenuItemShortcutText:
@@ -4424,22 +4855,22 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Gets the flag indicating if multiline text is allowed for short text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
-		public override InheritBool GetContentShortTextMultiLine(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the flag indicating if multiline text is allowed for short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
+        public override InheritBool GetContentShortTextMultiLine(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return InheritBool.Inherit;
             }
 
             switch (style)
-			{
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -4448,6 +4879,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -4471,6 +4903,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -4502,34 +4936,40 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return InheritBool.True;
                 default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the text trimming to use for short text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteTextTrim value.</returns>
-		public override PaletteTextTrim GetContentShortTextTrim(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the text trimming to use for short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteTextTrim value.</returns>
+        public override PaletteTextTrim GetContentShortTextTrim(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return PaletteTextTrim.Inherit;
             }
 
             switch (style)
-			{
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -4538,6 +4978,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -4561,6 +5002,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -4592,34 +5035,40 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return PaletteTextTrim.EllipsisCharacter;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the horizontal relative alignment of the short text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
-		public override PaletteRelativeAlign GetContentShortTextH(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the horizontal relative alignment of the short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
+        public override PaletteRelativeAlign GetContentShortTextH(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return PaletteRelativeAlign.Inherit;
             }
 
             switch (style)
-			{
+            {
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
@@ -4627,6 +5076,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderSecondary:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.ButtonNavigatorStack:
                 case PaletteContentStyle.ButtonNavigatorOverflow:
                 case PaletteContentStyle.ButtonListItem:
@@ -4652,12 +5102,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ContextMenuItemTextAlternate:
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return PaletteRelativeAlign.Near;
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.HeaderCalendar:
@@ -4665,6 +5121,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -4693,26 +5151,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ContextMenuItemShortcutText:
                     return PaletteRelativeAlign.Far;
                 default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the vertical relative alignment of the short text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
-		public override PaletteRelativeAlign GetContentShortTextV(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the vertical relative alignment of the short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
+        public override PaletteRelativeAlign GetContentShortTextV(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return PaletteRelativeAlign.Inherit;
             }
 
             switch (style)
-			{
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -4721,6 +5179,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -4743,6 +5202,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -4775,35 +5236,41 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
                 case PaletteContentStyle.GridHeaderRowList:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return PaletteRelativeAlign.Center;
                 case PaletteContentStyle.LabelSuperTip:
                     return PaletteRelativeAlign.Near;
                 default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the horizontal relative alignment of multiline short text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
-		public override PaletteRelativeAlign GetContentShortTextMultiLineH(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the horizontal relative alignment of multiline short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
+        public override PaletteRelativeAlign GetContentShortTextMultiLineH(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return PaletteRelativeAlign.Inherit;
             }
 
             switch (style)
-			{
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -4812,6 +5279,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -4835,6 +5303,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -4866,17 +5336,23 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return PaletteRelativeAlign.Near;
                 default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
         /// <summary>
         /// Gets the first back color for the short text.
@@ -4924,9 +5400,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                 // All other override states do nothing
                                 return Color.Empty;
                         }
-                    }
+                }
 
-                    return Color.Empty;
+                return Color.Empty;
             }
 
             switch (style)
@@ -4942,7 +5418,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
             }
 
-            if ((state == PaletteState.Disabled) && 
+            if ((state == PaletteState.Disabled) &&
                 (style != PaletteContentStyle.LabelToolTip) &&
                 (style != PaletteContentStyle.LabelSuperTip) &&
                 (style != PaletteContentStyle.LabelKeyTip) &&
@@ -5001,6 +5477,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderSecondary:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalPanel:
                 case PaletteContentStyle.LabelBoldPanel:
                 case PaletteContentStyle.LabelItalicPanel:
@@ -5039,6 +5516,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     if (state == PaletteState.CheckedNormal)
                     {
                         return _colorWhite255;
@@ -5061,12 +5540,17 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowCustom1:
-                    return _colorDark00;
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3: return _colorDark00;
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                     if (state == PaletteState.Disabled)
                     {
                         return _inputControlTextDisabled;
@@ -5214,6 +5698,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderCalendar:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalPanel:
                 case PaletteContentStyle.LabelBoldPanel:
                 case PaletteContentStyle.LabelItalicPanel:
@@ -5251,6 +5736,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     if (state == PaletteState.CheckedNormal)
                     {
                         return _colorWhite255;
@@ -5273,12 +5760,17 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowCustom1:
-                    return _colorDark00;
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3: return _colorDark00;
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                     if (state == PaletteState.Disabled)
                     {
                         return _inputControlTextDisabled;
@@ -5355,6 +5847,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -5378,6 +5871,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -5409,12 +5904,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return PaletteColorStyle.Solid;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style));
@@ -5445,6 +5946,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -5468,6 +5970,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -5499,12 +6003,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return PaletteRectangleAlign.Local;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style));
@@ -5535,6 +6045,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -5558,6 +6069,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -5589,12 +6102,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return 90f;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style));
@@ -5625,6 +6144,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -5648,6 +6168,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -5679,12 +6201,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return null;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style));
@@ -5715,6 +6243,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -5738,6 +6267,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -5769,12 +6300,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return PaletteImageStyle.TileFlipXY;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style));
@@ -5805,6 +6342,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -5828,6 +6366,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -5859,26 +6399,32 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return PaletteRectangleAlign.Local;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style));
             }
         }
 
-		/// <summary>
-		/// Gets the font for the long text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Font value.</returns>
-		public override Font GetContentLongTextFont(PaletteContentStyle style, PaletteState state)
-		{
+        /// <summary>
+        /// Gets the font for the long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Font value.</returns>
+        public override Font GetContentLongTextFont(PaletteContentStyle style, PaletteState state)
+        {
             if (CommonHelper.IsOverrideState(state))
             {
                 if ((state == PaletteState.BoldedOverride) && (style == PaletteContentStyle.ButtonCalendarDay))
@@ -5890,18 +6436,24 @@ namespace ComponentFactory.Krypton.Toolkit
                     return null;
                 }
             }
-            
-			switch (style)
-			{
+
+            switch (style)
+            {
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                 case PaletteContentStyle.HeaderCalendar:
                     return _gridFont;
                 case PaletteContentStyle.LabelTitleControl:
@@ -5912,6 +6464,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                     return _header1LongFont;
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
@@ -5934,8 +6487,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.HeaderSecondary:
-					return _header2LongFont;
+                    return _header2LongFont;
                 case PaletteContentStyle.TabLowProfile:
                 case PaletteContentStyle.TabDock:
                 case PaletteContentStyle.TabDockAutoHidden:
@@ -5977,9 +6532,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ButtonCalendarDay:
                     return _calendarFont;
                 default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
         /// <summary>
         /// Gets the font for the long text by generating a new font instance.
@@ -5993,22 +6548,22 @@ namespace ComponentFactory.Krypton.Toolkit
             return GetContentLongTextFont(style, state);
         }
 
-		/// <summary>
-		/// Gets the rendering hint for the long text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteTextHint value.</returns>
-		public override PaletteTextHint GetContentLongTextHint(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the rendering hint for the long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteTextHint value.</returns>
+        public override PaletteTextHint GetContentLongTextHint(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return PaletteTextHint.Inherit;
             }
 
             switch (style)
-			{
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -6017,6 +6572,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -6040,6 +6596,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -6071,34 +6629,40 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return PaletteTextHint.ClearTypeGridFit;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the flag indicating if multiline text is allowed for long text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
-		public override InheritBool GetContentLongTextMultiLine(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the flag indicating if multiline text is allowed for long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
+        public override InheritBool GetContentLongTextMultiLine(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return InheritBool.Inherit;
             }
 
             switch (style)
-			{
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -6107,6 +6671,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -6130,6 +6695,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -6161,34 +6728,40 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return InheritBool.True;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the text trimming to use for long text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteTextTrim value.</returns>
-		public override PaletteTextTrim GetContentLongTextTrim(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the text trimming to use for long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteTextTrim value.</returns>
+        public override PaletteTextTrim GetContentLongTextTrim(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return PaletteTextTrim.Inherit;
             }
 
             switch (style)
-			{
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -6197,6 +6770,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -6220,6 +6794,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -6251,17 +6827,23 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return PaletteTextTrim.EllipsisCharacter;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
         /// <summary>
         /// Gets the prefix drawing setting for long text.
@@ -6316,6 +6898,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -6339,37 +6922,45 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return PaletteTextHotkeyPrefix.None;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style));
             }
         }
-        
+
         /// <summary>
-		/// Gets the horizontal relative alignment of the long text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
-		public override PaletteRelativeAlign GetContentLongTextH(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// Gets the horizontal relative alignment of the long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
+        public override PaletteRelativeAlign GetContentLongTextH(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return PaletteRelativeAlign.Inherit;
             }
 
             switch (style)
-			{
+            {
                 case PaletteContentStyle.LabelSuperTip:
                 case PaletteContentStyle.LabelToolTip:
                 case PaletteContentStyle.LabelKeyTip:
@@ -6395,6 +6986,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderSecondary:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.ContextMenuHeading:
                 case PaletteContentStyle.ContextMenuItemImage:
                 case PaletteContentStyle.ContextMenuItemTextStandard:
@@ -6405,17 +6997,25 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ButtonCommand:
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return PaletteRelativeAlign.Far;
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -6441,27 +7041,27 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ButtonCustom3:
                 case PaletteContentStyle.ButtonInputControl:
                     return PaletteRelativeAlign.Center;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the vertical relative alignment of the long text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
-		public override PaletteRelativeAlign GetContentLongTextV(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the vertical relative alignment of the long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
+        public override PaletteRelativeAlign GetContentLongTextV(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return PaletteRelativeAlign.Inherit;
             }
 
             switch (style)
-			{
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -6470,6 +7070,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -6489,6 +7090,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -6520,12 +7123,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return PaletteRelativeAlign.Center;
                 case PaletteContentStyle.LabelToolTip:
                 case PaletteContentStyle.LabelKeyTip:
@@ -6534,26 +7143,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.LabelSuperTip:
                     return PaletteRelativeAlign.Center;
                 default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the horizontal relative alignment of multiline long text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
-		public override PaletteRelativeAlign GetContentLongTextMultiLineH(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the horizontal relative alignment of multiline long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
+        public override PaletteRelativeAlign GetContentLongTextMultiLineH(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return PaletteRelativeAlign.Inherit;
             }
 
             switch (style)
-			{
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -6562,6 +7171,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -6579,6 +7189,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -6609,12 +7221,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return PaletteRelativeAlign.Center;
                 case PaletteContentStyle.LabelToolTip:
                 case PaletteContentStyle.LabelSuperTip:
@@ -6626,9 +7244,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.ContextMenuItemShortcutText:
                     return PaletteRelativeAlign.Far;
                 default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
         /// <summary>
         /// Gets the first back color for the long text.
@@ -6732,6 +7350,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderSecondary:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalPanel:
                 case PaletteContentStyle.LabelBoldPanel:
                 case PaletteContentStyle.LabelItalicPanel:
@@ -6757,6 +7376,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     if (state == PaletteState.CheckedNormal)
                     {
                         return _colorWhite255;
@@ -6779,12 +7400,17 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowCustom1:
-                    return _colorDark00;
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3: return _colorDark00;
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                     if (state == PaletteState.Disabled)
                     {
                         return _inputControlTextDisabled;
@@ -6939,6 +7565,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderSecondary:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalPanel:
                 case PaletteContentStyle.LabelBoldPanel:
                 case PaletteContentStyle.LabelItalicPanel:
@@ -6964,6 +7591,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     if (state == PaletteState.CheckedNormal)
                     {
                         return _colorWhite255;
@@ -6986,12 +7615,17 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowCustom1:
-                    return _colorDark00;
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3: return _colorDark00;
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                     if (state == PaletteState.Disabled)
                     {
                         return _inputControlTextDisabled;
@@ -7068,6 +7702,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -7091,6 +7726,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -7122,12 +7759,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return PaletteColorStyle.Solid;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style));
@@ -7158,6 +7801,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -7181,6 +7825,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -7212,12 +7858,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return PaletteRectangleAlign.Local;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style));
@@ -7248,6 +7900,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -7271,6 +7924,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -7302,12 +7957,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return 90f;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style));
@@ -7338,6 +7999,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -7361,6 +8023,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -7392,12 +8056,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return null;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style));
@@ -7428,6 +8098,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -7451,6 +8122,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -7482,12 +8155,18 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return PaletteImageStyle.TileFlipXY;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style));
@@ -7518,6 +8197,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -7541,6 +8221,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -7572,52 +8254,65 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return PaletteRectangleAlign.Local;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style));
             }
         }
-        
+
         /// <summary>
-		/// Gets the padding between the border and content drawing.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Padding value.</returns>
-		public override Padding GetContentPadding(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// Gets the padding between the border and content drawing.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Padding value.</returns>
+        public override Padding GetContentPadding(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return CommonHelper.InheritPadding;
             }
 
             switch (style)
-			{
+            {
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return _contentPaddingGrid;
                 case PaletteContentStyle.HeaderForm:
                     return _contentPaddingHeaderForm;
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                     return _contentPaddingHeader1;
                 case PaletteContentStyle.HeaderSecondary:
-					return _contentPaddingHeader2;
+                    return _contentPaddingHeader2;
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
                     return _contentPaddingHeader3;
@@ -7656,6 +8351,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                     return InputControlPadding;
                 case PaletteContentStyle.ButtonStandalone:
                 case PaletteContentStyle.ButtonCommand:
@@ -7696,26 +8393,26 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.TabDockAutoHidden:
                     return _contentPaddingButton7;
                 default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
 
-		/// <summary>
-		/// Gets the padding between adjacent content items.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Integer value.</returns>
-		public override int GetContentAdjacentGap(PaletteContentStyle style, PaletteState state)
-		{
-			// We do not provide override values
+        /// <summary>
+        /// Gets the padding between adjacent content items.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Integer value.</returns>
+        public override int GetContentAdjacentGap(PaletteContentStyle style, PaletteState state)
+        {
+            // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
             {
                 return -1;
             }
 
             switch (style)
-			{
+            {
                 case PaletteContentStyle.HeaderPrimary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -7724,6 +8421,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.HeaderForm:
                 case PaletteContentStyle.HeaderCustom1:
                 case PaletteContentStyle.HeaderCustom2:
+                case PaletteContentStyle.HeaderCustom3:
                 case PaletteContentStyle.LabelNormalControl:
                 case PaletteContentStyle.LabelBoldControl:
                 case PaletteContentStyle.LabelItalicControl:
@@ -7746,6 +8444,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -7777,22 +8477,28 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
+                case PaletteContentStyle.GridHeaderColumnCustom2:
+                case PaletteContentStyle.GridHeaderColumnCustom3:
                 case PaletteContentStyle.GridHeaderRowList:
                 case PaletteContentStyle.GridHeaderRowSheet:
                 case PaletteContentStyle.GridHeaderRowCustom1:
+                case PaletteContentStyle.GridHeaderRowCustom2:
+                case PaletteContentStyle.GridHeaderRowCustom3:
                 case PaletteContentStyle.GridDataCellList:
                 case PaletteContentStyle.GridDataCellSheet:
                 case PaletteContentStyle.GridDataCellCustom1:
+                case PaletteContentStyle.GridDataCellCustom2:
+                case PaletteContentStyle.GridDataCellCustom3:
                     return 1;
                 case PaletteContentStyle.LabelSuperTip:
                     return 5;
                 default:
-					throw new ArgumentOutOfRangeException(nameof(style));
-			}
-		}
-		#endregion
+                    throw new ArgumentOutOfRangeException(nameof(style));
+            }
+        }
+        #endregion
 
-		#region Metric
+        #region Metric
         /// <summary>
         /// Gets an integer metric value.
         /// </summary>
@@ -7819,6 +8525,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteMetricInt.HeaderButtonEdgeInsetDockActive:
                 case PaletteMetricInt.HeaderButtonEdgeInsetCustom1:
                 case PaletteMetricInt.HeaderButtonEdgeInsetCustom2:
+                case PaletteMetricInt.HeaderButtonEdgeInsetCustom3:
                 case PaletteMetricInt.BarButtonEdgeOutside:
                 case PaletteMetricInt.BarButtonEdgeInside:
                     return 3;
@@ -7832,15 +8539,15 @@ namespace ComponentFactory.Krypton.Toolkit
 
             return -1;
         }
-        
+
         /// <summary>
-		/// Gets a boolean metric value.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <param name="metric">Requested metric.</param>
-		/// <returns>InheritBool value.</returns>
-		public override InheritBool GetMetricBool(PaletteState state, PaletteMetricBool metric)
-		{
+        /// Gets a boolean metric value.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <param name="metric">Requested metric.</param>
+        /// <returns>InheritBool value.</returns>
+        public override InheritBool GetMetricBool(PaletteState state, PaletteMetricBool metric)
+        {
             switch (metric)
             {
                 case PaletteMetricBool.HeaderGroupOverlay:
@@ -7855,16 +8562,16 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             return InheritBool.Inherit;
-		}
+        }
 
-		/// <summary>
-		/// Gets a padding metric value.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <param name="metric">Requested metric.</param>
-		/// <returns>Padding value.</returns>
-		public override Padding GetMetricPadding(PaletteState state, PaletteMetricPadding metric)
-		{
+        /// <summary>
+        /// Gets a padding metric value.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <param name="metric">Requested metric.</param>
+        /// <returns>Padding value.</returns>
+        public override Padding GetMetricPadding(PaletteState state, PaletteMetricPadding metric)
+        {
             switch (metric)
             {
                 case PaletteMetricPadding.PageButtonPadding:
@@ -7890,6 +8597,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteMetricPadding.HeaderButtonPaddingDockActive:
                 case PaletteMetricPadding.HeaderButtonPaddingCustom1:
                 case PaletteMetricPadding.HeaderButtonPaddingCustom2:
+                case PaletteMetricPadding.HeaderButtonPaddingCustom3:
                 case PaletteMetricPadding.HeaderButtonPaddingCalendar:
                 case PaletteMetricPadding.BarButtonPadding:
                     return _metricPaddingHeader;
@@ -7903,6 +8611,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteMetricPadding.SeparatorPaddingHighInternalProfile:
                 case PaletteMetricPadding.SeparatorPaddingHighProfile:
                 case PaletteMetricPadding.SeparatorPaddingCustom1:
+                case PaletteMetricPadding.SeparatorPaddingCustom2:
+                case PaletteMetricPadding.SeparatorPaddingCustom3:
                 case PaletteMetricPadding.ContextMenuItemsCollection:
                     return Padding.Empty;
                 case PaletteMetricPadding.ContextMenuItemHighlight:
@@ -7914,8 +8624,8 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             return Padding.Empty;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Images
         /// <summary>
@@ -7934,7 +8644,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 return _treeExpandWhite;
             }
         }
-        
+
         /// <summary>
         /// Gets a check box image appropriate for the provided state.
         /// </summary>
@@ -8104,8 +8814,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="state">State of the button to fetch.</param>
         /// <returns>Appropriate image for drawing; otherwise null.</returns>
         public override Image GetGalleryButtonImage(PaletteRibbonGalleryButton button, PaletteState state)
-        {         
-            switch(button)
+        {
+            switch (button)
             {
                 default:
                 case PaletteRibbonGalleryButton.Down:
@@ -8854,7 +9564,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>PaletteRibbonBackStyle value.</returns>
         public override PaletteRibbonColorStyle GetRibbonBackColorStyle(PaletteRibbonBackStyle style, PaletteState state)
         {
-            switch(style)
+            switch (style)
             {
                 case PaletteRibbonBackStyle.RibbonAppMenuDocs:
                     return PaletteRibbonColorStyle.Solid;
@@ -9289,7 +9999,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                     break;
                 case PaletteRibbonBackStyle.RibbonGroupArea:
-                        return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupsArea2];
+                    return _ribbonColors[(int)SchemeOfficeColors.RibbonGroupsArea2];
                 case PaletteRibbonBackStyle.RibbonTab:
                     switch (state)
                     {
@@ -10021,7 +10731,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _tabFontNormal?.Dispose();
 
             _ribbonTabFont?.Dispose();
-            
+
             _gridFont?.Dispose();
 
             _calendarFont?.Dispose();

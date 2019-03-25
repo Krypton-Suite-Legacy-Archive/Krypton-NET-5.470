@@ -43,6 +43,7 @@ namespace ComponentFactory.Krypton.Toolkit
             HeaderForm = new KryptonPaletteHeader(redirector, PaletteBackStyle.HeaderForm, PaletteBorderStyle.HeaderForm, PaletteContentStyle.HeaderForm, needPaint);
             HeaderCustom1 = new KryptonPaletteHeader(redirector, PaletteBackStyle.HeaderCustom1, PaletteBorderStyle.HeaderCustom1, PaletteContentStyle.HeaderCustom1, needPaint);
             HeaderCustom2 = new KryptonPaletteHeader(redirector, PaletteBackStyle.HeaderCustom2, PaletteBorderStyle.HeaderCustom2, PaletteContentStyle.HeaderCustom2, needPaint);
+            HeaderCustom3 = new KryptonPaletteHeader(redirector, PaletteBackStyle.HeaderCustom3, PaletteBorderStyle.HeaderCustom3, PaletteContentStyle.HeaderCustom3, needPaint);
 
             // Create redirectors for inheriting from style specific to style common
             PaletteRedirectTripleMetric redirectCommon = new PaletteRedirectTripleMetric(redirector, 
@@ -58,6 +59,7 @@ namespace ComponentFactory.Krypton.Toolkit
             HeaderForm.SetRedirector(redirectCommon);
             HeaderCustom1.SetRedirector(redirectCommon);
             HeaderCustom2.SetRedirector(redirectCommon);
+            HeaderCustom3.SetRedirector(redirectCommon);
         }
         #endregion
 
@@ -72,8 +74,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                           HeaderDockActive.IsDefault &&
                                           HeaderCalendar.IsDefault &&
                                           HeaderForm.IsDefault &&
-                                          HeaderCustom1.IsDefault &&
-                                          HeaderCustom2.IsDefault;
+                                          HeaderCustom1.IsDefault 
+                                          && HeaderCustom2.IsDefault
+                                          && HeaderCustom3.IsDefault;
 
         #endregion
 
@@ -253,6 +256,22 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool ShouldSerializeHeaderCustom2()
         {
             return !HeaderCustom2.IsDefault;
+        }
+        #endregion
+
+        #region HeaderCustom3
+        /// <summary>
+        /// Gets access to the second custom header appearance entries.
+        /// </summary>
+        [KryptonPersist]
+        [Category("Visuals")]
+        [Description("Overrides for defining the third custom header appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public KryptonPaletteHeader HeaderCustom3 { get; }
+
+        private bool ShouldSerializeHeaderCustom3()
+        {
+            return !HeaderCustom3.IsDefault;
         }
         #endregion
     }

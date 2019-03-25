@@ -40,6 +40,8 @@ namespace ComponentFactory.Krypton.Toolkit
             PanelAlternate = new KryptonPalettePanel(redirector, PaletteBackStyle.PanelAlternate, needPaint);
             PanelRibbonInactive = new KryptonPalettePanel(redirector, PaletteBackStyle.PanelRibbonInactive, needPaint);
             PanelCustom1 = new KryptonPalettePanel(redirector, PaletteBackStyle.PanelCustom1, needPaint);
+            PanelCustom2 = new KryptonPalettePanel(redirector, PaletteBackStyle.PanelCustom2, needPaint);
+            PanelCustom3 = new KryptonPalettePanel(redirector, PaletteBackStyle.PanelCustom3, needPaint);
 
             // Create redirectors for inheriting from style specific to style common
             PaletteRedirectBack redirectCommon = new PaletteRedirectBack(redirector, PanelCommon.StateDisabled, PanelCommon.StateNormal);
@@ -49,6 +51,8 @@ namespace ComponentFactory.Krypton.Toolkit
             PanelAlternate.SetRedirector(redirectCommon);
             PanelRibbonInactive.SetRedirector(redirectCommon);
             PanelCustom1.SetRedirector(redirectCommon);
+            PanelCustom2.SetRedirector(redirectCommon);
+            PanelCustom3.SetRedirector(redirectCommon);
         }
         #endregion
 
@@ -59,8 +63,10 @@ namespace ComponentFactory.Krypton.Toolkit
         public override bool IsDefault => PanelCommon.IsDefault &&
                                           PanelClient.IsDefault &&
                                           PanelAlternate.IsDefault &&
-                                          PanelRibbonInactive.IsDefault &&
-                                          PanelCustom1.IsDefault;
+                                          PanelRibbonInactive.IsDefault 
+                                          && PanelCustom1.IsDefault
+                                          && PanelCustom2.IsDefault
+                                          && PanelCustom3.IsDefault;
 
         #endregion
 
@@ -160,5 +166,38 @@ namespace ComponentFactory.Krypton.Toolkit
             return !PanelCustom1.IsDefault;
         }
         #endregion
+
+        #region PanelCustom2
+        /// <summary>
+        /// Gets access to the first custom panel appearance.
+        /// </summary>
+        [KryptonPersist]
+        [Category("Visuals")]
+        [Description("Overrides for defining the second custom panel appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public KryptonPalettePanel PanelCustom2 { get; }
+
+        private bool ShouldSerializePanelCustom2()
+        {
+            return !PanelCustom2.IsDefault;
+        }
+        #endregion
+
+        #region PanelCustom3
+        /// <summary>
+        /// Gets access to the first custom panel appearance.
+        /// </summary>
+        [KryptonPersist]
+        [Category("Visuals")]
+        [Description("Overrides for defining the third custom panel appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public KryptonPalettePanel PanelCustom3 { get; }
+
+        private bool ShouldSerializePanelCustom3()
+        {
+            return !PanelCustom3.IsDefault;
+        }
+        #endregion
+
     }
 }

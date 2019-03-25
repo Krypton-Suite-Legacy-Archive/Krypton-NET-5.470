@@ -161,6 +161,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 case SeparatorStyle.Custom1:
                     SetStyles(PaletteBackStyle.SeparatorCustom1, PaletteBorderStyle.SeparatorCustom1);
                     break;
+                case SeparatorStyle.Custom2:
+                    SetStyles(PaletteBackStyle.SeparatorCustom2, PaletteBorderStyle.SeparatorCustom2);
+                    break;
+                case SeparatorStyle.Custom3:
+                    SetStyles(PaletteBackStyle.SeparatorCustom3, PaletteBorderStyle.SeparatorCustom3);
+                    break;
                 default:
                     // Should never happen!
                     Debug.Assert(false);

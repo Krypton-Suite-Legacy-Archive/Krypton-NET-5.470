@@ -43,6 +43,8 @@ namespace ComponentFactory.Krypton.Toolkit
             ControlRibbon = new KryptonPaletteControl(redirector, PaletteBackStyle.ControlRibbon, PaletteBorderStyle.ControlRibbon, needPaint);
             ControlRibbonAppMenu = new KryptonPaletteControl(redirector, PaletteBackStyle.ControlRibbonAppMenu, PaletteBorderStyle.ControlRibbonAppMenu, needPaint);
             ControlCustom1 = new KryptonPaletteControl(redirector, PaletteBackStyle.ControlCustom1, PaletteBorderStyle.ControlCustom1, needPaint);
+            ControlCustom2 = new KryptonPaletteControl(redirector, PaletteBackStyle.ControlCustom2, PaletteBorderStyle.ControlCustom2, needPaint);
+            ControlCustom3 = new KryptonPaletteControl(redirector, PaletteBackStyle.ControlCustom3, PaletteBorderStyle.ControlCustom3, needPaint);
 
             // Create redirectors for inheriting from style specific to style common
             PaletteRedirectDouble redirectCommon = new PaletteRedirectDouble(redirector, ControlCommon.StateDisabled, ControlCommon.StateNormal);
@@ -55,6 +57,8 @@ namespace ComponentFactory.Krypton.Toolkit
             ControlRibbon.SetRedirector(redirectCommon);
             ControlRibbonAppMenu.SetRedirector(redirectCommon);
             ControlCustom1.SetRedirector(redirectCommon);
+            ControlCustom2.SetRedirector(redirectCommon);
+            ControlCustom3.SetRedirector(redirectCommon);
         }
         #endregion
 
@@ -227,6 +231,38 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool ShouldSerializeControlCustom1()
         {
             return !ControlCustom1.IsDefault;
+        }
+        #endregion
+
+        #region ControlCustom2
+        /// <summary>
+        /// Gets access to the first custom control appearance.
+        /// </summary>
+        [KryptonPersist]
+        [Category("Visuals")]
+        [Description("Overrides for defining the first custom control appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public KryptonPaletteControl ControlCustom2 { get; }
+
+        private bool ShouldSerializeControlCustom2()
+        {
+            return !ControlCustom2.IsDefault;
+        }
+        #endregion
+
+        #region ControlCustom3
+        /// <summary>
+        /// Gets access to the first custom control appearance.
+        /// </summary>
+        [KryptonPersist]
+        [Category("Visuals")]
+        [Description("Overrides for defining the third custom control appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public KryptonPaletteControl ControlCustom3 { get; }
+
+        private bool ShouldSerializeControlCustom3()
+        {
+            return !ControlCustom3.IsDefault;
         }
         #endregion
     }

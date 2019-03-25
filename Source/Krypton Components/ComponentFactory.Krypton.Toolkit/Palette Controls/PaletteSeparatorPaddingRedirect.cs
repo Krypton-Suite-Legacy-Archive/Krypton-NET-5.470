@@ -128,8 +128,11 @@ namespace ComponentFactory.Krypton.Toolkit
             // Is this the metric we provide?
             if ((metric == PaletteMetricPadding.SeparatorPaddingLowProfile) ||
                 (metric == PaletteMetricPadding.SeparatorPaddingHighProfile) ||
-                (metric == PaletteMetricPadding.SeparatorPaddingHighInternalProfile) ||
-                (metric == PaletteMetricPadding.SeparatorPaddingCustom1))
+                (metric == PaletteMetricPadding.SeparatorPaddingHighInternalProfile) 
+                || (metric == PaletteMetricPadding.SeparatorPaddingCustom1)
+                || (metric == PaletteMetricPadding.SeparatorPaddingCustom2)
+                || (metric == PaletteMetricPadding.SeparatorPaddingCustom3)
+                )
             {
                 // If the user has defined an actual value to use
                 if (!Padding.Equals(CommonHelper.InheritPadding))

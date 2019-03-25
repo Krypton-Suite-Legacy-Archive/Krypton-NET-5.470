@@ -321,6 +321,11 @@ namespace ComponentFactory.Krypton.Toolkit
                                                             PaletteMetricInt.HeaderButtonEdgeInsetCustom2,
                                                             PaletteMetricPadding.HeaderButtonPaddingCustom2);
                             break;
+                        case HeaderStyle.Custom3:
+                            _buttonManager.SetDockerMetrics(_drawDocker, StateCommon,
+                                PaletteMetricInt.HeaderButtonEdgeInsetCustom3,
+                                PaletteMetricPadding.HeaderButtonPaddingCustom3);
+                            break;
                         default:
                             // Should never happen!
                             Debug.Assert(false);

@@ -90,6 +90,18 @@ namespace ComponentFactory.Krypton.Toolkit
                             _dataCellStyle = GridStyle.Custom1;
                             _backgroundStyle = PaletteBackStyle.GridBackgroundCustom1;
                             break;
+                        case DataGridViewStyle.Custom2:
+                            _columnStyle = GridStyle.Custom2;
+                            _rowStyle = GridStyle.Custom2;
+                            _dataCellStyle = GridStyle.Custom2;
+                            _backgroundStyle = PaletteBackStyle.GridBackgroundCustom2;
+                            break;
+                        case DataGridViewStyle.Custom3:
+                            _columnStyle = GridStyle.Custom3;
+                            _rowStyle = GridStyle.Custom3;
+                            _dataCellStyle = GridStyle.Custom3;
+                            _backgroundStyle = PaletteBackStyle.GridBackgroundCustom3;
+                            break;
                     }
 
                     _dataGridView.SyncStyles();
@@ -147,6 +159,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             }
 
                             break;
+
                         case GridStyle.Custom1:
                             if ((_rowStyle == GridStyle.Custom1) &&
                                 (_dataCellStyle == GridStyle.Custom1) &&
@@ -154,7 +167,24 @@ namespace ComponentFactory.Krypton.Toolkit
                             {
                                 _gridStyle = DataGridViewStyle.Custom1;
                             }
+                            break;
 
+                        case GridStyle.Custom2:
+                            if ((_rowStyle == GridStyle.Custom2) &&
+                                (_dataCellStyle == GridStyle.Custom2) &&
+                                (_backgroundStyle == PaletteBackStyle.GridBackgroundCustom2))
+                            {
+                                _gridStyle = DataGridViewStyle.Custom2;
+                            }
+                            break;
+
+                        case GridStyle.Custom3:
+                            if ((_rowStyle == GridStyle.Custom3) &&
+                                (_dataCellStyle == GridStyle.Custom3) &&
+                                (_backgroundStyle == PaletteBackStyle.GridBackgroundCustom3))
+                            {
+                                _gridStyle = DataGridViewStyle.Custom3;
+                            }
                             break;
                     }
 
@@ -213,6 +243,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             }
 
                             break;
+
                         case GridStyle.Custom1:
                             if ((_columnStyle == GridStyle.Custom1) &&
                                 (_dataCellStyle == GridStyle.Custom1) &&
@@ -220,7 +251,24 @@ namespace ComponentFactory.Krypton.Toolkit
                             {
                                 _gridStyle = DataGridViewStyle.Custom1;
                             }
+                            break;
 
+                        case GridStyle.Custom2:
+                            if ((_columnStyle == GridStyle.Custom2) &&
+                                (_dataCellStyle == GridStyle.Custom2) &&
+                                (_backgroundStyle == PaletteBackStyle.GridBackgroundCustom2))
+                            {
+                                _gridStyle = DataGridViewStyle.Custom2;
+                            }
+                            break;
+
+                        case GridStyle.Custom3:
+                            if ((_columnStyle == GridStyle.Custom3) &&
+                                (_dataCellStyle == GridStyle.Custom3) &&
+                                (_backgroundStyle == PaletteBackStyle.GridBackgroundCustom3))
+                            {
+                                _gridStyle = DataGridViewStyle.Custom3;
+                            }
                             break;
                     }
 
@@ -279,6 +327,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             }
 
                             break;
+
                         case GridStyle.Custom1:
                             if ((_columnStyle == GridStyle.Custom1) &&
                                 (_rowStyle == GridStyle.Custom1) &&
@@ -286,7 +335,24 @@ namespace ComponentFactory.Krypton.Toolkit
                             {
                                 _gridStyle = DataGridViewStyle.Custom1;
                             }
+                            break;
 
+                        case GridStyle.Custom2:
+                            if ((_columnStyle == GridStyle.Custom2) &&
+                                (_rowStyle == GridStyle.Custom2) &&
+                                (_backgroundStyle == PaletteBackStyle.GridBackgroundCustom2))
+                            {
+                                _gridStyle = DataGridViewStyle.Custom2;
+                            }
+                            break;
+
+                        case GridStyle.Custom3:
+                            if ((_columnStyle == GridStyle.Custom3) &&
+                                (_rowStyle == GridStyle.Custom3) &&
+                                (_backgroundStyle == PaletteBackStyle.GridBackgroundCustom3))
+                            {
+                                _gridStyle = DataGridViewStyle.Custom3;
+                            }
                             break;
                     }
 
@@ -335,6 +401,12 @@ namespace ComponentFactory.Krypton.Toolkit
                             break;
                         case PaletteBackStyle.GridBackgroundCustom1 when (_columnStyle == GridStyle.Custom1) && (_rowStyle == GridStyle.Custom1) && (_dataCellStyle == GridStyle.Custom1):
                             _gridStyle = DataGridViewStyle.Custom1;
+                            break;
+                        case PaletteBackStyle.GridBackgroundCustom2 when (_columnStyle == GridStyle.Custom2) && (_rowStyle == GridStyle.Custom2) && (_dataCellStyle == GridStyle.Custom2):
+                            _gridStyle = DataGridViewStyle.Custom2;
+                            break;
+                        case PaletteBackStyle.GridBackgroundCustom3 when (_columnStyle == GridStyle.Custom3) && (_rowStyle == GridStyle.Custom3) && (_dataCellStyle == GridStyle.Custom3):
+                            _gridStyle = DataGridViewStyle.Custom3;
                             break;
                     }
 
