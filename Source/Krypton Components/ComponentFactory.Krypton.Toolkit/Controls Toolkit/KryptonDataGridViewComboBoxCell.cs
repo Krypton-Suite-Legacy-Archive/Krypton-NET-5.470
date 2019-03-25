@@ -297,15 +297,8 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 if (OwningColumn is KryptonDataGridViewComboBoxColumn comboColumn)
                 {
-                    // Convert collection of strings to an array
-                    object[] strings = new object[comboColumn.Items.Count];
-                    for (int i = 0; i < strings.Length; i++)
-                    {
-                        strings[i] = comboColumn.Items[i];
-                    }
-
                     comboBox.Items.Clear();
-                    comboBox.Items.AddRange(strings);
+                    comboBox.Items.AddRange(comboColumn.Items.ToArray());
 
                     string[] autoAppend = new string[comboColumn.AutoCompleteCustomSource.Count];
                     for (int j = 0; j < autoAppend.Length; j++)

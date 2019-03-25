@@ -10,6 +10,7 @@
 // *****************************************************************************
 
 using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Drawing;
@@ -46,7 +47,7 @@ namespace ComponentFactory.Krypton.Toolkit
             : base(new KryptonDataGridViewComboBoxCell())
         {
             ButtonSpecs = new DataGridViewColumnSpecCollection(this);
-            Items = new StringCollection();
+            Items = new List<object>();
             AutoCompleteCustomSource = new AutoCompleteStringCollection();
         }
 
@@ -74,17 +75,10 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             KryptonDataGridViewComboBoxColumn cloned = base.Clone() as KryptonDataGridViewComboBoxColumn;
 
-            // Convert collection of strings to an array
-            string[] strings = new string[Items.Count];
-            for (int i = 0; i < strings.Length; i++)
-            {
-                strings[i] = Items[i];
-            }
-
-            cloned.Items.AddRange(strings);
+            cloned.Items.AddRange(Items);
 
             // Convert collection of strings to an array
-            strings = new string[AutoCompleteCustomSource.Count];
+            string[] strings = new string[AutoCompleteCustomSource.Count];
             for (int i = 0; i < strings.Length; i++)
             {
                 strings[i] = AutoCompleteCustomSource[i];
@@ -140,7 +134,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor("System.Windows.Forms.Design.StringCollectionEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         [Localizable(true)]
-        public StringCollection Items { get; }
+        public List<object> Items { get; }
 
         private bool ShouldSerializeItems => true;
 
