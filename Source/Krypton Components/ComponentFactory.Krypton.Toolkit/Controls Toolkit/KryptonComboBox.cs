@@ -827,6 +827,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool _mouseOver;
         private bool _alwaysActive;
         private int _cachedHeight;
+        private int _hoverIndex;
         #endregion
 
         #region Events
@@ -934,6 +935,13 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Occurs when the KryptonComboBox text has changed.")]
         [Category("Behavior")]
         public event EventHandler TextUpdate;
+
+        /// <summary>
+        /// Occurs when the hovered selection changed.
+        /// </summary>
+        [Description("Occurs when the hovered selection changed.")]
+        [Category("Behavior")]
+        public event EventHandler<HoveredSelectionChangedEventArgs> HoveredSelectionChanged;
 
         /// <summary>
         /// Occurs when the mouse enters the control.
@@ -2251,6 +2259,13 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnTrackMouseLeave(EventArgs e) => TrackMouseLeave?.Invoke(this, e);
 
+
+        /// <summary>
+        /// Raises the HoveredSelectionChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs containing the event data.</param>
+        protected virtual void OnHoverSelectionChanged(HoveredSelectionChangedEventArgs e) => HoveredSelectionChanged?.Invoke(this, e);
+
         /// <summary>
         /// Raises the <see cref="E:DrawItem" /> event.
         /// </summary>
@@ -2762,6 +2777,14 @@ namespace ComponentFactory.Krypton.Toolkit
                         if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
                         {
                             buttonState = PaletteState.Tracking;
+                            if (_hoverIndex != e.Index)
+                            {
+                                _hoverIndex = e.Index;
+                                // Raise the Hover event
+                                HoveredSelectionChangedEventArgs ev =
+                                    new HoveredSelectionChangedEventArgs(e.Bounds, e.Index, Items[e.Index]);
+                                OnHoverSelectionChanged(ev);
+                            }
                         }
                     }
 

@@ -239,6 +239,7 @@
     <Compile Include="EventArgs\ContextPositionMenuArgs.cs" />
     <Compile Include="EventArgs\BreadCrumbMenuArgs.cs" />
     <Compile Include="EventArgs\ButtonDragOffsetEventArgs.cs" />
+    <Compile Include="EventArgs\HoveredSelectionChangedEventArgs.cs" />
     <Compile Include="EventArgs\ViewControlHitTestArgs.cs" />
     <Compile Include="EventArgs\PointOffsetEventCancelArgs.cs" />
     <Compile Include="EventArgs\SplitterMoveRectEventArgs.cs" />
@@ -1379,7 +1380,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_StartDate="2000/1/1" DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" />
+      <UserProperties DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" BuildVersion_StartDate="2000/1/1" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
