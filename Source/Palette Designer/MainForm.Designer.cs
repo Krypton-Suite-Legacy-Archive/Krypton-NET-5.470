@@ -754,7 +754,16 @@ namespace PaletteDesigner
             // 
             this.kryptonNavigatorTop.AutoSize = true;
             this.kryptonNavigatorTop.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.NextPrevious;
+            this.kryptonNavigatorTop.Button.CloseButtonAction = ComponentFactory.Krypton.Navigator.CloseButtonAction.RemovePageAndDispose;
             this.kryptonNavigatorTop.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorTop.Button.ContextButtonAction = ComponentFactory.Krypton.Navigator.ContextButtonAction.SelectPage;
+            this.kryptonNavigatorTop.Button.ContextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorTop.Button.ContextMenuMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigatorTop.Button.ContextMenuMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
+            this.kryptonNavigatorTop.Button.NextButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorTop.Button.NextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorTop.Button.PreviousButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorTop.Button.PreviousButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
             this.kryptonNavigatorTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.kryptonNavigatorTop.Location = new System.Drawing.Point(0, 24);
             this.kryptonNavigatorTop.Name = "kryptonNavigatorTop";
@@ -1077,11 +1086,22 @@ namespace PaletteDesigner
             // 
             // kryptonNavigatorDesign
             // 
+            this.kryptonNavigatorDesign.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.Context;
+            this.kryptonNavigatorDesign.Button.CloseButtonAction = ComponentFactory.Krypton.Navigator.CloseButtonAction.RemovePageAndDispose;
             this.kryptonNavigatorDesign.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorDesign.Button.ContextButtonAction = ComponentFactory.Krypton.Navigator.ContextButtonAction.SelectPage;
+            this.kryptonNavigatorDesign.Button.ContextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorDesign.Button.ContextMenuMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigatorDesign.Button.ContextMenuMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
+            this.kryptonNavigatorDesign.Button.NextButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorDesign.Button.NextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorDesign.Button.PreviousButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorDesign.Button.PreviousButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
             this.kryptonNavigatorDesign.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonNavigatorDesign.Header.HeaderPositionSecondary = ComponentFactory.Krypton.Toolkit.VisualOrientation.Top;
             this.kryptonNavigatorDesign.Header.HeaderValuesPrimary.MapDescription = ComponentFactory.Krypton.Navigator.MapKryptonPageText.Title;
             this.kryptonNavigatorDesign.Header.HeaderValuesPrimary.MapHeading = ComponentFactory.Krypton.Navigator.MapKryptonPageText.Text;
+            this.kryptonNavigatorDesign.Header.HeaderValuesPrimary.MapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.SmallMedium;
             this.kryptonNavigatorDesign.Location = new System.Drawing.Point(0, 0);
             this.kryptonNavigatorDesign.Name = "kryptonNavigatorDesign";
             this.kryptonNavigatorDesign.NavigatorMode = ComponentFactory.Krypton.Navigator.NavigatorMode.HeaderGroup;
@@ -1156,11 +1176,17 @@ namespace PaletteDesigner
             // buttonSpecGeneric1
             // 
             this.buttonSpecGeneric1.Image = global::PaletteDesigner.Properties.Resources.document_new;
+            this.buttonSpecGeneric1.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecGeneric1.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
+            this.buttonSpecGeneric1.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Generic;
             this.buttonSpecGeneric1.UniqueName = "E3ECD10B03184164E3ECD10B03184164";
             // 
             // buttonSpecGeneric2
             // 
             this.buttonSpecGeneric2.Image = global::PaletteDesigner.Properties.Resources.environment;
+            this.buttonSpecGeneric2.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecGeneric2.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
+            this.buttonSpecGeneric2.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Generic;
             this.buttonSpecGeneric2.UniqueName = "E2BD1D4F0EE64328E2BD1D4F0EE64328";
             // 
             // buttonSpecG3
@@ -1170,6 +1196,7 @@ namespace PaletteDesigner
             this.buttonSpecGeneric1,
             this.buttonSpecGeneric2});
             this.buttonSpecG3.Enabled = false;
+            this.buttonSpecG3.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Primary;
             this.buttonSpecG3.Location = new System.Drawing.Point(18, 363);
             this.buttonSpecG3.Name = "buttonSpecG3";
             this.buttonSpecG3.Size = new System.Drawing.Size(263, 31);
@@ -1199,6 +1226,7 @@ namespace PaletteDesigner
             this.buttonSpecG1.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecGeneric1,
             this.buttonSpecGeneric2});
+            this.buttonSpecG1.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Primary;
             this.buttonSpecG1.Location = new System.Drawing.Point(18, 275);
             this.buttonSpecG1.Name = "buttonSpecG1";
             this.buttonSpecG1.Size = new System.Drawing.Size(263, 31);
@@ -1239,81 +1267,113 @@ namespace PaletteDesigner
             // 
             // buttonSpecAny32
             // 
+            this.buttonSpecAny32.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny32.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny32.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowDown;
             this.buttonSpecAny32.UniqueName = "D966DA3688534126D966DA3688534126";
             // 
             // buttonSpecAny31
             // 
+            this.buttonSpecAny31.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny31.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny31.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
             this.buttonSpecAny31.UniqueName = "24881A5C3CD7484F24881A5C3CD7484F";
             // 
             // buttonSpecAny30
             // 
+            this.buttonSpecAny30.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny30.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny30.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowRight;
             this.buttonSpecAny30.UniqueName = "9E75280CB89B46CA9E75280CB89B46CA";
             // 
             // buttonSpecAny29
             // 
+            this.buttonSpecAny29.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny29.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny29.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowLeft;
             this.buttonSpecAny29.UniqueName = "AA43031B0FEC4AF8AA43031B0FEC4AF8";
             // 
             // buttonSpecAny13
             // 
+            this.buttonSpecAny13.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny13.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny13.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Previous;
             this.buttonSpecAny13.UniqueName = "7846E1DEE7074BB27846E1DEE7074BB2";
             // 
             // buttonSpecAny14
             // 
+            this.buttonSpecAny14.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny14.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny14.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Next;
             this.buttonSpecAny14.UniqueName = "3AB250A5C5A345C13AB250A5C5A345C1";
             // 
             // buttonSpecAny15
             // 
+            this.buttonSpecAny15.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny15.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny15.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Context;
             this.buttonSpecAny15.UniqueName = "441CC54390784327441CC54390784327";
             // 
             // buttonSpecAny16
             // 
+            this.buttonSpecAny16.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny16.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny16.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
             this.buttonSpecAny16.UniqueName = "277B00322C984668277B00322C984668";
             // 
             // buttonSpecAny63
             // 
+            this.buttonSpecAny63.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny63.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny63.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.RibbonExpand;
             this.buttonSpecAny63.UniqueName = "4870673740E54FC3508C587FBCC6C0B5";
             // 
             // buttonSpecAny64
             // 
+            this.buttonSpecAny64.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny64.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny64.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.RibbonMinimize;
             this.buttonSpecAny64.UniqueName = "20657E8FABC04EEED2AF1A185670DE36";
             // 
             // buttonSpecAny48
             // 
+            this.buttonSpecAny48.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny48.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny48.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormMin;
             this.buttonSpecAny48.UniqueName = "D382E33950F648BFD382E33950F648BF";
             // 
             // buttonSpecAny49
             // 
+            this.buttonSpecAny49.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny49.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny49.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormMax;
             this.buttonSpecAny49.UniqueName = "DDB1428C84944F88DDB1428C84944F88";
             // 
             // buttonSpecAny50
             // 
+            this.buttonSpecAny50.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny50.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny50.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormRestore;
             this.buttonSpecAny50.UniqueName = "0DEC427FE55A40100DEC427FE55A4010";
             // 
             // buttonSpecAny51
             // 
+            this.buttonSpecAny51.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny51.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny51.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormClose;
             this.buttonSpecAny51.UniqueName = "D8FD73FF3B1144CED8FD73FF3B1144CE";
             // 
             // buttonSpecAny55
             // 
+            this.buttonSpecAny55.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny55.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny55.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.PinVertical;
             this.buttonSpecAny55.UniqueName = "ADE166B708AA4F7DADE166B708AA4F7D";
             // 
             // buttonSpecAny56
             // 
+            this.buttonSpecAny56.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny56.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny56.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.PinHorizontal;
             this.buttonSpecAny56.UniqueName = "D1A2751D743A4671D1A2751D743A4671";
             // 
@@ -1338,6 +1398,7 @@ namespace PaletteDesigner
             this.buttonSpecAny53,
             this.buttonSpecAny54});
             this.buttonSpecT3.Enabled = false;
+            this.buttonSpecT3.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Primary;
             this.buttonSpecT3.Location = new System.Drawing.Point(18, 143);
             this.buttonSpecT3.Name = "buttonSpecT3";
             this.buttonSpecT3.Size = new System.Drawing.Size(427, 31);
@@ -1348,81 +1409,113 @@ namespace PaletteDesigner
             // 
             // buttonSpecAny28
             // 
+            this.buttonSpecAny28.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny28.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny28.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowDown;
             this.buttonSpecAny28.UniqueName = "5C9E40DBFF67470B5C9E40DBFF67470B";
             // 
             // buttonSpecAny27
             // 
+            this.buttonSpecAny27.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny27.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny27.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
             this.buttonSpecAny27.UniqueName = "D083298345F74B62D083298345F74B62";
             // 
             // buttonSpecAny26
             // 
+            this.buttonSpecAny26.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny26.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny26.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowRight;
             this.buttonSpecAny26.UniqueName = "18769F9D74FB47A118769F9D74FB47A1";
             // 
             // buttonSpecAny25
             // 
+            this.buttonSpecAny25.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny25.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny25.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowLeft;
             this.buttonSpecAny25.UniqueName = "3E7909E2B5C64C4A3E7909E2B5C64C4A";
             // 
             // buttonSpecAny9
             // 
+            this.buttonSpecAny9.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny9.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny9.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Previous;
             this.buttonSpecAny9.UniqueName = "9C7B8F356F214F419C7B8F356F214F41";
             // 
             // buttonSpecAny10
             // 
+            this.buttonSpecAny10.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny10.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny10.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Next;
             this.buttonSpecAny10.UniqueName = "8BF5656D58804D618BF5656D58804D61";
             // 
             // buttonSpecAny11
             // 
+            this.buttonSpecAny11.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny11.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny11.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Context;
             this.buttonSpecAny11.UniqueName = "D9FC19B53D634F19D9FC19B53D634F19";
             // 
             // buttonSpecAny12
             // 
+            this.buttonSpecAny12.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny12.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny12.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
             this.buttonSpecAny12.UniqueName = "C34EAD69BFAF4CD4C34EAD69BFAF4CD4";
             // 
             // buttonSpecAny61
             // 
+            this.buttonSpecAny61.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny61.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny61.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.RibbonExpand;
             this.buttonSpecAny61.UniqueName = "B14387545DF641EEFEA7734ED77BAFA2";
             // 
             // buttonSpecAny62
             // 
+            this.buttonSpecAny62.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny62.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny62.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.RibbonMinimize;
             this.buttonSpecAny62.UniqueName = "7F6783F61FEF4D2F01BC70A81AF20DF4";
             // 
             // buttonSpecAny41
             // 
+            this.buttonSpecAny41.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny41.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny41.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormMin;
             this.buttonSpecAny41.UniqueName = "28C3C35837724C5E28C3C35837724C5E";
             // 
             // buttonSpecAny42
             // 
+            this.buttonSpecAny42.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny42.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny42.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormMax;
             this.buttonSpecAny42.UniqueName = "33FE2E62F13B445E33FE2E62F13B445E";
             // 
             // buttonSpecAny43
             // 
+            this.buttonSpecAny43.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny43.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny43.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormRestore;
             this.buttonSpecAny43.UniqueName = "4E04DE795D1C43FF4E04DE795D1C43FF";
             // 
             // buttonSpecAny44
             // 
+            this.buttonSpecAny44.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny44.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny44.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormClose;
             this.buttonSpecAny44.UniqueName = "DCFF5679445B46E0DCFF5679445B46E0";
             // 
             // buttonSpecAny53
             // 
+            this.buttonSpecAny53.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny53.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny53.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.PinVertical;
             this.buttonSpecAny53.UniqueName = "3C6A9576CC634DA73C6A9576CC634DA7";
             // 
             // buttonSpecAny54
             // 
+            this.buttonSpecAny54.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny54.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny54.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.PinHorizontal;
             this.buttonSpecAny54.UniqueName = "697C060DC92C491D697C060DC92C491D";
             // 
@@ -1457,81 +1550,113 @@ namespace PaletteDesigner
             // 
             // buttonSpecAny24
             // 
+            this.buttonSpecAny24.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny24.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny24.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowDown;
             this.buttonSpecAny24.UniqueName = "DCE3DBB8ECB948C9DCE3DBB8ECB948C9";
             // 
             // buttonSpecAny23
             // 
+            this.buttonSpecAny23.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny23.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny23.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
             this.buttonSpecAny23.UniqueName = "E3137CCE36FF4E11E3137CCE36FF4E11";
             // 
             // buttonSpecAny22
             // 
+            this.buttonSpecAny22.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny22.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny22.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowRight;
             this.buttonSpecAny22.UniqueName = "1DD7F90A3C0A494C1DD7F90A3C0A494C";
             // 
             // buttonSpecAny21
             // 
+            this.buttonSpecAny21.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny21.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny21.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowLeft;
             this.buttonSpecAny21.UniqueName = "2E2FC7337157478F2E2FC7337157478F";
             // 
             // buttonSpecAny5
             // 
+            this.buttonSpecAny5.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny5.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny5.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Previous;
             this.buttonSpecAny5.UniqueName = "064B5F1CCCC24795064B5F1CCCC24795";
             // 
             // buttonSpecAny6
             // 
+            this.buttonSpecAny6.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny6.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny6.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Next;
             this.buttonSpecAny6.UniqueName = "519EBD952A024210519EBD952A024210";
             // 
             // buttonSpecAny7
             // 
+            this.buttonSpecAny7.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny7.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny7.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Context;
             this.buttonSpecAny7.UniqueName = "C7D28483934446A6C7D28483934446A6";
             // 
             // buttonSpecAny8
             // 
+            this.buttonSpecAny8.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny8.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny8.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
             this.buttonSpecAny8.UniqueName = "1B2D8870C92F453F1B2D8870C92F453F";
             // 
             // buttonSpecAny59
             // 
+            this.buttonSpecAny59.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny59.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny59.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.RibbonExpand;
             this.buttonSpecAny59.UniqueName = "B2E349E046DE4EFDE0A61BF0F55DF83C";
             // 
             // buttonSpecAny60
             // 
+            this.buttonSpecAny60.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny60.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny60.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.RibbonMinimize;
             this.buttonSpecAny60.UniqueName = "E11D4FD39CFF46FEC3859CFE529C0B20";
             // 
             // buttonSpecAny33
             // 
+            this.buttonSpecAny33.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny33.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny33.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormMin;
             this.buttonSpecAny33.UniqueName = "D8799F9F897E4AE4D8799F9F897E4AE4";
             // 
             // buttonSpecAny38
             // 
+            this.buttonSpecAny38.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny38.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny38.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormMax;
             this.buttonSpecAny38.UniqueName = "B6D5E93171BF47A4B6D5E93171BF47A4";
             // 
             // buttonSpecAny39
             // 
+            this.buttonSpecAny39.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny39.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny39.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormRestore;
             this.buttonSpecAny39.UniqueName = "72C99E766FCF4E2072C99E766FCF4E20";
             // 
             // buttonSpecAny40
             // 
+            this.buttonSpecAny40.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny40.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny40.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormClose;
             this.buttonSpecAny40.UniqueName = "2C9A72BD23954DD82C9A72BD23954DD8";
             // 
             // buttonSpecAny47
             // 
+            this.buttonSpecAny47.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny47.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny47.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.PinVertical;
             this.buttonSpecAny47.UniqueName = "B5F9E4469C2846FDB5F9E4469C2846FD";
             // 
             // buttonSpecAny52
             // 
+            this.buttonSpecAny52.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny52.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny52.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.PinHorizontal;
             this.buttonSpecAny52.UniqueName = "0EFF1D41CC604FD00EFF1D41CC604FD0";
             // 
@@ -1555,6 +1680,7 @@ namespace PaletteDesigner
             this.buttonSpecAny37,
             this.buttonSpecAny46,
             this.buttonSpecAny45});
+            this.buttonSpecT1.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Primary;
             this.buttonSpecT1.Location = new System.Drawing.Point(18, 55);
             this.buttonSpecT1.Name = "buttonSpecT1";
             this.buttonSpecT1.Size = new System.Drawing.Size(427, 31);
@@ -1565,81 +1691,113 @@ namespace PaletteDesigner
             // 
             // buttonSpecAny20
             // 
+            this.buttonSpecAny20.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny20.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny20.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowDown;
             this.buttonSpecAny20.UniqueName = "AF08F29D8981468DAF08F29D8981468D";
             // 
             // buttonSpecAny19
             // 
+            this.buttonSpecAny19.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny19.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny19.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
             this.buttonSpecAny19.UniqueName = "F74ABC1CB84F4403F74ABC1CB84F4403";
             // 
             // buttonSpecAny18
             // 
+            this.buttonSpecAny18.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny18.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny18.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowRight;
             this.buttonSpecAny18.UniqueName = "DB5F0890BC944C98DB5F0890BC944C98";
             // 
             // buttonSpecAny17
             // 
+            this.buttonSpecAny17.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny17.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny17.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowLeft;
             this.buttonSpecAny17.UniqueName = "F53F319649A04B9AF53F319649A04B9A";
             // 
             // buttonSpecAny4
             // 
+            this.buttonSpecAny4.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny4.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny4.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Previous;
             this.buttonSpecAny4.UniqueName = "FF0A19FAD5324D8DFF0A19FAD5324D8D";
             // 
             // buttonSpecAny3
             // 
+            this.buttonSpecAny3.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny3.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny3.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Next;
             this.buttonSpecAny3.UniqueName = "F73579B2DA6348C5F73579B2DA6348C5";
             // 
             // buttonSpecAny2
             // 
+            this.buttonSpecAny2.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny2.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny2.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Context;
             this.buttonSpecAny2.UniqueName = "30AB8A391A3D474930AB8A391A3D4749";
             // 
             // buttonSpecAny1
             // 
+            this.buttonSpecAny1.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny1.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny1.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
             this.buttonSpecAny1.UniqueName = "AF4C13CF1AA14B78AF4C13CF1AA14B78";
             // 
             // buttonSpecAny57
             // 
+            this.buttonSpecAny57.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny57.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny57.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.RibbonExpand;
             this.buttonSpecAny57.UniqueName = "7D09362B81C6477B638F653E2A5E0A75";
             // 
             // buttonSpecAny58
             // 
+            this.buttonSpecAny58.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny58.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny58.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.RibbonMinimize;
             this.buttonSpecAny58.UniqueName = "98A4817C07FE4AC3E2A1235FA4CD6FD8";
             // 
             // buttonSpecAny34
             // 
+            this.buttonSpecAny34.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny34.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny34.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormMin;
             this.buttonSpecAny34.UniqueName = "0318BFE0697946700318BFE069794670";
             // 
             // buttonSpecAny35
             // 
+            this.buttonSpecAny35.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny35.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny35.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormMax;
             this.buttonSpecAny35.UniqueName = "2161BA5EA78E40872161BA5EA78E4087";
             // 
             // buttonSpecAny36
             // 
+            this.buttonSpecAny36.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny36.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny36.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormRestore;
             this.buttonSpecAny36.UniqueName = "6576F4A3796842596576F4A379684259";
             // 
             // buttonSpecAny37
             // 
+            this.buttonSpecAny37.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny37.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny37.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormClose;
             this.buttonSpecAny37.UniqueName = "6869A67401AF4E146869A67401AF4E14";
             // 
             // buttonSpecAny46
             // 
+            this.buttonSpecAny46.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny46.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny46.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.PinHorizontal;
             this.buttonSpecAny46.UniqueName = "633E45685BE04C5C633E45685BE04C5C";
             // 
             // buttonSpecAny45
             // 
+            this.buttonSpecAny45.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Inherit;
+            this.buttonSpecAny45.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.buttonSpecAny45.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.PinVertical;
             this.buttonSpecAny45.UniqueName = "800E16C661F74C02800E16C661F74C02";
             // 
@@ -1712,12 +1870,24 @@ namespace PaletteDesigner
             // kryptonNavigatorDesignButtons
             // 
             this.kryptonNavigatorDesignButtons.AutoSize = true;
+            this.kryptonNavigatorDesignButtons.Bar.BarMapExtraText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.None;
+            this.kryptonNavigatorDesignButtons.Bar.BarMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigatorDesignButtons.Bar.BarMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
             this.kryptonNavigatorDesignButtons.Bar.BarOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
             this.kryptonNavigatorDesignButtons.Bar.CheckButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile;
             this.kryptonNavigatorDesignButtons.Bar.ItemOrientation = ComponentFactory.Krypton.Toolkit.ButtonOrientation.FixedTop;
             this.kryptonNavigatorDesignButtons.Bar.ItemSizing = ComponentFactory.Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
             this.kryptonNavigatorDesignButtons.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.None;
+            this.kryptonNavigatorDesignButtons.Button.CloseButtonAction = ComponentFactory.Krypton.Navigator.CloseButtonAction.RemovePageAndDispose;
             this.kryptonNavigatorDesignButtons.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorDesignButtons.Button.ContextButtonAction = ComponentFactory.Krypton.Navigator.ContextButtonAction.SelectPage;
+            this.kryptonNavigatorDesignButtons.Button.ContextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorDesignButtons.Button.ContextMenuMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigatorDesignButtons.Button.ContextMenuMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
+            this.kryptonNavigatorDesignButtons.Button.NextButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorDesignButtons.Button.NextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorDesignButtons.Button.PreviousButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorDesignButtons.Button.PreviousButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
             this.kryptonNavigatorDesignButtons.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonNavigatorDesignButtons.Location = new System.Drawing.Point(0, 0);
             this.kryptonNavigatorDesignButtons.Name = "kryptonNavigatorDesignButtons";
@@ -2321,7 +2491,9 @@ namespace PaletteDesigner
             this.labelControlsNormal.Location = new System.Drawing.Point(283, 30);
             this.labelControlsNormal.Name = "labelControlsNormal";
             this.labelControlsNormal.Size = new System.Drawing.Size(78, 29);
+            this.labelControlsNormal.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.labelControlsNormal.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelControlsNormal.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.labelControlsNormal.TabIndex = 0;
             this.labelControlsNormal.Values.Text = "Normal";
             // 
@@ -2334,7 +2506,9 @@ namespace PaletteDesigner
             this.labelControlsDisabled.Location = new System.Drawing.Point(119, 30);
             this.labelControlsDisabled.Name = "labelControlsDisabled";
             this.labelControlsDisabled.Size = new System.Drawing.Size(88, 29);
+            this.labelControlsDisabled.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.labelControlsDisabled.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelControlsDisabled.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.labelControlsDisabled.TabIndex = 1;
             this.labelControlsDisabled.Values.Text = "Disabled";
             // 
@@ -2364,12 +2538,24 @@ namespace PaletteDesigner
             // kryptonNavigatorDesignControls
             // 
             this.kryptonNavigatorDesignControls.AutoSize = true;
+            this.kryptonNavigatorDesignControls.Bar.BarMapExtraText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.None;
+            this.kryptonNavigatorDesignControls.Bar.BarMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigatorDesignControls.Bar.BarMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
             this.kryptonNavigatorDesignControls.Bar.BarOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
             this.kryptonNavigatorDesignControls.Bar.CheckButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile;
             this.kryptonNavigatorDesignControls.Bar.ItemOrientation = ComponentFactory.Krypton.Toolkit.ButtonOrientation.FixedTop;
             this.kryptonNavigatorDesignControls.Bar.ItemSizing = ComponentFactory.Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
             this.kryptonNavigatorDesignControls.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.None;
+            this.kryptonNavigatorDesignControls.Button.CloseButtonAction = ComponentFactory.Krypton.Navigator.CloseButtonAction.RemovePageAndDispose;
             this.kryptonNavigatorDesignControls.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorDesignControls.Button.ContextButtonAction = ComponentFactory.Krypton.Navigator.ContextButtonAction.SelectPage;
+            this.kryptonNavigatorDesignControls.Button.ContextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorDesignControls.Button.ContextMenuMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigatorDesignControls.Button.ContextMenuMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
+            this.kryptonNavigatorDesignControls.Button.NextButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorDesignControls.Button.NextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorDesignControls.Button.PreviousButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorDesignControls.Button.PreviousButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
             this.kryptonNavigatorDesignControls.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonNavigatorDesignControls.Location = new System.Drawing.Point(0, 0);
             this.kryptonNavigatorDesignControls.Name = "kryptonNavigatorDesignControls";
@@ -2565,7 +2751,9 @@ namespace PaletteDesigner
             this.labelGridDisabled.Location = new System.Drawing.Point(100, 220);
             this.labelGridDisabled.Name = "labelGridDisabled";
             this.labelGridDisabled.Size = new System.Drawing.Size(88, 29);
+            this.labelGridDisabled.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.labelGridDisabled.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelGridDisabled.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.labelGridDisabled.TabIndex = 22;
             this.labelGridDisabled.Values.Text = "Disabled";
             // 
@@ -2578,7 +2766,9 @@ namespace PaletteDesigner
             this.kryptonLabel2.Location = new System.Drawing.Point(999, 401);
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.Size = new System.Drawing.Size(78, 29);
+            this.kryptonLabel2.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonLabel2.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.kryptonLabel2.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonLabel2.TabIndex = 23;
             this.kryptonLabel2.Values.Text = "Normal";
             // 
@@ -2591,7 +2781,9 @@ namespace PaletteDesigner
             this.kryptonLabel1.Location = new System.Drawing.Point(100, 25);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.Size = new System.Drawing.Size(78, 29);
+            this.kryptonLabel1.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonLabel1.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.kryptonLabel1.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonLabel1.TabIndex = 24;
             this.kryptonLabel1.Values.Text = "Normal";
             // 
@@ -2633,12 +2825,24 @@ namespace PaletteDesigner
             // kryptonNavigatorDesignGrids
             // 
             this.kryptonNavigatorDesignGrids.AutoSize = true;
+            this.kryptonNavigatorDesignGrids.Bar.BarMapExtraText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.None;
+            this.kryptonNavigatorDesignGrids.Bar.BarMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigatorDesignGrids.Bar.BarMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
             this.kryptonNavigatorDesignGrids.Bar.BarOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
             this.kryptonNavigatorDesignGrids.Bar.CheckButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile;
             this.kryptonNavigatorDesignGrids.Bar.ItemOrientation = ComponentFactory.Krypton.Toolkit.ButtonOrientation.FixedTop;
             this.kryptonNavigatorDesignGrids.Bar.ItemSizing = ComponentFactory.Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
             this.kryptonNavigatorDesignGrids.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.None;
+            this.kryptonNavigatorDesignGrids.Button.CloseButtonAction = ComponentFactory.Krypton.Navigator.CloseButtonAction.RemovePageAndDispose;
             this.kryptonNavigatorDesignGrids.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorDesignGrids.Button.ContextButtonAction = ComponentFactory.Krypton.Navigator.ContextButtonAction.SelectPage;
+            this.kryptonNavigatorDesignGrids.Button.ContextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorDesignGrids.Button.ContextMenuMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigatorDesignGrids.Button.ContextMenuMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
+            this.kryptonNavigatorDesignGrids.Button.NextButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorDesignGrids.Button.NextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorDesignGrids.Button.PreviousButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorDesignGrids.Button.PreviousButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
             this.kryptonNavigatorDesignGrids.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonNavigatorDesignGrids.Location = new System.Drawing.Point(0, 0);
             this.kryptonNavigatorDesignGrids.Name = "kryptonNavigatorDesignGrids";
@@ -2727,7 +2931,9 @@ namespace PaletteDesigner
             this.labelHeaderGroupNormal.Location = new System.Drawing.Point(229, 23);
             this.labelHeaderGroupNormal.Name = "labelHeaderGroupNormal";
             this.labelHeaderGroupNormal.Size = new System.Drawing.Size(78, 29);
+            this.labelHeaderGroupNormal.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.labelHeaderGroupNormal.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelHeaderGroupNormal.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.labelHeaderGroupNormal.TabIndex = 0;
             this.labelHeaderGroupNormal.Values.Text = "Normal";
             // 
@@ -2745,7 +2951,9 @@ namespace PaletteDesigner
             this.labelHeaderGroupDisabled.Location = new System.Drawing.Point(28, 23);
             this.labelHeaderGroupDisabled.Name = "labelHeaderGroupDisabled";
             this.labelHeaderGroupDisabled.Size = new System.Drawing.Size(88, 29);
+            this.labelHeaderGroupDisabled.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.labelHeaderGroupDisabled.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelHeaderGroupDisabled.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.labelHeaderGroupDisabled.TabIndex = 15;
             this.labelHeaderGroupDisabled.Values.Text = "Disabled";
             // 
@@ -2793,6 +3001,7 @@ namespace PaletteDesigner
             // header1Disabled
             // 
             this.header1Disabled.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
+            this.header1Disabled.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Primary;
             this.header1Disabled.Location = new System.Drawing.Point(125, 31);
             this.header1Disabled.Name = "header1Disabled";
             this.header1Disabled.Size = new System.Drawing.Size(220, 31);
@@ -2813,12 +3022,24 @@ namespace PaletteDesigner
             // kryptonNavigatorDesignHeaders
             // 
             this.kryptonNavigatorDesignHeaders.AutoSize = true;
+            this.kryptonNavigatorDesignHeaders.Bar.BarMapExtraText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.None;
+            this.kryptonNavigatorDesignHeaders.Bar.BarMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigatorDesignHeaders.Bar.BarMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
             this.kryptonNavigatorDesignHeaders.Bar.BarOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
             this.kryptonNavigatorDesignHeaders.Bar.CheckButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile;
             this.kryptonNavigatorDesignHeaders.Bar.ItemOrientation = ComponentFactory.Krypton.Toolkit.ButtonOrientation.FixedTop;
             this.kryptonNavigatorDesignHeaders.Bar.ItemSizing = ComponentFactory.Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
             this.kryptonNavigatorDesignHeaders.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.None;
+            this.kryptonNavigatorDesignHeaders.Button.CloseButtonAction = ComponentFactory.Krypton.Navigator.CloseButtonAction.RemovePageAndDispose;
             this.kryptonNavigatorDesignHeaders.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorDesignHeaders.Button.ContextButtonAction = ComponentFactory.Krypton.Navigator.ContextButtonAction.SelectPage;
+            this.kryptonNavigatorDesignHeaders.Button.ContextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorDesignHeaders.Button.ContextMenuMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigatorDesignHeaders.Button.ContextMenuMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
+            this.kryptonNavigatorDesignHeaders.Button.NextButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorDesignHeaders.Button.NextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorDesignHeaders.Button.PreviousButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorDesignHeaders.Button.PreviousButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
             this.kryptonNavigatorDesignHeaders.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonNavigatorDesignHeaders.Location = new System.Drawing.Point(0, 0);
             this.kryptonNavigatorDesignHeaders.Name = "kryptonNavigatorDesignHeaders";
@@ -3112,12 +3333,24 @@ namespace PaletteDesigner
             // kryptonNavigatorDesignInputControls
             // 
             this.kryptonNavigatorDesignInputControls.AutoSize = true;
+            this.kryptonNavigatorDesignInputControls.Bar.BarMapExtraText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.None;
+            this.kryptonNavigatorDesignInputControls.Bar.BarMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigatorDesignInputControls.Bar.BarMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
             this.kryptonNavigatorDesignInputControls.Bar.BarOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
             this.kryptonNavigatorDesignInputControls.Bar.CheckButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile;
             this.kryptonNavigatorDesignInputControls.Bar.ItemOrientation = ComponentFactory.Krypton.Toolkit.ButtonOrientation.FixedTop;
             this.kryptonNavigatorDesignInputControls.Bar.ItemSizing = ComponentFactory.Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
             this.kryptonNavigatorDesignInputControls.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.None;
+            this.kryptonNavigatorDesignInputControls.Button.CloseButtonAction = ComponentFactory.Krypton.Navigator.CloseButtonAction.RemovePageAndDispose;
             this.kryptonNavigatorDesignInputControls.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorDesignInputControls.Button.ContextButtonAction = ComponentFactory.Krypton.Navigator.ContextButtonAction.SelectPage;
+            this.kryptonNavigatorDesignInputControls.Button.ContextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorDesignInputControls.Button.ContextMenuMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigatorDesignInputControls.Button.ContextMenuMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
+            this.kryptonNavigatorDesignInputControls.Button.NextButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorDesignInputControls.Button.NextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorDesignInputControls.Button.PreviousButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorDesignInputControls.Button.PreviousButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
             this.kryptonNavigatorDesignInputControls.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonNavigatorDesignInputControls.Location = new System.Drawing.Point(0, 0);
             this.kryptonNavigatorDesignInputControls.Name = "kryptonNavigatorDesignInputControls";
@@ -3204,7 +3437,9 @@ namespace PaletteDesigner
             this.kryptonLabel6.Location = new System.Drawing.Point(24, 21);
             this.kryptonLabel6.Name = "kryptonLabel6";
             this.kryptonLabel6.Size = new System.Drawing.Size(78, 29);
+            this.kryptonLabel6.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonLabel6.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.kryptonLabel6.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonLabel6.TabIndex = 0;
             this.kryptonLabel6.Values.Text = "Normal";
             // 
@@ -3217,7 +3452,9 @@ namespace PaletteDesigner
             this.kryptonLabel7.Location = new System.Drawing.Point(24, 268);
             this.kryptonLabel7.Name = "kryptonLabel7";
             this.kryptonLabel7.Size = new System.Drawing.Size(88, 29);
+            this.kryptonLabel7.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonLabel7.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.kryptonLabel7.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonLabel7.TabIndex = 1;
             this.kryptonLabel7.Values.Text = "Disabled";
             // 
@@ -3426,12 +3663,24 @@ namespace PaletteDesigner
             // kryptonNavigatorDesignLabels
             // 
             this.kryptonNavigatorDesignLabels.AutoSize = true;
+            this.kryptonNavigatorDesignLabels.Bar.BarMapExtraText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.None;
+            this.kryptonNavigatorDesignLabels.Bar.BarMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigatorDesignLabels.Bar.BarMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
             this.kryptonNavigatorDesignLabels.Bar.BarOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
             this.kryptonNavigatorDesignLabels.Bar.CheckButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile;
             this.kryptonNavigatorDesignLabels.Bar.ItemOrientation = ComponentFactory.Krypton.Toolkit.ButtonOrientation.FixedTop;
             this.kryptonNavigatorDesignLabels.Bar.ItemSizing = ComponentFactory.Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
             this.kryptonNavigatorDesignLabels.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.None;
+            this.kryptonNavigatorDesignLabels.Button.CloseButtonAction = ComponentFactory.Krypton.Navigator.CloseButtonAction.RemovePageAndDispose;
             this.kryptonNavigatorDesignLabels.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorDesignLabels.Button.ContextButtonAction = ComponentFactory.Krypton.Navigator.ContextButtonAction.SelectPage;
+            this.kryptonNavigatorDesignLabels.Button.ContextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorDesignLabels.Button.ContextMenuMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigatorDesignLabels.Button.ContextMenuMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
+            this.kryptonNavigatorDesignLabels.Button.NextButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorDesignLabels.Button.NextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorDesignLabels.Button.PreviousButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorDesignLabels.Button.PreviousButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
             this.kryptonNavigatorDesignLabels.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonNavigatorDesignLabels.Location = new System.Drawing.Point(0, 0);
             this.kryptonNavigatorDesignLabels.Name = "kryptonNavigatorDesignLabels";
@@ -3698,12 +3947,24 @@ namespace PaletteDesigner
             // kryptonNavigatorDesignNavigator
             // 
             this.kryptonNavigatorDesignNavigator.AutoSize = true;
+            this.kryptonNavigatorDesignNavigator.Bar.BarMapExtraText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.None;
+            this.kryptonNavigatorDesignNavigator.Bar.BarMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigatorDesignNavigator.Bar.BarMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
             this.kryptonNavigatorDesignNavigator.Bar.BarOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
             this.kryptonNavigatorDesignNavigator.Bar.CheckButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile;
             this.kryptonNavigatorDesignNavigator.Bar.ItemOrientation = ComponentFactory.Krypton.Toolkit.ButtonOrientation.FixedTop;
             this.kryptonNavigatorDesignNavigator.Bar.ItemSizing = ComponentFactory.Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
             this.kryptonNavigatorDesignNavigator.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.None;
+            this.kryptonNavigatorDesignNavigator.Button.CloseButtonAction = ComponentFactory.Krypton.Navigator.CloseButtonAction.RemovePageAndDispose;
             this.kryptonNavigatorDesignNavigator.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorDesignNavigator.Button.ContextButtonAction = ComponentFactory.Krypton.Navigator.ContextButtonAction.SelectPage;
+            this.kryptonNavigatorDesignNavigator.Button.ContextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorDesignNavigator.Button.ContextMenuMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigatorDesignNavigator.Button.ContextMenuMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
+            this.kryptonNavigatorDesignNavigator.Button.NextButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorDesignNavigator.Button.NextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorDesignNavigator.Button.PreviousButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorDesignNavigator.Button.PreviousButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
             this.kryptonNavigatorDesignNavigator.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonNavigatorDesignNavigator.Location = new System.Drawing.Point(0, 0);
             this.kryptonNavigatorDesignNavigator.Name = "kryptonNavigatorDesignNavigator";
@@ -3767,10 +4028,20 @@ namespace PaletteDesigner
             // 
             // kryptonNavigator
             // 
+            this.kryptonNavigator.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.Context;
             this.kryptonNavigator.Button.CloseButtonAction = ComponentFactory.Krypton.Navigator.CloseButtonAction.None;
             this.kryptonNavigator.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.ShowEnabled;
+            this.kryptonNavigator.Button.ContextButtonAction = ComponentFactory.Krypton.Navigator.ContextButtonAction.SelectPage;
+            this.kryptonNavigator.Button.ContextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigator.Button.ContextMenuMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigator.Button.ContextMenuMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
+            this.kryptonNavigator.Button.NextButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigator.Button.NextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigator.Button.PreviousButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigator.Button.PreviousButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
             this.kryptonNavigator.Location = new System.Drawing.Point(102, 28);
             this.kryptonNavigator.Name = "kryptonNavigator";
+            this.kryptonNavigator.NavigatorMode = ComponentFactory.Krypton.Navigator.NavigatorMode.BarTabGroup;
             this.kryptonNavigator.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
             this.navigatorPage1,
             this.navigatorPage2,
@@ -3877,7 +4148,9 @@ namespace PaletteDesigner
             this.labelPanelsNormal.Location = new System.Drawing.Point(311, 30);
             this.labelPanelsNormal.Name = "labelPanelsNormal";
             this.labelPanelsNormal.Size = new System.Drawing.Size(78, 29);
+            this.labelPanelsNormal.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.labelPanelsNormal.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelPanelsNormal.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.labelPanelsNormal.TabIndex = 20;
             this.labelPanelsNormal.Values.Text = "Normal";
             // 
@@ -3890,7 +4163,9 @@ namespace PaletteDesigner
             this.labelPanelsDisabled.Location = new System.Drawing.Point(147, 30);
             this.labelPanelsDisabled.Name = "labelPanelsDisabled";
             this.labelPanelsDisabled.Size = new System.Drawing.Size(88, 29);
+            this.labelPanelsDisabled.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.labelPanelsDisabled.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelPanelsDisabled.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.labelPanelsDisabled.TabIndex = 21;
             this.labelPanelsDisabled.Values.Text = "Disabled";
             // 
@@ -3906,12 +4181,24 @@ namespace PaletteDesigner
             // kryptonNavigatorDesignPanels
             // 
             this.kryptonNavigatorDesignPanels.AutoSize = true;
+            this.kryptonNavigatorDesignPanels.Bar.BarMapExtraText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.None;
+            this.kryptonNavigatorDesignPanels.Bar.BarMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigatorDesignPanels.Bar.BarMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
             this.kryptonNavigatorDesignPanels.Bar.BarOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
             this.kryptonNavigatorDesignPanels.Bar.CheckButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile;
             this.kryptonNavigatorDesignPanels.Bar.ItemOrientation = ComponentFactory.Krypton.Toolkit.ButtonOrientation.FixedTop;
             this.kryptonNavigatorDesignPanels.Bar.ItemSizing = ComponentFactory.Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
             this.kryptonNavigatorDesignPanels.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.None;
+            this.kryptonNavigatorDesignPanels.Button.CloseButtonAction = ComponentFactory.Krypton.Navigator.CloseButtonAction.RemovePageAndDispose;
             this.kryptonNavigatorDesignPanels.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorDesignPanels.Button.ContextButtonAction = ComponentFactory.Krypton.Navigator.ContextButtonAction.SelectPage;
+            this.kryptonNavigatorDesignPanels.Button.ContextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorDesignPanels.Button.ContextMenuMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigatorDesignPanels.Button.ContextMenuMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
+            this.kryptonNavigatorDesignPanels.Button.NextButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorDesignPanels.Button.NextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorDesignPanels.Button.PreviousButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorDesignPanels.Button.PreviousButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
             this.kryptonNavigatorDesignPanels.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonNavigatorDesignPanels.Location = new System.Drawing.Point(0, 0);
             this.kryptonNavigatorDesignPanels.Name = "kryptonNavigatorDesignPanels";
@@ -4213,7 +4500,9 @@ namespace PaletteDesigner
             this.labelSeparatorsLive.Location = new System.Drawing.Point(209, 300);
             this.labelSeparatorsLive.Name = "labelSeparatorsLive";
             this.labelSeparatorsLive.Size = new System.Drawing.Size(88, 29);
+            this.labelSeparatorsLive.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.labelSeparatorsLive.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelSeparatorsLive.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.labelSeparatorsLive.TabIndex = 25;
             this.labelSeparatorsLive.Values.Text = "Tracking";
             // 
@@ -4294,7 +4583,9 @@ namespace PaletteDesigner
             this.labelSeparatorsPressed.Location = new System.Drawing.Point(295, 162);
             this.labelSeparatorsPressed.Name = "labelSeparatorsPressed";
             this.labelSeparatorsPressed.Size = new System.Drawing.Size(79, 29);
+            this.labelSeparatorsPressed.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.labelSeparatorsPressed.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelSeparatorsPressed.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.labelSeparatorsPressed.TabIndex = 26;
             this.labelSeparatorsPressed.Values.Text = "Pressed";
             // 
@@ -4307,7 +4598,9 @@ namespace PaletteDesigner
             this.labelSeparatorsTracking.Location = new System.Drawing.Point(130, 162);
             this.labelSeparatorsTracking.Name = "labelSeparatorsTracking";
             this.labelSeparatorsTracking.Size = new System.Drawing.Size(88, 29);
+            this.labelSeparatorsTracking.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.labelSeparatorsTracking.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelSeparatorsTracking.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.labelSeparatorsTracking.TabIndex = 27;
             this.labelSeparatorsTracking.Values.Text = "Tracking";
             // 
@@ -4389,7 +4682,9 @@ namespace PaletteDesigner
             this.labelSeparatorsNormal.Location = new System.Drawing.Point(298, 30);
             this.labelSeparatorsNormal.Name = "labelSeparatorsNormal";
             this.labelSeparatorsNormal.Size = new System.Drawing.Size(78, 29);
+            this.labelSeparatorsNormal.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.labelSeparatorsNormal.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelSeparatorsNormal.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.labelSeparatorsNormal.TabIndex = 28;
             this.labelSeparatorsNormal.Values.Text = "Normal";
             // 
@@ -4402,7 +4697,9 @@ namespace PaletteDesigner
             this.labelSeparatorsDisabled.Location = new System.Drawing.Point(129, 30);
             this.labelSeparatorsDisabled.Name = "labelSeparatorsDisabled";
             this.labelSeparatorsDisabled.Size = new System.Drawing.Size(88, 29);
+            this.labelSeparatorsDisabled.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.labelSeparatorsDisabled.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.labelSeparatorsDisabled.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.labelSeparatorsDisabled.TabIndex = 29;
             this.labelSeparatorsDisabled.Values.Text = "Disabled";
             // 
@@ -4418,12 +4715,24 @@ namespace PaletteDesigner
             // kryptonNavigatorDesignSeparators
             // 
             this.kryptonNavigatorDesignSeparators.AutoSize = true;
+            this.kryptonNavigatorDesignSeparators.Bar.BarMapExtraText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.None;
+            this.kryptonNavigatorDesignSeparators.Bar.BarMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigatorDesignSeparators.Bar.BarMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
             this.kryptonNavigatorDesignSeparators.Bar.BarOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
             this.kryptonNavigatorDesignSeparators.Bar.CheckButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile;
             this.kryptonNavigatorDesignSeparators.Bar.ItemOrientation = ComponentFactory.Krypton.Toolkit.ButtonOrientation.FixedTop;
             this.kryptonNavigatorDesignSeparators.Bar.ItemSizing = ComponentFactory.Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
             this.kryptonNavigatorDesignSeparators.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.None;
+            this.kryptonNavigatorDesignSeparators.Button.CloseButtonAction = ComponentFactory.Krypton.Navigator.CloseButtonAction.RemovePageAndDispose;
             this.kryptonNavigatorDesignSeparators.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorDesignSeparators.Button.ContextButtonAction = ComponentFactory.Krypton.Navigator.ContextButtonAction.SelectPage;
+            this.kryptonNavigatorDesignSeparators.Button.ContextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorDesignSeparators.Button.ContextMenuMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigatorDesignSeparators.Button.ContextMenuMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
+            this.kryptonNavigatorDesignSeparators.Button.NextButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorDesignSeparators.Button.NextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorDesignSeparators.Button.PreviousButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorDesignSeparators.Button.PreviousButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
             this.kryptonNavigatorDesignSeparators.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonNavigatorDesignSeparators.Location = new System.Drawing.Point(0, 0);
             this.kryptonNavigatorDesignSeparators.Name = "kryptonNavigatorDesignSeparators";
@@ -4523,10 +4832,20 @@ namespace PaletteDesigner
             // 
             // kryptonNavigatorTabs
             // 
+            this.kryptonNavigatorTabs.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.Context;
             this.kryptonNavigatorTabs.Button.CloseButtonAction = ComponentFactory.Krypton.Navigator.CloseButtonAction.None;
             this.kryptonNavigatorTabs.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.ShowEnabled;
+            this.kryptonNavigatorTabs.Button.ContextButtonAction = ComponentFactory.Krypton.Navigator.ContextButtonAction.SelectPage;
+            this.kryptonNavigatorTabs.Button.ContextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorTabs.Button.ContextMenuMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigatorTabs.Button.ContextMenuMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
+            this.kryptonNavigatorTabs.Button.NextButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorTabs.Button.NextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorTabs.Button.PreviousButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorTabs.Button.PreviousButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
             this.kryptonNavigatorTabs.Location = new System.Drawing.Point(141, 32);
             this.kryptonNavigatorTabs.Name = "kryptonNavigatorTabs";
+            this.kryptonNavigatorTabs.NavigatorMode = ComponentFactory.Krypton.Navigator.NavigatorMode.BarTabGroup;
             this.kryptonNavigatorTabs.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
             this.kryptonNavigatorTabs1,
             this.kryptonNavigatorTabs2,
@@ -4594,12 +4913,24 @@ namespace PaletteDesigner
             // 
             this.kryptonNavigatorDesignTabs.AutoSize = true;
             this.kryptonNavigatorDesignTabs.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.kryptonNavigatorDesignTabs.Bar.BarMapExtraText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.None;
+            this.kryptonNavigatorDesignTabs.Bar.BarMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigatorDesignTabs.Bar.BarMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
             this.kryptonNavigatorDesignTabs.Bar.BarOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
             this.kryptonNavigatorDesignTabs.Bar.CheckButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile;
             this.kryptonNavigatorDesignTabs.Bar.ItemOrientation = ComponentFactory.Krypton.Toolkit.ButtonOrientation.FixedTop;
             this.kryptonNavigatorDesignTabs.Bar.ItemSizing = ComponentFactory.Krypton.Navigator.BarItemSizing.SameWidthAndHeight;
             this.kryptonNavigatorDesignTabs.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.None;
+            this.kryptonNavigatorDesignTabs.Button.CloseButtonAction = ComponentFactory.Krypton.Navigator.CloseButtonAction.RemovePageAndDispose;
             this.kryptonNavigatorDesignTabs.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+            this.kryptonNavigatorDesignTabs.Button.ContextButtonAction = ComponentFactory.Krypton.Navigator.ContextButtonAction.SelectPage;
+            this.kryptonNavigatorDesignTabs.Button.ContextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorDesignTabs.Button.ContextMenuMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+            this.kryptonNavigatorDesignTabs.Button.ContextMenuMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
+            this.kryptonNavigatorDesignTabs.Button.NextButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorDesignTabs.Button.NextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+            this.kryptonNavigatorDesignTabs.Button.PreviousButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+            this.kryptonNavigatorDesignTabs.Button.PreviousButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
             this.kryptonNavigatorDesignTabs.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonNavigatorDesignTabs.Location = new System.Drawing.Point(0, 0);
             this.kryptonNavigatorDesignTabs.Name = "kryptonNavigatorDesignTabs";
@@ -5005,6 +5336,10 @@ namespace PaletteDesigner
             this.kryptonGroup10.Name = "kryptonGroup10";
             this.kryptonGroup10.Size = new System.Drawing.Size(100, 49);
             this.kryptonGroup10.TabIndex = 0;
+            // 
+            // kryptonManager
+            // 
+            this.kryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Blue;
             // 
             // kryptonPage1
             // 
