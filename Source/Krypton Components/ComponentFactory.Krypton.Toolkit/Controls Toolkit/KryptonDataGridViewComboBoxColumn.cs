@@ -496,6 +496,75 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
+        /// <summary>
+        /// Gets and sets the appearance and functionality of the KryptonComboBox.
+        /// </summary>
+        [Category("Data")]
+        [Description("Indicates the property to display for the items in this control.")]
+        [TypeConverter("System.Windows.Forms.Design.DataMemberFieldConverter, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        [Editor("System.Windows.Forms.Design.DataMemberFieldEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
+        [DefaultValue("")]
+        public string ValueMember
+        {
+            get
+            {
+                if (ComboBoxCellTemplate == null)
+                    throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+
+                return ComboBoxCellTemplate.ValueMember;
+            }
+
+            set
+            {
+                if (ComboBoxCellTemplate == null)
+                    throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+
+                // Update the template cell so that subsequent cloned cells use the new value.
+                ComboBoxCellTemplate.ValueMember = value;
+                if (DataGridView != null)
+                {
+                    // Update all the existing KryptonDataGridViewComboBoxCell cells in the column accordingly.
+                    DataGridViewRowCollection dataGridViewRows = DataGridView.Rows;
+                    int rowCount = dataGridViewRows.Count;
+                    for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
+                    {
+                        // Be careful not to unshare rows unnecessarily. 
+                        // This could have severe performance repercussions.
+                        DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
+                        KryptonDataGridViewComboBoxCell dataGridViewCell = dataGridViewRow.Cells[Index] as KryptonDataGridViewComboBoxCell;
+                        if (dataGridViewCell != null)
+                            dataGridViewCell.SetValueMember(rowIndex, value);
+                    }
+                    DataGridView.InvalidateColumn(Index);
+                }
+            }
+        }
+
+        /// </summary>
+        [Category("Data")]
+        [Description("Indicates the Datasource for the items in this control.")]
+        [TypeConverter("System.Windows.Forms.Design.DataSourceConverter, System.Design")]
+        [Editor("System.Windows.Forms.Design.DataSourceListEditor, System.Design", typeof(UITypeEditor))]
+        public object DataSource
+        {
+
+            get
+            {
+                if (ComboBoxCellTemplate == null)
+                    throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+
+                return ComboBoxCellTemplate.DataSource;
+            }
+
+            set
+            {
+                if (ComboBoxCellTemplate == null)
+                    throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
+
+                // Update the template cell so that subsequent cloned cells use the new value.
+                ComboBoxCellTemplate.DataSource = value;
+            }
+        }
         #endregion
 
         #region Private
