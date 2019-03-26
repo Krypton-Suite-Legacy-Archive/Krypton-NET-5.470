@@ -5,16 +5,16 @@
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to license terms.
 // 
-//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
+//  Modifications by Saleyn, Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
-using System.Text;
-using System.Drawing;
 using System.ComponentModel;
-using System.Windows.Forms;
+using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Text;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -140,7 +140,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Must provide a valid reference
 
-            _taskDialog = taskDialog ?? 
+            _taskDialog = taskDialog ??
                           throw new ArgumentNullException(nameof(taskDialog));
 
             // Initialize with task dialog values
@@ -597,12 +597,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Get the display size and make sure that the content size is not greater than 0.6 of display size
                 Rectangle dispSize = Screen.GetWorkingArea(Location);
 
-                int h  = (int)Math.Min(messageContentSize.Height, dispSize.Height * 0.6);
-                int w  = (int)Math.Min(messageContentSize.Width,  dispSize.Width  * 0.6);
+                int h = (int)Math.Min(messageContentSize.Height, dispSize.Height * 0.6);
+                int w = (int)Math.Min(messageContentSize.Width, dispSize.Width * 0.6);
                 Size sz = new Size(w, h);
                 if (messageContentSize != sz)
                 {
-                    messageContentSize  = sz;
+                    messageContentSize = sz;
                 }
 
                 // Work out DPI adjustment factor
@@ -850,8 +850,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     requiredSize.Width += BUTTON_GAP * 2;
                     requiredSize.Height += BUTTON_GAP * 2;
                 }
-    
-                 // Do we have anything to show?
+
+                // Do we have anything to show?
                 _panelFooter.Visible = (requiredSize.Width > 0);
 
                 // Position the footer elements
@@ -949,7 +949,7 @@ namespace ComponentFactory.Krypton.Toolkit
             else
             {
                 // Pressing Ctrl+C should copy message text into the clipboard
-                if ((e.Modifiers == Keys.Control) 
+                if ((e.Modifiers == Keys.Control)
                     && (e.KeyCode == Keys.C))
                 {
                     StringBuilder sb = new StringBuilder();
