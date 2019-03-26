@@ -26,15 +26,14 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonInputBox : KryptonForm
     {
         #region Static Fields
-
         private const int GAP = 10;
-
         #endregion
 
         #region Instance Fields
         private readonly string _prompt;
         private readonly string _caption;
         private readonly string _defaultResponse;
+        private readonly char _passwordChar;
         private KryptonPanel _panelMessage;
         private KryptonWrapLabel _labelPrompt;
         private KryptonTextBox _textBoxResponse;
@@ -45,12 +44,14 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         private KryptonInputBox(string prompt,
                                 string caption,
-                                string defaultResposne)
+                                string defaultResponse,
+                                char passwordChar)
         {
             // Store incoming values
             _prompt = prompt;
             _caption = caption;
-            _defaultResponse = defaultResposne;
+            _defaultResponse = defaultResponse;
+            _passwordChar = passwordChar;
 
             // Create the form contents
             InitializeComponent();
@@ -61,6 +62,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Finally calculate and set form sizing
             UpdateSizing();
+            AcceptButton = _buttonOK;
         }
 
         /// <summary> 
@@ -79,72 +81,17 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Public
         /// <summary>
-        /// Displays an input box with the provided prompt.
-        /// </summary>
-        /// <param name="prompt">The text to display as an input prompt.</param>
-        /// <returns>Input string.</returns>
-        public static string Show(string prompt)
-        {
-            return InternalShow(null, prompt, string.Empty, string.Empty);
-        }
-
-        /// <summary>
-        /// Displays an input box in front of the specified object and with the provided prompt.
-        /// </summary>
-        /// <param name="owner">Owner of the modal dialog box.</param>
-        /// <param name="prompt">The text to display as an input prompt.</param>
-        /// <returns>Input string.</returns>
-        public static string Show(IWin32Window owner, string prompt)
-        {
-            return InternalShow(owner, prompt, string.Empty, string.Empty);
-        }
-
-        /// <summary>
-        /// Displays an input box with provided prompt and caption.
-        /// </summary>
-        /// <param name="prompt">The text to display as an input prompt.</param>
-        /// <param name="caption">The text to display in the title bar of the input box.</param>
-        /// <returns>Input string.</returns>
-        public static string Show(string prompt, string caption)
-        {
-            return InternalShow(null, prompt, caption, string.Empty);
-        }
-
-        /// <summary>
-        /// Displays an input box in front of the specified object and with the provided prompt and caption.
-        /// </summary>
-        /// <param name="owner">Owner of the modal dialog box.</param>
-        /// <param name="prompt">The text to display as an input prompt.</param>
-        /// <param name="caption">The text to display in the title bar of the input box.</param>
-        /// <returns>Input string.</returns>
-        public static string Show(IWin32Window owner, string prompt, string caption)
-        {
-            return InternalShow(owner, prompt, caption, string.Empty);
-        }
-
-        /// <summary>
-        /// Displays an input box with provided prompt and caption and defaulted response string.
-        /// </summary>
-        /// <param name="prompt">The text to display as an input prompt.</param>
-        /// <param name="caption">The text to display in the title bar of the input box.</param>
-        /// <param name="defaultResponse">Default response text..</param>
-        /// <returns>Input string.</returns>
-        public static string Show(string prompt, string caption, string defaultResponse)
-        {
-            return InternalShow(null, prompt, caption, defaultResponse);
-        }
-
-        /// <summary>
-        /// DDisplays an input box in front of the specified object and with the provided prompt and caption and defaulted response string.
+        /// Displays an input box in front of the specified object and with the provided prompt and caption and defaulted response string.
         /// </summary>
         /// <param name="owner">Owner of the modal dialog box.</param>
         /// <param name="prompt">The text to display as an input prompt.</param>
         /// <param name="caption">The text to display in the title bar of the input box.</param>
         /// <param name="defaultResponse">Default response text..</param>
+        /// <param name="passwordChar"></param>
         /// <returns>Input string.</returns>
-        public static string Show(IWin32Window owner, string prompt, string caption, string defaultResponse)
+        public static string Show(IWin32Window owner, string prompt, string caption = @"", string defaultResponse = @"", char passwordChar = ' ')
         {
-            return InternalShow(owner, prompt, caption, defaultResponse);
+            return InternalShow(owner, prompt, caption, defaultResponse, passwordChar);
         }
         #endregion
 
@@ -152,13 +99,14 @@ namespace ComponentFactory.Krypton.Toolkit
         private static string InternalShow(IWin32Window owner,
                                            string prompt,
                                            string caption,
-                                           string defaultResponse)
+                                           string defaultResponse,
+                                           char passwordChar)
         {
             // If do not have an owner passed in then get the active window and use that instead
             IWin32Window showOwner = owner ?? FromHandle(PI.GetActiveWindow());
 
             // Show input box window as a modal dialog and then dispose of it afterwards
-            using (KryptonInputBox ib = new KryptonInputBox(prompt, caption, defaultResponse))
+            using (KryptonInputBox ib = new KryptonInputBox(prompt, caption, defaultResponse, passwordChar))
             {
                 ib.StartPosition = showOwner == null ? FormStartPosition.CenterScreen : FormStartPosition.CenterParent;
 
@@ -173,6 +121,7 @@ namespace ComponentFactory.Krypton.Toolkit
             Text = _caption;
             _labelPrompt.Text = _prompt;
             _textBoxResponse.Text = _defaultResponse;
+            _textBoxResponse.PasswordChar = _passwordChar;
         }
 
         private void UpdateButtons()
