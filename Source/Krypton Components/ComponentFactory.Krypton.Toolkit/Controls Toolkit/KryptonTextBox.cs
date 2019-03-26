@@ -40,6 +40,7 @@ namespace ComponentFactory.Krypton.Toolkit
             #region Instance Fields
             private readonly KryptonTextBox _kryptonTextBox;
             private bool _mouseOver;
+            private string _hint;
             #endregion
 
             #region Events
@@ -299,6 +300,21 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <param name="e">An EventArgs containing the event data.</param>
             protected virtual void OnTrackMouseLeave(EventArgs e) => TrackMouseLeave?.Invoke(this, e);
             #endregion
+
+            // Cue, Tip , Watermark
+            public string Hint
+            {
+                get => _hint;
+                set
+                {
+                    _hint = value;
+                    if (string.IsNullOrEmpty(Text) && !string.IsNullOrEmpty(Hint))
+                    {
+                        PI.SendMessage(Handle, PI.EM_SETCUEBANNER, (IntPtr)1, Hint);
+                    }
+                    Refresh();
+                }
+            }
         }
 
         #endregion
@@ -555,6 +571,15 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Public
+        /// <summary>
+        /// Gets and sets control watermark.
+        /// </summary>
+        public string Hint
+        {
+            get => _textBox.Hint;
+            set => _textBox.Hint = value;
+        }
+
         /// <summary>
         /// Gets and sets if the control is in the tab chain.
         /// </summary>
@@ -1574,7 +1599,10 @@ namespace ComponentFactory.Krypton.Toolkit
             if (IsHandleCreated || _forcedLayout || (DesignMode && (_textBox != null)))
             {
                 Rectangle fillRect = _layoutFill.FillRect;
-                _textBox.SetBounds(fillRect.X, fillRect.Y, fillRect.Width, fillRect.Height);
+                //  for centering the inner text field vertically
+                int y = Height / 2 - _textBox.Height / 2;
+
+                _textBox.SetBounds(fillRect.X, y, fillRect.Width, fillRect.Height);
             }
         }
 
