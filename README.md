@@ -1,16 +1,41 @@
-# <img src="https://github.com/Wagnerp/Krypton-NET-4.70/blob/master/Assets/PNG/Square%20Design/Main%20Icon/64%20x%2064/Square%20Design%2064%20x%2064%20New%20Green.png"> .NET 5.470
+# <img src="https://github.com/Wagnerp/Krypton-NET-5.470/blob/master/Krypton.png"> .NET 5.470
 
 =======
 
 | NuGet | Current NuGet Version | Github License |
 |---|---|---|
-| [![NuGet](https://img.shields.io/badge/NuGet-Krypton%20.NET%205.470-green.svg)](https://www.nuget.org/packages/KryptonToolkitSuite5470/) | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470.svg)| ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) |
+| [![NuGet](https://img.shields.io/badge/NuGet-Krypton%20.NET%205.470-green.svg)](https://www.nuget.org/packages/KryptonToolkitSuite5470/) | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470.svg)| ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) | 
+
+=======
 
 # ["Toolkit help index"](https://rawgit.com/Wagnerp/Krypton-NET-4.7/master/Help/Output/index.html)
 
 =======
 
 ## NOTE: With the advent of Windows 10 1803 being released to the general public, I am pleased to announce the availability of a 5.472 release that will support the .NET 4.7.2 framework. You can follow the project [here](https://github.com/Wagnerp/Krypton-NET-5.472).
+
+=======
+
+## 2019-03-25 Build 826 - MegaKarken Contributions
+* Update example program for AllowDecimals
+* Introduced an IconSpec definition for all KryptonDataGridViewColumn types so that icons can be drawn in KryptonDataGridView column header cells
+* Adding a Multiline String Editor much like in VS' property grid to the KryptonTextBox control.
+* Add Multiline String Editor in KryptonDataGridViewTextBox cells for multiline text editing
+* Make MultilineStringEditor resizable.
+* Adding KryptonDataGridViewCustomColumn type for DataGridViews
+* Adding new KryptonDataGridViewBinaryColumn type for displaying and viewing binary data in GridViews.
+* Make Hex-Mode default mode and add a button for exporting the data to a file.
+* Slide panels instantly like Visual Studio
+* Ignore DBNull.Value as well in GetFormattedValue
+* Make the checkbox look a little nicer
+* contextMenuStrip gradient color
+* Adding a PaletteBackStyle.PanelCustom2 and PaletteBackStyle.PanelCustom3 for more theming flexibility
+	* Continue to add custom numbers for the others custom# styles as well !
+* Adding HoveredSelectionChanged event to KryptonComboBox
+* Make KryptonDataGridViewComboBox accept objects rather than strings only
+* Prop up KryptonComboBox with optional tooltips for items
+* Extend support for DataGridView icons to Text & data cells
+* Build 826 (build date Monday 25th March, 2019) is now available on NuGet
 
 =======
 
