@@ -24,6 +24,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DocFX", "DocFX", "{61013E5A
 	ProjectSection(SolutionItems) = preProject
 		..\..\Help\DocFX\.gitignore = ..\..\Help\DocFX\.gitignore
 		..\..\Help\DocFX\docfx.json = ..\..\Help\DocFX\docfx.json
+		HowToBuildHelp.txt = HowToBuildHelp.txt
 		..\..\Help\DocFX\index.md = ..\..\Help\DocFX\index.md
 		..\..\Help\DocFX\Krypton.ico = ..\..\Help\DocFX\Krypton.ico
 		..\..\Help\DocFX\Logo.PNG = ..\..\Help\DocFX\Logo.PNG
@@ -41,6 +42,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "articles", "articles", "{64
 		..\..\Help\DocFX\articles\border.md = ..\..\Help\DocFX\articles\border.md
 		..\..\Help\DocFX\articles\buttonspec.md = ..\..\Help\DocFX\articles\buttonspec.md
 		..\..\Help\DocFX\articles\intro.md = ..\..\Help\DocFX\articles\intro.md
+		..\..\Help\DocFX\articles\Krypton_Docking.md = ..\..\Help\DocFX\articles\Krypton_Docking.md
+		..\..\Help\DocFX\articles\Krypton_Navigator.md = ..\..\Help\DocFX\articles\Krypton_Navigator.md
+		..\..\Help\DocFX\articles\Krypton_Ribbon.md = ..\..\Help\DocFX\articles\Krypton_Ribbon.md
+		..\..\Help\DocFX\articles\Krypton_Toolkit.md = ..\..\Help\DocFX\articles\Krypton_Toolkit.md
+		..\..\Help\DocFX\articles\Krypton_WorkSpace.md = ..\..\Help\DocFX\articles\Krypton_WorkSpace.md
 		..\..\Help\DocFX\articles\palettes.md = ..\..\Help\DocFX\articles\palettes.md
 		..\..\Help\DocFX\articles\structure.md = ..\..\Help\DocFX\articles\structure.md
 		..\..\Help\DocFX\articles\toc.yml = ..\..\Help\DocFX\articles\toc.yml
@@ -789,7 +795,7 @@ Global
 		{29935FC9-D8AE-4C7A-83AB-03C3E6179946} = {29748D21-B5F4-4C80-A030-7B7720BF8021}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		BuildVersion_StartDate = 2000/1/1
 		SolutionGuid = {ECEA7A85-0CA8-47A4-93BE-6AA896E9749D}
+		BuildVersion_StartDate = 2000/1/1
 	EndGlobalSection
 EndGlobal

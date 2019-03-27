@@ -5,7 +5,7 @@
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to license terms.
 // 
-//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
+//  Modifications by MegaKraken, Thavarajan, Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
@@ -20,7 +20,7 @@ namespace ComponentFactory.Krypton.Toolkit
     /// <summary>
     /// Defines a KryptonComboBox cell type for the KryptonDataGridView control
     /// </summary>
-    public class KryptonDataGridViewComboBoxCell : DataGridViewTextBoxCell
+    public class KryptonDataGridViewComboBoxCell : DataGridViewComboBoxCell
     {
         #region Static Fields
         [ThreadStatic]
@@ -103,6 +103,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 dataGridViewCell.AutoCompleteSource = AutoCompleteSource;
                 dataGridViewCell.DisplayMember = DisplayMember;
                 dataGridViewCell.ValueMember = ValueMember;
+                dataGridViewCell.DataSource = DataSource;
             }
             return dataGridViewCell;
         }
@@ -133,7 +134,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// The MaxDropDownItems property replicates the one from the KryptonComboBox control
         /// </summary>
         [DefaultValue(8)]
-        public int MaxDropDownItems
+        public override int MaxDropDownItems
         {
             get => _maxDropDownItems;
 
@@ -169,7 +170,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// The DropDownWidth property replicates the one from the KryptonComboBox control
         /// </summary>
         [DefaultValue(121)]
-        public int DropDownWidth
+        public override int DropDownWidth
         {
             get => _dropDownWidth;
 
@@ -220,41 +221,6 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-        /// The DisplayMember property replicates the one from the KryptonComboBox control
-        /// </summary>
-        [DefaultValue("")]
-        public string DisplayMember
-        {
-            get => _displayMember;
-
-            set
-            {
-                if (_displayMember != value)
-                {
-                    SetDisplayMember(RowIndex, value);
-                    OnCommonChange();
-                }
-            }
-        }
-
-        /// <summary>
-        /// The ValueMember property replicates the one from the KryptonComboBox control
-        /// </summary>
-        [DefaultValue("")]
-        public string ValueMember
-        {
-            get => _valueMember;
-
-            set
-            {
-                if (_valueMember != value)
-                {
-                    SetValueMember(RowIndex, value);
-                    OnCommonChange();
-                }
-            }
-        }
-        /// <summary>
         /// DetachEditingControl gets called by the DataGridView control when the editing session is ending
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
@@ -277,6 +243,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     comboBox.ButtonSpecs.Clear();
                 }
+                comboBox.DataSource = null;
             }
 
             base.DetachEditingControl();
@@ -297,17 +264,26 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 if (OwningColumn is KryptonDataGridViewComboBoxColumn comboColumn)
                 {
-                    comboBox.Items.Clear();
-                    comboBox.Items.AddRange(comboColumn.Items.ToArray());
-
-                    string[] autoAppend = new string[comboColumn.AutoCompleteCustomSource.Count];
-                    for (int j = 0; j < autoAppend.Length; j++)
+                    if (comboColumn.DataSource == null)
                     {
-                        autoAppend[j] = comboColumn.AutoCompleteCustomSource[j];
-                    }
+                        object[] strings = new object[comboColumn.Items.Count];
 
-                    comboBox.AutoCompleteCustomSource.Clear();
-                    comboBox.AutoCompleteCustomSource.AddRange(autoAppend);
+                        for (int i = 0; i < strings.Length; i++)
+                        {
+                            strings[i] = comboColumn.Items[i];
+                        }
+
+                        comboBox.Items.AddRange(strings);
+
+                        string[] autoAppend = new string[comboColumn.AutoCompleteCustomSource.Count];
+                        for (int j = 0; j < autoAppend.Length; j++)
+                        {
+                            autoAppend[j] = comboColumn.AutoCompleteCustomSource[j];
+                        }
+
+                        comboBox.AutoCompleteCustomSource.Clear();
+                        comboBox.AutoCompleteCustomSource.AddRange(autoAppend);
+                    }
 
                     // Set this cell as the owner of the buttonspecs
                     comboBox.ButtonSpecs.Clear();
@@ -327,6 +303,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 comboBox.AutoCompleteMode = AutoCompleteMode;
                 comboBox.DisplayMember = DisplayMember;
                 comboBox.ValueMember = ValueMember;
+                comboBox.DataSource = DataSource;
 
                 if (!(initialFormattedValue is string initialFormattedValueStr))
                 {
@@ -361,6 +338,7 @@ namespace ComponentFactory.Krypton.Toolkit
             DataGridView.EditingControl.Location = new Point(editingControlBounds.X, editingControlBounds.Y);
             DataGridView.EditingControl.Size = new Size(editingControlBounds.Width, editingControlBounds.Height);
         }
+
         #endregion
 
         #region Protected

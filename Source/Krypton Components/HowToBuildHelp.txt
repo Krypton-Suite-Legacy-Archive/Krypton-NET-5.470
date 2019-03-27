@@ -1,5 +1,5 @@
 What:
-- The help content is a combination of code trawling and Mardown files.
+- The help content is a combination of code trawling and MarkDown files.
 
 
 Applications:
@@ -25,6 +25,8 @@ Buid:
 
 Fixing:
 - If you have any Red or yellow text in the build output, then you will need to edit the files referenced and rebuild.
+- you can add (--force --logLevel Verbose) no brackets to the command line to help
+- - Other levels exist - Warning, Info
 
 
 More Info:

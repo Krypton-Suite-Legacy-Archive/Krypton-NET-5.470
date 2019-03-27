@@ -12,6 +12,8 @@
 using System;
 using System.Text;
 using System.Runtime.InteropServices;
+// ReSharper disable IdentifierTypo
+// ReSharper disable InconsistentNaming
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -147,6 +149,7 @@ namespace ComponentFactory.Krypton.Toolkit
         internal const uint GW_CHILD = 5;
         internal const uint GW_ENABLEDPOPUP = 6;
         internal const int WM_GETMINMAXINFO = 0x0024;
+        internal const int EM_SETCUEBANNER = 0x1501;
         #endregion
 
         #region Static Methods
@@ -210,6 +213,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         internal static extern uint SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
+        [DllImport("user32.dll", EntryPoint = "SendMessageW")]
+        internal static extern IntPtr SendMessage( IntPtr hWnd, int Msg, IntPtr wParam, [MarshalAs(UnmanagedType.LPWStr)] string lParam);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         internal static extern int SetWindowPos(IntPtr hWnd, IntPtr hWndAfter, int X, int Y, int Width, int Height, uint flags);

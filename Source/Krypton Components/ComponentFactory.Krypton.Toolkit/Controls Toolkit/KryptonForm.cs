@@ -255,7 +255,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public bool AllowButtonSpecToolTips { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating if custome chrome is allowed.
+        /// Gets or sets a value indicating if custom chrome is allowed.
         /// </summary>
         [Category("Visuals")]
         [Description("Should custom chrome be allowed for this KryptonForm instance.")]
@@ -727,19 +727,22 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Failed so we convert the Icon directly instead of trying to get a sized version first
                         _cacheBitmap = _cacheIcon.ToBitmap();
                     }
-                    catch { }
+                    catch
+                    {
+                        //
+                    }
                 }
 
-                // If the ToBitmap() failes then we might still have no bitmap for use
+                // If the ToBitmap() fails then we might still have no bitmap for use
                 if (_cacheBitmap != null)
                 {
                     // If the image is not the required size, create it
                     if (_cacheBitmap.Size != CAPTION_ICON_SIZE)
                     {
-                        // Create a resized verison of the bitmap
+                        // Create a resized version of the bitmap
                         Bitmap resizedBitmap = new Bitmap(_cacheBitmap, CAPTION_ICON_SIZE);
 
-                        // Must gradcefully remove unused resources!
+                        // Must gracefully remove unused resources!
                         _cacheBitmap.Dispose();
 
                         // Cache for future access
@@ -1331,7 +1334,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Is a layout required?
                     if (NeedLayout || (GetDefinedIcon() != _cacheIcon))
                     {
-                        // Ask the view to peform a layout
+                        // Ask the view to perform a layout
                         using (ViewLayoutContext context = new ViewLayoutContext(ViewManager,
                                                                                  this,
                                                                                  RealWindowRectangle,

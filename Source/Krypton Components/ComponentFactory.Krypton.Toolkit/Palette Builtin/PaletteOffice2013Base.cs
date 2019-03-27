@@ -5687,6 +5687,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 (style != PaletteContentStyle.InputControlStandalone) &&
                 (style != PaletteContentStyle.InputControlRibbon) &&
                 (style != PaletteContentStyle.InputControlCustom1) &&
+                (style != PaletteContentStyle.InputControlCustom2) &&
+                (style != PaletteContentStyle.InputControlCustom3) &&
                 (style != PaletteContentStyle.ButtonInputControl) &&
                 (style != PaletteContentStyle.ButtonCalendarDay))
             {
@@ -5894,6 +5896,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 (style != PaletteContentStyle.InputControlStandalone) &&
                 (style != PaletteContentStyle.InputControlRibbon) &&
                 (style != PaletteContentStyle.InputControlCustom1) &&
+                (style != PaletteContentStyle.InputControlCustom2) &&
+                (style != PaletteContentStyle.InputControlCustom3) &&
                 (style != PaletteContentStyle.ButtonInputControl) &&
                 (style != PaletteContentStyle.ButtonCalendarDay))
             {
@@ -7526,6 +7530,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 (style != PaletteContentStyle.InputControlStandalone) &&
                 (style != PaletteContentStyle.InputControlRibbon) &&
                 (style != PaletteContentStyle.InputControlCustom1) &&
+                (style != PaletteContentStyle.InputControlCustom2) &&
+                (style != PaletteContentStyle.InputControlCustom3) &&
                 (style != PaletteContentStyle.ButtonInputControl))
             {
                 return _disabledText;
@@ -7722,6 +7728,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 (style != PaletteContentStyle.InputControlStandalone) &&
                 (style != PaletteContentStyle.InputControlRibbon) &&
                 (style != PaletteContentStyle.InputControlCustom1) &&
+                (style != PaletteContentStyle.InputControlCustom2) &&
+                (style != PaletteContentStyle.InputControlCustom3) &&
                 (style != PaletteContentStyle.ButtonInputControl))
             {
                 return _disabledText;

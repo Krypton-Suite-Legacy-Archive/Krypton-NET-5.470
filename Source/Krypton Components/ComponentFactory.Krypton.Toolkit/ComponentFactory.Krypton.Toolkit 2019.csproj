@@ -127,7 +127,7 @@
     <Compile Include="Controller\MenuLinkLabelController.cs" />
     <Compile Include="Controller\MenuItemController.cs" />
     <Compile Include="Controller\RadioButtonController.cs" />
-    <Compile Include="Controls Toolkit\DataGridViewButtonSpecClickEventArgs.cs" />
+    <Compile Include="EventArgs\DataGridViewButtonSpecClickEventArgs.cs" />
     <Compile Include="Controls Toolkit\KryptonByteViewer.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -209,7 +209,7 @@
     <Compile Include="Controls Toolkit\KryptonRichTextBox.cs" />
     <Compile Include="Controls Toolkit\KryptonComboBox.cs" />
     <Compile Include="Controls Toolkit\KryptonDataGridView.cs" />
-    <Compile Include="Controls Toolkit\DataGridViewColumnSpecCollection.cs" />
+    <Compile Include="General\DataGridViewColumnSpecCollection.cs" />
     <Compile Include="Controls Toolkit\KryptonRadioButton.cs" />
     <Compile Include="Controls Toolkit\KryptonCheckBox.cs" />
     <Compile Include="Controls Toolkit\KryptonForm.cs">
@@ -1381,7 +1381,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" BuildVersion_StartDate="2000/1/1" />
+      <UserProperties BuildVersion_StartDate="2000/1/1" DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
