@@ -332,6 +332,9 @@
     <Compile Include="Palette Builtin\PaletteOffice2007White.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Palette Builtin\PaletteOffice2010White.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Palette Builtin\PaletteOffice2013.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1381,7 +1384,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_StartDate="2000/1/1" DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" />
+      <UserProperties DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" BuildVersion_StartDate="2000/1/1" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
