@@ -15,6 +15,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
+using System.Security.Principal;
 using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -89,6 +90,8 @@ namespace ComponentFactory.Krypton.Toolkit
         private FormWindowState _lastWindowState;
         private string _textExtra;
         private string _oldText;
+        private string _administratorText;
+        private bool _isInAdministratorMode;
         private bool _allowFormChrome;
         private bool _allowStatusStripMerge;
         private bool _recreateButtons;
@@ -371,6 +374,34 @@ namespace ComponentFactory.Krypton.Toolkit
                 UpdateDropShadowDraw(_useDropShadow);
             }
         }
+
+        /// <summary>
+        /// Gets or sets the administrator text.
+        /// </summary>
+        /// <value>
+        /// The administrator text.
+        /// </value>
+        [Category("Appearance"), Description("Sets the window title in accordance to the current user elevation."), DefaultValue("Administrator")]
+        public string AdministratorText
+        {
+            get => _administratorText;
+
+            set
+            {
+                _administratorText = value;
+
+                PerformNeedPaint(false);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is in administrator mode.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance is in administrator mode; otherwise, <c>false</c>.
+        /// </value>
+        [Category("Appearance"), Description("Is the user currently an administrator."), DefaultValue(false)]
+        public bool IsInAdministratorMode { get => _isInAdministratorMode; set => _isInAdministratorMode = value; }
 
         /// <summary>
         /// Gets access to the common form appearance entries that other states can override.
@@ -803,6 +834,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // We only apply custom chrome when control is already created and positioned
             UpdateCustomChromeDecision();
+
+            UpdateTitle(GetHasCurrentInstanceGotAdministrativeRights());
         }
 
         /// <summary>
@@ -1653,6 +1686,47 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 return cp;
+            }
+        }
+        #endregion
+
+        #region Admin Code        
+        /// <summary>
+        /// Gets the has current instance got administrative rights.
+        /// </summary>
+        /// <returns></returns>
+        private static bool GetHasCurrentInstanceGotAdministrativeRights()
+        {
+            try
+            {
+                WindowsPrincipal principal = new WindowsPrincipal(WindowsIdentity.GetCurrent());
+
+                bool hasAdministrativeRights = principal.IsInRole(WindowsBuiltInRole.Administrator);
+
+                if (hasAdministrativeRights)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception exc)
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Updates the title.
+        /// </summary>
+        /// <param name="hasAdministrativeRights">if set to <c>true</c> [has administrative rights].</param>
+        private void UpdateTitle(bool hasAdministrativeRights)
+        {
+            if (hasAdministrativeRights)
+            {
+                Text = $"{ Text } - [{ AdministratorText }]";
             }
         }
         #endregion
