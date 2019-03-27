@@ -5,7 +5,7 @@
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to license terms.
 // 
-//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
+//  Modifications by MegaKraken, Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
@@ -355,7 +355,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                 // Create rectangle that represents the drop down button
                                 Rectangle dropRect;
 
-                                // Update text and drop down rects dependant on the right to left setting
+                                // Update text and drop down rects dependent on the right to left setting
                                 if (_kryptonComboBox.RightToLeft == RightToLeft.Yes)
                                 {
                                     dropRect = new Rectangle(rect.left + borderSize.Width + 1, rect.top + 1, dropDownWidth - 2, (rect.bottom - rect.top - 2));
@@ -1015,7 +1015,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public new event DrawItemEventHandler DrawItem;
+        public event DrawItemEventHandler DrawItem;
         #endregion
 
         #region Identity
@@ -1532,7 +1532,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     if (value == ComboBoxStyle.Simple)
                     {
-                        throw new ArgumentOutOfRangeException("KryptonComboBox does not support the DropDownStyle.Simple style.");
+                        throw new ArgumentOutOfRangeException(nameof(_comboBox.DropDownStyle), @"KryptonComboBox does not support the DropDownStyle.Simple style.");
                     }
 
                     _comboBox.DropDownStyle = value;
@@ -1569,7 +1569,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-        /// Gets and sets the height, in pixels, of items in an owner-draw KryptomComboBox.
+        /// Gets and sets the height, in pixels, of items in an owner-draw KryptonComboBox.
         /// </summary>
         [Category("Behavior")]
         [Description("Do not use this property, it is provided for backwards compatability only.")]
@@ -1577,7 +1577,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int ItemHeight
         {
-            get { return _comboBox.ItemHeight; }
+            get => _comboBox.ItemHeight;
 
             set
             {
@@ -2021,9 +2021,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
                 else
                 {
-                    return (DesignMode || AlwaysActive ||
-                            ContainsFocus || _mouseOver || _comboBox.MouseOver ||
-                           ((_subclassEdit != null) && (_subclassEdit.MouseOver)));
+                    return (DesignMode
+                            || AlwaysActive
+                            || ContainsFocus
+                            || _mouseOver
+                            || _comboBox.MouseOver
+                            || ((_subclassEdit != null) && _subclassEdit.MouseOver)
+                            );
                 }
             }
         }
@@ -2062,7 +2066,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Do we have a manager to ask for a preferred size?
             if (ViewManager != null)
             {
-                // Ask the view to peform a layout
+                // Ask the view to perform a layout
                 Size retSize = ViewManager.GetPreferredSize(Renderer, proposedSize);
 
                 // Apply the maximum sizing
@@ -2121,7 +2125,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-        /// Internal desing mode method.
+        /// Internal designing mode method.
         /// </summary>
         /// <param name="pt">Mouse location.</param>
         public bool DesignerGetHitTest(Point pt)
@@ -2137,7 +2141,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-        /// Internal desing mode method.
+        /// Internal designing mode method.
         /// </summary>
         /// <param name="pt">Mouse location.</param>
         public Component DesignerComponentFromPoint(Point pt)
@@ -2149,7 +2153,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-        /// Internal desing mode method.
+        /// Internal designing mode method.
         /// </summary>
         public void DesignerMouseLeave()
         {
@@ -2176,19 +2180,19 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the Initialized event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnInitialized(EventArgs e) => Initialized?.Invoke(this, EventArgs.Empty);
+        protected void OnInitialized(EventArgs e) => Initialized?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
         /// Raises the TextUpdate event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnTextUpdate(EventArgs e) => TextUpdate?.Invoke(this, e);
+        protected void OnTextUpdate(EventArgs e) => TextUpdate?.Invoke(this, e);
 
         /// <summary>
         /// Raises the SelectionChangeCommitted event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnSelectionChangeCommitted(EventArgs e) => SelectionChangeCommitted?.Invoke(this, e);
+        protected void OnSelectionChangeCommitted(EventArgs e) => SelectionChangeCommitted?.Invoke(this, e);
 
         /// <summary>
         /// Raises the SelectedIndexChanged event.
@@ -2200,86 +2204,86 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the DropDownStyleChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnDropDownStyleChanged(EventArgs e) => DropDownStyleChanged?.Invoke(this, e);
+        protected void OnDropDownStyleChanged(EventArgs e) => DropDownStyleChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the DataSourceChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnDataSourceChanged(EventArgs e) => DataSourceChanged?.Invoke(this, e);
+        protected void OnDataSourceChanged(EventArgs e) => DataSourceChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the DisplayMemberChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnDisplayMemberChanged(EventArgs e) => DisplayMemberChanged?.Invoke(this, e);
+        protected void OnDisplayMemberChanged(EventArgs e) => DisplayMemberChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the Format event.
         /// </summary>
         /// <param name="e">An ListControlConvertEventArgs containing the event data.</param>
-        protected virtual void OnFormat(ListControlConvertEventArgs e) => Format?.Invoke(this, e);
+        protected void OnFormat(ListControlConvertEventArgs e) => Format?.Invoke(this, e);
 
         /// <summary>
         /// Raises the FormatInfoChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnFormatInfoChanged(EventArgs e) => FormatInfoChanged?.Invoke(this, e);
+        protected void OnFormatInfoChanged(EventArgs e) => FormatInfoChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the FormatStringChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnFormatStringChanged(EventArgs e) => FormatStringChanged?.Invoke(this, e);
+        protected void OnFormatStringChanged(EventArgs e) => FormatStringChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the FormattingEnabledChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnFormattingEnabledChanged(EventArgs e) => FormattingEnabledChanged?.Invoke(this, e);
+        protected void OnFormattingEnabledChanged(EventArgs e) => FormattingEnabledChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the SelectedValueChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnSelectedValueChanged(EventArgs e) => SelectedValueChanged?.Invoke(this, e);
+        protected void OnSelectedValueChanged(EventArgs e) => SelectedValueChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the ValueMemberChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnValueMemberChanged(EventArgs e) => ValueMemberChanged?.Invoke(this, e);
+        protected void OnValueMemberChanged(EventArgs e) => ValueMemberChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the DropDownClosed event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnDropDownClosed(EventArgs e) => DropDownClosed?.Invoke(this, e);
+        protected void OnDropDownClosed(EventArgs e) => DropDownClosed?.Invoke(this, e);
 
         /// <summary>
         /// Raises the DropDown event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnDropDown(EventArgs e) => DropDown?.Invoke(this, e);
+        protected void OnDropDown(EventArgs e) => DropDown?.Invoke(this, e);
 
         /// <summary>
         /// Raises the TrackMouseEnter event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnTrackMouseEnter(EventArgs e) => TrackMouseEnter?.Invoke(this, e);
+        protected void OnTrackMouseEnter(EventArgs e) => TrackMouseEnter?.Invoke(this, e);
 
         /// <summary>
         /// Raises the TrackMouseLeave event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnTrackMouseLeave(EventArgs e) => TrackMouseLeave?.Invoke(this, e);
+        protected void OnTrackMouseLeave(EventArgs e) => TrackMouseLeave?.Invoke(this, e);
 
 
         /// <summary>
         /// Raises the HoveredSelectionChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnHoverSelectionChanged(HoveredSelectionChangedEventArgs e)
+        protected void OnHoverSelectionChanged(HoveredSelectionChangedEventArgs e)
         {
             HoveredSelectionChanged?.Invoke(this, e);
             // See if there is a tooltip to display for the new selection.
@@ -2295,21 +2299,21 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the <see cref="E:DrawItem" /> event.
         /// </summary>
         /// <param name="e">The <see cref="DrawItemEventArgs"/> instance containing the event data.</param>
-        protected virtual void OnDrawItem(DrawItemEventArgs e) => DrawItem?.Invoke(this, e);
+        protected void OnDrawItem(DrawItemEventArgs e) => DrawItem?.Invoke(this, e);
 
         /// <summary>
         /// Raises the ToolTipNeeded event.
         /// </summary>
         /// <param name="e"></param>
-        protected virtual void OnToolTipNeeded(ToolTipNeededEventArgs e) => ToolTipNeeded?.Invoke(this, e);
+        protected void OnToolTipNeeded(ToolTipNeededEventArgs e) => ToolTipNeeded?.Invoke(this, e);
         #endregion
 
-    #region Protected Overrides
-    /// <summary>
-    /// Creates a new instance of the control collection for the KryptonComboBox.
-    /// </summary>
-    /// <returns>A new instance of Control.ControlCollection assigned to the control.</returns>
-    [EditorBrowsable(EditorBrowsableState.Advanced)]
+        #region Protected Overrides
+        /// <summary>
+        /// Creates a new instance of the control collection for the KryptonComboBox.
+        /// </summary>
+        /// <returns>A new instance of Control.ControlCollection assigned to the control.</returns>
+        [EditorBrowsable(EditorBrowsableState.Advanced)]
         protected override ControlCollection CreateControlsInstance() => new KryptonReadOnlyControls(this);
 
         /// <summary>
@@ -2506,7 +2510,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Update to match the new palette settings
                 Height = PreferredHeight;
 
-                // Let base class calulcate fill rectangle
+                // Let base class calculate fill rectangle
                 base.OnLayout(levent);
 
                 // Only use layout logic if control is fully initialized or if being forced
@@ -2915,7 +2919,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // had null then the height would be very small for the item and also the drop down.
             if (string.IsNullOrEmpty(_contentValues.ShortText))
             {
-                _contentValues.ShortText = " ";
+                _contentValues.ShortText = @" ";
             }
         }
 
@@ -3092,9 +3096,9 @@ namespace ComponentFactory.Krypton.Toolkit
             _visualPopupToolTip = null;
         }
 
-        VisualPopupToolTip GetToolTip()
+        private VisualPopupToolTip GetToolTip()
         {
-            if (_toolTip != null 
+            if (_toolTip != null
                 && !_toolTip.IsDisposed
                 )
             {
@@ -3108,7 +3112,7 @@ namespace ComponentFactory.Krypton.Toolkit
             return _toolTip;
         }
 
-        void ShowToolTip(ToolTipNeededEventArgs e, Point location)
+        private void ShowToolTip(ToolTipNeededEventArgs e, Point location)
         {
             _toolTipSpec.ToolTipTitle = e.Title;
             _toolTipSpec.ToolTipBody = e.Body;
