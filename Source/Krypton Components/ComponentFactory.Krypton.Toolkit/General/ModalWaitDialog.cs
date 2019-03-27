@@ -50,7 +50,7 @@ namespace ComponentFactory.Krypton.Toolkit
             SetStyle(ControlStyles.DoubleBuffer |
                      ControlStyles.AllPaintingInWmPaint, true);
 
-            // Hook into dispach of windows messages
+            // Hook into dispatch of windows messages
             Application.AddMessageFilter(this);
         }
         #endregion

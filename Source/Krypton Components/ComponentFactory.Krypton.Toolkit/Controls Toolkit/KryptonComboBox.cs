@@ -1048,8 +1048,6 @@ namespace ComponentFactory.Krypton.Toolkit
             _dropBackStyle = PaletteBackStyle.ControlClient;
             _style = ButtonStyle.ListItem;
             _firstTimePaint = true;
-            AutoCompleteMode = AutoCompleteMode.None;
-            AutoCompleteSource = AutoCompleteSource.None;
             _hoverIndex = -1;
             _toolTipSpec = new ButtonSpecAny
             {
@@ -1151,6 +1149,8 @@ namespace ComponentFactory.Krypton.Toolkit
             _comboBox.BackColor = triple.PaletteBack.GetBackColor1(PaletteState.Tracking);
             _comboBox.ForeColor = triple.PaletteContent.GetContentShortTextColor1(PaletteState.Tracking);
             _comboBox.Font = triple.PaletteContent.GetContentShortTextFont(PaletteState.Tracking);
+            AutoCompleteMode = AutoCompleteMode.None;
+            AutoCompleteSource = AutoCompleteSource.None;
         }
 
         /// <summary>

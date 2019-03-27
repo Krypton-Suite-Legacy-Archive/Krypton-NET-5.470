@@ -1,4 +1,4 @@
-##Control Structure
+## Control Structure
 All of the Krypton controls follow the same basic structure in the organization of properties and how features are exposed. Once you understand the standard organization you can quickly find and customize the control feature of interest. Figure 1 shows the set of properties exposed by the `KryptonButton` control that will be used as the example for the rest of this section.
 
 ![Figure 1 – KryptonButton standard properties](images/ButtonVisuals.png)
@@ -84,7 +84,7 @@ Many of the Krypton controls display information to the user. For example the `K
 *Figure 6 – KryptonButton values property*
 
 
-The exact name of the three properties varies depending on the context in which the content is being used. The `KryptonButton` calls them Text, `ExtraText, Image and ImageStates` whereas the `KryptonHeader` uses the names `Header, Description and Image`. Some controls have more than one content property. The `KryptonHeaderGroup` control has two value properties that contain content values, one of the primary header and another for the secondary header. *Figure 7* shows the value properties for a KryptonHeaderGroup.
+The exact name of the three properties varies depending on the context in which the content is being used. The `KryptonButton` calls them Text, `ExtraText, Image and ImageStates` whereas the `KryptonHeader` uses the names `Header, Description and Image`. Some controls have more than one content property. The `KryptonHeaderGroup` control has two value properties that contain content values, one of the primary header and another for the secondary header. *Figure 7* shows the value properties for a `KryptonHeaderGroup`.
 
 ![Figure 7 – Value properties for](images\HeaderGroupValues.png)
 

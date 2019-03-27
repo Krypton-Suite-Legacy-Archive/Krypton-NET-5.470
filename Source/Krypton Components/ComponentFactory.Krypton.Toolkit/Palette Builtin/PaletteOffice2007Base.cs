@@ -2314,6 +2314,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.InputControlCustom1:
                 case PaletteBorderStyle.InputControlCustom2:
                 case PaletteBorderStyle.InputControlCustom3:
+                case PaletteBorderStyle.FormMain:
+                case PaletteBorderStyle.FormCustom1:
                 case PaletteBorderStyle.FormCustom2:
                 case PaletteBorderStyle.FormCustom3:
                 case PaletteBorderStyle.HeaderPrimary:
@@ -2440,6 +2442,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.InputControlCustom1:
                 case PaletteBorderStyle.InputControlCustom2:
                 case PaletteBorderStyle.InputControlCustom3:
+                case PaletteBorderStyle.FormMain:
+                case PaletteBorderStyle.FormCustom1:
                 case PaletteBorderStyle.FormCustom2:
                 case PaletteBorderStyle.FormCustom3:
                 case PaletteBorderStyle.HeaderPrimary:
@@ -3314,6 +3318,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.InputControlCustom1:
                 case PaletteBorderStyle.InputControlCustom2:
                 case PaletteBorderStyle.InputControlCustom3:
+                case PaletteBorderStyle.FormMain:
+                case PaletteBorderStyle.FormCustom1:
                 case PaletteBorderStyle.FormCustom2:
                 case PaletteBorderStyle.FormCustom3:
                 case PaletteBorderStyle.HeaderForm:
@@ -3424,6 +3430,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.InputControlCustom1:
                 case PaletteBorderStyle.InputControlCustom2:
                 case PaletteBorderStyle.InputControlCustom3:
+                case PaletteBorderStyle.FormMain:
+                case PaletteBorderStyle.FormCustom1:
                 case PaletteBorderStyle.FormCustom2:
                 case PaletteBorderStyle.FormCustom3:
                     return PaletteRectangleAlign.Control;
@@ -3542,6 +3550,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.InputControlCustom1:
                 case PaletteBorderStyle.InputControlCustom2:
                 case PaletteBorderStyle.InputControlCustom3:
+                case PaletteBorderStyle.FormMain:
+                case PaletteBorderStyle.FormCustom1:
                 case PaletteBorderStyle.FormCustom2:
                 case PaletteBorderStyle.FormCustom3:
                 case PaletteBorderStyle.HeaderPrimary:
@@ -3651,6 +3661,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.InputControlCustom1:
                 case PaletteBorderStyle.InputControlCustom2:
                 case PaletteBorderStyle.InputControlCustom3:
+                case PaletteBorderStyle.FormMain:
+                case PaletteBorderStyle.FormCustom1:
                 case PaletteBorderStyle.FormCustom2:
                 case PaletteBorderStyle.FormCustom3:
                 case PaletteBorderStyle.HeaderPrimary:
@@ -3749,6 +3761,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.InputControlCustom1:
                 case PaletteBorderStyle.InputControlCustom2:
                 case PaletteBorderStyle.InputControlCustom3:
+                case PaletteBorderStyle.HeaderPrimary:
+                case PaletteBorderStyle.HeaderDockInactive:
                 case PaletteBorderStyle.HeaderDockActive:
                 case PaletteBorderStyle.HeaderCalendar:
                 case PaletteBorderStyle.HeaderSecondary:
@@ -3864,6 +3878,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.InputControlCustom1:
                 case PaletteBorderStyle.InputControlCustom2:
                 case PaletteBorderStyle.InputControlCustom3:
+                case PaletteBorderStyle.FormMain:
+                case PaletteBorderStyle.FormCustom1:
                 case PaletteBorderStyle.FormCustom2:
                 case PaletteBorderStyle.FormCustom3:
                 case PaletteBorderStyle.HeaderPrimary:
@@ -3969,6 +3985,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.InputControlCustom1:
                 case PaletteBorderStyle.InputControlCustom2:
                 case PaletteBorderStyle.InputControlCustom3:
+                case PaletteBorderStyle.FormMain:
+                case PaletteBorderStyle.FormCustom1:
                 case PaletteBorderStyle.FormCustom2:
                 case PaletteBorderStyle.FormCustom3:
                 case PaletteBorderStyle.HeaderPrimary:
@@ -4074,6 +4092,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteBorderStyle.InputControlCustom1:
                 case PaletteBorderStyle.InputControlCustom2:
                 case PaletteBorderStyle.InputControlCustom3:
+                case PaletteBorderStyle.FormMain:
                 case PaletteBorderStyle.FormCustom2:
                 case PaletteBorderStyle.FormCustom3:
                 case PaletteBorderStyle.HeaderPrimary:
@@ -4250,6 +4269,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -4328,6 +4349,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -4426,6 +4449,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -4532,6 +4557,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -4630,6 +4657,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -4728,6 +4757,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -4824,6 +4855,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.HeaderSecondary:
                 case PaletteContentStyle.HeaderDockInactive:
                 case PaletteContentStyle.HeaderDockActive:
@@ -4963,6 +4996,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -5073,6 +5108,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.HeaderForm:
                     return PaletteTextHotkeyPrefix.Show;
                 case PaletteContentStyle.ButtonListItem:
@@ -5160,6 +5197,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -5258,6 +5297,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -5376,6 +5417,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -5456,6 +5499,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -5556,6 +5601,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -5677,6 +5724,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 (style != PaletteContentStyle.InputControlStandalone) &&
                 (style != PaletteContentStyle.InputControlRibbon) &&
                 (style != PaletteContentStyle.InputControlCustom1) &&
+                (style != PaletteContentStyle.InputControlCustom2) &&
+                (style != PaletteContentStyle.InputControlCustom3) &&
                 (style != PaletteContentStyle.ButtonInputControl) &&
                 (style != PaletteContentStyle.ButtonCalendarDay))
             {
@@ -5714,6 +5763,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                     if (state == PaletteState.Disabled)
                     {
                         return _ribbonColors[(int)SchemeOfficeColors.InputControlTextDisabled];
@@ -5874,6 +5925,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 (style != PaletteContentStyle.InputControlStandalone) &&
                 (style != PaletteContentStyle.InputControlRibbon) &&
                 (style != PaletteContentStyle.InputControlCustom1) &&
+                (style != PaletteContentStyle.InputControlCustom2) &&
+                (style != PaletteContentStyle.InputControlCustom3) &&
                 (style != PaletteContentStyle.ButtonInputControl) &&
                 (style != PaletteContentStyle.ButtonCalendarDay))
             {
@@ -5911,6 +5964,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                     if (state == PaletteState.Disabled)
                     {
                         return _ribbonColors[(int)SchemeOfficeColors.InputControlTextDisabled];
@@ -6084,6 +6139,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -6182,6 +6239,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -6280,6 +6339,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -6378,6 +6439,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -6476,6 +6539,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -6574,6 +6639,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -6696,6 +6763,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.HeaderSecondary:
                     return _header2LongFont;
                 case PaletteContentStyle.TabLowProfile:
@@ -6802,6 +6871,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -6900,6 +6971,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -6998,6 +7071,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -7125,6 +7200,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.GridHeaderColumnList:
                 case PaletteContentStyle.GridHeaderColumnSheet:
                 case PaletteContentStyle.GridHeaderColumnCustom1:
@@ -7216,6 +7293,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -7292,6 +7371,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -7389,6 +7470,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -7481,6 +7564,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 (style != PaletteContentStyle.InputControlStandalone) &&
                 (style != PaletteContentStyle.InputControlRibbon) &&
                 (style != PaletteContentStyle.InputControlCustom1) &&
+                (style != PaletteContentStyle.InputControlCustom2) &&
+                (style != PaletteContentStyle.InputControlCustom3) &&
                 (style != PaletteContentStyle.ButtonInputControl))
             {
                 return _disabledText;
@@ -7517,6 +7602,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                     if (state == PaletteState.Disabled)
                     {
                         return _ribbonColors[(int)SchemeOfficeColors.InputControlTextDisabled];
@@ -7667,6 +7754,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 (style != PaletteContentStyle.InputControlStandalone) &&
                 (style != PaletteContentStyle.InputControlRibbon) &&
                 (style != PaletteContentStyle.InputControlCustom1) &&
+                (style != PaletteContentStyle.InputControlCustom2) &&
+                (style != PaletteContentStyle.InputControlCustom3) &&
                 (style != PaletteContentStyle.ButtonInputControl))
             {
                 return _disabledText;
@@ -7703,6 +7792,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                     if (state == PaletteState.Disabled)
                     {
                         return _ribbonColors[(int)SchemeOfficeColors.InputControlTextDisabled];
@@ -7867,6 +7958,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -7965,6 +8058,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -8063,6 +8158,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -8161,6 +8258,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -8259,6 +8358,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -8357,6 +8458,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:
@@ -8486,6 +8589,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                     return InputControlPadding;
                 case PaletteContentStyle.ButtonStandalone:
                 case PaletteContentStyle.ButtonCommand:
@@ -8578,6 +8683,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlStandalone:
                 case PaletteContentStyle.InputControlRibbon:
                 case PaletteContentStyle.InputControlCustom1:
+                case PaletteContentStyle.InputControlCustom2:
+                case PaletteContentStyle.InputControlCustom3:
                 case PaletteContentStyle.TabHighProfile:
                 case PaletteContentStyle.TabStandardProfile:
                 case PaletteContentStyle.TabLowProfile:

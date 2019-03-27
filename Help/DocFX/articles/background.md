@@ -1,4 +1,4 @@
-##Background
+## Background
 
 Most of the *Krypton* controls draw a background and so provide a set of
 properties that allow customization of the background appearance. Each control
