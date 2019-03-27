@@ -32,7 +32,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [Description("Displays descriptive information.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
-    public class KryptonWrapLabel : Label
+    public sealed class KryptonWrapLabel : Label
     {
         #region Static Field
         private static MethodInfo _miPTB;
@@ -75,7 +75,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Yes, we want to be drawn double buffered by default
             DoubleBuffered = true;
 
-            // Create the state storgage
+            // Create the state storage
             StateCommon = new PaletteWrapLabel(this);
             StateNormal = new PaletteWrapLabel(this);
             StateDisabled = new PaletteWrapLabel(this);
@@ -182,7 +182,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-        /// Determines if the lable has a border.
+        /// Determines if the label has a border.
         /// </summary>
         [Browsable(false)]
         [Bindable(false)]
@@ -276,7 +276,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public PaletteMode PaletteMode
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _paletteMode; }
+            get => _paletteMode;
 
             set
             {
@@ -322,7 +322,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public IPalette Palette
         {
             [System.Diagnostics.DebuggerStepThrough]
-            get { return _localPalette; }
+            get => _localPalette;
 
             set
             {
@@ -374,7 +374,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Behavior")]
         [Description("The shortcut menu to show when the user right-clicks the page.")]
         [DefaultValue(null)]
-        public virtual KryptonContextMenu KryptonContextMenu
+        public KryptonContextMenu KryptonContextMenu
         {
             get => _kryptonContextMenu;
 
@@ -520,7 +520,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the PaletteChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected virtual void OnPaletteChanged(EventArgs e)
+        private void OnPaletteChanged(EventArgs e)
         {
             // Update the redirector with latest palette
             _redirector.Target = _palette;
@@ -598,8 +598,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Raises the PaintBackground event.
         /// </summary>
-        /// <param name="pevent">An PaintEventArgs containing the event data.</param>
-        protected override void OnPaintBackground(PaintEventArgs pevent)
+        /// <param name="pEvent">An PaintEventArgs containing the event data.</param>
+        protected override void OnPaintBackground(PaintEventArgs pEvent)
         {
             // Do we have a parent control and we need to paint background?
             if (Parent != null)
@@ -615,11 +615,11 @@ namespace ComponentFactory.Krypton.Toolkit
                                                        null);
                 }
 
-                _miPTB.Invoke(this, new object[] { pevent, ClientRectangle, null });
+                _miPTB.Invoke(this, new object[] { pEvent, ClientRectangle, null });
             }
             else
             {
-                base.OnPaintBackground(pevent);
+                base.OnPaintBackground(pEvent);
             }
         }
 
@@ -627,7 +627,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Create the redirector instance.
         /// </summary>
         /// <returns>PaletteRedirect derived class.</returns>
-        protected virtual PaletteRedirect CreateRedirector()
+        private PaletteRedirect CreateRedirector()
         {
             return new PaletteRedirect(_palette);
         }
@@ -636,7 +636,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Update the view elements based on the requested label style.
         /// </summary>
         /// <param name="style">New label style.</param>
-        protected virtual void SetLabelStyle(LabelStyle style)
+        private void SetLabelStyle(LabelStyle style)
         {
             _labelContentStyle = CommonHelper.ContentStyleFromLabelStyle(style);
         }
@@ -645,7 +645,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Update global event attachments.
         /// </summary>
         /// <param name="attach">True if attaching; otherwise false.</param>
-        protected virtual void UpdateGlobalEvents(bool attach)
+        private void UpdateGlobalEvents(bool attach)
         {
             if (attach)
             {
@@ -709,7 +709,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         mousePt.Y -= 1;
                     }
 
-                    // If the mouse posiiton is within our client area
+                    // If the mouse position is within our client area
                     if (ClientRectangle.Contains(mousePt))
                     {
                         // Show the context menu
@@ -727,7 +727,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Called when a context menu has just been closed.
         /// </summary>
-        protected virtual void ContextMenuClosed()
+        private void ContextMenuClosed()
         {
         }
         #endregion
