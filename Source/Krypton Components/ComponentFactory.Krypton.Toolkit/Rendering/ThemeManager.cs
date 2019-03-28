@@ -397,6 +397,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="manager">The manager.</param>
         public static void ApplyTheme(string themeName, KryptonManager manager)
         {
+            PaletteModeManager modeManager;
+
             if (themeName == "Custom")
             {
                 ApplyTheme(PaletteModeManager.Custom, manager);
@@ -728,112 +730,122 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns></returns>
         public static string ReturnPaletteModeAsString(PaletteMode paletteMode)
         {
-            string result = null;
+            #region Old Code
+            //string result = null;
 
-            if (paletteMode == PaletteMode.Custom)
-            {
-                result = "Custom";
-            }
+            //if (paletteMode == PaletteMode.Custom)
+            //{
+            //    result = "Custom";
+            //}
 
-            if (paletteMode == PaletteMode.Global)
-            {
-                result = "Global";
-            }
+            //if (paletteMode == PaletteMode.Global)
+            //{
+            //    result = "Global";
+            //}
 
-            if (paletteMode == PaletteMode.ProfessionalSystem)
-            {
-                result = "Professional - System";
-            }
+            //if (paletteMode == PaletteMode.ProfessionalSystem)
+            //{
+            //    result = "Professional - System";
+            //}
 
-            if (paletteMode == PaletteMode.ProfessionalOffice2003)
-            {
-                result = "Professional - Office 2003";
-            }
+            //if (paletteMode == PaletteMode.ProfessionalOffice2003)
+            //{
+            //    result = "Professional - Office 2003";
+            //}
 
-            if (paletteMode == PaletteMode.Office2007Blue)
-            {
-                result = "Office 2007 - Blue";
-            }
+            //if (paletteMode == PaletteMode.Office2007Blue)
+            //{
+            //    result = "Office 2007 - Blue";
+            //}
 
-            if (paletteMode == PaletteMode.Office2007Silver)
-            {
-                result = "Office 2007 - Silver";
-            }
+            //if (paletteMode == PaletteMode.Office2007Silver)
+            //{
+            //    result = "Office 2007 - Silver";
+            //}
 
-            if (paletteMode == PaletteMode.Office2007White)
-            {
-                result = "Office 2007 - White";
-            }
+            //if (paletteMode == PaletteMode.Office2007White)
+            //{
+            //    result = "Office 2007 - White";
+            //}
 
-            if (paletteMode == PaletteMode.Office2007Black)
-            {
-                result = "Office 2007 - Black";
-            }
+            //if (paletteMode == PaletteMode.Office2007Black)
+            //{
+            //    result = "Office 2007 - Black";
+            //}
 
-            if (paletteMode == PaletteMode.Office2010Blue)
-            {
-                result = "Office 2010 - Blue";
-            }
+            //if (paletteMode == PaletteMode.Office2010Blue)
+            //{
+            //    result = "Office 2010 - Blue";
+            //}
 
-            if (paletteMode == PaletteMode.Office2010Silver)
-            {
-                result = "Office 2010 - Silver";
-            }
+            //if (paletteMode == PaletteMode.Office2010Silver)
+            //{
+            //    result = "Office 2010 - Silver";
+            //}
 
-            if (paletteMode == PaletteMode.Office2010White)
-            {
-                result = "Office 2010 - White";
-            }
+            //if (paletteMode == PaletteMode.Office2010White)
+            //{
+            //    result = "Office 2010 - White";
+            //}
 
-            if (paletteMode == PaletteMode.Office2010Black)
-            {
-                result = "Office 2010 - Black";
-            }
+            //if (paletteMode == PaletteMode.Office2010Black)
+            //{
+            //    result = "Office 2010 - Black";
+            //}
 
-            if (paletteMode == PaletteMode.Office2013)
-            {
-                result = "Office 2013";
-            }
+            //if (paletteMode == PaletteMode.Office2013)
+            //{
+            //    result = "Office 2013";
+            //}
 
-            if (paletteMode == PaletteMode.Office2013White)
-            {
-                result = "Office 2013 - White";
-            }
+            //if (paletteMode == PaletteMode.Office2013White)
+            //{
+            //    result = "Office 2013 - White";
+            //}
 
-            if (paletteMode == PaletteMode.SparkleBlue)
-            {
-                result = "Sparkle Blue";
-            }
+            //if (paletteMode == PaletteMode.SparkleBlue)
+            //{
+            //    result = "Sparkle Blue";
+            //}
 
-            if (paletteMode == PaletteMode.SparkleOrange)
-            {
-                result = "Sparkle Orange";
-            }
+            //if (paletteMode == PaletteMode.SparkleOrange)
+            //{
+            //    result = "Sparkle Orange";
+            //}
 
-            if (paletteMode == PaletteMode.SparklePurple)
-            {
-                result = "Sparkle Purple";
-            }
+            //if (paletteMode == PaletteMode.SparklePurple)
+            //{
+            //    result = "Sparkle Purple";
+            //}
 
-            if (paletteMode == PaletteMode.Office365Blue)
-            {
-                result = "Office 365 - Blue";
-            }
+            //if (paletteMode == PaletteMode.Office365Blue)
+            //{
+            //    result = "Office 365 - Blue";
+            //}
 
-            if (paletteMode == PaletteMode.Office365Silver)
-            {
-                result = "Office 365 - Silver";
-            }
+            //if (paletteMode == PaletteMode.Office365Silver)
+            //{
+            //    result = "Office 365 - Silver";
+            //}
 
-            if (paletteMode == PaletteMode.Office365White)
-            {
-                result = "Office 365 - White";
-            }
+            //if (paletteMode == PaletteMode.Office365White)
+            //{
+            //    result = "Office 365 - White";
+            //}
 
-            if (paletteMode == PaletteMode.Office365Black)
-            {
-                result = "Office 365 - Black";
-            }
+            //if (paletteMode == PaletteMode.Office365Black)
+            //{
+            //    result = "Office 365 - Black";
+            //}
+
+            //return result;
+            #endregion
+
+            string result;
+
+            PaletteModeConverter modeConverter = new PaletteModeConverter();
+
+            result = modeConverter.ConvertToString(paletteMode);
 
             return result;
         }

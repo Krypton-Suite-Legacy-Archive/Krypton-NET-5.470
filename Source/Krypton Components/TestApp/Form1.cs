@@ -46,11 +46,11 @@ namespace TestApp
         {
             if (kcmbThemeCollection.Text != string.Empty)
             {
-                //ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.ApplyTheme(kcmbThemeCollection.Text, kryptonManager1));
+                ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.ApplyTheme(kcmbThemeCollection.Text));
             }
             else if (kdbThemeCollection.Text != string.Empty)
             {
-                //ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.ApplyTheme(kdbThemeCollection.Text));
+                ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.ApplyTheme(kdbThemeCollection.Text));
             }
             else if (klbThemes.Text != string.Empty)
             {

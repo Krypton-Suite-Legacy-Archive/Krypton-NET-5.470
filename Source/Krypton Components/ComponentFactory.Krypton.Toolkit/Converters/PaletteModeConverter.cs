@@ -39,7 +39,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Identity
         /// <summary>
-        /// Initialize a new instance of the PaletteModeConverter clas.
+        /// Initialize a new instance of the PaletteModeConverter class.
         /// </summary>
         public PaletteModeConverter()
             : base(typeof(PaletteMode))
