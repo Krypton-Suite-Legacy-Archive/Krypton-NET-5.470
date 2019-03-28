@@ -1,10 +1,5 @@
 ﻿using ComponentFactory.Krypton.Toolkit;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TestApp
@@ -51,15 +46,15 @@ namespace TestApp
         {
             if (kcmbThemeCollection.Text != string.Empty)
             {
-                ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.ApplyTheme(kcmbThemeCollection.Text));
+                //ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.ApplyTheme(kcmbThemeCollection.Text, kryptonManager1));
             }
             else if (kdbThemeCollection.Text != string.Empty)
             {
-                ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.ApplyTheme(kdbThemeCollection.Text));
+                //ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.ApplyTheme(kdbThemeCollection.Text));
             }
             else if (klbThemes.Text != string.Empty)
             {
-                ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.ApplyThemeMode(klbThemes.Tag.ToString()));
+                //ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.ApplyThemeMode(klbThemes.Tag.ToString()));
             }
 
             kbtnApplyTheme.Enabled = false;

@@ -15,7 +15,7 @@ using System.Windows.Forms;
 namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
-    /// Provides the Silver color scheme variant of the Office 2010 palette.
+    /// Provides the White color scheme variant of the Office 2010 palette.
     /// </summary>
     public class PaletteOffice2010White : PaletteOffice2010Base
     {
