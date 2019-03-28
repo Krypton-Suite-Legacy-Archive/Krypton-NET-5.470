@@ -7045,6 +7045,7 @@
   "ComponentFactory.Krypton.Toolkit.KryptonDropButton.WndProc(System.Windows.Forms.Message@)": "ComponentFactory.Krypton.Toolkit.KryptonDropButton.yml",
   "ComponentFactory.Krypton.Toolkit.KryptonForm": "ComponentFactory.Krypton.Toolkit.KryptonForm.yml",
   "ComponentFactory.Krypton.Toolkit.KryptonForm.#ctor": "ComponentFactory.Krypton.Toolkit.KryptonForm.yml",
+  "ComponentFactory.Krypton.Toolkit.KryptonForm.AdministratorText": "ComponentFactory.Krypton.Toolkit.KryptonForm.yml",
   "ComponentFactory.Krypton.Toolkit.KryptonForm.AllowButtonSpecToolTips": "ComponentFactory.Krypton.Toolkit.KryptonForm.yml",
   "ComponentFactory.Krypton.Toolkit.KryptonForm.AllowFormChrome": "ComponentFactory.Krypton.Toolkit.KryptonForm.yml",
   "ComponentFactory.Krypton.Toolkit.KryptonForm.AllowStatusStripMerge": "ComponentFactory.Krypton.Toolkit.KryptonForm.yml",
@@ -7065,6 +7066,7 @@
   "ComponentFactory.Krypton.Toolkit.KryptonForm.HitTestCloseButton(System.Drawing.Point)": "ComponentFactory.Krypton.Toolkit.KryptonForm.yml",
   "ComponentFactory.Krypton.Toolkit.KryptonForm.HitTestMaxButton(System.Drawing.Point)": "ComponentFactory.Krypton.Toolkit.KryptonForm.yml",
   "ComponentFactory.Krypton.Toolkit.KryptonForm.HitTestMinButton(System.Drawing.Point)": "ComponentFactory.Krypton.Toolkit.KryptonForm.yml",
+  "ComponentFactory.Krypton.Toolkit.KryptonForm.IsInAdministratorMode": "ComponentFactory.Krypton.Toolkit.KryptonForm.yml",
   "ComponentFactory.Krypton.Toolkit.KryptonForm.OnAllowFormChromeChanged(System.Object,System.EventArgs)": "ComponentFactory.Krypton.Toolkit.KryptonForm.yml",
   "ComponentFactory.Krypton.Toolkit.KryptonForm.OnButtonSpecChanged(System.Object,System.EventArgs)": "ComponentFactory.Krypton.Toolkit.KryptonForm.yml",
   "ComponentFactory.Krypton.Toolkit.KryptonForm.OnControlAdded(System.Windows.Forms.ControlEventArgs)": "ComponentFactory.Krypton.Toolkit.KryptonForm.yml",
@@ -16443,11 +16445,5 @@
   "ComponentFactory.Krypton.Workspace.XmlSavingEventArgs": "ComponentFactory.Krypton.Workspace.XmlSavingEventArgs.yml",
   "ComponentFactory.Krypton.Workspace.XmlSavingEventArgs.#ctor(ComponentFactory.Krypton.Workspace.KryptonWorkspace,System.Xml.XmlWriter)": "ComponentFactory.Krypton.Workspace.XmlSavingEventArgs.yml",
   "ComponentFactory.Krypton.Workspace.XmlSavingEventArgs.Workspace": "ComponentFactory.Krypton.Workspace.XmlSavingEventArgs.yml",
-  "ComponentFactory.Krypton.Workspace.XmlSavingEventArgs.XmlWriter": "ComponentFactory.Krypton.Workspace.XmlSavingEventArgs.yml",
-  "TestApp": "TestApp.yml",
-  "TestApp.Form1": "TestApp.Form1.yml",
-  "TestApp.Form1.#ctor": "TestApp.Form1.yml",
-  "TestApp.Form1.Dispose(System.Boolean)": "TestApp.Form1.yml",
-  "TestApp.RibbonApp": "TestApp.RibbonApp.yml",
-  "TestApp.RibbonApp.#ctor": "TestApp.RibbonApp.yml"
+  "ComponentFactory.Krypton.Workspace.XmlSavingEventArgs.XmlWriter": "ComponentFactory.Krypton.Workspace.XmlSavingEventArgs.yml"
 }

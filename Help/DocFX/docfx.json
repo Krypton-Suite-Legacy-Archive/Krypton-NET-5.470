@@ -1,23 +1,26 @@
 {
   "metadata": [
     {
-      "src": [
-        {
-            "files": [
-                "*.sln"
-            ],
-            "exclude": [
-                "**/obj/**",
-                "**/bin/**",
-                "..\\/**",
-                "**/TestApp/**"
-            ],
-            "src": "./../../Source/Krypton Components/"
-        }
-      ],
-      "dest": "api",
-      "disableGitFeatures": true
-
+        "src": [
+            {
+                "files": [
+                    "ComponentFactory.Krypton.Docking/ComponentFactory.Krypton.Docking 2019.csproj",
+                    "ComponentFactory.Krypton.Navigator/ComponentFactory.Krypton.Navigator 2019.csproj",
+                    "ComponentFactory.Krypton.Ribbon/ComponentFactory.Krypton.Ribbon 2019.csproj",
+                    "ComponentFactory.Krypton.Toolkit/ComponentFactory.Krypton.Toolkit 2019.csproj",
+                    "ComponentFactory.Krypton.Workspace/ComponentFactory.Krypton.Workspace 2019.csproj"
+                // Do not add the TestApp
+                ],
+                "exclude": [
+                    "**/obj/**",
+                    "**/bin/**",
+                    "..\\/**"
+                ]
+                ,"src": "./../../Source/Krypton Components/"
+            }
+        ],
+        "dest": "api",
+        "disableGitFeatures": true
     }
   ],
   "build": {

@@ -15,7 +15,7 @@ using System.Windows.Forms;
 namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
-	/// Provides a fixed blue variantion on the sparkle appearance.
+	/// Provides a fixed blue variation on the sparkle appearance.
 	/// </summary>
 	public class PaletteSparkleBlue : PaletteSparkleBase
     {

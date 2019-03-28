@@ -15,7 +15,7 @@ using System.Windows.Forms;
 namespace ComponentFactory.Krypton.Toolkit
 {
 	/// <summary>
-	/// Provides a fixed purple variantion on the sparkle appearance.
+	/// Provides a fixed purple variation on the sparkle appearance.
 	/// </summary>
 	public class PaletteSparklePurple : PaletteSparkleBase
     {
