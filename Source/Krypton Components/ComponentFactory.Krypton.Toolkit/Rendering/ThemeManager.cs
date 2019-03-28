@@ -391,6 +391,16 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
+        /// Gets the palette mode.
+        /// </summary>
+        /// <param name="manager">The manager.</param>
+        /// <returns></returns>
+        public static PaletteModeManager GetPaletteMode(KryptonManager manager)
+        {
+            return manager.GlobalPaletteMode;
+        }
+
+        /// <summary>
         /// Applies the theme.
         /// </summary>
         /// <param name="themeName">Name of the theme.</param>
