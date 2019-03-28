@@ -12,26 +12,26 @@
     - name: Palettes
       href: Palettes.md
 - name: Toolkit
-  href: topic11.md
+  href: Krypton_Toolkit.md
   items:
     - name: Controls
       items:
         - name: KryptonBorderEdge
-          href: topic12.md
+          href: Toolkit/KryptonBorderEdge.md
         - name: KryptonBreadCrumb
-          href: topic13.md
+          href: Toolkit/KryptonBreadCrumb.md
         - name: KryptonButton
-          href: topic14.md
+          href: Toolkit/KryptonButton.md
         - name: KryptonCheckBox
-          href: topic15.md
+          href: Toolkit/KryptonCheckBox.md
         - name: KryptonCheckButton
-          href: topic16.md
+          href: Toolkit/KryptonCheckButton.md
         - name: KryptonCheckedListBox
-          href: topic17.md
+          href: Toolkit/KryptonCheckedListBox.md
         - name: KryptonColorButton
-          href: topic19.md
+          href: Toolkit/KryptonColorButton.md
         - name: KryptonComboBox
-          href: topic20.html">
+          href: Toolkit/KryptonComboBox.html">
         - name: KryptonDataGridView 
           href: topic34.md
         - name: KryptonDateTimePicker
@@ -39,7 +39,7 @@
         - name: KryptonDomainUpDown
           href: topic36.md
         - name: KryptonDropDown
-          href: topic37.md
+          href: Toolkit/KryptonDropButton.md
         - name: KryptonGroup
           href: topic39.md
         - name: KryptonComboBox
@@ -81,7 +81,7 @@
     - name: Components
       items:
         - name: KryptonCheckSet
-          href: topic18.md
+          href: Toolkit/KryptonCheckSet.md
         - name: KryptonCommand
           href: topic21.md
         - name: KryptonContextMenu

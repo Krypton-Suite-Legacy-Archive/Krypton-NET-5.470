@@ -1,4 +1,4 @@
-##Border
+## Border
 
 The majority of *Krypton* controls allow a border to be drawn and so provide a
 set of properties that allow customization of the border appearance. Each
@@ -8,7 +8,7 @@ any of the controls. Figure 1 shows the standard set of properties from the
 *KryptonGroup* control.
 
  
-![*Figure 1 –Border display properties*](images\BorderProperties.png)
+![*Figure 1 –Border display properties*](images/BorderProperties.png)
 
 *Figure 1 –Border display properties*
 
@@ -21,7 +21,7 @@ properties are ignored as not relevant. Figure 2 shows some *KryptonGroup*
 instances with *Solid* defined and with a border *Width* of 7 pixels.
 
  
-![*Figure 2 – ColorStyle = Solid, Width = 7*](images\BorderSolid.png)
+![*Figure 2 – ColorStyle = Solid, Width = 7*](images/BorderSolid.png)
 
 *Figure 2 – ColorStyle = Solid, Width = 7*
 
@@ -32,7 +32,7 @@ determines the direction in which the transition occurs. Figure 3 shows the same
 *Linear* style and same starting and ending colors but with different angles.
 
  
-![*Figure 3 – ColorStyle = Linear*](images\BorderAngle.png)
+![*Figure 3 – ColorStyle = Linear*](images/BorderAngle.png)
 
 *Figure 3 – ColorStyle = Linear*
 
@@ -46,7 +46,7 @@ exactly the same *ColorAngle* of 45 degrees, *ColorAlign* of *Form* and
 *ColorStyle* of *Sigma*.
 
  
-![*Figure 4 – ColorStyle =Sigma, ColorAlign = Form, ColorAngle = 45*](images\BorderAlign.png)
+![*Figure 4 – ColorStyle =Sigma, ColorAlign = Form, ColorAngle = 45*](images/BorderAlign.png)
 
 *Figure 4 – ColorStyle =Sigma, ColorAlign = Form, ColorAngle = 45*
 
@@ -60,7 +60,7 @@ border edges or all four. See figure 5 for just four examples of different
 border drawing settings.  
   
    
-![*Figure 5 – DrawBorders with a variety of options*](images\BackgroundBorders1.png)
+![*Figure 5 – DrawBorders with a variety of options*](images/BackgroundBorders1.png)
 
 *Figure 5 – DrawBorders with a variety of options*  
   
@@ -73,7 +73,7 @@ used but with the *Draw* property set to *False*. If you no border space to be
 allocated on any edge and no borders to be drawn then you should set the
 *DrawBorders* property to none.  
 
-![*Figure 6 – Draw = False*](images\BackgroundBorders2.png)
+![*Figure 6 – Draw = False*](images/BackgroundBorders2.png)
   
 *Figure 6 – Draw = False*
 
@@ -87,7 +87,7 @@ are only used when an *Image* has been specified. Figure 7 shows a
 *Color1* value of *Yellow* shows through the transparent areas.
 
  
-![*Figure 7 – Color1 = Yellow, Image contains alpha channel*](images\BorderImage.png)
+![*Figure 7 – Color1 = Yellow, Image contains alpha channel*](images/BorderImage.png)
 
 *Figure 7 – Color1 = Yellow, Image contains alpha channel*
 
@@ -96,7 +96,7 @@ and not just the control instance. Figure 8 shows the use of four *KryptonPanel
 controls that are all assigned the same *Image*, *ImageAlign* and *ImageEffect*.
 
  
-![*Figure 8 – ImageAlign = Form, ImageEffect = Stretch*](images\BorderEffect.png)
+![*Figure 8 – ImageAlign = Form, ImageEffect = Stretch*](images/BorderEffect.png)
 
 *Figure 8 – ImageAlign = Form, ImageEffect = Stretch*
 
@@ -116,6 +116,6 @@ of settings. *Rounding* is used to decide how rounded the four corners of the
 border will be. Again a value of -1 will cause inheritance from the next highest
 level of settings. Figure 9 shows some examples of different *Rounding* values.
 
-![*Figure 9 – Rounding property*](images\BorderRounding.png)
+![*Figure 9 – Rounding property*](images/BorderRounding.png)
 
 *Figure 9 – Rounding property*
