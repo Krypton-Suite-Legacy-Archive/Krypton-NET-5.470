@@ -13,7 +13,7 @@ the toolbox.
 * [KryptonCheckedListBox](Toolkit/KryptonCheckedListBox.md)
 * [KryptonColorButton](Toolkit/KryptonColorButton.md)  
 * [KryptonComboBox](Toolkit/KryptonComboBox.md)  
-* [KryptonDataGridView](topic34.md)  
+* [KryptonDataGridView](Toolkit/KryptonDataGridView.md)  
 * [KryptonDateTimePicker](topic35.md)  
 * [KryptonDomainUpDown](topic36.md)  
 * [KryptonDropDown](Toolkit/KryptonDropButton.md)  
