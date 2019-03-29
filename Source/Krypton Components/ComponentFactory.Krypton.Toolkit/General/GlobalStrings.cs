@@ -73,7 +73,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                  Retry.Equals(DEFAULT_RETRY) &&
                                  Ignore.Equals(DEFAULT_IGNORE) &&
                                  Close.Equals(DEFAULT_CLOSE) &&
-                                 Today.Equals(DEFAULT_CLOSE) &&
+                                 Today.Equals(DEFAULT_TODAY) &&
                                 Help.Equals(DEFAULT_HELP);
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         [Category("Visuals")]
         [Description("OK string used for message box buttons.")]
-        [DefaultValue("OK")]
+        [DefaultValue(DEFAULT_OK)]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public string OK { get; set; }
 
@@ -109,7 +109,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         [Category("Visuals")]
         [Description("Cancel string used for message box buttons.")]
-        [DefaultValue("Cancel")]
+        [DefaultValue(DEFAULT_CANCEL)]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public string Cancel { get; set; }
 
@@ -119,7 +119,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         [Category("Visuals")]
         [Description("Yes string used for message box buttons.")]
-        [DefaultValue("Yes")]
+        [DefaultValue(DEFAULT_YES)]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public string Yes { get; set; }
 
@@ -129,7 +129,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         [Category("Visuals")]
         [Description("No string used for message box buttons.")]
-        [DefaultValue("No")]
+        [DefaultValue(DEFAULT_NO)]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public string No { get; set; }
 
@@ -139,7 +139,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         [Category("Visuals")]
         [Description("Abort string used for message box buttons.")]
-        [DefaultValue("Abort")]
+        [DefaultValue(DEFAULT_ABORT)]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public string Abort { get; set; }
 
@@ -149,7 +149,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         [Category("Visuals")]
         [Description("Retry string used for message box buttons.")]
-        [DefaultValue("Retry")]
+        [DefaultValue(DEFAULT_RETRY)]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public string Retry { get; set; }
 
@@ -159,7 +159,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         [Category("Visuals")]
         [Description("Ignore string used for message box buttons.")]
-        [DefaultValue("Ignore")]
+        [DefaultValue(DEFAULT_IGNORE)]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public string Ignore { get; set; }
 
@@ -169,7 +169,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         [Category("Visuals")]
         [Description("Close string used for message box buttons.")]
-        [DefaultValue("Close")]
+        [DefaultValue(DEFAULT_CLOSE)]
+
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public string Close { get; set; }
 
@@ -179,7 +180,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         [Category("Visuals")]
         [Description("Today string used for calendars.")]
-        [DefaultValue("Today")]
+        [DefaultValue(DEFAULT_TODAY)]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public string Today { get; set; }
 
@@ -189,7 +190,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Localizable(true)]
         [Category("Visuals")]
         [Description("Help string used for Message Box Buttons.")]
-        [DefaultValue("Help")]
+        [DefaultValue(DEFAULT_HELP)]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
         public string Help { get; set; }
         #endregion
