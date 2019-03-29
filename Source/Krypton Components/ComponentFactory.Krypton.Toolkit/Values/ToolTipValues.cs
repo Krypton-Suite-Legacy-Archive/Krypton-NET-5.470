@@ -35,11 +35,29 @@ namespace ComponentFactory.Krypton.Toolkit.Values
         [DefaultValue(false)]
         public bool EnableToolTips { get; set; }
 
+        private bool ShouldSerializeEnableToolTips()
+        {
+            return EnableToolTips;
+        }
+
         /// <summary>
         /// Gets and sets the EnableToolTips
         /// </summary>
         [Description("The orientation of the ToolTip control when it opens, and specifies how the ToolTip control behaves when it overlaps screen boundaries.")]
         public PopupPositionValues ToolTipPosition { get; set; }
+
+        private bool ShouldSerializeToolTipPosition()
+        {
+            return !ToolTipPosition.IsDefault;
+        }
+
+        /// <summary>
+        /// Resets the ToolTipStyle property to its default value.
+        /// </summary>
+        public void ResetToolTipPosition()
+        {
+            ToolTipPosition.Reset();
+        }
 
         #region ToolTipStyle
         /// <summary>

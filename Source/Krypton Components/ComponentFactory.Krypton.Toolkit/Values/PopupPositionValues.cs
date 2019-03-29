@@ -28,10 +28,19 @@ namespace ComponentFactory.Krypton.Toolkit.Values
         /// </summary>
         public PopupPositionValues()
         {
+            Reset();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Reset()
+        {
             PlacementMode = PlacementMode.Mouse;
             PlacementTarget = null;
             PlacementRectangle = new Rectangle();
         }
+
         #endregion Identity
 
         /// <summary>
@@ -41,11 +50,37 @@ namespace ComponentFactory.Krypton.Toolkit.Values
         [DefaultValue(typeof(PlacementMode), "Mouse")]
         public PlacementMode PlacementMode { get; set; }
 
+        private bool ShouldSerializePlacementMode()
+        {
+            return PlacementMode != PlacementMode.Mouse;
+        }
+
+        /// <summary>
+        /// Resets the PlacementMode property to its default value.
+        /// </summary>
+        public void ResetPlacementMode()
+        {
+            PlacementMode = PlacementMode.Mouse;
+        }
+
         /// <summary>
         /// 
         /// </summary>
         [Description("The element relative to which the Popup is positioned when it opens.")]
         public ViewBase PlacementTarget { get; set; }
+
+        private bool ShouldSerializePlacementTarget()
+        {
+            return PlacementTarget != null;
+        }
+
+        /// <summary>
+        /// Resets the PlacementTarget property to its default value.
+        /// </summary>
+        public void ResetPlacementTarget()
+        {
+            PlacementTarget = null;
+        }
 
         /// <summary>
         /// 
@@ -53,14 +88,27 @@ namespace ComponentFactory.Krypton.Toolkit.Values
         [Description("The rectangle relative to which the Popup control is positioned when it opens.")]
         public Rectangle PlacementRectangle { get; set; }
 
+        private bool ShouldSerializePlacementRectangle()
+        {
+            return !PlacementRectangle.IsEmpty;
+        }
+
+        /// <summary>
+        /// Resets the ToolTipStyle property to its default value.
+        /// </summary>
+        public void ResetPlacementRectangle()
+        {
+            PlacementRectangle = new Rectangle();
+        }
+
         #region Default Values
         /// <summary>
         /// 
         /// </summary>
-        public override bool IsDefault => ((PlacementMode == PlacementMode.Mouse)
-                                             && (PlacementTarget == null)
-                                             && PlacementRectangle.IsEmpty
-                                            );
+        public override bool IsDefault => (!ShouldSerializePlacementMode()
+                                         && !ShouldSerializePlacementTarget()
+                                         && !ShouldSerializePlacementRectangle()
+                                         );
         #endregion Default Values
     }
 }
