@@ -1,9 +1,6 @@
 ﻿using ComponentFactory.Krypton.Ribbon;
 using ComponentFactory.Krypton.Toolkit;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TestApp
 {
@@ -211,16 +208,12 @@ namespace TestApp
         {
             if (krgcmbThemeChooser.Text != string.Empty)
             {
-                RibbonThemeManager.ApplyTheme(krgcmbThemeChooser.Text, kryptonManager1);
-
-                RibbonThemeManager.ApplyGlobalTheme(kryptonManager1, RibbonThemeManager.GetCurrentPaletteMode(kryptonManager1));
+                RibbonThemeManager.SetTheme(krgcmbThemeChooser.Text, kryptonManager1);
             }
 
             if (krgdThemeSelector.Text != string.Empty)
             {
-                RibbonThemeManager.ApplyTheme(krgdThemeSelector.Text, kryptonManager1);
-
-                RibbonThemeManager.ApplyGlobalTheme(kryptonManager1, RibbonThemeManager.GetCurrentPaletteMode(kryptonManager1));
+                RibbonThemeManager.SetTheme(krgdThemeSelector.Text, kryptonManager1);
             }
         }
     }

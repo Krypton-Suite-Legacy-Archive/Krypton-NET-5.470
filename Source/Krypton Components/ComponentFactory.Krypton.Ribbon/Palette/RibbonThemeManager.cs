@@ -55,7 +55,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         /// <param name="paletteMode">The palette mode.</param>
         /// <param name="manager">The manager.</param>
-        public static void ApplyTheme(PaletteModeManager paletteMode, KryptonManager manager)
+        private static void ApplyTheme(PaletteModeManager paletteMode, KryptonManager manager)
         {
             switch (paletteMode)
             {
@@ -130,7 +130,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="themeName">Name of the theme.</param>
         /// <param name="manager">The manager.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public static void ApplyTheme(string themeName, KryptonManager manager)
+        private static void ApplyTheme(string themeName, KryptonManager manager)
         {
             if (themeName == "Custom")
             {
@@ -246,6 +246,26 @@ namespace ComponentFactory.Krypton.Ribbon
         public static PaletteModeManager GetCurrentPaletteMode(KryptonManager manager)
         {
             return manager.GlobalPaletteMode;
+        }
+
+        /// <summary>
+        /// Sets the theme.
+        /// </summary>
+        /// <param name="themeName">Name of the theme.</param>
+        /// <param name="manager">The manager.</param>
+        public static void SetTheme(string themeName, KryptonManager manager)
+        {
+            try
+            {
+                ApplyTheme(themeName, manager);
+
+                ApplyGlobalTheme(manager, GetCurrentPaletteMode(manager));
+            }
+            catch (Exception exc)
+            {
+
+                throw;
+            }
         }
 
         /// <summary>
@@ -405,7 +425,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         /// <param name="manager">The manager.</param>
         /// <param name="paletteModeManager">The palette mode manager.</param>
-        public static void ApplyGlobalTheme(KryptonManager manager, PaletteModeManager paletteModeManager)
+        private static void ApplyGlobalTheme(KryptonManager manager, PaletteModeManager paletteModeManager)
         {
             try
             {
@@ -423,7 +443,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         /// <param name="manager">The manager.</param>
         /// <param name="mode">The theme mode.</param>
-        public static void ApplyGlobalTheme(KryptonManager manager, PaletteMode mode)
+        private static void ApplyGlobalTheme(KryptonManager manager, PaletteMode mode)
         {
             try
             {
