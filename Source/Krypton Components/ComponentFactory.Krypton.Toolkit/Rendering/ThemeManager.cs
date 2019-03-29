@@ -516,6 +516,26 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
+        /// Sets the theme.
+        /// </summary>
+        /// <param name="themeName">Name of the theme.</param>
+        /// <param name="manager">The manager.</param>
+        public static void SetTheme(string themeName, KryptonManager manager)
+        {
+            try
+            {
+                ApplyTheme(themeName, manager);
+
+                ApplyGlobalTheme(manager, GetPaletteMode(manager));
+            }
+            catch (Exception exc)
+            {
+
+                throw;
+            }
+        }
+
+        /// <summary>
         /// Returns the palette mode manager as string.
         /// </summary>
         /// <param name="paletteModeManager">The palette mode manager.</param>
