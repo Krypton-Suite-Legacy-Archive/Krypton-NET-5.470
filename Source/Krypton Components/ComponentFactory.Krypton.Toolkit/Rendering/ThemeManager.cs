@@ -474,17 +474,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 ApplyTheme(PaletteModeManager.Office2013White, manager);
             }
 
-            if (themeName == "Sparkle Blue")
+            if (themeName == "Sparkle - Blue")
             {
                 ApplyTheme(PaletteModeManager.SparkleBlue, manager);
             }
 
-            if (themeName == "Sparkle Orange")
+            if (themeName == "Sparkle - Orange")
             {
                 ApplyTheme(PaletteModeManager.SparkleOrange, manager);
             }
 
-            if (themeName == "Sparkle Purple")
+            if (themeName == "Sparkle - Purple")
             {
                 ApplyTheme(PaletteModeManager.SparklePurple, manager);
             }
@@ -594,17 +594,17 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 if (manager.GlobalPaletteMode == PaletteModeManager.SparkleBlue)
                 {
-                    result = "Sparkle Blue";
+                    result = "Sparkle - Blue";
                 }
 
                 if (manager.GlobalPaletteMode == PaletteModeManager.SparkleOrange)
                 {
-                    result = "Sparkle Orange";
+                    result = "Sparkle - Orange";
                 }
 
                 if (manager.GlobalPaletteMode == PaletteModeManager.SparklePurple)
                 {
-                    result = "Sparkle Purple";
+                    result = "Sparkle - Purple";
                 }
 
                 if (manager.GlobalPaletteMode == PaletteModeManager.Office365Blue)
@@ -696,17 +696,17 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 if (paletteModeManager == PaletteModeManager.SparkleBlue)
                 {
-                    result = "Sparkle Blue";
+                    result = "Sparkle - Blue";
                 }
 
                 if (paletteModeManager == PaletteModeManager.SparkleOrange)
                 {
-                    result = "Sparkle Orange";
+                    result = "Sparkle - Orange";
                 }
 
                 if (paletteModeManager == PaletteModeManager.SparklePurple)
                 {
-                    result = "Sparkle Purple";
+                    result = "Sparkle - Purple";
                 }
 
                 if (paletteModeManager == PaletteModeManager.Office365Blue)
