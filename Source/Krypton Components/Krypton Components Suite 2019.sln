@@ -109,7 +109,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "articles", "articles", "{64
 		..\..\Help\DocFX\articles\topic31.md = ..\..\Help\DocFX\articles\topic31.md
 		..\..\Help\DocFX\articles\topic32.md = ..\..\Help\DocFX\articles\topic32.md
 		..\..\Help\DocFX\articles\topic33.md = ..\..\Help\DocFX\articles\topic33.md
-		..\..\Help\DocFX\articles\topic34.md = ..\..\Help\DocFX\articles\topic34.md
 		..\..\Help\DocFX\articles\topic35.md = ..\..\Help\DocFX\articles\topic35.md
 		..\..\Help\DocFX\articles\topic36.md = ..\..\Help\DocFX\articles\topic36.md
 		..\..\Help\DocFX\articles\topic38.md = ..\..\Help\DocFX\articles\topic38.md
@@ -750,6 +749,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Toolkit", "Toolkit", "{CA88
 		..\..\Help\DocFX\articles\Toolkit\KryptonColorButton.md = ..\..\Help\DocFX\articles\Toolkit\KryptonColorButton.md
 		..\..\Help\DocFX\articles\Toolkit\KryptonComboBox.md = ..\..\Help\DocFX\articles\Toolkit\KryptonComboBox.md
 		..\..\Help\DocFX\articles\Toolkit\KryptonDropButton.md = ..\..\Help\DocFX\articles\Toolkit\KryptonDropButton.md
+		..\..\Help\DocFX\articles\Toolkit\KryptonDataGridView.md = ..\..\Help\DocFX\articles\Toolkit\KryptonDataGridView.md
 	EndProjectSection
 EndProject
 Global
@@ -799,7 +799,7 @@ Global
 		{CA88FB45-422D-42F2-A740-8BB76535B632} = {642A2DBC-D742-47CA-8C78-76FEE09C0DCB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		BuildVersion_StartDate = 2000/1/1
 		SolutionGuid = {ECEA7A85-0CA8-47A4-93BE-6AA896E9749D}
+		BuildVersion_StartDate = 2000/1/1
 	EndGlobalSection
 EndGlobal

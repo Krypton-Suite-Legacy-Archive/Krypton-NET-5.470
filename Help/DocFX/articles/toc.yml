@@ -33,7 +33,7 @@
         - name: KryptonComboBox
           href: Toolkit/KryptonComboBox.html">
         - name: KryptonDataGridView 
-          href: topic34.md
+          href: Toolkit/KryptonDataGridView.md
         - name: KryptonDateTimePicker
           href: topic35.md
         - name: KryptonDomainUpDown
