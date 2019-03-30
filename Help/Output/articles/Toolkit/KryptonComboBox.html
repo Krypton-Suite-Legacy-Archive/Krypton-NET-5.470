@@ -73,7 +73,7 @@ BSD 3-Clause License
             <article class="content wrap" id="_content" data-uid="">
 <h2 id="kryptoncombobox">KryptonComboBox</h2>
 
-<p>The <em>KryptonCheckBox</em> control is used to present display data in a drop-down
+<p>The <em>KryptonComboBox</em> control is used to present display data in a drop-down
 combo box. The control appears in two parts, the top part is a text box that
 allows the user to type a list time. The second part is a pop up window
 displaying a list of options when the drop down button is pressed. This control
@@ -99,6 +99,7 @@ use in a scenario where the control is used in a standalone fashion and used
 on something like a <em>KryptonPanel</em> or <em>KryptonGroup</em>. The <em>InputControlStyle</em> of
 <em>Ribbon</em> is intended for use when the control is present inside the
 <em>KryptonRibbon</em> and then needs a different appearance and operation.   </p>
+<p><img src="KryptonComboBox1.png" alt="*Figure 1 – InputControlStyle = Standalone*"></p>
 <p><em>Figure 1 – InputControlStyle = Standalone</em></p>
 <p>The <em>DropBackStyle</em> and <em>ItemStyle</em> are used to defined the background drawing
 and individual item drawing of the drop down list. Another property used to
@@ -131,9 +132,8 @@ considered inactive. This allows you to specify a different appearance for the
 active and inactive states. Figure 2 shows an example of the <em>Ribbon</em> style with
 the <em>AlwaysActive</em> property defined as <em>False</em>. The top instance does not have
 the mouse over it and the bottom instance does.</p>
-<ul>
-<li>Figure 2 – InputControlStyle = Ribbon*</li>
-</ul>
+<p><img src="KryptonComboBox2.png" alt="*Figure 2 – InputControlStyle = Ribbon*"></p>
+<p><em>Figure 2 – InputControlStyle = Ribbon</em></p>
 <p><strong>ButtonSpecs</strong></p>
 <p>Use this collection property to define any number of extra buttons that you
 would like to appear at the near or far edges of the control. Figure 3 shows an
@@ -143,9 +143,8 @@ You could then use this button to clear the contents of the control instead of
 requiring the user to manually clear the contents. Other possible uses of button
 specifications might be to indicate error conditions or to initiate the showing
 of help information.</p>
-<ul>
-<li>Figure 3 – InputControlStyle = Ribbon*</li>
-</ul>
+<p><img src="KryptonComboBox3.png" alt="*Figure 3 – InputControlStyle = Ribbon*"></p>
+<p><em>Figure 3 – InputControlStyle = Ribbon</em></p>
 <p><strong>AllowButtonSpecTooltips</strong><br>By default the control will not show any tool tips when you hover the mouse over
 the user defined button specifications. If you set this boolean property to
 <em>True</em> then it will turn on tool tips for those button specs. Use the

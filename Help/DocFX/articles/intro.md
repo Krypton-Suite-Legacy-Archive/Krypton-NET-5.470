@@ -14,7 +14,7 @@ Describes the properties used to customize the drawing of the background. Not al
 
 Describes the properties used to customize the drawing of the border. Most but not all of the controls have the ability to draw a border and so the set of properties are only found in the states of controls that draw a border.
 
-[**ButtonSpec**](buttonspec.md)
+[**ButtonSpec**](Toolkit/buttonspec.md)
 
 Describes how button specifications can be used to add button functionality to some of the *Krypton* controls.
 

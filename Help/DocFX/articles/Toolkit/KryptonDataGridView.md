@@ -41,9 +41,9 @@ that scenario the *Style* property will automatically update itself to become
 *Mixed* as the settings of the grid element properties are a mixture of styles
 and not consistent.
 
- 
+![*Figure 1 - Style = List & Style - Sheet*](KryptonDataGridView1.png)
 
-*   Figure 1 - Style = List & Style - Sheet*  
+*Figure 1 - Style = List & Style - Sheet*  
   
 
 
@@ -52,9 +52,9 @@ looking at *Figure 2*. The left image is the *List* style when the *Office 2007
 - Blue* palette is used and the right image is the same palette but with the
 *Sheet* style.
 
- 
+![*Figure 2 - Grid Appearance for List & Sheet styles*](KryptonDataGridView2.png)
 
-*   Figure 2 - Grid Appearance for List & Sheet styles*
+*Figure 2 - Grid Appearance for List & Sheet styles*
 
  
 
@@ -79,8 +79,9 @@ the border around the grid cells. By setting the *HideOuterBorders* to True you
 prevent the drawing of the cells borders where they are adjacent to the group
 border. The right image in *Figure 3* shows the resulting more aesthetic result.
 
-   
-*   Figure 3 - HideOuterBorders = False & True*
+![*Figure 3 - HideOuterBorders = False & True*](KryptonDataGridView3.png)
+
+*Figure 3 - HideOuterBorders = False & True*
 
  
 
@@ -138,7 +139,7 @@ to red for the first cell in a grid instance.
 
  
 
-   kryptonDataGridView1.Rows[0].Cells[0].Style.ForeColor = Colors.Red;
+   `kryptonDataGridView1.Rows[0].Cells[0].Style.ForeColor = Colors.Red;`
 
  
 
@@ -186,8 +187,6 @@ ComboBox that lists all available column types. Figure 4 shows an example of
 this scenario and shows where the *Krypton* set of columns are displayed within
 the available options.
 
- 
+![*Figure 4 - Krypton Specific Columns*](KryptonDataGridView4.png)
 
- 
-
-*   Figure 4 - Krypton Specific Columns*
+*Figure 4 - Krypton Specific Columns*

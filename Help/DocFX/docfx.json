@@ -47,7 +47,7 @@
     "resource": [
         {
             "files": [
-                "articles/images/**"
+                "articles/**.png"
             ],
             "exclude": [
                 "obj/**",

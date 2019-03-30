@@ -36,7 +36,7 @@ arrangement. Specify *Bottom* to have the control displayed upside down, *Left*
 to show the content rotated 90 degrees left and *Right* for 90 degrees rotated
 right. See figure 1 for examples.
 
- 
+![*Figure 1 – Orientation Property*](KryptonButton1.png)
 
 *Figure 1 – Orientation Property*
 
@@ -148,6 +148,8 @@ used. You can see that all the different states are drawn as solid controls. The
 third button down shows how the default button and focus overrides have affected
 the appearance of the *Normal* state above it.
 
+![*Figure 2 – ButtonStyle = Standalone*](KryptonCheckButton1.png)
+
 *Figure 2 – ButtonStyle = Standalone*
 
  
@@ -160,8 +162,6 @@ Figure 3 shows exactly the same states but this time the *ButtonStyle* is
 a button onto a background and you want the button to be low profile and only
 light up when the user is interacting with it.
 
- 
-
- 
+![*Figure 3 – ButtonStyle = LowProfile*](KryptonCheckButton2.png)
 
 *Figure 3 – ButtonStyle = LowProfile*

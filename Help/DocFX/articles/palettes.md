@@ -14,7 +14,7 @@ library itself. For example the *Office 2007 - Blue* and *Professional - Office
 component to alter the global palette to one of the built in choices. Figure 1
 shows the global palette being altered to a built in palette.
 
-![*Figure 1 - KryptonManager smart tag*](images\PalettteManager.png)
+![*Figure 1 - KryptonManager smart tag*](images/PalettteManager.png)
 
 *Figure 1 - KryptonManager smart tag*
 
@@ -28,7 +28,7 @@ form and then click the smart tag. 
 The smart tag contains options to *Export* and *Import* palette definitions.
 Figure 2 shows the smart tag for the *KryptonPalette*.
 
-![*Figure 2 - KryptonPalette smart tag*](images\PaletteImport.png)
+![*Figure 2 - KryptonPalette smart tag*](images/PaletteImport.png)
 
 *Figure 2 - KryptonPalette smart tag*  
 
@@ -37,7 +37,7 @@ Now you need to alter the *KryptonManager* property called *GlobalPalette* so
 that the *KryptonPalette* component is used instead of one of the built in
 options. Figure 3 shows the property being altered at design time.  
   
-![*Figure 3 - KryptonManager GlobalPalette property*](images\PaletteCustom.png)
+![*Figure 3 - KryptonManager GlobalPalette property*](images/PaletteCustom.png)
 
    *Figure 3 - KryptonManager GlobalPalette property*
 
@@ -80,7 +80,7 @@ definition file. Then just use the smart tag on the *KryptonPalette* to access
 the *Import* option and select the file just saved from the *Palette Designer*.
 Figure 4 shows the Palette Designer.
 
-![*Figure 4 - Palette Designer*](images\PaletteDesigner.png)
+![*Figure 4 - Palette Designer*](images/PaletteDesigner.png)
 
 *Figure 4 - Palette Designer*  
   
@@ -91,7 +91,7 @@ Upgrade Tool* to convert palette XML files to the latest file format. This
 utility can be started from the *Krypton Explorer* program, a shortcut for which
 should be on your desktop after installation. Figure 5 shows the tool in action.  
   
-![*Figure 5 - Palette Upgrade Tool*](images\PaletteUpgradeTool.png)
+![*Figure 5 - Palette Upgrade Tool*](images/PaletteUpgradeTool.png)
 
 *Figure 5 - Palette Upgrade Tool*  
   
