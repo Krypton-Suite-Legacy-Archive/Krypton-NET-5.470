@@ -35,8 +35,10 @@
             ComponentFactory.Krypton.Toolkit.Values.PopupPositionValues popupPositionValues4 = new ComponentFactory.Krypton.Toolkit.Values.PopupPositionValues();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kbtnLoadTheme = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonNavigator1 = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
             this.kryptonPage1 = new ComponentFactory.Krypton.Navigator.KryptonPage();
             this.kryptonPage2 = new ComponentFactory.Krypton.Navigator.KryptonPage();
@@ -50,8 +52,6 @@
             this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
-            this.kbtnLoadTheme = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
@@ -95,6 +95,19 @@
             this.kryptonPanel2.Name = "kryptonPanel2";
             this.kryptonPanel2.Size = new System.Drawing.Size(800, 450);
             this.kryptonPanel2.TabIndex = 0;
+            // 
+            // kbtnLoadTheme
+            // 
+            this.kbtnLoadTheme.Location = new System.Drawing.Point(25, 338);
+            this.kbtnLoadTheme.Name = "kbtnLoadTheme";
+            this.kbtnLoadTheme.Size = new System.Drawing.Size(143, 53);
+            this.kbtnLoadTheme.TabIndex = 15;
+            this.kbtnLoadTheme.ToolTipValues.Description = "Applies the user selected theme";
+            this.kbtnLoadTheme.ToolTipValues.EnableToolTips = true;
+            this.kbtnLoadTheme.ToolTipValues.Heading = "Apply Theme";
+            this.kbtnLoadTheme.ToolTipValues.Image = global::TestApp.Properties.Resources.Square_Design_32_x_32_New_Green;
+            this.kbtnLoadTheme.Values.Text = "Load Theme";
+            this.kbtnLoadTheme.Click += new System.EventHandler(this.kbtnLoadTheme_Click);
             // 
             // kryptonNavigator1
             // 
@@ -250,24 +263,6 @@
             this.buttonSpecAny1.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.SuperTip;
             this.buttonSpecAny1.ToolTipTitle = "Title";
             this.buttonSpecAny1.UniqueName = "8D0C7B51F6A946484D932C2A06451172";
-            // 
-            // kryptonPalette1
-            // 
-            this.kryptonPalette1.CustomisedKryptonPaletteFilePath = "T:\\Development\\Krypton\\Versions\\Extended\\Krypton-Toolkit-Suite-Extended-NET-5.470" +
-    "\\Source\\Palettes\\ax.xml";
-            // 
-            // kbtnLoadTheme
-            // 
-            this.kbtnLoadTheme.Location = new System.Drawing.Point(25, 338);
-            this.kbtnLoadTheme.Name = "kbtnLoadTheme";
-            this.kbtnLoadTheme.Size = new System.Drawing.Size(143, 53);
-            this.kbtnLoadTheme.TabIndex = 15;
-            this.kbtnLoadTheme.ToolTipValues.Description = "Applies the user selected theme";
-            this.kbtnLoadTheme.ToolTipValues.EnableToolTips = true;
-            this.kbtnLoadTheme.ToolTipValues.Heading = "Apply Theme";
-            this.kbtnLoadTheme.ToolTipValues.Image = global::TestApp.Properties.Resources.Square_Design_32_x_32_New_Green;
-            this.kbtnLoadTheme.Values.Text = "Load Theme";
-            this.kbtnLoadTheme.Click += new System.EventHandler(this.kbtnLoadTheme_Click);
             // 
             // Form1
             // 
