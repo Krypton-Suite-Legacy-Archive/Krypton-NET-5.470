@@ -8,7 +8,7 @@ of the controls. *Figure 1* shows the standard set of properties from the
 *KryptonPanel* control.
 
  
-![Figure 1 –Background display properties](images\Background.png)
+![Figure 1 –Background display properties](images/Background.png)
 
 *Figure 1 –Background display properties*
 
@@ -21,7 +21,7 @@ color properties are ignored as not relevant. Figure 2 shows some *KryptonPanel*
 instances with *Solid* defined.
 
  
-![*Figure 2 – ColorStyle = Solid*](images\BackgroundColor1.png)
+![*Figure 2 – ColorStyle = Solid*](images/BackgroundColor1.png)
 
 *Figure 2 – ColorStyle = Solid*
 
@@ -32,7 +32,7 @@ determines the direction in which the transition occurs. Figure 3 shows the same
 *Linear* style applied with different angles.
 
  
-![*Figure 3 – ColorStyle = Linear*](images\BackgroundColorAngle.png)
+![*Figure 3 – ColorStyle = Linear*](images/BackgroundColorAngle.png)
 
 *Figure 3 – ColorStyle = Linear*
 
@@ -46,7 +46,7 @@ with exactly the same *ColorAngle* of 45 degrees, *ColorAlign* of Form and
 *ColorStyle* of *Sigma*.
 
  
-![*Figure 4 – ColorStyle =Sigma, ColorAlign = Form, ColorAngle = 45*](images\BackgroundColorAlign.png)
+![*Figure 4 – ColorStyle =Sigma, ColorAlign = Form, ColorAngle = 45*](images/BackgroundColorAlign.png)
 
 *Figure 4 – ColorStyle =Sigma, ColorAlign = Form, ColorAngle = 45*
 
@@ -59,7 +59,7 @@ There are many other style options that you can explore in order to achieve
 the exact look and feel you need. Try using the ones beginning with *Glass* to
 achieve an effect similar to that of *Office 2007*.  
 
-![*Figure 5 - Selection of some other ColorStyle options*](images\ColorStyle2.png)
+![*Figure 5 - Selection of some other ColorStyle options*](images/ColorStyle2.png)
 
 *Figure 5 - Selection of some other ColorStyle options*
 
@@ -73,7 +73,7 @@ are only used when an *Image* has been specified. Figure 6 shows a
 *Color1* value of *Gold* shows through the transparent areas.
 
  
-![*Figure 6 – Color1 = Gold, Image contains alpha channel*](images\BackgroundImage.png)
+![*Figure 6 – Color1 = Gold, Image contains alpha channel*](images/BackgroundImage.png)
 
 *Figure 6 – Color1 = Gold, Image contains alpha channel*
 
@@ -82,7 +82,7 @@ and not just the control instance. Figure 7 shows the use of four *KryptonPanel
 controls that are all assigned the same *Image*, *ImageAlign* and *ImageEffect*.
 
  
-![*Figure 7 – ImageAlign = Form, ImageEffect = Stretch*](images\BackgroundImageAlign.png)
+![*Figure 7 – ImageAlign = Form, ImageEffect = Stretch*](images/BackgroundImageAlign.png)
 
 *Figure 7 – ImageAlign = Form, ImageEffect = Stretch*
 
@@ -110,7 +110,7 @@ figure 8 shows a *KryptonGroup* that has a solid blue background and a rounded
 thick border of red.
 
  
-![*Figure 8 – KryptonGroup with rounded border*](images\BackgroundHint1.png)
+![*Figure 8 – KryptonGroup with rounded border*](images/BackgroundHint1.png)
 
 *Figure 8 – KryptonGroup with rounded border*
 
@@ -119,7 +119,7 @@ visible but we still want the rounding effect then we set the borders *Draw*
 property to be false and the result can be seen in figure 9.
 
  
-![*Figure 9 – Rounded border removed*](images\BackgroundHint2.png)
+![*Figure 9 – Rounded border removed*](images/BackgroundHint2.png)
 
 *Figure 9 – Rounded border removed*
 
@@ -129,6 +129,6 @@ drawing by setting the *AntiAlias* value. Figure 10 shows the result of changin
 the property.
 
  
-![*Figure 10 – GraphicsHint = AntiAlias*](images\BackgroundHint3.png)
+![*Figure 10 – GraphicsHint = AntiAlias*](images/BackgroundHint3.png)
 
 *Figure 10 – GraphicsHint = AntiAlias*

@@ -38,21 +38,21 @@ defined via a *KryptonPalette* for situations where you need to
 create variations on the styles already provided. Custom styles are named simply
 *Custom1*, *Custom2* and *Custom3*.
 
- 
+![*Figure 1 – Splitter Property*](KryptonDropButton1.png)
 
 *Figure 1 – Splitter Property*
 
- 
+![*Figure 2 – ButtonOrientation Property*](KryptonDropButton2.png)
 
 *Figure 2 – ButtonOrientation Property*
 
- 
+![*Figure 3 – DropDownPosition Property*](KryptonDropButton3.png)
 
-  *Figure 3 – DropDownPosition Property*
+*Figure 3 – DropDownPosition Property*
 
- 
+![*Figure 4 – DropDownOrientation Property*](KryptonDropButton4.png)
 
-*  Figure 4 – DropDownOrientation Property*  
+*Figure 4 – DropDownOrientation Property*  
 
 
  
@@ -141,9 +141,7 @@ drop button without any mouse interaction. The second and third images show the
 mouse tracking over the two areas of the control and the last image shows the
 context menu displayed when the drop arrow is pressed.
 
- 
+![*Figure 5 – DropDown Appearance*](KryptonDropButton5.png)
 
- 
-
-*  Figure 5 – DropDown Appearance*  
+*Figure 5 – DropDown Appearance*  
 

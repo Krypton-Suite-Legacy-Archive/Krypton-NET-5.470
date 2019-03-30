@@ -34,7 +34,7 @@ Instead of using the Global value you might prefer to specify one of the built-i
 
 You are not limited to using just built-in palettes. If you use a `KryptonPalette` component in your application then you can create your own custom palette with whatever settings you like. Just drag and drop the `KryptonPalette` from the Toolbox onto your Form and then use the properties window to setup the custom values. In order to modify your control to use the custom palette you need to use the Palette property of the Krypton control. Once assigned, which can be done at design time using the properties window, the `PaletteMode` value will automatically change to Custom. *Figure 3* shows three `KryptonButton` instances where the first two are using built-in palettes of Professional - Office 2003 and Professional - System and the third is using a `KryptonPalette` that has been customized.
 
-![Figure 3 – KryptonButton with different palettes](images\ButtonPalettes.png)
+![Figure 3 – KryptonButton with different palettes](images/ButtonPalettes.png)
 
 *Figure 3 – KryptonButton with different palettes*
 
@@ -51,7 +51,8 @@ Each control has the two states Disabled and Normal. Some controls have addition
 
 
 The `KryptonButton` uses the states in the following way. If the control is disabled because the Enabled property is defined as False then it uses the `StateDisabled` values. When the control is enabled but the user is not interacting with it then it uses `StateNormal`. Once the mouse moves over the control area it uses `StateTracking` and if the user presses the mouse down whilst hovering over the control is uses `StatePressed`. By altering the appropriate state values you can easily achieve the look required for your application. Figure 4 shows an example of the appearance for each of the states for the `KryptonButton`.
-![Figure 4 – KryptonButton states](images\ButtonStatesOnly.png)
+
+![Figure 4 – KryptonButton states](images/ButtonStatesOnly.png)
 
 *Figure 4 – KryptonButton states*
 
@@ -70,7 +71,7 @@ Properties that are applied to the current state based on an external factor suc
 
 The Override properties differ from State properties in that they do not inherit values from `StateCommon` and are applied to whatever the current state happens to be. Figure 5 shows two examples of the `KryptonButton` control. The top instance is the button in the normal state, the bottom instance shows the button also in normal state but with both the `OverrideFocus` and `OverrideDefault` applied.
 
-![Figure 5 – Overrides applied to the normal state](images\ButtonOverrides.png)
+![Figure 5 – Overrides applied to the normal state](images/ButtonOverrides.png)
 
 *Figure 5 – Overrides applied to the normal state*
 
@@ -79,14 +80,14 @@ The Override properties differ from State properties in that they do not inherit
 
 Many of the Krypton controls display information to the user. For example the `KryptonButton, KryptonLabel and KryptonHeader` controls all have the ability to show some text and/or an image as part of the appearance. This display content is always stored in a property called Values. Content always consists of two text values and an image that are grouped together.  See Figure 1 for an example of the Values property for a `KryptonButton`.
 
-![Figure 6 – KryptonButton values property](images\ContentValues.png)
+![Figure 6 – KryptonButton values property](images/ContentValues.png)
 
 *Figure 6 – KryptonButton values property*
 
 
 The exact name of the three properties varies depending on the context in which the content is being used. The `KryptonButton` calls them Text, `ExtraText, Image and ImageStates` whereas the `KryptonHeader` uses the names `Header, Description and Image`. Some controls have more than one content property. The `KryptonHeaderGroup` control has two value properties that contain content values, one of the primary header and another for the secondary header. *Figure 7* shows the value properties for a `KryptonHeaderGroup`.
 
-![Figure 7 – Value properties for](images\HeaderGroupValues.png)
+![Figure 7 – Value properties for](images/HeaderGroupValues.png)
 
 *Figure 7 – Value properties for KryptonHeaderGroup* KryptonHeaderGroup
 

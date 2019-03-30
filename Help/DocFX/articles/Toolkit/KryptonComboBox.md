@@ -1,7 +1,7 @@
 ## KryptonComboBox  
  
 
-The *KryptonCheckBox* control is used to present display data in a drop-down
+The *KryptonComboBox* control is used to present display data in a drop-down
 combo box. The control appears in two parts, the top part is a text box that
 allows the user to type a list time. The second part is a pop up window
 displaying a list of options when the drop down button is pressed. This control
@@ -38,7 +38,8 @@ use in a scenario where the control is used in a standalone fashion and used
 on something like a *KryptonPanel* or *KryptonGroup*. The *InputControlStyle* of
 *Ribbon* is intended for use when the control is present inside the
 *KryptonRibbon* and then needs a different appearance and operation.   
- 
+
+![*Figure 1 – InputControlStyle = Standalone*](KryptonComboBox1.png)
 
 *Figure 1 – InputControlStyle = Standalone*
 
@@ -87,11 +88,9 @@ active and inactive states. Figure 2 shows an example of the *Ribbon* style with
 the *AlwaysActive* property defined as *False*. The top instance does not have
 the mouse over it and the bottom instance does.
 
- 
+![*Figure 2 – InputControlStyle = Ribbon*](KryptonComboBox2.png)
 
- 
-
-*   Figure 2 – InputControlStyle = Ribbon*
+*Figure 2 – InputControlStyle = Ribbon*
 
  
 
@@ -106,9 +105,9 @@ requiring the user to manually clear the contents. Other possible uses of button
 specifications might be to indicate error conditions or to initiate the showing
 of help information.
 
- 
+![*Figure 3 – InputControlStyle = Ribbon*](KryptonComboBox3.png)
 
-*   Figure 3 – InputControlStyle = Ribbon*
+*Figure 3 – InputControlStyle = Ribbon*
 
  
 

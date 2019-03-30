@@ -17,7 +17,7 @@ styling required for control and the *CrumbButtonStyle* to define the appearance
 of each individual path entry. You can see in figure 1 the default
 appearance using the *Office 2007 - Blue* builtin palette.
 
- 
+![*Figure 1 – Default Appearance*](KryptonBreadCrumb1.png)
 
 *Figure 1 – Default Appearance*
 
@@ -98,9 +98,9 @@ image, text and more. At design time use the collection editor for the
 *ButtonSpec* instances. See the [ButtonSpec](ButtonSpec.md) section for more
 details. Figure 2 shows an example of a *KryptonBreadCrumb* with buttons.
 
- 
+![*Figure 2 – KryptonBreadCrumb with ButtonSpecs*](KryptonBreadCrumb2.png)
 
-*    Figure 2 – KryptonBreadCrumb with ButtonSpecs*
+*Figure 2 – KryptonBreadCrumb with ButtonSpecs*
 
  
 

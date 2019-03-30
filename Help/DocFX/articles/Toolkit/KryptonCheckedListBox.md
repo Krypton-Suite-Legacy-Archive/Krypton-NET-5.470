@@ -13,9 +13,10 @@ appearance of the control and the list items. The first two of these properties
 define the appearance of the overall control but the *ItemStyle* is used to
 define the display of the individual list items themselves. You can see in
 figure 1 the default appearance using the *Office 2007 - Blue* builtin palette.  
-   
-   
-   *Figure 1 – Default Appearance*  
+
+![*Figure 1 – Default Appearance*](KryptonCheckedListBox1.png)
+
+*Figure 1 – Default Appearance*  
    
    
 **Eight States**  
@@ -76,11 +77,9 @@ active and inactive states. Figure 2 shows an example of the *Ribbon* style with
 the *AlwaysActive* property defined as *False*. The left instance does not have
 the mouse over it and the right instance does.
 
- 
+![*Figure 2 – InputControlStyle - Ribbon*](KryptonCheckedListBox2.png)
 
- 
-
-*   Figure 2 – InputControlStyle - Ribbon*
+*Figure 2 – InputControlStyle - Ribbon*
 
  
 
@@ -94,8 +93,6 @@ and an image. To simplify the process you can create and add instances of the
 *KryptonListItem* class that exposes that interface for you. Figure 3 shows an
 example with several instances of this class added to the *Items* collection.
 
- 
+![*Figure 3 – Items collection containing KryptonListItem instances*](KryptonCheckedListBox3.png)
 
- 
-
-*   Figure 3 – Items collection containing KryptonListItem instances*
+*Figure 3 – Items collection containing KryptonListItem instances*

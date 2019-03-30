@@ -4,13 +4,13 @@
     - name: Structure
       href: structure.md
     - name: Background
-      href: Background.md
+      href: background.md
     - name: Border
       href: Border.md
     - name: ButtonSpec
-      href: ButtonSpec.md
+      href: Toolkit/ButtonSpec.md
     - name: Palettes
-      href: Palettes.md
+      href: palettes.md
 - name: Toolkit
   href: Krypton_Toolkit.md
   items:
@@ -35,29 +35,27 @@
         - name: KryptonDataGridView 
           href: Toolkit/KryptonDataGridView.md
         - name: KryptonDateTimePicker
-          href: topic35.md
+          href: Toolkit/KryptonDateTimePicker.md
         - name: KryptonDomainUpDown
-          href: topic36.md
+          href: Toolkit/KryptonDomainUpDown.md
         - name: KryptonDropDown
           href: Toolkit/KryptonDropButton.md
         - name: KryptonGroup
-          href: topic39.md
-        - name: KryptonComboBox
-          href: topic20.html">
+          href: Toolkit/KryptonGroup.md
         - name: KryptonHeader
-          href: topic41.md
+          href: Toolkit/KryptonHeader.md
         - name: KryptonHeaderGroup
-          href: topic42.md
+          href: Toolkit/KryptonHeaderGroup.md
         - name: KryptonLabel
-          href: topic44.md
+          href: Toolkit/KryptonLabel.md
         - name: KryptonLinkLabel
-          href: topic45.md
+          href: Toolkit/KryptonLinkLabel.md
         - name: KryptonListBox 
-          href: topic46.md
+          href: Toolkit/KryptonListBox.md
         - name: KryptonMaskedTextBox
-          href: topic48.html">
+          href: Toolkit/KryptonMaskedTextBox.md
         - name: KryptonMonthCalendar
-          href: topic50.html">
+          href: Toolkit/KryptonMonthCalendar.md
         - name: KryptonNumericUpDown
           href: topic51.md
         - name: KryptonPanel
