@@ -68,6 +68,10 @@
             this.kryptonManager1.GlobalPalette = this.kryptonPalette1;
             this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Custom;
             // 
+            // kryptonPalette1
+            // 
+            this.kryptonPalette1.CustomisedKryptonPaletteFilePath = null;
+            // 
             // kryptonPanel1
             // 
             this.kryptonPanel1.Controls.Add(this.kryptonPanel2);

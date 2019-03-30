@@ -803,6 +803,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
             _paletteOffice365White?.UserPreferenceChanged();
 
+            
+
             UpdateToolStripManager();
         }
 

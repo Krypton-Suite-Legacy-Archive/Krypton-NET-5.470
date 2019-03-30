@@ -7980,7 +7980,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     images = _images.GalleryButtons.Down;
                     break;
                 default:
-                //case PaletteRibbonGalleryButton.DropDown:
+                    //case PaletteRibbonGalleryButton.DropDown:
                     images = _images.GalleryButtons.DropDown;
                     break;
             }
@@ -8768,7 +8768,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     KryptonMessageBox.Show($"Import from file '{filename}' completed.",
                                     @"Palette Import",
-                                    MessageBoxButtons.OK);
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -8827,7 +8827,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     KryptonMessageBox.Show(@"Import completed with success.",
                                     @"Palette Import",
-                                    MessageBoxButtons.OK);
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -8884,7 +8884,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     KryptonMessageBox.Show(@"Import completed with success.",
                                     @"Palette Import",
-                                    MessageBoxButtons.OK);
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -8977,7 +8977,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     KryptonMessageBox.Show($"Export to file '{filename}' completed.",
                                     @"Palette Export",
-                                    MessageBoxButtons.OK);
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -8991,7 +8991,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 // Rethrow the exception
-                throw ;
+                throw;
             }
             finally
             {
@@ -9041,7 +9041,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     KryptonMessageBox.Show(@"Export completed with success.",
                                     @"Palette Export",
-                                    MessageBoxButtons.OK);
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -9055,7 +9055,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 // Rethrow the exception
-                throw ;
+                throw;
             }
             finally
             {
@@ -9101,7 +9101,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                     KryptonMessageBox.Show(@"Export completed with success.",
                                     @"Palette Export",
-                                    MessageBoxButtons.OK);
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -9115,7 +9115,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 // Rethrow the exception
-                throw ;
+                throw;
             }
             finally
             {
@@ -9928,7 +9928,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 foreach (XmlNode image in images)
                 {
                     // Cast to the expected type
-                    XmlElement imageElement = (XmlElement) image;
+                    XmlElement imageElement = (XmlElement)image;
 
                     // Check the element is the expected type and has the required data
                     if ((imageElement != null) &&
@@ -9942,7 +9942,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             string name = imageElement.GetAttribute("Name");
 
                             // Grab the CDATA section that contains the base64 value
-                            XmlCDataSection cdata = (XmlCDataSection) imageElement.ChildNodes[0];
+                            XmlCDataSection cdata = (XmlCDataSection)imageElement.ChildNodes[0];
 
                             // Convert to back from a string to bytes
                             byte[] bytes = Convert.FromBase64String(cdata.Value);
@@ -9950,7 +9950,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             // Convert the bytes back into an Image
                             MemoryStream memory = new MemoryStream(bytes);
                             BinaryFormatter formatter = new BinaryFormatter();
-                            Image resurect = (Image) formatter.Deserialize(memory);
+                            Image resurect = (Image)formatter.Deserialize(memory);
 
                             // Add into the lookup dictionary
                             imageCache.Add(name, resurect);
