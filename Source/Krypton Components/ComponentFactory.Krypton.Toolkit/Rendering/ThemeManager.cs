@@ -76,252 +76,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public static string[] SupportedThemeArray { get => _supportedThemes; }
         #endregion
 
-        #region Methods        
-
-        #region Old Code
+        #region Methods                
         /// <summary>
         /// Applies the theme.
         /// </summary>
         /// <param name="mode">The mode.</param>
         /// <param name="manager">The manager.</param>
-        /// <exception cref="ArgumentNullException"></exception>
-        //public static PaletteModeManager ApplyTheme(string themeName)
-        //{
-        //    PaletteModeManager result = PaletteModeManager.Office2010Blue;
-
-        //if (themeName == "Custom")
-        //{
-        //    return PaletteModeManager.Custom;
-        //}
-
-        //if (themeName == "Professional - System")
-        //{
-        //    return PaletteModeManager.ProfessionalSystem;
-        //}
-
-        //if (themeName == "Professional - Office 2003")
-        //{
-        //    return PaletteModeManager.ProfessionalOffice2003;
-        //}
-
-        //if (themeName == "Office 2007 - Blue")
-        //{
-        //    return PaletteModeManager.Office2007Blue;
-        //}
-
-        //if (themeName == "Office 2007 - Silver")
-        //{
-        //    return PaletteModeManager.Office2007Silver;
-        //}
-
-        //if (themeName == "Office 2007 - White")
-        //{
-        //    return PaletteModeManager.Office2007White;
-        //}
-
-        //if (themeName == "Office 2007 - Black")
-        //{
-        //    return PaletteModeManager.Office2007Black;
-        //}
-
-        //if (themeName == "Office 2010 - Blue")
-        //{
-        //    return PaletteModeManager.Office2010Blue;
-        //}
-
-        //if (themeName == "Office 2010 - Silver")
-        //{
-        //    return PaletteModeManager.Office2010Silver;
-        //}
-
-        //if (themeName == "Office 2010 - White")
-        //{
-        //    return PaletteModeManager.Office2010White;
-        //}
-
-        //if (themeName == "Office 2010 - Black")
-        //{
-        //    return PaletteModeManager.Office2010Black;
-        //}
-
-        //if (themeName == "Office 2013")
-        //{
-        //    return PaletteModeManager.Office2013;
-        //}
-
-        //if (themeName == "Office 2013 - White")
-        //{
-        //    return PaletteModeManager.Office2013White;
-        //}
-
-        //if (themeName == "Sparkle Blue")
-        //{
-        //    return PaletteModeManager.SparkleBlue;
-        //}
-
-        //if (themeName == "Sparkle Orange")
-        //{
-        //    return PaletteModeManager.SparkleOrange;
-        //}
-
-        //if (themeName == "Sparkle Purple")
-        //{
-        //    return PaletteModeManager.SparklePurple;
-        //}
-
-        //if (themeName == "Office 365 - Black")
-        //{
-        //    return PaletteModeManager.Office365Black;
-        //}
-
-        //if (themeName == "Office 365 - Blue")
-        //{
-        //    return PaletteModeManager.Office365Blue;
-        //}
-
-        //if (themeName == "Office 365 - Silver")
-        //{
-        //    return PaletteModeManager.Office365Silver;
-        //}
-
-        //if (themeName == "Office 365 - White")
-        //{
-        //    return PaletteModeManager.Office365White;
-        //}
-
-        //if (string.IsNullOrEmpty(themeName))
-        //{
-        //    throw new ArgumentNullException();
-        //}
-
-        //    return result;
-        //}
-
-        ///// <summary>
-        ///// Applies the theme mode.
-        ///// </summary>
-        ///// <param name="themeName">Name of the theme.</param>
-        ///// <returns></returns>
-        ///// <exception cref="ArgumentNullException"></exception>
-        //public static PaletteMode ApplyThemeMode(string themeName)
-        //{
-        //    PaletteMode result = PaletteMode.Office2010Blue;
-
-        //    if (themeName == "Custom")
-        //    {
-        //        return PaletteMode.Custom;
-        //    }
-
-        //    if (themeName == "Global")
-        //    {
-        //        return PaletteMode.Global;
-        //    }
-
-        //    if (themeName == "Professional - System")
-        //    {
-        //        return PaletteMode.ProfessionalSystem;
-        //    }
-
-        //    if (themeName == "Professional - Office 2003")
-        //    {
-        //        return PaletteMode.ProfessionalOffice2003;
-        //    }
-
-        //    if (themeName == "Office 2007 - Blue")
-        //    {
-        //        return PaletteMode.Office2007Blue;
-        //    }
-
-        //    if (themeName == "Office 2007 - Silver")
-        //    {
-        //        return PaletteMode.Office2007Silver;
-        //    }
-
-        //    if (themeName == "Office 2007 - White")
-        //    {
-        //        return PaletteMode.Office2007White;
-        //    }
-
-        //    if (themeName == "Office 2007 - Black")
-        //    {
-        //        return PaletteMode.Office2007Black;
-        //    }
-
-        //    if (themeName == "Office 2010 - Blue")
-        //    {
-        //        return PaletteMode.Office2010Blue;
-        //    }
-
-        //    if (themeName == "Office 2010 - Silver")
-        //    {
-        //        return PaletteMode.Office2010Silver;
-        //    }
-
-        //    if (themeName == "Office 2010 - White")
-        //    {
-        //        return PaletteMode.Office2010White;
-        //    }
-
-        //    if (themeName == "Office 2010 - Black")
-        //    {
-        //        return PaletteMode.Office2010Black;
-        //    }
-
-        //    if (themeName == "Office 2013")
-        //    {
-        //        return PaletteMode.Office2013;
-        //    }
-
-        //    if (themeName == "Office 2013 - White")
-        //    {
-        //        return PaletteMode.Office2013White;
-        //    }
-
-        //    if (themeName == "Sparkle Blue")
-        //    {
-        //        return PaletteMode.SparkleBlue;
-        //    }
-
-        //    if (themeName == "Sparkle Orange")
-        //    {
-        //        return PaletteMode.SparkleOrange;
-        //    }
-
-        //    if (themeName == "Sparkle Purple")
-        //    {
-        //        return PaletteMode.SparklePurple;
-        //    }
-
-        //    if (themeName == "Office 365 - Black")
-        //    {
-        //        return PaletteMode.Office365Black;
-        //    }
-
-        //    if (themeName == "Office 365 - Blue")
-        //    {
-        //        return PaletteMode.Office365Blue;
-        //    }
-
-        //    if (themeName == "Office 365 - Silver")
-        //    {
-        //        return PaletteMode.Office365Silver;
-        //    }
-
-        //    if (themeName == "Office 365 - White")
-        //    {
-        //        return PaletteMode.Office365White;
-        //    }
-
-        //    if (string.IsNullOrEmpty(themeName))
-        //    {
-        //        throw new ArgumentNullException();
-        //    }
-
-        //    return result;
-        //}
-        #endregion
-
-        public static void ApplyTheme(PaletteModeManager mode, KryptonManager manager)
+        private static void ApplyTheme(PaletteModeManager mode, KryptonManager manager)
         {
             switch (mode)
             {
@@ -405,10 +166,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="themeName">Name of the theme.</param>
         /// <param name="manager">The manager.</param>
-        public static void ApplyTheme(string themeName, KryptonManager manager)
+        private static void ApplyTheme(string themeName, KryptonManager manager)
         {
-            PaletteModeManager modeManager;
-
             if (themeName == "Custom")
             {
                 ApplyTheme(PaletteModeManager.Custom, manager);
@@ -474,17 +233,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 ApplyTheme(PaletteModeManager.Office2013White, manager);
             }
 
-            if (themeName == "Sparkle Blue")
+            if (themeName == "Sparkle - Blue")
             {
                 ApplyTheme(PaletteModeManager.SparkleBlue, manager);
             }
 
-            if (themeName == "Sparkle Orange")
+            if (themeName == "Sparkle - Orange")
             {
                 ApplyTheme(PaletteModeManager.SparkleOrange, manager);
             }
 
-            if (themeName == "Sparkle Purple")
+            if (themeName == "Sparkle - Purple")
             {
                 ApplyTheme(PaletteModeManager.SparklePurple, manager);
             }
@@ -512,6 +271,26 @@ namespace ComponentFactory.Krypton.Toolkit
             if (string.IsNullOrEmpty(themeName))
             {
                 throw new ArgumentNullException();
+            }
+        }
+
+        /// <summary>
+        /// Sets the theme.
+        /// </summary>
+        /// <param name="themeName">Name of the theme.</param>
+        /// <param name="manager">The manager.</param>
+        public static void SetTheme(string themeName, KryptonManager manager)
+        {
+            try
+            {
+                ApplyTheme(themeName, manager);
+
+                ApplyGlobalTheme(manager, GetPaletteMode(manager));
+            }
+            catch (Exception exc)
+            {
+
+                throw;
             }
         }
 
@@ -594,17 +373,17 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 if (manager.GlobalPaletteMode == PaletteModeManager.SparkleBlue)
                 {
-                    result = "Sparkle Blue";
+                    result = "Sparkle - Blue";
                 }
 
                 if (manager.GlobalPaletteMode == PaletteModeManager.SparkleOrange)
                 {
-                    result = "Sparkle Orange";
+                    result = "Sparkle - Orange";
                 }
 
                 if (manager.GlobalPaletteMode == PaletteModeManager.SparklePurple)
                 {
-                    result = "Sparkle Purple";
+                    result = "Sparkle - Purple";
                 }
 
                 if (manager.GlobalPaletteMode == PaletteModeManager.Office365Blue)
@@ -696,17 +475,17 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 if (paletteModeManager == PaletteModeManager.SparkleBlue)
                 {
-                    result = "Sparkle Blue";
+                    result = "Sparkle - Blue";
                 }
 
                 if (paletteModeManager == PaletteModeManager.SparkleOrange)
                 {
-                    result = "Sparkle Orange";
+                    result = "Sparkle - Orange";
                 }
 
                 if (paletteModeManager == PaletteModeManager.SparklePurple)
                 {
-                    result = "Sparkle Purple";
+                    result = "Sparkle - Purple";
                 }
 
                 if (paletteModeManager == PaletteModeManager.Office365Blue)
