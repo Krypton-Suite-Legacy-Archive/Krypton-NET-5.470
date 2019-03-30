@@ -47,19 +47,20 @@ top following by two custom rectangles.
 
  
 
-**Important: **If you don't provide an image for the content then you will note
+**Important: **If you don't provide an image for the content then you will not
 get the selected color displayed!  
- 
+
+![*Figure 1 – SelectedColor and EmptyBorderColor Properties*](KryptonColorButton1.png)
 
 *Figure 1 – SelectedColor and EmptyBorderColor Properties*
 
- 
+![*Figure 2 – SelectedRect Property*](KryptonColorButton4.png)
 
 *Figure 2 – SelectedRect Property*
 
  
 
-**Behavior**
+**Behaviour**
 
 Figure 3 shows the context menu used with the default settings applied. This
 section describes how to use the various behavior properties to modify the
@@ -72,7 +73,7 @@ Remove the *No Color* option by setting *VisibleNoColor* to *False,* something
 you might want to do if your application needs to ensure a drawable color is
 always defined.
 
- 
+![*Figure 3 – Displayed Context Menu*](KryptonColorButton2.png)
 
 *Figure 3 – Displayed Context Menu*
 
@@ -84,7 +85,7 @@ areas you can modify the *SchemeThemes* and *SchemeStandard* properties, figure
 strings above the color blocks you expand the *Strings* compound property at
 design time and then alter the appropriate properties as required.
 
- 
+![*Figure 4 – Modified SchemeThemes and SchemeStandard*](KryptonColorButton3.png)
 
 *Figure 4 – Modified SchemeThemes and SchemeStandard*
 
@@ -201,11 +202,9 @@ color button without any mouse interaction. The second and third images show the
 mouse tracking over the two areas of the control and the last image shows the
 context menu displayed when the drop arrow is pressed.
 
- 
+![*Figure 5 – DropDown Appearance*](KryptonColorButton5.png)
 
- 
-
-*  Figure 5 – DropDown Appearance*  
+*Figure 5 – DropDown Appearance*
 
 
  

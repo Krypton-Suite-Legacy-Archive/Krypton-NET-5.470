@@ -29,7 +29,7 @@ arrangement. Specify *Bottom* to have the control displayed upside down, *Left*
 to show the content rotated 90 degrees left and *Right* for 90 degrees rotated
 right. See figure 1 for examples.
 
- 
+![*Figure 1 – Orientation Property*](KryptonCheckBox1.png)
 
 *Figure 1 – Orientation Property*
 
@@ -40,7 +40,7 @@ property. The default is Left and shows the check box on the left side of the
 control values. Alternatively use the *Top*, *Bottom* or *Right* values as shown
 in Figure 2.
 
- 
+![*Figure 2 – CheckPosition Property*](KryptonCheckBox2.png)
 
 *Figure 2 – CheckPosition Property*
 
@@ -121,7 +121,7 @@ Figure 3 shows the appearance when using the *Office 2007 - Blue* palette with
 the default settings. You can see each of the different *CheckState* values and
 the appearance when disabled, normal, tracking or pressed down.
 
- 
+![*Figure 3 – CheckBox Appearance*](KryptonCheckBox3.png)
 
 *Figure 3 – CheckBox Appearance*
 

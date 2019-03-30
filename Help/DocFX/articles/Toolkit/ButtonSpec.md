@@ -9,7 +9,7 @@ called *ButtonSpecs.* This collection can contain any number of *ButtonSpec*
 display. Figure 1 below shows the *ButtonSpecs* property as it is exposed by the
 `KryptonHeader` control.
 
-![*Figure 1 - ButtonSpecs property on KryptonHeader*](../images/ButtonSpecsProperty.png)
+![*Figure 1 - ButtonSpecs property on KryptonHeader*](ButtonSpecsProperty.png)
 
 *Figure 1 - ButtonSpecs property on KryptonHeader*
 
@@ -20,7 +20,7 @@ individual *ButtonSpec* instances. On the right side of the collection editor
 you will see the properties of the currently selected *ButtonSpec* instance.
 Figure 2 shows the properties that are exposed for a *ButtonSpec* instance.
 
-![*Figure 2 - ButtonSpec properties in collection editor*](../images/ButtonSpecProperties.png)
+![*Figure 2 - ButtonSpec properties in collection editor*](ButtonSpecProperties.png)
 
 *Figure2 - ButtonSpec properties in collection editor*
 
@@ -28,7 +28,7 @@ To describe the function of the different properties a *KryptonHeader* control
 will be used. Figure 3 shows a simple *KryptonHeader *instance that has been
 created and currently does not have any *ButtonSpec* instances added.
 
-![*Figure 3 - KryptonHeader with no buttons*](../images/HeaderButtons1.png)
+![*Figure 3 - KryptonHeader with no buttons*](HeaderButtons1.png)
 
 *Figure 3 - KryptonHeader with no buttons*
 
@@ -44,7 +44,7 @@ cross assigned to the *Image* property and all other properties of the
 the mouse is not interacting with the button, the second picture shows the mouse
 tracking over the button and finally when the mouse is pressed down.
 
-![*Figure 4 - Button in normal, tracking and pressed states*](../images/HeaderButtons2.png)
+![*Figure 4 - Button in normal, tracking and pressed states*](HeaderButtons2.png)
 
    *Figure 4 - Button in normal, tracking and pressed states*
 
@@ -54,7 +54,7 @@ properties of *ImageStates*. You would not usually define all of the *Text*,
 *ExtraText* and *Image* properties together because of the excessive amount of
 space they would occupy but Figure 5 shows that it is possible.
 
-![*Figure 5 - ButtonSpec with Image, Text & ExtraText defined*](../images/HeaderButtonsA.png)
+![*Figure 5 - ButtonSpec with Image, Text & ExtraText defined*](HeaderButtonsA.png)
 
 *Figure 5 - ButtonSpec with Image, Text & ExtraText defined*
 
@@ -99,7 +99,7 @@ the *Style* property. Figure 6 shows the appearance when the *Style* is altered
 to *Standalone*, where a background and border are shown even when the mouse is
 not over the button.  
   
-![*Figure 6 - Style = Button1*](../images/HeaderButtons3.png)
+![*Figure 6 - Style = Button1*](HeaderButtons3.png)
 
 *Figure 6 - Style = Button1*
 
@@ -109,7 +109,7 @@ the example *KryptonHeader*. This is the default, *Far*, position but you can
 reverse this to have the button shown *Near*. Figure 7 shows the *Edge* property
 modified to *Near*.
 
-![*Figure 7 - Edge = Near*](../images/HeaderButtons4.png)
+![*Figure 7 - Edge = Near*](HeaderButtons4.png)
 
 *Figure 7 - Edge = Near*
 
@@ -133,7 +133,7 @@ complex controls, the container is not the whole control and so the semantics
 are altered. Refer to the documentation for the complex control for control
 specific details.
 
-![*Figure 8 - Enabled = False*](../images/HeaderButtons5.png)
+![*Figure 8 - Enabled = False*](HeaderButtons5.png)
 
 *Figure 8 - Enabled = False*
 
@@ -149,7 +149,7 @@ button. If you alter the property to either *Checked* or *Unchecked* then
 pressing the button with cause it to toggle between those two values. Figure 9
 shows the *Checked* property defined as *Checked.*
 
-![*Figure 9 - Checked = Checked*](../images/HeaderButtons6.png)
+![*Figure 9 - Checked = Checked*](HeaderButtons6.png)
 
 *Figure 9 - Checked = Checked*  
 
@@ -172,7 +172,7 @@ not want any image? Then you can assign *False* to the *AllowImageInherit*
 property. Likewise you can use the *AllowTextInherit* and
 *AllowExtraTextInherit* to prevent the text values from being inherited.
 
-![*Figure 10 - Previous, Next, Context and Close types*](../images/HeaderButtons7.png)
+![*Figure 10 - Previous, Next, Context and Close types*](HeaderButtons7.png)
 
 *Figure 10 - Previous, Next, Context and Close types*
 
@@ -183,7 +183,7 @@ rotated in the same way as the owning control. However this might not always be
 appropriate for your application as the *Previous* and *Next* predefined types
 no longer point left and right respectively.
 
-![*Figure 11 - Orientation = Auto*](../images/HeaderButtons8.png)
+![*Figure 11 - Orientation = Auto*](HeaderButtons8.png)
 
 *Figure 11 - Orientation = Auto*
 
@@ -194,7 +194,7 @@ to a particular value. Figure 12 shows the *Orientation* property defined as
 *FixedTop* which now makes more sense to the user.
 
 
-![*Figure 12 - Orientation = FixedTop*](../images/HeaderButtons9.png)
+![*Figure 12 - Orientation = FixedTop*](HeaderButtons9.png)
 
 *Figure 12 - Orientation = FixedTop*
 
@@ -216,7 +216,7 @@ automatically map the black that is used in the *Close* image. When you specify
 your own image or use the *Generic* type then you would need to set the
 *ColorMap* manually to get the functionality.  
   
-![*Figure 13 - Types with default color re mapping*](../images/HeaderButtons10.png)
+![*Figure 13 - Types with default color re mapping*](HeaderButtons10.png)
 
 *Figure 13 - Types with default color re mapping*  
   
@@ -227,7 +227,7 @@ shows a *ButtonSpec* that is defined as the *Close* type and where additional
 also in white to match the main content color. The second picture shows the main
 text changed to green and also how the re mapping is continuing to work.
 
-![*Figure 14 - Color re mapping*](../images/HeaderButtonsB.png)
+![*Figure 14 - Color re mapping*](HeaderButtonsB.png)
 
 *Figure 14 - Color re mapping*
 

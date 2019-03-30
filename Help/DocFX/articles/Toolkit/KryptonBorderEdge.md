@@ -27,7 +27,7 @@ the height is auto calculated. If you need to specify both the width and height
 then set the *AutoSize* to be *False*. See figure 1 for examples of both
 orientations.
 
- 
+![*Figure 1 – Width = 5, Orientation = Horizontal + Vertical*](KryptonBorderEdge1.png)
 
 *Figure 1 – Width = 5, Orientation = Horizontal + Vertical*
 
@@ -60,6 +60,7 @@ Figure 2 shows the appearance of the border edge for the *Control - Client*
 style in the vertical and horizontal orientations. The left side shows the
 controls enabled and the right side shows the disabled appearance.
 
-*   *  
-*  Figure 2 – Example appearance*  
+![*Figure 2 – Example appearance* ](KryptonBorderEdge2.png)
+
+*Figure 2 – Example appearance*  
 
