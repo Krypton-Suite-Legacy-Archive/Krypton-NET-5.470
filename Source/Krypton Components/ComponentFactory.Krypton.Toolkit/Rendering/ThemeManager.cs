@@ -76,7 +76,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public static string[] SupportedThemeArray { get => _supportedThemes; }
         #endregion
 
-        #region Methods                
+        #region Methods
         /// <summary>
         /// Applies the theme.
         /// </summary>
@@ -510,6 +510,36 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Loads the custom theme.
+        /// </summary>
+        /// <param name="palette">The palette.</param>
+        /// <param name="manager">The manager.</param>
+        /// <param name="silent">if set to <c>true</c> [silent].</param>
+        public static void LoadCustomTheme(KryptonPalette palette, KryptonManager manager, bool silent = false)
+        {
+            try
+            {
+                // Declare new instances
+                palette = new KryptonPalette();
+
+                manager = new KryptonManager();
+
+                // Prompt user for palette definition
+                palette.Import();
+
+                // Set manager
+                manager.GlobalPalette = palette;
+
+                ApplyTheme(PaletteModeManager.Custom, manager);
+            }
+            catch (Exception exc)
+            {
+
+                throw;
+            }
         }
 
         /// <summary>
