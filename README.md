@@ -8,7 +8,7 @@
 
 =======
 
-# ["Toolkit help index"](https://rawgit.com/Wagnerp/Krypton-NET-4.7/master/Help/Output/index.html)
+# ["Toolkit help index"](https://wagnerp.github.io/Krypton-NET-5.470/Help/Output/index.html)
 
 =======
 
