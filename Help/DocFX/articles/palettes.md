@@ -25,7 +25,9 @@ files are just XML documents that store all the settings and images needed to
 recreate a palette. All you need to do is drop a new *KryptonPalette* along with a *KryptonManager*, 
 and then in your application's code, apply the following code:
 
-    
+    /// <summary>
+    /// Apply a theme with a custom palette definition.
+    /// </summary>
     private void ApplyCustomTheme()
     {
         try
