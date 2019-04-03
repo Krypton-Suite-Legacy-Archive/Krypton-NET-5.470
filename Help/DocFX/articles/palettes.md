@@ -25,6 +25,8 @@ files are just XML documents that store all the settings and images needed to
 recreate a palette. All you need to do is drop a new *KryptonPalette* along with a *KryptonManager*, 
 and then in your application's code, apply the following code:
 
+C# Method:
+
     /// <summary>
     /// Apply a theme with a custom palette definition.
     /// </summary>
@@ -46,6 +48,26 @@ and then in your application's code, apply the following code:
             // TODO: Handle the exception
         }
     }
+
+VisualBasic Function:
+
+    ''' <summary>
+    ''' Apply a theme with a custom palette definition.
+    ''' </summary>
+    Private Function ApplyCustomTheme()
+        Try
+            ' Ask the user for a valid palette definition file
+            kryptonPalette1.Import()
+
+            ' Set the krypton manager's GlobalPalette to kryptonPalette1
+            kryptonManager1.GlobalPalette = kryptonPalette1
+
+            ' Finally, set the krypton manager's GlobalPaletteMode to custom
+            kryptonManager1.GlobalPaletteMode = PaletteModeManager.Custom
+        Catch exc As Exception
+            ' TODO: Handle the exception
+        End Try
+    End Function
   
 <!--The smart tag contains options to *Export* and *Import* palette definitions.
 Figure 2 shows the smart tag for the *KryptonPalette*.

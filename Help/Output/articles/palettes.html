@@ -93,6 +93,7 @@ then import palette settings from a palette definition file. Palette definition
 files are just XML documents that store all the settings and images needed to
 recreate a palette. All you need to do is drop a new <em>KryptonPalette</em> along with a <em>KryptonManager</em>, 
 and then in your application&#39;s code, apply the following code:</p>
+<p>C# Method:</p>
 <pre><code>/// &lt;summary&gt;
 /// Apply a theme with a custom palette definition.
 /// &lt;/summary&gt;
@@ -114,6 +115,24 @@ private void ApplyCustomTheme()
         // TODO: Handle the exception
     }
 }
+</code></pre><p>VisualBasic Function:</p>
+<pre><code>&#39;&#39;&#39; &lt;summary&gt;
+&#39;&#39;&#39; Apply a theme with a custom palette definition.
+&#39;&#39;&#39; &lt;/summary&gt;
+Private Function ApplyCustomTheme()
+    Try
+        &#39; Ask the user for a valid palette definition file
+        kryptonPalette1.Import()
+
+        &#39; Set the krypton manager&#39;s GlobalPalette to kryptonPalette1
+        kryptonManager1.GlobalPalette = kryptonPalette1
+
+        &#39; Finally, set the krypton manager&#39;s GlobalPaletteMode to custom
+        kryptonManager1.GlobalPaletteMode = PaletteModeManager.Custom
+    Catch exc As Exception
+        &#39; TODO: Handle the exception
+    End Try
+End Function
 </code></pre><!--The smart tag contains options to *Export* and *Import* palette definitions.
 Figure 2 shows the smart tag for the *KryptonPalette*.
 
