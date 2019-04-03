@@ -22,10 +22,30 @@ shows the global palette being altered to a built in palette.
 Your second option is to add a *KryptonPalette* component to the application and
 then import palette settings from a palette definition file. Palette definition
 files are just XML documents that store all the settings and images needed to
-recreate a palette. All you need to do is drop a new *KryptonPalette* onto your
-form and then click the smart tag.   
+recreate a palette. All you need to do is drop a new *KryptonPalette* along with a *KryptonManager*, 
+and then in your application's code, apply the following code:
+
+    
+    private void ApplyCustomTheme()
+    {
+        try
+        {
+            // Ask the user for a valid palette definition file
+            kryptonPalette1.Import();
+
+            // Set the krypton manager's GlobalPalette to kryptonPalette1
+            kryptonManager1.GlobalPalette = kryptonPalette1;
+
+            // Finally, set the krypton manager's GlobalPaletteMode to custom
+            kryptonManager1.GlobalPaletteMode = PaletteModeManager.Custom;
+        }
+        catch (Exception exc)
+        {
+            // TODO: Handle the exception
+        }
+    }
   
-The smart tag contains options to *Export* and *Import* palette definitions.
+<!--The smart tag contains options to *Export* and *Import* palette definitions.
 Figure 2 shows the smart tag for the *KryptonPalette*.
 
 ![*Figure 2 - KryptonPalette smart tag*](images/PaletteImport.png)
@@ -35,11 +55,11 @@ Figure 2 shows the smart tag for the *KryptonPalette*.
 
 Now you need to alter the *KryptonManager* property called *GlobalPalette* so
 that the *KryptonPalette* component is used instead of one of the built in
-options. Figure 3 shows the property being altered at design time.  
+options. Figure 3 shows the property being altered at design time. 
   
 ![*Figure 3 - KryptonManager GlobalPalette property*](images/PaletteCustom.png)
 
-   *Figure 3 - KryptonManager GlobalPalette property*
+   *Figure 3 - KryptonManager GlobalPalette property*-->
 
 Note that exporting a palette will only save values that are not the default. So
 if you have only changed a few values from the default then the exported XML

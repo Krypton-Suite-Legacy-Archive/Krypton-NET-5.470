@@ -14,7 +14,7 @@ BSD 3-Clause License
    | Krypton Component Suite 2019
 BSD 3-Clause License
 &#65533; Component Factory Pty Ltd, 2006-2019, All rights reserved. ">
-    <meta name="generator" content="docfx 2.40.12.0">
+    <meta name="generator" content="docfx 2.41.0.0">
     
     <link rel="shortcut icon" href="../Krypton.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -78,7 +78,7 @@ BSD 3-Clause License
   <div class="markdown level0 summary"><p>Provides the standard renderer that honors all palette properties.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-
+  
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -185,7 +185,7 @@ BSD 3-Clause License
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class RenderStandard : RenderBase, IComponent, IDisposable, IRenderer, IRenderBorder, IRenderBack, IRenderContent, IRenderTabBorder, IRenderRibbon, IRenderGlyph</code></pre>
   </div>
-
+  
   
   
   
@@ -203,11 +203,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override IDisposable DrawBack(RenderContext context, Rectangle rect, GraphicsPath path, IPaletteBack palette, VisualOrientation orientation, PaletteState state, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -310,11 +310,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void DrawBorder(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -392,11 +392,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void DrawCheckBox(RenderContext context, Rectangle displayRect, IPalette palette, bool enabled, CheckState checkState, bool tracking, bool pressed)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -490,11 +490,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void DrawContent(RenderContext context, Rectangle displayRect, IPaletteContent palette, IDisposable memento, VisualOrientation orientation, PaletteState state, bool composition, bool glowing, bool allowFocusRect)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -604,11 +604,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void DrawDragDropDockingGlyph(RenderContext context, RenderDragDockingData dragData, IPaletteDragDrop dragDropPalette, PaletteDragFeedback feedback)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -669,11 +669,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void DrawDragDropSolidGlyph(RenderContext context, Rectangle drawRect, IPaletteDragDrop dragDropPalette)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -726,11 +726,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void DrawDropDownButton(RenderContext context, Rectangle displayRect, IPalette palette, PaletteState state, VisualOrientation orientation)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -808,11 +808,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override Rectangle DrawGridErrorGlyph(RenderContext context, Rectangle cellRect, PaletteState state, bool rtl)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -883,11 +883,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override Rectangle DrawGridRowGlyph(RenderContext context, GridRowGlyph rowGlyph, Rectangle cellRect, IPaletteContent paletteContent, PaletteState state, bool rtl)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -974,11 +974,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override Rectangle DrawGridSortGlyph(RenderContext context, SortOrder sortOrder, Rectangle cellRect, IPaletteContent paletteContent, PaletteState state, bool rtl)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1065,11 +1065,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void DrawInputControlDropDownGlyph(RenderContext context, Rectangle cellRect, IPaletteContent paletteContent, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1139,11 +1139,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void DrawInputControlNumericDownGlyph(RenderContext context, Rectangle cellRect, IPaletteContent paletteContent, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1213,11 +1213,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void DrawInputControlNumericUpGlyph(RenderContext context, Rectangle cellRect, IPaletteContent paletteContent, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1287,11 +1287,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void DrawRadioButton(RenderContext context, Rectangle displayRect, IPalette palette, bool enabled, bool checkState, bool tracking, bool pressed)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1385,11 +1385,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonAppButton(PaletteRibbonShape shape, RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, bool trackBorderAsPressed, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1474,11 +1474,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonAppButtonBorder1(Graphics g, MementoRibbonAppButton memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1519,11 +1519,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonAppButtonBorder2(Graphics g, MementoRibbonAppButton memento, PaletteState state, Color bottomLight, bool trackBorderAsPressed)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1585,11 +1585,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonAppButtonGlowCenter(Graphics g, MementoRibbonAppButton memento, PaletteState state, Color topLight, Color bottomLight)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1651,11 +1651,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonAppButtonGlowUpperBottom(Graphics g, MementoRibbonAppButton memento, PaletteState state, Color bottomLight, Color bottomMedium, Color bottomDark)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1724,11 +1724,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonAppButtonLowerHalf(Graphics g, MementoRibbonAppButton memento, PaletteState state, Color bottomDark, Color bottomLight, Color bottomMedium)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1797,11 +1797,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonAppButtonUpperHalf(Graphics g, MementoRibbonAppButton memento, PaletteState state, Color topDark, Color bottomDark, Color topLight, Color topMedium, bool trackBorderAsPressed)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1884,11 +1884,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override IDisposable DrawRibbonApplicationButton(PaletteRibbonShape shape, RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1974,11 +1974,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override IDisposable DrawRibbonApplicationTab(PaletteRibbonShape shape, RenderContext context, Rectangle rect, PaletteState state, Color baseColor1, Color baseColor2, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2072,11 +2072,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonAppMenuInner(RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2147,11 +2147,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonAppMenuOuter(RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2222,11 +2222,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonAppTab(PaletteRibbonShape shape, RenderContext context, Rectangle rect, PaletteState state, Color baseColor1, Color baseColor2, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2311,11 +2311,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override IDisposable DrawRibbonBack(PaletteRibbonShape shape, RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, VisualOrientation orientation, bool composition, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2417,11 +2417,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void DrawRibbonClusterEdge(PaletteRibbonShape shape, RenderContext context, Rectangle displayRect, IPaletteBack paletteBack, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2490,11 +2490,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void DrawRibbonContextArrow(PaletteRibbonShape shape, RenderContext context, Rectangle displayRect, IPaletteRibbonGeneral paletteGeneral, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2572,11 +2572,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void DrawRibbonDialogBoxLauncher(PaletteRibbonShape shape, RenderContext context, Rectangle displayRect, IPaletteRibbonGeneral paletteGeneral, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2654,11 +2654,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void DrawRibbonDropArrow(PaletteRibbonShape shape, RenderContext context, Rectangle displayRect, IPaletteRibbonGeneral paletteGeneral, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2736,11 +2736,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonGroupAreaBorder1And2(RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, bool limited, bool fading, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2825,11 +2825,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonGroupAreaBorder3And4(RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, IDisposable memento, bool gradientTop)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2907,11 +2907,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonGroupAreaBorderContext(RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2982,11 +2982,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonGroupCollapsedBorder(RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3057,11 +3057,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonGroupCollapsedFrameBorder(RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3132,11 +3132,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonGroupGradientOne(RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3207,11 +3207,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonGroupGradientTwo(RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, float percent, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3289,11 +3289,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonGroupNormalBorder(RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, bool tracking, bool lightInside, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3378,11 +3378,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonGroupNormalBorderSep(bool showingInPopup, RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, IDisposable memento, bool pressed, bool tracking, bool dark)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3481,11 +3481,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonGroupNormalTitle(RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3556,11 +3556,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void DrawRibbonGroupSeparator(PaletteRibbonShape shape, RenderContext context, Rectangle displayRect, IPaletteRibbonGeneral paletteGeneral, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3638,11 +3638,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonLinear(RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3713,11 +3713,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonLinearBorder(RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3788,11 +3788,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void DrawRibbonOverflow(PaletteRibbonShape shape, RenderContext context, Rectangle displayRect, IPaletteRibbonGeneral paletteGeneral, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3870,11 +3870,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonQATFullbarRound(RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3945,11 +3945,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonQATFullbarSquare(RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4020,11 +4020,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonQATMinibarDouble(RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, bool composition, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4102,11 +4102,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonQATMinibarSingle(RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, bool composition, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4184,11 +4184,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonQATOverflow(PaletteRibbonShape shape, RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4266,11 +4266,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonTabContext(RenderContext context, Rectangle rect, IPaletteRibbonGeneral paletteGeneral, IPaletteRibbonBack paletteBack, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4341,11 +4341,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonTabContextSelected(PaletteRibbonShape shape, RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, VisualOrientation orientation, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4430,11 +4430,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabContextSelectedBottom(Rectangle rect, Color c2, MementoRibbonTabContextSelected cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4482,11 +4482,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabContextSelectedBottomDraw(Rectangle rect, MementoRibbonTabContextSelected cache, Graphics g)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4534,11 +4534,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabContextSelectedLeft(Rectangle rect, Color c2, MementoRibbonTabContextSelected cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4586,11 +4586,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabContextSelectedLeftDraw(Rectangle rect, MementoRibbonTabContextSelected cache, Graphics g)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4638,11 +4638,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabContextSelectedRight(Rectangle rect, Color c2, MementoRibbonTabContextSelected cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4690,11 +4690,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabContextSelectedRightDraw(Rectangle rect, MementoRibbonTabContextSelected cache, Graphics g)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4742,11 +4742,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabContextSelectedTop(Rectangle rect, Color c2, MementoRibbonTabContextSelected cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4794,11 +4794,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabContextSelectedTopDraw(Rectangle rect, MementoRibbonTabContextSelected cache, Graphics g)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4846,11 +4846,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override IDisposable DrawRibbonTabContextTitle(PaletteRibbonShape shape, RenderContext context, Rectangle rect, IPaletteRibbonGeneral paletteGeneral, IPaletteRibbonBack paletteBack, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4936,11 +4936,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonTabFocus2010(PaletteRibbonShape shape, RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, VisualOrientation orientation, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5025,11 +5025,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabFocusBottom2010(Rectangle rect, Color c3, Color c4, MementoRibbonTabTracking2010 cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5084,11 +5084,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabFocusLeft2010(Rectangle rect, Color c3, Color c4, MementoRibbonTabTracking2010 cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5143,11 +5143,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabFocusRight2010(Rectangle rect, Color c3, Color c4, MementoRibbonTabTracking2010 cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5202,11 +5202,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabFocusTop2010(Rectangle rect, Color c3, Color c4, MementoRibbonTabTracking2010 cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5261,11 +5261,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonTabGlowing(PaletteRibbonShape shape, RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, VisualOrientation orientation, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5350,11 +5350,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabGlowingBottom(Rectangle rect, Color c1, Color c2, Color insideColor, MementoRibbonTabGlowing cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5416,11 +5416,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabGlowingLeft(Rectangle rect, Color c1, Color c2, Color insideColor, MementoRibbonTabGlowing cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5482,11 +5482,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabGlowingRight(Rectangle rect, Color c1, Color c2, Color insideColor, MementoRibbonTabGlowing cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5548,11 +5548,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabGlowingTop(Rectangle rect, Color c1, Color c2, Color insideColor, MementoRibbonTabGlowing cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5614,11 +5614,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonTabHighlight(PaletteRibbonShape shape, RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, VisualOrientation orientation, IDisposable memento, bool alternate)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5710,11 +5710,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabHighlightBottom(Rectangle rect, Color c4, Color c5, MementoRibbonTabHighlight cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5769,11 +5769,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabHighlightBottomDraw(Rectangle rect, Color c1, Color c2, Color c3, Color c4, Color c5, MementoRibbonTabHighlight cache, Graphics g, bool alternate)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5863,11 +5863,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabHighlightLeft(Rectangle rect, Color c4, Color c5, MementoRibbonTabHighlight cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5922,11 +5922,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabHighlightLeftDraw(Rectangle rect, Color c1, Color c2, Color c3, Color c4, Color c5, MementoRibbonTabHighlight cache, Graphics g, bool alternate)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6016,11 +6016,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabHighlightRight(Rectangle rect, Color c4, Color c5, MementoRibbonTabHighlight cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6075,11 +6075,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabHighlightRightDraw(Rectangle rect, Color c1, Color c2, Color c3, Color c4, Color c5, MementoRibbonTabHighlight cache, Graphics g, bool alternate)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6169,11 +6169,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabHighlightTop(Rectangle rect, Color c4, Color c5, MementoRibbonTabHighlight cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6228,11 +6228,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabHighlightTopDraw(Rectangle rect, Color c1, Color c2, Color c3, Color c4, Color c5, MementoRibbonTabHighlight cache, Graphics g, bool alternate)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6322,11 +6322,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonTabSelected2007(RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, VisualOrientation orientation, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6404,11 +6404,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonTabSelected2010(RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, VisualOrientation orientation, IDisposable memento, bool standard)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6493,11 +6493,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabSelectedBottom2007(Rectangle rect, Color c4, Color c5, MementoRibbonTabSelected2007 cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6552,11 +6552,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabSelectedBottom2010(Rectangle rect, Color c2, Color c3, Color c5, MementoRibbonTabSelected2010 cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6618,11 +6618,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabSelectedBottomDraw2007(Rectangle rect, MementoRibbonTabSelected2007 cache, Graphics g)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6670,11 +6670,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabSelectedBottomDraw2010(Rectangle rect, MementoRibbonTabSelected2010 cache, Graphics g)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6722,11 +6722,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabSelectedLeft2007(Rectangle rect, Color c4, Color c5, MementoRibbonTabSelected2007 cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6781,11 +6781,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabSelectedLeft2010(Rectangle rect, Color c2, Color c3, Color c5, MementoRibbonTabSelected2010 cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6847,11 +6847,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabSelectedLeftDraw2007(Rectangle rect, MementoRibbonTabSelected2007 cache, Graphics g)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6899,11 +6899,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabSelectedLeftDraw2010(Rectangle rect, MementoRibbonTabSelected2010 cache, Graphics g)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6951,11 +6951,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabSelectedRight2007(Rectangle rect, Color c4, Color c5, MementoRibbonTabSelected2007 cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -7010,11 +7010,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabSelectedRight2010(Rectangle rect, Color c2, Color c3, Color c5, MementoRibbonTabSelected2010 cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -7076,11 +7076,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabSelectedRightDraw2007(Rectangle rect, MementoRibbonTabSelected2007 cache, Graphics g)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -7128,11 +7128,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabSelectedRightDraw2010(Rectangle rect, MementoRibbonTabSelected2010 cache, Graphics g)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -7180,11 +7180,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabSelectedTop2007(Rectangle rect, Color c4, Color c5, MementoRibbonTabSelected2007 cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -7239,11 +7239,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabSelectedTop2010(Rectangle rect, Color c2, Color c3, Color c5, MementoRibbonTabSelected2010 cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -7305,11 +7305,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabSelectedTopDraw2007(Rectangle rect, MementoRibbonTabSelected2007 cache, Graphics g)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -7357,11 +7357,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabSelectedTopDraw2010(Rectangle rect, MementoRibbonTabSelected2010 cache, Graphics g)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -7409,11 +7409,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonTabTracking2007(PaletteRibbonShape shape, RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, VisualOrientation orientation, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -7498,11 +7498,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual IDisposable DrawRibbonTabTracking2010(PaletteRibbonShape shape, RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, VisualOrientation orientation, IDisposable memento, bool standard)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -7594,11 +7594,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabTrackingBottom2007(Rectangle rect, Color c1, Color c2, MementoRibbonTabTracking2007 cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -7653,11 +7653,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabTrackingBottom2010(Rectangle rect, Color c3, Color c4, MementoRibbonTabTracking2010 cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -7712,11 +7712,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabTrackingBottomDraw2007(Rectangle rect, MementoRibbonTabTracking2007 cache, Graphics g)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -7764,11 +7764,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabTrackingLeft2007(Rectangle rect, Color c1, Color c2, MementoRibbonTabTracking2007 cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -7823,11 +7823,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabTrackingLeft2010(Rectangle rect, Color c3, Color c4, MementoRibbonTabTracking2010 cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -7882,11 +7882,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabTrackingLeftDraw2007(Rectangle rect, MementoRibbonTabTracking2007 cache, Graphics g)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -7934,11 +7934,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabTrackingRight2007(Rectangle rect, Color c1, Color c2, MementoRibbonTabTracking2007 cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -7993,11 +7993,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabTrackingRight2010(Rectangle rect, Color c3, Color c4, MementoRibbonTabTracking2010 cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -8052,11 +8052,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabTrackingRightDraw2007(Rectangle rect, MementoRibbonTabTracking2007 cache, Graphics g)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -8104,11 +8104,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabTrackingTop2007(Rectangle rect, Color c1, Color c2, MementoRibbonTabTracking2007 cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -8163,11 +8163,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabTrackingTop2010(Rectangle rect, Color c3, Color c4, MementoRibbonTabTracking2010 cache)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -8222,11 +8222,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void DrawRibbonTabTrackingTopDraw2007(Rectangle rect, MementoRibbonTabTracking2007 cache, Graphics g)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -8274,11 +8274,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void DrawSeparator(RenderContext context, Rectangle displayRect, IPaletteBack paletteBack, IPaletteBorder paletteBorder, Orientation orientation, PaletteState state, bool canMove)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -8372,11 +8372,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void DrawTabBorder(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state, TabBorderStyle tabBorderStyle)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -8462,11 +8462,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void DrawTrackGlyph(RenderContext context, PaletteState state, IPaletteElementColor elementPalette, Rectangle drawRect, Orientation orientation, bool volumeControl)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -8543,11 +8543,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void DrawTrackPositionGlyph(RenderContext context, PaletteState state, IPaletteElementColor elementPalette, Rectangle drawRect, Orientation orientation, TickStyle tickStyle)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -8624,11 +8624,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void DrawTrackTicksGlyph(RenderContext context, PaletteState state, IPaletteElementColor elementPalette, Rectangle drawRect, Orientation orientation, bool topRight, Size positionSize, int minimum, int maximum, int frequency)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -8737,11 +8737,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override bool EvalTransparentPaint(IPaletteBack paletteBack, IPaletteBorder paletteBorder, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -8804,11 +8804,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override bool EvalTransparentPaint(IPaletteBack paletteBack, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -8863,11 +8863,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override GraphicsPath GetBackPath(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -8955,11 +8955,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override Padding GetBorderDisplayPadding(IPaletteBorder palette, PaletteState state, VisualOrientation orientation)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -9031,11 +9031,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override GraphicsPath GetBorderPath(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -9123,11 +9123,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override Padding GetBorderRawPadding(IPaletteBorder palette, PaletteState state, VisualOrientation orientation)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -9199,11 +9199,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override Size GetCheckBoxPreferredSize(ViewLayoutContext context, IPalette palette, bool enabled, CheckState checkState, bool tracking, bool pressed)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -9298,11 +9298,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override bool GetContentImageDisplayed(IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -9349,11 +9349,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override Rectangle GetContentImageRectangle(IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -9400,11 +9400,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override bool GetContentLongTextDisplayed(IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -9451,11 +9451,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override Rectangle GetContentLongTextRectangle(IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -9502,11 +9502,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override Size GetContentPreferredSize(ViewLayoutContext context, IPaletteContent palette, IContentValues values, VisualOrientation orientation, PaletteState state, bool composition, bool glowing)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -9610,11 +9610,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override bool GetContentShortTextDisplayed(IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -9661,11 +9661,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override Rectangle GetContentShortTextRectangle(IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -9712,11 +9712,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override Size GetDropDownButtonPreferredSize(ViewLayoutContext context, IPalette palette, PaletteState state, VisualOrientation orientation)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -9786,11 +9786,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override GraphicsPath GetOutsideBorderPath(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -9878,11 +9878,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override Size GetRadioButtonPreferredSize(ViewLayoutContext context, IPalette palette, bool enabled, bool checkState, bool tracking, bool pressed)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -9968,11 +9968,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override GraphicsPath GetTabBackPath(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state, TabBorderStyle tabBorderStyle)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -10068,11 +10068,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override Padding GetTabBorderDisplayPadding(ViewLayoutContext context, IPaletteBorder palette, PaletteState state, VisualOrientation orientation, TabBorderStyle tabBorderStyle)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -10160,11 +10160,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override bool GetTabBorderLeftDrawing(TabBorderStyle tabBorderStyle)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -10211,11 +10211,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override GraphicsPath GetTabBorderPath(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state, TabBorderStyle tabBorderStyle)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -10311,11 +10311,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override int GetTabBorderSpacingGap(TabBorderStyle tabBorderStyle)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -10362,11 +10362,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override IDisposable LayoutContent(ViewLayoutContext context, Rectangle availableRect, IPaletteContent palette, IContentValues values, VisualOrientation orientation, PaletteState state, bool composition, bool glowing)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -10478,11 +10478,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void MeasureDragDropDockingGlyph(RenderDragDockingData dragData, IPaletteDragDrop dragDropPalette, PaletteDragFeedback feedback)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -10535,11 +10535,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override ToolStripRenderer RenderToolStrip(IPalette colorPalette)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>

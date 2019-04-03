@@ -14,7 +14,7 @@ BSD 3-Clause License
    | Krypton Component Suite 2019
 BSD 3-Clause License
 &#65533; Component Factory Pty Ltd, 2006-2019, All rights reserved. ">
-    <meta name="generator" content="docfx 2.40.12.0">
+    <meta name="generator" content="docfx 2.41.0.0">
     
     <link rel="shortcut icon" href="../Krypton.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -78,7 +78,7 @@ BSD 3-Clause License
   <div class="markdown level0 summary"><p>Provides docking functionality by attaching to an existing KryptonDockableNavigator</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-
+  
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -245,7 +245,7 @@ BSD 3-Clause License
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class KryptonDockingNavigator : DockingElementClosedCollection, IComponent, IDisposable, IDockingElement, IEnumerable&lt;IDockingElement&gt;, IEnumerable</code></pre>
   </div>
-
+  
   
   
   
@@ -263,11 +263,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingNavigator(string name)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -302,11 +302,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingNavigator(string name, string storeName, KryptonDockableNavigator navigator)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -359,11 +359,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockableNavigator DockableNavigatorControl { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -396,11 +396,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override IDockingElement Parent { set; }</code></pre>
   </div>
-
+  
   
   
   
@@ -435,11 +435,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int VisiblePages { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -472,11 +472,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override string XmlElementName { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -513,11 +513,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Append(KryptonPage page)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -552,11 +552,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Append(KryptonPage[] pages)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -591,11 +591,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override KryptonDockingNavigator FindDockingNavigator(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -642,11 +642,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override IDockingElement FindPageElement(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -693,11 +693,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override DockingLocation FindPageLocation(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -744,11 +744,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override IDockingElement FindStorePageElement(DockingLocation location, string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -803,11 +803,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void HideAllPages()</code></pre>
   </div>
-
+  
   
   
   
@@ -831,11 +831,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void HidePage(KryptonPage page)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -870,11 +870,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void HidePage(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -909,11 +909,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void HidePages(KryptonPage[] pages)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -948,11 +948,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void HidePages(string[] uniqueNames)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -987,11 +987,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void LoadElementFromXml(XmlReader xmlReader, KryptonPageCollection pages)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1036,11 +1036,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void PropogateAction(DockingPropogateAction action, string[] uniqueNames)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1085,11 +1085,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override bool? PropogateBoolState(DockingPropogateBoolState state, string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1144,11 +1144,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void PropogateDragTargets(KryptonFloatingWindow floatingWindow, PageDragEndData dragData, DragTargetList targets)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1201,11 +1201,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void PropogatePageList(DockingPropogatePageList state, KryptonPageCollection pages)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1250,11 +1250,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override KryptonPage PropogatePageState(DockingPropogatePageState state, string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1309,11 +1309,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void RemoveAllPages(bool disposePage)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1348,11 +1348,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void RemovePage(string uniqueName, bool disposePage)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1395,11 +1395,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void RemovePages(KryptonPage[] pages, bool disposePage)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1442,11 +1442,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void RemovePages(string[] uniqueNames, bool disposePage)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1489,11 +1489,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void SaveElementToXml(XmlWriter xmlWriter)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1530,11 +1530,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SelectPage(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1569,11 +1569,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ShowAllPages()</code></pre>
   </div>
-
+  
   
   
   
@@ -1597,11 +1597,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ShowPage(KryptonPage page)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1636,11 +1636,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ShowPage(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1675,11 +1675,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ShowPages(KryptonPage[] pages)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1714,11 +1714,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ShowPages(string[] uniqueNames)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>

@@ -14,7 +14,7 @@ BSD 3-Clause License
    | Krypton Component Suite 2019
 BSD 3-Clause License
 &#65533; Component Factory Pty Ltd, 2006-2019, All rights reserved. ">
-    <meta name="generator" content="docfx 2.40.12.0">
+    <meta name="generator" content="docfx 2.41.0.0">
     
     <link rel="shortcut icon" href="../Krypton.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -78,7 +78,7 @@ BSD 3-Clause License
   <div class="markdown level0 summary"><p>Manages a hierarchy of docking elements to provide docking windows functionality.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-
+  
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -273,7 +273,7 @@ BSD 3-Clause License
 [ComVisible(true)]
 public class KryptonDockingManager : DockingElementOpenCollection, IComponent, IDisposable, IDockingElement, IEnumerable&lt;IDockingElement&gt;, IEnumerable</code></pre>
   </div>
-
+  
   
   
   
@@ -291,11 +291,11 @@ public class KryptonDockingManager : DockingElementOpenCollection, IComponent, I
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingManager()</code></pre>
   </div>
-
+  
   
   
   
@@ -319,11 +319,11 @@ public class KryptonDockingManager : DockingElementOpenCollection, IComponent, I
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingManager(string name)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -360,12 +360,12 @@ public class KryptonDockingManager : DockingElementOpenCollection, IComponent, I
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public virtual KryptonWorkspaceCell[] Cells { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -398,12 +398,12 @@ public virtual KryptonWorkspaceCell[] Cells { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public virtual KryptonWorkspaceCell[] CellsDocked { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -436,12 +436,12 @@ public virtual KryptonWorkspaceCell[] CellsDocked { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public virtual KryptonWorkspaceCell[] CellsFloating { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -474,12 +474,12 @@ public virtual KryptonWorkspaceCell[] CellsFloating { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public virtual KryptonWorkspaceCell[] CellsWorkspace { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -512,11 +512,11 @@ public virtual KryptonWorkspaceCell[] CellsWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public DockingCloseRequest DefaultCloseRequest { get; set; }</code></pre>
   </div>
-
+  
   
   
   
@@ -549,12 +549,12 @@ public virtual KryptonWorkspaceCell[] CellsWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public virtual KryptonPage[] Pages { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -587,12 +587,12 @@ public virtual KryptonPage[] Pages { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public virtual KryptonPage[] PagesAutoHidden { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -625,12 +625,12 @@ public virtual KryptonPage[] PagesAutoHidden { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public virtual KryptonPage[] PagesDocked { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -663,12 +663,12 @@ public virtual KryptonPage[] PagesDocked { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public virtual KryptonPage[] PagesFloating { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -701,12 +701,12 @@ public virtual KryptonPage[] PagesFloating { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -739,11 +739,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public DockingManagerStrings Strings { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -776,11 +776,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override string XmlElementName { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -817,11 +817,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual KryptonDockingAutoHiddenGroup AddAutoHiddenGroup(string path, DockingEdge edge, KryptonPage[] pages, params KryptonPage[][] extraPages)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -890,11 +890,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual KryptonDockingDockspace AddDockspace(string path, DockingEdge edge, KryptonPage[] pages, params KryptonPage[][] stackPages)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -963,11 +963,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual KryptonDockingFloatingWindow AddFloatingWindow(string path, KryptonPage[] pages)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1020,11 +1020,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual KryptonDockingFloatingWindow AddFloatingWindow(string path, KryptonPage[] pages, Point location)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1085,11 +1085,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual KryptonDockingFloatingWindow AddFloatingWindow(string path, KryptonPage[] pages, Point location, Size clientSize)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1158,11 +1158,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual KryptonDockingFloatingWindow AddFloatingWindow(string path, KryptonPage[] pages, Size clientSize)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1223,11 +1223,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual KryptonDockingNavigator AddToNavigator(string path, KryptonPage[] pages)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1280,11 +1280,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual KryptonDockingWorkspace AddToWorkspace(string path, KryptonPage[] pages)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1337,11 +1337,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ClearAllStoredPages()</code></pre>
   </div>
-
+  
   
   
   
@@ -1365,11 +1365,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ClearStoredPages(KryptonPage[] pages)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1404,11 +1404,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ClearStoredPages(string[] uniqueNames)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1443,11 +1443,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void CloseRequest(string[] uniqueNames)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1482,11 +1482,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool ContainsPage(KryptonPage page)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1531,11 +1531,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool ContainsPage(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1580,11 +1580,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonWorkspaceCell DockingCellForPage(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1629,11 +1629,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void DoDragDrop(Point screenPoint, Point elementOffset, Control c, KryptonDockingFloatingWindow window)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1692,11 +1692,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void DoDragDrop(Point screenPoint, Point elementOffset, Control c, KryptonPageCollection pages)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1755,11 +1755,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override KryptonDockingEdgeAutoHidden FindDockingEdgeAutoHidden(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1806,11 +1806,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override KryptonDockingEdgeDocked FindDockingEdgeDocked(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1857,11 +1857,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override KryptonDockingFloating FindDockingFloating(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1908,11 +1908,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override KryptonDockingWorkspace FindDockingWorkspace(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1959,11 +1959,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IDockingElement FindPageElement(KryptonPage page)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2008,11 +2008,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override IDockingElement FindPageElement(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2059,11 +2059,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public DockingLocation FindPageLocation(KryptonPage page)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2108,11 +2108,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override DockingLocation FindPageLocation(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2159,11 +2159,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IDockingElement FindStorePageElement(DockingLocation location, KryptonPage page)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2216,11 +2216,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override IDockingElement FindStorePageElement(DockingLocation location, string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2275,11 +2275,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void HideAllPages()</code></pre>
   </div>
-
+  
   
   
   
@@ -2303,11 +2303,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void HidePage(KryptonPage page)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2342,11 +2342,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void HidePage(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2381,11 +2381,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void HidePages(KryptonPage[] pages)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2420,11 +2420,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void HidePages(string[] uniqueNames)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2459,11 +2459,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual KryptonDockingAutoHiddenGroup InsertAutoHiddenGroup(string path, DockingEdge edge, int index, KryptonPage[] pages, params KryptonPage[][] extraPages)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2540,11 +2540,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual KryptonDockingDockspace InsertDockspace(string path, DockingEdge edge, int index, KryptonPage[] pages, params KryptonPage[][] stackPages)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2621,11 +2621,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsPageShowing(KryptonPage page)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2670,11 +2670,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsPageShowing(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2719,11 +2719,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void LoadConfigFromArray(byte[] buffer)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2758,11 +2758,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void LoadConfigFromArray(string filename)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2797,11 +2797,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void LoadConfigFromFile(string filename)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2836,11 +2836,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void LoadConfigFromStream(Stream stream)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2875,11 +2875,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void LoadConfigFromXml(XmlReader xmlReader)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2914,11 +2914,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void MakeAutoHiddenRequest(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2953,11 +2953,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void MakeDockedRequest(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2992,11 +2992,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void MakeFloatingRequest(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3031,11 +3031,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void MakeNavigatorRequest(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3070,11 +3070,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void MakeWorkspaceRequest(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3109,11 +3109,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingControl ManageControl(string name, Control c)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3166,11 +3166,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingControl ManageControl(string name, Control c, KryptonDockingNavigator navigator)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3231,11 +3231,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingControl ManageControl(string name, Control c, KryptonDockingWorkspace workspace)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3296,11 +3296,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingControl ManageControl(Control c)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3345,11 +3345,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingControl ManageControl(Control c, KryptonDockingNavigator navigator)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3402,11 +3402,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingControl ManageControl(Control c, KryptonDockingWorkspace workspace)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3459,11 +3459,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingFloating ManageFloating(string name, Form f)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3516,11 +3516,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingFloating ManageFloating(Form f)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3565,11 +3565,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingNavigator ManageNavigator(KryptonDockableNavigator n)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3614,11 +3614,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingNavigator ManageNavigator(string name, KryptonDockableNavigator n)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3671,11 +3671,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingNavigator ManageNavigator(string name, string storeName, KryptonDockableNavigator n)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3736,11 +3736,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingWorkspace ManageWorkspace(KryptonDockableWorkspace w)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3785,11 +3785,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingWorkspace ManageWorkspace(string name, KryptonDockableWorkspace w)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3842,11 +3842,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonDockingWorkspace ManageWorkspace(string name, string storeName, KryptonDockableWorkspace w)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3907,11 +3907,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnAutoHiddenGroupAdding(AutoHiddenGroupEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3946,11 +3946,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnAutoHiddenGroupPanelAdding(AutoHiddenGroupPanelEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3985,11 +3985,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnAutoHiddenGroupPanelRemoved(AutoHiddenGroupPanelEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4024,11 +4024,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnAutoHiddenGroupRemoved(AutoHiddenGroupEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4063,11 +4063,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnAutoHiddenSeparatorResize(AutoHiddenSeparatorResizeEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4102,11 +4102,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnAutoHiddenShowingStateChanged(AutoHiddenShowingStateEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4141,11 +4141,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnDockableNavigatorAdded(DockableNavigatorEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4180,11 +4180,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnDockableNavigatorRemoved(DockableNavigatorEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4219,11 +4219,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnDockableWorkspaceAdded(DockableWorkspaceEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4258,11 +4258,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnDockableWorkspaceCellAdding(DockableWorkspaceCellEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4297,11 +4297,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnDockableWorkspaceCellRemoved(DockableWorkspaceCellEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4336,11 +4336,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnDockableWorkspaceRemoved(DockableWorkspaceEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4375,11 +4375,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnDockspaceAdding(DockspaceEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4414,11 +4414,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnDockspaceCellAdding(DockspaceCellEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4453,11 +4453,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnDockspaceCellRemoved(DockspaceCellEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4492,11 +4492,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnDockspaceRemoved(DockspaceEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4531,11 +4531,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnDockspaceSeparatorAdding(DockspaceSeparatorEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4570,11 +4570,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnDockspaceSeparatorRemoved(DockspaceSeparatorEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4609,11 +4609,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnDockspaceSeparatorResize(DockspaceSeparatorResizeEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4648,11 +4648,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnDoDragDropEnd(EventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4687,11 +4687,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnDoDragDropQuit(EventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4726,11 +4726,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnFloatingWindowAdding(FloatingWindowEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4765,11 +4765,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnFloatingWindowRemoved(FloatingWindowEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4804,11 +4804,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnFloatspaceAdding(FloatspaceEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4843,11 +4843,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnFloatspaceCellAdding(FloatspaceCellEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4882,11 +4882,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnFloatspaceCellRemoved(FloatspaceCellEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4921,11 +4921,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnFloatspaceRemoved(FloatspaceEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4960,11 +4960,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnGlobalLoading(DockGlobalLoadingEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4999,11 +4999,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnGlobalSaving(DockGlobalSavingEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5038,11 +5038,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnOrphanedPages(PagesEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5077,11 +5077,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnPageAutoHiddenRequest(CancelUniqueNameEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5116,11 +5116,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnPageCloseRequest(CloseRequestEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5155,11 +5155,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnPageDockedRequest(CancelUniqueNameEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5194,11 +5194,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnPageFloatingRequest(CancelUniqueNameEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5233,11 +5233,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnPageLoading(DockPageLoadingEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5272,11 +5272,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnPageNavigatorRequest(CancelUniqueNameEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5311,11 +5311,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnPageSaving(DockPageSavingEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5350,11 +5350,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnPageWorkspaceRequest(CancelUniqueNameEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5389,11 +5389,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnRecreateLoadingPage(RecreateLoadingPageEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5428,11 +5428,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnShowPageContextMenu(ContextPageEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5467,11 +5467,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnShowWorkspacePageContextMenu(ContextPageEventArgs e)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5506,11 +5506,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public KryptonPage PageForUniqueName(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5555,11 +5555,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void RemoveAllPages(bool disposePage)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5594,11 +5594,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void RemovePage(KryptonPage page, bool disposePage)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5641,11 +5641,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void RemovePage(string uniqueName, bool disposePage)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5688,11 +5688,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void RemovePages(KryptonPage[] pages, bool disposePage)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5735,11 +5735,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void RemovePages(string[] uniqueNames, bool disposePage)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5782,11 +5782,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override IDockingElement ResolvePath(string path)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5833,11 +5833,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public byte[] SaveConfigToArray()</code></pre>
   </div>
-
+  
   
   <h5 class="returns">Returns</h5>
   <table>
@@ -5871,11 +5871,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public byte[] SaveConfigToArray(Encoding encoding)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5920,11 +5920,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SaveConfigToFile(string filename)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -5959,11 +5959,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SaveConfigToFile(string filename, Encoding encoding)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6006,11 +6006,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SaveConfigToStream(Stream stream, Encoding encoding)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6053,11 +6053,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SaveConfigToXml(XmlWriter xmlWriter)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6092,11 +6092,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ShowAllPages()</code></pre>
   </div>
-
+  
   
   
   
@@ -6120,11 +6120,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ShowPage(KryptonPage page)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6159,11 +6159,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ShowPage(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6198,11 +6198,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual bool ShowPageContextMenuRequest(KryptonPage page, KryptonContextMenu kcm)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6255,11 +6255,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ShowPages(KryptonPage[] pages)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6294,11 +6294,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ShowPages(string[] uniqueNames)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6333,11 +6333,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void StoreAllPages()</code></pre>
   </div>
-
+  
   
   
   
@@ -6361,11 +6361,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void StorePage(KryptonPage page)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6400,11 +6400,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void StorePage(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6439,11 +6439,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void StorePages(KryptonPage[] pages)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6478,11 +6478,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void StorePages(string[] uniqueNames)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6517,11 +6517,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual KryptonDockingDockspace SwitchAutoHiddenGroupToDockedCellRequest(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6566,11 +6566,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual KryptonDockingAutoHiddenGroup SwitchDockedCellToAutoHiddenGroupRequest(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6615,11 +6615,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual KryptonDockingFloatingWindow SwitchDockedToFloatingWindowRequest(string[] uniqueNames)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6664,11 +6664,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual KryptonDockingDockspace SwitchFloatingToDockedRequest(string[] uniqueNames)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6713,11 +6713,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual KryptonDockingFloatingWindow SwitchFloatingToFloatingWindowRequest(string[] uniqueNames)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -6763,11 +6763,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;AutoHiddenGroupEventArgs&gt; AutoHiddenGroupAdding</code></pre>
   </div>
-
+  
   
   
   
@@ -6799,11 +6799,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;AutoHiddenGroupPanelEventArgs&gt; AutoHiddenGroupPanelAdding</code></pre>
   </div>
-
+  
   
   
   
@@ -6835,11 +6835,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;AutoHiddenGroupPanelEventArgs&gt; AutoHiddenGroupPanelRemoved</code></pre>
   </div>
-
+  
   
   
   
@@ -6871,11 +6871,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;AutoHiddenGroupEventArgs&gt; AutoHiddenGroupRemoved</code></pre>
   </div>
-
+  
   
   
   
@@ -6907,11 +6907,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;AutoHiddenSeparatorResizeEventArgs&gt; AutoHiddenSeparatorResize</code></pre>
   </div>
-
+  
   
   
   
@@ -6943,11 +6943,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;AutoHiddenShowingStateEventArgs&gt; AutoHiddenShowingStateChanged</code></pre>
   </div>
-
+  
   
   
   
@@ -6979,11 +6979,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockableNavigatorEventArgs&gt; DockableNavigatorAdded</code></pre>
   </div>
-
+  
   
   
   
@@ -7015,11 +7015,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockableNavigatorEventArgs&gt; DockableNavigatorRemoved</code></pre>
   </div>
-
+  
   
   
   
@@ -7051,11 +7051,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockableWorkspaceEventArgs&gt; DockableWorkspaceAdded</code></pre>
   </div>
-
+  
   
   
   
@@ -7087,11 +7087,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockableWorkspaceCellEventArgs&gt; DockableWorkspaceCellAdding</code></pre>
   </div>
-
+  
   
   
   
@@ -7123,11 +7123,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockableWorkspaceCellEventArgs&gt; DockableWorkspaceCellRemoved</code></pre>
   </div>
-
+  
   
   
   
@@ -7159,11 +7159,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockableWorkspaceEventArgs&gt; DockableWorkspaceRemoved</code></pre>
   </div>
-
+  
   
   
   
@@ -7195,11 +7195,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockspaceEventArgs&gt; DockspaceAdding</code></pre>
   </div>
-
+  
   
   
   
@@ -7231,11 +7231,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockspaceCellEventArgs&gt; DockspaceCellAdding</code></pre>
   </div>
-
+  
   
   
   
@@ -7267,11 +7267,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockspaceCellEventArgs&gt; DockspaceCellRemoved</code></pre>
   </div>
-
+  
   
   
   
@@ -7303,11 +7303,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockspaceEventArgs&gt; DockspaceRemoved</code></pre>
   </div>
-
+  
   
   
   
@@ -7339,11 +7339,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockspaceSeparatorEventArgs&gt; DockspaceSeparatorAdding</code></pre>
   </div>
-
+  
   
   
   
@@ -7375,11 +7375,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockspaceSeparatorEventArgs&gt; DockspaceSeparatorRemoved</code></pre>
   </div>
-
+  
   
   
   
@@ -7411,11 +7411,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockspaceSeparatorResizeEventArgs&gt; DockspaceSeparatorResize</code></pre>
   </div>
-
+  
   
   
   
@@ -7447,11 +7447,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler DoDragDropEnd</code></pre>
   </div>
-
+  
   
   
   
@@ -7483,11 +7483,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler DoDragDropQuit</code></pre>
   </div>
-
+  
   
   
   
@@ -7519,11 +7519,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;FloatingWindowEventArgs&gt; FloatingWindowAdding</code></pre>
   </div>
-
+  
   
   
   
@@ -7555,11 +7555,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;FloatingWindowEventArgs&gt; FloatingWindowRemoved</code></pre>
   </div>
-
+  
   
   
   
@@ -7591,11 +7591,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;FloatspaceEventArgs&gt; FloatspaceAdding</code></pre>
   </div>
-
+  
   
   
   
@@ -7627,11 +7627,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;FloatspaceCellEventArgs&gt; FloatspaceCellAdding</code></pre>
   </div>
-
+  
   
   
   
@@ -7663,11 +7663,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;FloatspaceCellEventArgs&gt; FloatspaceCellRemoved</code></pre>
   </div>
-
+  
   
   
   
@@ -7699,11 +7699,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;FloatspaceEventArgs&gt; FloatspaceRemoved</code></pre>
   </div>
-
+  
   
   
   
@@ -7735,11 +7735,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockGlobalLoadingEventArgs&gt; GlobalLoading</code></pre>
   </div>
-
+  
   
   
   
@@ -7771,11 +7771,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockGlobalSavingEventArgs&gt; GlobalSaving</code></pre>
   </div>
-
+  
   
   
   
@@ -7807,11 +7807,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;PagesEventArgs&gt; OrphanedPages</code></pre>
   </div>
-
+  
   
   
   
@@ -7843,11 +7843,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;CancelUniqueNameEventArgs&gt; PageAutoHiddenRequest</code></pre>
   </div>
-
+  
   
   
   
@@ -7879,11 +7879,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;CloseRequestEventArgs&gt; PageCloseRequest</code></pre>
   </div>
-
+  
   
   
   
@@ -7915,11 +7915,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;CancelUniqueNameEventArgs&gt; PageDockedRequest</code></pre>
   </div>
-
+  
   
   
   
@@ -7951,11 +7951,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;CancelUniqueNameEventArgs&gt; PageFloatingRequest</code></pre>
   </div>
-
+  
   
   
   
@@ -7987,11 +7987,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockPageLoadingEventArgs&gt; PageLoading</code></pre>
   </div>
-
+  
   
   
   
@@ -8023,11 +8023,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;CancelUniqueNameEventArgs&gt; PageNavigatorRequest</code></pre>
   </div>
-
+  
   
   
   
@@ -8059,11 +8059,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockPageSavingEventArgs&gt; PageSaving</code></pre>
   </div>
-
+  
   
   
   
@@ -8095,11 +8095,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;CancelUniqueNameEventArgs&gt; PageWorkspaceRequest</code></pre>
   </div>
-
+  
   
   
   
@@ -8131,11 +8131,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;RecreateLoadingPageEventArgs&gt; RecreateLoadingPage</code></pre>
   </div>
-
+  
   
   
   
@@ -8167,11 +8167,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;ContextPageEventArgs&gt; ShowPageContextMenu</code></pre>
   </div>
-
+  
   
   
   
@@ -8203,11 +8203,11 @@ public virtual KryptonPage[] PagesWorkspace { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;ContextPageEventArgs&gt; ShowWorkspacePageContextMenu</code></pre>
   </div>
-
+  
   
   
   
