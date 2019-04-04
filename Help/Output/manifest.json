@@ -11131,7 +11131,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ComponentFactory.Krypton.Toolkit.TypedHandler-1.html",
-          "hash": "Ia/DBjjQjj2277WVB4smKg=="
+          "hash": "NS4pI6YjtqlUn/P0Luz1dQ=="
         }
       },
       "is_incremental": true,
@@ -17052,6 +17052,17 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "articles/images/PaletteManager.png",
+      "output": {
+        "resource": {
+          "relative_path": "articles/images/PaletteManager.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "articles/images/PaletteUpgradeTool.png",
       "output": {
         "resource": {
@@ -18753,7 +18764,7 @@
           "hash": "c2T/ABZEnecXfOQO5VZBOQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -18765,7 +18776,7 @@
           "hash": "tW/EIq1NxYdYV4bIjvloxg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -20198,17 +20209,17 @@
           "total_file_count": 0,
           "skipped_file_count": 0
         },
-        "ConceptualDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build",
-          "total_file_count": 150,
-          "skipped_file_count": 149
-        },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 1049,
           "skipped_file_count": 1049
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 150,
+          "skipped_file_count": 150
         },
         "TocDocumentProcessor": {
           "can_incremental": false,
