@@ -16,6 +16,14 @@
 
 =======
 
+## 2019-04-04 Build 856 - Bugfixes
+* Fixed issue [#104](https://github.com/Wagnerp/Krypton-NET-5.470/issues/104), designer usage exceptions
+* Fixed issue [#116](https://github.com/Wagnerp/Krypton-NET-5.470/issues/116), `KryptonManager` now displays themes and names correctly
+* General fixes to `ThemeManager.cs` & `RibbonThemeManager.cs`
+* Build 856 (build date Thursday 4th April, 2019) is now available on NuGet
+
+=======
+
 ## 2019-03-25 Build 826 - MegaKarken Contributions
 * Update example program for AllowDecimals
 * Introduced an IconSpec definition for all KryptonDataGridViewColumn types so that icons can be drawn in KryptonDataGridView column header cells
