@@ -12,7 +12,7 @@ BSD 3-Clause License
     <meta name="title" content="Palettes | Krypton Component Suite 2019
 BSD 3-Clause License
 &#65533; Component Factory Pty Ltd, 2006-2019, All rights reserved. ">
-    <meta name="generator" content="docfx 2.40.12.0">
+    <meta name="generator" content="docfx 2.41.0.0">
     
     <link rel="shortcut icon" href="../Krypton.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -91,17 +91,63 @@ shows the global palette being altered to a built in palette.</p>
 <p>Your second option is to add a <em>KryptonPalette</em> component to the application and
 then import palette settings from a palette definition file. Palette definition
 files are just XML documents that store all the settings and images needed to
-recreate a palette. All you need to do is drop a new <em>KryptonPalette</em> onto your
-form and then click the smart tag.   </p>
-<p>The smart tag contains options to <em>Export</em> and <em>Import</em> palette definitions.
-Figure 2 shows the smart tag for the <em>KryptonPalette</em>.</p>
-<p><img src="images/PaletteImport.png" alt="*Figure 2 - KryptonPalette smart tag*"></p>
-<p><em>Figure 2 - KryptonPalette smart tag</em>  </p>
-<p>Now you need to alter the <em>KryptonManager</em> property called <em>GlobalPalette</em> so
-that the <em>KryptonPalette</em> component is used instead of one of the built in
-options. Figure 3 shows the property being altered at design time.  </p>
-<p><img src="images/PaletteCustom.png" alt="*Figure 3 - KryptonManager GlobalPalette property*"></p>
-<p>   <em>Figure 3 - KryptonManager GlobalPalette property</em></p>
+recreate a palette. All you need to do is drop a new <em>KryptonPalette</em> along with a <em>KryptonManager</em>, 
+and then in your application&#39;s code, apply the following code:</p>
+<p>C# Method:</p>
+<pre><code>/// &lt;summary&gt;
+/// Apply a theme with a custom palette definition.
+/// &lt;/summary&gt;
+private void ApplyCustomTheme()
+{
+    try
+    {
+        // Ask the user for a valid palette definition file
+        kryptonPalette1.Import();
+
+        // Set the krypton manager&#39;s GlobalPalette to kryptonPalette1
+        kryptonManager1.GlobalPalette = kryptonPalette1;
+
+        // Finally, set the krypton manager&#39;s GlobalPaletteMode to custom
+        kryptonManager1.GlobalPaletteMode = PaletteModeManager.Custom;
+    }
+    catch (Exception exc)
+    {
+        // TODO: Handle the exception
+    }
+}
+</code></pre><p>VisualBasic Function:</p>
+<pre><code>&#39;&#39;&#39; &lt;summary&gt;
+&#39;&#39;&#39; Apply a theme with a custom palette definition.
+&#39;&#39;&#39; &lt;/summary&gt;
+Private Function ApplyCustomTheme()
+    Try
+        &#39; Ask the user for a valid palette definition file
+        kryptonPalette1.Import()
+
+        &#39; Set the krypton manager&#39;s GlobalPalette to kryptonPalette1
+        kryptonManager1.GlobalPalette = kryptonPalette1
+
+        &#39; Finally, set the krypton manager&#39;s GlobalPaletteMode to custom
+        kryptonManager1.GlobalPaletteMode = PaletteModeManager.Custom
+    Catch exc As Exception
+        &#39; TODO: Handle the exception
+    End Try
+End Function
+</code></pre><!--The smart tag contains options to *Export* and *Import* palette definitions.
+Figure 2 shows the smart tag for the *KryptonPalette*.
+
+![*Figure 2 - KryptonPalette smart tag*](images/PaletteImport.png)
+
+*Figure 2 - KryptonPalette smart tag*  
+
+
+Now you need to alter the *KryptonManager* property called *GlobalPalette* so
+that the *KryptonPalette* component is used instead of one of the built in
+options. Figure 3 shows the property being altered at design time. 
+
+![*Figure 3 - KryptonManager GlobalPalette property*](images/PaletteCustom.png)
+
+   *Figure 3 - KryptonManager GlobalPalette property*-->
 <p>Note that exporting a palette will only save values that are not the default. So
 if you have only changed a few values from the default then the exported XML
 file will be very small and compact. When importing a palette the only values

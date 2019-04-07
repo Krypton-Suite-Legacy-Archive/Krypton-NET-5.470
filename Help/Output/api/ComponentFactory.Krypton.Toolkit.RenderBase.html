@@ -14,7 +14,7 @@ BSD 3-Clause License
    | Krypton Component Suite 2019
 BSD 3-Clause License
 &#65533; Component Factory Pty Ltd, 2006-2019, All rights reserved. ">
-    <meta name="generator" content="docfx 2.40.12.0">
+    <meta name="generator" content="docfx 2.41.0.0">
     
     <link rel="shortcut icon" href="../Krypton.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -78,7 +78,7 @@ BSD 3-Clause License
   <div class="markdown level0 summary"><p>Provides base class for rendering implementations.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-
+  
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -160,7 +160,7 @@ BSD 3-Clause License
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract class RenderBase : Component, IComponent, IDisposable, IRenderer, IRenderBorder, IRenderBack, IRenderContent, IRenderTabBorder, IRenderRibbon, IRenderGlyph</code></pre>
   </div>
-
+  
   
   
   
@@ -178,11 +178,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IRenderGlyph RenderGlyph { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -217,11 +217,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IRenderRibbon RenderRibbon { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -256,11 +256,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IRenderBack RenderStandardBack { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -295,11 +295,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IRenderBorder RenderStandardBorder { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -334,11 +334,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IRenderContent RenderStandardContent { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -373,11 +373,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IRenderTabBorder RenderTabBorder { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -414,11 +414,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract IDisposable DrawBack(RenderContext context, Rectangle rect, GraphicsPath path, IPaletteBack palette, VisualOrientation orientation, PaletteState state, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -512,11 +512,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void DrawBorder(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -585,11 +585,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void DrawCheckBox(RenderContext context, Rectangle displayRect, IPalette palette, bool enabled, CheckState checkState, bool tracking, bool pressed)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -674,11 +674,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void DrawContent(RenderContext context, Rectangle displayRect, IPaletteContent palette, IDisposable memento, VisualOrientation orientation, PaletteState state, bool composition, bool glowing, bool allowFocusRect)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -779,11 +779,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void DrawDragDropDockingGlyph(RenderContext context, RenderDragDockingData dragData, IPaletteDragDrop dragDropPalette, PaletteDragFeedback feedback)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -844,11 +844,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void DrawDragDropSolidGlyph(RenderContext context, Rectangle drawRect, IPaletteDragDrop dragDropPalette)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -901,11 +901,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void DrawDropDownButton(RenderContext context, Rectangle displayRect, IPalette palette, PaletteState state, VisualOrientation orientation)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -974,11 +974,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract Rectangle DrawGridErrorGlyph(RenderContext context, Rectangle cellRect, PaletteState state, bool rtl)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1049,11 +1049,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract Rectangle DrawGridRowGlyph(RenderContext context, GridRowGlyph rowGlyph, Rectangle cellRect, IPaletteContent paletteContent, PaletteState state, bool rtl)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1140,11 +1140,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract Rectangle DrawGridSortGlyph(RenderContext context, SortOrder sortOrder, Rectangle cellRect, IPaletteContent paletteContent, PaletteState state, bool rtl)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1231,11 +1231,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected static void DrawIconHelper(ViewContext context, Icon icon, Rectangle iconRect, VisualOrientation orientation)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1303,11 +1303,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected static void DrawImageHelper(ViewContext context, Image image, Color remapTransparent, Rectangle imageRect, VisualOrientation orientation, PaletteImageEffect effect, Color remapColor, Color remapNew)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1407,11 +1407,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void DrawInputControlDropDownGlyph(RenderContext context, Rectangle cellRect, IPaletteContent paletteContent, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1472,11 +1472,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void DrawInputControlNumericDownGlyph(RenderContext context, Rectangle cellRect, IPaletteContent paletteContent, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1537,11 +1537,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void DrawInputControlNumericUpGlyph(RenderContext context, Rectangle cellRect, IPaletteContent paletteContent, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1602,11 +1602,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void DrawRadioButton(RenderContext context, Rectangle displayRect, IPalette palette, bool enabled, bool checkState, bool tracking, bool pressed)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1691,11 +1691,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract IDisposable DrawRibbonApplicationButton(PaletteRibbonShape shape, RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1781,11 +1781,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract IDisposable DrawRibbonApplicationTab(PaletteRibbonShape shape, RenderContext context, Rectangle rect, PaletteState state, Color baseColor1, Color baseColor2, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1879,11 +1879,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract IDisposable DrawRibbonBack(PaletteRibbonShape shape, RenderContext context, Rectangle rect, PaletteState state, IPaletteRibbonBack palette, VisualOrientation orientation, bool composition, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1985,11 +1985,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void DrawRibbonClusterEdge(PaletteRibbonShape shape, RenderContext context, Rectangle displayRect, IPaletteBack paletteBack, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2058,11 +2058,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void DrawRibbonContextArrow(PaletteRibbonShape shape, RenderContext context, Rectangle displayRect, IPaletteRibbonGeneral paletteGeneral, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2131,11 +2131,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void DrawRibbonDialogBoxLauncher(PaletteRibbonShape shape, RenderContext context, Rectangle displayRect, IPaletteRibbonGeneral paletteGeneral, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2204,11 +2204,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void DrawRibbonDropArrow(PaletteRibbonShape shape, RenderContext context, Rectangle displayRect, IPaletteRibbonGeneral paletteGeneral, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2277,11 +2277,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void DrawRibbonGroupSeparator(PaletteRibbonShape shape, RenderContext context, Rectangle displayRect, IPaletteRibbonGeneral paletteGeneral, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2350,11 +2350,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void DrawRibbonOverflow(PaletteRibbonShape shape, RenderContext context, Rectangle displayRect, IPaletteRibbonGeneral paletteGeneral, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2423,11 +2423,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract IDisposable DrawRibbonTabContextTitle(PaletteRibbonShape shape, RenderContext context, Rectangle rect, IPaletteRibbonGeneral paletteGeneral, IPaletteRibbonBack paletteBack, IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2513,11 +2513,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void DrawSeparator(RenderContext context, Rectangle displayRect, IPaletteBack paletteBack, IPaletteBorder paletteBorder, Orientation orientation, PaletteState state, bool canMove)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2602,11 +2602,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void DrawTabBorder(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state, TabBorderStyle tabBorderStyle)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2683,11 +2683,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void DrawTrackGlyph(RenderContext context, PaletteState state, IPaletteElementColor elementPalette, Rectangle drawRect, Orientation orientation, bool volumeControl)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2764,11 +2764,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void DrawTrackPositionGlyph(RenderContext context, PaletteState state, IPaletteElementColor elementPalette, Rectangle drawRect, Orientation orientation, TickStyle tickStyle)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2845,11 +2845,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void DrawTrackTicksGlyph(RenderContext context, PaletteState state, IPaletteElementColor elementPalette, Rectangle drawRect, Orientation orientation, bool topRight, Size positionSize, int minimum, int maximum, int frequency)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -2958,11 +2958,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract bool EvalTransparentPaint(IPaletteBack paletteBack, IPaletteBorder paletteBorder, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3025,11 +3025,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract bool EvalTransparentPaint(IPaletteBack paletteBack, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3084,11 +3084,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract GraphicsPath GetBackPath(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3167,11 +3167,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract Padding GetBorderDisplayPadding(IPaletteBorder palette, PaletteState state, VisualOrientation orientation)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3234,11 +3234,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract GraphicsPath GetBorderPath(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3317,11 +3317,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract Padding GetBorderRawPadding(IPaletteBorder palette, PaletteState state, VisualOrientation orientation)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3384,11 +3384,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract Size GetCheckBoxPreferredSize(ViewLayoutContext context, IPalette palette, bool enabled, CheckState checkState, bool tracking, bool pressed)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3474,11 +3474,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract bool GetContentImageDisplayed(IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3525,11 +3525,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract Rectangle GetContentImageRectangle(IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3576,11 +3576,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract bool GetContentLongTextDisplayed(IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3627,11 +3627,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract Rectangle GetContentLongTextRectangle(IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3678,11 +3678,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract Size GetContentPreferredSize(ViewLayoutContext context, IPaletteContent palette, IContentValues values, VisualOrientation orientation, PaletteState state, bool composition, bool glowing)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3777,11 +3777,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract bool GetContentShortTextDisplayed(IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3828,11 +3828,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract Rectangle GetContentShortTextRectangle(IDisposable memento)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3879,11 +3879,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract Size GetDropDownButtonPreferredSize(ViewLayoutContext context, IPalette palette, PaletteState state, VisualOrientation orientation)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -3953,11 +3953,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract GraphicsPath GetOutsideBorderPath(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4036,11 +4036,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract Size GetRadioButtonPreferredSize(ViewLayoutContext context, IPalette palette, bool enabled, bool checkState, bool tracking, bool pressed)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4126,11 +4126,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract GraphicsPath GetTabBackPath(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state, TabBorderStyle tabBorderStyle)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4217,11 +4217,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract Padding GetTabBorderDisplayPadding(ViewLayoutContext context, IPaletteBorder palette, PaletteState state, VisualOrientation orientation, TabBorderStyle tabBorderStyle)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4300,11 +4300,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract bool GetTabBorderLeftDrawing(TabBorderStyle tabBorderStyle)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4351,11 +4351,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract GraphicsPath GetTabBorderPath(RenderContext context, Rectangle rect, IPaletteBorder palette, VisualOrientation orientation, PaletteState state, TabBorderStyle tabBorderStyle)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4442,11 +4442,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract int GetTabBorderSpacingGap(TabBorderStyle tabBorderStyle)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4493,11 +4493,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract IDisposable LayoutContent(ViewLayoutContext context, Rectangle availableRect, IPaletteContent palette, IContentValues values, VisualOrientation orientation, PaletteState state, bool composition, bool glowing)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4600,11 +4600,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void MeasureDragDropDockingGlyph(RenderDragDockingData dragData, IPaletteDragDrop dragDropPalette, PaletteDragFeedback feedback)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -4657,11 +4657,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract ToolStripRenderer RenderToolStrip(IPalette colorPalette)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>

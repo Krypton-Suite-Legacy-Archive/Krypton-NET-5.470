@@ -76,5 +76,14 @@ namespace TestApp
         {
             KryptonMessageBox.Show(this, $@"At Mouse Position {hlpevent.MousePos}", @"HelpRequested");
         }
+
+        private void kbtnLoadTheme_Click(object sender, EventArgs e)
+        {
+            kryptonPalette1.Import();
+
+            kryptonManager1.GlobalPalette = kryptonPalette1;
+
+            kryptonManager1.GlobalPaletteMode = PaletteModeManager.Custom;
+        }
     }
 }

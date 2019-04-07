@@ -14,7 +14,7 @@ BSD 3-Clause License
    | Krypton Component Suite 2019
 BSD 3-Clause License
 &#65533; Component Factory Pty Ltd, 2006-2019, All rights reserved. ">
-    <meta name="generator" content="docfx 2.40.12.0">
+    <meta name="generator" content="docfx 2.41.0.0">
     
     <link rel="shortcut icon" href="../Krypton.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -78,7 +78,7 @@ BSD 3-Clause License
   <div class="markdown level0 summary"><p>Implements base docking element functionality.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-
+  
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
@@ -160,7 +160,7 @@ BSD 3-Clause License
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract class DockingElement : Component, IComponent, IDisposable, IDockingElement, IEnumerable&lt;IDockingElement&gt;, IEnumerable</code></pre>
   </div>
-
+  
   
   
   
@@ -178,11 +178,11 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public DockingElement(string name)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -219,12 +219,12 @@ BSD 3-Clause License
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public virtual int Count { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -259,12 +259,12 @@ public virtual int Count { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public KryptonDockingManager DockingManager { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -297,12 +297,12 @@ public KryptonDockingManager DockingManager { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public bool HasDockManager { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -335,11 +335,11 @@ public bool HasDockManager { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual IDockingElement this[int index] { get; }</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -386,11 +386,11 @@ public bool HasDockManager { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual IDockingElement this[string name] { get; }</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -437,12 +437,12 @@ public bool HasDockManager { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public string Name { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -477,12 +477,12 @@ public string Name { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public virtual IDockingElement Parent { get; set; }</code></pre>
   </div>
-
+  
   
   
   
@@ -517,12 +517,12 @@ public virtual IDockingElement Parent { get; set; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Browsable(false)]
 public string Path { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -557,11 +557,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected abstract string XmlElementName { get; }</code></pre>
   </div>
-
+  
   
   
   
@@ -596,11 +596,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void DemandDockingManager()</code></pre>
   </div>
-
+  
   
   
   
@@ -633,11 +633,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void DemandPagesNotBePresent(KryptonPage[] pages)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -680,11 +680,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual KryptonDockingEdgeAutoHidden FindDockingEdgeAutoHidden(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -731,11 +731,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual KryptonDockingEdgeDocked FindDockingEdgeDocked(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -782,11 +782,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual KryptonDockingFloating FindDockingFloating(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -833,11 +833,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual KryptonDockingNavigator FindDockingNavigator(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -884,11 +884,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual KryptonDockingWorkspace FindDockingWorkspace(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -935,11 +935,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual IDockingElement FindPageElement(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -986,11 +986,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual DockingLocation FindPageLocation(string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1037,11 +1037,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual IDockingElement FindStorePageElement(DockingLocation location, string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1096,11 +1096,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual IEnumerator&lt;IDockingElement&gt; GetEnumerator()</code></pre>
   </div>
-
+  
   
   <h5 class="returns">Returns</h5>
   <table>
@@ -1136,11 +1136,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IDockingElement GetParentType(Type findType)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1185,11 +1185,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void LoadChildDockingElement(XmlReader xmlReader, KryptonPageCollection pages, IDockingElement child)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1240,11 +1240,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void LoadDockingElement(XmlReader xmlReader, KryptonPageCollection pages)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1287,11 +1287,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void LoadElementFromXml(XmlReader xmlReader, KryptonPageCollection pages)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1336,11 +1336,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void PropogateAction(DockingPropogateAction action, KryptonPage[] pages)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1385,11 +1385,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void PropogateAction(DockingPropogateAction action, int value)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1434,11 +1434,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void PropogateAction(DockingPropogateAction action, string[] uniqueNames)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1483,11 +1483,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual bool? PropogateBoolState(DockingPropogateBoolState state, string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1542,11 +1542,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void PropogateCellList(DockingPropogateCellList state, KryptonWorkspaceCellList cells)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1591,11 +1591,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void PropogateDragTargets(KryptonFloatingWindow floatingWindow, PageDragEndData dragData, DragTargetList targets)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1648,11 +1648,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void PropogateIntState(DockingPropogateIntState state, ref int value)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1697,11 +1697,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void PropogatePageList(DockingPropogatePageList state, KryptonPageCollection pages)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1746,11 +1746,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual KryptonPage PropogatePageState(DockingPropogatePageState state, string uniqueName)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1805,11 +1805,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual IDockingElement ResolvePath(string path)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1856,11 +1856,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void SaveElementToXml(XmlWriter xmlWriter)</code></pre>
   </div>
-
+  
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
@@ -1899,11 +1899,11 @@ public string Path { get; }</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-
+  
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
   </div>
-
+  
   
   <h5 class="returns">Returns</h5>
   <table>

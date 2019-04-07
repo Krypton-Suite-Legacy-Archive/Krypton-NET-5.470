@@ -8,8 +8,8 @@
 //  Version 5.470.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
 using ComponentFactory.Krypton.Toolkit;
+using System;
 
 namespace KryptonPaletteExamples
 {
@@ -141,6 +141,23 @@ namespace KryptonPaletteExamples
         private void EnableDropShadow(bool enabled)
         {
             UseDropShadow = enabled;
+        }
+
+        private void btnImportCustomPalette_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                kryptonPaletteCustom.Import();
+
+                kryptonManager.GlobalPalette = kryptonPaletteCustom;
+
+                kryptonManager.GlobalPaletteMode = PaletteModeManager.Custom;
+            }
+            catch (Exception exc)
+            {
+
+                throw;
+            }
         }
     }
 }

@@ -8,11 +8,19 @@
 
 =======
 
-# ["Toolkit help index"](https://rawgit.com/Wagnerp/Krypton-NET-4.7/master/Help/Output/index.html)
+# <img src="https://github.com/Wagnerp/Krypton-NET-5.470/blob/master/Assets/PNG/Help/Help_1_48_x_48.png" /><a href="https://wagnerp.github.io/Krypton-NET-5.470/Help/Output/index.html">Online Help</a>
 
 =======
 
 ## NOTE: With the advent of Windows 10 1803 being released to the general public, I am pleased to announce the availability of a 5.472 release that will support the .NET 4.7.2 framework. You can follow the project [here](https://github.com/Wagnerp/Krypton-NET-5.472).
+
+=======
+
+## 2019-04-04 Build 856 - Bugfixes
+* Fixed issue [#104](https://github.com/Wagnerp/Krypton-NET-5.470/issues/104), designer usage exceptions
+* Fixed issue [#116](https://github.com/Wagnerp/Krypton-NET-5.470/issues/116), `KryptonManager` now displays themes and names correctly
+* General fixes to `ThemeManager.cs` & `RibbonThemeManager.cs`
+* Build 856 (build date Thursday 4th April, 2019) is now available on NuGet
 
 =======
 
