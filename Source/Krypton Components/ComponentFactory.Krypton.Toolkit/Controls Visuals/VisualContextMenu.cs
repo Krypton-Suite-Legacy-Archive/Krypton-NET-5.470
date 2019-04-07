@@ -415,7 +415,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="levent">An EventArgs that contains the event data.</param>
         protected override void OnLayout(LayoutEventArgs levent)
         {
-            // Let base class calulcate fill rectangle
+            // Let base class calculate fill rectangle
             base.OnLayout(levent);
 
             // Need a render context for accessing the renderer

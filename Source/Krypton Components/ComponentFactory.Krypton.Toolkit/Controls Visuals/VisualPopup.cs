@@ -226,8 +226,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 Point screenPt = PointToScreen(pt);
                 PI.POINT screenPIPt = new PI.POINT
                 {
-                    x = screenPt.X,
-                    y = screenPt.Y
+                    X = screenPt.X,
+                    Y = screenPt.Y
                 };
                 IntPtr hWnd = PI.WindowFromPoint(screenPIPt);
 

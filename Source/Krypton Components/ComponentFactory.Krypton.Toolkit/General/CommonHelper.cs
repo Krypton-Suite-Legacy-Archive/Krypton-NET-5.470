@@ -1808,5 +1808,20 @@ namespace ComponentFactory.Krypton.Toolkit
             }
             return null;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rect"></param>
+        /// <param name="margins"></param>
+        public static void Deflate(this Rectangle rect, Padding margins)
+        {
+            rect.X += margins.Left;
+            rect.Y += margins.Top;
+            rect.Width -= (margins.Left+margins.Right);
+            rect.Height -= (margins.Top+margins.Bottom);
+
+        }
+
     }
 }

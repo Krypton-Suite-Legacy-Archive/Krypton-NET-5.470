@@ -197,7 +197,7 @@
             this.kryptonTextBox1.Hint = null;
             this.kryptonTextBox1.Location = new System.Drawing.Point(25, 59);
             this.kryptonTextBox1.Name = "kryptonTextBox1";
-            this.kryptonTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.kryptonTextBox1.Size = new System.Drawing.Size(100, 20);
             this.kryptonTextBox1.TabIndex = 4;
             this.kryptonTextBox1.Text = "kryptonTextBox1";
             this.kryptonTextBox1.ToolTipValues.Description = "Please type carefully -> Right";

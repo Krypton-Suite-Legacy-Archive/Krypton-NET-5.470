@@ -10,10 +10,13 @@
 // *****************************************************************************
 
 using System;
+using System.ComponentModel;
 using System.Text;
 using System.Runtime.InteropServices;
 // ReSharper disable IdentifierTypo
 // ReSharper disable InconsistentNaming
+// ReSharper disable UnusedMember.Local
+// ReSharper disable ArrangeTypeMemberModifiers
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -34,10 +37,11 @@ namespace ComponentFactory.Krypton.Toolkit
         internal const int SC_MAXIMIZE = 0xF030;
         internal const int SC_CLOSE = 0xF060;
         internal const int SC_RESTORE = 0xF120;
-        internal const int SW_SHOWNOACTIVATE = 4;
+        internal const int SW_SHOWNOACTIVATE = 0x004;
         internal const int WM_DESTROY = 0x0002;
         internal const int WM_NCDESTROY = 0x0082;
         internal const int WM_MOVE = 0x0003;
+        internal const int WM_SIZE = 0x0005; //	The WM_SIZE message is sent to a window after its size has changed.
         internal const int WM_SETFOCUS = 0x0007;
         internal const int WM_KILLFOCUS = 0x0008;
         internal const int WM_SETREDRAW = 0x000B;
@@ -47,7 +51,11 @@ namespace ComponentFactory.Krypton.Toolkit
         internal const int WM_CTLCOLOR = 0x0019;
         internal const int WM_ERASEBKGND = 0x0014;
         internal const int WM_MOUSEACTIVATE = 0x0021;
+        //	The WM_SHOWWINDOW message is sent to a window when the window is about to be hidden or shown
+        internal const int WM_SHOWWINDOW = 0x0018; 
+        // The WM_WINDOWPOSCHANGING message is sent to a window whose size, position, or place in the Z order is about to change as a result of a call to the SetWindowPos function or another window-management function.
         internal const int WM_WINDOWPOSCHANGING = 0x0046;
+        // The WM_WINDOWPOSCHANGED message is sent to a window whose size, position, or place in the Z order has changed as a result of a call to the SetWindowPos function or another window-management function.
         internal const int WM_WINDOWPOSCHANGED = 0x0047;
         internal const int WM_HELP = 0x0053;
         internal const int WM_NCCALCSIZE = 0x0083;
@@ -91,14 +99,6 @@ namespace ComponentFactory.Krypton.Toolkit
         internal const int WM_CONTEXTMENU = 0x007B;
         internal const int MA_NOACTIVATE = 0x03;
         internal const int EM_FORMATRANGE = 0x0439;
-        internal const int SWP_NOSIZE = 0x0001;
-        internal const int SWP_NOMOVE = 0x0002;
-        internal const int SWP_NOZORDER = 0x0004;
-        internal const int SWP_NOACTIVATE = 0x0010;
-        internal const int SWP_FRAMECHANGED = 0x0020;
-        internal const int SWP_NOOWNERZORDER = 0x0200;
-        internal const int SWP_SHOWWINDOW = 0x0040;
-        internal const int SWP_HIDEWINDOW = 0x0080;
         internal const int RDW_INVALIDATE = 0x0001;
         internal const int RDW_UPDATENOW = 0x0100;
         internal const int RDW_FRAME = 0x0400;
@@ -206,24 +206,155 @@ namespace ComponentFactory.Krypton.Toolkit
         internal static extern IntPtr GetActiveWindow();
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        internal static extern int ShowWindow(IntPtr hWnd, short cmdShow);
+        internal static extern int ShowWindow(IntPtr hWnd, int cmdShow);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         internal static extern ushort GetKeyState(int virtKey);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         internal static extern uint SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
+
         [DllImport("user32.dll", EntryPoint = "SendMessageW")]
         internal static extern IntPtr SendMessage( IntPtr hWnd, int Msg, IntPtr wParam, [MarshalAs(UnmanagedType.LPWStr)] string lParam);
 
+        [DllImport("user32.dll", SetLastError = true)]
+        internal static extern bool PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+
+        internal static void PostMessageSafe(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+        {
+            if (!PostMessage(hWnd, msg, wParam, lParam))
+            {
+                // An error occured
+                throw new Win32Exception(Marshal.GetLastWin32Error());
+            }
+        }
+
+        [Flags]
+        internal enum DeferWindowPosCommands : uint
+        {
+            ///<Summary>Retains the current size (ignores the cx and cy parameters).</Summary>
+            SWP_NOSIZE = 0x0001,
+
+            ///<Summary>Retains the current position (ignores the x and y parameters).</Summary>
+            SWP_NOMOVE = 0x0002,
+
+            ///<Summary>Retains the current Z order (ignores the hWndInsertAfter parameter).</Summary>
+            SWP_NOZORDER = 0x0004,
+
+            ///<Summary>Does not redraw changes. If this flag is set, no repainting of any kind occurs. This applies to the client area, the nonclient area (including the title bar and scroll bars), and any part of the parent window uncovered as a result of the window being moved. When this flag is set, the application must explicitly invalidate or redraw any parts of the window and parent window that need redrawing.</Summary>
+            SWP_NOREDRAW = 0x0008,
+
+            ///<Summary>Does not activate the window. If this flag is not set, the window is activated and moved to the top of either the topmost or non-topmost group (depending on the setting of the hWndInsertAfter parameter).</Summary>
+            SWP_NOACTIVATE = 0x0010,
+
+            ///<Summary>Sends a WM_NCCALCSIZE message to the window, even if the window's size is not being changed. If this flag is not specified, WM_NCCALCSIZE is sent only when the window's size is being changed.</Summary>
+            SWP_FRAMECHANGED = 0x0020,
+
+            ///<Summary>Draws a frame (defined in the window's class description) around the window.</Summary>
+            SWP_DRAWFRAME = 0x0020,
+
+            ///<Summary>Displays the window.</Summary>
+            SWP_SHOWWINDOW = 0x0040,
+
+            ///<Summary>Hides the window.</Summary>
+            SWP_HIDEWINDOW = 0x0080,
+
+            ///<Summary>Discards the entire contents of the client area. If this flag is not specified, the valid contents of the client area are saved and copied back into the client area after the window is sized or repositioned.</Summary>
+            SWP_NOCOPYBITS = 0x0100,
+
+            ///<Summary>Does not change the owner window's position in the Z order.</Summary>
+            SWP_NOOWNERZORDER = 0x0200,
+
+            ///<Summary>Same as the SWP_NOOWNERZORDER flag.</Summary>
+            SWP_NOREPOSITION = 0x0200,
+
+            ///<Summary>Prevents the window from receiving the WM_WINDOWPOSCHANGING message.</Summary>
+            SWP_NOSENDCHANGING = 0x0400
+        }
+
+        [DllImport("user32.dll")]
+        internal static extern IntPtr DeferWindowPos(IntPtr hWinPosInfo, IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, DeferWindowPosCommands uFlags );
+
+        [DllImport("user32.dll")]
+        internal static extern IntPtr BeginDeferWindowPos(int nNumWindows);
+
+        [DllImport("user32.dll")]
+        internal static extern bool EndDeferWindowPos(IntPtr hWinPosInfo);
+
+        [Flags]
+        internal enum SetWindowPosFlags : uint
+        {
+            /// <summary>If the calling thread and the thread that owns the window are attached to different input queues,
+            /// the system posts the request to the thread that owns the window. This prevents the calling thread from
+            /// blocking its execution while other threads process the request.</summary>
+            /// <remarks>SWP_ASYNCWINDOWPOS</remarks>
+            SynchronousWindowPosition = 0x4000,
+            /// <summary>Prevents generation of the WM_SYNCPAINT message.</summary>
+            /// <remarks>SWP_DEFERERASE</remarks>
+            SWP_DEFERERASE = 0x2000,
+            /// <summary>Draws a frame (defined in the window's class description) around the window.</summary>
+            /// <remarks>SWP_DRAWFRAME</remarks>
+            SWP_DRAWFRAME = 0x0020,
+            /// <summary>Applies new frame styles set using the SetWindowLong function. Sends a WM_NCCALCSIZE message to
+            /// the window, even if the window's size is not being changed. If this flag is not specified, WM_NCCALCSIZE
+            /// is sent only when the window's size is being changed.</summary>
+            /// <remarks>SWP_FRAMECHANGED</remarks>
+            SWP_FRAMECHANGED = 0x0020,
+            /// <summary>Hides the window.</summary>
+            /// <remarks>SWP_HIDEWINDOW</remarks>
+            SWP_HIDEWINDOW = 0x0080,
+            /// <summary>Does not activate the window. If this flag is not set, the window is activated and moved to the
+            /// top of either the topmost or non-topmost group (depending on the setting of the hWndInsertAfter
+            /// parameter).</summary>
+            /// <remarks>SWP_NOACTIVATE</remarks>
+            SWP_NOACTIVATE = 0x0010,
+            /// <summary>Discards the entire contents of the client area. If this flag is not specified, the valid
+            /// contents of the client area are saved and copied back into the client area after the window is sized or
+            /// repositioned.</summary>
+            /// <remarks>SWP_NOCOPYBITS</remarks>
+            DoNotCopyBits = 0x0100,
+            /// <summary>Retains the current position (ignores X and Y parameters).</summary>
+            /// <remarks>SWP_NOMOVE</remarks>
+            SWP_NOMOVE = 0x0002,
+            /// <summary>Does not change the owner window's position in the Z order.</summary>
+            /// <remarks>SWP_NOOWNERZORDER</remarks>
+            SWP_NOZORDER = 0x0200,
+            /// <summary>Does not redraw changes. If this flag is set, no repainting of any kind occurs. This applies to
+            /// the client area, the nonclient area (including the title bar and scroll bars), and any part of the parent
+            /// window uncovered as a result of the window being moved. When this flag is set, the application must
+            /// explicitly invalidate or redraw any parts of the window and parent window that need redrawing.</summary>
+            /// <remarks>SWP_NOREDRAW</remarks>
+            SWP_NOREDRAW = 0x0008,
+            /// <summary>Same as the SWP_NOOWNERZORDER flag.</summary>
+            /// <remarks>SWP_NOREPOSITION</remarks>
+            SWP_NOREPOSITION = 0x0200,
+            /// <summary>Prevents the window from receiving the WM_WINDOWPOSCHANGING message.</summary>
+            /// <remarks>SWP_NOSENDCHANGING</remarks>
+            SWP_DONOTSENDCHANGINGEVENT = 0x0400,
+            /// <summary>Retains the current size (ignores the cx and cy parameters).</summary>
+            /// <remarks>SWP_NOSIZE</remarks>
+            SWP_NOSIZE = 0x0001,
+            /// <summary>Retains the current Z order (ignores the hWndInsertAfter parameter).</summary>
+            /// <remarks>SWP_NOZORDER</remarks>
+            SWP_NOOWNERZORDER = 0x0004,
+            /// <summary>Displays the window.</summary>
+            /// <remarks>SWP_SHOWWINDOW</remarks>
+            SWP_SHOWWINDOW = 0x0040,
+        }
+
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        internal static extern int SetWindowPos(IntPtr hWnd, IntPtr hWndAfter, int X, int Y, int Width, int Height, uint flags);
+        internal static extern int SetWindowPos(IntPtr hWnd, IntPtr hWndAfter, int X, int Y, int Width, int Height, SetWindowPosFlags flags);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         internal static extern bool RedrawWindow(IntPtr hWnd, IntPtr rectUpdate, IntPtr hRgnUpdate, uint uFlags);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         internal static extern bool RedrawWindow(IntPtr hWnd, ref RECT rectUpdate, IntPtr hRgnUpdate, uint uFlags);
+
+        [DllImport("user32.dll", ExactSpelling = true, SetLastError = true)]
+        internal static extern bool UpdateLayeredWindow(IntPtr hwnd, IntPtr hdcDst,
+            ref POINT pptDst, ref SIZE psize, IntPtr hdcSrc, ref POINT pptSrc, uint crKey,
+            [In] ref BLENDFUNCTION pblend, uint dwFlags);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         internal static extern bool TrackMouseEvent(ref TRACKMOUSEEVENTS tme);
@@ -293,11 +424,98 @@ namespace ComponentFactory.Krypton.Toolkit
 
         [DllImport("user32.dll", EntryPoint = "GetIconInfo")]
         internal static extern bool GetIconInfo(IntPtr hIcon, out ICONINFO piconinfo);
+
+        /// <summary>
+        /// Retrieves a handle to a window that has the specified relationship (Z-Order or owner) to the specified window.
+        /// </summary>
+        /// <remarks>The EnumChildWindows function is more reliable than calling GetWindow in a loop. An application that
+        /// calls GetWindow to perform this task risks being caught in an infinite loop or referencing a handle to a window
+        /// that has been destroyed.</remarks>
+        /// <param name="hWnd">A handle to a window. The window handle retrieved is relative to this window, based on the
+        /// value of the uCmd parameter.</param>
+        /// <param name="uCmd">The relationship between the specified window and the window whose handle is to be
+        /// retrieved.</param>
+        /// <returns>
+        /// If the function succeeds, the return value is a window handle. If no window exists with the specified relationship
+        /// to the specified window, the return value is NULL. To get extended error information, call GetLastError.
+        /// </returns>
+        [DllImport("user32.dll", SetLastError = true)]
+        internal static extern IntPtr GetWindow(IntPtr hWnd, GetWindowType uCmd);
+
+        internal enum GetWindowType : uint
+        {
+            /// <summary>
+            /// The retrieved handle identifies the window of the same type that is highest in the Z order.
+            /// <para/>
+            /// If the specified window is a topmost window, the handle identifies a topmost window.
+            /// If the specified window is a top-level window, the handle identifies a top-level window.
+            /// If the specified window is a child window, the handle identifies a sibling window.
+            /// </summary>
+            GW_HWNDFIRST = 0,
+            /// <summary>
+            /// The retrieved handle identifies the window of the same type that is lowest in the Z order.
+            /// <para />
+            /// If the specified window is a topmost window, the handle identifies a topmost window.
+            /// If the specified window is a top-level window, the handle identifies a top-level window.
+            /// If the specified window is a child window, the handle identifies a sibling window.
+            /// </summary>
+            GW_HWNDLAST = 1,
+            /// <summary>
+            /// The retrieved handle identifies the window below the specified window in the Z order.
+            /// <para />
+            /// If the specified window is a topmost window, the handle identifies a topmost window.
+            /// If the specified window is a top-level window, the handle identifies a top-level window.
+            /// If the specified window is a child window, the handle identifies a sibling window.
+            /// </summary>
+            GW_HWNDNEXT = 2,
+            /// <summary>
+            /// The retrieved handle identifies the window above the specified window in the Z order.
+            /// <para />
+            /// If the specified window is a topmost window, the handle identifies a topmost window.
+            /// If the specified window is a top-level window, the handle identifies a top-level window.
+            /// If the specified window is a child window, the handle identifies a sibling window.
+            /// </summary>
+            GW_HWNDPREV = 3,
+            /// <summary>
+            /// The retrieved handle identifies the specified window's owner window, if any.
+            /// </summary>
+            GW_OWNER = 4,
+            /// <summary>
+            /// The retrieved handle identifies the child window at the top of the Z order,
+            /// if the specified window is a parent window; otherwise, the retrieved handle is NULL.
+            /// The function examines only child windows of the specified window. It does not examine descendant windows.
+            /// </summary>
+            GW_CHILD = 5,
+            /// <summary>
+            /// The retrieved handle identifies the enabled popup window owned by the specified window (the
+            /// search uses the first such window found using GW_HWNDNEXT); otherwise, if there are no enabled
+            /// popup windows, the retrieved handle is that of the specified window.
+            /// </summary>
+            GW_ENABLEDPOPUP = 6
+        }
+
+        [DllImport("user32.dll", ExactSpelling = true, CharSet = CharSet.Auto)]
+        internal static extern IntPtr GetParent(IntPtr hWnd);
+
         #endregion
 
         #region Static Gdi32
         [DllImport("gdi32.dll", CharSet = CharSet.Auto)]
         internal static extern int BitBlt(IntPtr hDestDC, int x, int y, int nWidth, int nHeight, IntPtr hSrcDC, int xSrc, int ySrc, int dwRop);
+
+        internal enum StretchBltMode
+        {
+            STRETCH_ANDSCANS = 1,
+            STRETCH_ORSCANS = 2,
+            STRETCH_DELETESCANS = 3,
+            STRETCH_HALFTONE = 4,
+        }
+
+        [DllImport("gdi32.dll")]
+        internal static extern StretchBltMode SetStretchBltMode(IntPtr hdc, StretchBltMode iStretchMode);
+
+        [DllImport("gdi32.dll")]
+        internal static extern IntPtr CreateBitmap(int nWidth, int nHeight, uint cPlanes, uint cBitsPerPel, IntPtr lpvBits);
 
         [DllImport("gdi32.dll", CharSet = CharSet.Auto)]
         internal static extern IntPtr CreateCompatibleBitmap(IntPtr hDC, int nWidth, int nHeight);
@@ -312,10 +530,19 @@ namespace ComponentFactory.Krypton.Toolkit
         internal static extern int GetDeviceCaps(IntPtr hDC, int nIndex);
 
         [DllImport("gdi32.dll", CharSet = CharSet.Auto)]
-        internal static extern IntPtr CreateDIBSection(IntPtr hDC, BITMAPINFO pBMI, uint iUsage, int ppvBits, IntPtr hSection, uint dwOffset);
+        internal static extern IntPtr CreateDIBSection(IntPtr hDC, [In] ref BITMAPINFO pBMI, uint iUsage, out IntPtr ppvBits, IntPtr hSection, uint dwOffset);
 
         [DllImport("gdi32.dll", CharSet = CharSet.Auto)]
         internal static extern IntPtr CreateCompatibleDC(IntPtr hDC);
+
+        [DllImport("gdi32.dll")]
+        internal static extern uint GetPixel(IntPtr hdc, int nXPos, int nYPos);
+
+        [DllImport("gdi32.dll")]
+        internal static extern uint SetPixel(IntPtr hdc, int X, int Y, uint crColor);
+
+        [DllImport("gdi32.dll")]
+        internal static extern int GetObject(IntPtr hgdiobj, int cbBuffer, ref BITMAP lpvObject);
 
         [DllImport("gdi32.dll", CharSet = CharSet.Auto)]
         internal static extern IntPtr SelectObject(IntPtr hDC, IntPtr hObject);
@@ -323,8 +550,41 @@ namespace ComponentFactory.Krypton.Toolkit
         [DllImport("gdi32.dll", CharSet = CharSet.Auto)]
         internal static extern IntPtr DeleteObject(IntPtr hObject);
 
+        public enum StockObjects
+        {
+            WHITE_BRUSH = 0,
+            LTGRAY_BRUSH = 1,
+            GRAY_BRUSH = 2,
+            DKGRAY_BRUSH = 3,
+            BLACK_BRUSH = 4,
+            NULL_BRUSH = 5,
+            HOLLOW_BRUSH = NULL_BRUSH,
+            WHITE_PEN = 6,
+            BLACK_PEN = 7,
+            NULL_PEN = 8,
+            OEM_FIXED_FONT = 10,
+            ANSI_FIXED_FONT = 11,
+            ANSI_VAR_FONT = 12,
+            SYSTEM_FONT = 13,
+            DEVICE_DEFAULT_FONT = 14,
+            DEFAULT_PALETTE = 15,
+            SYSTEM_FIXED_FONT = 16,
+            DEFAULT_GUI_FONT = 17,
+            DC_BRUSH = 18,
+            DC_PEN = 19,
+        }
+
+        [DllImport("gdi32.dll")]
+        internal static extern IntPtr GetStockObject(StockObjects fnObject);
+
         [DllImport("gdi32.dll", CharSet = CharSet.Auto)]
         internal static extern bool DeleteDC(IntPtr hDC);
+
+        [DllImport("gdi32.dll")]
+        internal static extern int SetDCPenColor(IntPtr hdc, int crColor);
+
+        [DllImport("gdi32.dll")]
+        internal static extern int SetDCBrushColor(IntPtr hdc, int crColor);
 
         [DllImport("gdi32.dll", EntryPoint = "SaveDC", CharSet = CharSet.Auto, SetLastError = true, ExactSpelling = true)]
         internal static extern int IntSaveDC(HandleRef hDC);
@@ -334,6 +594,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
         [DllImport("gdi32.dll", CharSet = CharSet.Auto, SetLastError = true, ExactSpelling = true)]
         internal static extern bool GetViewportOrgEx(HandleRef hDC, [In, Out]POINTC point);
+
+        [DllImport("gdi32.dll")]
+        internal static extern bool OffsetViewportOrgEx(IntPtr hdc, int nXOffset, int nYOffset, out POINT lpPoint);
 
         [DllImport("gdi32.dll", EntryPoint = "CreateRectRgn", CharSet = CharSet.Auto, SetLastError = true, ExactSpelling = true)]
         internal static extern IntPtr IntCreateRectRgn(int x1, int y1, int x2, int y2);
@@ -345,7 +608,7 @@ namespace ComponentFactory.Krypton.Toolkit
         internal static extern bool SetViewportOrgEx(HandleRef hDC, int x, int y, [In, Out]POINTC point);
 
         [DllImport("gdi32.dll", CharSet = CharSet.Auto, SetLastError = true, ExactSpelling = true)]
-        internal static extern int GetRgnBox(HandleRef hRegion, ref RECT clipRect);
+        internal static extern int GetRgnBox(IntPtr hRegion, ref RECT clipRect);
 
         [DllImport("gdi32.dll", CharSet = CharSet.Auto, SetLastError = true, ExactSpelling = true)]
         internal static extern int CombineRgn(HandleRef hRgn, HandleRef hRgn1, HandleRef hRgn2, int nCombineMode);
@@ -364,6 +627,19 @@ namespace ComponentFactory.Krypton.Toolkit
 
         [DllImport("gdi32.dll", CharSet = CharSet.Auto, SetLastError = true, ExactSpelling = true)]
         internal static extern IntPtr CreateSolidBrush(int crColor);
+
+        [DllImport("gdi32.dll")]
+        internal static extern bool MoveToEx(IntPtr hdc, int X, int Y, IntPtr lpPoint);
+
+        [DllImport("gdi32.dll")]
+        internal static extern bool LineTo(IntPtr hdc, int nXEnd, int nYEnd);
+
+        [DllImport("gdi32.dll")]
+        internal static extern bool Rectangle( IntPtr hdc, int nLeftRect, int nTopRect, int nRightRect, int nBottomRect);
+
+        [DllImport("user32.dll")]
+        internal static extern int FillRect(IntPtr hDC, [In] ref RECT lprc, IntPtr hbr);
+
         #endregion
 
         #region Static DwmApi
@@ -415,8 +691,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [StructLayout(LayoutKind.Sequential)]
         internal struct POINT
         {
-            public int x;
-            public int y;
+            public int X;
+            public int Y;
         }
 
         [StructLayout(LayoutKind.Sequential)]
@@ -521,17 +797,17 @@ namespace ComponentFactory.Krypton.Toolkit
         [StructLayout(LayoutKind.Sequential)]
         internal class BITMAPINFO
         {
-            public int biSize;
+            public uint biSize;
             public int biWidth;
             public int biHeight;
-            public short biPlanes;
-            public short biBitCount;
-            public int biCompression;
-            public int biSizeImage;
+            public ushort biPlanes;
+            public ushort biBitCount;
+            public uint biCompression;
+            public uint biSizeImage;
             public int biXPelsPerMeter;
             public int biYPelsPerMeter;
-            public int biClrUsed;
-            public int biClrImportant;
+            public uint biClrUsed;
+            public uint biClrImportant;
             public byte bmiColors_rgbBlue;
             public byte bmiColors_rgbGreen;
             public byte bmiColors_rgbRed;
@@ -1164,6 +1440,44 @@ namespace ComponentFactory.Krypton.Toolkit
             public Int32 flags;         // Specifies the cursor state. This parameter can be one of the following values:
             public IntPtr hCursor;          // Handle to the cursor. 
             public POINT ptScreenPos;       // A POINT structure that receives the screen coordinates of the cursor. 
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct BLENDFUNCTION
+        {
+            //
+            // currently defined blend operation
+            //
+            public static byte AC_SRC_OVER = 0x00;
+
+            //
+            // currently defined alpha format
+            //
+            public static byte AC_SRC_ALPHA = 0x01;
+
+            public byte BlendOp;
+            public byte BlendFlags;
+            public byte SourceConstantAlpha;
+            public byte AlphaFormat;
+
+            public BLENDFUNCTION(byte op, byte flags, byte alpha, byte format)
+            {
+                BlendOp = op;
+                BlendFlags = flags;
+                SourceConstantAlpha = alpha;
+                AlphaFormat = format;
+            }
+        }
+
+        public struct BITMAP
+        {
+            public int bmType;
+            public int bmWidth;
+            public int bmHeight;
+            public int bmWidthBytes;
+            public ushort bmPlanes;
+            public ushort bmBitsPixel;
+            public IntPtr bmBits;
         }
         #endregion
 

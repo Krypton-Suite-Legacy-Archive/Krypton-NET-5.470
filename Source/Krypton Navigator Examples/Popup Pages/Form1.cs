@@ -20,7 +20,7 @@ using ComponentFactory.Krypton.Navigator;
 
 namespace PopupPages
 {
-    public partial class Form1 : Form
+    public partial class Form1 : KryptonForm
     {
         public Form1()
         {
