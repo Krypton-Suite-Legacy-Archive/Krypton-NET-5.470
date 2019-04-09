@@ -1774,39 +1774,32 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         /// <summary>
+        /// Gets the current active cusrsor, and if that is null use the current default cursor
+        /// </summary>
+        /// <returns>Cursor Hotspot</returns>
+        public static Point CaptureCursor()
+        {
+            Cursor cur = Cursor.Current;
+            if (cur == null)
+            {
+                cur = Cursors.Default;
+            }
+
+            return cur.HotSpot;
+        }
+
+        /// <summary>
         /// 
         /// </summary>
-        /// <returns></returns>
-        public static Icon CaptureCursor()
+        /// <param name="rect"></param>
+        /// <param name="margins"></param>
+        public static void Deflate(this Rectangle rect, Padding margins)
         {
-            PI.CURSORINFO ci = new PI.CURSORINFO();
-            ci.cbSize = Marshal.SizeOf(ci);
-
-            if (PI.GetCursorInfo(ref ci))
-            {
-                if (ci.flags == PI.CURSOR_SHOWING)
-                {
-                    IntPtr icon = PI.CopyIcon(ci.hCursor);
-                    if (PI.GetIconInfo(icon, out PI.ICONINFO icInfo))
-                    {
-                        //  x = ci.ptScreenPos.x - ((int)icInfo.xHotspot);
-                        //  y = ci.ptScreenPos.y - ((int)icInfo.yHotspot);
-                        Icon ic = Icon.FromHandle(icon);
-                        if (icInfo.hbmColor != IntPtr.Zero)
-                        {
-                            PI.DeleteObject(icInfo.hbmColor);
-                        }
-
-                        if (icInfo.hbmMask != IntPtr.Zero)
-                        {
-                            PI.DeleteObject(icInfo.hbmMask);
-                        }
-
-                        return ic;
-                    }
-                }
-            }
-            return null;
+            rect.X += margins.Left;
+            rect.Y += margins.Top;
+            rect.Width -= (margins.Left+margins.Right);
+            rect.Height -= (margins.Top+margins.Bottom);
         }
+
     }
 }

@@ -534,9 +534,9 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed && !Disposing && IsHandleCreated)
             {
                 PI.SetWindowPos(Handle, IntPtr.Zero, 0, 0, 0, 0,
-                                PI.SWP_NOACTIVATE | PI.SWP_NOMOVE |
-                                PI.SWP_NOZORDER | PI.SWP_NOSIZE |
-                                PI.SWP_NOOWNERZORDER | PI.SWP_FRAMECHANGED);
+                                PI.SetWindowPosFlags.SWP_NOACTIVATE | PI.SetWindowPosFlags.SWP_NOMOVE |
+                                PI.SetWindowPosFlags.SWP_NOZORDER | PI.SetWindowPosFlags.SWP_NOSIZE |
+                                PI.SetWindowPosFlags.SWP_NOOWNERZORDER | PI.SetWindowPosFlags.SWP_FRAMECHANGED);
             }
         }
         #endregion
@@ -1106,12 +1106,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 PI.GetMonitorInfo(monitor, monitorInfo);
                 PI.RECT rcWorkArea = monitorInfo.rcWork;
                 PI.RECT rcMonitorArea = monitorInfo.rcMonitor;
-                mmi.ptMaxPosition.x = Math.Abs(rcWorkArea.left - rcMonitorArea.left);
-                mmi.ptMaxPosition.y = Math.Abs(rcWorkArea.top - rcMonitorArea.top);
-                mmi.ptMaxSize.x = Math.Abs(rcWorkArea.right - rcWorkArea.left);
-                mmi.ptMaxSize.y = Math.Abs(rcWorkArea.bottom - rcWorkArea.top);
-                mmi.ptMinTrackSize.x = Math.Max(mmi.ptMinTrackSize.x*2, this.MinimumSize.Width);
-                mmi.ptMinTrackSize.y = Math.Max(mmi.ptMinTrackSize.y*2, this.MinimumSize.Height);
+                mmi.ptMaxPosition.X = Math.Abs(rcWorkArea.left - rcMonitorArea.left);
+                mmi.ptMaxPosition.Y = Math.Abs(rcWorkArea.top - rcMonitorArea.top);
+                mmi.ptMaxSize.X = Math.Abs(rcWorkArea.right - rcWorkArea.left);
+                mmi.ptMaxSize.Y = Math.Abs(rcWorkArea.bottom - rcWorkArea.top);
+                mmi.ptMinTrackSize.X = Math.Max(mmi.ptMinTrackSize.X*2, this.MinimumSize.Width);
+                mmi.ptMinTrackSize.Y = Math.Max(mmi.ptMinTrackSize.Y*2, this.MinimumSize.Height);
             }
 
             Marshal.StructureToPtr(mmi, m.LParam, true);

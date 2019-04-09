@@ -42,7 +42,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Events
         /// <summary>
-        /// Occures when the value of the Text property changes.
+        /// Occurs when the value of the Text property changes.
         /// </summary>
         public event EventHandler TextChanged;
         #endregion

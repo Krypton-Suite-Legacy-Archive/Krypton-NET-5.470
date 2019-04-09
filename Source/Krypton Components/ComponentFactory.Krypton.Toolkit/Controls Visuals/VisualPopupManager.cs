@@ -677,8 +677,8 @@ namespace ComponentFactory.Krypton.Toolkit
             // Convert from a class to a structure
             PI.POINT screenPIPt = new PI.POINT
             {
-                x = screenPt.X,
-                y = screenPt.Y
+                X = screenPt.X,
+                Y = screenPt.Y
             };
 
             // Get the window handle of the window under this screen point
