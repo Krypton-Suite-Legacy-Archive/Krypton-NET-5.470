@@ -16,10 +16,17 @@
 
 =======
 
-## 2019-04-04 Build 856 - Bugfixes
+## 2019-04-04 Build 856 - Bugfixes and contributions
 * Fixed issue [#104](https://github.com/Wagnerp/Krypton-NET-5.470/issues/104), designer usage exceptions
-* Fixed issue [#116](https://github.com/Wagnerp/Krypton-NET-5.470/issues/116), `KryptonManager` now displays themes and names correctly
+* Fixed issue [#116](https://github.com/Wagnerp/Krypton-NET-5.470/issues/116), 
+* `KryptonManager` now displays themes and names correctly
 * General fixes to `ThemeManager.cs` & `RibbonThemeManager.cs`
+* Implement `DrawItem()` event in KryptonComboBox
+* Merge Muratoner: Make input box have a PasswordChar
+* Merge Alexandr250: Adding a textual cue (Watermark) to KryptonTextBox
+* Merge Thavarajan: Datagridview combobox updated for datasource integration
+* More [#17](https://github.com/Wagnerp/Krypton-NET-5.470/issues/17) 
+* Make the PopupPosition values follow serialisation reflection IDE Designer needs
 * Build 856 (build date Thursday 4th April, 2019) is now available on NuGet
 
 =======
