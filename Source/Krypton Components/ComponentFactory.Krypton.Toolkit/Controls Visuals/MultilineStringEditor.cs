@@ -189,12 +189,12 @@ namespace ComponentFactory.Krypton.Toolkit
             PI.MINMAXINFO minMax = (PI.MINMAXINFO)Marshal.PtrToStructure(m.LParam, typeof(PI.MINMAXINFO));
             if (!MaximumSize.IsEmpty)
             {
-                minMax.ptMaxTrackSize.x = MaximumSize.Width;
-                minMax.ptMaxTrackSize.y = MaximumSize.Height;
+                minMax.ptMaxTrackSize.X = MaximumSize.Width;
+                minMax.ptMaxTrackSize.Y = MaximumSize.Height;
             }
 
-            minMax.ptMinTrackSize.x = MinimumSize.Width;
-            minMax.ptMinTrackSize.y = MinimumSize.Height;
+            minMax.ptMinTrackSize.X = MinimumSize.Width;
+            minMax.ptMinTrackSize.Y = MinimumSize.Height;
             Marshal.StructureToPtr(minMax, m.LParam, false);
             return true;
         }

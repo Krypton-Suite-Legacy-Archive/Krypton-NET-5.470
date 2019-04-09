@@ -387,8 +387,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 set => PI.SetWindowPos(Handle,
                     IntPtr.Zero,
                     0, 0, 0, 0,
-                    (uint)(PI.SWP_NOMOVE | PI.SWP_NOSIZE |
-                           (value ? PI.SWP_SHOWWINDOW : PI.SWP_HIDEWINDOW)));
+                    (PI.SetWindowPosFlags.SWP_NOMOVE | PI.SetWindowPosFlags.SWP_NOSIZE |
+                           (value ? PI.SetWindowPosFlags.SWP_SHOWWINDOW : PI.SetWindowPosFlags.SWP_HIDEWINDOW))
+                    );
             }
             #endregion
 

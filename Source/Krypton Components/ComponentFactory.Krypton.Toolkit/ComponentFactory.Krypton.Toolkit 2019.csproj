@@ -286,11 +286,13 @@
     <Compile Include="General\KryptonReadOnlyControls.cs" />
     <Compile Include="General\NullContentValues.cs" />
     <Compile Include="Controller\TooltipController.cs" />
+    <Compile Include="General\ShadowManager.cs" />
     <Compile Include="General\TooltipManager.cs" />
     <Compile Include="General\TypedRestrictCollection.cs" />
     <Compile Include="General\PlatformInvoke.cs" />
     <Compile Include="General\TypedCollection.cs" />
     <Compile Include="ContextMenu\KryptonContextMenuCollections.cs" />
+    <Compile Include="General\WindowStylesHelper.cs" />
     <Compile Include="Palette Base\PaletteBack\PaletteBackColor1.cs" />
     <Compile Include="Palette Base\PaletteBack\PaletteBackLightenColors.cs" />
     <Compile Include="Palette Base\PaletteBack\PaletteBackToPalette.cs" />
@@ -503,6 +505,7 @@
     <Compile Include="Palette Controls\PaletteColorButtonStrings.cs" />
     <Compile Include="Rendering\KryptonOffice2013Renderer.cs" />
     <Compile Include="Rendering\KryptonOffice365Renderer.cs" />
+    <Compile Include="Rendering\RenderFormShadow.cs" />
     <Compile Include="Rendering\RenderOffice2013.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -814,6 +817,7 @@
     <Compile Include="Values\ColorButtonValues.cs" />
     <Compile Include="Values\CaptionValues.cs" />
     <Compile Include="Values\PopupPositionValues.cs" />
+    <Compile Include="Values\ShadowValues.cs" />
     <Compile Include="Values\ToolTipValues.cs" />
     <Compile Include="Values\TreeViewImages.cs" />
     <Compile Include="Values\GalleryImages.cs" />
@@ -1384,7 +1388,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" BuildVersion_StartDate="2000/1/1" />
+      <UserProperties BuildVersion_StartDate="2000/1/1" DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

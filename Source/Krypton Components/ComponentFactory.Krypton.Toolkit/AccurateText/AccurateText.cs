@@ -378,16 +378,19 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 IntPtr mDC = PI.CreateCompatibleDC(gDC);
 
-                PI.BITMAPINFO bmi = new PI.BITMAPINFO();
-                bmi.biSize = Marshal.SizeOf(bmi);
-                bmi.biWidth = bounds.Width;
-                bmi.biHeight = -(bounds.Height + (GLOW_EXTRA_HEIGHT * 2));
-                bmi.biCompression = 0;
-                bmi.biBitCount = 32;
-                bmi.biPlanes = 1;
+                PI.BITMAPINFO bmi = new PI.BITMAPINFO
+                {
+                    biWidth = bounds.Width,
+                    biHeight = -(bounds.Height + (GLOW_EXTRA_HEIGHT * 2)),
+                    biCompression = 0,
+                    biBitCount = 32,
+                    biPlanes = 1
+                };
+                bmi.biSize = (uint) Marshal.SizeOf(bmi);
+
 
                 // Create a device independent bitmap and select into the memory DC
-                IntPtr hDIB = PI.CreateDIBSection(gDC, bmi, 0, 0, IntPtr.Zero, 0);
+                IntPtr hDIB = PI.CreateDIBSection(gDC, ref bmi, 0, out _, IntPtr.Zero, 0);
                 PI.SelectObject(mDC, hDIB);
 
                 if (copyBackground)
@@ -481,16 +484,18 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 IntPtr mDC = PI.CreateCompatibleDC(gDC);
 
-                PI.BITMAPINFO bmi = new PI.BITMAPINFO();
-                bmi.biSize = Marshal.SizeOf(bmi);
-                bmi.biWidth = bounds.Width;
-                bmi.biHeight = -(bounds.Height);
-                bmi.biCompression = 0;
-                bmi.biBitCount = 32;
-                bmi.biPlanes = 1;
+                PI.BITMAPINFO bmi = new PI.BITMAPINFO
+                {
+                    biWidth = bounds.Width,
+                    biHeight = -(bounds.Height),
+                    biCompression = 0,
+                    biBitCount = 32,
+                    biPlanes = 1
+                };
+                bmi.biSize = (uint)Marshal.SizeOf(bmi);
 
                 // Create a device independent bitmap and select into the memory DC
-                IntPtr hDIB = PI.CreateDIBSection(gDC, bmi, 0, 0, IntPtr.Zero, 0);
+                IntPtr hDIB = PI.CreateDIBSection(gDC, ref bmi, 0, out _, IntPtr.Zero, 0);
                 PI.SelectObject(mDC, hDIB);
 
                 if (copyBackground)
