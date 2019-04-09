@@ -85,5 +85,13 @@ namespace TestApp
 
             kryptonManager1.GlobalPaletteMode = PaletteModeManager.Custom;
         }
+
+        private void kryptonButton3_Click(object sender, EventArgs e)
+        {
+            using (SmallForm smallForm = new SmallForm())
+            {
+                smallForm.ShowDialog(this);
+            }
+        }
     }
 }

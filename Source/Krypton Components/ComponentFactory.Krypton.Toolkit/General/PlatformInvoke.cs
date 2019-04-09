@@ -17,6 +17,7 @@ using System.Runtime.InteropServices;
 // ReSharper disable InconsistentNaming
 // ReSharper disable UnusedMember.Local
 // ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable BuiltInTypeReferenceStyle
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -691,8 +692,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [StructLayout(LayoutKind.Sequential)]
         internal struct POINT
         {
-            public int X;
-            public int Y;
+            public Int32 X;
+            public Int32 Y;
         }
 
         [StructLayout(LayoutKind.Sequential)]
@@ -1438,8 +1439,10 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             public Int32 cbSize;        // Specifies the size, in bytes, of the structure. 
             public Int32 flags;         // Specifies the cursor state. This parameter can be one of the following values:
-            public IntPtr hCursor;          // Handle to the cursor. 
-            public POINT ptScreenPos;       // A POINT structure that receives the screen coordinates of the cursor. 
+                                        //    0                 The cursor is hidden.
+                                        //    CURSOR_SHOWING    The cursor is showing.
+            public IntPtr hCursor;      // Handle to the cursor. 
+            public POINT ptScreenPos;   // A POINT structure that receives the screen coordinates of the cursor. 
         }
 
         [StructLayout(LayoutKind.Sequential)]

@@ -52,6 +52,7 @@
             this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.kryptonButton3 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
@@ -83,6 +84,7 @@
             // 
             // kryptonPanel2
             // 
+            this.kryptonPanel2.Controls.Add(this.kryptonButton3);
             this.kryptonPanel2.Controls.Add(this.kbtnLoadTheme);
             this.kryptonPanel2.Controls.Add(this.kryptonNavigator1);
             this.kryptonPanel2.Controls.Add(this.kbtnApplyTheme);
@@ -268,6 +270,19 @@
             this.buttonSpecAny1.ToolTipTitle = "Title";
             this.buttonSpecAny1.UniqueName = "8D0C7B51F6A946484D932C2A06451172";
             // 
+            // kryptonButton3
+            // 
+            this.kryptonButton3.Location = new System.Drawing.Point(174, 338);
+            this.kryptonButton3.Name = "kryptonButton3";
+            this.kryptonButton3.Size = new System.Drawing.Size(143, 53);
+            this.kryptonButton3.TabIndex = 17;
+            this.kryptonButton3.ToolTipValues.Description = "Applies the user selected theme";
+            this.kryptonButton3.ToolTipValues.EnableToolTips = true;
+            this.kryptonButton3.ToolTipValues.Heading = "Apply Theme";
+            this.kryptonButton3.ToolTipValues.Image = global::TestApp.Properties.Resources.Square_Design_32_x_32_New_Green;
+            this.kryptonButton3.Values.Text = "Show Small \r\nTooltip Form";
+            this.kryptonButton3.Click += new System.EventHandler(this.kryptonButton3_Click);
+            // 
             // Form1
             // 
             this.AllowButtonSpecToolTips = true;
@@ -316,6 +331,7 @@
         private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPage2;
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnLoadTheme;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton3;
     }
 }
 

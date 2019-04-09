@@ -1774,39 +1774,18 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         /// <summary>
-        /// 
+        /// Gets the current active cusrsor, and if that is null use the current default cursor
         /// </summary>
-        /// <returns></returns>
-        public static Icon CaptureCursor()
+        /// <returns>Cursor Hotspot</returns>
+        public static Point CaptureCursor()
         {
-            PI.CURSORINFO ci = new PI.CURSORINFO();
-            ci.cbSize = Marshal.SizeOf(ci);
-
-            if (PI.GetCursorInfo(ref ci))
+            Cursor cur = Cursor.Current;
+            if (cur == null)
             {
-                if (ci.flags == PI.CURSOR_SHOWING)
-                {
-                    IntPtr icon = PI.CopyIcon(ci.hCursor);
-                    if (PI.GetIconInfo(icon, out PI.ICONINFO icInfo))
-                    {
-                        //  x = ci.ptScreenPos.x - ((int)icInfo.xHotspot);
-                        //  y = ci.ptScreenPos.y - ((int)icInfo.yHotspot);
-                        Icon ic = Icon.FromHandle(icon);
-                        if (icInfo.hbmColor != IntPtr.Zero)
-                        {
-                            PI.DeleteObject(icInfo.hbmColor);
-                        }
-
-                        if (icInfo.hbmMask != IntPtr.Zero)
-                        {
-                            PI.DeleteObject(icInfo.hbmMask);
-                        }
-
-                        return ic;
-                    }
-                }
+                cur = Cursors.Default;
             }
-            return null;
+
+            return cur.HotSpot;
         }
 
         /// <summary>
@@ -1820,7 +1799,6 @@ namespace ComponentFactory.Krypton.Toolkit
             rect.Y += margins.Top;
             rect.Width -= (margins.Left+margins.Right);
             rect.Height -= (margins.Top+margins.Bottom);
-
         }
 
     }
