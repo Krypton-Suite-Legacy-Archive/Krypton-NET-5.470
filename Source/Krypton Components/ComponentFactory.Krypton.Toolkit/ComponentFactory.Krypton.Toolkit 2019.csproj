@@ -505,7 +505,6 @@
     <Compile Include="Palette Controls\PaletteColorButtonStrings.cs" />
     <Compile Include="Rendering\KryptonOffice2013Renderer.cs" />
     <Compile Include="Rendering\KryptonOffice365Renderer.cs" />
-    <Compile Include="Rendering\RenderFormShadow.cs" />
     <Compile Include="Rendering\RenderOffice2013.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -9,11 +9,12 @@
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Windows.Forms;
-using System.Diagnostics;
 using System.Reflection;
+using System.Windows.Forms;
+
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -117,7 +118,7 @@ namespace ComponentFactory.Krypton.Navigator
 
                 // Move the panel back to a minus position so it does not show
                 // until it is layed out again by the owning navigator instance
-                _navigator.ChildPanel.Location = new Point(-_navigator.ChildPanel.Width, 
+                _navigator.ChildPanel.Location = new Point(-_navigator.ChildPanel.Width,
                                                            -_navigator.ChildPanel.Height);
 
                 _navigator.ReturnChildPanel();
@@ -211,7 +212,7 @@ namespace ComponentFactory.Krypton.Navigator
                     break;
             }
 
-            PopupPageEventArgs e = new PopupPageEventArgs(_page, 
+            PopupPageEventArgs e = new PopupPageEventArgs(_page,
                                                           _navigator.Pages.IndexOf(_page),
                                                           parentScreenRect);
 
