@@ -38,9 +38,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Events
         /// <summary>
-		/// Occurs when the value of the AutoSize property changes.
-		/// </summary>
-		[Browsable(false)]
+        /// Occurs when the value of the AutoSize property changes.
+        /// </summary>
+        [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new event EventHandler AutoSizeChanged;

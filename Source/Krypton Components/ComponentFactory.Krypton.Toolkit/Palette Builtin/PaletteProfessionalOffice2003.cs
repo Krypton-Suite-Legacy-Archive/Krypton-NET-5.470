@@ -41,7 +41,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteProfessionalOffice2003 class.
-		/// </summary>
+        /// </summary>
         public PaletteProfessionalOffice2003()
         {
         }

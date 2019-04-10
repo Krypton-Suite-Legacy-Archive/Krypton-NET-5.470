@@ -14,32 +14,32 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Implement a triple palette that exposes palette metrics.
-	/// </summary>
-	public class PaletteTripleMetric : PaletteTriple, 
+    /// </summary>
+    public class PaletteTripleMetric : PaletteTriple, 
                                        IPaletteMetric
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private PaletteTripleMetricRedirect _inherit;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteTripleMetric class.
-		/// </summary>
+        /// </summary>
         /// <param name="inherit">Source for palette defaulted values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteTripleMetric(PaletteTripleMetricRedirect inherit,
                                    NeedPaintHandler needPaint)
             : base(inherit, needPaint)
-		{
+        {
             Debug.Assert(inherit != null);
             
             // Remember inheritance for metric values
             _inherit = inherit;
         }
-		#endregion
+        #endregion
 
         #region SetInherit
         /// <summary>

@@ -14,11 +14,11 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Implement storage for palette content image details.
-	/// </summary>
-	public class PaletteContentImage : Storage
-	{
+    /// <summary>
+    /// Implement storage for palette content image details.
+    /// </summary>
+    public class PaletteContentImage : Storage
+    {
         #region Internal Classes
         private class InternalStorage
         {
@@ -52,7 +52,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Instance Fields
+        #region Instance Fields
         private InternalStorage _storage;
         #endregion
 
@@ -65,42 +65,42 @@ namespace ComponentFactory.Krypton.Toolkit
         public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
-		#region Identity
-		/// <summary>
-		/// Initialize a new instance of the PaletteContentImage class.
-		/// </summary>
+        #region Identity
+        /// <summary>
+        /// Initialize a new instance of the PaletteContentImage class.
+        /// </summary>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteContentImage(NeedPaintHandler needPaint)
-		{
+        {
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
         }
-		#endregion
+        #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => ((_storage == null) || _storage.IsDefault);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => ((_storage == null) || _storage.IsDefault);
 
-	    #endregion
+        #endregion
 
-		#region ImageH
-		/// <summary>
-		/// Gets the horizontal relative alignment of the image.
-		/// </summary>
+        #region ImageH
+        /// <summary>
+        /// Gets the horizontal relative alignment of the image.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Relative horizontal alignment of content image.")]
-		[DefaultValue(typeof(PaletteRelativeAlign), "Inherit")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public PaletteRelativeAlign ImageH
-		{
-		    get => _storage?.ContentImageH ?? PaletteRelativeAlign.Inherit;
+        [Description("Relative horizontal alignment of content image.")]
+        [DefaultValue(typeof(PaletteRelativeAlign), "Inherit")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public PaletteRelativeAlign ImageH
+        {
+            get => _storage?.ContentImageH ?? PaletteRelativeAlign.Inherit;
 
-		    set
-			{
+            set
+            {
                 if (_storage != null)
                 {
                     if (_storage.ContentImageH != value)
@@ -122,25 +122,25 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint(true);
                     }
                 }
-			}
-		}
-		#endregion
+            }
+        }
+        #endregion
 
-		#region ImageV
-		/// <summary>
-		/// Gets the vertical relative alignment of the image.
-		/// </summary>
+        #region ImageV
+        /// <summary>
+        /// Gets the vertical relative alignment of the image.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Relative vertical alignment of content image.")]
-		[DefaultValue(typeof(PaletteRelativeAlign), "Inherit")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public PaletteRelativeAlign ImageV
-		{
+        [Description("Relative vertical alignment of content image.")]
+        [DefaultValue(typeof(PaletteRelativeAlign), "Inherit")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public PaletteRelativeAlign ImageV
+        {
             get => _storage?.ContentImageV ?? PaletteRelativeAlign.Inherit;
 
-		    set
-			{
+            set
+            {
                 if (_storage != null)
                 {
                     if (_storage.ContentImageV != value)
@@ -162,25 +162,25 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint(true);
                     }
                 }
-			}
-		}
-		#endregion
+            }
+        }
+        #endregion
 
-		#region Effect
-		/// <summary>
-		/// Gets the effect applied to drawing the image.
-		/// </summary>
+        #region Effect
+        /// <summary>
+        /// Gets the effect applied to drawing the image.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Effect applied to drawing the image.")]
-		[DefaultValue(typeof(PaletteImageEffect), "Inherit")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public PaletteImageEffect Effect
-		{
+        [Description("Effect applied to drawing the image.")]
+        [DefaultValue(typeof(PaletteImageEffect), "Inherit")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public PaletteImageEffect Effect
+        {
             get => _storage?.ContentEffect ?? PaletteImageEffect.Inherit;
 
-		    set
-			{
+            set
+            {
                 if (_storage != null)
                 {
                     if (_storage.ContentEffect != value)
@@ -202,9 +202,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint();
                     }
                 }
-			}
-		}
-		#endregion
+            }
+        }
+        #endregion
 
         #region ImageColorMap
         /// <summary>

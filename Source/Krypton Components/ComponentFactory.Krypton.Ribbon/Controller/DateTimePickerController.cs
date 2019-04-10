@@ -15,31 +15,31 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Process mouse events for a ribbon group date time picker.
-	/// </summary>
+    /// <summary>
+    /// Process mouse events for a ribbon group date time picker.
+    /// </summary>
     internal class DateTimePickerController : GlobalId,
                                               ISourceController,   
                                               IKeyController,
                                               IRibbonKeyTipTarget
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly KryptonRibbon _ribbon;
         private readonly KryptonRibbonGroupDateTimePicker _dateTimePicker;
         private readonly ViewDrawRibbonGroupDateTimePicker _target;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the DateTimePickerController class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         /// <param name="dateTimePicker">Source definition.</param>
         /// <param name="target">Target view element.</param>
         public DateTimePickerController(KryptonRibbon ribbon,
                                         KryptonRibbonGroupDateTimePicker dateTimePicker,
                                         ViewDrawRibbonGroupDateTimePicker target)
-		{
+        {
             Debug.Assert(ribbon != null);
             Debug.Assert(dateTimePicker != null);
             Debug.Assert(target != null);
@@ -48,7 +48,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _dateTimePicker = dateTimePicker;
             _target = target;
         }
-		#endregion
+        #endregion
 
         #region Focus Notifications
         /// <summary>

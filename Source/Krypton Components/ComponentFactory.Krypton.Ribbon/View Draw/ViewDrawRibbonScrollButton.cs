@@ -17,9 +17,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws a scrolling button with given orientation.
-	/// </summary>
+    /// <summary>
+    /// Draws a scrolling button with given orientation.
+    /// </summary>
     internal class ViewDrawRibbonScrollButton : ViewLeaf
     {
         #region Instance Fields
@@ -30,7 +30,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonScrollButton class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="orientation">Scroller orientation.</param>
         public ViewDrawRibbonScrollButton(KryptonRibbon ribbon,
@@ -40,15 +40,15 @@ namespace ComponentFactory.Krypton.Ribbon
             Orientation = orientation;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonScrollButton:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.
@@ -87,10 +87,10 @@ namespace ComponentFactory.Krypton.Ribbon
             return Size.Empty;
         }
 
-		/// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
+        /// <summary>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
         public override void Layout(ViewLayoutContext context)
         {
             Debug.Assert(context != null);

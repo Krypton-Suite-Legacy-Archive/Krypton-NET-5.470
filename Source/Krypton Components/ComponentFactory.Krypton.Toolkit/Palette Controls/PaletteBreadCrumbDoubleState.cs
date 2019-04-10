@@ -13,9 +13,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Implement storage for bread crumb appearance states.
-	/// </summary>
+    /// <summary>
+    /// Implement storage for bread crumb appearance states.
+    /// </summary>
     public class PaletteBreadCrumbDoubleState : PaletteDouble
     {
         #region Instance Fields
@@ -25,23 +25,23 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteBreadCrumbDoubleState class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Inheritence redirection instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteBreadCrumbDoubleState(PaletteBreadCrumbRedirect redirect,
                                             NeedPaintHandler needPaint) 
             : base(redirect, needPaint)
-		{
+        {
             BreadCrumb = new PaletteTriple(redirect.BreadCrumb, needPaint);
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (base.IsDefault && BreadCrumb.IsDefault);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (base.IsDefault && BreadCrumb.IsDefault);
 
         #endregion
 

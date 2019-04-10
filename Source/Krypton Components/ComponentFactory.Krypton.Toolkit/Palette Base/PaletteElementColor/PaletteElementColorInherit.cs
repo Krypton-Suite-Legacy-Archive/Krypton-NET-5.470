@@ -13,9 +13,9 @@ using System.Drawing;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Provide inheritance of palette element colors.
-	/// </summary>
+    /// <summary>
+    /// Provide inheritance of palette element colors.
+    /// </summary>
     public abstract class PaletteElementColorInherit : GlobalId,
                                                        IPaletteElementColor
     {

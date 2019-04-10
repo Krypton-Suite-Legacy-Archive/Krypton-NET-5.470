@@ -16,13 +16,13 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// View element that represents a single gallery item.
-	/// </summary>
+    /// <summary>
+    /// View element that represents a single gallery item.
+    /// </summary>
     internal class ViewDrawMenuImageSelectItem : ViewDrawButton,
                                                  IContentValues
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly KryptonContextMenuImageSelect _imageSelect;
         private readonly ViewLayoutMenuItemSelect _layout;
         private readonly MenuImageSelectController _controller;
@@ -31,10 +31,10 @@ namespace ComponentFactory.Krypton.Toolkit
         private int _imageIndex;
         #endregion
 
-		#region Identity
+        #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawMenuImageSelectItem class.
-		/// </summary>
+        /// </summary>
         /// <param name="viewManager">Owning view manager instance.</param>
         /// <param name="imageSelect">Owning image select instance.</param>
         /// <param name="palette">Palette used to recover values.</param>
@@ -63,16 +63,16 @@ namespace ComponentFactory.Krypton.Toolkit
             KeyController = _controller;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawMenuImageSelectItem:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Track
         /// <summary>
@@ -80,7 +80,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool IsTracking => (_imageSelect.TrackingIndex == _imageIndex);
 
-	    /// <summary>
+        /// <summary>
         /// Item is becoming tracked by the mouse.
         /// </summary>
         public void Track()

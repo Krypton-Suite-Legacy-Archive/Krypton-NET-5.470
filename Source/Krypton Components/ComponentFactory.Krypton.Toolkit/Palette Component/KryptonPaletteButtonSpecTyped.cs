@@ -56,7 +56,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 NeedPaint = OnImageStateChanged
             };
         }
-		#endregion
+        #endregion
 
         #region IsDefault
         /// <summary>

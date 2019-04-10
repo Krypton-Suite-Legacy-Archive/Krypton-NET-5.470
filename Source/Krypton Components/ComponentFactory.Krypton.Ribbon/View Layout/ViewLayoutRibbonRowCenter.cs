@@ -17,9 +17,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// View element that positions the elements in a row centered in total area.
-	/// </summary>
+    /// <summary>
+    /// View element that positions the elements in a row centered in total area.
+    /// </summary>
     internal class ViewLayoutRibbonRowCenter : ViewComposite
     {
         #region Type Definitions
@@ -49,15 +49,15 @@ namespace ComponentFactory.Krypton.Ribbon
             _viewToLarge = new ViewToSize();
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutRibbonRowCenter:" + Id;
-		}
+        }
         #endregion
 
         #region CurrentSize
@@ -144,12 +144,12 @@ namespace ComponentFactory.Krypton.Ribbon
         }
 
         /// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
+            Debug.Assert(context != null);
 
             // Validate incoming reference
             if (context == null)
@@ -157,8 +157,8 @@ namespace ComponentFactory.Krypton.Ribbon
                 throw new ArgumentNullException(nameof(context));
             }
 
-		    // We take on all the available display area
-			ClientRectangle = context.DisplayRectangle;
+            // We take on all the available display area
+            ClientRectangle = context.DisplayRectangle;
 
             Size preferredSize = Size.Empty;
 
@@ -227,6 +227,6 @@ namespace ComponentFactory.Krypton.Ribbon
             // Put back the original display value now we have finished
             context.DisplayRectangle = ClientRectangle;
         }
-		#endregion
-	}
+        #endregion
+    }
 }

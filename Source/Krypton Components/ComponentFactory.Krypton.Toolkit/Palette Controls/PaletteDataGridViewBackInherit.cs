@@ -15,9 +15,9 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Provide inheritance of palette back properties.
-	/// </summary>
+    /// <summary>
+    /// Provide inheritance of palette back properties.
+    /// </summary>
     internal class PaletteDataGridViewBackInherit : PaletteBackInherit
     {
         #region Instance Fields
@@ -151,5 +151,5 @@ namespace ComponentFactory.Krypton.Toolkit
             return _inherit.GetBackImageAlign(state);
         }
         #endregion
-	}
+    }
 }

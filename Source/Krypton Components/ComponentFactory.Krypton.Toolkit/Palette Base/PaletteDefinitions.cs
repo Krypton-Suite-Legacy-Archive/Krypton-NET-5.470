@@ -70,12 +70,12 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Back
         /// <summary>
-		/// Gets a value indicating if background should be drawn.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
-		InheritBool GetBackDraw(PaletteBackStyle style, PaletteState state);
+        /// Gets a value indicating if background should be drawn.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
+        InheritBool GetBackDraw(PaletteBackStyle style, PaletteState state);
 
         /// <summary>
         /// Gets the graphics drawing hint for the background.
@@ -586,12 +586,12 @@ namespace ComponentFactory.Krypton.Toolkit
         PaletteRectangleAlign GetContentLongTextImageAlign(PaletteContentStyle style, PaletteState state);
 
         /// <summary>
-		/// Gets the padding between the border and content drawing.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Padding value.</returns>
-		Padding GetContentPadding(PaletteContentStyle style, PaletteState state);
+        /// Gets the padding between the border and content drawing.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Padding value.</returns>
+        Padding GetContentPadding(PaletteContentStyle style, PaletteState state);
 
         /// <summary>
         /// Gets the padding between adjacent content items.
@@ -2120,9 +2120,9 @@ namespace ComponentFactory.Krypton.Toolkit
         Office2010Black,
 
         /// <summary>
-	    /// Specifies the Office 2013 palette theme.
-	    /// </summary>
-	    Office2013,
+        /// Specifies the Office 2013 palette theme.
+        /// </summary>
+        Office2013,
 
         /// <summary>
         /// Specifies the Office 2013 White palette theme.
@@ -2153,9 +2153,9 @@ namespace ComponentFactory.Krypton.Toolkit
         SparklePurple,
 
         /// <summary>
-		/// Specifies a custom palette be used.
-		/// </summary>
-		Custom
+        /// Specifies a custom palette be used.
+        /// </summary>
+        Custom
     }
 
     /// <summary>
@@ -2209,9 +2209,9 @@ namespace ComponentFactory.Krypton.Toolkit
         Office2010Black,
 
         /// <summary>
-	    /// Specifies the Office 2013 palette theme.
-	    /// </summary>
-	    Office2013,
+        /// Specifies the Office 2013 palette theme.
+        /// </summary>
+        Office2013,
 
         /// <summary>
         /// Specifies the Office 2013 White palette theme.
@@ -2256,9 +2256,9 @@ namespace ComponentFactory.Krypton.Toolkit
     public enum PaletteState
     {
         /// <summary>
-		/// Specifies the element is in the disabled state.
-		/// </summary>
-		Disabled = 0x000001,
+        /// Specifies the element is in the disabled state.
+        /// </summary>
+        Disabled = 0x000001,
 
         /// <summary>
         /// Specifies the element is in the normal state.
@@ -2336,8 +2336,8 @@ namespace ComponentFactory.Krypton.Toolkit
         FocusOverride = 0x100001,
 
         /// <summary>
-		/// Specifies values to override when in normal state but the default element.
-		/// </summary>
+        /// Specifies values to override when in normal state but the default element.
+        /// </summary>
         NormalDefaultOverride = 0x100002,
 
         /// <summary>
@@ -2464,9 +2464,9 @@ namespace ComponentFactory.Krypton.Toolkit
         HeaderGroupOverlay,
 
         /// <summary>
-		/// Specifies that split area controls use faded appearance for non-active area.
-		/// </summary>
-		SplitWithFading,
+        /// Specifies that split area controls use faded appearance for non-active area.
+        /// </summary>
+        SplitWithFading,
 
         /// <summary>
         /// Specifies that the spare tabs area be treated as the application caption area.
@@ -2740,8 +2740,8 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         /// <summary>
         /// Specifies a background style appropriate for a standalone button style.
-		/// </summary>
-		ButtonStandalone,
+        /// </summary>
+        ButtonStandalone,
 
         /// <summary>
         /// Specifies a background style appropriate for an alternate standalone button style.
@@ -2997,8 +2997,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// Specifies a background style appropriate for a primary header style.
-		/// </summary>
-		HeaderPrimary,
+        /// </summary>
+        HeaderPrimary,
 
         /// <summary>
         /// Specifies a background style appropriate for a secondary header style.
@@ -4351,8 +4351,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
     #region Enum PaletteImageEffect
     /// <summary>
-	/// Specifies how an image is drawn.
-	/// </summary>
+    /// Specifies how an image is drawn.
+    /// </summary>
     [TypeConverter(typeof(PaletteImageEffectConverter))]
     public enum PaletteImageEffect
     {
@@ -4762,9 +4762,9 @@ namespace ComponentFactory.Krypton.Toolkit
         Inherit = -1,
 
         /// <summary>
-		/// Specifies text is not drawn if it needs trimming.
-		/// </summary>
-		Hide,
+        /// Specifies text is not drawn if it needs trimming.
+        /// </summary>
+        Hide,
 
         /// <summary>
         /// Specifies text is trimmed by removing end characters.

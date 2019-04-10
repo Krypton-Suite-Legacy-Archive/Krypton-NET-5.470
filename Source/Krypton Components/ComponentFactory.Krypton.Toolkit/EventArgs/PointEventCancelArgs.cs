@@ -14,32 +14,32 @@ using System.Drawing;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Details for an cancellable event that provides a Point value.
-	/// </summary>
+    /// <summary>
+    /// Details for an cancellable event that provides a Point value.
+    /// </summary>
     public class PointEventCancelArgs : CancelEventArgs
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PointEventCancelArgs class.
-		/// </summary>
+        /// </summary>
         /// <param name="point">Point associated with event.</param>
         public PointEventCancelArgs(Point point)
-		{
+        {
             Point = point;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Point
         /// <summary>
-		/// Gets and sets the point.
-		/// </summary>
+        /// Gets and sets the point.
+        /// </summary>
         public Point Point { get; set; }
 
-	    #endregion
+        #endregion
     }
 }

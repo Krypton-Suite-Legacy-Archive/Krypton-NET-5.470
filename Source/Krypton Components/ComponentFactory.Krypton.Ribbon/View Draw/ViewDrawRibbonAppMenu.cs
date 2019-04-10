@@ -1,11 +1,11 @@
 ﻿// *****************************************************************************
 // 
 //  © Component Factory Pty Ltd, modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2010 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
-//	The software and associated documentation supplied hereunder are the 
+//    The software and associated documentation supplied hereunder are the 
     //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to license terms.
 // 
-//  Version 5.470.0.0 	www.ComponentFactory.com
+//  Version 5.470.0.0     www.ComponentFactory.com
 // *****************************************************************************
 
 using System.Drawing;
@@ -13,9 +13,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
+    /// <summary>
     /// Extends the ViewDrawDocker by drawing the ribbon app menu area.
-	/// </summary>
+    /// </summary>
     internal class ViewDrawRibbonAppMenu : ViewDrawDocker
     {
         #region Instance Fields
@@ -23,11 +23,11 @@ namespace ComponentFactory.Krypton.Ribbon
         private Rectangle _fixedScreenRect;
         #endregion
 
-		#region Identity
+        #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonAppMenu class.
         /// </summary>
-        /// <param name="paletteBack">Palette source for the background.</param>		
+        /// <param name="paletteBack">Palette source for the background.</param>        
         /// <param name="paletteBorder">Palette source for the border.</param>
         /// <param name="fixedElement">Element to display at provided screen rect.</param>
         /// <param name="fixedScreenRect">Screen rectangle for showing the element at.</param>
@@ -41,16 +41,16 @@ namespace ComponentFactory.Krypton.Ribbon
             _fixedScreenRect = fixedScreenRect;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonAppMenu:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Paint
         /// <summary>

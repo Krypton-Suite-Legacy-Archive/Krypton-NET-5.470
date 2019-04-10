@@ -27,7 +27,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Initialize a new instance of the ViewDrawForm class.
         /// </summary>
-        /// <param name="paletteBack">Palette source for the background.</param>		
+        /// <param name="paletteBack">Palette source for the background.</param>        
         /// <param name="paletteBorder">Palette source for the border.</param>
         public ViewDrawForm(IPaletteBack paletteBack,
                             IPaletteBorder paletteBorder)

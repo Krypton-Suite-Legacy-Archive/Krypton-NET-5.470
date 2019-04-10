@@ -16,12 +16,12 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// View element that can draw a separator
-	/// </summary>
-	public class ViewDrawSeparator : ViewLeaf
-	{
-		#region Instance Fields
+    /// <summary>
+    /// View element that can draw a separator
+    /// </summary>
+    public class ViewDrawSeparator : ViewLeaf
+    {
+        #region Instance Fields
         internal IPaletteDouble _paletteDisabled;
         internal IPaletteDouble _paletteNormal;
         internal IPaletteDouble _paletteTracking;
@@ -33,12 +33,12 @@ namespace ComponentFactory.Krypton.Toolkit
         internal IPaletteDouble _palette;
         internal IPaletteMetric _metric;
 
-	    #endregion
+        #endregion
 
-		#region Identity
+        #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawSeparator class.
-		/// </summary>
+        /// </summary>
         /// <param name="paletteDisabled">Palette source for the disabled state.</param>
         /// <param name="paletteNormal">Palette source for the normal state.</param>
         /// <param name="paletteTracking">Palette source for the tracking state.</param>
@@ -55,7 +55,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                  IPaletteMetric metricTracking,  IPaletteMetric metricPressed,
                                  PaletteMetricPadding metricPadding,
                                  Orientation orientation)
-		{
+        {
             Debug.Assert(paletteDisabled != null);
             Debug.Assert(paletteNormal != null);
             Debug.Assert(paletteTracking != null);
@@ -79,18 +79,18 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Default other state
             Length = 0;
-		}
+        }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawSeparator:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region MetricPadding
         /// <summary>
@@ -98,7 +98,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteMetricPadding MetricPadding { get; set; }
 
-	    #endregion
+        #endregion
 
         #region Source
         /// <summary>
@@ -106,7 +106,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public ISeparatorSource Source { get; set; }
 
-	    #endregion
+        #endregion
 
         #region Orientation
         /// <summary>
@@ -114,7 +114,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Orientation Orientation { get; set; }
 
-	    #endregion
+        #endregion
 
         #region Length
         /// <summary>
@@ -122,7 +122,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public int Length { get; set; }
 
-	    #endregion
+        #endregion
 
         #region SetPalettes
         /// <summary>
@@ -168,34 +168,34 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Layout
         /// <summary>
-		/// Discover the preferred size of the element.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override Size GetPreferredSize(ViewLayoutContext context)
-		{
+        /// Discover the preferred size of the element.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override Size GetPreferredSize(ViewLayoutContext context)
+        {
             Debug.Assert(context != null);
             return new Size(Length, Length);
-		}
+        }
 
-		/// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
+        /// <summary>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
             Debug.Assert(context != null);
             ClientRectangle = context.DisplayRectangle;
-		}
-		#endregion
+        }
+        #endregion
 
-		#region Paint
+        #region Paint
 
-	    /// <summary>
-	    /// Perform rendering before child elements are rendered.
-	    /// </summary>
-	    /// <param name="context">Rendering context.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    public override void RenderBefore(RenderContext context)
+        /// <summary>
+        /// Perform rendering before child elements are rendered.
+        /// </summary>
+        /// <param name="context">Rendering context.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public override void RenderBefore(RenderContext context)
         {
             Debug.Assert(context != null);
 
@@ -219,35 +219,35 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Implementation
-		private void CheckPaletteState()
-		{
+        private void CheckPaletteState()
+        {
             PaletteState state = (IsFixed ? FixedState : State);
 
             // Set the current palette based on the element state
             switch (state)
-			{
-				case PaletteState.Disabled:
+            {
+                case PaletteState.Disabled:
                     _palette = _paletteDisabled;
                     _metric = _metricDisabled;
-					break;
-				case PaletteState.Normal:
+                    break;
+                case PaletteState.Normal:
                     _palette = _paletteNormal;
                     _metric = _metricNormal;
                     break;
-				case PaletteState.Pressed:
+                case PaletteState.Pressed:
                     _palette = _palettePressed;
                     _metric = _metricPressed;
                     break;
-				case PaletteState.Tracking:
+                case PaletteState.Tracking:
                     _palette = _paletteTracking;
                     _metric = _metricTracking;
                     break;
-				default:
-					// Should never happen!
-					Debug.Assert(false);
-					break;
-			}
-		}
+                default:
+                    // Should never happen!
+                    Debug.Assert(false);
+                    break;
+            }
+        }
         #endregion
     }
 }

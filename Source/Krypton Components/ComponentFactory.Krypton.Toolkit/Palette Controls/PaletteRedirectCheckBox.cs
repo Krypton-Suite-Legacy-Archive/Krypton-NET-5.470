@@ -15,40 +15,40 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Redirects requests for check box images from the CheckBoxImages instance.
-	/// </summary>
+    /// <summary>
+    /// Redirects requests for check box images from the CheckBoxImages instance.
+    /// </summary>
     public class PaletteRedirectCheckBox : PaletteRedirect
     {
         #region Instance Fields
         private readonly CheckBoxImages _images;
-		#endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteRedirectCheckBox class.
-		/// </summary>
+        /// </summary>
         /// <param name="images">Reference to source of check box images.</param>
         public PaletteRedirectCheckBox(CheckBoxImages images)
             : this(null, images)
         {
         }
 
-		/// <summary>
+        /// <summary>
         /// Initialize a new instance of the PaletteRedirectCheckBox class.
-		/// </summary>
+        /// </summary>
         /// <param name="target">Initial palette target for redirection.</param>
         /// <param name="images">Reference to source of check box images.</param>
         public PaletteRedirectCheckBox(IPalette target,
                                        CheckBoxImages images)
             : base(target)
-		{
+        {
             Debug.Assert(images != null);
 
             // Remember incoming target
             _images = images;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Images
         /// <summary>

@@ -13,16 +13,16 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Details about the context menu about to be shown when clicking the drop down button on a KryptonDateTimePicker.
-	/// </summary>
-	public class DateTimePickerDropArgs : CancelEventArgs
-	{
-		#region Instance Fields
+    /// <summary>
+    /// Details about the context menu about to be shown when clicking the drop down button on a KryptonDateTimePicker.
+    /// </summary>
+    public class DateTimePickerDropArgs : CancelEventArgs
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
+        #region Identity
         /// <summary>
         /// Initialize a new instance of the DateTimePickerDropArgs class.
         /// </summary>
@@ -39,22 +39,22 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Public
+        #region Public
         /// <summary>
         /// Gets access to the KryptonContextMenu instance.
         /// </summary>
         public KryptonContextMenu KryptonContextMenu { get; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets and sets the relative horizontal position of the KryptonContextMenu.
         /// </summary>
         public KryptonContextMenuPositionH PositionH { get; set; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets and sets the relative vertical position of the KryptonContextMenu.
         /// </summary>
         public KryptonContextMenuPositionV PositionV { get; set; }
 
-	    #endregion
-	}
+        #endregion
+    }
 }

@@ -19,10 +19,10 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class RadioButtonController : GlobalId,
                                            IMouseController,
                                            IKeyController
-	{
-		#region Instance Fields
-		private bool _captured;
-	    private readonly ViewDrawRadioButton _target;
+    {
+        #region Instance Fields
+        private bool _captured;
+        private readonly ViewDrawRadioButton _target;
         private readonly ViewBase _top;
         private NeedPaintHandler _needPaint;
         #endregion
@@ -34,51 +34,51 @@ namespace ComponentFactory.Krypton.Toolkit
         public event EventHandler Click;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the RadioButtonController class.
-		/// </summary>
+        /// </summary>
         /// <param name="target">Target for state changes.</param>
         /// <param name="top">Top element for the radio button control.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public RadioButtonController(ViewDrawRadioButton target,
                                      ViewBase top,
                                      NeedPaintHandler needPaint)
-		{
-			Debug.Assert(target != null);
+        {
+            Debug.Assert(target != null);
             Debug.Assert(top != null);
 
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
 
-			// Remember target for state changes
+            // Remember target for state changes
             _target = target;
             _top = top;
-		}
-		#endregion
+        }
+        #endregion
 
-		#region Mouse Notifications
-		/// <summary>
-		/// Mouse has entered the view.
-		/// </summary>
+        #region Mouse Notifications
+        /// <summary>
+        /// Mouse has entered the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         public virtual void MouseEnter(Control c)
-		{
+        {
             if (Enabled)
             {
                 // Mouse is over the target
                 _target.Tracking = true;
                 PerformNeedPaint();
             }
-		}
+        }
 
-		/// <summary>
-		/// Mouse has moved inside the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse has moved inside the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
         public virtual void MouseMove(Control c, Point pt)
-		{
+        {
             // When capturing input...
             if (_captured)
             {
@@ -95,17 +95,17 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 }
             }
-		}
+        }
 
-		/// <summary>
-		/// Mouse button has been pressed in the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse button has been pressed in the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
-		/// <param name="button">Mouse button pressed down.</param>
-		/// <returns>True if capturing input; otherwise false.</returns>
+        /// <param name="button">Mouse button pressed down.</param>
+        /// <returns>True if capturing input; otherwise false.</returns>
         public virtual bool MouseDown(Control c, Point pt, MouseButtons button)
-		{
+        {
             // Only interested in left mouse pressing down
             if (button == MouseButtons.Left)
             {
@@ -125,17 +125,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
 
-			return _captured;
-		}
+            return _captured;
+        }
 
-		/// <summary>
-		/// Mouse button has been released in the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse button has been released in the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
-		/// <param name="button">Mouse button released.</param>
+        /// <param name="button">Mouse button released.</param>
         public virtual void MouseUp(Control c, Point pt, MouseButtons button)
-		{
+        {
             // If the mouse is currently captured
             if (_captured)
             {
@@ -163,15 +163,15 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 PerformNeedPaint();
             }
-		}
+        }
 
-		/// <summary>
-		/// Mouse has left the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse has left the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="next">Reference to view that is next to have the mouse.</param>
         public virtual void MouseLeave(Control c, ViewBase next)
-		{
+        {
             // Only if mouse is leaving all the children monitored by controller.
             if (!_target.ContainsRecurse(next))
             {
@@ -185,7 +185,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 _captured = false;
                 PerformNeedPaint();
             }
-		}
+        }
 
         /// <summary>
         /// Left mouse button double click.
@@ -201,17 +201,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual bool IgnoreVisualFormLeftButtonDown => false;
 
-	    #endregion
+        #endregion
 
         #region Key Notifications
 
-	    /// <summary>
-	    /// Key has been pressed down.
-	    /// </summary>
-	    /// <param name="c">Reference to the source control instance.</param>
-	    /// <param name="e">A KeyEventArgs that contains the event data.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    public virtual void KeyDown(Control c, KeyEventArgs e)
+        /// <summary>
+        /// Key has been pressed down.
+        /// </summary>
+        /// <param name="c">Reference to the source control instance.</param>
+        /// <param name="e">A KeyEventArgs that contains the event data.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public virtual void KeyDown(Control c, KeyEventArgs e)
         {
             Debug.Assert(c != null);
             Debug.Assert(e != null);
@@ -248,14 +248,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
         }
 
-	    /// <summary>
-	    /// Key has been released.
-	    /// </summary>
-	    /// <param name="c">Reference to the source control instance.</param>
-	    /// <param name="e">A KeyEventArgs that contains the event data.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    /// <returns>True if capturing input; otherwise false.</returns>
-	    public virtual bool KeyUp(Control c, KeyEventArgs e)
+        /// <summary>
+        /// Key has been released.
+        /// </summary>
+        /// <param name="c">Reference to the source control instance.</param>
+        /// <param name="e">A KeyEventArgs that contains the event data.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns>True if capturing input; otherwise false.</returns>
+        public virtual bool KeyUp(Control c, KeyEventArgs e)
         {
             Debug.Assert(c != null);
             Debug.Assert(e != null);
@@ -310,14 +310,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool Enabled { get; set; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets and sets the need paint delegate for notifying paint requests.
         /// </summary>
         public NeedPaintHandler NeedPaint
         {
             get => _needPaint;
 
-	        set
+            set
             {
                 // Warn if multiple sources want to hook their single delegate
                 Debug.Assert(((_needPaint == null) && (value != null)) ||
@@ -333,25 +333,25 @@ namespace ComponentFactory.Krypton.Toolkit
         public ViewBase Target => _target;
 
 
-	    /// <summary>
-		/// Fires the NeedPaint event.
-		/// </summary>
-		public void PerformNeedPaint()
-		{
-			OnNeedPaint(false);
-		}
+        /// <summary>
+        /// Fires the NeedPaint event.
+        /// </summary>
+        public void PerformNeedPaint()
+        {
+            OnNeedPaint(false);
+        }
 
-		/// <summary>
-		/// Fires the NeedPaint event.
-		/// </summary>
-		/// <param name="needLayout">Does the palette change require a layout.</param>
-		public void PerformNeedPaint(bool needLayout)
-		{
-			OnNeedPaint(needLayout);
-		}
-		#endregion
+        /// <summary>
+        /// Fires the NeedPaint event.
+        /// </summary>
+        /// <param name="needLayout">Does the palette change require a layout.</param>
+        public void PerformNeedPaint(bool needLayout)
+        {
+            OnNeedPaint(needLayout);
+        }
+        #endregion
 
-		#region Protected
+        #region Protected
         /// <summary>
         /// Raises the Click event.
         /// </summary>
@@ -361,14 +361,14 @@ namespace ComponentFactory.Krypton.Toolkit
             Click?.Invoke(_target, e);
         }
 
-		/// <summary>
-		/// Raises the NeedPaint event.
-		/// </summary>
-		/// <param name="needLayout">Does the palette change require a layout.</param>
-		protected virtual void OnNeedPaint(bool needLayout)
-		{
+        /// <summary>
+        /// Raises the NeedPaint event.
+        /// </summary>
+        /// <param name="needLayout">Does the palette change require a layout.</param>
+        protected virtual void OnNeedPaint(bool needLayout)
+        {
             _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout));
         }
-		#endregion
-	}
+        #endregion
+    }
 }

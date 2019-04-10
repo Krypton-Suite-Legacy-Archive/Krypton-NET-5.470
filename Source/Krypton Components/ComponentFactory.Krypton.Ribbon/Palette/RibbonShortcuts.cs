@@ -15,9 +15,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Storage for shortcut related properties.
-	/// </summary>
+    /// <summary>
+    /// Storage for shortcut related properties.
+    /// </summary>
     public class RibbonShortcuts : Storage
     {
         #region Static Fields
@@ -35,15 +35,15 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the RibbonShortcuts class.
-		/// </summary>
+        /// </summary>
         public RibbonShortcuts()
-		{
+        {
             // Default values
             ToggleMinimizeMode = DEFAULT_TOGGLE_MINIMIZE_MODE;
             ToggleKeyboardAccess1 = DEFAULT_TOGGLE_KEYBOARD_ACCESS1;
             ToggleKeyboardAccess2 = DEFAULT_TOGGLE_KEYBOARD_ACCESS2;
         }
-		#endregion
+        #endregion
 
         #region IsDefault
         /// <summary>

@@ -13,9 +13,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage of palette tab button states.
-	/// </summary>
+    /// <summary>
+    /// Storage of palette tab button states.
+    /// </summary>
     public class KryptonPaletteTabButton : Storage
     {
         #region Instance Fields
@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonPaletteTabButton class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Redirector to inherit values from.</param>
         /// <param name="backStyle">Background style.</param>
         /// <param name="borderStyle">Border style.</param>
@@ -36,7 +36,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                        PaletteBorderStyle borderStyle,
                                        PaletteContentStyle contentStyle,
                                        NeedPaintHandler needPaint) 
-		{
+        {
             // Create the storage objects
             OverrideFocus = new PaletteTabTripleRedirect(redirect, backStyle, borderStyle, contentStyle, needPaint);
             StateCommon = new PaletteTabTripleRedirect(redirect, backStyle, borderStyle, contentStyle, needPaint);
@@ -62,16 +62,16 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region IsDefault
         /// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => StateCommon.IsDefault &&
-		                                  OverrideFocus.IsDefault &&
-		                                  StateDisabled.IsDefault &&
-		                                  StateNormal.IsDefault &&
-		                                  StateTracking.IsDefault &&
-		                                  StatePressed.IsDefault &&
-		                                  StateSelected.IsDefault;
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => StateCommon.IsDefault &&
+                                          OverrideFocus.IsDefault &&
+                                          StateDisabled.IsDefault &&
+                                          StateNormal.IsDefault &&
+                                          StateTracking.IsDefault &&
+                                          StatePressed.IsDefault &&
+                                          StateSelected.IsDefault;
 
         #endregion
 

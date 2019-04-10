@@ -14,9 +14,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for palette context menu images.
-	/// </summary>
+    /// <summary>
+    /// Storage for palette context menu images.
+    /// </summary>
     public class KryptonPaletteImagesContextMenu : Storage
     {
         #region Instance Fields
@@ -29,12 +29,12 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonPaletteImagesContextMenu class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Redirector to inherit values from.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public KryptonPaletteImagesContextMenu(PaletteRedirect redirect,
                                                NeedPaintHandler needPaint) 
-		{
+        {
             // Store the redirector
             _redirect = redirect;
 
@@ -48,14 +48,14 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (_checked == null) &&
-		                                  (_indeterminate == null) &&
-		                                  (_subMenu == null);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (_checked == null) &&
+                                          (_indeterminate == null) &&
+                                          (_subMenu == null);
 
         #endregion
 

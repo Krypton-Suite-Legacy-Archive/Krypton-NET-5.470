@@ -13,9 +13,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for palette panel states.
-	/// </summary>
+    /// <summary>
+    /// Storage for palette panel states.
+    /// </summary>
     public class KryptonPalettePanel : Storage
     {
         #region Instance Fields
@@ -26,14 +26,14 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonPalettePanel class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Redirector to inherit values from.</param>
         /// <param name="backStyle">Back style.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public KryptonPalettePanel(PaletteRedirect redirect,
                                    PaletteBackStyle backStyle,
                                    NeedPaintHandler needPaint) 
-		{
+        {
             // Create the storage objects
             _stateInherit = new PaletteBackInheritRedirect(redirect, backStyle);
             StateCommon = new PaletteBack(_stateInherit, needPaint);
@@ -53,14 +53,14 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => StateCommon.IsDefault &&
-		                                  StateDisabled.IsDefault &&
-		                                  StateNormal.IsDefault;
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => StateCommon.IsDefault &&
+                                          StateDisabled.IsDefault &&
+                                          StateNormal.IsDefault;
 
         #endregion
 

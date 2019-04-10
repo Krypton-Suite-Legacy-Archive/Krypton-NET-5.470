@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Toolkit
             : base(target, buttonSpec)
         {
         }
-		#endregion
+        #endregion
 
         #region Foreground
         /// <summary>

@@ -15,15 +15,15 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Storage for general ribbon values.
-	/// </summary>
+    /// <summary>
+    /// Storage for general ribbon values.
+    /// </summary>
     public class PaletteRibbonTabContentRedirect : Storage
     {
         #region Instance Fields
         private readonly PaletteNavContent _content;
-		private readonly PaletteRibbonDoubleRedirect _drawRedirect;
-		private readonly PaletteContentInheritRedirect _contentInherit;
+        private readonly PaletteRibbonDoubleRedirect _drawRedirect;
+        private readonly PaletteContentInheritRedirect _contentInherit;
         #endregion
 
         #region Identity

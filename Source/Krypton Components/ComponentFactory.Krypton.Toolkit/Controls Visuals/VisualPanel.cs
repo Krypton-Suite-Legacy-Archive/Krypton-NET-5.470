@@ -20,24 +20,24 @@ using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Base class used for implementation of panel controls.
-	/// </summary>
-	[ToolboxItem(false)]
-	[DesignerCategory("code")]
+    /// <summary>
+    /// Base class used for implementation of panel controls.
+    /// </summary>
+    [ToolboxItem(false)]
+    [DesignerCategory("code")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     public abstract class VisualPanel : Panel,
-										ISupportInitializeNotification,
+                                        ISupportInitializeNotification,
                                         IKryptonDebug
-	{
+    {
         #region Static Field
         private static MethodInfo _miPTB;
         #endregion
 
         #region Instance Fields
 
-	    private bool _refresh;
+        private bool _refresh;
         private bool _refreshAll;
         private bool _layoutDirty;
         private bool _paintTransparent;
@@ -46,69 +46,69 @@ namespace ComponentFactory.Krypton.Toolkit
         private Size _lastLayoutSize;
         private IPalette _localPalette;
         private IPalette _palette;
-	    private PaletteMode _paletteMode;
-	    private readonly SimpleCall _refreshCall;
+        private PaletteMode _paletteMode;
+        private readonly SimpleCall _refreshCall;
 
-	    #endregion
+        #endregion
 
-		#region Events
-		/// <summary>
-		/// Occurs when the control is initialized.
-		/// </summary>
+        #region Events
+        /// <summary>
+        /// Occurs when the control is initialized.
+        /// </summary>
         [Category("Behavior")]
         [Description("Occurs when the control has been fully initialized.")]
         public event EventHandler Initialized;
 
-		/// <summary>
-		/// Occurs when the palette changes.
-		/// </summary>
+        /// <summary>
+        /// Occurs when the palette changes.
+        /// </summary>
         [Category("Property Changed")]
         [Description("Occurs when the value of the Palette property is changed.")]
         public event EventHandler PaletteChanged;
         #endregion
 
-		#region Identity
-		/// <summary>
-		/// Initialize a new instance of the VisualPanel class.
-		/// </summary>
-		protected VisualPanel()
-		{
-			#region Default ControlStyle Values
-			// Default style values for Control are:-
-			//	True  - AllPaintingInWmPaint
-			//	False - CacheText
-			//	False - ContainerControl
-			//	False - EnableNotifyMessage
-			//	False - FixedHeight
-			//	False - FixedWidth
-			//	False - Opaque
-			//	False - OptimizedDoubleBuffer
-			//	False - ResizeRedraw
-			//	True  - Selectable
-			//	True  - StandardClick
-			//	True  - StandardDoubleClick
-			//	False - SupportsTransparentBackColor
-			//	False - UserMouse
-			//	True  - UserPaint
-			//	True  - UseTextForAccessibility
-			#endregion
+        #region Identity
+        /// <summary>
+        /// Initialize a new instance of the VisualPanel class.
+        /// </summary>
+        protected VisualPanel()
+        {
+            #region Default ControlStyle Values
+            // Default style values for Control are:-
+            //    True  - AllPaintingInWmPaint
+            //    False - CacheText
+            //    False - ContainerControl
+            //    False - EnableNotifyMessage
+            //    False - FixedHeight
+            //    False - FixedWidth
+            //    False - Opaque
+            //    False - OptimizedDoubleBuffer
+            //    False - ResizeRedraw
+            //    True  - Selectable
+            //    True  - StandardClick
+            //    True  - StandardDoubleClick
+            //    False - SupportsTransparentBackColor
+            //    False - UserMouse
+            //    True  - UserPaint
+            //    True  - UseTextForAccessibility
+            #endregion
 
-			// We use double buffering to reduce drawing flicker
-			SetStyle(ControlStyles.OptimizedDoubleBuffer |
-					 ControlStyles.AllPaintingInWmPaint |
-					 ControlStyles.UserPaint, true);
+            // We use double buffering to reduce drawing flicker
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                     ControlStyles.AllPaintingInWmPaint |
+                     ControlStyles.UserPaint, true);
 
             // We need to allow a transparent background
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             
             // We need to repaint entire control whenever resized
-			SetStyle(ControlStyles.ResizeRedraw, true);
+            SetStyle(ControlStyles.ResizeRedraw, true);
 
-			// We act as a container for child controls
-			SetStyle(ControlStyles.ContainerControl, true);
+            // We act as a container for child controls
+            SetStyle(ControlStyles.ContainerControl, true);
 
-			// Cannot select a panel
-			SetStyle(ControlStyles.Selectable, false);
+            // Cannot select a panel
+            SetStyle(ControlStyles.Selectable, false);
 
             // Yes, we want to be drawn double buffered by default
             DoubleBuffered = true;
@@ -171,7 +171,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Public
+        #region Public
         /// <summary>
         /// Signals the object that initialization is starting.
         /// </summary>
@@ -206,30 +206,30 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         
         /// <summary>
-		/// Gets a value indicating if the control is initialized.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Advanced)]
-		public bool IsInitialized
+        /// Gets a value indicating if the control is initialized.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Advanced)]
+        public bool IsInitialized
         {
             [DebuggerStepThrough]
             get;
             private set;
-	    }
+        }
 
-	    /// <summary>
+        /// <summary>
         /// Gets a value indicating if the control is initialized.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public bool IsInitializing
-	    {
-	        [DebuggerStepThrough]
-	        get;
-	        private set;
-	    }
+        {
+            [DebuggerStepThrough]
+            get;
+            private set;
+        }
 
-	    /// <summary>
+        /// <summary>
         /// Gets or sets the ContextMenuStrip associated with this control.
         /// </summary>
         public override ContextMenuStrip ContextMenuStrip
@@ -391,9 +391,9 @@ namespace ComponentFactory.Krypton.Toolkit
             [DebuggerStepThrough]
             get;
             private set;
-	    }
+        }
 
-	    /// <summary>
+        /// <summary>
         /// Create a tool strip renderer appropriate for the current renderer/palette pair.
         /// </summary>
         [Browsable(false)]
@@ -403,27 +403,27 @@ namespace ComponentFactory.Krypton.Toolkit
             return Renderer.RenderToolStrip(GetResolvedPalette());
         }
 
-		/// <summary>
-		/// Gets or sets the background image displayed in the control.
-		/// </summary>
-		[Browsable(false)]
-		[Bindable(false)]
-		public override Image BackgroundImage
-		{
-			get => base.BackgroundImage;
-		    set => base.BackgroundImage = value;
-		}
+        /// <summary>
+        /// Gets or sets the background image displayed in the control.
+        /// </summary>
+        [Browsable(false)]
+        [Bindable(false)]
+        public override Image BackgroundImage
+        {
+            get => base.BackgroundImage;
+            set => base.BackgroundImage = value;
+        }
 
-		/// <summary>
-		/// Gets or sets the background image layout.
-		/// </summary>
-		[Browsable(false)]
-		[Bindable(false)]
-		public override ImageLayout BackgroundImageLayout
-		{
-			get => base.BackgroundImageLayout;
-		    set => base.BackgroundImageLayout = value;
-		}
+        /// <summary>
+        /// Gets or sets the background image layout.
+        /// </summary>
+        [Browsable(false)]
+        [Bindable(false)]
+        public override ImageLayout BackgroundImageLayout
+        {
+            get => base.BackgroundImageLayout;
+            set => base.BackgroundImageLayout = value;
+        }
 
         /// <summary>
         /// Attach the control to global events.
@@ -462,38 +462,38 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Public Override
-		/// <summary>
-		/// Gets or sets the background color for the control.
-		/// </summary>
-		[Browsable(false)]
-		[Bindable(false)]
-		public override Color BackColor
-		{
-			get => base.BackColor;
-		    set => base.BackColor = value;
-		}
+        /// <summary>
+        /// Gets or sets the background color for the control.
+        /// </summary>
+        [Browsable(false)]
+        [Bindable(false)]
+        public override Color BackColor
+        {
+            get => base.BackColor;
+            set => base.BackColor = value;
+        }
 
-		/// <summary>
-		/// Gets or sets the font of the text displayed by the control.
-		/// </summary>
-		[Browsable(false)]
-		[Bindable(false)]
-		public override Font Font
-		{
-			get => base.Font;
-		    set => base.Font = value;
-		}
+        /// <summary>
+        /// Gets or sets the font of the text displayed by the control.
+        /// </summary>
+        [Browsable(false)]
+        [Bindable(false)]
+        public override Font Font
+        {
+            get => base.Font;
+            set => base.Font = value;
+        }
 
-		/// <summary>
-		/// Gets or sets the foreground color for the control.
-		/// </summary>
-		[Browsable(false)]
-		[Bindable(false)]
-		public override Color ForeColor
-		{
-			get => base.ForeColor;
-		    set => base.ForeColor = value;
-		}
+        /// <summary>
+        /// Gets or sets the foreground color for the control.
+        /// </summary>
+        [Browsable(false)]
+        [Bindable(false)]
+        public override Color ForeColor
+        {
+            get => base.ForeColor;
+            set => base.ForeColor = value;
+        }
 
         /// <summary>
         /// Gets or sets the border style for the VisualPanel. 
@@ -526,7 +526,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int KryptonLayoutCounter => ViewManager.LayoutCounter;
 
-	    /// <summary>
+        /// <summary>
         /// Gets the number of paint cycles performed since last reset.
         /// </summary>
         [Browsable(false)]
@@ -534,44 +534,44 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int KryptonPaintCounter => ViewManager.PaintCounter;
 
-	    #endregion
+        #endregion
 
         #region Protected
         /// <summary>
-		/// Gets and sets the ViewManager instance.
-		/// </summary>
-		protected ViewManager ViewManager
+        /// Gets and sets the ViewManager instance.
+        /// </summary>
+        protected ViewManager ViewManager
         {
             [DebuggerStepThrough]
             get;
             set;
-	    }
+        }
 
-	    /// <summary>
-		/// Gets access to the palette redirector.
-		/// </summary>
-		protected PaletteRedirect Redirector
-	    {
-	        [DebuggerStepThrough]
-	        get;
-	    }
+        /// <summary>
+        /// Gets access to the palette redirector.
+        /// </summary>
+        protected PaletteRedirect Redirector
+        {
+            [DebuggerStepThrough]
+            get;
+        }
 
-	    /// <summary>
+        /// <summary>
         /// Gets access to the need paint delegate.
         /// </summary>
         protected NeedPaintHandler NeedPaintDelegate
-	    {
-	        [DebuggerStepThrough]
-	        get;
-	    }
+        {
+            [DebuggerStepThrough]
+            get;
+        }
 
-	    /// <summary>
-	    /// Processes a notification from palette storage of a paint and optional layout required.
-	    /// </summary>
-	    /// <param name="sender">Source of notification.</param>
-	    /// <param name="e">An NeedLayoutEventArgs containing event data.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    protected void OnNeedPaint(object sender, NeedLayoutEventArgs e)
+        /// <summary>
+        /// Processes a notification from palette storage of a paint and optional layout required.
+        /// </summary>
+        /// <param name="sender">Source of notification.</param>
+        /// <param name="e">An NeedLayoutEventArgs containing event data.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        protected void OnNeedPaint(object sender, NeedLayoutEventArgs e)
         {
             Debug.Assert(e != null);
 
@@ -646,6 +646,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Protected Virtual
+        // ReSharper disable VirtualMemberNeverOverridden.Global
         /// <summary>
         /// Raises the Initialized event.
         /// </summary>
@@ -685,18 +686,18 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected virtual bool EvalInvokePaint => false;
 
-	    /// <summary>
+        /// <summary>
         /// Gets the control reference that is the parent for transparent drawing.
         /// </summary>
         protected virtual Control TransparentParent => Parent;
 
-	    /// <summary>
-	    /// Processes a notification from palette storage of a button spec change.
-	    /// </summary>
-	    /// <param name="sender">Source of notification.</param>
-	    /// <param name="e">An EventArgs containing event data.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    protected virtual void OnButtonSpecChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Processes a notification from palette storage of a button spec change.
+        /// </summary>
+        /// <param name="sender">Source of notification.</param>
+        /// <param name="e">An EventArgs containing event data.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        protected virtual void OnButtonSpecChanged(object sender, EventArgs e)
         {
             Debug.Assert(e != null);
 
@@ -724,15 +725,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 SystemEvents.UserPreferenceChanged -= OnUserPreferenceChanged;
             }
         }
+        // ReSharper restore VirtualMemberNeverOverridden.Global
         #endregion
 
         #region Protected Overrides
         /// <summary>
-		/// Gets the default size of the control.
-		/// </summary>
-		protected override Size DefaultSize => new Size(100, 100);
+        /// Gets the default size of the control.
+        /// </summary>
+        protected override Size DefaultSize => new Size(100, 100);
 
-	    /// <summary>
+        /// <summary>
         /// Raises the RightToLeftChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing event data.</param>
@@ -742,12 +744,12 @@ namespace ComponentFactory.Krypton.Toolkit
             base.OnRightToLeftChanged(e);
         }
 
-		/// <summary>
-		/// Raises the Layout event.
-		/// </summary>
+        /// <summary>
+        /// Raises the Layout event.
+        /// </summary>
         /// <param name="levent">A LayoutEventArgs that contains the event data.</param>
-		protected override void OnLayout(LayoutEventArgs levent)
-		{
+        protected override void OnLayout(LayoutEventArgs levent)
+        {
             // Cannot process a message for a disposed control
             if (!IsDisposed)
             {
@@ -772,16 +774,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
 
-			// Let base class layout child controls
-			base.OnLayout(levent);
-		}
+            // Let base class layout child controls
+            base.OnLayout(levent);
+        }
 
-		/// <summary>
-		/// Raises the Paint event.
-		/// </summary>
-		/// <param name="e">A PaintEventArgs that contains the event data.</param>
-		protected override void OnPaint(PaintEventArgs e)
-		{
+        /// <summary>
+        /// Raises the Paint event.
+        /// </summary>
+        /// <param name="e">A PaintEventArgs that contains the event data.</param>
+        protected override void OnPaint(PaintEventArgs e)
+        {
             // Cannot process a message for a disposed control
             if (!IsDisposed)
             {
@@ -806,14 +808,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     _refreshAll = false;
                 }
             }
-		}
+        }
 
-		/// <summary>
-		/// Raises the MouseMove event.
-		/// </summary>
-		/// <param name="e">A MouseEventArgs that contains the event data.</param>
-		protected override void OnMouseMove(MouseEventArgs e)
-		{
+        /// <summary>
+        /// Raises the MouseMove event.
+        /// </summary>
+        /// <param name="e">A MouseEventArgs that contains the event data.</param>
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
             // Cannot process a message for a disposed control
             if (!IsDisposed)
             {
@@ -821,16 +823,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 ViewManager?.MouseMove(e, new Point(e.X, e.Y));
             }
 
-			// Let base class fire events
-			base.OnMouseMove(e);
-		}
+            // Let base class fire events
+            base.OnMouseMove(e);
+        }
 
         /// <summary>
-		/// Raises the MouseDown event.
-		/// </summary>
-		/// <param name="e">A MouseEventArgs that contains the event data.</param>
-		protected override void OnMouseDown(MouseEventArgs e)
-		{
+        /// Raises the MouseDown event.
+        /// </summary>
+        /// <param name="e">A MouseEventArgs that contains the event data.</param>
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
             // Cannot process a message for a disposed control
             if (!IsDisposed)
             {
@@ -838,16 +840,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 ViewManager?.MouseDown(e, new Point(e.X, e.Y));
             }
 
-			// Let base class fire events
-			base.OnMouseDown(e);
-		}
+            // Let base class fire events
+            base.OnMouseDown(e);
+        }
 
-		/// <summary>
-		/// Raises the MouseUp event.
-		/// </summary>
-		/// <param name="e">A MouseEventArgs that contains the event data.</param>
-		protected override void OnMouseUp(MouseEventArgs e)
-		{
+        /// <summary>
+        /// Raises the MouseUp event.
+        /// </summary>
+        /// <param name="e">A MouseEventArgs that contains the event data.</param>
+        protected override void OnMouseUp(MouseEventArgs e)
+        {
             // Cannot process a message for a disposed control
             if (!IsDisposed)
             {
@@ -855,16 +857,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 ViewManager?.MouseUp(e, new Point(e.X, e.Y));
             }
 
-			// Let base class fire events
-			base.OnMouseUp(e);
-		}
+            // Let base class fire events
+            base.OnMouseUp(e);
+        }
 
-		/// <summary>
-		/// Raises the MouseLeave event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
-		protected override void OnMouseLeave(EventArgs e)
-		{
+        /// <summary>
+        /// Raises the MouseLeave event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        protected override void OnMouseLeave(EventArgs e)
+        {
             // Cannot process a message for a disposed control
             if (!IsDisposed)
             {
@@ -872,9 +874,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 ViewManager?.MouseLeave(e);
             }
 
-			// Let base class fire events
-			base.OnMouseLeave(e);
-		}
+            // Let base class fire events
+            base.OnMouseLeave(e);
+        }
 
         /// <summary>
         /// Raises the DoubleClick event.
@@ -979,7 +981,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Implementation
+        #region Implementation
         private void SetPalette(IPalette palette)
         {
             if (palette != _palette)
@@ -1007,7 +1009,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         private void PaintTransparentBackground(PaintEventArgs e)
-		{
+        {
             // Get the parent control for transparent drawing purposes
             Control parent = TransparentParent;
 
@@ -1032,7 +1034,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // No parent information available, so just use a standard brush
                 e.Graphics.FillRectangle(SystemBrushes.Control, ClientRectangle);
             }
-		}
+        }
 
         private void OnPerformRefresh()
         {

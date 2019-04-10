@@ -16,9 +16,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
+    /// <summary>
     /// Implements the NavigatorMode.StackCheckButtonHeaderGroup mode.
-	/// </summary>
+    /// </summary>
     internal class ViewBuilderStackCheckButtonHeaderGroup : ViewBuilderStackCheckButtonBase
     {
         #region Instance Fields

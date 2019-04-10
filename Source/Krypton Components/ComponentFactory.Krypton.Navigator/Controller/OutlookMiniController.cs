@@ -17,42 +17,42 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Process mouse events for the outlook mini button.
-	/// </summary>
+    /// <summary>
+    /// Process mouse events for the outlook mini button.
+    /// </summary>
     internal class OutlookMiniController : GlobalId,
                                            IMouseController,
                                            IKeyController
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private NeedPaintHandler _needPaint;
         private readonly ViewBase _target;
         private bool _fixedTracking;
-	    private bool _mouseOver;
-		#endregion
-
-		#region Events
-		/// <summary>
-		/// Occurs when a click portion is clicked.
-		/// </summary>
-		public event EventHandler Click;
+        private bool _mouseOver;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Events
+        /// <summary>
+        /// Occurs when a click portion is clicked.
+        /// </summary>
+        public event EventHandler Click;
+        #endregion
+
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the OutlookMiniController class.
-		/// </summary>
+        /// </summary>
         /// <param name="target">Target for state changes.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public OutlookMiniController(ViewBase target,
                                      NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(needPaint != null);
 
-			_target = target;
+            _target = target;
             NeedPaint = needPaint;
         }
-		#endregion
+        #endregion
 
         #region RemoveFixed
         /// <summary>
@@ -76,11 +76,11 @@ namespace ComponentFactory.Krypton.Navigator
 
         #region Mouse Notifications
         /// <summary>
-		/// Mouse has entered the view.
-		/// </summary>
+        /// Mouse has entered the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         public virtual void MouseEnter(Control c)
-		{
+        {
             // Mouse is over the target
             _mouseOver = true;
 
@@ -89,7 +89,7 @@ namespace ComponentFactory.Krypton.Navigator
             {
                 UpdateTargetState(c);
             }
-		}
+        }
 
         /// <summary>
         /// Mouse has moved inside the view.
@@ -102,15 +102,15 @@ namespace ComponentFactory.Krypton.Navigator
             UpdateTargetState(pt);
         }
 
-		/// <summary>
-		/// Mouse button has been pressed in the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse button has been pressed in the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
-		/// <param name="button">Mouse button pressed down.</param>
-		/// <returns>True if capturing input; otherwise false.</returns>
+        /// <param name="button">Mouse button pressed down.</param>
+        /// <returns>True if capturing input; otherwise false.</returns>
         public virtual bool MouseDown(Control c, Point pt, MouseButtons button)
-		{
+        {
             // Only interested in left mouse pressing down
             if (button == MouseButtons.Left)
             {
@@ -122,16 +122,16 @@ namespace ComponentFactory.Krypton.Navigator
             }
 
             return Captured;
-		}
+        }
 
-		/// <summary>
-		/// Mouse button has been released in the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse button has been released in the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
-		/// <param name="button">Mouse button released.</param>
+        /// <param name="button">Mouse button released.</param>
         public virtual void MouseUp(Control c, Point pt, MouseButtons button)
-		{
+        {
             if (Captured)
             {
                 // Not capturing mouse input anymore
@@ -172,13 +172,13 @@ namespace ComponentFactory.Krypton.Navigator
             }
         }
 
-		/// <summary>
-		/// Mouse has left the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse has left the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="next">Reference to view that is next to have the mouse.</param>
         public virtual void MouseLeave(Control c, ViewBase next)
-		{
+        {
             // Mouse is no longer over the target
             _mouseOver = false;
 
@@ -190,7 +190,7 @@ namespace ComponentFactory.Krypton.Navigator
 
                 UpdateTargetState(c);
             }
-		}
+        }
 
         /// <summary>
         /// Left mouse button double click.
@@ -206,7 +206,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public virtual bool IgnoreVisualFormLeftButtonDown => false;
 
-	    #endregion
+        #endregion
 
         #region Key Notifications
         /// <summary>
@@ -323,23 +323,23 @@ namespace ComponentFactory.Krypton.Navigator
             }
         }
 
-		/// <summary>
-		/// Fires the NeedPaint event.
-		/// </summary>
-		/// <param name="needLayout">Does the palette change require a layout.</param>
-		public void PerformNeedPaint(bool needLayout)
-		{
-			OnNeedPaint(needLayout);
-		}
-		#endregion
+        /// <summary>
+        /// Fires the NeedPaint event.
+        /// </summary>
+        /// <param name="needLayout">Does the palette change require a layout.</param>
+        public void PerformNeedPaint(bool needLayout)
+        {
+            OnNeedPaint(needLayout);
+        }
+        #endregion
 
-		#region Protected
+        #region Protected
         /// <summary>
         /// Gets a value indicating if mouse input is being captured.
         /// </summary>
         protected bool Captured { get; set; }
 
-	    /// <summary>
+        /// <summary>
         /// Set the correct visual state of the target.
         /// </summary>
         /// <param name="c">Owning control.</param>
@@ -394,23 +394,23 @@ namespace ComponentFactory.Krypton.Navigator
             }
         }
 
-		/// <summary>
-		/// Raises the Click event.
-		/// </summary>
+        /// <summary>
+        /// Raises the Click event.
+        /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-		protected virtual void OnClick(EventArgs e)
-		{
+        protected virtual void OnClick(EventArgs e)
+        {
             Click?.Invoke(_target, e);
         }
 
         /// <summary>
-		/// Raises the NeedPaint event.
-		/// </summary>
-		/// <param name="needLayout">Does the palette change require a layout.</param>
-		protected virtual void OnNeedPaint(bool needLayout)
-		{
+        /// Raises the NeedPaint event.
+        /// </summary>
+        /// <param name="needLayout">Does the palette change require a layout.</param>
+        protected virtual void OnNeedPaint(bool needLayout)
+        {
             _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout, _target.ClientRectangle));
         }
-		#endregion
+        #endregion
     }
 }

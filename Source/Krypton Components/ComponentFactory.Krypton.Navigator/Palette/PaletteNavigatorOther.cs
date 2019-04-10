@@ -14,9 +14,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Implement storage for other navigator appearance states.
-	/// </summary>
+    /// <summary>
+    /// Implement storage for other navigator appearance states.
+    /// </summary>
     public class PaletteNavigatorOther : Storage
     {
         #region Instance Fields
@@ -26,12 +26,12 @@ namespace ComponentFactory.Krypton.Navigator
         #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteNavigatorOther class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Inheritence redirection instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteNavigatorOther(PaletteNavigatorRedirect redirect,
                                      NeedPaintHandler needPaint) 
-		{
+        {
             // Create the palette storage
             CheckButton = new PaletteTriple(redirect.CheckButton, needPaint);
             OverflowButton = new PaletteTriple(redirect.OverflowButton, needPaint);
@@ -41,16 +41,16 @@ namespace ComponentFactory.Krypton.Navigator
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (CheckButton.IsDefault &&
-		                                   OverflowButton.IsDefault &&
-		                                   MiniButton.IsDefault &&
-		                                   Tab.IsDefault &&
-		                                   RibbonTab.IsDefault);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (CheckButton.IsDefault &&
+                                           OverflowButton.IsDefault &&
+                                           MiniButton.IsDefault &&
+                                           Tab.IsDefault &&
+                                           RibbonTab.IsDefault);
 
         #endregion
 

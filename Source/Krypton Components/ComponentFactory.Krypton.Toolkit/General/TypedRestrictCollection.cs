@@ -13,9 +13,9 @@ using System;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Manage a collection of references that must be one of a restricted set of types.
-	/// </summary>
+    /// <summary>
+    /// Manage a collection of references that must be one of a restricted set of types.
+    /// </summary>
     public abstract class TypedRestrictCollection<T> : TypedCollection<T> where T : class
     {
         #region Restrict
@@ -121,5 +121,5 @@ namespace ComponentFactory.Krypton.Toolkit
             base.Add(item);
         }
         #endregion
-	}
+    }
 }

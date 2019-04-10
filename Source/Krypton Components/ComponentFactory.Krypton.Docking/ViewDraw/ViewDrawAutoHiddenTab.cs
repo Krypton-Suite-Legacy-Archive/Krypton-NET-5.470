@@ -15,9 +15,9 @@ using ComponentFactory.Krypton.Navigator;
 
 namespace ComponentFactory.Krypton.Docking
 {
-	/// <summary>
-	/// View element that can draw an auto hidden tab based on a KryptonPage as the source.
-	/// </summary>
+    /// <summary>
+    /// View element that can draw an auto hidden tab based on a KryptonPage as the source.
+    /// </summary>
     internal class ViewDrawAutoHiddenTab : ViewDrawButton,
                                            IContentValues
     {

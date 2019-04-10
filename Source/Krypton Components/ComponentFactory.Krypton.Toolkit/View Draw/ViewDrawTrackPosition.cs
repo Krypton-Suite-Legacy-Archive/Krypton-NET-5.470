@@ -27,23 +27,23 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawTrackPosition class.
-		/// </summary>
+        /// </summary>
         /// <param name="drawTrackBar">Reference to owning track bar.</param>
         public ViewDrawTrackPosition(ViewDrawTrackBar drawTrackBar)
-		{
+        {
             _drawTrackBar = drawTrackBar;
-		}
+        }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawTrackPosition:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Layout
         /// <summary>
@@ -77,10 +77,10 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
         
         #region Paint
-		/// <summary>
-		/// Perform rendering before child elements are rendered.
-		/// </summary>
-		/// <param name="context">Rendering context.</param>
+        /// <summary>
+        /// Perform rendering before child elements are rendered.
+        /// </summary>
+        /// <param name="context">Rendering context.</param>
         public override void RenderBefore(RenderContext context)
         {
             IPaletteElementColor elementColors;

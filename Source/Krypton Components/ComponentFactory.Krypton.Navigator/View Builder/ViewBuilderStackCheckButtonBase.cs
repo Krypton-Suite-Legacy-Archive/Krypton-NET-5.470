@@ -19,11 +19,11 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
+    /// <summary>
     /// Base class for implementation of 'Stack - CheckButton' modes.
-	/// </summary>
+    /// </summary>
     internal abstract class ViewBuilderStackCheckButtonBase : ViewBuilderBase
-	{
+    {
         #region Type Definitons
         protected class PageToButtonEdge : Dictionary<KryptonPage, ViewDrawBorderEdge> { };
         #endregion
@@ -38,22 +38,22 @@ namespace ComponentFactory.Krypton.Navigator
         private bool _events;
         #endregion
 
-		#region Public
-		/// <summary>
-		/// Construct the view appropriate for this builder.
-		/// </summary>
-		/// <param name="navigator">Reference to navigator instance.</param>
-		/// <param name="manager">Reference to current manager.</param>
-		/// <param name="redirector">Palette redirector.</param>
-		public override void Construct(KryptonNavigator navigator, 
-									   ViewManager manager,
-									   PaletteRedirect redirector)
-		{
-			// Let base class perform common operations
-			base.Construct(navigator, manager, redirector);
+        #region Public
+        /// <summary>
+        /// Construct the view appropriate for this builder.
+        /// </summary>
+        /// <param name="navigator">Reference to navigator instance.</param>
+        /// <param name="manager">Reference to current manager.</param>
+        /// <param name="redirector">Palette redirector.</param>
+        public override void Construct(KryptonNavigator navigator, 
+                                       ViewManager manager,
+                                       PaletteRedirect redirector)
+        {
+            // Let base class perform common operations
+            base.Construct(navigator, manager, redirector);
 
-			// Get the current root element
-			_oldRoot = (ViewLayoutPageShow)ViewManager.Root;
+            // Get the current root element
+            _oldRoot = (ViewLayoutPageShow)ViewManager.Root;
 
             // Create and initialize all objects
             ViewManager.Root = CreateStackCheckButtonView();
@@ -61,8 +61,8 @@ namespace ComponentFactory.Krypton.Navigator
             UpdateCheckButtonStyle();
             PostConstruct();
 
-			// Need to monitor changes in the enabled state
-			Navigator.EnabledChanged += OnEnabledChanged;
+            // Need to monitor changes in the enabled state
+            Navigator.EnabledChanged += OnEnabledChanged;
             Navigator.AutoSizeChanged += OnAutoSizeChanged;
         }
 
@@ -71,7 +71,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public override bool IsTabStripMode => false;
 
-	    /// <summary>
+        /// <summary>
         /// Gets the KryptonPage associated with the provided view element.
         /// </summary>
         /// <param name="element">Element to search against.</param>
@@ -283,12 +283,12 @@ namespace ComponentFactory.Krypton.Navigator
             base.UpdateStatePalettes();
         }
 
-		/// <summary>
-		/// Destruct the previously created view.
-		/// </summary>
-		public override void Destruct()
-		{
-			// Unhook from events
+        /// <summary>
+        /// Destruct the previously created view.
+        /// </summary>
+        public override void Destruct()
+        {
+            // Unhook from events
             _viewScrollViewport.AnimateStep -= OnViewportAnimation;
             Navigator.EnabledChanged -= OnEnabledChanged;
             Navigator.AutoSizeChanged -= OnAutoSizeChanged;
@@ -297,11 +297,11 @@ namespace ComponentFactory.Krypton.Navigator
             DestructNavCheckButtons();
             DestructStackCheckButtonView();
 
-			// Put the old root back again
-			ViewManager.Root = _oldRoot;
+            // Put the old root back again
+            ViewManager.Root = _oldRoot;
 
-			// Let base class perform common operations
-			base.Destruct();
+            // Let base class perform common operations
+            base.Destruct();
         }
 
         /// <summary>
@@ -309,7 +309,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public override bool CanFocus => true;
 
-	    /// <summary>
+        /// <summary>
         /// Occurs when the navigator takes the focus.
         /// </summary>
         public override void GotFocus()
@@ -599,7 +599,7 @@ namespace ComponentFactory.Krypton.Navigator
         }
         #endregion
 
-		#region Implementation
+        #region Implementation
         private void CreateNavCheckButtons()
         {
             // Maintain lookup between page and check button/button edge that represent it
@@ -950,7 +950,7 @@ namespace ComponentFactory.Krypton.Navigator
         }
         
         private void OnEnabledChanged(object sender, EventArgs e)
-		{
+        {
             UpdateStatePalettes();
             Navigator.PerformLayout();
             Navigator.Invalidate();
@@ -1116,5 +1116,5 @@ namespace ComponentFactory.Krypton.Navigator
             }
         }
         #endregion
-	}
+    }
 }

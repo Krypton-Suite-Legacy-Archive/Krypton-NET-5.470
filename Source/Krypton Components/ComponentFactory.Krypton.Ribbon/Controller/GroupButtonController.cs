@@ -17,32 +17,32 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Process mouse events for a ribbon group button.
-	/// </summary>
+    /// <summary>
+    /// Process mouse events for a ribbon group button.
+    /// </summary>
     internal class GroupButtonController : GlobalId,
                                            IMouseController,
                                            ISourceController,
                                            IKeyController,
                                            IRibbonKeyTipTarget
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly KryptonRibbon _ribbon;
         private readonly ViewDrawRibbonGroupButtonBackBorder _target;
         private NeedPaintHandler _needPaint;
-	    private Rectangle _splitRectangle;
+        private Rectangle _splitRectangle;
         private bool _rightButtonDown;
-	    private bool _previousMouseInSplit;
+        private bool _previousMouseInSplit;
         private bool _fixedPressed;
-	    private bool _mouseOver;
+        private bool _mouseOver;
         private bool _hasFocus;
-		#endregion
+        #endregion
 
-		#region Events
-		/// <summary>
-		/// Occurs when a click portion is clicked.
-		/// </summary>
-		public event EventHandler Click;
+        #region Events
+        /// <summary>
+        /// Occurs when a click portion is clicked.
+        /// </summary>
+        public event EventHandler Click;
 
         /// <summary>
         /// Occurs when the user right clicks the view.
@@ -55,29 +55,29 @@ namespace ComponentFactory.Krypton.Ribbon
         public event EventHandler DropDown;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the GroupButtonController class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Source control instance.</param>
         /// <param name="target">Target for state changes.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public GroupButtonController(KryptonRibbon ribbon,
                                      ViewDrawRibbonGroupButtonBackBorder target,
                                      NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(ribbon != null);
             Debug.Assert(target != null);
             Debug.Assert(needPaint != null);
 
             _ribbon = ribbon;
-			_target = target;
+            _target = target;
             NeedPaint = needPaint;
 
             // Default other fields
             ButtonType = GroupButtonType.Push;
         }
-		#endregion
+        #endregion
 
         #region MouseInSplit
         /// <summary>
@@ -85,7 +85,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public bool MouseInSplit { get; private set; }
 
-	    #endregion
+        #endregion
 
         #region SplitRectangle
         /// <summary>
@@ -104,7 +104,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public GroupButtonType ButtonType { get; set; }
 
-	    #endregion
+        #endregion
 
         #region RemoveFixed
         /// <summary>
@@ -128,11 +128,11 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Mouse Notifications
         /// <summary>
-		/// Mouse has entered the view.
-		/// </summary>
+        /// Mouse has entered the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         public virtual void MouseEnter(Control c)
-		{
+        {
             // Mouse is over the target
             _mouseOver = true;
 
@@ -141,40 +141,40 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 UpdateTargetState(c);
             }
-		}
+        }
 
-		/// <summary>
-		/// Mouse has moved inside the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse has moved inside the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
         public virtual void MouseMove(Control c, Point pt)
-		{
+        {
             // Check to ensure we are actually in mouse over state
             if (!_mouseOver)
             {
                 _mouseOver = true;
             }
 
-		    // Track if the mouse is inside the split area
+            // Track if the mouse is inside the split area
             if (ButtonType == GroupButtonType.Split)
             {
                 MouseInSplit = _splitRectangle.Contains(pt);
             }
 
-		    // Update the visual state
+            // Update the visual state
             UpdateTargetState(pt);
         }
 
-		/// <summary>
-		/// Mouse button has been pressed in the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse button has been pressed in the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
-		/// <param name="button">Mouse button pressed down.</param>
-		/// <returns>True if capturing input; otherwise false.</returns>
+        /// <param name="button">Mouse button pressed down.</param>
+        /// <returns>True if capturing input; otherwise false.</returns>
         public virtual bool MouseDown(Control c, Point pt, MouseButtons button)
-		{
+        {
             // Only interested in left mouse pressing down
             if (button == MouseButtons.Left)
             {
@@ -238,17 +238,17 @@ namespace ComponentFactory.Krypton.Ribbon
                 _rightButtonDown = true;
             }
 
-		    return Captured;
-		}
+            return Captured;
+        }
 
-		/// <summary>
-		/// Mouse button has been released in the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse button has been released in the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
-		/// <param name="button">Mouse button released.</param>
+        /// <param name="button">Mouse button released.</param>
         public virtual void MouseUp(Control c, Point pt, MouseButtons button)
-		{
+        {
             if (Captured && !ClickOnDown(pt))
             {
                 // Not capturing mouse input anymore
@@ -325,13 +325,13 @@ namespace ComponentFactory.Krypton.Ribbon
             }
         }
 
-		/// <summary>
-		/// Mouse has left the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse has left the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="next">Reference to view that is next to have the mouse.</param>
         public virtual void MouseLeave(Control c, ViewBase next)
-		{
+        {
             if (!_target.ContainsRecurse(next))
             {
                 // Mouse is no longer over the target
@@ -345,7 +345,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     UpdateTargetState(c);
                 }
             }
-		}
+        }
 
         /// <summary>
         /// Left mouse button double click.
@@ -361,7 +361,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public virtual bool IgnoreVisualFormLeftButtonDown => false;
 
-	    #endregion
+        #endregion
 
         #region Focus Notifications
         /// <summary>
@@ -489,31 +489,31 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public ViewBase Target => _target;
 
-	    /// <summary>
-		/// Fires the NeedPaint event.
-		/// </summary>
-		public void PerformNeedPaint()
-		{
-			OnNeedPaint(false);
-		}
+        /// <summary>
+        /// Fires the NeedPaint event.
+        /// </summary>
+        public void PerformNeedPaint()
+        {
+            OnNeedPaint(false);
+        }
 
-		/// <summary>
-		/// Fires the NeedPaint event.
-		/// </summary>
-		/// <param name="needLayout">Does the palette change require a layout.</param>
-		public void PerformNeedPaint(bool needLayout)
-		{
-			OnNeedPaint(needLayout);
-		}
-		#endregion
+        /// <summary>
+        /// Fires the NeedPaint event.
+        /// </summary>
+        /// <param name="needLayout">Does the palette change require a layout.</param>
+        public void PerformNeedPaint(bool needLayout)
+        {
+            OnNeedPaint(needLayout);
+        }
+        #endregion
 
-		#region Protected
+        #region Protected
         /// <summary>
         /// Gets a value indicating if mouse input is being captured.
         /// </summary>
         protected bool Captured { get; set; }
 
-	    /// <summary>
+        /// <summary>
         /// Set the correct visual state of the target.
         /// </summary>
         /// <param name="c">Owning control.</param>
@@ -590,12 +590,12 @@ namespace ComponentFactory.Krypton.Ribbon
             }
         }
 
-		/// <summary>
-		/// Raises the Click event.
-		/// </summary>
+        /// <summary>
+        /// Raises the Click event.
+        /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-		protected virtual void OnClick(EventArgs e)
-		{
+        protected virtual void OnClick(EventArgs e)
+        {
             Click?.Invoke(_target, e);
         }
 
@@ -618,14 +618,14 @@ namespace ComponentFactory.Krypton.Ribbon
         }
         
         /// <summary>
-		/// Raises the NeedPaint event.
-		/// </summary>
-		/// <param name="needLayout">Does the palette change require a layout.</param>
-		protected virtual void OnNeedPaint(bool needLayout)
-		{
+        /// Raises the NeedPaint event.
+        /// </summary>
+        /// <param name="needLayout">Does the palette change require a layout.</param>
+        protected virtual void OnNeedPaint(bool needLayout)
+        {
             _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout, _target.ClientRectangle));
         }
-		#endregion
+        #endregion
 
         #region Implementation
         private void KeyDownRibbon(KryptonRibbon ribbon, KeyEventArgs e)

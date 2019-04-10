@@ -21,12 +21,12 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
+    /// <summary>
     /// Implements base functionality for NavigatorMode.Outlook modes.
-	/// </summary>
+    /// </summary>
     internal abstract class ViewBuilderOutlookBase : ViewBuilderBase,
                                                      ISeparatorSource
-	{
+    {
         #region Type Definitons
         protected class PageToButtonEdge : Dictionary<KryptonPage, ViewDrawBorderEdge> { };
 
@@ -50,8 +50,8 @@ namespace ComponentFactory.Krypton.Navigator
 
         #region Static Fields
 
-	    private const int SEPARATOR_LENGTH = 7;
-	    private static readonly Bitmap _moreButtons;
+        private const int SEPARATOR_LENGTH = 7;
+        private static readonly Bitmap _moreButtons;
         private static readonly Bitmap _fewerButtons;
         #endregion
 
@@ -68,7 +68,7 @@ namespace ComponentFactory.Krypton.Navigator
         private ButtonSpecNavManagerLayoutBar _buttonManager;
         private PageToButtonEdge _buttonEdgeLookup;
         private SeparatorController _separatorController;
-	    private bool _events;
+        private bool _events;
 
         /// <summary>Lookup between pages and stack buttons.</summary>
         protected PageToNavCheckButton _pageStackLookup;
@@ -116,12 +116,12 @@ namespace ComponentFactory.Krypton.Navigator
         public bool SeparatorCanMove => (GetShrinkStackItem() != null) || 
                                         (GetExpandOverflowItem() != null);
 
-	    /// <summary>
+        /// <summary>
         /// Gets the amount the splitter can be incremented.
         /// </summary>
         public int SeparatorIncrements => 1;
 
-	    /// <summary>
+        /// <summary>
         /// Gets the box representing the minimum and maximum allowed splitter movement.
         /// </summary>
         public abstract Rectangle SeparatorMoveBox { get; }
@@ -276,20 +276,20 @@ namespace ComponentFactory.Krypton.Navigator
 
         #region Public
         /// <summary>
-		/// Construct the view appropriate for this builder.
-		/// </summary>
-		/// <param name="navigator">Reference to navigator instance.</param>
-		/// <param name="manager">Reference to current manager.</param>
-		/// <param name="redirector">Palette redirector.</param>
-		public override void Construct(KryptonNavigator navigator, 
-									   ViewManager manager,
-									   PaletteRedirect redirector)
-		{
-			// Let base class perform common operations
-			base.Construct(navigator, manager, redirector);
+        /// Construct the view appropriate for this builder.
+        /// </summary>
+        /// <param name="navigator">Reference to navigator instance.</param>
+        /// <param name="manager">Reference to current manager.</param>
+        /// <param name="redirector">Palette redirector.</param>
+        public override void Construct(KryptonNavigator navigator, 
+                                       ViewManager manager,
+                                       PaletteRedirect redirector)
+        {
+            // Let base class perform common operations
+            base.Construct(navigator, manager, redirector);
 
-			// Get the current root element
-			_oldRoot = (ViewLayoutPageShow)ViewManager.Root;
+            // Get the current root element
+            _oldRoot = (ViewLayoutPageShow)ViewManager.Root;
 
             // Create and initialize all objects
             ViewManager.Root = CreateView();
@@ -302,10 +302,10 @@ namespace ComponentFactory.Krypton.Navigator
             PostConstruct();
 
             // Force buttons to be recreated in the headers
-		    _buttonManager?.RecreateButtons();
+            _buttonManager?.RecreateButtons();
 
-		    // Need to monitor changes in the enabled state
-			Navigator.EnabledChanged += OnEnabledChanged;
+            // Need to monitor changes in the enabled state
+            Navigator.EnabledChanged += OnEnabledChanged;
             Navigator.AutoSizeChanged += OnAutoSizeChanged;
         }
 
@@ -591,12 +591,12 @@ namespace ComponentFactory.Krypton.Navigator
             base.UpdateStatePalettes();
         }
 
-		/// <summary>
-		/// Destruct the previously created view.
-		/// </summary>
-		public override void Destruct()
-		{
-			// Unhook from events
+        /// <summary>
+        /// Destruct the previously created view.
+        /// </summary>
+        public override void Destruct()
+        {
+            // Unhook from events
             Navigator.EnabledChanged -= OnEnabledChanged;
             Navigator.AutoSizeChanged -= OnAutoSizeChanged;
 
@@ -616,8 +616,8 @@ namespace ComponentFactory.Krypton.Navigator
             // Destruct the header group viewlet
             _headerGroup.Destruct();
 
-			// Put the old root back again
-			ViewManager.Root = _oldRoot;
+            // Put the old root back again
+            ViewManager.Root = _oldRoot;
 
             // Dispose of the cached context menu
             if (_kcm != null)
@@ -627,8 +627,8 @@ namespace ComponentFactory.Krypton.Navigator
                 _kcm = null;
             }
 
-			// Let base class perform common operations
-			base.Destruct();
+            // Let base class perform common operations
+            base.Destruct();
         }
 
         /// <summary>
@@ -636,12 +636,12 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public bool HasFocus { get; private set; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets a value indicating if the view can accept the focus.
         /// </summary>
         public override bool CanFocus => true;
 
-	    /// <summary>
+        /// <summary>
         /// Occurs when the navigator takes the focus.
         /// </summary>
         public override void GotFocus()
@@ -1644,7 +1644,7 @@ namespace ComponentFactory.Krypton.Navigator
         }
         #endregion
 
-		#region Implementation
+        #region Implementation
         private void CreateStackItems()
         {
             // Maintain lookup between page and stack check button/button edge that represent it
@@ -2058,7 +2058,7 @@ namespace ComponentFactory.Krypton.Navigator
         private VisualOrientation ResolveOverflowButtonOrientation() =>
             Navigator.Outlook.Orientation == Orientation.Vertical ? VisualOrientation.Top : VisualOrientation.Left;
 
-	    private ViewDrawNavCheckButtonBase GetShrinkStackItem()
+        private ViewDrawNavCheckButtonBase GetShrinkStackItem()
         {
             // If there is a visible stack item, then we can always shrink it away
             foreach (ViewDrawNavCheckButtonBase checkButton in _pageStackLookup.Values)
@@ -2096,7 +2096,7 @@ namespace ComponentFactory.Krypton.Navigator
         }
 
         private void OnEnabledChanged(object sender, EventArgs e)
-		{
+        {
             UpdateStatePalettes();
             Navigator.PerformLayout();
             Navigator.Invalidate();

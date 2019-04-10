@@ -13,33 +13,33 @@ using System;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Provide a KryptonPageFlags enumeration with event details.
-	/// </summary>
-	public class KryptonPageFlagsEventArgs : EventArgs
-	{
-		#region Instance Fields
+    /// <summary>
+    /// Provide a KryptonPageFlags enumeration with event details.
+    /// </summary>
+    public class KryptonPageFlagsEventArgs : EventArgs
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the KryptonPageFlagsEventArgs class.
-		/// </summary>
+        /// </summary>
         /// <param name="flags">KryptonPageFlags enumeration.</param>
         public KryptonPageFlagsEventArgs(KryptonPageFlags flags)
-		{
-			// Remember parameter details
+        {
+            // Remember parameter details
             Flags = flags;
-		}
-		#endregion
+        }
+        #endregion
 
-		#region Public
-		/// <summary>
+        #region Public
+        /// <summary>
         /// Gets the KryptonPageFlags enumeration value.
-		/// </summary>
+        /// </summary>
         public KryptonPageFlags Flags { get; }
 
-	    #endregion
-	}
+        #endregion
+    }
 }

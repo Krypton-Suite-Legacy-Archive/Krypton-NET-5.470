@@ -30,7 +30,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the AnyButtonSpec class.
-		/// </summary>
+        /// </summary>
         public ButtonSpecAny()
         {
             _visible = true;

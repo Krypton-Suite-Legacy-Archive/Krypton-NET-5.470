@@ -15,18 +15,18 @@ using System.Drawing.Drawing2D;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Set the SmoothingMode=AntiAlias until instance disposed.
-	/// </summary>
+    /// <summary>
+    /// Set the SmoothingMode=AntiAlias until instance disposed.
+    /// </summary>
     public class AntiAlias : GlobalId,
                              IDisposable
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly Graphics _g;
         private readonly SmoothingMode _old;
-		#endregion
+        #endregion
 
-		#region Identity
+        #region Identity
         /// <summary>
         /// Initialize a new instance of the UseAntiAlias class.
         /// </summary>
@@ -52,8 +52,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 catch { }
             }
         }
-		#endregion
-	}
+        #endregion
+    }
 
     /// <summary>
     /// Set the SmoothingMode=None until instance disposed.

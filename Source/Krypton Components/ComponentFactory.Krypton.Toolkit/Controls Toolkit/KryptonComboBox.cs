@@ -1028,7 +1028,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// Initialize a new instance of the KryptonComboBox class.
-		/// </summary>
+        /// </summary>
         public KryptonComboBox()
         {
             // Contains another control and needs marking as such for validation to work
@@ -2102,9 +2102,9 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Gets the rectangle that represents the display area of the control.
-		/// </summary>
-		public override Rectangle DisplayRectangle
+        /// Gets the rectangle that represents the display area of the control.
+        /// </summary>
+        public override Rectangle DisplayRectangle
         {
             get
             {
@@ -2177,23 +2177,24 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Protected Virtual
+        // ReSharper disable VirtualMemberNeverOverridden.Global
         /// <summary>
         /// Raises the Initialized event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected void OnInitialized(EventArgs e) => Initialized?.Invoke(this, EventArgs.Empty);
+        protected virtual void OnInitialized(EventArgs e) => Initialized?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
         /// Raises the TextUpdate event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected void OnTextUpdate(EventArgs e) => TextUpdate?.Invoke(this, e);
+        protected virtual void OnTextUpdate(EventArgs e) => TextUpdate?.Invoke(this, e);
 
         /// <summary>
         /// Raises the SelectionChangeCommitted event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected void OnSelectionChangeCommitted(EventArgs e) => SelectionChangeCommitted?.Invoke(this, e);
+        protected virtual void OnSelectionChangeCommitted(EventArgs e) => SelectionChangeCommitted?.Invoke(this, e);
 
         /// <summary>
         /// Raises the SelectedIndexChanged event.
@@ -2205,86 +2206,85 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the DropDownStyleChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected void OnDropDownStyleChanged(EventArgs e) => DropDownStyleChanged?.Invoke(this, e);
+        protected virtual void OnDropDownStyleChanged(EventArgs e) => DropDownStyleChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the DataSourceChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected void OnDataSourceChanged(EventArgs e) => DataSourceChanged?.Invoke(this, e);
+        protected virtual void OnDataSourceChanged(EventArgs e) => DataSourceChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the DisplayMemberChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected void OnDisplayMemberChanged(EventArgs e) => DisplayMemberChanged?.Invoke(this, e);
+        protected virtual void OnDisplayMemberChanged(EventArgs e) => DisplayMemberChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the Format event.
         /// </summary>
         /// <param name="e">An ListControlConvertEventArgs containing the event data.</param>
-        protected void OnFormat(ListControlConvertEventArgs e) => Format?.Invoke(this, e);
+        protected virtual void OnFormat(ListControlConvertEventArgs e) => Format?.Invoke(this, e);
 
         /// <summary>
         /// Raises the FormatInfoChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected void OnFormatInfoChanged(EventArgs e) => FormatInfoChanged?.Invoke(this, e);
+        protected virtual void OnFormatInfoChanged(EventArgs e) => FormatInfoChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the FormatStringChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected void OnFormatStringChanged(EventArgs e) => FormatStringChanged?.Invoke(this, e);
+        protected virtual void OnFormatStringChanged(EventArgs e) => FormatStringChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the FormattingEnabledChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected void OnFormattingEnabledChanged(EventArgs e) => FormattingEnabledChanged?.Invoke(this, e);
+        protected virtual void OnFormattingEnabledChanged(EventArgs e) => FormattingEnabledChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the SelectedValueChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected void OnSelectedValueChanged(EventArgs e) => SelectedValueChanged?.Invoke(this, e);
+        protected virtual void OnSelectedValueChanged(EventArgs e) => SelectedValueChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the ValueMemberChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected void OnValueMemberChanged(EventArgs e) => ValueMemberChanged?.Invoke(this, e);
+        protected virtual void OnValueMemberChanged(EventArgs e) => ValueMemberChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the DropDownClosed event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected void OnDropDownClosed(EventArgs e) => DropDownClosed?.Invoke(this, e);
+        protected virtual void OnDropDownClosed(EventArgs e) => DropDownClosed?.Invoke(this, e);
 
         /// <summary>
         /// Raises the DropDown event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected void OnDropDown(EventArgs e) => DropDown?.Invoke(this, e);
+        protected virtual void OnDropDown(EventArgs e) => DropDown?.Invoke(this, e);
 
         /// <summary>
         /// Raises the TrackMouseEnter event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected void OnTrackMouseEnter(EventArgs e) => TrackMouseEnter?.Invoke(this, e);
+        protected virtual void OnTrackMouseEnter(EventArgs e) => TrackMouseEnter?.Invoke(this, e);
 
         /// <summary>
         /// Raises the TrackMouseLeave event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected void OnTrackMouseLeave(EventArgs e) => TrackMouseLeave?.Invoke(this, e);
-
+        protected virtual void OnTrackMouseLeave(EventArgs e) => TrackMouseLeave?.Invoke(this, e);
 
         /// <summary>
         /// Raises the HoveredSelectionChanged event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        protected void OnHoverSelectionChanged(HoveredSelectionChangedEventArgs e)
+        protected virtual void OnHoverSelectionChanged(HoveredSelectionChangedEventArgs e)
         {
             HoveredSelectionChanged?.Invoke(this, e);
             // See if there is a tooltip to display for the new selection.
@@ -2300,13 +2300,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the <see cref="E:DrawItem" /> event.
         /// </summary>
         /// <param name="e">The <see cref="DrawItemEventArgs"/> instance containing the event data.</param>
-        protected void OnDrawItem(DrawItemEventArgs e) => DrawItem?.Invoke(this, e);
+        protected virtual void OnDrawItem(DrawItemEventArgs e) => DrawItem?.Invoke(this, e);
 
         /// <summary>
         /// Raises the ToolTipNeeded event.
         /// </summary>
         /// <param name="e"></param>
-        protected void OnToolTipNeeded(ToolTipNeededEventArgs e) => ToolTipNeeded?.Invoke(this, e);
+        protected virtual void OnToolTipNeeded(ToolTipNeededEventArgs e) => ToolTipNeeded?.Invoke(this, e);
+        // ReSharper restore VirtualMemberNeverOverridden.Global
         #endregion
 
         #region Protected Overrides
@@ -2340,10 +2341,10 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Raises the EnabledChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
-		protected override void OnEnabledChanged(EventArgs e)
+        /// Raises the EnabledChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        protected override void OnEnabledChanged(EventArgs e)
         {
             // Ensure we have subclassed the contained edit control
             UpdateEditControl();

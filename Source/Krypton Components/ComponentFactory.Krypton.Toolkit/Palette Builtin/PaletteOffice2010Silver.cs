@@ -294,7 +294,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// Initialize a new instance of the PaletteOffice2010Silver class.
-		/// </summary>
+        /// </summary>
         public PaletteOffice2010Silver()
             : base(_schemeColors,
                    _checkBoxList,

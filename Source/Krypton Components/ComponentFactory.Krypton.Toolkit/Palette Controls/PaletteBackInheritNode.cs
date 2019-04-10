@@ -15,15 +15,15 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Allow the background values to be forced to node provided values.
-	/// </summary>
+    /// </summary>
     public class PaletteBackInheritNode : PaletteBackInherit
-	{
+    {
         #region Instance Fields
         private readonly IPaletteBack _inherit;
 
-	    #endregion
+        #endregion
 
         #region Identity
         /// <summary>
@@ -45,14 +45,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public TreeNode TreeNode { get; set; }
 
-	    #endregion
+        #endregion
 
         #region IPaletteBack
-		/// <summary>
-		/// Gets a value indicating if background should be drawn.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
+        /// <summary>
+        /// Gets a value indicating if background should be drawn.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
         public override InheritBool GetBackDraw(PaletteState state)
         {
             if ((TreeNode != null) && (TreeNode.BackColor != Color.Empty))
@@ -65,21 +65,21 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Gets the graphics drawing hint.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteGraphicsHint value.</returns>
+        /// <summary>
+        /// Gets the graphics drawing hint.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteGraphicsHint value.</returns>
         public override PaletteGraphicsHint GetBackGraphicsHint(PaletteState state)
         {
             return _inherit.GetBackGraphicsHint(state);
         }
 
-		/// <summary>
-		/// Gets the first background color.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color value.</returns>
+        /// <summary>
+        /// Gets the first background color.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
         public override Color GetBackColor1(PaletteState state)
         {
             if ((TreeNode != null) && (TreeNode.BackColor != Color.Empty))
@@ -92,11 +92,11 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Gets the second back color.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color value.</returns>
+        /// <summary>
+        /// Gets the second back color.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
         public override Color GetBackColor2(PaletteState state)
         {
             if ((TreeNode != null) && (TreeNode.BackColor != Color.Empty))
@@ -109,65 +109,65 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Gets the color drawing style.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color drawing style.</returns>
+        /// <summary>
+        /// Gets the color drawing style.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color drawing style.</returns>
         public override PaletteColorStyle GetBackColorStyle(PaletteState state)
         {
             return _inherit.GetBackColorStyle(state);
         }
 
-		/// <summary>
-		/// Gets the color alignment style.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color alignment style.</returns>
+        /// <summary>
+        /// Gets the color alignment style.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color alignment style.</returns>
         public override PaletteRectangleAlign GetBackColorAlign(PaletteState state)
         {
             return _inherit.GetBackColorAlign(state);
         }
 
-		/// <summary>
-		/// Gets the color background angle.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Angle used for color drawing.</returns>
+        /// <summary>
+        /// Gets the color background angle.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Angle used for color drawing.</returns>
         public override float GetBackColorAngle(PaletteState state)
         {
             return _inherit.GetBackColorAngle(state);
         }
 
-		/// <summary>
-		/// Gets a background image.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image instance.</returns>
+        /// <summary>
+        /// Gets a background image.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image instance.</returns>
         public override Image GetBackImage(PaletteState state)
         {
             return _inherit.GetBackImage(state);
         }
 
-		/// <summary>
-		/// Gets the background image style.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image style value.</returns>
+        /// <summary>
+        /// Gets the background image style.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image style value.</returns>
         public override PaletteImageStyle GetBackImageStyle(PaletteState state)
         {
             return _inherit.GetBackImageStyle(state);
         }
 
-		/// <summary>
-		/// Gets the image alignment style.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image alignment style.</returns>
+        /// <summary>
+        /// Gets the image alignment style.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image alignment style.</returns>
         public override PaletteRectangleAlign GetBackImageAlign(PaletteState state)
         {
             return _inherit.GetBackImageAlign(state);
         }
         #endregion
-	}
+    }
 }

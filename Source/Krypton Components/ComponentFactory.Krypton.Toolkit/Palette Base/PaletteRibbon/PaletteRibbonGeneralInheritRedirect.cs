@@ -14,26 +14,26 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Provide inheritance of palette ribbon general properties from source redirector.
-	/// </summary>
+    /// <summary>
+    /// Provide inheritance of palette ribbon general properties from source redirector.
+    /// </summary>
     public class PaletteRibbonGeneralInheritRedirect : PaletteRibbonGeneralInherit
-	{
-		#region Instance Fields
-		private PaletteRedirect _redirect;
+    {
+        #region Instance Fields
+        private PaletteRedirect _redirect;
         #endregion
 
-		#region Identity
+        #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteRibbonGeneralInheritRedirect class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Source for inherit requests.</param>
         public PaletteRibbonGeneralInheritRedirect(PaletteRedirect redirect)
-		{
-			Debug.Assert(redirect != null);
-			_redirect = redirect;
-		}
-		#endregion
+        {
+            Debug.Assert(redirect != null);
+            _redirect = redirect;
+        }
+        #endregion
 
         #region SetRedirector
         /// <summary>

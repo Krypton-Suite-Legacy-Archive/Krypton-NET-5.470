@@ -42,14 +42,14 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the RepeatButtonController class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning control.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         /// <param name="target">Target for state changes.</param>
         public RepeatButtonController(KryptonRibbon ribbon,
                                       ViewBase target,
                                       NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(ribbon != null);
             Debug.Assert(target != null);
 
@@ -66,7 +66,7 @@ namespace ComponentFactory.Krypton.Ribbon
             };
             _repeatTimer.Tick += OnRepeatTick;
         }
-		#endregion
+        #endregion
 
         #region Public
         /// <summary>

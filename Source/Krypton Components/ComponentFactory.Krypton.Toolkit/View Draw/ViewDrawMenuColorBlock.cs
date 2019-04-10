@@ -16,9 +16,9 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Draw a solid color block inside a context menu color column.
-	/// </summary>
+    /// <summary>
+    /// Draw a solid color block inside a context menu color column.
+    /// </summary>
     public class ViewDrawMenuColorBlock : ViewLeaf
     {
         #region Instance Fields
@@ -32,7 +32,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawMenuColorBlock class.
-		/// </summary>
+        /// </summary>
         /// <param name="provider">Reference to provider.</param>
         /// <param name="colorColumns">Reference to owning color columns entry.</param>
         /// <param name="color">Drawing color for the block.</param>
@@ -66,11 +66,11 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <returns>User readable name of the instance.</returns>
         public override string ToString()
-		{
-			// Return the class name and instance identifier
+        {
+            // Return the class name and instance identifier
             return "ViewDrawMenuColorBlock:" + Id;
-		}
-		#endregion
+        }
+        #endregion
         
         #region ItemEnabled
         /// <summary>
@@ -134,7 +134,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="context">Layout context.</param>
         /// <exception cref="ArgumentNullException"></exception>
         public override Size GetPreferredSize(ViewLayoutContext context)
-		{
+        {
             Debug.Assert(context != null);
 
             // Validate incoming reference

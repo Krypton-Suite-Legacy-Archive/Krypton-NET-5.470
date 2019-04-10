@@ -13,9 +13,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
+    /// <summary>
     /// Implements the NavigatorMode.BarRibbonTabOnly mode.
-	/// </summary>
+    /// </summary>
     internal class ViewBuilderBarRibbonTabOnly : ViewBuilderBarRibbonTabBase
     {
         #region Public

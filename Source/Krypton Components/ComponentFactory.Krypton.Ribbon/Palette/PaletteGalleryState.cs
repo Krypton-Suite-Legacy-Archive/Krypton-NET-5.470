@@ -14,40 +14,40 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Implement storage for a gallery palette state. 
-	/// </summary>
+    /// <summary>
+    /// Implement storage for a gallery palette state. 
+    /// </summary>
     public class PaletteGalleryState : Storage
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly PaletteRibbonBack _ribbonBack;
         private readonly PaletteRibbonBack _ribbonBorder;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteGalleryState class.
-		/// </summary>
+        /// </summary>
         /// <param name="inherit">Source for inheriting values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteGalleryState(PaletteGalleryRedirect inherit,
                                    NeedPaintHandler needPaint)
-		{
-			// Create storage that maps onto the inherit instances
+        {
+            // Create storage that maps onto the inherit instances
             _ribbonBack= new PaletteRibbonBack(inherit.RibbonGalleryBack, needPaint);
             _ribbonBorder = new PaletteRibbonBack(inherit.RibbonGalleryBorder, needPaint);
         }
-		#endregion
+        #endregion
 
         #region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (RibbonGalleryBack.IsDefault &
-		                                   RibbonGalleryBorder.IsDefault);
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (RibbonGalleryBack.IsDefault &
+                                           RibbonGalleryBorder.IsDefault);
 
-	    #endregion
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -81,7 +81,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteRibbonBack RibbonGalleryBack => _ribbonBack;
 
-	    private bool ShouldSerializeRibbonGalleryBack()
+        private bool ShouldSerializeRibbonGalleryBack()
         {
             return !_ribbonBack.IsDefault;
         }
@@ -96,7 +96,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteRibbonBack RibbonGalleryBorder => _ribbonBorder;
 
-	    private bool ShouldSerializeRibbonGalleryBorder()
+        private bool ShouldSerializeRibbonGalleryBorder()
         {
             return !_ribbonBorder.IsDefault;
         }

@@ -318,8 +318,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region IContentValues
         /// <summary>
-		/// Gets the content image.
-		/// </summary>
+        /// Gets the content image.
+        /// </summary>
         /// <param name="state">The state for which the image is needed.</param>
         /// <returns>Image value.</returns>
         public Image GetImage(PaletteState state)

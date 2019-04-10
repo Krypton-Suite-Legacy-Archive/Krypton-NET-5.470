@@ -18,9 +18,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws a gallery button with specified image.
-	/// </summary>
+    /// <summary>
+    /// Draws a gallery button with specified image.
+    /// </summary>
     internal class ViewDrawRibbonGalleryButton : ViewLeaf, IContentValues
     {
         #region Instance Fields
@@ -47,7 +47,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonGalleryButton class.
-		/// </summary>
+        /// </summary>
         /// <param name="palette">Reference to inherited palette.</param>
         /// <param name="alignment">Button alignment within gallery.</param>
         /// <param name="button">Button content to display.</param>
@@ -72,15 +72,15 @@ namespace ComponentFactory.Krypton.Ribbon
             MouseController = _controller;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonGalleryButton:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.
@@ -120,10 +120,10 @@ namespace ComponentFactory.Krypton.Ribbon
                                                                                   State, false, false);
         }
 
-		/// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
+        /// <summary>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
         public override void Layout(ViewLayoutContext context)
         {
             Debug.Assert(context != null);

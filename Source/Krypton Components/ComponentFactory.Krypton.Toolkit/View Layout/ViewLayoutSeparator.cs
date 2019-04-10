@@ -14,9 +14,9 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Positions a separator to take up space without drawing.
-	/// </summary>
+    /// <summary>
+    /// Positions a separator to take up space without drawing.
+    /// </summary>
     public class ViewLayoutSeparator : ViewLeaf
     {
         #region Instance Fields
@@ -27,7 +27,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewLayoutRibbonSeparator class.
-		/// </summary>
+        /// </summary>
         /// <param name="length">Length of the separator.</param>
         public ViewLayoutSeparator(int length)
             : this(length, length)
@@ -47,15 +47,15 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         
         /// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutSeparator:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region SeparatorSize
         /// <summary>
@@ -75,26 +75,26 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Layout
         /// <summary>
-		/// Discover the preferred size of the element.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override Size GetPreferredSize(ViewLayoutContext context)
-		{
+        /// Discover the preferred size of the element.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override Size GetPreferredSize(ViewLayoutContext context)
+        {
             // Always return the same minimum size
             return new Size(_width, _height);
-		}
+        }
 
-		/// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        /// <summary>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
+            Debug.Assert(context != null);
 
             // We take on all the available display area
-			ClientRectangle = context.DisplayRectangle;
-		}
-		#endregion
+            ClientRectangle = context.DisplayRectangle;
+        }
+        #endregion
     }
 }

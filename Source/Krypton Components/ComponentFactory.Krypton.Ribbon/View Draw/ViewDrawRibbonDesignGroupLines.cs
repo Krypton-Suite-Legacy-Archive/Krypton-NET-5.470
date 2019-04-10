@@ -17,9 +17,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws an design time only for adding a new item to a lines container.
-	/// </summary>
+    /// <summary>
+    /// Draws an design time only for adding a new item to a lines container.
+    /// </summary>
     internal class ViewDrawRibbonDesignGroupLines : ViewDrawRibbonDesignBase
     {
         #region Static Fields
@@ -33,7 +33,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #endregion
 
-		#region Identity
+        #region Identity
         static ViewDrawRibbonDesignGroupLines()
         {
             // Use image list to convert background Magenta to transparent
@@ -58,9 +58,9 @@ namespace ComponentFactory.Krypton.Ribbon
                                                    Properties.Resources.KryptonRibbonGroupTrackBar});
         }
 
-		/// <summary>
+        /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonDesignGroupLines class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonLines">Associated ribbon group lines.</param>
         /// <param name="currentSize">Size the view should use.</param>
@@ -77,15 +77,15 @@ namespace ComponentFactory.Krypton.Ribbon
             CurrentSize = currentSize;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonDesignGroupLines:" + Id;
-		}
+        }
         #endregion
 
         #region CurrentSize

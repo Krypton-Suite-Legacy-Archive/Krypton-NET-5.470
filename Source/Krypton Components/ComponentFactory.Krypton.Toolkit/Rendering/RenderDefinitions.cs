@@ -878,14 +878,14 @@ namespace ComponentFactory.Krypton.Toolkit
         Office2013,
 
         /// <summary>
-	    /// Specifies the RenderOffice365 be used.
-	    /// </summary>
+        /// Specifies the RenderOffice365 be used.
+        /// </summary>
         Office365,
 
         /// <summary>
-		/// Specifies the RenderProfessional be used.
-		/// </summary>
-		Professional,
+        /// Specifies the RenderProfessional be used.
+        /// </summary>
+        Professional,
 
         /// <summary>
         /// Specifies the RenderStandard be used.
@@ -893,9 +893,9 @@ namespace ComponentFactory.Krypton.Toolkit
         Standard,
 
         /// <summary>
-		/// Specifies a custom renderer be used.
-		/// </summary>
-		Custom
+        /// Specifies a custom renderer be used.
+        /// </summary>
+        Custom
     }
     #endregion
 }

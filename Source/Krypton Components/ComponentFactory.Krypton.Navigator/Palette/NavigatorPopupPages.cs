@@ -15,9 +15,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Storage for popup page related properties.
-	/// </summary>
+    /// <summary>
+    /// Storage for popup page related properties.
+    /// </summary>
     public class NavigatorPopupPages : Storage
     {
         #region Static Fields
@@ -37,12 +37,12 @@ namespace ComponentFactory.Krypton.Navigator
         #region Identity
         /// <summary>
         /// Initialize a new instance of the NavigatorPopupPage class.
-		/// </summary>
+        /// </summary>
         /// <param name="navigator">Reference to owning navigator instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public NavigatorPopupPages(KryptonNavigator navigator,
                                   NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(navigator != null);
             Debug.Assert(needPaint != null);
             
@@ -59,7 +59,7 @@ namespace ComponentFactory.Krypton.Navigator
             Element = DEFAULT_ELEMENT;
             Position = DEFAULT_POSITION;
         }
-		#endregion
+        #endregion
 
         #region IsDefault
         /// <summary>

@@ -18,9 +18,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Layout area for the application button.
-	/// </summary>
+    /// <summary>
+    /// Layout area for the application button.
+    /// </summary>
     internal class ViewLayoutRibbonAppButton : ViewLayoutDocker
     {
         #region Static Fields
@@ -121,10 +121,10 @@ namespace ComponentFactory.Krypton.Ribbon
             return base.GetPreferredSize(context);
         }
 
-		/// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
+        /// <summary>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
         public override void Layout(ViewLayoutContext context)
         {
             UpdateSeparatorSize();

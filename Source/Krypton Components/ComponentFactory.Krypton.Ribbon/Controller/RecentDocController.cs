@@ -26,25 +26,25 @@ namespace ComponentFactory.Krypton.Ribbon
                                          IKeyController,
                                          ISourceController,
                                          IContextMenuTarget
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private bool _mouseOver;
         private readonly ViewDrawRibbonAppMenuRecentDec _menuItem;
-		private NeedPaintHandler _needPaint;
+        private NeedPaintHandler _needPaint;
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the RecentDocController class.
-		/// </summary>
+        /// </summary>
         /// <param name="viewManager">Owning view manager instance.</param>
         /// <param name="menuItem">Target menu item view element.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public RecentDocController(ViewContextMenuManager viewManager,
                                    ViewDrawRibbonAppMenuRecentDec menuItem,
                                    NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(viewManager != null);
             Debug.Assert(menuItem != null);
             Debug.Assert(needPaint != null);
@@ -53,7 +53,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _menuItem = menuItem;
             NeedPaint = needPaint;
         }
-		#endregion
+        #endregion
 
         #region ContextMenuTarget Notifications
         /// <summary>
@@ -61,7 +61,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public virtual bool HasSubMenu => false;
 
-	    /// <summary>
+        /// <summary>
         /// This target should display as the active target.
         /// </summary>
         public virtual void ShowTarget()
@@ -123,7 +123,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public Rectangle ClientRectangle => _menuItem.ClientRectangle;
 
-	    /// <summary>
+        /// <summary>
         /// Should a mouse down at the provided point cause the currently stacked context menu to become current.
         /// </summary>
         /// <param name="pt">Client coordinates point.</param>
@@ -136,57 +136,57 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Mouse Notifications
         /// <summary>
-		/// Mouse has entered the view.
-		/// </summary>
+        /// Mouse has entered the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         public virtual void MouseEnter(Control c)
-		{
+        {
             if (!_mouseOver)
             {
                 _mouseOver = true;
                 ViewManager.SetTarget(this, true);
             }
-		}
+        }
 
-		/// <summary>
-		/// Mouse has moved inside the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse has moved inside the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
         public virtual void MouseMove(Control c, Point pt)
-		{
-		}
+        {
+        }
 
-		/// <summary>
-		/// Mouse button has been pressed in the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse button has been pressed in the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
-		/// <param name="button">Mouse button pressed down.</param>
-		/// <returns>True if capturing input; otherwise false.</returns>
+        /// <param name="button">Mouse button pressed down.</param>
+        /// <returns>True if capturing input; otherwise false.</returns>
         public virtual bool MouseDown(Control c, Point pt, MouseButtons button)
-		{
-			return false;
-		}
+        {
+            return false;
+        }
 
-		/// <summary>
-		/// Mouse button has been released in the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse button has been released in the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
-		/// <param name="button">Mouse button released.</param>
+        /// <param name="button">Mouse button released.</param>
         public virtual void MouseUp(Control c, Point pt, MouseButtons button)
-		{
+        {
             PressMenuItem();
-		}
+        }
 
-		/// <summary>
-		/// Mouse has left the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse has left the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="next">Reference to view that is next to have the mouse.</param>
         public virtual void MouseLeave(Control c, ViewBase next)
-		{
+        {
             // Only if mouse is leaving all the children monitored by controller.
             if (_mouseOver && !_menuItem.ContainsRecurse(next))
             {
@@ -208,7 +208,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public virtual bool IgnoreVisualFormLeftButtonDown => false;
 
-	    #endregion
+        #endregion
 
         #region Key Notifications
         /// <summary>
@@ -345,20 +345,20 @@ namespace ComponentFactory.Krypton.Ribbon
             }
         }
 
-		/// <summary>
-		/// Fires the NeedPaint event.
-		/// </summary>
+        /// <summary>
+        /// Fires the NeedPaint event.
+        /// </summary>
         /// <param name="layout">Does a layout need to occur.</param>
-		public void PerformNeedPaint(bool layout)
-		{
+        public void PerformNeedPaint(bool layout)
+        {
             OnNeedPaint(layout);
-		}
-		#endregion
+        }
+        #endregion
 
         #region Implementation
         private ViewContextMenuManager ViewManager { get; }
 
-	    private void PressMenuItem()
+        private void PressMenuItem()
         {
             // Is the menu capable of being closed?
             if (_menuItem.CanCloseMenu)
@@ -398,13 +398,13 @@ namespace ComponentFactory.Krypton.Ribbon
         }
 
         /// <summary>
-		/// Raises the NeedPaint event.
-		/// </summary>
-		/// <param name="needLayout">Does the palette change require a layout.</param>
-		protected virtual void OnNeedPaint(bool needLayout)
-		{
+        /// Raises the NeedPaint event.
+        /// </summary>
+        /// <param name="needLayout">Does the palette change require a layout.</param>
+        protected virtual void OnNeedPaint(bool needLayout)
+        {
             _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout, _menuItem.ClientRectangle));
         }
-		#endregion
-	}
+        #endregion
+    }
 }

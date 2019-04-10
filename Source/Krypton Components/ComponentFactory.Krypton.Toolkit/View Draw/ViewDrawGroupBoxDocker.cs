@@ -15,9 +15,9 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Extends the ViewDrawDocker for use in the KryptonGroupBox.
-	/// </summary>
+    /// <summary>
+    /// Extends the ViewDrawDocker for use in the KryptonGroupBox.
+    /// </summary>
     public class ViewDrawGroupBoxDocker : ViewDrawDocker
     {
         #region Instance Fields
@@ -29,7 +29,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Initialize a new instance of the ViewDrawGroupBoxDocker class.
         /// </summary>
-        /// <param name="paletteBack">Palette source for the background.</param>		
+        /// <param name="paletteBack">Palette source for the background.</param>        
         /// <param name="paletteBorder">Palette source for the border.</param>
         public ViewDrawGroupBoxDocker(IPaletteBack paletteBack,
                                       IPaletteBorder paletteBorder)
@@ -38,16 +38,16 @@ namespace ComponentFactory.Krypton.Toolkit
             CaptionOverlap = 0.5;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawGroupBoxDocker:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region CaptionOverlap
         /// <summary>

@@ -14,9 +14,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Implement storage for other navigator appearance states.
-	/// </summary>
+    /// <summary>
+    /// Implement storage for other navigator appearance states.
+    /// </summary>
     public class PaletteNavigatorOtherEx : PaletteNavigatorOther
     {
         #region Instance Fields
@@ -26,25 +26,25 @@ namespace ComponentFactory.Krypton.Navigator
         #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteNavigatorOtherEx class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Inheritence redirection instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteNavigatorOtherEx(PaletteNavigatorRedirect redirect,
                                        NeedPaintHandler needPaint)
             : base(redirect, needPaint)
-		{
+        {
             // Create the palette storage
             Separator = new PaletteSeparatorPadding(redirect.Separator, redirect.Separator, needPaint);
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => base.IsDefault && 
-		                                  Separator.IsDefault;
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => base.IsDefault && 
+                                          Separator.IsDefault;
 
         #endregion
 

@@ -95,10 +95,10 @@ namespace ComponentFactory.Krypton.Docking
         #endregion
 
         #region Protected
-		/// <summary>
-		/// Processes Windows messages.
-		/// </summary>
-		/// <param name="m">The Windows Message to process. </param>
+        /// <summary>
+        /// Processes Windows messages.
+        /// </summary>
+        /// <param name="m">The Windows Message to process. </param>
         protected override void WndProc(ref Message m)
         {
             switch (m.Msg)

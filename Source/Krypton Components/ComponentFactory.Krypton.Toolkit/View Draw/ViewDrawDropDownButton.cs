@@ -27,22 +27,22 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawDropDownButton class.
-		/// </summary>
+        /// </summary>
         public ViewDrawDropDownButton()
-		{
+        {
             Orientation = VisualOrientation.Top;
-		}
+        }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawDropDownButton:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Palette
         /// <summary>
@@ -62,9 +62,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Layout
         /// <summary>
-		/// Discover the preferred size of the element.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
+        /// Discover the preferred size of the element.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
         public override Size GetPreferredSize(ViewLayoutContext context)
         {
             Debug.Assert(context != null);
@@ -93,11 +93,11 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Paint
-		/// <summary>
-		/// Perform rendering before child elements are rendered.
-		/// </summary>
-		/// <param name="context">Rendering context.</param>
+        #region Paint
+        /// <summary>
+        /// Perform rendering before child elements are rendered.
+        /// </summary>
+        /// <param name="context">Rendering context.</param>
         public override void RenderBefore(RenderContext context)
         {
             context.Renderer.RenderGlyph.DrawDropDownButton(context, 

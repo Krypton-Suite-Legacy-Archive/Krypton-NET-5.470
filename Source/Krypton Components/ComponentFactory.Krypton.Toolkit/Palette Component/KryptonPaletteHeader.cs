@@ -13,9 +13,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for palette header states.
-	/// </summary>
+    /// <summary>
+    /// Storage for palette header states.
+    /// </summary>
     public class KryptonPaletteHeader : Storage
     {
         #region Instance Fields
@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonPaletteHeader class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Redirector to inherit values from.</param>
         /// <param name="backStyle">Background style.</param>
         /// <param name="borderStyle">Border style.</param>
@@ -36,7 +36,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                     PaletteBorderStyle borderStyle,
                                     PaletteContentStyle contentStyle,
                                     NeedPaintHandler needPaint) 
-		{
+        {
             // Create the storage objects
             StateCommon = new PaletteHeaderRedirect(redirect, backStyle, borderStyle, contentStyle, needPaint);
             StateDisabled = new PaletteTripleMetric(StateCommon, needPaint);
@@ -55,14 +55,14 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => StateCommon.IsDefault &&
-		                                  StateDisabled.IsDefault &&
-		                                  StateNormal.IsDefault;
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => StateCommon.IsDefault &&
+                                          StateDisabled.IsDefault &&
+                                          StateNormal.IsDefault;
 
         #endregion
 

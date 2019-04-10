@@ -50,11 +50,11 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonRibbonTabDesigner class.
-		/// </summary>
+        /// </summary>
         public KryptonRibbonTabDesigner()
         {
         }            
-		#endregion
+        #endregion
 
         #region Public
         /// <summary>

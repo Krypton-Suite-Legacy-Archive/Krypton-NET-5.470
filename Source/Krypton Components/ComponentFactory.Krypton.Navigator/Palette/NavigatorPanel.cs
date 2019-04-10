@@ -15,9 +15,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Storage for panel related properties.
-	/// </summary>
+    /// <summary>
+    /// Storage for panel related properties.
+    /// </summary>
     public class NavigatorPanel : Storage
     {
         #region Instance Fields
@@ -28,12 +28,12 @@ namespace ComponentFactory.Krypton.Navigator
         #region Identity
         /// <summary>
         /// Initialize a new instance of the NavigatorPanel class.
-		/// </summary>
+        /// </summary>
         /// <param name="navigator">Reference to owning navigator instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public NavigatorPanel(KryptonNavigator navigator,
                               NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(navigator != null);
             
             // Remember back reference
@@ -45,7 +45,7 @@ namespace ComponentFactory.Krypton.Navigator
             // Default values
             _panelBackStyle = PaletteBackStyle.PanelClient;
         }
-		#endregion
+        #endregion
 
         #region IsDefault
         /// <summary>

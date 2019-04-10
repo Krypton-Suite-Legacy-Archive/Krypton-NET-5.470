@@ -13,24 +13,24 @@ using System;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
+    /// <summary>
     /// Details for an event that provides pages associated with a page dragging event.
-	/// </summary>
-	public class PageDragEndEventArgs : EventArgs
-	{
-		#region Instance Fields
+    /// </summary>
+    public class PageDragEndEventArgs : EventArgs
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PageDragEndEventArgs class.
-		/// </summary>
+        /// </summary>
         /// <param name="dropped">True if a drop was performed; otherwise false.</param>
         /// <param name="pages">Array of event associated pages.</param>
         public PageDragEndEventArgs(bool dropped,
                                     KryptonPage[] pages)
-		{
+        {
             Dropped = dropped;
             Pages = new KryptonPageCollection();
 
@@ -38,7 +38,7 @@ namespace ComponentFactory.Krypton.Navigator
             {
                 Pages.AddRange(pages);
             }
-		}
+        }
         #endregion
 
         #region Dropped
@@ -47,7 +47,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public bool Dropped { get; }
 
-	    #endregion
+        #endregion
 
         #region Pages
         /// <summary>
@@ -55,6 +55,6 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public KryptonPageCollection Pages { get; }
 
-	    #endregion
+        #endregion
     }
 }

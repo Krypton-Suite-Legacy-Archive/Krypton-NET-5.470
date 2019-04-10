@@ -15,24 +15,24 @@ using System.Drawing.Text;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Encapsulate the information needed to draw text using the AccurateText class.
-	/// </summary>
+    /// <summary>
+    /// Encapsulate the information needed to draw text using the AccurateText class.
+    /// </summary>
     public class AccurateTextMemento : GlobalId,
                                        IDisposable
-	{
-		#region Static Fields
-		private static AccurateTextMemento _empty;
-		#endregion
+    {
+        #region Static Fields
+        private static AccurateTextMemento _empty;
+        #endregion
 
-		#region Instance Fields
+        #region Instance Fields
         private readonly bool _disposeFont;
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
-		/// Initialize a new instance of the TextMemento class.
-		/// </summary>
+        #region Identity
+        /// <summary>
+        /// Initialize a new instance of the TextMemento class.
+        /// </summary>
         /// <param name="text">Text to draw.</param>
         /// <param name="font">Drawing font.</param>
         /// <param name="sizeF">Size of measured text.</param>
@@ -45,13 +45,13 @@ namespace ComponentFactory.Krypton.Toolkit
                                      StringFormat format,
                                      TextRenderingHint hint,
                                      bool disposeFont)
-		{
+        {
             Text = text;
             Size = new Size((int)sizeF.Width + 1, (int)sizeF.Height + 1);
             Font = font;
             Format = format;
-		    _disposeFont = disposeFont;
-		}
+            _disposeFont = disposeFont;
+        }
 
         /// <summary>
         /// Dispose of the memento resources.
@@ -64,50 +64,50 @@ namespace ComponentFactory.Krypton.Toolkit
                 Font = null;
             }
         }
-		#endregion
+        #endregion
 
-		#region Public Properties
+        #region Public Properties
         /// <summary>
         /// Gets the text to draw.
         /// </summary>
         public string Text { get; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets the drawing font.
         /// </summary>
         public Font Font { get; set; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets the pixel size of the text area.
         /// </summary>
         public Size Size { get; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets the pixel size of the text area.
         /// </summary>
         public StringFormat Format { get; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets a value indicating if the memento represents nothing that can be drawn.
         /// </summary>
         public bool IsEmpty => (Size == Size.Empty);
 
-	    #endregion
+        #endregion
 
-		#region Internal Static Properties
-		/// <summary>
-		/// Get access to an empty TextMemento instance.
-		/// </summary>
-		/// <remarks>
-		/// Only create the single instance when first requested
-		/// </remarks>
-		internal static AccurateTextMemento Empty => _empty ?? (_empty = new AccurateTextMemento(string.Empty,
-		                                                 null,
-		                                                 Size.Empty,
-		                                                 StringFormat.GenericDefault,
-		                                                 TextRenderingHint.SystemDefault,
-		                                                 false));
+        #region Internal Static Properties
+        /// <summary>
+        /// Get access to an empty TextMemento instance.
+        /// </summary>
+        /// <remarks>
+        /// Only create the single instance when first requested
+        /// </remarks>
+        internal static AccurateTextMemento Empty => _empty ?? (_empty = new AccurateTextMemento(string.Empty,
+                                                         null,
+                                                         Size.Empty,
+                                                         StringFormat.GenericDefault,
+                                                         TextRenderingHint.SystemDefault,
+                                                         false));
 
-	    #endregion
+        #endregion
     }
 }

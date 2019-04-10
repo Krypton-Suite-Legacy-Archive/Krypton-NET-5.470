@@ -14,30 +14,30 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Allow a palette to be overriden optionally.
-	/// </summary>
+    /// <summary>
+    /// Allow a palette to be overriden optionally.
+    /// </summary>
     public class PaletteDoubleOverride : GlobalId,
                                          IPaletteDouble
-	{
-		#region Intance Fields
-		private readonly PaletteBackInheritOverride _overrideBack;
-		private readonly PaletteBorderInheritOverride _overrideBorder;
-		#endregion
+    {
+        #region Intance Fields
+        private readonly PaletteBackInheritOverride _overrideBack;
+        private readonly PaletteBorderInheritOverride _overrideBorder;
+        #endregion
 
-		#region Identity
+        #region Identity
 
-	    /// <summary>
-	    /// Initialize a new instance of the PaletteDoubleOverride class.
-	    /// </summary>
-	    /// <param name="normalTriple">Normal palette to use.</param>
-	    /// <param name="overrideTriple">Override palette to use.</param>
-	    /// <param name="overrideState">State used by the override.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    public PaletteDoubleOverride(IPaletteDouble normalTriple,
-									 IPaletteDouble overrideTriple,
-									 PaletteState overrideState)
-		{
+        /// <summary>
+        /// Initialize a new instance of the PaletteDoubleOverride class.
+        /// </summary>
+        /// <param name="normalTriple">Normal palette to use.</param>
+        /// <param name="overrideTriple">Override palette to use.</param>
+        /// <param name="overrideState">State used by the override.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public PaletteDoubleOverride(IPaletteDouble normalTriple,
+                                     IPaletteDouble overrideTriple,
+                                     PaletteState overrideState)
+        {
             Debug.Assert(normalTriple != null);
             Debug.Assert(overrideTriple != null);
 
@@ -61,24 +61,24 @@ namespace ComponentFactory.Krypton.Toolkit
             // Always override the state
             Override = true;
             OverrideState = overrideState;
-		}
-		#endregion
+        }
+        #endregion
 
-		#region Apply
-		/// <summary>
-		/// Gets and sets a value indicating if override should be applied.
-		/// </summary>
-		public bool Apply
-		{
-			get => _overrideBack.Apply;
+        #region Apply
+        /// <summary>
+        /// Gets and sets a value indicating if override should be applied.
+        /// </summary>
+        public bool Apply
+        {
+            get => _overrideBack.Apply;
 
-		    set
-			{
-				_overrideBack.Apply = value;
-				_overrideBorder.Apply = value;
-			}
-		}
-		#endregion
+            set
+            {
+                _overrideBack.Apply = value;
+                _overrideBorder.Apply = value;
+            }
+        }
+        #endregion
 
         #region Override
         /// <summary>
@@ -98,31 +98,31 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region OverrideState
         /// <summary>
-		/// Gets and sets the override palette state to use.
-		/// </summary>
-		public PaletteState OverrideState
-		{
-			get => _overrideBack.OverrideState;
+        /// Gets and sets the override palette state to use.
+        /// </summary>
+        public PaletteState OverrideState
+        {
+            get => _overrideBack.OverrideState;
 
             set
-			{
-				_overrideBack.OverrideState = value;
-				_overrideBorder.OverrideState = value;
-			}
-		}
-		#endregion
+            {
+                _overrideBack.OverrideState = value;
+                _overrideBorder.OverrideState = value;
+            }
+        }
+        #endregion
 
-		#region Palette Accessors
-		/// <summary>
-		/// Gets the background palette.
-		/// </summary>
-		public IPaletteBack PaletteBack => _overrideBack;
+        #region Palette Accessors
+        /// <summary>
+        /// Gets the background palette.
+        /// </summary>
+        public IPaletteBack PaletteBack => _overrideBack;
 
-	    /// <summary>
-		/// Gets the border palette.
-		/// </summary>
-		public IPaletteBorder PaletteBorder => _overrideBorder;
+        /// <summary>
+        /// Gets the border palette.
+        /// </summary>
+        public IPaletteBorder PaletteBorder => _overrideBorder;
 
-	    #endregion
-	}
+        #endregion
+    }
 }

@@ -15,23 +15,23 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Redirect storage for HeaderGroup states.
-	/// </summary>
-	public class PaletteHeaderGroupRedirect : PaletteDoubleRedirect,
+    /// </summary>
+    public class PaletteHeaderGroupRedirect : PaletteDoubleRedirect,
                                               IPaletteMetric
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly PaletteRedirect _redirect;
         private InheritBool _overlayHeaders;
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
-		/// Initialize a new instance of the PaletteHeaderGroupRedirect class.
-		/// </summary>
-		/// <param name="redirect">Inheritence redirection instance.</param>
+        #region Identity
+        /// <summary>
+        /// Initialize a new instance of the PaletteHeaderGroupRedirect class.
+        /// </summary>
+        /// <param name="redirect">Inheritence redirection instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteHeaderGroupRedirect(PaletteRedirect redirect,
                                           NeedPaintHandler needPaint)
@@ -40,8 +40,8 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Initialize a new instance of the PaletteHeaderGroupRedirect class.
-		/// </summary>
+        /// Initialize a new instance of the PaletteHeaderGroupRedirect class.
+        /// </summary>
         /// <param name="redirectHeaderGroup">Inheritence redirection for header group.</param>
         /// <param name="redirectHeaderPrimary">Inheritence redirection for primary header.</param>
         /// <param name="redirectHeaderSecondary">Inheritence redirection for secondary header.</param>
@@ -52,7 +52,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                           NeedPaintHandler needPaint)
             : base(redirectHeaderGroup, PaletteBackStyle.ControlClient, 
                    PaletteBorderStyle.ControlClient, needPaint)
-		{
+        {
             Debug.Assert(redirectHeaderGroup != null);
             Debug.Assert(redirectHeaderSecondary != null);
             Debug.Assert(redirectHeaderPrimary != null);
@@ -64,75 +64,75 @@ namespace ComponentFactory.Krypton.Toolkit
             HeaderPrimary = new PaletteHeaderPaddingRedirect(redirectHeaderPrimary, PaletteBackStyle.HeaderPrimary, PaletteBorderStyle.HeaderPrimary, PaletteContentStyle.HeaderPrimary, needPaint);
             HeaderSecondary = new PaletteHeaderPaddingRedirect(redirectHeaderSecondary, PaletteBackStyle.HeaderSecondary, PaletteBorderStyle.HeaderSecondary, PaletteContentStyle.HeaderSecondary, needPaint);
 
-			// Default other values
-			_overlayHeaders = InheritBool.Inherit;
-		}
-		#endregion
+            // Default other values
+            _overlayHeaders = InheritBool.Inherit;
+        }
+        #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (base.IsDefault &&
-		                                   HeaderPrimary.IsDefault &&
-		                                   HeaderSecondary.IsDefault &&
-		                                   (OverlayHeaders == InheritBool.Inherit));
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (base.IsDefault &&
+                                           HeaderPrimary.IsDefault &&
+                                           HeaderSecondary.IsDefault &&
+                                           (OverlayHeaders == InheritBool.Inherit));
 
-	    #endregion
+        #endregion
 
         #region HeaderPrimary
         /// <summary>
-		/// Gets access to the primary header appearance entries.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Overrides for defining primary header appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteHeaderPaddingRedirect HeaderPrimary { get; }
+        /// Gets access to the primary header appearance entries.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Overrides for defining primary header appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public PaletteHeaderPaddingRedirect HeaderPrimary { get; }
 
-	    private bool ShouldSerializeHeaderPrimary()
-		{
-			return !HeaderPrimary.IsDefault;
-		}
-		#endregion
+        private bool ShouldSerializeHeaderPrimary()
+        {
+            return !HeaderPrimary.IsDefault;
+        }
+        #endregion
 
         #region HeaderSecondary
         /// <summary>
-		/// Gets access to the secondary header appearance entries.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Overrides for defining secondary header appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteHeaderPaddingRedirect HeaderSecondary { get; }
+        /// Gets access to the secondary header appearance entries.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Overrides for defining secondary header appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public PaletteHeaderPaddingRedirect HeaderSecondary { get; }
 
-	    private bool ShouldSerializeHeaderSecondary()
-		{
-			return !HeaderSecondary.IsDefault;
-		}
-		#endregion
+        private bool ShouldSerializeHeaderSecondary()
+        {
+            return !HeaderSecondary.IsDefault;
+        }
+        #endregion
 
         #region OverlayHeaders
         /// <summary>
-		/// Gets and sets a value indicating if headers should overlay the border.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Should headers overlay the border.")]
-		[DefaultValue(typeof(InheritBool), "Inherit")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public InheritBool OverlayHeaders
-		{
-			get => _overlayHeaders;
+        /// Gets and sets a value indicating if headers should overlay the border.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Should headers overlay the border.")]
+        [DefaultValue(typeof(InheritBool), "Inherit")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public InheritBool OverlayHeaders
+        {
+            get => _overlayHeaders;
 
             set
-			{
-				if (_overlayHeaders != value)
-				{
-					_overlayHeaders = value;
-					PerformNeedPaint();
-				}
-			}
-		}
-		#endregion
+            {
+                if (_overlayHeaders != value)
+                {
+                    _overlayHeaders = value;
+                    PerformNeedPaint();
+                }
+            }
+        }
+        #endregion
 
         #region IPaletteMetric
         /// <summary>

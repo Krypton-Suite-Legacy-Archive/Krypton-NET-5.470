@@ -14,21 +14,21 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Implement storage for back, border and tree node triple.
-	/// </summary>
+    /// </summary>
     public class PaletteTreeStateRedirect : PaletteDoubleRedirect
                                             
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private PaletteRedirect _redirect;
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteTreeStateRedirect class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Inheritence redirection instance.</param>
         /// <param name="back">Storage for back values.</param>
         /// <param name="backInherit">Inheritence for back values.</param>
@@ -42,7 +42,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                         PaletteBorderInheritRedirect borderInherit,
                                         NeedPaintHandler needPaint)
             : base(redirect, back, backInherit, border, borderInherit, needPaint)
-		{
+        {
             Debug.Assert(redirect != null);
 
             // Remember the redirect reference
@@ -54,17 +54,17 @@ namespace ComponentFactory.Krypton.Toolkit
                                                       PaletteBorderStyle.ButtonListItem,
                                                       PaletteContentStyle.ButtonListItem,
                                                       needPaint);
-		}
-		#endregion
+        }
+        #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (base.IsDefault && Node.IsDefault);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (base.IsDefault && Node.IsDefault);
 
-	    #endregion
+        #endregion
 
         #region Node
         /// <summary>
@@ -76,7 +76,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTripleRedirect Node { get; }
 
-	    private bool ShouldSerializeItem()
+        private bool ShouldSerializeItem()
         {
             return !Node.IsDefault;
         }

@@ -15,46 +15,46 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Implement storage for a ribbon style values.
-	/// </summary>
-	public class PaletteRibbonStyles : Storage
-	{
-		#region Instance Fields
+    /// <summary>
+    /// Implement storage for a ribbon style values.
+    /// </summary>
+    public class PaletteRibbonStyles : Storage
+    {
+        #region Instance Fields
         private readonly KryptonRibbon _ribbon;
-		#endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteRibbonStyles class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Source ribbon control instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteRibbonStyles(KryptonRibbon ribbon,
                                    NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(ribbon != null);
             _ribbon = ribbon;
 
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
         }
-		#endregion
+        #endregion
 
         #region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => ((BackStyle == PaletteBackStyle.PanelClient) &&
-		                                   (GroupButtonStyle == ButtonStyle.ButtonSpec) &&
-		                                   (GroupClusterButtonStyle == ButtonStyle.Cluster) &&
-		                                   (GroupDialogButtonStyle == ButtonStyle.ButtonSpec) &&
-		                                   (GroupCollapsedButtonStyle == ButtonStyle.Alternate) &&
-		                                   (QATButtonStyle == ButtonStyle.ButtonSpec) &&
-		                                   (ScrollerStyle == ButtonStyle.Standalone));
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => ((BackStyle == PaletteBackStyle.PanelClient) &&
+                                           (GroupButtonStyle == ButtonStyle.ButtonSpec) &&
+                                           (GroupClusterButtonStyle == ButtonStyle.Cluster) &&
+                                           (GroupDialogButtonStyle == ButtonStyle.ButtonSpec) &&
+                                           (GroupCollapsedButtonStyle == ButtonStyle.Alternate) &&
+                                           (QATButtonStyle == ButtonStyle.ButtonSpec) &&
+                                           (ScrollerStyle == ButtonStyle.Standalone));
 
-	    #endregion
+        #endregion
 
         #region BackStyle
         /// <summary>

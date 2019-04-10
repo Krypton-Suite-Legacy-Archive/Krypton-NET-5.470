@@ -16,7 +16,7 @@ using System.ComponentModel.Design;
 namespace ComponentFactory.Krypton.Toolkit
 {
     internal class KryptonNumericUpDownColumnDesigner : ComponentDesigner
-	{
+    {
         #region Instance Fields
         private KryptonDataGridViewNumericUpDownColumn _numericUpDown;
         private IComponentChangeService _changeService;
@@ -45,7 +45,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public override ICollection AssociatedComponents =>
             _numericUpDown != null ? _numericUpDown.ButtonSpecs : base.AssociatedComponents;
 
-	    #endregion
+        #endregion
 
         #region Private
         private void OnComponentRemoving(object sender, ComponentEventArgs e)

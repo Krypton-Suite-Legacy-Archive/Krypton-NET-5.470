@@ -27,7 +27,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewRibbonPopupGroupManager class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to original ribbon instance.</param>
         /// <param name="control">Owning control.</param>
         /// <param name="qatContents">View that will handle focus requests.</param>
@@ -37,13 +37,13 @@ namespace ComponentFactory.Krypton.Ribbon
                                             ViewLayoutRibbonQATContents qatContents,
                                             ViewBase root)
             : base(control, root)
-		{
+        {
             Debug.Assert(ribbon != null);
             Debug.Assert(qatContents != null);
             
             _ribbon = ribbon;
             QATContents = qatContents;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.

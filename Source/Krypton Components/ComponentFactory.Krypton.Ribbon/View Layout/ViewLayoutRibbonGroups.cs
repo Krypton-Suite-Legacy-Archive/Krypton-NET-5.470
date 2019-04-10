@@ -17,9 +17,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Extends the ViewComposite by creating and laying out elements to represent ribbon groups.
-	/// </summary>
+    /// <summary>
+    /// Extends the ViewComposite by creating and laying out elements to represent ribbon groups.
+    /// </summary>
     internal class ViewLayoutRibbonGroups : ViewComposite
     {
         #region Classes
@@ -44,10 +44,10 @@ namespace ComponentFactory.Krypton.Ribbon
         private int[] _groupWidths;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the ViewLayoutRibbonGroups class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Owning ribbon control instance.</param>
         /// <param name="ribbonTab">RibbonTab to organize groups.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
@@ -71,15 +71,15 @@ namespace ComponentFactory.Krypton.Ribbon
             _groupSepCache = new ViewDrawRibbonGroupSepList();
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutRibbonGroups:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.
@@ -292,28 +292,28 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Layout
         /// <summary>
-		/// Discover the preferred size of the element.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override Size GetPreferredSize(ViewLayoutContext context)
-		{
+        /// Discover the preferred size of the element.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override Size GetPreferredSize(ViewLayoutContext context)
+        {
             // Sync to represent the current ribbon groups for tab
             SyncChildrenToRibbonGroups();
 
             // Find best size for groups to fill available space
             return new Size(AdjustGroupStateToMatchSpace(context), _ribbon.CalculatedValues.GroupHeight);
-		}
+        }
 
-		/// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
+        /// <summary>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
             Debug.Assert(context != null);
 
             // We take on all the available display area
-			ClientRectangle = context.DisplayRectangle;
+            ClientRectangle = context.DisplayRectangle;
 
             int x = ClientLocation.X;
 
@@ -359,8 +359,8 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Update the display rectangle we allocated for use by parent
             context.DisplayRectangle = new Rectangle(ClientLocation, new Size(x - ClientLocation.X, ClientHeight));
-		}
-		#endregion
+        }
+        #endregion
 
         #region Implementation
         private Size SeparatorSize

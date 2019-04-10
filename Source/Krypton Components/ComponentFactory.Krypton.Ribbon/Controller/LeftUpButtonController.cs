@@ -16,48 +16,48 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Provide button pressed when mouse released functionality.
-	/// </summary>
+    /// <summary>
+    /// Provide button pressed when mouse released functionality.
+    /// </summary>
     internal class LeftUpButtonController : GlobalId,
                                             IMouseController
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
 
-	    private bool _active;
-	    private bool _mouseOver;
-	    private NeedPaintHandler _needPaint;
-		#endregion
+        private bool _active;
+        private bool _mouseOver;
+        private NeedPaintHandler _needPaint;
+        #endregion
 
-		#region Events
-		/// <summary>
-		/// Occurs when the mouse is used to left click the target.
-		/// </summary>
-		public event MouseEventHandler Click;
-		#endregion
+        #region Events
+        /// <summary>
+        /// Occurs when the mouse is used to left click the target.
+        /// </summary>
+        public event MouseEventHandler Click;
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the LeftUpButtonController class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         /// <param name="target">Target for state changes.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public LeftUpButtonController(KryptonRibbon ribbon,
                                       ViewBase target,
                                       NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(ribbon != null);
             Debug.Assert(target != null);
 
-			// Remember target for state changes
+            // Remember target for state changes
             Ribbon = ribbon;
-			Target = target;
+            Target = target;
 
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
         }
-		#endregion
+        #endregion
 
         #region Ribbon
         /// <summary>
@@ -65,7 +65,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public KryptonRibbon Ribbon { get; }
 
-	    #endregion
+        #endregion
 
         #region Target
         /// <summary>
@@ -73,15 +73,15 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public ViewBase Target { get; }
 
-	    #endregion
+        #endregion
 
-		#region Mouse Notifications
-		/// <summary>
-		/// Mouse has entered the view.
-		/// </summary>
+        #region Mouse Notifications
+        /// <summary>
+        /// Mouse has entered the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         public virtual void MouseEnter(Control c)
-		{
+        {
             // Mouse is over the target
             _mouseOver = true;
 
@@ -94,28 +94,28 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Update the visual state
             UpdateTargetState(c);
-		}
+        }
 
-		/// <summary>
-		/// Mouse has moved inside the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse has moved inside the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
         public virtual void MouseMove(Control c, Point pt)
-		{
+        {
             // Update the visual state
             UpdateTargetState(pt);
-		}
+        }
 
-		/// <summary>
-		/// Mouse button has been pressed in the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse button has been pressed in the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
-		/// <param name="button">Mouse button pressed down.</param>
-		/// <returns>True if capturing input; otherwise false.</returns>
+        /// <param name="button">Mouse button pressed down.</param>
+        /// <returns>True if capturing input; otherwise false.</returns>
         public virtual bool MouseDown(Control c, Point pt, MouseButtons button)
-		{
+        {
             // Is pressing down with the mouse when we are always active for showing changes
             _active = true;
 
@@ -129,17 +129,17 @@ namespace ComponentFactory.Krypton.Ribbon
                 UpdateTargetState(pt);
             }
 
-			return Captured;
-		}
+            return Captured;
+        }
 
-		/// <summary>
-		/// Mouse button has been released in the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse button has been released in the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
-		/// <param name="button">Mouse button released.</param>
+        /// <param name="button">Mouse button released.</param>
         public virtual void MouseUp(Control c, Point pt, MouseButtons button)
-		{
+        {
             // If the mouse is currently captured
             if (Captured)
             {
@@ -176,15 +176,15 @@ namespace ComponentFactory.Krypton.Ribbon
                     UpdateTargetState(pt);
                 }
             }
-		}
+        }
 
-		/// <summary>
-		/// Mouse has left the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse has left the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="next">Reference to view that is next to have the mouse.</param>
         public virtual void MouseLeave(Control c, ViewBase next)
-		{
+        {
             // Only if mouse is leaving all the children monitored by controller.
             if (!Target.ContainsRecurse(next))
             {
@@ -197,7 +197,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 // Update the visual state
                 UpdateTargetState(c);
             }
-		}
+        }
         
         /// <summary>
         /// Left mouse button double click.
@@ -212,7 +212,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public virtual bool IgnoreVisualFormLeftButtonDown => false;
 
-	    #endregion
+        #endregion
 
         #region Public
         /// <summary>
@@ -231,9 +231,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 _needPaint = value;
             }
         }
-		#endregion
+        #endregion
 
-		#region Protected
+        #region Protected
         /// <summary>
         /// Gets a value indicating if the state is pressed only when over button.
         /// </summary>
@@ -248,7 +248,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         protected bool Captured { get; set; }
 
-	    /// <summary>
+        /// <summary>
         /// Set the correct visual state of the target.
         /// </summary>
         /// <param name="c">Owning control.</param>
@@ -320,23 +320,23 @@ namespace ComponentFactory.Krypton.Ribbon
             }
         }
 
-		/// <summary>
-		/// Raises the Click event.
-		/// </summary>
-		/// <param name="e">A MouseEventArgs containing the event data.</param>
-		protected virtual void OnClick(MouseEventArgs e)
-		{
+        /// <summary>
+        /// Raises the Click event.
+        /// </summary>
+        /// <param name="e">A MouseEventArgs containing the event data.</param>
+        protected virtual void OnClick(MouseEventArgs e)
+        {
             Click?.Invoke(Target, e);
         }
 
-		/// <summary>
-		/// Raises the NeedPaint event.
-		/// </summary>
-		/// <param name="needLayout">Does the palette change require a layout.</param>
-		protected virtual void OnNeedPaint(bool needLayout)
-		{
+        /// <summary>
+        /// Raises the NeedPaint event.
+        /// </summary>
+        /// <param name="needLayout">Does the palette change require a layout.</param>
+        protected virtual void OnNeedPaint(bool needLayout)
+        {
             _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout));
         }
-		#endregion
-	}
+        #endregion
+    }
 }

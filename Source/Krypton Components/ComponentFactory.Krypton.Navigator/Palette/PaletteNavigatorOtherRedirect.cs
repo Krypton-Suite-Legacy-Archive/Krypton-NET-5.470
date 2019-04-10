@@ -14,9 +14,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Implement redirected storage for other navigator appearance states.
-	/// </summary>
+    /// <summary>
+    /// Implement redirected storage for other navigator appearance states.
+    /// </summary>
     public class PaletteNavigatorOtherRedirect : Storage
     {
         #region Instance Fields
@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Navigator
         #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteNavigatorOtherRedirect class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirectCheckButton">Inheritence redirection instance for the check button.</param>
         /// <param name="redirectOverflowButton">Inheritence redirection instance for the outlook overflow button.</param>
         /// <param name="redirectMiniButton">Inheritence redirection instance for the outlook mini button.</param>
@@ -39,7 +39,7 @@ namespace ComponentFactory.Krypton.Navigator
                                              PaletteRedirect redirectTab,
                                              PaletteRedirect redirectRibbonTab,
                                              NeedPaintHandler needPaint) 
-		{
+        {
             // Create the palette storage
             CheckButton = new PaletteTripleRedirect(redirectCheckButton, 
                                                             PaletteBackStyle.ButtonStandalone,
@@ -69,16 +69,16 @@ namespace ComponentFactory.Krypton.Navigator
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (CheckButton.IsDefault &&
-		                                   OverflowButton.IsDefault &&
-		                                   MiniButton.IsDefault &&
-		                                   RibbonTab.IsDefault &&
-		                                   Tab.IsDefault);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (CheckButton.IsDefault &&
+                                           OverflowButton.IsDefault &&
+                                           MiniButton.IsDefault &&
+                                           RibbonTab.IsDefault &&
+                                           Tab.IsDefault);
 
         #endregion
 

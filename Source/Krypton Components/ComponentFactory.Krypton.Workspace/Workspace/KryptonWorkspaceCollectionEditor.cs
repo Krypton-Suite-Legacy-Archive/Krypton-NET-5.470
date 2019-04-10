@@ -1868,10 +1868,10 @@ namespace ComponentFactory.Krypton.Workspace
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonWorkspaceCollectionEditor class.
-		/// </summary>
+        /// </summary>
         public KryptonWorkspaceCollectionEditor()
             : base(typeof(KryptonWorkspaceCollection))
-		{
+        {
         }
         #endregion
 

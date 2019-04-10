@@ -15,31 +15,31 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Process mouse events for a ribbon group track bar.
-	/// </summary>
+    /// <summary>
+    /// Process mouse events for a ribbon group track bar.
+    /// </summary>
     internal class TrackBarController : GlobalId,
                                         ISourceController,
                                         IKeyController,
                                         IRibbonKeyTipTarget
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly KryptonRibbon _ribbon;
         private readonly KryptonRibbonGroupTrackBar _trackBar;
         private readonly ViewDrawRibbonGroupTrackBar _target;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the TrackBarController class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         /// <param name="trackBar">Source definition.</param>
         /// <param name="target">Target view element.</param>
         public TrackBarController(KryptonRibbon ribbon,
                                   KryptonRibbonGroupTrackBar trackBar,
                                   ViewDrawRibbonGroupTrackBar target)
-		{
+        {
             Debug.Assert(ribbon != null);
             Debug.Assert(trackBar != null);
             Debug.Assert(target != null);
@@ -48,7 +48,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _trackBar = trackBar;
             _target = target;
         }
-		#endregion
+        #endregion
 
         #region Focus Notifications
         /// <summary>

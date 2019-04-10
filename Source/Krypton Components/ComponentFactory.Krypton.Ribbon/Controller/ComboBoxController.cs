@@ -15,31 +15,31 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Process mouse events for a ribbon group combobox.
-	/// </summary>
+    /// <summary>
+    /// Process mouse events for a ribbon group combobox.
+    /// </summary>
     internal class ComboBoxController : GlobalId,
                                         ISourceController,
                                         IKeyController,
                                         IRibbonKeyTipTarget
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly KryptonRibbon _ribbon;
         private readonly KryptonRibbonGroupComboBox _comboBox;
         private readonly ViewDrawRibbonGroupComboBox _target;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the ComboBoxController class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         /// <param name="comboBox">Source definition.</param>
         /// <param name="target">Target view element.</param>
         public ComboBoxController(KryptonRibbon ribbon,
                                   KryptonRibbonGroupComboBox comboBox,
                                   ViewDrawRibbonGroupComboBox target)
-		{
+        {
             Debug.Assert(ribbon != null);
             Debug.Assert(comboBox != null);
             Debug.Assert(target != null);
@@ -48,7 +48,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _comboBox = comboBox;
             _target = target;
         }
-		#endregion
+        #endregion
 
         #region Focus Notifications
         /// <summary>

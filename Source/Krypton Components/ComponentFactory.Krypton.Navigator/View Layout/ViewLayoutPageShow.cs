@@ -15,39 +15,39 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// View element that can track the size and position of the selected page.
-	/// </summary>
+    /// <summary>
+    /// View element that can track the size and position of the selected page.
+    /// </summary>
     internal class ViewLayoutPageShow : ViewLayoutNull
     {
         #region Instance Fields
         private readonly KryptonNavigator _navigator;
         private bool _minimumAsPreferred;
-		#endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the ViewLayoutPageShow class.
-		/// </summary>
+        /// </summary>
         public ViewLayoutPageShow(KryptonNavigator navigator)
-		{
-			Debug.Assert(navigator != null);
+        {
+            Debug.Assert(navigator != null);
 
-			// Remember back reference
-			_navigator = navigator;
+            // Remember back reference
+            _navigator = navigator;
             _minimumAsPreferred = false;
-		}
+        }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutPageShow:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region SetMinimumAsPreferred
         /// <summary>
@@ -63,12 +63,12 @@ namespace ComponentFactory.Krypton.Navigator
 
         #region Layout
         /// <summary>
-		/// Discover the preferred size of the element.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override Size GetPreferredSize(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        /// Discover the preferred size of the element.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override Size GetPreferredSize(ViewLayoutContext context)
+        {
+            Debug.Assert(context != null);
 
             Size ret = Size.Empty;
 
@@ -91,18 +91,18 @@ namespace ComponentFactory.Krypton.Navigator
             }
 
             return ret;
-		}
+        }
 
-		/// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        /// <summary>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
+            Debug.Assert(context != null);
 
-			// We take on all the available display area
-			ClientRectangle = context.DisplayRectangle;
+            // We take on all the available display area
+            ClientRectangle = context.DisplayRectangle;
 
             // Are we allowed to layout child controls?
             if (!context.ViewManager.DoNotLayoutControls)
@@ -138,7 +138,7 @@ namespace ComponentFactory.Krypton.Navigator
                     }
                 }
             }
-		}
-		#endregion
-	}
+        }
+        #endregion
+    }
 }

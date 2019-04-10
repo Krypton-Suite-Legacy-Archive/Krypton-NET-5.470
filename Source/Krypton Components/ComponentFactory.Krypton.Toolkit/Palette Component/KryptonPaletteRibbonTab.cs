@@ -13,9 +13,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for palette ribbon tab states.
-	/// </summary>
+    /// <summary>
+    /// Storage for palette ribbon tab states.
+    /// </summary>
     public class KryptonPaletteRibbonTab : Storage
     {
         #region Instance Fields
@@ -26,12 +26,12 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonPaletteRibbonTab class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Redirector to inherit values from.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public KryptonPaletteRibbonTab(PaletteRedirect redirect,
                                        NeedPaintHandler needPaint) 
-		{
+        {
             // Create the storage objects
             _stateInherit = new PaletteRibbonDoubleInheritRedirect(redirect, PaletteRibbonBackStyle.RibbonTab, PaletteRibbonTextStyle.RibbonTab);
             StateCommon = new PaletteRibbonDouble(_stateInherit, _stateInherit, needPaint);
@@ -57,20 +57,20 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => StateCommon.IsDefault &&
-		                                  StateNormal.IsDefault &&
-		                                  StateTracking.IsDefault &&
-		                                  StateCheckedNormal.IsDefault &&
-		                                  StateCheckedTracking.IsDefault &&
-		                                  StateContextTracking.IsDefault &&
-		                                  StateContextCheckedNormal.IsDefault &&
-		                                  StateContextCheckedTracking.IsDefault &&
-		                                  OverrideFocus.IsDefault;
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => StateCommon.IsDefault &&
+                                          StateNormal.IsDefault &&
+                                          StateTracking.IsDefault &&
+                                          StateCheckedNormal.IsDefault &&
+                                          StateCheckedTracking.IsDefault &&
+                                          StateContextTracking.IsDefault &&
+                                          StateContextCheckedNormal.IsDefault &&
+                                          StateContextCheckedTracking.IsDefault &&
+                                          OverrideFocus.IsDefault;
 
         #endregion
 

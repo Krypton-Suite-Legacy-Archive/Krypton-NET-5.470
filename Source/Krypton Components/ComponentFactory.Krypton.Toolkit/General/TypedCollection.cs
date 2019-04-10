@@ -16,21 +16,21 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Manage a collection of specified reference instances.
-	/// </summary>
-	public class TypedCollection<T> : IList,
-								      IList<T>,
-								      ICollection,
+    /// <summary>
+    /// Manage a collection of specified reference instances.
+    /// </summary>
+    public class TypedCollection<T> : IList,
+                                      IList<T>,
+                                      ICollection,
                                       ICollection<T>  where T : class
-										 
-										 
-	{
-		#region Instance Fields
-		private readonly List<T> _list;
-		#endregion
+                                         
+                                         
+    {
+        #region Instance Fields
+        private readonly List<T> _list;
+        #endregion
 
-		#region Events
+        #region Events
         /// <summary>
         /// Occurs when an item is about to be added/inserted to the collection.
         /// </summary>
@@ -38,28 +38,28 @@ namespace ComponentFactory.Krypton.Toolkit
         
         /// <summary>
         /// Occurs when an item has been added/inserted to the collection.
-		/// </summary>
+        /// </summary>
         public event TypedHandler<T> Inserted;
 
-		/// <summary>
+        /// <summary>
         /// Occurs when an item is about to be removed from the collection.
-		/// </summary>
+        /// </summary>
         public event TypedHandler<T> Removing;
 
-		/// <summary>
+        /// <summary>
         /// Occurs when an item is removed from the collection.
-		/// </summary>
+        /// </summary>
         public event TypedHandler<T> Removed;
 
-		/// <summary>
+        /// <summary>
         /// Occurs when an items are about to be removed from the collection.
-		/// </summary>
-		public event EventHandler Clearing;
+        /// </summary>
+        public event EventHandler Clearing;
 
-		/// <summary>
+        /// <summary>
         /// Occurs when an items have been removed from the collection.
-		/// </summary>
-		public event EventHandler Cleared;
+        /// </summary>
+        public event EventHandler Cleared;
 
         /// <summary>
         /// Occurs when items have been reordered inside the collection.
@@ -67,25 +67,25 @@ namespace ComponentFactory.Krypton.Toolkit
         public event EventHandler Reordered;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the TypedCollection class.
-		/// </summary>
+        /// </summary>
         public TypedCollection()
-		{
-			// Create internal storage
-			_list = new List<T>(4);
-		}
+        {
+            // Create internal storage
+            _list = new List<T>(4);
+        }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
             return Count + " TypedCollection";
-		}
-		#endregion
+        }
+        #endregion
 
         #region AddRange
         /// <summary>
@@ -105,104 +105,104 @@ namespace ComponentFactory.Krypton.Toolkit
         #region IList
         /// <summary>
         /// Append an item to the collection.
-		/// </summary>
-		/// <param name="value">Object reference.</param>
+        /// </summary>
+        /// <param name="value">Object reference.</param>
         /// <returns>The position into which the new item was inserted.</returns>
-		public virtual int Add(object value)
-		{
-			// Use strongly typed implementation
-			Add(value as T);
+        public virtual int Add(object value)
+        {
+            // Use strongly typed implementation
+            Add(value as T);
 
             // Index is the last item in the collection
-			return (Count - 1);
-		}
+            return (Count - 1);
+        }
 
-		/// <summary>
+        /// <summary>
         /// Determines whether the collection contains the item.
-		/// </summary>
-		/// <param name="value">Object reference.</param>
+        /// </summary>
+        /// <param name="value">Object reference.</param>
         /// <returns>True if item found; otherwise false.</returns>
-		public bool Contains(object value)
-		{
-			// Use strongly typed implementation
-			return Contains(value as T);
-		}
+        public bool Contains(object value)
+        {
+            // Use strongly typed implementation
+            return Contains(value as T);
+        }
 
-		/// <summary>
+        /// <summary>
         /// Determines the index of the specified item in the collection.
-		/// </summary>
-		/// <param name="value">Object reference.</param>
-		/// <returns>-1 if not found; otherwise index position.</returns>
-		public int IndexOf(object value)
-		{
-			// Use strongly typed implementation
-			return IndexOf(value as T);
-		}
+        /// </summary>
+        /// <param name="value">Object reference.</param>
+        /// <returns>-1 if not found; otherwise index position.</returns>
+        public int IndexOf(object value)
+        {
+            // Use strongly typed implementation
+            return IndexOf(value as T);
+        }
 
-		/// <summary>
+        /// <summary>
         /// Inserts an item to the collection at the specified index.
-		/// </summary>
-		/// <param name="index">Insert index.</param>
-		/// <param name="value">Object reference.</param>
-		public virtual void Insert(int index, object value)
-		{
-			// Use strongly typed implementation
-			Insert(index, value as T);
-		}
+        /// </summary>
+        /// <param name="index">Insert index.</param>
+        /// <param name="value">Object reference.</param>
+        public virtual void Insert(int index, object value)
+        {
+            // Use strongly typed implementation
+            Insert(index, value as T);
+        }
 
-		/// <summary>
-		/// Gets a value indicating whether the collection has a fixed size. 
-		/// </summary>
-		public bool IsFixedSize => false;
+        /// <summary>
+        /// Gets a value indicating whether the collection has a fixed size. 
+        /// </summary>
+        public bool IsFixedSize => false;
 
-	    /// <summary>
-		/// Removes first occurence of specified item.
-		/// </summary>
-		/// <param name="value">Object reference.</param>
-		public void Remove(object value)
-		{
-			// Use strongly typed implementation
-			Remove(value as T);
-		}
+        /// <summary>
+        /// Removes first occurence of specified item.
+        /// </summary>
+        /// <param name="value">Object reference.</param>
+        public void Remove(object value)
+        {
+            // Use strongly typed implementation
+            Remove(value as T);
+        }
 
-		/// <summary>
+        /// <summary>
         /// Gets or sets the item at the specified index.
-		/// </summary>
-		/// <param name="index">Object index.</param>
-		/// <returns>Object at specified index.</returns>
-		object IList.this[int index]
-		{
-			get => _list[index];
+        /// </summary>
+        /// <param name="index">Object index.</param>
+        /// <returns>Object at specified index.</returns>
+        object IList.this[int index]
+        {
+            get => _list[index];
 
-		    set => throw new NotImplementedException("Cannot set a collection index with a new value");
-		}
-		#endregion
+            set => throw new NotImplementedException("Cannot set a collection index with a new value");
+        }
+        #endregion
 
-		#region IList<T>
-		/// <summary>
+        #region IList<T>
+        /// <summary>
         /// Determines the index of the specified item in the collection.
-		/// </summary>
-		/// <param name="item">Item reference.</param>
-		/// <returns>-1 if not found; otherwise index position.</returns>
-		public int IndexOf(T item)
-		{
-			Debug.Assert(item != null);
-			return _list.IndexOf(item);
-		}
+        /// </summary>
+        /// <param name="item">Item reference.</param>
+        /// <returns>-1 if not found; otherwise index position.</returns>
+        public int IndexOf(T item)
+        {
+            Debug.Assert(item != null);
+            return _list.IndexOf(item);
+        }
 
-	    /// <summary>
-	    /// Inserts an item to the collection at the specified index.
-	    /// </summary>
-	    /// <param name="index">Insert index.</param>
-	    /// <param name="item">Item reference.</param>
-	    /// <exception cref="ArgumentOutOfRangeException"></exception>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    public virtual void Insert(int index, T item)
-		{
-			Debug.Assert(item != null);
+        /// <summary>
+        /// Inserts an item to the collection at the specified index.
+        /// </summary>
+        /// <param name="index">Insert index.</param>
+        /// <param name="item">Item reference.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <exception cref="ArgumentNullException"></exception>
+        public virtual void Insert(int index, T item)
+        {
+            Debug.Assert(item != null);
 
             // We do not allow an empty ribbon tab to be added
-			if (item == null)
+            if (item == null)
             {
                 throw new ArgumentNullException(nameof(item));
             }
@@ -216,43 +216,43 @@ namespace ComponentFactory.Krypton.Toolkit
             // Generate before insert event
             OnInserting(new TypedCollectionEventArgs<T>(item, index));
 
-			// Add into the internal collection
-			_list.Insert(index, item);
+            // Add into the internal collection
+            _list.Insert(index, item);
 
-			// Generate after insert event
+            // Generate after insert event
             OnInserted(new TypedCollectionEventArgs<T>(item, index));
-		}
+        }
 
-		/// <summary>
+        /// <summary>
         /// Removes the item at the specified index.
-		/// </summary>
-		/// <param name="index">Remove index.</param>
-		public void RemoveAt(int index)
-		{
+        /// </summary>
+        /// <param name="index">Remove index.</param>
+        public void RemoveAt(int index)
+        {
             // Cache the item being removed
-			T item = this[index];
+            T item = this[index];
 
-			// Generate before remove event
+            // Generate before remove event
             OnRemoving(new TypedCollectionEventArgs<T>(item, index));
 
             // Remove item from internal collection
-			_list.RemoveAt(index);
+            _list.RemoveAt(index);
 
-			// Generate after remove event
+            // Generate after remove event
             OnRemoved(new TypedCollectionEventArgs<T>(item, index));
-		}
+        }
 
-		/// <summary>
+        /// <summary>
         /// Gets or sets the item at the specified index.
-		/// </summary>
-		/// <param name="index">Item index.</param>
-		/// <returns>Item at specified index.</returns>
-		public T this[int index]
-		{
-			get => _list[index];
+        /// </summary>
+        /// <param name="index">Item index.</param>
+        /// <returns>Item at specified index.</returns>
+        public T this[int index]
+        {
+            get => _list[index];
 
-		    set => throw new NotImplementedException("Cannot set a collection index with a new value");
-		}
+            set => throw new NotImplementedException("Cannot set a collection index with a new value");
+        }
 
         /// <summary>
         /// Gets the item with the provided unique name.
@@ -261,7 +261,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Item at specified index.</returns>
         public virtual T this[string name] => null;
 
-	    /// <summary>
+        /// <summary>
         /// Move the source item to be immediately after the target item.
         /// </summary>
         /// <param name="source">Source item to be moved.</param>
@@ -290,20 +290,20 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region ICollection<T>
+        #region ICollection<T>
 
-	    /// <summary>
-	    /// Append an item to the collection.
-	    /// </summary>
-	    /// <param name="item">Item reference.</param>
-	    /// <exception cref="ArgumentOutOfRangeException"></exception>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    public virtual void Add(T item)
-		{
-			Debug.Assert(item != null);
+        /// <summary>
+        /// Append an item to the collection.
+        /// </summary>
+        /// <param name="item">Item reference.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <exception cref="ArgumentNullException"></exception>
+        public virtual void Add(T item)
+        {
+            Debug.Assert(item != null);
 
             // We do not allow an empty item to be added
-			if (item == null)
+            if (item == null)
             {
                 throw new ArgumentNullException(nameof(item));
             }
@@ -318,97 +318,97 @@ namespace ComponentFactory.Krypton.Toolkit
             OnInserting(new TypedCollectionEventArgs<T>(item, _list.Count));
             
             // Add to the internal collection
-			_list.Add(item);
+            _list.Add(item);
 
-			// Generate inserted event
-			OnInserted(new TypedCollectionEventArgs<T>(item, _list.Count - 1));
-		}
+            // Generate inserted event
+            OnInserted(new TypedCollectionEventArgs<T>(item, _list.Count - 1));
+        }
 
-		/// <summary>
+        /// <summary>
         /// Remove all items from the collection.
-		/// </summary>
-		public void Clear()
-		{
-			// Generate before event
-			OnClearing(EventArgs.Empty);
+        /// </summary>
+        public void Clear()
+        {
+            // Generate before event
+            OnClearing(EventArgs.Empty);
 
-			// Remove all entries from internal collection
-			_list.Clear();
+            // Remove all entries from internal collection
+            _list.Clear();
 
-			// Generate after event
-			OnCleared(EventArgs.Empty);
-		}
+            // Generate after event
+            OnCleared(EventArgs.Empty);
+        }
 
-		/// <summary>
+        /// <summary>
         /// Determines whether the collection contains the item.
-		/// </summary>
-		/// <param name="item">Item reference.</param>
+        /// </summary>
+        /// <param name="item">Item reference.</param>
         /// <returns>True if item found; otherwise false.</returns>
-		public bool Contains(T item)
-		{
-			return _list.Contains(item);
-		}
+        public bool Contains(T item)
+        {
+            return _list.Contains(item);
+        }
 
-		/// <summary>
+        /// <summary>
         /// Copies items to specified array starting at particular index.
-		/// </summary>
-		/// <param name="array">Target array.</param>
-		/// <param name="arrayIndex">Starting array index.</param>
-		public void CopyTo(T[] array, int arrayIndex)
-		{
-			Debug.Assert(array != null);
-			_list.CopyTo(array, arrayIndex);
-		}
+        /// </summary>
+        /// <param name="array">Target array.</param>
+        /// <param name="arrayIndex">Starting array index.</param>
+        public void CopyTo(T[] array, int arrayIndex)
+        {
+            Debug.Assert(array != null);
+            _list.CopyTo(array, arrayIndex);
+        }
 
-		/// <summary>
+        /// <summary>
         /// Gets the number of items in collection.
-		/// </summary>
-		public int Count => _list.Count;
+        /// </summary>
+        public int Count => _list.Count;
 
-	    /// <summary>
-		/// Gets a value indicating whether the collection is read-only.
-		/// </summary>
-		public bool IsReadOnly => false;
+        /// <summary>
+        /// Gets a value indicating whether the collection is read-only.
+        /// </summary>
+        public bool IsReadOnly => false;
 
-	    /// <summary>
+        /// <summary>
         /// Removes first occurence of specified item.
-		/// </summary>
-		/// <param name="item">Item reference.</param>
-		/// <returns>True if removed; otherwise false.</returns>
-		public virtual bool Remove(T item)
-		{
-			Debug.Assert(item != null);
+        /// </summary>
+        /// <param name="item">Item reference.</param>
+        /// <returns>True if removed; otherwise false.</returns>
+        public virtual bool Remove(T item)
+        {
+            Debug.Assert(item != null);
 
             // Cache the index of the item
-			int index = IndexOf(item);
+            int index = IndexOf(item);
 
-			// Generate before event
-			OnRemoving(new TypedCollectionEventArgs<T>(item, index));
+            // Generate before event
+            OnRemoving(new TypedCollectionEventArgs<T>(item, index));
 
-			// Remove from the internal list
-			bool ret = _list.Remove(item);
+            // Remove from the internal list
+            bool ret = _list.Remove(item);
 
-			// Generate after event
+            // Generate after event
             OnRemoved(new TypedCollectionEventArgs<T>(item, index));
 
-			return ret;
-		}
-		#endregion
+            return ret;
+        }
+        #endregion
 
-		#region ICollection
+        #region ICollection
 
-	    /// <summary>
-	    /// Copies all the elements of the current collection to the specified Array. 
-	    /// </summary>
-	    /// <param name="array">The Array that is the destination of the elements copied from the collection.</param>
-	    /// <param name="index">The index in array at which copying begins.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    public void CopyTo(Array array, int index)
-		{
-			Debug.Assert(array != null);
+        /// <summary>
+        /// Copies all the elements of the current collection to the specified Array. 
+        /// </summary>
+        /// <param name="array">The Array that is the destination of the elements copied from the collection.</param>
+        /// <param name="index">The index in array at which copying begins.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public void CopyTo(Array array, int index)
+        {
+            Debug.Assert(array != null);
 
-			// Cannot pass a null target array
-			if (array == null)
+            // Cannot pass a null target array
+            if (array == null)
             {
                 throw new ArgumentNullException(nameof(array));
             }
@@ -420,39 +420,39 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Gets a value indicating whether access to the collection is synchronized (thread safe).
-		/// </summary>
-		public bool IsSynchronized => false;
+        /// <summary>
+        /// Gets a value indicating whether access to the collection is synchronized (thread safe).
+        /// </summary>
+        public bool IsSynchronized => false;
 
-	    /// <summary>
-		/// Gets an object that can be used to synchronize access to the collection. 
-		/// </summary>
-		public object SyncRoot => this;
+        /// <summary>
+        /// Gets an object that can be used to synchronize access to the collection. 
+        /// </summary>
+        public object SyncRoot => this;
 
-	    #endregion
+        #endregion
 
-		#region IEnumerable
-		/// <summary>
+        #region IEnumerable
+        /// <summary>
         /// Shallow enumerate over items in the collection.
-		/// </summary>
-		/// <returns>Enumerator instance.</returns>
-		public IEnumerator<T> GetEnumerator()
-		{
-			return _list.GetEnumerator();
-		}
+        /// </summary>
+        /// <returns>Enumerator instance.</returns>
+        public IEnumerator<T> GetEnumerator()
+        {
+            return _list.GetEnumerator();
+        }
 
-		/// <summary>
-		/// Enumerate using non-generic interface.
-		/// </summary>
-		/// <returns>Enumerator instance.</returns>
-		IEnumerator IEnumerable.GetEnumerator()
-		{
-			return _list.GetEnumerator();
-		}
-		#endregion
+        /// <summary>
+        /// Enumerate using non-generic interface.
+        /// </summary>
+        /// <returns>Enumerator instance.</returns>
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return _list.GetEnumerator();
+        }
+        #endregion
 
-		#region Protected
+        #region Protected
         /// <summary>
         /// Raises the Inserting event.
         /// </summary>
@@ -463,47 +463,47 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Raises the Inserted event.
-		/// </summary>
+        /// Raises the Inserted event.
+        /// </summary>
         /// <param name="e">A TypedCollectionEventArgs instance containing event data.</param>
         protected virtual void OnInserted(TypedCollectionEventArgs<T> e)
-		{
+        {
             Inserted?.Invoke(this, e);
         }
 
-		/// <summary>
-		/// Raises the Removing event.
-		/// </summary>
+        /// <summary>
+        /// Raises the Removing event.
+        /// </summary>
         /// <param name="e">A TypedCollectionEventArgs instance containing event data.</param>
         protected virtual void OnRemoving(TypedCollectionEventArgs<T> e)
-		{
+        {
             Removing?.Invoke(this, e);
         }
 
-		/// <summary>
-		/// Raises the Removed event.
-		/// </summary>
+        /// <summary>
+        /// Raises the Removed event.
+        /// </summary>
         /// <param name="e">A TypedCollectionEventArgs instance containing event data.</param>
         protected virtual void OnRemoved(TypedCollectionEventArgs<T> e)
-		{
+        {
             Removed?.Invoke(this, e);
         }
 
-		/// <summary>
-		/// Raises the Clearing event.
-		/// </summary>
-		/// <param name="e">An EventArgs instance containing event data.</param>
+        /// <summary>
+        /// Raises the Clearing event.
+        /// </summary>
+        /// <param name="e">An EventArgs instance containing event data.</param>
         protected virtual void OnClearing(EventArgs e)
-		{
+        {
             Clearing?.Invoke(this, e);
         }
 
-		/// <summary>
-		/// Raises the Cleared event.
-		/// </summary>
-		/// <param name="e">An EventArgs instance containing event data.</param>
+        /// <summary>
+        /// Raises the Cleared event.
+        /// </summary>
+        /// <param name="e">An EventArgs instance containing event data.</param>
         protected virtual void OnCleared(EventArgs e)
-		{
+        {
             Cleared?.Invoke(this, e);
         }
 
@@ -516,5 +516,5 @@ namespace ComponentFactory.Krypton.Toolkit
             Reordered?.Invoke(this, e);
         }
         #endregion
-	}
+    }
 }

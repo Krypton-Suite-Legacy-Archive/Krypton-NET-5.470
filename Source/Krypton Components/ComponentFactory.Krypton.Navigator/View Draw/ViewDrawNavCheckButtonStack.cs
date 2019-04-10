@@ -14,12 +14,12 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Navigator view element for drawing a stack check button for a krypton page.
-	/// </summary>
+    /// <summary>
+    /// Navigator view element for drawing a stack check button for a krypton page.
+    /// </summary>
     internal class ViewDrawNavCheckButtonStack : ViewDrawNavCheckButtonBase
-	{
-		#region Identity
+    {
+        #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawNavCheckButtonStack class.
         /// </summary>
@@ -33,16 +33,16 @@ namespace ComponentFactory.Krypton.Navigator
         {
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawNavCheckButtonStack:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region UpdateButtonSpecMapping
         /// <summary>

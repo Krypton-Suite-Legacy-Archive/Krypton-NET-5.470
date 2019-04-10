@@ -15,19 +15,19 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Extends the ViewComposite by laying out children in horizontal/vertical stack.
-	/// </summary>
-	public class ViewLayoutStack : ViewComposite
-	{
-		#region Instance Fields
+    /// <summary>
+    /// Extends the ViewComposite by laying out children in horizontal/vertical stack.
+    /// </summary>
+    public class ViewLayoutStack : ViewComposite
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the ViewLayoutStack class.
-		/// </summary>
+        /// </summary>
         public ViewLayoutStack(bool horizontal)
         {
             // Create child to dock style lookup
@@ -37,16 +37,16 @@ namespace ComponentFactory.Krypton.Toolkit
             FillLastChild = true;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutStack:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Horizontal
         /// <summary>
@@ -54,7 +54,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool Horizontal { get; set; }
 
-	    #endregion
+        #endregion
 
         #region FillLastChild
         /// <summary>
@@ -62,16 +62,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool FillLastChild { get; set; }
 
-	    #endregion
+        #endregion
 
         #region Layout
         /// <summary>
-		/// Discover the preferred size of the element.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override Size GetPreferredSize(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        /// Discover the preferred size of the element.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override Size GetPreferredSize(ViewLayoutContext context)
+        {
+            Debug.Assert(context != null);
 
             // Accumulate the stacked size
             Size preferredSize = Size.Empty;
@@ -98,18 +98,18 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             return preferredSize;
-		}
+        }
 
-		/// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        /// <summary>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
+            Debug.Assert(context != null);
 
             // We take on all the available display area
-			ClientRectangle = context.DisplayRectangle;
+            ClientRectangle = context.DisplayRectangle;
 
             // Maximum space available for the next child
             Rectangle childRectangle = ClientRectangle;
@@ -127,14 +127,14 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Position each entry, with last entry filling remaining of space
             foreach (ViewBase child in this)
-			{
+            {
                 if (child.Visible)
-				{
+                {
                     // Provide the total space currently available
                     context.DisplayRectangle = childRectangle;
 
-					// Get the preferred size of the child
-					Size childSize = child.GetPreferredSize(context);
+                    // Get the preferred size of the child
+                    Size childSize = child.GetPreferredSize(context);
 
                     if (Horizontal)
                     {
@@ -174,14 +174,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Use the update child size as the actual space for layout
                     context.DisplayRectangle = new Rectangle(context.DisplayRectangle.Location, childSize);
 
-					// Layout child in the provided space
-					child.Layout(context);
-				}
-			}
+                    // Layout child in the provided space
+                    child.Layout(context);
+                }
+            }
 
             // Put back the original display value now we have finished
             context.DisplayRectangle = ClientRectangle;
         }
-		#endregion
+        #endregion
     }
 }

@@ -16,9 +16,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// View element that positions the gallery buttons.
-	/// </summary>
+    /// <summary>
+    /// View element that positions the gallery buttons.
+    /// </summary>
     internal class ViewLayoutRibbonGalleryButtons : ViewComposite
     {
         #region Identity
@@ -29,15 +29,15 @@ namespace ComponentFactory.Krypton.Ribbon
         {
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutRibbonGalleryButtons:" + Id;
-		}
+        }
         #endregion
 
         #region Layout
@@ -66,12 +66,12 @@ namespace ComponentFactory.Krypton.Ribbon
         }
 
         /// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
+            Debug.Assert(context != null);
 
             // Validate incoming reference
             if (context == null)
@@ -79,8 +79,8 @@ namespace ComponentFactory.Krypton.Ribbon
                 throw new ArgumentNullException(nameof(context));
             }
 
-		    // We take on all the available display area
-			ClientRectangle = context.DisplayRectangle;
+            // We take on all the available display area
+            ClientRectangle = context.DisplayRectangle;
 
             // Layout children from top to bottom with equal height and the total width
             int yOffset = 0;
@@ -105,6 +105,6 @@ namespace ComponentFactory.Krypton.Ribbon
             // Put back the original display value now we have finished
             context.DisplayRectangle = ClientRectangle;
         }
-		#endregion
-	}
+        #endregion
+    }
 }

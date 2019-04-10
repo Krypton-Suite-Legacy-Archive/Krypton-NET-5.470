@@ -15,22 +15,22 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Provide button functionality for the group dialog launcher.
-	/// </summary>
+    /// <summary>
+    /// Provide button functionality for the group dialog launcher.
+    /// </summary>
     internal class DialogLauncherButtonController : LeftUpButtonController,
                                                     ISourceController,
                                                     IKeyController,
                                                     IRibbonKeyTipTarget
-	{
+    {
         #region Instance Fields
         private bool _hasFocus;
         #endregion
         
         #region Identity
-		/// <summary>
+        /// <summary>
         /// Initialize a new instance of the DialogLauncherButtonController class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         /// <param name="target">Target for state changes.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
@@ -38,9 +38,9 @@ namespace ComponentFactory.Krypton.Ribbon
                                               ViewBase target,
                                               NeedPaintHandler needPaint)
             : base(ribbon, target, needPaint)
-		{
+        {
         }
-		#endregion
+        #endregion
 
         #region Focus Notifications
         /// <summary>

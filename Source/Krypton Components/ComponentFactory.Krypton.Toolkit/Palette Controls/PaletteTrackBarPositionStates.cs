@@ -14,19 +14,19 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Implement storage for a track bar position only states.
-	/// </summary>
-	public class PaletteTrackBarPositionStates : Storage
-	{
-		#region Instance Fields
+    /// <summary>
+    /// Implement storage for a track bar position only states.
+    /// </summary>
+    public class PaletteTrackBarPositionStates : Storage
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteTrackBarPositionStates class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Source for inheriting values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteTrackBarPositionStates(PaletteTrackBarRedirect redirect,
@@ -35,14 +35,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
         }
 
-		/// <summary>
+        /// <summary>
         /// Initialize a new instance of the PaletteTrackBarPositionStates class.
-		/// </summary>
+        /// </summary>
         /// <param name="inheritPosition">Source for inheriting position values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteTrackBarPositionStates(IPaletteElementColor inheritPosition,
                                              NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(inheritPosition != null);
 
             // Store the provided paint notification delegate
@@ -51,16 +51,16 @@ namespace ComponentFactory.Krypton.Toolkit
             // Create storage that maps onto the inherit instances
             Position = new PaletteElementColor(inheritPosition, needPaint);
         }
-		#endregion
+        #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => Position.IsDefault;
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => Position.IsDefault;
 
-	    #endregion
+        #endregion
 
         #region SetInherit
         /// <summary>
@@ -94,10 +94,10 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteElementColor Position { get; }
 
-	    private bool ShouldSerializePosition()
+        private bool ShouldSerializePosition()
         {
             return !Position.IsDefault;
         }
         #endregion
-	}
+    }
 }

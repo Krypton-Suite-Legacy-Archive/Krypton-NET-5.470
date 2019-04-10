@@ -42,14 +42,14 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the LeftDownButtonController class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         /// <param name="target">Target for state changes.</param>
         /// <param name="needPaint">Delegate for notifying changes in display.</param>
         public LeftDownButtonController(KryptonRibbon ribbon,
                                         ViewBase target, 
                                         NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(ribbon != null);
             Debug.Assert(target != null);
             Debug.Assert(needPaint != null);
@@ -64,7 +64,7 @@ namespace ComponentFactory.Krypton.Ribbon
             };
             _updateTimer.Tick += OnUpdateTimer;
         }
-		#endregion
+        #endregion
 
         #region Ribbon
         /// <summary>

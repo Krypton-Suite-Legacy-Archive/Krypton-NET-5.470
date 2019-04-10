@@ -14,11 +14,11 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Implement storage for palette background details.
-	/// </summary>
-	public class PaletteBack : Storage,
-							   IPaletteBack
+    /// <summary>
+    /// Implement storage for palette background details.
+    /// </summary>
+    public class PaletteBack : Storage,
+                               IPaletteBack
     {
         #region Internal Classes
         private class InternalStorage
@@ -52,8 +52,8 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             /// <summary>
-		    /// Gets a value indicating if all values are default.
-		    /// </summary>
+            /// Gets a value indicating if all values are default.
+            /// </summary>
             public bool IsDefault => (BackDraw == InheritBool.Inherit) &&
                                      (BackGraphicsHint == PaletteGraphicsHint.Inherit) &&
                                      (BackColor1 == Color.Empty) &&
@@ -83,27 +83,27 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Identity
         /// <summary>
-		/// Initialize a new instance of the PaletteBack class.
-		/// </summary>
-		/// <param name="inherit">Source for inheriting defaulted values.</param>
+        /// Initialize a new instance of the PaletteBack class.
+        /// </summary>
+        /// <param name="inherit">Source for inheriting defaulted values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteBack(IPaletteBack inherit,
                            NeedPaintHandler needPaint)
-		{
-			// Remember inheritance
-			_inherit = inherit;
+        {
+            // Remember inheritance
+            _inherit = inherit;
 
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
         }
-		#endregion
+        #endregion
 
         #region IsDefault
         /// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (_storage == null) || _storage.IsDefault;
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (_storage == null) || _storage.IsDefault;
 
         #endregion
 
@@ -140,19 +140,19 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Draw
         /// <summary>
-		/// Gets a value indicating if background should be drawn.
-		/// </summary>
+        /// Gets a value indicating if background should be drawn.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Should background be drawn.")]
-		[DefaultValue(typeof(InheritBool), "Inherit")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public InheritBool Draw
-		{
-			get => _storage?.BackDraw ?? InheritBool.Inherit;
+        [Description("Should background be drawn.")]
+        [DefaultValue(typeof(InheritBool), "Inherit")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public InheritBool Draw
+        {
+            get => _storage?.BackDraw ?? InheritBool.Inherit;
 
             set
-			{
+            {
                 if (_storage != null)
                 {
                     if (_storage.BackDraw != value)
@@ -174,8 +174,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint();
                     }
                 }
-			}
-		}
+            }
+        }
 
         /// <summary>
         /// Gets the actual background draw value.
@@ -191,15 +191,15 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Hint for drawing graphics.")]
-		[DefaultValue(typeof(PaletteGraphicsHint), "Inherit")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public PaletteGraphicsHint GraphicsHint
-		{
-			get => _storage?.BackGraphicsHint ?? PaletteGraphicsHint.Inherit;
+        [Description("Hint for drawing graphics.")]
+        [DefaultValue(typeof(PaletteGraphicsHint), "Inherit")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public PaletteGraphicsHint GraphicsHint
+        {
+            get => _storage?.BackGraphicsHint ?? PaletteGraphicsHint.Inherit;
 
             set
-			{
+            {
                 if (_storage != null)
                 {
                     if (_storage.BackGraphicsHint != value)
@@ -222,7 +222,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 }
             }
-		}
+        }
 
         /// <summary>
         /// Gets the actual background graphics hint value.
@@ -239,10 +239,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Main background color.")]
+        [Description("Main background color.")]
         [KryptonDefaultColorAttribute()]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public Color Color1
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public Color Color1
         {
             get => _storage?.BackColor1 ?? Color.Empty;
 
@@ -286,15 +286,15 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Secondary background color.")]
+        [Description("Secondary background color.")]
         [KryptonDefaultColorAttribute()]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-		public Color Color2
-		{
-			get => _storage?.BackColor2 ?? Color.Empty;
+        public Color Color2
+        {
+            get => _storage?.BackColor2 ?? Color.Empty;
 
             set
-			{
+            {
                 if (_storage != null)
                 {
                     if (_storage.BackColor2 != value)
@@ -316,8 +316,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint();
                     }
                 }
-			}
-		}
+            }
+        }
 
         /// <summary>
         /// Gets the second back color.
@@ -333,10 +333,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Background color drawing style.")]
-		[DefaultValue(typeof(PaletteColorStyle), "Inherit")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public PaletteColorStyle ColorStyle
+        [Description("Background color drawing style.")]
+        [DefaultValue(typeof(PaletteColorStyle), "Inherit")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public PaletteColorStyle ColorStyle
         {
             get => _storage?.BackColorStyle ?? PaletteColorStyle.Inherit;
 
@@ -380,10 +380,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Background color alignment style.")]
-		[DefaultValue(typeof(PaletteRectangleAlign), "Inherit")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public PaletteRectangleAlign ColorAlign
+        [Description("Background color alignment style.")]
+        [DefaultValue(typeof(PaletteRectangleAlign), "Inherit")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public PaletteRectangleAlign ColorAlign
         {
             get => _storage?.BackColorAlign ?? PaletteRectangleAlign.Inherit;
 
@@ -428,12 +428,12 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Background color angle.")]
-		[DefaultValue(-1f)]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public float ColorAngle
-		{
-			get 
+        [Description("Background color angle.")]
+        [DefaultValue(-1f)]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public float ColorAngle
+        {
+            get 
             {
                 if (_storage == null)
                 {
@@ -445,8 +445,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
 
-			set
-			{
+            set
+            {
                 if (_storage != null)
                 {
                     if (_storage.BackColorAngle != value)
@@ -469,32 +469,32 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 }
             }
-		}
+        }
 
-		/// <summary>
-		/// Gets the color background angle.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Angle used for color drawing.</returns>
-		public float GetBackColorAngle(PaletteState state) => ColorAngle != -1 ? ColorAngle : _inherit.GetBackColorAngle(state);
+        /// <summary>
+        /// Gets the color background angle.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Angle used for color drawing.</returns>
+        public float GetBackColorAngle(PaletteState state) => ColorAngle != -1 ? ColorAngle : _inherit.GetBackColorAngle(state);
 
         #endregion
 
-		#region Image
-		/// <summary>
-		/// Gets and sets the background image.
-		/// </summary>
+        #region Image
+        /// <summary>
+        /// Gets and sets the background image.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Background image.")]
-		[DefaultValue(null)]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public Image Image
-		{
-			get => _storage?.BackImage;
+        [Description("Background image.")]
+        [DefaultValue(null)]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public Image Image
+        {
+            get => _storage?.BackImage;
 
-		    set
-			{
+            set
+            {
                 if (_storage != null)
                 {
                     if (_storage.BackImage != value)
@@ -517,7 +517,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 }
             }
-		}
+        }
 
         /// <summary>
         /// Gets a background image.
@@ -533,15 +533,15 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Background image style.")]
-		[DefaultValue(typeof(PaletteImageStyle), "Inherit")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public PaletteImageStyle ImageStyle
-		{
-			get => _storage?.BackImageStyle ?? PaletteImageStyle.Inherit;
+        [Description("Background image style.")]
+        [DefaultValue(typeof(PaletteImageStyle), "Inherit")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public PaletteImageStyle ImageStyle
+        {
+            get => _storage?.BackImageStyle ?? PaletteImageStyle.Inherit;
 
             set
-			{
+            {
                 if (_storage != null)
                 {
                     if (_storage.BackImageStyle != value)
@@ -564,7 +564,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 }
             }
-		}
+        }
 
         /// <summary>
         /// Gets the background image style.
@@ -582,15 +582,15 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Background image alignment style.")]
-		[DefaultValue(typeof(PaletteRectangleAlign), "Inherit")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public PaletteRectangleAlign ImageAlign
-		{
-			get => _storage?.BackImageAlign ?? PaletteRectangleAlign.Inherit;
+        [Description("Background image alignment style.")]
+        [DefaultValue(typeof(PaletteRectangleAlign), "Inherit")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public PaletteRectangleAlign ImageAlign
+        {
+            get => _storage?.BackImageAlign ?? PaletteRectangleAlign.Inherit;
 
             set
-			{
+            {
                 if (_storage != null)
                 {
                     if (_storage.BackImageAlign != value)
@@ -613,7 +613,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 }
             }
-		}
+        }
 
         /// <summary>
         /// Gets the image alignment style.

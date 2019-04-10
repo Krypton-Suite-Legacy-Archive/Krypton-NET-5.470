@@ -25,10 +25,10 @@ namespace ComponentFactory.Krypton.Navigator
         private readonly PaletteNavContent _paletteContent;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteRibbonTabContent class.
-		/// </summary>
+        /// </summary>
         /// <param name="paletteBack">Source for inheriting palette ribbon background.</param>
         /// <param name="paletteText">Source for inheriting palette ribbon text.</param>
         /// <param name="paletteContent">Source for inheriting palette content.</param>
@@ -37,7 +37,7 @@ namespace ComponentFactory.Krypton.Navigator
                                        IPaletteRibbonText paletteText,
                                        IPaletteContent paletteContent,
                                        NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(paletteBack != null);
             Debug.Assert(paletteText != null);
             Debug.Assert(paletteContent != null);
@@ -45,11 +45,11 @@ namespace ComponentFactory.Krypton.Navigator
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
 
-			// Create storage that maps onto the inherit instances
+            // Create storage that maps onto the inherit instances
             _paletteTabDraw = new PaletteRibbonDouble(paletteBack, paletteText, needPaint);
             _paletteContent = new PaletteNavContent(paletteContent, needPaint);
-		}
-		#endregion
+        }
+        #endregion
 
         #region IsDefault
         /// <summary>

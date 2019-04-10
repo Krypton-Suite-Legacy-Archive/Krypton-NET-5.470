@@ -1355,28 +1355,28 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawDateTimeText class.
-		/// </summary>
+        /// </summary>
         /// <param name="dateTimePicker">Color to fill drawing area.</param>
         /// <param name="needPaint">Delegate to allow repainting.</param>
         public ViewDrawDateTimeText(KryptonDateTimePicker dateTimePicker,
                                     NeedPaintHandler needPaint)
-		{
+        {
             _dateTimePicker= dateTimePicker;
             _needPaint = needPaint;
             _formatHandler = new FormatHandler(dateTimePicker, this, needPaint);
-		}
+        }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
             // Return the display string.
             _formatHandler.DateTime = _dateTimePicker.Value;
             return _formatHandler.ToString();
-		}
-		#endregion
+        }
+        #endregion
 
         #region RightToLeftLayout
         /// <summary>

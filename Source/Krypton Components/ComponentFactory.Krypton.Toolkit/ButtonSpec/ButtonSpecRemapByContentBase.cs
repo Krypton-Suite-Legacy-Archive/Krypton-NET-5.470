@@ -36,7 +36,7 @@ namespace ComponentFactory.Krypton.Toolkit
             Debug.Assert(buttonSpec != null);
             _buttonSpec = buttonSpec;
         }
-		#endregion
+        #endregion
 
         #region PaletteContent
         /// <summary>

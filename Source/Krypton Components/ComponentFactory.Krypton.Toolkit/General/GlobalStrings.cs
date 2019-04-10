@@ -17,10 +17,10 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Expose a global set of strings used within Krypton and that are localizable.
-	/// </summary>
-	[TypeConverter(typeof(ExpandableObjectConverter))]
+    /// <summary>
+    /// Expose a global set of strings used within Krypton and that are localizable.
+    /// </summary>
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class GlobalStrings : GlobalId
     {
         #region Static Fields

@@ -16,9 +16,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws the recent documents title string.
-	/// </summary>
+    /// <summary>
+    /// Draws the recent documents title string.
+    /// </summary>
     internal class ViewDrawRibbonRecentDocs : ViewLeaf,
                                               IContentValues
     {
@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonRecentDocs class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Source ribbon control.</param>
         public ViewDrawRibbonRecentDocs(KryptonRibbon ribbon)
         {
@@ -43,15 +43,15 @@ namespace ComponentFactory.Krypton.Ribbon
                                                                   ribbon.StateCommon.RibbonAppMenuDocsTitle);
         }        
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonRecentDocs:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.
@@ -72,7 +72,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             base.Dispose(disposing);
         }
-		#endregion
+        #endregion
 
         #region Layout
         /// <summary>

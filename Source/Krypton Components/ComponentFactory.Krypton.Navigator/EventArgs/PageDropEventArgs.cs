@@ -13,24 +13,24 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
+    /// <summary>
     /// Details for an event that indicates a page is being dropped.
-	/// </summary>
-	public class PageDropEventArgs : CancelEventArgs
-	{
-		#region Instance Fields
+    /// </summary>
+    public class PageDropEventArgs : CancelEventArgs
+    {
+        #region Instance Fields
         private KryptonPage _page;
-		#endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PageDropEventArgs class.
-		/// </summary>
+        /// </summary>
         /// <param name="page">Page that is being dropped.</param>
         public PageDropEventArgs(KryptonPage page)
-		{
+        {
             _page = page;
-		}
+        }
         #endregion
 
         #region Page

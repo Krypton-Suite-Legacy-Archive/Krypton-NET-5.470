@@ -28,13 +28,13 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ContextMenuController class.
-		/// </summary>
+        /// </summary>
         /// <param name="viewManager">Owning view manager instance.</param>
         public ContextMenuController(ViewContextMenuManager viewManager)
-		{
+        {
             _viewManager = viewManager;
         }
-		#endregion
+        #endregion
 
         #region Key Notifications
 
@@ -137,5 +137,5 @@ namespace ComponentFactory.Krypton.Toolkit
             return false;
         }
         #endregion
-	}
+    }
 }

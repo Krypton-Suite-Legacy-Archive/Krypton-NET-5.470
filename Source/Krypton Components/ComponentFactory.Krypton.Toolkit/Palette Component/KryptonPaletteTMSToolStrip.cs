@@ -14,40 +14,40 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for tool strip entries of the professional color table.
-	/// </summary>
+    /// <summary>
+    /// Storage for tool strip entries of the professional color table.
+    /// </summary>
     public class KryptonPaletteTMSToolStrip : KryptonPaletteTMSBase
     {
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonPaletteKCTToolStrip class.
-		/// </summary>
+        /// </summary>
         /// <param name="internalKCT">Reference to inherited values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         internal KryptonPaletteTMSToolStrip(KryptonInternalKCT internalKCT,
                                             NeedPaintHandler needPaint)
             : base(internalKCT, needPaint)
-		{
-		}
+        {
+        }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (InternalKCT.InternalToolStripText == Color.Empty) &&
-		                                  (InternalKCT.InternalToolStripFont == null) &&
-		                                  (InternalKCT.InternalToolStripBorder == Color.Empty) &&
-		                                  (InternalKCT.InternalToolStripContentPanelGradientBegin == Color.Empty) &&
-		                                  (InternalKCT.InternalToolStripContentPanelGradientEnd == Color.Empty) &&
-		                                  (InternalKCT.InternalToolStripDropDownBackground == Color.Empty) &&
-		                                  (InternalKCT.InternalToolStripGradientBegin == Color.Empty) &&
-		                                  (InternalKCT.InternalToolStripGradientEnd == Color.Empty) &&
-		                                  (InternalKCT.InternalToolStripGradientMiddle == Color.Empty) &&
-		                                  (InternalKCT.InternalToolStripPanelGradientBegin == Color.Empty) &&
-		                                  (InternalKCT.InternalToolStripPanelGradientEnd == Color.Empty);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (InternalKCT.InternalToolStripText == Color.Empty) &&
+                                          (InternalKCT.InternalToolStripFont == null) &&
+                                          (InternalKCT.InternalToolStripBorder == Color.Empty) &&
+                                          (InternalKCT.InternalToolStripContentPanelGradientBegin == Color.Empty) &&
+                                          (InternalKCT.InternalToolStripContentPanelGradientEnd == Color.Empty) &&
+                                          (InternalKCT.InternalToolStripDropDownBackground == Color.Empty) &&
+                                          (InternalKCT.InternalToolStripGradientBegin == Color.Empty) &&
+                                          (InternalKCT.InternalToolStripGradientEnd == Color.Empty) &&
+                                          (InternalKCT.InternalToolStripGradientMiddle == Color.Empty) &&
+                                          (InternalKCT.InternalToolStripPanelGradientBegin == Color.Empty) &&
+                                          (InternalKCT.InternalToolStripPanelGradientEnd == Color.Empty);
 
         #endregion
 

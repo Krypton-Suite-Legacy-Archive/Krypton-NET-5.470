@@ -52,12 +52,12 @@ namespace ComponentFactory.Krypton.Docking
             _moveTimer.Tick += OnFloatingWindowMove;
         }
 
-		/// <summary>
-		/// Release unmanaged and optionally managed resources.
-		/// </summary>
-		/// <param name="disposing">Called from Dispose method.</param>
-		protected override void Dispose(bool disposing)
-		{
+        /// <summary>
+        /// Release unmanaged and optionally managed resources.
+        /// </summary>
+        /// <param name="disposing">Called from Dispose method.</param>
+        protected override void Dispose(bool disposing)
+        {
             RemoveFilter();
 
             // Remove any temporary pages created during the dragging process that are used to prevent cells being removed 
@@ -69,7 +69,7 @@ namespace ComponentFactory.Krypton.Docking
             _moveTimer.Dispose();
 
             base.Dispose(disposing);
-		} 
+        } 
         #endregion
 
         #region Public

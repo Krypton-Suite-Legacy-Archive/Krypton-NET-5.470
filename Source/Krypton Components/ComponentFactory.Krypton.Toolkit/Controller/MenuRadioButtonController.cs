@@ -22,8 +22,8 @@ namespace ComponentFactory.Krypton.Toolkit
                                                IKeyController,
                                                ISourceController,
                                                IContextMenuTarget
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private bool _mouseOver;
         private bool _mouseReallyOver;
         private bool _highlight;
@@ -32,7 +32,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private readonly ViewDrawMenuRadioButton _menuRadioButton;
         private NeedPaintHandler _needPaint;
 
-	    #endregion
+        #endregion
 
         #region Events
         /// <summary>
@@ -41,10 +41,10 @@ namespace ComponentFactory.Krypton.Toolkit
         public event EventHandler Click;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the MenuRadioButtonController class.
-		/// </summary>
+        /// </summary>
         /// <param name="viewManager">Owning view manager instance.</param>
         /// <param name="target">Target for state changes.</param>
         /// <param name="radioButton">Drawing element that owns radio button display.</param>
@@ -53,7 +53,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                          ViewBase target,
                                          ViewDrawMenuRadioButton radioButton,
                                          NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(viewManager != null);
             Debug.Assert(target != null);
             Debug.Assert(radioButton != null);
@@ -64,7 +64,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _menuRadioButton = radioButton;
             NeedPaint = needPaint;
         }
-		#endregion
+        #endregion
 
         #region ContextMenuTarget Notifications
         /// <summary>
@@ -72,7 +72,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual bool HasSubMenu => false;
 
-	    /// <summary>
+        /// <summary>
         /// This target should display as the active target.
         /// </summary>
         public virtual void ShowTarget()
@@ -139,7 +139,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Rectangle ClientRectangle => _target.ClientRectangle;
 
-	    /// <summary>
+        /// <summary>
         /// Should a mouse down at the provided point cause the currently stacked context menu to become current.
         /// </summary>
         /// <param name="pt">Client coordinates point.</param>
@@ -151,12 +151,12 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
         
         #region Mouse Notifications
-		/// <summary>
-		/// Mouse has entered the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse has entered the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         public virtual void MouseEnter(Control c)
-		{
+        {
             if (!_mouseOver && _menuRadioButton.ItemEnabled)
             {
                 _mouseReallyOver = _target.ClientRectangle.Contains(c.PointToClient(Control.MousePosition));
@@ -164,30 +164,30 @@ namespace ComponentFactory.Krypton.Toolkit
                 ViewManager.SetTarget(this, true);
                 UpdateTarget();
             }
-		}
+        }
 
-		/// <summary>
-		/// Mouse has moved inside the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse has moved inside the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
         public virtual void MouseMove(Control c, Point pt)
-		{
+        {
             if (_menuRadioButton.ItemEnabled)
             {
                 _mouseReallyOver = true;
             }
         }
 
-		/// <summary>
-		/// Mouse button has been pressed in the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse button has been pressed in the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
-		/// <param name="button">Mouse button pressed down.</param>
-		/// <returns>True if capturing input; otherwise false.</returns>
+        /// <param name="button">Mouse button pressed down.</param>
+        /// <returns>True if capturing input; otherwise false.</returns>
         public virtual bool MouseDown(Control c, Point pt, MouseButtons button)
-		{
+        {
             if ((button == MouseButtons.Left) && _menuRadioButton.ItemEnabled)
             {
                 _mouseDown = true;
@@ -195,31 +195,31 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             return false;
-		}
+        }
 
-		/// <summary>
-		/// Mouse button has been released in the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse button has been released in the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
-		/// <param name="button">Mouse button released.</param>
+        /// <param name="button">Mouse button released.</param>
         public virtual void MouseUp(Control c, Point pt, MouseButtons button)
-		{
+        {
             if (_mouseDown && (button == MouseButtons.Left))
             {
                 _mouseDown = false;
                 UpdateTarget();
                 PressMenuRadioButton(false);
             }
-		}
+        }
 
-		/// <summary>
-		/// Mouse has left the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse has left the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="next">Reference to view that is next to have the mouse.</param>
         public virtual void MouseLeave(Control c, ViewBase next)
-		{
+        {
             // Only if mouse is leaving all the children monitored by controller.
             if (!_target.ContainsRecurse(next))
             {
@@ -229,7 +229,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 ViewManager.ClearTarget(this);
                 UpdateTarget();
             }
-		}
+        }
 
         /// <summary>
         /// Left mouse button double click.
@@ -245,17 +245,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual bool IgnoreVisualFormLeftButtonDown => false;
 
-	    #endregion
+        #endregion
 
         #region Key Notifications
 
-	    /// <summary>
-	    /// Key has been pressed down.
-	    /// </summary>
-	    /// <param name="c">Reference to the source control instance.</param>
-	    /// <param name="e">A KeyEventArgs that contains the event data.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    public virtual void KeyDown(Control c, KeyEventArgs e)
+        /// <summary>
+        /// Key has been pressed down.
+        /// </summary>
+        /// <param name="c">Reference to the source control instance.</param>
+        /// <param name="e">A KeyEventArgs that contains the event data.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public virtual void KeyDown(Control c, KeyEventArgs e)
         {
             Debug.Assert(c != null);
             Debug.Assert(e != null);
@@ -306,13 +306,13 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-	    /// <summary>
-	    /// Key has been pressed.
-	    /// </summary>
-	    /// <param name="c">Reference to the source control instance.</param>
-	    /// <param name="e">A KeyPressEventArgs that contains the event data.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    public virtual void KeyPress(Control c, KeyPressEventArgs e)
+        /// <summary>
+        /// Key has been pressed.
+        /// </summary>
+        /// <param name="c">Reference to the source control instance.</param>
+        /// <param name="e">A KeyPressEventArgs that contains the event data.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public virtual void KeyPress(Control c, KeyPressEventArgs e)
         {
             Debug.Assert(c != null);
             Debug.Assert(e != null);
@@ -331,14 +331,14 @@ namespace ComponentFactory.Krypton.Toolkit
             ViewManager.KeyMnemonic(e.KeyChar);
         }
 
-	    /// <summary>
-	    /// Key has been released.
-	    /// </summary>
-	    /// <param name="c">Reference to the source control instance.</param>
-	    /// <param name="e">A KeyEventArgs that contains the event data.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    /// <returns>True if capturing input; otherwise false.</returns>
-	    public virtual bool KeyUp(Control c, KeyEventArgs e)
+        /// <summary>
+        /// Key has been released.
+        /// </summary>
+        /// <param name="c">Reference to the source control instance.</param>
+        /// <param name="e">A KeyEventArgs that contains the event data.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns>True if capturing input; otherwise false.</returns>
+        public virtual bool KeyUp(Control c, KeyEventArgs e)
         {
             Debug.Assert(c != null);
             Debug.Assert(e != null);
@@ -394,19 +394,19 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Fires the NeedPaint event.
-		/// </summary>
-		public void PerformNeedPaint()
-		{
-			OnNeedPaint();
-		}
-		#endregion
+        /// <summary>
+        /// Fires the NeedPaint event.
+        /// </summary>
+        public void PerformNeedPaint()
+        {
+            OnNeedPaint();
+        }
+        #endregion
 
         #region Private
         private ViewContextMenuManager ViewManager { get; }
 
-	    private void PressMenuRadioButton(bool keyboard)
+        private void PressMenuRadioButton(bool keyboard)
         {
             if (keyboard)
             {

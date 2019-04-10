@@ -13,9 +13,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for palette input control states.
-	/// </summary>
+    /// <summary>
+    /// Storage for palette input control states.
+    /// </summary>
     public class KryptonPaletteInputControl : Storage
     {
         #region Instance Fields
@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonPaletteInputControl class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Redirector to inherit values from.</param>
         /// <param name="backStyle">Background style.</param>
         /// <param name="borderStyle">Border style.</param>
@@ -39,7 +39,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                           PaletteBorderStyle borderStyle,
                                           PaletteContentStyle contentStyle,
                                           NeedPaintHandler needPaint) 
-		{
+        {
             // Create the storage objects
             _stateCommon = new PaletteTripleRedirect(redirect, backStyle, borderStyle, contentStyle, needPaint);
             _stateDisabled = new PaletteTriple(_stateCommon, needPaint);

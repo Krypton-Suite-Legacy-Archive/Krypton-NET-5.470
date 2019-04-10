@@ -14,14 +14,14 @@ using System.Drawing;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Provides a movement rectangle that will be used to limit separator movement.
-	/// </summary>
-	public class SplitterMoveRectMenuArgs : EventArgs
-	{
-		#region Instance Fields
+    /// <summary>
+    /// Provides a movement rectangle that will be used to limit separator movement.
+    /// </summary>
+    public class SplitterMoveRectMenuArgs : EventArgs
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
         #region Identity
         /// <summary>
@@ -36,10 +36,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Public
         /// <summary>
-		/// Gets and sets the movement box for a separator.
-		/// </summary>
+        /// Gets and sets the movement box for a separator.
+        /// </summary>
         public Rectangle MoveRect { get; set; }
 
-	    #endregion
-	}
+        #endregion
+    }
 }

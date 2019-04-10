@@ -14,9 +14,9 @@ using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Positions a separator to take up space without drawing.
-	/// </summary>
+    /// <summary>
+    /// Positions a separator to take up space without drawing.
+    /// </summary>
     public class ViewLayoutMenuSepGap : ViewLayoutSeparator
     {
         #region Instance Fields
@@ -27,7 +27,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewLayoutMenuSepGap class.
-		/// </summary>
+        /// </summary>
         /// <param name="stateCommon">Source of palette values.</param>
         /// <param name="standardStyle">Draw items with standard or alternate style.</param>
         public ViewLayoutMenuSepGap(PaletteContextMenuRedirect stateCommon,
@@ -39,15 +39,15 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutMenuSepGap:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Layout
         /// <summary>

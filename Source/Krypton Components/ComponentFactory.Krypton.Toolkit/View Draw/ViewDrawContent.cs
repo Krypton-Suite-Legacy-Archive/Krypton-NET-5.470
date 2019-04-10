@@ -17,10 +17,10 @@ using System.Reflection;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// View element that can draw a content
-	/// </summary>
-	public class ViewDrawContent : ViewLeaf
+    /// <summary>
+    /// View element that can draw a content
+    /// </summary>
+    public class ViewDrawContent : ViewLeaf
     {
         #region Static Fields
         private static PropertyInfo _pi = null;
@@ -32,25 +32,25 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #endregion
 
-		#region Identity
-		/// <summary>
-		/// Initialize a new instance of the ViewDrawContent class.
-		/// </summary>
-		/// <param name="paletteContent">Palette source for the content.</param>
-		/// <param name="values">Reference to actual content values.</param>
-		/// <param name="orientation">Visual orientation of the content.</param>
-		public ViewDrawContent(IPaletteContent paletteContent, 
-							   IContentValues values,
-							   VisualOrientation orientation)
-		{
-			// Cache the starting values
-			_paletteContent = paletteContent;
-			Values = values;
-			Orientation = orientation;
+        #region Identity
+        /// <summary>
+        /// Initialize a new instance of the ViewDrawContent class.
+        /// </summary>
+        /// <param name="paletteContent">Palette source for the content.</param>
+        /// <param name="values">Reference to actual content values.</param>
+        /// <param name="orientation">Visual orientation of the content.</param>
+        public ViewDrawContent(IPaletteContent paletteContent, 
+                               IContentValues values,
+                               VisualOrientation orientation)
+        {
+            // Cache the starting values
+            _paletteContent = paletteContent;
+            Values = values;
+            Orientation = orientation;
 
             // Default other state
             DrawContentOnComposition = false;
-		    Glowing = false;
+            Glowing = false;
             TestForFocusCues = false;
         }
 
@@ -79,15 +79,15 @@ namespace ComponentFactory.Krypton.Toolkit
             TestForFocusCues = false;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
-			return "ViewDrawContent:" + Id;
-		}
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
+            return "ViewDrawContent:" + Id;
+        }
 
         /// <summary>
         /// Clean up any resources being used.
@@ -107,7 +107,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             base.Dispose(disposing);
         }
-		#endregion
+        #endregion
 
         #region DrawContentOnComposition
         /// <summary>
@@ -143,8 +143,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Orientation
         /// <summary>
-		/// Gets and sets the visual orientation.
-		/// </summary>
+        /// Gets and sets the visual orientation.
+        /// </summary>
         public VisualOrientation Orientation
         {
             [DebuggerStepThrough]
@@ -154,32 +154,32 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #endregion
 
-		#region UseMnemonic
-		/// <summary>
-		/// Gets and sets the use of mnemonics.
-		/// </summary>
+        #region UseMnemonic
+        /// <summary>
+        /// Gets and sets the use of mnemonics.
+        /// </summary>
         public bool UseMnemonic
-		{
-		    [DebuggerStepThrough]
-		    get;
-		    set;
+        {
+            [DebuggerStepThrough]
+            get;
+            set;
         }
 
         #endregion
 
-		#region SetPalette
-		/// <summary>
-		/// Update the source palette for drawing.
-		/// </summary>
-		/// <param name="paletteContent">Palette source for the content.</param>
-		public void SetPalette(IPaletteContent paletteContent)
-		{
-			Debug.Assert(paletteContent != null);
+        #region SetPalette
+        /// <summary>
+        /// Update the source palette for drawing.
+        /// </summary>
+        /// <param name="paletteContent">Palette source for the content.</param>
+        public void SetPalette(IPaletteContent paletteContent)
+        {
+            Debug.Assert(paletteContent != null);
 
-			// Use newly provided palette
-			_paletteContent = paletteContent;
-		}
-		#endregion
+            // Use newly provided palette
+            _paletteContent = paletteContent;
+        }
+        #endregion
 
         #region GetPalette
         /// <summary>
@@ -211,7 +211,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             bool isDisplayed = false;
 
-			// If we have some content to investigate
+            // If we have some content to investigate
             if (_paletteContent.GetContentDraw(State) == InheritBool.True)
             {
                 isDisplayed = context.Renderer.RenderStandardContent.GetContentImageDisplayed(_memento);
@@ -316,8 +316,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="context">Layout context.</param>
         /// <exception cref="ArgumentNullException"></exception>
         public override Size GetPreferredSize(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        {
+            Debug.Assert(context != null);
 
             // Validate incoming reference
             if (context == null)
@@ -328,21 +328,21 @@ namespace ComponentFactory.Krypton.Toolkit
             // By default we take up no space at all
             Size preferredSize = Size.Empty;
 
-			// If we have some content to encompass
-			if (_paletteContent.GetContentDraw(State) == InheritBool.True)
-			{
-				// Ask the renderer for the contents preferred size
-				preferredSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context,
-																					           _paletteContent,
-																					           Values,
-																					           Orientation,
-																					           State,
+            // If we have some content to encompass
+            if (_paletteContent.GetContentDraw(State) == InheritBool.True)
+            {
+                // Ask the renderer for the contents preferred size
+                preferredSize = context.Renderer.RenderStandardContent.GetContentPreferredSize(context,
+                                                                                               _paletteContent,
+                                                                                               Values,
+                                                                                               Orientation,
+                                                                                               State,
                                                                                                DrawContentOnComposition,
                                                                                                Glowing);
-			}
+            }
 
-			return preferredSize;
-		}
+            return preferredSize;
+        }
 
         /// <summary>
         /// Perform a layout of the elements.
@@ -350,8 +350,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="context">Layout context.</param>
         /// <exception cref="ArgumentNullException"></exception>
         public override void Layout(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        {
+            Debug.Assert(context != null);
 
             // Validate incoming reference
             if (context == null)
@@ -362,9 +362,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // We take on all the available display area
             ClientRectangle = context.DisplayRectangle;
 
-			// Do we need to draw the content?
-			if (_paletteContent.GetContentDraw(State) == InheritBool.True)
-			{
+            // Do we need to draw the content?
+            if (_paletteContent.GetContentDraw(State) == InheritBool.True)
+            {
                 // Dispose of old memento first
                 if (_memento != null)
                 {
@@ -372,27 +372,27 @@ namespace ComponentFactory.Krypton.Toolkit
                     _memento = null;
                 }
 
-				// Ask the renderer to perform any internal laying out calculations and 
-				// store the returned memento ready for whenever a draw is required
-				_memento = context.Renderer.RenderStandardContent.LayoutContent(context,
-																		        ClientRectangle,
-																		        _paletteContent,
-																		        Values,
-																		        Orientation,
-																		        State,
+                // Ask the renderer to perform any internal laying out calculations and 
+                // store the returned memento ready for whenever a draw is required
+                _memento = context.Renderer.RenderStandardContent.LayoutContent(context,
+                                                                                ClientRectangle,
+                                                                                _paletteContent,
+                                                                                Values,
+                                                                                Orientation,
+                                                                                State,
                                                                                 DrawContentOnComposition,
                                                                                 Glowing);
-			}
+            }
         }
-		#endregion
+        #endregion
 
-		#region Paint
-		/// <summary>
-		/// Perform rendering before child elements are rendered.
-		/// </summary>
-		/// <param name="context">Rendering context.</param>
-		public override void RenderBefore(RenderContext context) 
-		{
+        #region Paint
+        /// <summary>
+        /// Perform rendering before child elements are rendered.
+        /// </summary>
+        /// <param name="context">Rendering context.</param>
+        public override void RenderBefore(RenderContext context) 
+        {
             Debug.Assert(context != null);
 
             // Validate incoming reference
@@ -403,10 +403,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Do we need to draw the content?
             if (_paletteContent.GetContentDraw(State) == InheritBool.True)
-			{
+            {
                 bool allowFocusRect = (TestForFocusCues ? ShowFocusCues(context.Control) : true);
 
-				// Draw using memento returned from render layout
+                // Draw using memento returned from render layout
                 context.Renderer.RenderStandardContent.DrawContent(context,
                                                                    ClientRectangle,
                                                                    _paletteContent,
@@ -416,9 +416,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                    DrawContentOnComposition,
                                                                    Glowing,
                                                                    allowFocusRect);
-			}
-		}
-		#endregion
+            }
+        }
+        #endregion
 
         #region Implementation
         private bool ShowFocusCues(Control c)

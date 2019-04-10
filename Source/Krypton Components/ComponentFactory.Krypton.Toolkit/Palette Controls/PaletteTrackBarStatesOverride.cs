@@ -15,25 +15,25 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Allow the palette to be overriden optionally.
-	/// </summary>
+    /// <summary>
+    /// Allow the palette to be overriden optionally.
+    /// </summary>
     public class PaletteTrackBarStatesOverride : GlobalId
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
+        #region Identity
 
-	    /// <summary>
-	    /// Initialize a new instance of the PaletteTrackBarStatesOverride class.
-	    /// </summary>
-	    /// <param name="normalStates">Normal state values.</param>
-	    /// <param name="overrideStates">Override state values.</param>
-	    /// <param name="overrideState">State to override.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    public PaletteTrackBarStatesOverride(PaletteTrackBarRedirect normalStates,
+        /// <summary>
+        /// Initialize a new instance of the PaletteTrackBarStatesOverride class.
+        /// </summary>
+        /// <param name="normalStates">Normal state values.</param>
+        /// <param name="overrideStates">Override state values.</param>
+        /// <param name="overrideState">State to override.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public PaletteTrackBarStatesOverride(PaletteTrackBarRedirect normalStates,
                                              PaletteTrackBarStates overrideStates,
                                              PaletteState overrideState)
         {
@@ -83,20 +83,20 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Apply
         /// <summary>
-		/// Gets and sets a value indicating if override should be applied.
-		/// </summary>
-		public bool Apply
-		{
+        /// Gets and sets a value indicating if override should be applied.
+        /// </summary>
+        public bool Apply
+        {
             get => Tick.Apply;
 
             set
-			{
+            {
                 Tick.Apply = value;
                 Track.Apply = value;
                 Position.Apply = value;
             }
-		}
-		#endregion
+        }
+        #endregion
 
         #region Override
         /// <summary>
@@ -115,22 +115,22 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region OverrideState
-		/// <summary>
-		/// Gets and sets the override palette state to use.
-		/// </summary>
-		public PaletteState OverrideState
-		{
+        #region OverrideState
+        /// <summary>
+        /// Gets and sets the override palette state to use.
+        /// </summary>
+        public PaletteState OverrideState
+        {
             get => Tick.OverrideState;
 
-		    set
+            set
             {
                 Tick.OverrideState = value;
                 Track.OverrideState = value;
                 Position.OverrideState = value;
             }
-		}
-		#endregion
+        }
+        #endregion
 
         #region Back
         /// <summary>
@@ -142,7 +142,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteBack Back { get; }
 
-	    #endregion
+        #endregion
 
         #region Tick
         /// <summary>
@@ -154,7 +154,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteElementColorInheritOverride Tick { get; }
 
-	    #endregion
+        #endregion
 
         #region Track
         /// <summary>
@@ -166,7 +166,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteElementColorInheritOverride Track { get; }
 
-	    #endregion
+        #endregion
 
         #region Position
         /// <summary>
@@ -178,6 +178,6 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteElementColorInheritOverride Position { get; }
 
-	    #endregion
+        #endregion
     }
 }

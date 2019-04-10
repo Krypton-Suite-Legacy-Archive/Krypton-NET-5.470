@@ -14,32 +14,32 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Implements the NavigatorMode.Group view.
-	/// </summary>
+    /// <summary>
+    /// Implements the NavigatorMode.Group view.
+    /// </summary>
     internal class ViewBuilderGroup : ViewBuilderBase
     {
-		#region Instance Fields
-		private ViewBase _oldRoot;
-		private ViewDrawCanvas _drawCanvas;
-		#endregion
+        #region Instance Fields
+        private ViewBase _oldRoot;
+        private ViewDrawCanvas _drawCanvas;
+        #endregion
 
-		#region Public
-		/// <summary>
-		/// Construct the view appropriate for this builder.
-		/// </summary>
-		/// <param name="navigator">Reference to navigator instance.</param>
-		/// <param name="manager">Reference to current manager.</param>
-		/// <param name="redirector">Palette redirector.</param>
-		public override void Construct(KryptonNavigator navigator, 
-									   ViewManager manager,
-									   PaletteRedirect redirector)
-		{
-			// Let base class perform common operations
-			base.Construct(navigator, manager, redirector);
+        #region Public
+        /// <summary>
+        /// Construct the view appropriate for this builder.
+        /// </summary>
+        /// <param name="navigator">Reference to navigator instance.</param>
+        /// <param name="manager">Reference to current manager.</param>
+        /// <param name="redirector">Palette redirector.</param>
+        public override void Construct(KryptonNavigator navigator, 
+                                       ViewManager manager,
+                                       PaletteRedirect redirector)
+        {
+            // Let base class perform common operations
+            base.Construct(navigator, manager, redirector);
 
-			// Get the current root element
-			_oldRoot = ViewManager.Root;
+            // Get the current root element
+            _oldRoot = ViewManager.Root;
 
             // Create a canvas for the border and background using current enabled state
             _drawCanvas = new ViewDrawCanvas(Navigator.StateNormal.HeaderGroup.Back,
@@ -54,12 +54,12 @@ namespace ComponentFactory.Krypton.Navigator
             // Set the correct palettes based on enabled state and selected page
             UpdateStatePalettes();
 
-			// Canvas becomes the new root
-			ViewManager.Root = _drawCanvas;
+            // Canvas becomes the new root
+            ViewManager.Root = _drawCanvas;
 
-			// Need to monitor changes in the enabled state
-			Navigator.EnabledChanged += OnEnabledChanged;
-		}
+            // Need to monitor changes in the enabled state
+            Navigator.EnabledChanged += OnEnabledChanged;
+        }
 
         /// <summary>
         /// Gets a value indicating if the mode is a tab strip style mode.
@@ -183,31 +183,31 @@ namespace ComponentFactory.Krypton.Navigator
             return false;
         }
 
-		/// <summary>
-		/// Destruct the previously created view.
-		/// </summary>
-		public override void Destruct()
-		{
-			// Unhook from events
-			Navigator.EnabledChanged -= OnEnabledChanged;
+        /// <summary>
+        /// Destruct the previously created view.
+        /// </summary>
+        public override void Destruct()
+        {
+            // Unhook from events
+            Navigator.EnabledChanged -= OnEnabledChanged;
 
-			// Remove the old root from the canvas
-			_drawCanvas.Clear();
+            // Remove the old root from the canvas
+            _drawCanvas.Clear();
             _drawCanvas.Dispose();
 
-			// Put the old root back again
-			ViewManager.Root = _oldRoot;
+            // Put the old root back again
+            ViewManager.Root = _oldRoot;
 
-			// Let base class perform common operations
-			base.Destruct();
-		}
+            // Let base class perform common operations
+            base.Destruct();
+        }
         #endregion
 
-		#region Implementation
-		private void OnEnabledChanged(object sender, EventArgs e)
-		{
+        #region Implementation
+        private void OnEnabledChanged(object sender, EventArgs e)
+        {
             UpdateStatePalettes();
-		}
-		#endregion
-	}
+        }
+        #endregion
+    }
 }

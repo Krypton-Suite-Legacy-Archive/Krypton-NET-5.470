@@ -14,54 +14,54 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for the secondary header of the header group control.
-	/// </summary>
-	public class HeaderGroupValuesSecondary : HeaderValuesBase
-	{
-		#region Static Fields
+    /// <summary>
+    /// Storage for the secondary header of the header group control.
+    /// </summary>
+    public class HeaderGroupValuesSecondary : HeaderValuesBase
+    {
+        #region Static Fields
         private const string _defaultDescription = "Description";
-		#endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the HeaderGroupValuesSecondary class.
-		/// </summary>
+        /// </summary>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public HeaderGroupValuesSecondary(NeedPaintHandler needPaint)
             : base(needPaint)
-		{
-		}
-		#endregion
+        {
+        }
+        #endregion
 
-		#region Default Values
-		/// <summary>
-		/// Gets the default image value.
-		/// </summary>
-		/// <returns>Image reference.</returns>
-		protected override Image GetImageDefault()
-		{
-			return null;
-		}
+        #region Default Values
+        /// <summary>
+        /// Gets the default image value.
+        /// </summary>
+        /// <returns>Image reference.</returns>
+        protected override Image GetImageDefault()
+        {
+            return null;
+        }
 
-		/// <summary>
-		/// Gets the default heading value.
-		/// </summary>
-		/// <returns>String reference.</returns>
-		protected override string GetHeadingDefault()
-		{
+        /// <summary>
+        /// Gets the default heading value.
+        /// </summary>
+        /// <returns>String reference.</returns>
+        protected override string GetHeadingDefault()
+        {
             return _defaultDescription;
-		}
+        }
 
-		/// <summary>
-		/// Gets the default description value.
-		/// </summary>
-		/// <returns>String reference.</returns>
-		protected override string GetDescriptionDefault()
-		{
-			return string.Empty;
-		}
-		#endregion
+        /// <summary>
+        /// Gets the default description value.
+        /// </summary>
+        /// <returns>String reference.</returns>
+        protected override string GetDescriptionDefault()
+        {
+            return string.Empty;
+        }
+        #endregion
 
         #region Heading
         /// <summary>

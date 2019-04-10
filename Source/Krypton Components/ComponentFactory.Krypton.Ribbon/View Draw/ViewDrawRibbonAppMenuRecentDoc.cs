@@ -21,11 +21,11 @@ namespace ComponentFactory.Krypton.Ribbon
     /// Draw the image/text of a recent document in the application menu.
     /// </summary>
     internal class ViewDrawRibbonAppMenuRecentDec : ViewDrawCanvas
-	{
+    {
         #region Instance Fields
         private readonly int _maxWidth;
 
-	    #endregion
+        #endregion
 
         #region Identity
         /// <summary>
@@ -100,10 +100,10 @@ namespace ComponentFactory.Krypton.Ribbon
         }
         #endregion
 
-		/// <summary>
-		/// Discover the preferred size of the element.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
+        /// <summary>
+        /// Discover the preferred size of the element.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
         public override Size GetPreferredSize(ViewLayoutContext context)
         {
             Debug.Assert(context != null);
@@ -126,17 +126,17 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public KryptonRibbonRecentDoc RecentDoc { get; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets access to the items shortcut text.
         /// </summary>
         public string ShortcutText { get; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets a value indicating if the menu is capable of being closed.
         /// </summary>
         public bool CanCloseMenu => Provider.ProviderCanCloseMenu;
 
-	    /// <summary>
+        /// <summary>
         /// Raises the Closing event on the provider.
         /// </summary>
         /// <param name="cea">A CancelEventArgs containing the event data.</param>
@@ -159,6 +159,6 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public IContextMenuProvider Provider { get; }
 
-	    #endregion
+        #endregion
     }
 }

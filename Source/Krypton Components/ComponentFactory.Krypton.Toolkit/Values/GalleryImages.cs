@@ -13,9 +13,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for gallery button images.
-	/// </summary>
+    /// <summary>
+    /// Storage for gallery button images.
+    /// </summary>
     public class GalleryImages : Storage
     {
         #region Instance Fields
@@ -25,10 +25,10 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the GalleryImages class.
-		/// </summary>
+        /// </summary>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public GalleryImages(NeedPaintHandler needPaint) 
-		{
+        {
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
 
@@ -39,14 +39,14 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => Up.IsDefault &&
-		                                  Down.IsDefault &&
-		                                  DropDown.IsDefault;
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => Up.IsDefault &&
+                                          Down.IsDefault &&
+                                          DropDown.IsDefault;
 
         #endregion
 

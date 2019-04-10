@@ -4,10 +4,10 @@ namespace ComponentFactory.Krypton.Toolkit
 {
     internal class KryptonDataGridViewDesigner : ControlDesigner
     {
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the KryptonWrapLabelDesigner class.
-		/// </summary>
+        /// </summary>
         public KryptonDataGridViewDesigner()
         {
             // The resizing handles around the control need to change depending on the

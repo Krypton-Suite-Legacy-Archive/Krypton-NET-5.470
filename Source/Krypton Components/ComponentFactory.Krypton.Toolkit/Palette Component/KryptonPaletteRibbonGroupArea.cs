@@ -13,9 +13,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for palette ribbon group area states.
-	/// </summary>
+    /// <summary>
+    /// Storage for palette ribbon group area states.
+    /// </summary>
     public class KryptonPaletteRibbonGroupArea : Storage
     {
         #region Instance Fields
@@ -26,12 +26,12 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonPaletteRibbonGroupArea class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Redirector to inherit values from.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public KryptonPaletteRibbonGroupArea(PaletteRedirect redirect,
                                              NeedPaintHandler needPaint) 
-		{
+        {
             // Create the storage objects
             _stateInherit = new PaletteRibbonBackInheritRedirect(redirect, PaletteRibbonBackStyle.RibbonGroupArea);
             StateCommon = new PaletteRibbonBack(_stateInherit, needPaint);
@@ -51,14 +51,14 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => StateCommon.IsDefault &&
-		                                  StateCheckedNormal.IsDefault &&
-		                                  StateContextCheckedNormal.IsDefault;
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => StateCommon.IsDefault &&
+                                          StateCheckedNormal.IsDefault &&
+                                          StateContextCheckedNormal.IsDefault;
 
         #endregion
 

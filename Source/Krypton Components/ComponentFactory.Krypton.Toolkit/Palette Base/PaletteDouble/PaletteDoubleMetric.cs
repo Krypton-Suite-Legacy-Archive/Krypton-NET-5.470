@@ -14,41 +14,41 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Implement a double palette that exposes palette metrics.
-	/// </summary>
-	public class PaletteDoubleMetric : PaletteDouble, 
+    /// </summary>
+    public class PaletteDoubleMetric : PaletteDouble, 
                                        IPaletteMetric
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private PaletteDoubleMetricRedirect _inherit;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteDoubleMetric class.
-		/// </summary>
+        /// </summary>
         /// <param name="inherit">Source for palette defaulted values.</param>
         public PaletteDoubleMetric(PaletteDoubleMetricRedirect inherit)
             : this(inherit, null)
         {
         }
 
-		/// <summary>
+        /// <summary>
         /// Initialize a new instance of the PaletteDoubleMetric class.
-		/// </summary>
+        /// </summary>
         /// <param name="inherit">Source for palette defaulted values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteDoubleMetric(PaletteDoubleMetricRedirect inherit,
                                    NeedPaintHandler needPaint)
             : base(inherit, needPaint)
-		{
+        {
             Debug.Assert(inherit != null);
             
             // Remember inheritance for metric values
             _inherit = inherit;
         }
-		#endregion
+        #endregion
 
         #region SetInherit
         /// <summary>

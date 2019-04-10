@@ -14,9 +14,9 @@ using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Provides the Blue color scheme variant of the Office 2007 palette.
-	/// </summary>
+    /// <summary>
+    /// Provides the Blue color scheme variant of the Office 2007 palette.
+    /// </summary>
     public class PaletteOffice2007Blue : PaletteOffice2007Base
     {
         #region Static Fields
@@ -284,7 +284,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// Initialize a new instance of the PaletteOffice2007Blue class.
-		/// </summary>
+        /// </summary>
         public PaletteOffice2007Blue()
             : base(_schemeColors,
                    _checkBoxList,
@@ -292,8 +292,8 @@ namespace ComponentFactory.Krypton.Toolkit
                    _radioButtonArray,
                    _trackBarColors)
         {
-		}
-		#endregion
+        }
+        #endregion
 
         #region Back
         /// <summary>

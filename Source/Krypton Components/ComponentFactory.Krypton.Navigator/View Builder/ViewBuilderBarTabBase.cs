@@ -17,9 +17,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
+    /// <summary>
     /// Base class for implementation of 'Bar - Tab' modes.
-	/// </summary>
+    /// </summary>
     internal abstract class ViewBuilderBarTabBase : ViewBuilderBarItemBase
     {
         #region Public

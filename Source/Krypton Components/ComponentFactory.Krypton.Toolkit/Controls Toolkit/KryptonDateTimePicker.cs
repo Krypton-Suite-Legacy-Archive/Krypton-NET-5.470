@@ -173,9 +173,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Identity
         /// <summary>
-		/// Initialize a new instance of the KryptonHeader class.
-		/// </summary>
-		public KryptonDateTimePicker()
+        /// Initialize a new instance of the KryptonHeader class.
+        /// </summary>
+        public KryptonDateTimePicker()
         {
             // We are a fixed height determined by the text and button specs
             SetStyle(ControlStyles.FixedHeight, true);
@@ -1288,8 +1288,8 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Gets the collection of button specifications.
-		/// </summary>
+        /// Gets the collection of button specifications.
+        /// </summary>
         [Category("Visuals - DateTimePicker")]
         [Description("Collection of button specifications.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
@@ -1636,6 +1636,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Protected Virtual
+        // ReSharper disable VirtualMemberNeverOverridden.Global
         /// <summary>
         /// Raises the RightToLeftLayoutChanged event.
         /// </summary>
@@ -1694,7 +1695,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the AutoShiftOverflow event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
-        internal protected virtual void OnAutoShiftOverflow(CancelEventArgs e)
+        protected internal virtual void OnAutoShiftOverflow(CancelEventArgs e)
         {
             AutoShiftOverflow?.Invoke(this, e);
         }
@@ -1725,6 +1726,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             ActiveFragmentChanged?.Invoke(this, e);
         }
+        // ReSharper restore VirtualMemberNeverOverridden.Global
         #endregion
 
         #region Protected Overrides
@@ -1868,10 +1870,10 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Raises the EnabledChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
-		protected override void OnEnabledChanged(EventArgs e)
+        /// Raises the EnabledChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        protected override void OnEnabledChanged(EventArgs e)
         {
             // Change in enabled state requires a layout and repaint
             UpdateStateAndPalettes();
@@ -2486,7 +2488,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="paletteMode">Drawing palette mode.</param>
         /// <param name="redirector">Redirector for sourcing base values.</param>
         /// <param name="redirectorImages">Redirector for sourcing base images.</param>
-        /// <param name="items">Colletion of menu items.</param>
+        /// <param name="items">Collection of menu items.</param>
         /// <param name="enabled">Enabled state of the menu.</param>
         /// <param name="keyboardActivated">True is menu was keyboard initiated.</param>
         /// <returns>VisualContextMenu reference.</returns>

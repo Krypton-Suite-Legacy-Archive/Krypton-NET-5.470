@@ -37,7 +37,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewLayoutScrollViewport class.
-		/// </summary>
+        /// </summary>
         /// <param name="rootControl">Top level visual control.</param>
         /// <param name="viewportFiller">View element to place inside viewport.</param>
         /// <param name="paletteBorderEdge">Palette for use with the border edge.</param>
@@ -244,11 +244,11 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Layout
         /// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
             bool relayout;
             bool canScrollV;
             bool canScrollH;
@@ -348,7 +348,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                            Viewport.ScrollOffset.X);
             }
         }
-		#endregion
+        #endregion
 
         #region Accessors
         /// <summary>

@@ -246,10 +246,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Protected Overrides
         /// <summary>
-		/// Raises the EnabledChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
-		protected override void OnEnabledChanged(EventArgs e)
+        /// Raises the EnabledChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        protected override void OnEnabledChanged(EventArgs e)
         {
             // Let base class fire standard event
             base.OnEnabledChanged(e);

@@ -14,12 +14,12 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Navigator view element for drawing an overflow item for the Outlook mode.
-	/// </summary>
+    /// <summary>
+    /// Navigator view element for drawing an overflow item for the Outlook mode.
+    /// </summary>
     internal class ViewDrawNavOutlookOverflow : ViewDrawNavCheckButtonBase
-	{
-		#region Identity
+    {
+        #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawNavCheckButtonOutlook class.
         /// </summary>
@@ -33,16 +33,16 @@ namespace ComponentFactory.Krypton.Navigator
         {
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawNavOutlookOverflow:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region AllowButtonSpecs
         /// <summary>
@@ -50,7 +50,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public override bool AllowButtonSpecs => false;
 
-	    #endregion
+        #endregion
 
         #region IContentValues
         /// <summary>

@@ -17,9 +17,9 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Creates and layout individual crumbs.
-	/// </summary>
+    /// <summary>
+    /// Creates and layout individual crumbs.
+    /// </summary>
     public class ViewLayoutCrumbs : ViewComposite, IContentValues
     {
         #region Type Definitions
@@ -42,7 +42,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewLayoutCrumbs class.
-		/// </summary>
+        /// </summary>
         /// <param name="kryptonBreadCrumb">Reference to owning bread crumb control.</param>
         /// <param name="needPaintDelegate">Delegate used to request repainting..</param>
         public ViewLayoutCrumbs(KryptonBreadCrumb kryptonBreadCrumb,
@@ -78,23 +78,23 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutCrumbs:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Layout
         /// <summary>
-		/// Discover the preferred size of the element.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override Size GetPreferredSize(ViewLayoutContext context)
-		{
+        /// Discover the preferred size of the element.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override Size GetPreferredSize(ViewLayoutContext context)
+        {
             // Create/delete child elements to match the current selected bread crumb path
             SyncBreadCrumbs();
 
@@ -122,21 +122,21 @@ namespace ComponentFactory.Krypton.Toolkit
             preferredSize.Height += _kryptonBreadCrumb.Padding.Vertical;
 
             return preferredSize;
-		}
+        }
 
-		/// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        /// <summary>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
+            Debug.Assert(context != null);
 
             // We need to update the redirector for drawing each crumb
             PaletteRedirectBreadCrumb redirect = _kryptonBreadCrumb.GetRedirector() as PaletteRedirectBreadCrumb;
 
             // We take on all the available display area
-			ClientRectangle = context.DisplayRectangle;
+            ClientRectangle = context.DisplayRectangle;
 
             // Create/delete child elements to match the current selected bread crumb path
             SyncBreadCrumbs();
@@ -221,7 +221,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Must restore the display rectangle to the same size as when it entered
             context.DisplayRectangle = ClientRectangle;
         }
-		#endregion
+        #endregion
 
         #region Paint
         /// <summary>

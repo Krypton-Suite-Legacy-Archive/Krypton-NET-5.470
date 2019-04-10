@@ -14,31 +14,31 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Provide inheritance of palette element colors from source redirector.
-	/// </summary>
+    /// <summary>
+    /// Provide inheritance of palette element colors from source redirector.
+    /// </summary>
     public class PaletteElementColorInheritRedirect : PaletteElementColorInherit
-	{
-		#region Instance Fields
-		private PaletteRedirect _redirect;
+    {
+        #region Instance Fields
+        private PaletteRedirect _redirect;
 
-	    #endregion
+        #endregion
 
-		#region Identity
+        #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteElementColorInheritRedirect class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Source for inherit requests.</param>
         /// <param name="element">Element value..</param>
         public PaletteElementColorInheritRedirect(PaletteRedirect redirect,
                                                   PaletteElement element)
-		{
-			Debug.Assert(redirect != null);
+        {
+            Debug.Assert(redirect != null);
 
-			_redirect = redirect;
+            _redirect = redirect;
             Element = element;
-		}
-		#endregion
+        }
+        #endregion
 
         #region SetRedirector
         /// <summary>
@@ -57,7 +57,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteElement Element { get; set; }
 
-	    #endregion
+        #endregion
 
         #region IPaletteElementColor
         /// <summary>

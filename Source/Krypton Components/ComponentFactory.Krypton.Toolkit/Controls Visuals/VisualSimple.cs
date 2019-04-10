@@ -17,66 +17,66 @@ using System.Runtime.InteropServices;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Base class used for implementation of simple controls.
-	/// </summary>
-	[ToolboxItem(false)]
-	[DesignerCategory("code")]
+    /// <summary>
+    /// Base class used for implementation of simple controls.
+    /// </summary>
+    [ToolboxItem(false)]
+    [DesignerCategory("code")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     public abstract class VisualSimple : VisualControl
-	{
-		#region Identity
-		/// <summary>
-		/// Initialize a new instance of the VisualSimple class.
-		/// </summary>
-		protected VisualSimple()
-		{
-		}
-		#endregion
+    {
+        #region Identity
+        /// <summary>
+        /// Initialize a new instance of the VisualSimple class.
+        /// </summary>
+        protected VisualSimple()
+        {
+        }
+        #endregion
 
-		#region Public
-		/// <summary>
-		/// Gets and sets the auto size mode.
-		/// </summary>
-		[Category("Layout")]
-		[Description("Specifies if the control grows and shrinks to fit the contents exactly.")]
-		[DefaultValue(typeof(AutoSizeMode), "GrowOnly")]
-		public virtual AutoSizeMode AutoSizeMode
-		{
-		    // ReSharper disable RedundantBaseQualifier
-			get => base.GetAutoSizeMode();
-		    // ReSharper restore RedundantBaseQualifier
+        #region Public
+        /// <summary>
+        /// Gets and sets the auto size mode.
+        /// </summary>
+        [Category("Layout")]
+        [Description("Specifies if the control grows and shrinks to fit the contents exactly.")]
+        [DefaultValue(typeof(AutoSizeMode), "GrowOnly")]
+        public virtual AutoSizeMode AutoSizeMode
+        {
+            // ReSharper disable RedundantBaseQualifier
+            get => base.GetAutoSizeMode();
+            // ReSharper restore RedundantBaseQualifier
 
-		    set
-			{
-			    // ReSharper disable RedundantBaseQualifier
-				if (value != base.GetAutoSizeMode())
-				{
-					base.SetAutoSizeMode(value);
-				    // ReSharper restore RedundantBaseQualifier
+            set
+            {
+                // ReSharper disable RedundantBaseQualifier
+                if (value != base.GetAutoSizeMode())
+                {
+                    base.SetAutoSizeMode(value);
+                    // ReSharper restore RedundantBaseQualifier
 
-					// Only perform an immediate layout if
-					// currently performing auto size operations
-					if (AutoSize)
+                    // Only perform an immediate layout if
+                    // currently performing auto size operations
+                    if (AutoSize)
                     {
                         PerformNeedPaint(true);
                     }
                 }
-			}
-		}
+            }
+        }
 
-		/// <summary>
-		/// Get the preferred size of the control based on a proposed size.
-		/// </summary>
-		/// <param name="proposedSize">Starting size proposed by the caller.</param>
-		/// <returns>Calculated preferred size.</returns>
-		public override Size GetPreferredSize(Size proposedSize)
-		{
-			// Do we have a manager to ask for a preferred size?
-			if (ViewManager != null)
-			{
-				// Ask the view to peform a layout
+        /// <summary>
+        /// Get the preferred size of the control based on a proposed size.
+        /// </summary>
+        /// <param name="proposedSize">Starting size proposed by the caller.</param>
+        /// <returns>Calculated preferred size.</returns>
+        public override Size GetPreferredSize(Size proposedSize)
+        {
+            // Do we have a manager to ask for a preferred size?
+            if (ViewManager != null)
+            {
+                // Ask the view to peform a layout
                 Size retSize = ViewManager.GetPreferredSize(Renderer, proposedSize);
 
                 // Apply the maximum sizing
@@ -102,46 +102,46 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 return retSize;
-			}
-			else
-			{
-				// Fall back on default control processing
-				return base.GetPreferredSize(proposedSize);
-			}
-		}
+            }
+            else
+            {
+                // Fall back on default control processing
+                return base.GetPreferredSize(proposedSize);
+            }
+        }
 
-		/// <summary>
-		/// Gets or sets the background color for the control.
-		/// </summary>
-		[Browsable(false)]
-		[Bindable(false)]
-		public override Color BackColor
-		{
-			get => base.BackColor;
-		    set => base.BackColor = value;
-		}
+        /// <summary>
+        /// Gets or sets the background color for the control.
+        /// </summary>
+        [Browsable(false)]
+        [Bindable(false)]
+        public override Color BackColor
+        {
+            get => base.BackColor;
+            set => base.BackColor = value;
+        }
 
-		/// <summary>
-		/// Gets or sets the font of the text displayed by the control.
-		/// </summary>
-		[Browsable(false)]
-		[Bindable(false)]
-		public override Font Font
-		{
-			get => base.Font;
-		    set => base.Font = value;
-		}
+        /// <summary>
+        /// Gets or sets the font of the text displayed by the control.
+        /// </summary>
+        [Browsable(false)]
+        [Bindable(false)]
+        public override Font Font
+        {
+            get => base.Font;
+            set => base.Font = value;
+        }
 
-		/// <summary>
-		/// Gets or sets the foreground color for the control.
-		/// </summary>
-		[Browsable(false)]
-		[Bindable(false)]
-		public override Color ForeColor
-		{
-			get => base.ForeColor;
-		    set => base.ForeColor = value;
-		}
-		#endregion
-	}
+        /// <summary>
+        /// Gets or sets the foreground color for the control.
+        /// </summary>
+        [Browsable(false)]
+        [Bindable(false)]
+        public override Color ForeColor
+        {
+            get => base.ForeColor;
+            set => base.ForeColor = value;
+        }
+        #endregion
+    }
 }

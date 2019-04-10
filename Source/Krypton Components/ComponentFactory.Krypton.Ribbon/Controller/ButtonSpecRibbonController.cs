@@ -15,9 +15,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Process mouse events for a ribbon based button spec button.
-	/// </summary>
+    /// <summary>
+    /// Process mouse events for a ribbon based button spec button.
+    /// </summary>
     internal class ButtonSpecRibbonController : ButtonController
     {
         #region Instance Fields
@@ -27,15 +27,15 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ButtonSpecRibbonController class.
-		/// </summary>
-		/// <param name="target">Target for state changes.</param>
+        /// </summary>
+        /// <param name="target">Target for state changes.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public ButtonSpecRibbonController(ViewBase target,
                                           NeedPaintHandler needPaint)
             : base(target, needPaint)
-		{
+        {
         }
-		#endregion
+        #endregion
 
         #region Key Notifications
         /// <summary>

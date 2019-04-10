@@ -88,9 +88,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Identity
         /// <summary>
-		/// Initialize a new instance of the KryptonHeaderGroup class.
-		/// </summary>
-		public KryptonHeaderGroup()
+        /// Initialize a new instance of the KryptonHeaderGroup class.
+        /// </summary>
+        public KryptonHeaderGroup()
         {
             // Set default values
             _style1 = HeaderStyle.Primary;
@@ -445,9 +445,9 @@ namespace ComponentFactory.Krypton.Toolkit
         public bool AllowButtonSpecToolTips { get; set; }
 
         /// <summary>
-		/// Gets and sets the border style.
-		/// </summary>
-		[Category("Visuals")]
+        /// Gets and sets the border style.
+        /// </summary>
+        [Category("Visuals")]
         [Description("Border style.")]
         public PaletteBorderStyle GroupBorderStyle
         {
@@ -468,9 +468,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool ShouldSerializeGroupBorderStyle() => (GroupBorderStyle != PaletteBorderStyle.ControlClient);
 
         /// <summary>
-		/// Gets and sets the background style.
-		/// </summary>
-		[Category("Visuals")]
+        /// Gets and sets the background style.
+        /// </summary>
+        [Category("Visuals")]
         [Description("Background style.")]
         public PaletteBackStyle GroupBackStyle
         {
@@ -540,9 +540,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool ShouldSerializeHeaderStyleSecondary() => (HeaderStyleSecondary != HeaderStyle.Secondary);
 
         /// <summary>
-		/// Gets and sets the position of the primary header.
-		/// </summary>
-		[Category("Visuals")]
+        /// Gets and sets the position of the primary header.
+        /// </summary>
+        [Category("Visuals")]
         [Description("Edge position of the primary header.")]
         [DefaultValue(typeof(VisualOrientation), "Top")]
         public VisualOrientation HeaderPositionPrimary
@@ -636,9 +636,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool ShouldSerializeStateCommon() => !StateCommon.IsDefault;
 
         /// <summary>
-		/// Gets access to the disabled header group appearance entries.
-		/// </summary>
-		[Category("Visuals")]
+        /// Gets access to the disabled header group appearance entries.
+        /// </summary>
+        [Category("Visuals")]
         [Description("Overrides for defining disabled header group appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteHeaderGroup StateDisabled { get; }
@@ -646,9 +646,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool ShouldSerializeStateDisabled() => !StateDisabled.IsDefault;
 
         /// <summary>
-		/// Gets access to the normal header group appearance entries.
-		/// </summary>
-		[Category("Visuals")]
+        /// Gets access to the normal header group appearance entries.
+        /// </summary>
+        [Category("Visuals")]
         [Description("Overrides for defining normal header group appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteHeaderGroup StateNormal { get; }
@@ -656,9 +656,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool ShouldSerializeStateNormal() => !StateNormal.IsDefault;
 
         /// <summary>
-		/// Gets access to the primary header content.
-		/// </summary>
-		[Category("Visuals")]
+        /// Gets access to the primary header content.
+        /// </summary>
+        [Category("Visuals")]
         [Description("Primary header values")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public HeaderGroupValuesPrimary ValuesPrimary { get; }
@@ -666,9 +666,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool ShouldSerializeValuesPrimary() => !ValuesPrimary.IsDefault;
 
         /// <summary>
-		/// Gets access to the secondary header content.
-		/// </summary>
-		[Category("Visuals")]
+        /// Gets access to the secondary header content.
+        /// </summary>
+        [Category("Visuals")]
         [Description("Secondary header values")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public HeaderGroupValuesSecondary ValuesSecondary { get; }
@@ -916,10 +916,10 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Raises the EnabledChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
-		protected override void OnEnabledChanged(EventArgs e)
+        /// Raises the EnabledChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        protected override void OnEnabledChanged(EventArgs e)
         {
             // Push correct palettes into the view
             if (Enabled)

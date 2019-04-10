@@ -53,7 +53,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _disabled = disableMetric;
             _normal = normalMetric;
         }
-		#endregion
+        #endregion
 
         #region SetRedirectStates
         /// <summary>

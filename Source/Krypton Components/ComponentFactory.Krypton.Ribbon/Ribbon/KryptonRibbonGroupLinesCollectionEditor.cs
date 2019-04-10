@@ -14,22 +14,22 @@ using System.ComponentModel.Design;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	internal class KryptonRibbonGroupLinesCollectionEditor : CollectionEditor
-	{
-		/// <summary>
+    internal class KryptonRibbonGroupLinesCollectionEditor : CollectionEditor
+    {
+        /// <summary>
         /// Initialize a new instance of the KryptonRibbonGroupLineCollectionEditor class.
-		/// </summary>
+        /// </summary>
         public KryptonRibbonGroupLinesCollectionEditor()
             : base(typeof(KryptonRibbonGroupLinesCollection))
-		{
-		}
+        {
+        }
 
-		/// <summary>
-		/// Gets the data types that this collection editor can contain. 
-		/// </summary>
-		/// <returns>An array of data types that this collection can contain.</returns>
-		protected override Type[] CreateNewItemTypes()
-		{
+        /// <summary>
+        /// Gets the data types that this collection editor can contain. 
+        /// </summary>
+        /// <returns>An array of data types that this collection can contain.</returns>
+        protected override Type[] CreateNewItemTypes()
+        {
             return new Type[] { typeof(KryptonRibbonGroupButton),
                                 typeof(KryptonRibbonGroupColorButton),
                                 typeof(KryptonRibbonGroupCheckBox),
@@ -42,6 +42,6 @@ namespace ComponentFactory.Krypton.Ribbon
                                 typeof(KryptonRibbonGroupRichTextBox),
                                 typeof(KryptonRibbonGroupTextBox),
                                 typeof(KryptonRibbonGroupMaskedTextBox)};
-		}
-	}
+        }
+    }
 }

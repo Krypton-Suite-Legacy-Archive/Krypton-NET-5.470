@@ -162,7 +162,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PlacementMode.MousePoint:
                 case PlacementMode.Relative:
                 case PlacementMode.RelativePoint:
-                    // The top-left corner of the target area. 	The top-left corner of the Popup.
+                    // The top-left corner of the target area.     The top-left corner of the Popup.
                     popupLocation = positionPlacementRectangle.Location;
                     if (positionPlacementRectangle.IntersectsWith(new Rectangle(controlMousePosition, (Size)currentCursorHotSpot)))
                     {
@@ -172,11 +172,11 @@ namespace ComponentFactory.Krypton.Toolkit
                     break;
                 case PlacementMode.Bottom:
                 case PlacementMode.Mouse:
-                    // The bottom-left corner of the target area. 	The top-left corner of the Popup.
+                    // The bottom-left corner of the target area.     The top-left corner of the Popup.
                     popupLocation = new Point(positionPlacementRectangle.Left, positionPlacementRectangle.Bottom);
                     break;
                 case PlacementMode.Center:
-                    // The center of the target area. 	The center of the Popup.
+                    // The center of the target area.     The center of the Popup.
                     popupLocation = positionPlacementRectangle.Location;
                     popupLocation.Offset(popupSize.Width / 2, -popupSize.Height / 2);
                     if (positionPlacementRectangle.IntersectsWith(new Rectangle(controlMousePosition, (Size)currentCursorHotSpot)))
@@ -186,15 +186,15 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                     break;
                 case PlacementMode.Left:
-                    // The top-left corner of the target area. 	The top-right corner of the Popup.
+                    // The top-left corner of the target area.     The top-right corner of the Popup.
                     popupLocation = new Point(positionPlacementRectangle.Left - popupSize.Width, positionPlacementRectangle.Top);
                     break;
                 case PlacementMode.Right:
-                    // The top-right corner of the target area. 	The top-left corner of the Popup.
+                    // The top-right corner of the target area.     The top-left corner of the Popup.
                     popupLocation = new Point(positionPlacementRectangle.Right, positionPlacementRectangle.Top);
                     break;
                 case PlacementMode.Top:
-                    // The top-left corner of the target area. 	The bottom-left corner of the Popup.
+                    // The top-left corner of the target area.     The bottom-left corner of the Popup.
                     popupLocation = new Point(positionPlacementRectangle.Left, positionPlacementRectangle.Top - popupSize.Height);
                     break;
                 default:

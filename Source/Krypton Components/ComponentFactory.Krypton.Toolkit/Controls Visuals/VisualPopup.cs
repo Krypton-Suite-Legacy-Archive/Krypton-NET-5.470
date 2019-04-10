@@ -70,22 +70,22 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             #region Default ControlStyle Values
             // Default style values for Control are:-
-            //	True  - AllPaintingInWmPaint
-            //	False - CacheText
-            //	False - ContainerControl
-            //	False - EnableNotifyMessage
-            //	False - FixedHeight
-            //	False - FixedWidth
-            //	False - Opaque
-            //	False - OptimizedDoubleBuffer
-            //	False - ResizeRedraw
-            //	False - Selectable
-            //	True  - StandardClick
-            //	True  - StandardDoubleClick
-            //	False - SupportsTransparentBackColor
-            //	False - UserMouse
-            //	True  - UserPaint
-            //	True  - UseTextForAccessibility
+            //    True  - AllPaintingInWmPaint
+            //    False - CacheText
+            //    False - ContainerControl
+            //    False - EnableNotifyMessage
+            //    False - FixedHeight
+            //    False - FixedWidth
+            //    False - Opaque
+            //    False - OptimizedDoubleBuffer
+            //    False - ResizeRedraw
+            //    False - Selectable
+            //    True  - StandardClick
+            //    True  - StandardDoubleClick
+            //    False - SupportsTransparentBackColor
+            //    False - UserMouse
+            //    True  - UserPaint
+            //    True  - UseTextForAccessibility
             #endregion
 
             // We use double buffering to reduce drawing flicker
@@ -394,6 +394,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Protected Virtual
+        // ReSharper disable VirtualMemberNeverOverridden.Global
         /// <summary>
         /// Work out if this control needs to use Invoke to force a repaint.
         /// </summary>
@@ -444,6 +445,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 _refresh = true;
             }
         }
+        // ReSharper restore VirtualMemberNeverOverridden.Global
         #endregion
 
         #region Protected Override

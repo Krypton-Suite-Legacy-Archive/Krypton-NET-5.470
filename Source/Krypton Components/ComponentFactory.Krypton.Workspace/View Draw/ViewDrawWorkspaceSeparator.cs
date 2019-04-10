@@ -15,9 +15,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Workspace
 {
-	/// <summary>
-	/// Workspace specific separator that works relative to a specific workspace item.
-	/// </summary>
+    /// <summary>
+    /// Workspace specific separator that works relative to a specific workspace item.
+    /// </summary>
     public class ViewDrawWorkspaceSeparator : ViewDrawSeparator,
                                               ISeparatorSource
     {
@@ -29,7 +29,7 @@ namespace ComponentFactory.Krypton.Workspace
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawWorkspaceSeparator class.
-		/// </summary>
+        /// </summary>
         /// <param name="workspace">Associated workspace instance.</param>
         /// <param name="workspaceItem">Associated workspace item.</param>
         /// <param name="orientation">Visual orientation of the content.</param>
@@ -39,21 +39,21 @@ namespace ComponentFactory.Krypton.Workspace
             : base(workspace.StateDisabled.Separator, workspace.StateNormal.Separator, workspace.StateTracking, workspace.StatePressed,
                    workspace.StateDisabled.Separator, workspace.StateNormal.Separator, workspace.StateTracking, workspace.StatePressed,
                    CommonHelper.SeparatorStyleToMetricPadding(workspace.SeparatorStyle), orientation)
-		{
+        {
             _workspace = workspace;
             WorkspaceItem = workspaceItem;
-		}
+        }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawWorkspaceSeparator:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Public
         /// <summary>

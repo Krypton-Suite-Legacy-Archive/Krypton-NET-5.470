@@ -412,7 +412,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonRichTextBox class.
-		/// </summary>
+        /// </summary>
         public KryptonRichTextBox()
         {
             // Contains another control and needs marking as such for validation to work
@@ -1245,9 +1245,9 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Gets and sets the input control style.
-		/// </summary>
-		[Category("Visuals")]
+        /// Gets and sets the input control style.
+        /// </summary>
+        [Category("Visuals")]
         [Description("Input control style.")]
         public InputControlStyle InputControlStyle
         {
@@ -1748,9 +1748,9 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Gets the rectangle that represents the display area of the control.
-		/// </summary>
-		public override Rectangle DisplayRectangle
+        /// Gets the rectangle that represents the display area of the control.
+        /// </summary>
+        public override Rectangle DisplayRectangle
         {
             get
             {
@@ -1979,10 +1979,10 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Raises the EnabledChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
-		protected override void OnEnabledChanged(EventArgs e)
+        /// Raises the EnabledChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        protected override void OnEnabledChanged(EventArgs e)
         {
             // Change in enabled state requires a layout and repaint
             UpdateStateAndPalettes();

@@ -17,9 +17,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Storage for application button related properties.
-	/// </summary>
+    /// <summary>
+    /// Storage for application button related properties.
+    /// </summary>
     public class RibbonAppButton : Storage
     {
         #region Static Fields
@@ -62,10 +62,10 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the RibbonAppButton class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         public RibbonAppButton(KryptonRibbon ribbon)
-		{
+        {
             Debug.Assert(ribbon != null);
             _ribbon = ribbon;
 
@@ -90,7 +90,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _appButtonTextColor = Color.White;
             _appButtonText = DEFAULT_APP_TEXT;
         }
-		#endregion
+        #endregion
 
         #region IsDefault
         /// <summary>

@@ -15,9 +15,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws a drop arrow used in various ribbon controls.
-	/// </summary>
+    /// <summary>
+    /// Draws a drop arrow used in various ribbon controls.
+    /// </summary>
     internal class ViewDrawRibbonDropArrow : ViewLeaf
     {
         #region Static Fields
@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonDropArrow class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning control instance.</param>
         public ViewDrawRibbonDropArrow(KryptonRibbon ribbon)
         {
@@ -39,16 +39,16 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbon = ribbon;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonDropArrow:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Layout
         /// <summary>
@@ -60,10 +60,10 @@ namespace ComponentFactory.Krypton.Ribbon
             return _arrowSize;
         }
 
-		/// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
+        /// <summary>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
         public override void Layout(ViewLayoutContext context)
         {
             Debug.Assert(context != null);

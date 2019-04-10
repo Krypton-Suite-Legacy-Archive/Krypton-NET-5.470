@@ -15,15 +15,15 @@ using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Redirects requests onto a dynamic instance of a IPalette.
-	/// </summary>
+    /// <summary>
+    /// Redirects requests onto a dynamic instance of a IPalette.
+    /// </summary>
     public class PaletteRedirect : GlobalId,
                                    IPalette
     {
         #region Instance Fields
         private IPalette _target;
-		#endregion
+        #endregion
 
         #region Events
         /// <summary>
@@ -52,7 +52,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public event EventHandler ButtonSpecChanged;
         #endregion
 
-		#region Identity
+        #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteRedirect class.
         /// </summary>
@@ -62,26 +62,26 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         
         /// <summary>
-		/// Initialize a new instance of the PaletteRedirect class.
-		/// </summary>
+        /// Initialize a new instance of the PaletteRedirect class.
+        /// </summary>
         /// <param name="target">Initial palette target for redirection.</param>
-		public PaletteRedirect(IPalette target)
-		{
+        public PaletteRedirect(IPalette target)
+        {
             // Remember incoming target
             _target = target;
         }
-		#endregion
+        #endregion
 
-		#region Target
-		/// <summary>
-		/// Gets and sets the redirection target.
-		/// </summary>
-		public virtual IPalette Target
-		{
-			get => _target;
-		    set => _target = value;
-		}
-		#endregion
+        #region Target
+        /// <summary>
+        /// Gets and sets the redirection target.
+        /// </summary>
+        public virtual IPalette Target
+        {
+            get => _target;
+            set => _target = value;
+        }
+        #endregion
 
         #region AllowFormChrome
         /// <summary>
@@ -105,318 +105,318 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Back
-		/// <summary>
-		/// Gets a value indicating if background should be drawn.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
-		public virtual InheritBool GetBackDraw(PaletteBackStyle style, PaletteState state)
-		{
-			return _target.GetBackDraw(style, state);
-		}
+        #region Back
+        /// <summary>
+        /// Gets a value indicating if background should be drawn.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
+        public virtual InheritBool GetBackDraw(PaletteBackStyle style, PaletteState state)
+        {
+            return _target.GetBackDraw(style, state);
+        }
 
-		/// <summary>
-		/// Gets the graphics drawing hint for the background.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteGraphicsHint value.</returns>
-		public virtual PaletteGraphicsHint GetBackGraphicsHint(PaletteBackStyle style, PaletteState state)
-		{
-			return _target.GetBackGraphicsHint(style, state);
-		}
+        /// <summary>
+        /// Gets the graphics drawing hint for the background.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteGraphicsHint value.</returns>
+        public virtual PaletteGraphicsHint GetBackGraphicsHint(PaletteBackStyle style, PaletteState state)
+        {
+            return _target.GetBackGraphicsHint(style, state);
+        }
 
-		/// <summary>
-		/// Gets the first background color.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color value.</returns>
+        /// <summary>
+        /// Gets the first background color.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
         public virtual Color GetBackColor1(PaletteBackStyle style, PaletteState state)
-		{
-			return _target.GetBackColor1(style, state);
-		}
+        {
+            return _target.GetBackColor1(style, state);
+        }
 
-		/// <summary>
-		/// Gets the second back color.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color value.</returns>
+        /// <summary>
+        /// Gets the second back color.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
         public virtual Color GetBackColor2(PaletteBackStyle style, PaletteState state)
-		{
-			return _target.GetBackColor2(style, state);
-		}
+        {
+            return _target.GetBackColor2(style, state);
+        }
 
-		/// <summary>
-		/// Gets the color background drawing style.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color drawing style.</returns>
+        /// <summary>
+        /// Gets the color background drawing style.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color drawing style.</returns>
         public virtual PaletteColorStyle GetBackColorStyle(PaletteBackStyle style, PaletteState state)
-		{
-			return _target.GetBackColorStyle(style, state);
-		}
+        {
+            return _target.GetBackColorStyle(style, state);
+        }
 
-		/// <summary>
-		/// Gets the color alignment.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color alignment style.</returns>
+        /// <summary>
+        /// Gets the color alignment.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color alignment style.</returns>
         public virtual PaletteRectangleAlign GetBackColorAlign(PaletteBackStyle style, PaletteState state)
-		{
-			return _target.GetBackColorAlign(style, state);
-		}
+        {
+            return _target.GetBackColorAlign(style, state);
+        }
 
-		/// <summary>
-		/// Gets the color background angle.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Angle used for color drawing.</returns>
+        /// <summary>
+        /// Gets the color background angle.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Angle used for color drawing.</returns>
         public virtual float GetBackColorAngle(PaletteBackStyle style, PaletteState state)
-		{
-			return _target.GetBackColorAngle(style, state);
-		}
+        {
+            return _target.GetBackColorAngle(style, state);
+        }
 
-		/// <summary>
-		/// Gets a background image.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image instance.</returns>
+        /// <summary>
+        /// Gets a background image.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image instance.</returns>
         public virtual Image GetBackImage(PaletteBackStyle style, PaletteState state)
-		{
-			return _target.GetBackImage(style, state);
-		}
+        {
+            return _target.GetBackImage(style, state);
+        }
 
-		/// <summary>
-		/// Gets the background image style.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image style value.</returns>
+        /// <summary>
+        /// Gets the background image style.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image style value.</returns>
         public virtual PaletteImageStyle GetBackImageStyle(PaletteBackStyle style, PaletteState state)
-		{
-			return _target.GetBackImageStyle(style, state);
-		}
+        {
+            return _target.GetBackImageStyle(style, state);
+        }
 
-		/// <summary>
-		/// Gets the image alignment.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image alignment style.</returns>
+        /// <summary>
+        /// Gets the image alignment.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image alignment style.</returns>
         public virtual PaletteRectangleAlign GetBackImageAlign(PaletteBackStyle style, PaletteState state)
-		{
-			return _target.GetBackImageAlign(style, state);
-		}
+        {
+            return _target.GetBackImageAlign(style, state);
+        }
         #endregion
 
-		#region Border
-		/// <summary>
-		/// Gets a value indicating if border should be drawn.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
+        #region Border
+        /// <summary>
+        /// Gets a value indicating if border should be drawn.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
         public virtual InheritBool GetBorderDraw(PaletteBorderStyle style, PaletteState state)
-		{
-			return _target.GetBorderDraw(style, state);
-		}
+        {
+            return _target.GetBorderDraw(style, state);
+        }
 
         /// <summary>
         /// Gets a value indicating which borders to draw.
         /// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>PaletteDrawBorders value.</returns>
         public virtual PaletteDrawBorders GetBorderDrawBorders(PaletteBorderStyle style, PaletteState state)
-		{
-			return _target.GetBorderDrawBorders(style, state);
-		}
+        {
+            return _target.GetBorderDrawBorders(style, state);
+        }
 
-		/// <summary>
-		/// Gets the graphics drawing hint for the border.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteGraphicsHint value.</returns>
+        /// <summary>
+        /// Gets the graphics drawing hint for the border.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteGraphicsHint value.</returns>
         public virtual PaletteGraphicsHint GetBorderGraphicsHint(PaletteBorderStyle style, PaletteState state)
-		{
-			return _target.GetBorderGraphicsHint(style, state);
-		}
+        {
+            return _target.GetBorderGraphicsHint(style, state);
+        }
 
-		/// <summary>
-		/// Gets the first border color.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color value.</returns>
+        /// <summary>
+        /// Gets the first border color.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
         public virtual Color GetBorderColor1(PaletteBorderStyle style, PaletteState state)
-		{
-			return _target.GetBorderColor1(style, state);
-		}
+        {
+            return _target.GetBorderColor1(style, state);
+        }
 
-		/// <summary>
-		/// Gets the second border color.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color value.</returns>
+        /// <summary>
+        /// Gets the second border color.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
         public virtual Color GetBorderColor2(PaletteBorderStyle style, PaletteState state)
-		{
-			return _target.GetBorderColor2(style, state);
-		}
+        {
+            return _target.GetBorderColor2(style, state);
+        }
 
-		/// <summary>
-		/// Gets the color border drawing style.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color drawing style.</returns>
+        /// <summary>
+        /// Gets the color border drawing style.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color drawing style.</returns>
         public virtual PaletteColorStyle GetBorderColorStyle(PaletteBorderStyle style, PaletteState state)
-		{
-			return _target.GetBorderColorStyle(style, state);
-		}
+        {
+            return _target.GetBorderColorStyle(style, state);
+        }
 
-		/// <summary>
-		/// Gets the color border alignment.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color alignment style.</returns>
+        /// <summary>
+        /// Gets the color border alignment.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color alignment style.</returns>
         public virtual PaletteRectangleAlign GetBorderColorAlign(PaletteBorderStyle style, PaletteState state)
-		{
-			return _target.GetBorderColorAlign(style, state);
-		}
+        {
+            return _target.GetBorderColorAlign(style, state);
+        }
 
-		/// <summary>
-		/// Gets the color border angle.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Angle used for color drawing.</returns>
+        /// <summary>
+        /// Gets the color border angle.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Angle used for color drawing.</returns>
         public virtual float GetBorderColorAngle(PaletteBorderStyle style, PaletteState state)
-		{
-			return _target.GetBorderColorAngle(style, state);
-		}
+        {
+            return _target.GetBorderColorAngle(style, state);
+        }
 
-		/// <summary>
-		/// Gets the border width.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Integer width.</returns>
+        /// <summary>
+        /// Gets the border width.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Integer width.</returns>
         public virtual int GetBorderWidth(PaletteBorderStyle style, PaletteState state)
-		{
-			return _target.GetBorderWidth(style, state);
-		}
+        {
+            return _target.GetBorderWidth(style, state);
+        }
 
-		/// <summary>
-		/// Gets the border corner rounding.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Integer rounding.</returns>
+        /// <summary>
+        /// Gets the border corner rounding.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Integer rounding.</returns>
         public virtual int GetBorderRounding(PaletteBorderStyle style, PaletteState state)
-		{
-			return _target.GetBorderRounding(style, state);
-		}
+        {
+            return _target.GetBorderRounding(style, state);
+        }
 
-		/// <summary>
-		/// Gets a border image.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image instance.</returns>
+        /// <summary>
+        /// Gets a border image.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image instance.</returns>
         public virtual Image GetBorderImage(PaletteBorderStyle style, PaletteState state)
-		{
-			return _target.GetBorderImage(style, state);
-		}
+        {
+            return _target.GetBorderImage(style, state);
+        }
 
-		/// <summary>
-		/// Gets the border image style.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image style value.</returns>
+        /// <summary>
+        /// Gets the border image style.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image style value.</returns>
         public virtual PaletteImageStyle GetBorderImageStyle(PaletteBorderStyle style, PaletteState state)
-		{
-			return _target.GetBorderImageStyle(style, state);
-		}
+        {
+            return _target.GetBorderImageStyle(style, state);
+        }
 
-		/// <summary>
-		/// Gets the image border alignment.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Image alignment style.</returns>
+        /// <summary>
+        /// Gets the image border alignment.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Image alignment style.</returns>
         public virtual PaletteRectangleAlign GetBorderImageAlign(PaletteBorderStyle style, PaletteState state)
-		{
-			return _target.GetBorderImageAlign(style, state);
-		}
+        {
+            return _target.GetBorderImageAlign(style, state);
+        }
         #endregion
 
-		#region Content
-		/// <summary>
-		/// Gets a value indicating if content should be drawn.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
+        #region Content
+        /// <summary>
+        /// Gets a value indicating if content should be drawn.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
         public virtual InheritBool GetContentDraw(PaletteContentStyle style, PaletteState state)
-		{
-			return _target.GetContentDraw(style, state);
-		}
+        {
+            return _target.GetContentDraw(style, state);
+        }
 
-		/// <summary>
-		/// Gets a value indicating if content should be drawn with focus indication.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
+        /// <summary>
+        /// Gets a value indicating if content should be drawn with focus indication.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
         public virtual InheritBool GetContentDrawFocus(PaletteContentStyle style, PaletteState state)
-		{
-			return _target.GetContentDrawFocus(style, state);
-		}
+        {
+            return _target.GetContentDrawFocus(style, state);
+        }
 
-		/// <summary>
-		/// Gets the horizontal relative alignment of the image.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
+        /// <summary>
+        /// Gets the horizontal relative alignment of the image.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
         public virtual PaletteRelativeAlign GetContentImageH(PaletteContentStyle style, PaletteState state)
-		{
-			return _target.GetContentImageH(style, state);
-		}
+        {
+            return _target.GetContentImageH(style, state);
+        }
 
-		/// <summary>
-		/// Gets the vertical relative alignment of the image.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
+        /// <summary>
+        /// Gets the vertical relative alignment of the image.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
         public virtual PaletteRelativeAlign GetContentImageV(PaletteContentStyle style, PaletteState state)
-		{
-			return _target.GetContentImageV(style, state);
-		}
+        {
+            return _target.GetContentImageV(style, state);
+        }
 
-		/// <summary>
-		/// Gets the effect applied to drawing of the image.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteImageEffect value.</returns>
+        /// <summary>
+        /// Gets the effect applied to drawing of the image.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteImageEffect value.</returns>
         public virtual PaletteImageEffect GetContentImageEffect(PaletteContentStyle style, PaletteState state)
-		{
-			return _target.GetContentImageEffect(style, state);
-		}
+        {
+            return _target.GetContentImageEffect(style, state);
+        }
 
         /// <summary>
         /// Gets the image color to remap into another color.
@@ -440,16 +440,16 @@ namespace ComponentFactory.Krypton.Toolkit
             return _target.GetContentImageColorTo(style, state);
         }
 
-		/// <summary>
-		/// Gets the font for the short text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Font value.</returns>
+        /// <summary>
+        /// Gets the font for the short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Font value.</returns>
         public virtual Font GetContentShortTextFont(PaletteContentStyle style, PaletteState state)
-		{
-			return _target.GetContentShortTextFont(style, state);
-		}
+        {
+            return _target.GetContentShortTextFont(style, state);
+        }
 
         /// <summary>
         /// Gets the font for the short text by generating a new font instance.
@@ -458,20 +458,20 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>Font value.</returns>
         public virtual Font GetContentShortTextNewFont(PaletteContentStyle style, PaletteState state)
-		{
+        {
             return _target.GetContentShortTextNewFont(style, state);
-		}
+        }
 
-		/// <summary>
-		/// Gets the rendering hint for the short text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteTextHint value.</returns>
+        /// <summary>
+        /// Gets the rendering hint for the short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteTextHint value.</returns>
         public virtual PaletteTextHint GetContentShortTextHint(PaletteContentStyle style, PaletteState state)
-		{
-			return _target.GetContentShortTextHint(style, state);
-		}
+        {
+            return _target.GetContentShortTextHint(style, state);
+        }
 
         /// <summary>
         /// Gets the prefix drawing setting for short text.
@@ -485,59 +485,59 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         
         /// <summary>
-		/// Gets the flag indicating if multiline text is allowed for short text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
+        /// Gets the flag indicating if multiline text is allowed for short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
         public virtual InheritBool GetContentShortTextMultiLine(PaletteContentStyle style, PaletteState state)
-		{
-			return _target.GetContentShortTextMultiLine(style, state);
-		}
+        {
+            return _target.GetContentShortTextMultiLine(style, state);
+        }
 
-		/// <summary>
-		/// Gets the text trimming to use for short text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteTextTrim value.</returns>
+        /// <summary>
+        /// Gets the text trimming to use for short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteTextTrim value.</returns>
         public virtual PaletteTextTrim GetContentShortTextTrim(PaletteContentStyle style, PaletteState state)
-		{
-			return _target.GetContentShortTextTrim(style, state);
-		}
+        {
+            return _target.GetContentShortTextTrim(style, state);
+        }
 
-		/// <summary>
-		/// Gets the horizontal relative alignment of the short text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
+        /// <summary>
+        /// Gets the horizontal relative alignment of the short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
         public virtual PaletteRelativeAlign GetContentShortTextH(PaletteContentStyle style, PaletteState state)
-		{
-			return _target.GetContentShortTextH(style, state);
-		}
+        {
+            return _target.GetContentShortTextH(style, state);
+        }
 
-		/// <summary>
-		/// Gets the vertical relative alignment of the short text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
+        /// <summary>
+        /// Gets the vertical relative alignment of the short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
         public virtual PaletteRelativeAlign GetContentShortTextV(PaletteContentStyle style, PaletteState state)
-		{
-			return _target.GetContentShortTextV(style, state);
-		}
+        {
+            return _target.GetContentShortTextV(style, state);
+        }
 
-		/// <summary>
-		/// Gets the horizontal relative alignment of multiline short text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
+        /// <summary>
+        /// Gets the horizontal relative alignment of multiline short text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
         public virtual PaletteRelativeAlign GetContentShortTextMultiLineH(PaletteContentStyle style, PaletteState state)
-		{
-			return _target.GetContentShortTextMultiLineH(style, state);
-		}
+        {
+            return _target.GetContentShortTextMultiLineH(style, state);
+        }
 
         /// <summary>
         /// Gets the first back color for the short text.
@@ -627,16 +627,16 @@ namespace ComponentFactory.Krypton.Toolkit
             return _target.GetContentShortTextImageAlign(style, state);
         }
 
-		/// <summary>
-		/// Gets the font for the long text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Font value.</returns>
+        /// <summary>
+        /// Gets the font for the long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Font value.</returns>
         public virtual Font GetContentLongTextFont(PaletteContentStyle style, PaletteState state)
-		{
-			return _target.GetContentLongTextFont(style, state);
-		}
+        {
+            return _target.GetContentLongTextFont(style, state);
+        }
 
         /// <summary>
         /// Gets the font for the long text by generating a new font instance.
@@ -649,38 +649,38 @@ namespace ComponentFactory.Krypton.Toolkit
             return _target.GetContentLongTextNewFont(style, state);
         }
 
-		/// <summary>
-		/// Gets the rendering hint for the long text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteTextHint value.</returns>
+        /// <summary>
+        /// Gets the rendering hint for the long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteTextHint value.</returns>
         public virtual PaletteTextHint GetContentLongTextHint(PaletteContentStyle style, PaletteState state)
-		{
-			return _target.GetContentLongTextHint(style, state);
-		}
+        {
+            return _target.GetContentLongTextHint(style, state);
+        }
 
-		/// <summary>
-		/// Gets the flag indicating if multiline text is allowed for long text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
+        /// <summary>
+        /// Gets the flag indicating if multiline text is allowed for long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
         public virtual InheritBool GetContentLongTextMultiLine(PaletteContentStyle style, PaletteState state)
-		{
-			return _target.GetContentLongTextMultiLine(style, state);
-		}
+        {
+            return _target.GetContentLongTextMultiLine(style, state);
+        }
 
-		/// <summary>
-		/// Gets the text trimming to use for long text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteTextTrim value.</returns>
+        /// <summary>
+        /// Gets the text trimming to use for long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteTextTrim value.</returns>
         public virtual PaletteTextTrim GetContentLongTextTrim(PaletteContentStyle style, PaletteState state)
-		{
-			return _target.GetContentLongTextTrim(style, state);
-		}
+        {
+            return _target.GetContentLongTextTrim(style, state);
+        }
 
         /// <summary>
         /// Gets the prefix drawing setting for long text.
@@ -694,37 +694,37 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         
         /// <summary>
-		/// Gets the horizontal relative alignment of the long text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
+        /// Gets the horizontal relative alignment of the long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
         public virtual PaletteRelativeAlign GetContentLongTextH(PaletteContentStyle style, PaletteState state)
-		{
-			return _target.GetContentLongTextH(style, state);
-		}
+        {
+            return _target.GetContentLongTextH(style, state);
+        }
 
-		/// <summary>
-		/// Gets the vertical relative alignment of the long text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
+        /// <summary>
+        /// Gets the vertical relative alignment of the long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
         public virtual PaletteRelativeAlign GetContentLongTextV(PaletteContentStyle style, PaletteState state)
-		{
-			return _target.GetContentLongTextV(style, state);
-		}
+        {
+            return _target.GetContentLongTextV(style, state);
+        }
 
-		/// <summary>
-		/// Gets the horizontal relative alignment of multiline long text.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
+        /// <summary>
+        /// Gets the horizontal relative alignment of multiline long text.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
         public virtual PaletteRelativeAlign GetContentLongTextMultiLineH(PaletteContentStyle style, PaletteState state)
-		{
-			return _target.GetContentLongTextMultiLineH(style, state);
-		}
+        {
+            return _target.GetContentLongTextMultiLineH(style, state);
+        }
 
         /// <summary>
         /// Gets the first back color for the long text.
@@ -814,30 +814,30 @@ namespace ComponentFactory.Krypton.Toolkit
             return _target.GetContentLongTextImageAlign(style, state);
         }
 
-		/// <summary>
-		/// Gets the padding between the border and content drawing.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Padding value.</returns>
+        /// <summary>
+        /// Gets the padding between the border and content drawing.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Padding value.</returns>
         public virtual Padding GetContentPadding(PaletteContentStyle style, PaletteState state)
-		{
-			return _target.GetContentPadding(style, state);
-		}
+        {
+            return _target.GetContentPadding(style, state);
+        }
 
-		/// <summary>
-		/// Gets the padding between adjacent content items.
-		/// </summary>
-		/// <param name="style">Content style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Integer value.</returns>
+        /// <summary>
+        /// Gets the padding between adjacent content items.
+        /// </summary>
+        /// <param name="style">Content style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Integer value.</returns>
         public virtual int GetContentAdjacentGap(PaletteContentStyle style, PaletteState state)
-		{
-			return _target.GetContentAdjacentGap(style, state);
-		}
-		#endregion
+        {
+            return _target.GetContentAdjacentGap(style, state);
+        }
+        #endregion
 
-		#region Metric
+        #region Metric
         /// <summary>
         /// Gets an integer metric value.
         /// </summary>
@@ -850,27 +850,27 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         
         /// <summary>
-		/// Gets a boolean metric value.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <param name="metric">Requested metric.</param>
-		/// <returns>InheritBool value.</returns>
+        /// Gets a boolean metric value.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <param name="metric">Requested metric.</param>
+        /// <returns>InheritBool value.</returns>
         public virtual InheritBool GetMetricBool(PaletteState state, PaletteMetricBool metric)
-		{
-			return _target.GetMetricBool(state, metric);
-		}
+        {
+            return _target.GetMetricBool(state, metric);
+        }
 
-		/// <summary>
-		/// Gets a padding metric value.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <param name="metric">Requested metric.</param>
-		/// <returns>Padding value.</returns>
+        /// <summary>
+        /// Gets a padding metric value.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <param name="metric">Requested metric.</param>
+        /// <returns>Padding value.</returns>
         public virtual Padding GetMetricPadding(PaletteState state, PaletteMetricPadding metric)
-		{
-			return _target.GetMetricPadding(state, metric);
-		}
-		#endregion
+        {
+            return _target.GetMetricPadding(state, metric);
+        }
+        #endregion
 
         #region Images
         /// <summary>

@@ -16,22 +16,22 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for header content value information.
-	/// </summary>
-	public abstract class HeaderValuesBase : Storage,
-											 IContentValues
-	{
-		#region Static Fields
+    /// <summary>
+    /// Storage for header content value information.
+    /// </summary>
+    public abstract class HeaderValuesBase : Storage,
+                                             IContentValues
+    {
+        #region Static Fields
         private static readonly Image _defaultImage = Properties.Resources.ComponentYellow;
-		#endregion
+        #endregion
 
-		#region Instance Fields
+        #region Instance Fields
         private Image _image;
         private Color _transparent;
-		private string _heading;
-		private string _description;
-		#endregion
+        private string _heading;
+        private string _description;
+        #endregion
 
         #region Events
         /// <summary>
@@ -41,103 +41,103 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
         
         #region Identity
-		/// <summary>
-		/// Initialize a new instance of the HeaderValuesBase class.
-		/// </summary>
+        /// <summary>
+        /// Initialize a new instance of the HeaderValuesBase class.
+        /// </summary>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         protected HeaderValuesBase(NeedPaintHandler needPaint)
-		{
+        {
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
             
             // Set initial values to the default
             _image = GetImageDefault();
             _transparent = Color.Empty;
-			_heading = GetHeadingDefault();
-			_description = GetDescriptionDefault();
-		}
-		#endregion
+            _heading = GetHeadingDefault();
+            _description = GetDescriptionDefault();
+        }
+        #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => ((Image == GetImageDefault()) &&
-		                                   (ImageTransparentColor == Color.Empty) &&
-		                                   (Heading == GetHeadingDefault()) &&
-		                                   (Description == GetDescriptionDefault()));
-
-	    #endregion
-
-		#region Default Values
+        #region IsDefault
         /// <summary>
-		/// Gets the default image value.
-		/// </summary>
-		/// <returns>Image reference.</returns>
-		protected virtual Image GetImageDefault()
-		{
-			return _defaultImage;
-		}
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => ((Image == GetImageDefault()) &&
+                                           (ImageTransparentColor == Color.Empty) &&
+                                           (Heading == GetHeadingDefault()) &&
+                                           (Description == GetDescriptionDefault()));
 
-		/// <summary>
-		/// Gets the default heading value.
-		/// </summary>
-		/// <returns>String reference.</returns>
-		protected abstract string GetHeadingDefault();
+        #endregion
 
-		/// <summary>
-		/// Gets the default description value.
-		/// </summary>
-		/// <returns>String reference.</returns>
-		protected abstract string GetDescriptionDefault();
-		#endregion
+        #region Default Values
+        /// <summary>
+        /// Gets the default image value.
+        /// </summary>
+        /// <returns>Image reference.</returns>
+        protected virtual Image GetImageDefault()
+        {
+            return _defaultImage;
+        }
 
-		#region Image
-		/// <summary>
-		/// Gets and sets the heading image.
-		/// </summary>
-		[Localizable(true)]
-		[Category("Visuals")]
-		[Description("Heading image.")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public Image Image
-		{
-			get => _image;
+        /// <summary>
+        /// Gets the default heading value.
+        /// </summary>
+        /// <returns>String reference.</returns>
+        protected abstract string GetHeadingDefault();
 
-		    set
-			{
-				if (_image != value)
-				{
-					_image = value;
-					PerformNeedPaint(true);
-				}
-			}
-		}
+        /// <summary>
+        /// Gets the default description value.
+        /// </summary>
+        /// <returns>String reference.</returns>
+        protected abstract string GetDescriptionDefault();
+        #endregion
 
-		private bool ShouldSerializeImage()
-		{
-			return Image != GetImageDefault();
-		}
+        #region Image
+        /// <summary>
+        /// Gets and sets the heading image.
+        /// </summary>
+        [Localizable(true)]
+        [Category("Visuals")]
+        [Description("Heading image.")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public Image Image
+        {
+            get => _image;
 
-		/// <summary>
-		/// Resets the Image property to its default value.
-		/// </summary>
-		public void ResetImage()
-		{
-			Image = GetImageDefault();
-		}
+            set
+            {
+                if (_image != value)
+                {
+                    _image = value;
+                    PerformNeedPaint(true);
+                }
+            }
+        }
 
-		/// <summary>
-		/// Gets the content image.
-		/// </summary>
+        private bool ShouldSerializeImage()
+        {
+            return Image != GetImageDefault();
+        }
+
+        /// <summary>
+        /// Resets the Image property to its default value.
+        /// </summary>
+        public void ResetImage()
+        {
+            Image = GetImageDefault();
+        }
+
+        /// <summary>
+        /// Gets the content image.
+        /// </summary>
         /// <param name="state">The state for which the image is needed.</param>
         /// <returns>Image value.</returns>
         public virtual Image GetImage(PaletteState state)
-		{
-			return Image;
-		}
-		#endregion
+        {
+            return Image;
+        }
+        #endregion
 
         #region ImageTransparentColor
         /// <summary>
@@ -187,94 +187,94 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
         
         #region Heading
-		/// <summary>
-		/// Gets and sets the heading text.
-		/// </summary>
-		[Localizable(true)]
-		[Category("Visuals")]
-		[Description("Heading text.")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		[Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
+        /// <summary>
+        /// Gets and sets the heading text.
+        /// </summary>
+        [Localizable(true)]
+        [Category("Visuals")]
+        [Description("Heading text.")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         public virtual string Heading
-		{
-			get => _heading;
+        {
+            get => _heading;
 
-		    set
-			{
-				if (_heading != value)
-				{
-					_heading = value;
-					PerformNeedPaint(true);
+            set
+            {
+                if (_heading != value)
+                {
+                    _heading = value;
+                    PerformNeedPaint(true);
                     TextChanged?.Invoke(this, EventArgs.Empty);
                 }
-			}
-		}
+            }
+        }
 
-		private bool ShouldSerializeHeading()
-		{
-			return Heading != GetHeadingDefault();
-		}
+        private bool ShouldSerializeHeading()
+        {
+            return Heading != GetHeadingDefault();
+        }
 
-		/// <summary>
-		/// Resets the Heading property to its default value.
-		/// </summary>
-		public void ResetHeading()
-		{
-			Heading = GetHeadingDefault();
-		}
+        /// <summary>
+        /// Resets the Heading property to its default value.
+        /// </summary>
+        public void ResetHeading()
+        {
+            Heading = GetHeadingDefault();
+        }
 
-		/// <summary>
-		/// Gets the content short text.
-		/// </summary>
+        /// <summary>
+        /// Gets the content short text.
+        /// </summary>
         public virtual string GetShortText()
-		{
-			return Heading;
-		}
-		#endregion
+        {
+            return Heading;
+        }
+        #endregion
 
-		#region Description
-		/// <summary>
-		/// Gets and sets the header description text.
-		/// </summary>
-		[Localizable(true)]
-		[Category("Visuals")]
-		[Description("Header description text.")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		[Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
+        #region Description
+        /// <summary>
+        /// Gets and sets the header description text.
+        /// </summary>
+        [Localizable(true)]
+        [Category("Visuals")]
+        [Description("Header description text.")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         public virtual string Description
-		{
-			get => _description;
+        {
+            get => _description;
 
-		    set
-			{
-				if (_description != value)
-				{
-					_description = value;
-					PerformNeedPaint(true);
-				}
-			}
-		}
+            set
+            {
+                if (_description != value)
+                {
+                    _description = value;
+                    PerformNeedPaint(true);
+                }
+            }
+        }
 
-		private bool ShouldSerializeDescription()
-		{
-			return Description != GetDescriptionDefault();
-		}
+        private bool ShouldSerializeDescription()
+        {
+            return Description != GetDescriptionDefault();
+        }
 
-		/// <summary>
-		/// Resets the Description property to its default value.
-		/// </summary>
-		public void ResetDescription()
-		{
-			Description = GetDescriptionDefault();
-		}
+        /// <summary>
+        /// Resets the Description property to its default value.
+        /// </summary>
+        public void ResetDescription()
+        {
+            Description = GetDescriptionDefault();
+        }
 
-		/// <summary>
-		/// Gets the content long text.
-		/// </summary>
+        /// <summary>
+        /// Gets the content long text.
+        /// </summary>
         public virtual string GetLongText()
-		{
-			return Description;
-		}
-		#endregion
+        {
+            return Description;
+        }
+        #endregion
     }
 }

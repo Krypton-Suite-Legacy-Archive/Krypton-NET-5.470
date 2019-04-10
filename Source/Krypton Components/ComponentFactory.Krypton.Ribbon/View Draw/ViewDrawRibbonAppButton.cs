@@ -17,9 +17,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws half of an application button.
-	/// </summary>
+    /// <summary>
+    /// Draws half of an application button.
+    /// </summary>
     internal class ViewDrawRibbonAppButton : ViewLeaf
     {
         #region Static Fields
@@ -39,7 +39,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonAppButton class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Owning control instance.</param>
         /// <param name="bottomHalf">Scroller orientation.</param>
         public ViewDrawRibbonAppButton(KryptonRibbon ribbon,
@@ -53,15 +53,15 @@ namespace ComponentFactory.Krypton.Ribbon
             _mementos = new IDisposable[3];
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonAppButton:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.
@@ -107,10 +107,10 @@ namespace ComponentFactory.Krypton.Ribbon
             return _size;
         }
 
-		/// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
+        /// <summary>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
         public override void Layout(ViewLayoutContext context)
         {
             Debug.Assert(context != null);

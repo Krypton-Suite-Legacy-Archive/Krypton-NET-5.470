@@ -24,11 +24,11 @@ namespace ComponentFactory.Krypton.Navigator
     /// Designer for the navigator instance.
     /// </summary>
     public class KryptonNavigatorDesigner : ParentControlDesigner
-	{
+    {
         #region Instance Fields
         private bool _lastHitTest;
         private bool _ignoreOnAddPage;
-	    private DesignerVerbCollection _verbs;
+        private DesignerVerbCollection _verbs;
         private DesignerVerb _verbAddPage;
         private DesignerVerb _verbRemovePage;
         private DesignerVerb _verbClearPages;
@@ -90,7 +90,7 @@ namespace ComponentFactory.Krypton.Navigator
         public override void InitializeNewComponent(IDictionary defaultValues)
         {
             // Let base class set the initial position and parent
- 	        base.InitializeNewComponent(defaultValues);
+             base.InitializeNewComponent(defaultValues);
 
             // Add a couple of pages
             _ignoreOnAddPage = true;
@@ -319,12 +319,13 @@ namespace ComponentFactory.Krypton.Navigator
         #endregion
 
         #region Protected Virtual
+        // ReSharper disable VirtualMemberNeverOverridden.Global
         /// <summary>
         /// Gets access to the associated navigator instance.
         /// </summary>
-        protected KryptonNavigator Navigator { get; private set; }
+        protected virtual KryptonNavigator Navigator { get; private set; }
 
-	    /// <summary>
+        /// <summary>
         /// Occurs when the component is being removed from the designer.
         /// </summary>
         /// <param name="sender">Source of the event.</param>
@@ -358,6 +359,7 @@ namespace ComponentFactory.Krypton.Navigator
                 }
             }
         }
+        // ReSharper restore VirtualMemberNeverOverridden.Global
         #endregion
 
         #region Implementation

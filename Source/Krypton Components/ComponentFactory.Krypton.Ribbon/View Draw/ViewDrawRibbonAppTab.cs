@@ -17,9 +17,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws half of an application tab.
-	/// </summary>
+    /// <summary>
+    /// Draws half of an application tab.
+    /// </summary>
     internal class ViewDrawRibbonAppTab : ViewComposite, 
                                           IContentValues
     {
@@ -37,7 +37,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonAppTab class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Owning control instance.</param>
         public ViewDrawRibbonAppTab(KryptonRibbon ribbon)
         {
@@ -54,15 +54,15 @@ namespace ComponentFactory.Krypton.Ribbon
             Add(new ViewDrawContent(_contentProvider, this, VisualOrientation.Top));
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonAppTab:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.

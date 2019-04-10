@@ -19,11 +19,11 @@ namespace ComponentFactory.Krypton.Toolkit
     /// </summary>
     public abstract class StringLookupConverter : EnumConverter
     {
-		#region Type Definitions
+        #region Type Definitions
         /// <summary>
         /// Represents a name/value pair association.
         /// </summary>
-		protected struct Pair
+        protected struct Pair
         {
             /// <summary>
             /// Enumeration value.
@@ -46,7 +46,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 Display = str;
             }
         }
-		#endregion
+        #endregion
 
         #region Identity
         /// <summary>

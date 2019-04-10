@@ -14,36 +14,36 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Redirect all triple requests directly to the redirector with a fixed state.
-	/// </summary>
-	public class PaletteTripleToPalette : IPaletteTriple
-	{
-		#region Instance Fields
-		private readonly PaletteBackToPalette _back;
-		private readonly PaletteBorderToPalette _border;
-		private readonly PaletteContentToPalette _content;
-		#endregion
+    /// <summary>
+    /// Redirect all triple requests directly to the redirector with a fixed state.
+    /// </summary>
+    public class PaletteTripleToPalette : IPaletteTriple
+    {
+        #region Instance Fields
+        private readonly PaletteBackToPalette _back;
+        private readonly PaletteBorderToPalette _border;
+        private readonly PaletteContentToPalette _content;
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteTripleToPalette class.
-		/// </summary>
+        /// </summary>
         /// <param name="palette">Inheritence of values.</param>
-		/// <param name="backStyle">Initial background style.</param>
-		/// <param name="borderStyle">Initial border style.</param>
-		/// <param name="contentStyle">Initial content style.</param>
+        /// <param name="backStyle">Initial background style.</param>
+        /// <param name="borderStyle">Initial border style.</param>
+        /// <param name="contentStyle">Initial content style.</param>
         public PaletteTripleToPalette(IPalette palette,
-									  PaletteBackStyle backStyle,
-									  PaletteBorderStyle borderStyle,
-									  PaletteContentStyle contentStyle)
-		{
+                                      PaletteBackStyle backStyle,
+                                      PaletteBorderStyle borderStyle,
+                                      PaletteContentStyle contentStyle)
+        {
             // Store the inherit instances
             _back = new PaletteBackToPalette(palette, backStyle);
             _border = new PaletteBorderToPalette(palette, borderStyle);
             _content = new PaletteContentToPalette(palette, contentStyle);
-		}
-		#endregion
+        }
+        #endregion
 
         #region SetStyles
         /// <summary>
@@ -62,8 +62,8 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Update the palette styles using a button style.
-		/// </summary>
+        /// Update the palette styles using a button style.
+        /// </summary>
         /// <param name="buttonStyle">New button style.</param>
         public void SetStyles(ButtonStyle buttonStyle)
         {
@@ -174,68 +174,68 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Back
         /// <summary>
-		/// Gets the background palette.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Advanced)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public IPaletteBack PaletteBack => _back;
+        /// Gets the background palette.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Advanced)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public IPaletteBack PaletteBack => _back;
 
-	    /// <summary>
-		/// Gets and sets the back palette style.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Advanced)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public PaletteBackStyle BackStyle
-		{
+        /// <summary>
+        /// Gets and sets the back palette style.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Advanced)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public PaletteBackStyle BackStyle
+        {
             get => _back.BackStyle;
-		    set => _back.BackStyle = value;
-		}
-		#endregion
+            set => _back.BackStyle = value;
+        }
+        #endregion
 
-		#region Border
-		/// <summary>
-		/// Gets the border palette.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Advanced)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public IPaletteBorder PaletteBorder => _border;
+        #region Border
+        /// <summary>
+        /// Gets the border palette.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Advanced)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public IPaletteBorder PaletteBorder => _border;
 
-	    /// <summary>
-		/// Gets and sets the border palette style.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Advanced)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public PaletteBorderStyle BorderStyle
-		{
+        /// <summary>
+        /// Gets and sets the border palette style.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Advanced)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public PaletteBorderStyle BorderStyle
+        {
             get => _border.BorderStyle;
-		    set => _border.BorderStyle = value;
-		}
-		#endregion
+            set => _border.BorderStyle = value;
+        }
+        #endregion
 
-		#region Content
-		/// <summary>
-		/// Gets the content palette.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Advanced)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public IPaletteContent PaletteContent => _content;
+        #region Content
+        /// <summary>
+        /// Gets the content palette.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Advanced)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public IPaletteContent PaletteContent => _content;
 
-	    /// <summary>
-		/// Gets and sets the content palette style.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Advanced)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public PaletteContentStyle ContentStyle
-		{
+        /// <summary>
+        /// Gets and sets the content palette style.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Advanced)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public PaletteContentStyle ContentStyle
+        {
             get => _content.ContentStyle;
-		    set => _content.ContentStyle = value;
-		}
-		#endregion
-	}
+            set => _content.ContentStyle = value;
+        }
+        #endregion
+    }
 }

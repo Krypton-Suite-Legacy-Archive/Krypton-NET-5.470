@@ -15,19 +15,19 @@ using ComponentFactory.Krypton.Navigator;
 
 namespace ComponentFactory.Krypton.Workspace
 {
-	/// <summary>
-	/// Details for an cancellable event that provides pages and cell associated with a page dragging event.
-	/// </summary>
+    /// <summary>
+    /// Details for an cancellable event that provides pages and cell associated with a page dragging event.
+    /// </summary>
     public class CellDragCancelEventArgs : PageDragCancelEventArgs
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the CellDragCancelEventArgs class.
-		/// </summary>
+        /// </summary>
         /// <param name="screenPoint">Screen point of the mouse.</param>
         /// <param name="screenOffset">Screen offset of the mouse to the source element.</param>
         /// <param name="c">Control that started the drag operation.</param>
@@ -39,9 +39,9 @@ namespace ComponentFactory.Krypton.Workspace
                                        KryptonPage[] pages,
                                        KryptonWorkspaceCell cell)
             : base(screenPoint, screenOffset, c, pages)
-		{
+        {
             Cell = cell;
-		}
+        }
 
         /// <summary>
         /// Initialize a new instance of the CellDragCancelEventArgs class.
@@ -62,6 +62,6 @@ namespace ComponentFactory.Krypton.Workspace
         /// </summary>
         public KryptonWorkspaceCell Cell { get; }
 
-	    #endregion
+        #endregion
     }
 }

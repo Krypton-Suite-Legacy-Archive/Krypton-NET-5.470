@@ -29,11 +29,11 @@ namespace ComponentFactory.Krypton.Workspace
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonWorkspaceSequenceDesigner class.
-		/// </summary>
+        /// </summary>
         public KryptonWorkspaceSequenceDesigner()
         {
         }            
-		#endregion
+        #endregion
 
         #region Public
         /// <summary>

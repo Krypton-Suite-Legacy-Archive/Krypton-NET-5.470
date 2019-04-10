@@ -16,9 +16,9 @@ using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Extends the standard renderer to provide Professional style additions.
-	/// </summary>
+    /// <summary>
+    /// Extends the standard renderer to provide Professional style additions.
+    /// </summary>
     public class RenderProfessional : RenderStandard
     {
         #region Static Fields

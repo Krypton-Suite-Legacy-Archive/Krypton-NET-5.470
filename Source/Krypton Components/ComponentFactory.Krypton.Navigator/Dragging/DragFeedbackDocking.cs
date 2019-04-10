@@ -203,11 +203,11 @@ namespace ComponentFactory.Krypton.Navigator
         }
 
         /// <summary>
-		/// Release unmanaged and optionally managed resources.
-		/// </summary>
-		/// <param name="disposing">Called from Dispose method.</param>
-		protected override void Dispose(bool disposing)
-		{
+        /// Release unmanaged and optionally managed resources.
+        /// </summary>
+        /// <param name="disposing">Called from Dispose method.</param>
+        protected override void Dispose(bool disposing)
+        {
             if (disposing)
             {
                 if (_solid != null)
@@ -220,7 +220,7 @@ namespace ComponentFactory.Krypton.Navigator
             }
 
             base.Dispose(disposing);
-		}
+        }
         #endregion
 
         #region Public

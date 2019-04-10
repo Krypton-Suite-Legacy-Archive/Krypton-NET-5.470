@@ -14,9 +14,9 @@ using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Provides the Blue color scheme variant of the Office 2010 palette.
-	/// </summary>
+    /// <summary>
+    /// Provides the Blue color scheme variant of the Office 2010 palette.
+    /// </summary>
     public class PaletteOffice2010Blue : PaletteOffice2010Base
     {
         #region Static Fields
@@ -294,7 +294,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// Initialize a new instance of the PaletteOffice2010Blue class.
-		/// </summary>
+        /// </summary>
         public PaletteOffice2010Blue()
             : base(_schemeColors, 
                    _checkBoxList, 
@@ -302,8 +302,8 @@ namespace ComponentFactory.Krypton.Toolkit
                    _radioButtonArray,
                    _trackBarColors)
         {
-		}
-		#endregion
+        }
+        #endregion
 
         #region Images
         /// <summary>

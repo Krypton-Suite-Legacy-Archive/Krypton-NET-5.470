@@ -15,22 +15,22 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Redirect storage for a header state.
-	/// </summary>
+    /// </summary>
     public class PaletteHeaderRedirect : PaletteTripleMetricRedirect
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private PaletteRedirect _redirect;
         private Padding _buttonPadding;
         private int _buttonEdgeInset;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteHeaderRedirect class.
-		/// </summary>
-		/// <param name="redirect">Inheritence redirection instance.</param>
+        /// </summary>
+        /// <param name="redirect">Inheritence redirection instance.</param>
         /// <param name="backStyle">Style for the background.</param>
         /// <param name="borderStyle">Style for the border.</param>
         /// <param name="contentStyle">Style for the content.</param>
@@ -40,13 +40,13 @@ namespace ComponentFactory.Krypton.Toolkit
                                      PaletteBorderStyle borderStyle,
                                      PaletteContentStyle contentStyle,
                                      NeedPaintHandler needPaint)
-			: base(redirect,
+            : base(redirect,
                    backStyle,
                    borderStyle,
                    contentStyle,
                    needPaint)
-		{
-			Debug.Assert(redirect != null);
+        {
+            Debug.Assert(redirect != null);
 
             // Remember the redirect reference
             _redirect = redirect;
@@ -55,7 +55,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _buttonPadding = CommonHelper.InheritPadding;
             _buttonEdgeInset = -1;
         }
-		#endregion
+        #endregion
 
         #region SetRedirector
         /// <summary>
@@ -69,16 +69,16 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (base.IsDefault &&
-		                                   ButtonPadding.Equals(CommonHelper.InheritPadding) &&
-		                                   (ButtonEdgeInset == -1));
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (base.IsDefault &&
+                                           ButtonPadding.Equals(CommonHelper.InheritPadding) &&
+                                           (ButtonEdgeInset == -1));
 
-	    #endregion
+        #endregion
 
         #region ButtonEdgeInset
         /// <summary>

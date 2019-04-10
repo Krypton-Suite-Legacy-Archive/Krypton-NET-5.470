@@ -25,12 +25,12 @@ namespace ComponentFactory.Krypton.Navigator
         #endregion
 
         #region Identity
-		/// <summary>
-		/// Release unmanaged and optionally managed resources.
-		/// </summary>
-		/// <param name="disposing">Called from Dispose method.</param>
-		protected override void Dispose(bool disposing)
-		{
+        /// <summary>
+        /// Release unmanaged and optionally managed resources.
+        /// </summary>
+        /// <param name="disposing">Called from Dispose method.</param>
+        protected override void Dispose(bool disposing)
+        {
             if (_solid != null)
             {
                 _solid.Dispose();
@@ -38,7 +38,7 @@ namespace ComponentFactory.Krypton.Navigator
             }
 
             base.Dispose(disposing);
-		}
+        }
         #endregion
 
         #region Public

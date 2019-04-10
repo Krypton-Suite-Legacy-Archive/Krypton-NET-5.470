@@ -13,9 +13,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for gallery button images.
-	/// </summary>
+    /// <summary>
+    /// Storage for gallery button images.
+    /// </summary>
     public class KryptonPaletteImagesGalleryButtons : Storage
     {
         #region Instance Fields
@@ -25,12 +25,12 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonPaletteImagesGalleryButtons class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirector">Palette redirector for sourcing inherited values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public KryptonPaletteImagesGalleryButtons(PaletteRedirect redirector,
                                                   NeedPaintHandler needPaint) 
-		{
+        {
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
 
@@ -41,14 +41,14 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => Up.IsDefault &&
-		                                  Down.IsDefault &&
-		                                  DropDown.IsDefault;
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => Up.IsDefault &&
+                                          Down.IsDefault &&
+                                          DropDown.IsDefault;
 
         #endregion
 

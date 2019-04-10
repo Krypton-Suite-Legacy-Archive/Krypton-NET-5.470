@@ -66,7 +66,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonDropButton class.
-		/// </summary>
+        /// </summary>
         public KryptonDropButton()
         {
             // We generate click events manually, suppress default
@@ -307,9 +307,9 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Gets and sets the button style.
-		/// </summary>
-		[Category("Visuals")]
+        /// Gets and sets the button style.
+        /// </summary>
+        [Category("Visuals")]
         [Description("Button style.")]
         public ButtonStyle ButtonStyle
         {
@@ -840,7 +840,6 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets access to the view element for the button.
         /// </summary>
         protected virtual ViewDrawButton ViewDrawButton => _drawButton;
-
         #endregion
 
         #region Implementation

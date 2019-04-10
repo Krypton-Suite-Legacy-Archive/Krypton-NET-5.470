@@ -16,9 +16,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws the ribbon background panel.
-	/// </summary>
+    /// <summary>
+    /// Draws the ribbon background panel.
+    /// </summary>
     internal class ViewDrawRibbonPanel : ViewDrawPanel
     {
         #region Static Fields

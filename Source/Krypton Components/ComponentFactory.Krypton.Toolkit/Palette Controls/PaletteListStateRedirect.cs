@@ -14,31 +14,31 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Implement storage for list box specific values.
-	/// </summary>
+    /// </summary>
     public class PaletteListStateRedirect : PaletteDoubleRedirect
                                             
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private PaletteRedirect _redirect;
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteListStateRedirect class.
-		/// </summary>
-		/// <param name="redirect">Inheritence redirection instance.</param>
-		/// <param name="backStyle">Initial background style.</param>
-		/// <param name="borderStyle">Initial border style.</param>
+        /// </summary>
+        /// <param name="redirect">Inheritence redirection instance.</param>
+        /// <param name="backStyle">Initial background style.</param>
+        /// <param name="borderStyle">Initial border style.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteListStateRedirect(PaletteRedirect redirect,
-									    PaletteBackStyle backStyle,
-									    PaletteBorderStyle borderStyle,
+                                        PaletteBackStyle backStyle,
+                                        PaletteBorderStyle borderStyle,
                                         NeedPaintHandler needPaint)
-			: base(redirect, backStyle, borderStyle, needPaint)
-		{
+            : base(redirect, backStyle, borderStyle, needPaint)
+        {
             Debug.Assert(redirect != null);
 
             // Remember the redirect reference
@@ -50,17 +50,17 @@ namespace ComponentFactory.Krypton.Toolkit
                                                       PaletteBorderStyle.ButtonListItem,
                                                       PaletteContentStyle.ButtonListItem,
                                                       needPaint);
-		}
-		#endregion
+        }
+        #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (base.IsDefault && Item.IsDefault);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (base.IsDefault && Item.IsDefault);
 
-	    #endregion
+        #endregion
 
         #region Item
         /// <summary>
@@ -72,7 +72,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTripleRedirect Item { get; }
 
-	    private bool ShouldSerializeItem()
+        private bool ShouldSerializeItem()
         {
             return !Item.IsDefault;
         }

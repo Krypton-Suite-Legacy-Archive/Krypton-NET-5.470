@@ -14,12 +14,12 @@ using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Provides a fixed blue variation on the sparkle appearance.
-	/// </summary>
-	public class PaletteSparkleBlue : PaletteSparkleBase
+    /// <summary>
+    /// Provides a fixed blue variation on the sparkle appearance.
+    /// </summary>
+    public class PaletteSparkleBlue : PaletteSparkleBase
     {
-		#region Static Fields
+        #region Static Fields
         private static readonly ImageList _checkBoxList;
         private static readonly Image[] _radioButtonArray;
 
@@ -300,7 +300,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                     };
         #endregion
 
-		#region Identity
+        #region Identity
         static PaletteSparkleBlue()
         {
             _checkBoxList = new ImageList
@@ -329,6 +329,6 @@ namespace ComponentFactory.Krypton.Toolkit
                    _checkBoxList, _radioButtonArray)
         {
         }
-		#endregion
+        #endregion
     }
 }

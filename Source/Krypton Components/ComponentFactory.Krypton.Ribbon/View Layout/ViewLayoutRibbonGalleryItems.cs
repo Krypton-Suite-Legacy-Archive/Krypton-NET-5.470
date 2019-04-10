@@ -17,9 +17,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// View element that creates and lays out the gallery items.
-	/// </summary>
+    /// <summary>
+    /// View element that creates and lays out the gallery items.
+    /// </summary>
     internal class ViewLayoutRibbonGalleryItems : ViewComposite
     {
         #region Static Fields
@@ -101,15 +101,15 @@ namespace ComponentFactory.Krypton.Ribbon
             _scrollTimer.Tick += OnScrollTick;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutRibbonGalleryItems:" + Id;
-		}
+        }
         #endregion
 
         #region Public
@@ -390,12 +390,12 @@ namespace ComponentFactory.Krypton.Ribbon
         }
 
         /// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
+            Debug.Assert(context != null);
 
             // Validate incoming reference
             if (context == null)
@@ -403,8 +403,8 @@ namespace ComponentFactory.Krypton.Ribbon
                 throw new ArgumentNullException(nameof(context));
             }
 
-		    // We take on all the available display area
-			ClientRectangle = context.DisplayRectangle;
+            // We take on all the available display area
+            ClientRectangle = context.DisplayRectangle;
 
             // Ensure that the correct number of children are created
             SyncChildren();
@@ -534,7 +534,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Put back the original display value now we have finished
             context.DisplayRectangle = ClientRectangle;
         }
-		#endregion
+        #endregion
 
         #region Private
         public void SyncChildren()

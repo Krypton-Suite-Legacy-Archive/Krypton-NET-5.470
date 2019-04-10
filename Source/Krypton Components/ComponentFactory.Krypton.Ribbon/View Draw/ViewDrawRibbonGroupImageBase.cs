@@ -16,9 +16,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Base class for drawing an image in the specified size and state.
-	/// </summary>
+    /// <summary>
+    /// Base class for drawing an image in the specified size and state.
+    /// </summary>
     internal abstract class ViewDrawRibbonGroupImageBase : ViewLeaf
                                               
     {
@@ -29,7 +29,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonGroupImageBase class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         public ViewDrawRibbonGroupImageBase(KryptonRibbon ribbon)
         {
@@ -37,15 +37,15 @@ namespace ComponentFactory.Krypton.Ribbon
             Ribbon = ribbon;
         }        
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonGroupImageBase:" + Id;
-		}
+        }
         #endregion
 
         #region Layout

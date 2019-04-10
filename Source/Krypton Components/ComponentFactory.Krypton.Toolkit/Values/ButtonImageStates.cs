@@ -9,8 +9,8 @@
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using System.Drawing;
 using System.ComponentModel;
+using System.Drawing;
 
 namespace ComponentFactory.Krypton.Toolkit
 {

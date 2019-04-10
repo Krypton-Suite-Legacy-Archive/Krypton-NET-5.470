@@ -19,7 +19,7 @@ using System.Windows.Forms.Design;
 namespace ComponentFactory.Krypton.Toolkit
 {
     internal class KryptonTextBoxDesigner : ControlDesigner
-	{
+    {
         #region Instance Fields
         private bool _lastHitTest;
         private KryptonTextBox _textBox;
@@ -68,7 +68,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public override ICollection AssociatedComponents =>
             _textBox != null ? _textBox.ButtonSpecs : base.AssociatedComponents;
 
-	    /// <summary>
+        /// <summary>
         /// Gets the selection rules that indicate the movement capabilities of a component.
         /// </summary>
         public override SelectionRules SelectionRules

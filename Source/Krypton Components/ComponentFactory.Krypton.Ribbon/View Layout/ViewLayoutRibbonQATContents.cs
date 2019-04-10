@@ -18,9 +18,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Extends the ViewComposite by creating and laying out elements to represent individual QAT entries.
-	/// </summary>
+    /// <summary>
+    /// Extends the ViewComposite by creating and laying out elements to represent individual QAT entries.
+    /// </summary>
     internal abstract class ViewLayoutRibbonQATContents : ViewComposite
     {
         #region Classes
@@ -38,7 +38,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewLayoutRibbonQATContents class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Owning ribbon control instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         /// <param name="showExtraButton">Should the extra button be shown.</param>
@@ -63,15 +63,15 @@ namespace ComponentFactory.Krypton.Ribbon
             }
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutRibbonQATContents:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.

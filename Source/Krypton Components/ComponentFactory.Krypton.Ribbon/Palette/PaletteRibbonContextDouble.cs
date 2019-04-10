@@ -16,9 +16,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
+    /// <summary>
     /// Return inhertied values unless empty in which case return the context color.
-	/// </summary>
+    /// </summary>
     public class PaletteRibbonContextDouble : IPaletteRibbonBack,
                                               IPaletteRibbonText
     {
@@ -31,10 +31,10 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteRibbonContextDouble class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to ribbon control.</param>
         public PaletteRibbonContextDouble(KryptonRibbon ribbon) 
-		{
+        {
             Debug.Assert(ribbon != null);
             _ribbon = ribbon;
             LightBackground = false;

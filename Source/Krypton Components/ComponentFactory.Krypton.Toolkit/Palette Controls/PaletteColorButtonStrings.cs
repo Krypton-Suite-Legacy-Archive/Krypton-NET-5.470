@@ -13,9 +13,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for color button string properties.
-	/// </summary>
+    /// <summary>
+    /// Storage for color button string properties.
+    /// </summary>
     public class PaletteColorButtonStrings : Storage
     {
         #region Static Fields
@@ -35,9 +35,9 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteColorButtonStrings class.
-		/// </summary>
+        /// </summary>
         public PaletteColorButtonStrings()
-		{
+        {
             // Default values
             MoreColors = DEFAULT_MORE_COLORS;
             NoColor = DEFAULT_NO_COLOR;
@@ -45,7 +45,7 @@ namespace ComponentFactory.Krypton.Toolkit
             StandardColors = DEFAULT_STANDARD_COLORS;
             ThemeColors = DEFAULT_THEME_COLORS;
         }
-		#endregion
+        #endregion
 
         #region IsDefault
         /// <summary>

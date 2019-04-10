@@ -14,26 +14,26 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Implement storage for a track bar state.
-	/// </summary>
-	public class PaletteTrackBarRedirect : Storage
-	{
-		#region Instance Fields
+    /// </summary>
+    public class PaletteTrackBarRedirect : Storage
+    {
+        #region Instance Fields
         private readonly PaletteDoubleRedirect _backRedirect;
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteTrackBarRedirect class.
-		/// </summary>
-		/// <param name="redirect">Inheritence redirection instance.</param>
+        /// </summary>
+        /// <param name="redirect">Inheritence redirection instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteTrackBarRedirect(PaletteRedirect redirect,
                                        NeedPaintHandler needPaint)
-		{
-			Debug.Assert(redirect != null);
+        {
+            Debug.Assert(redirect != null);
 
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
@@ -44,19 +44,19 @@ namespace ComponentFactory.Krypton.Toolkit
             Track = new PaletteElementColorRedirect(redirect, PaletteElement.TrackBarTrack, NeedPaint);
             Position = new PaletteElementColorRedirect(redirect, PaletteElement.TrackBarPosition, NeedPaint);
         }
-		#endregion
+        #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (Back.IsDefault &&
-		                                   Tick.IsDefault &&
-		                                   Track.IsDefault &&
-		                                   Position.IsDefault);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (Back.IsDefault &&
+                                           Tick.IsDefault &&
+                                           Track.IsDefault &&
+                                           Position.IsDefault);
 
-	    #endregion
+        #endregion
 
         #region SetRedirector
         /// <summary>
@@ -96,7 +96,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteElementColorRedirect Tick { get; }
 
-	    private bool ShouldSerializeTick()
+        private bool ShouldSerializeTick()
         {
             return !Tick.IsDefault;
         }
@@ -112,7 +112,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteElementColorRedirect Track { get; }
 
-	    private bool ShouldSerializeTrack()
+        private bool ShouldSerializeTrack()
         {
             return !Track.IsDefault;
         }
@@ -128,7 +128,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteElementColorRedirect Position { get; }
 
-	    private bool ShouldSerializePosition()
+        private bool ShouldSerializePosition()
         {
             return !Position.IsDefault;
         }
@@ -140,7 +140,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         internal PaletteBack Back => _backRedirect.Back;
 
-	    internal PaletteBackStyle BackStyle
+        internal PaletteBackStyle BackStyle
         {
             get => _backRedirect.BackStyle;
             set => _backRedirect.BackStyle = value;

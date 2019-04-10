@@ -29,7 +29,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonGalleryDesigner class.
-		/// </summary>
+        /// </summary>
         public KryptonGalleryDesigner()
         {
             // The resizing handles around the control need to change depending on the
@@ -37,7 +37,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // do not get the resizing handles, otherwise you do.
             AutoResizeHandles = true;
         }            
-		#endregion
+        #endregion
 
         #region Public
         /// <summary>

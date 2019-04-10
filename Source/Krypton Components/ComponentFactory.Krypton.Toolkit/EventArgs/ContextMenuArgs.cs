@@ -14,16 +14,16 @@ using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Details for context menu related events.
-	/// </summary>
-	public class ContextMenuArgs : CancelEventArgs
-	{
-		#region Instance Fields
+    /// <summary>
+    /// Details for context menu related events.
+    /// </summary>
+    public class ContextMenuArgs : CancelEventArgs
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
+        #region Identity
         /// <summary>
         /// Initialize a new instance of the ContextMenuArgs class.
         /// </summary>
@@ -34,12 +34,12 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// Initialize a new instance of the ContextMenuArgs class.
-		/// </summary>
+        /// </summary>
         /// <param name="cms">Context menu strip that can be customized.</param>
         public ContextMenuArgs(ContextMenuStrip cms)
             : this(cms, null)
-		{
-		}
+        {
+        }
 
         /// <summary>
         /// Initialize a new instance of the ContextMenuArgs class.
@@ -63,17 +63,17 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Public
-		/// <summary>
-		/// Gets access to the context menu strip instance.
-		/// </summary>
+        #region Public
+        /// <summary>
+        /// Gets access to the context menu strip instance.
+        /// </summary>
         public ContextMenuStrip ContextMenuStrip { get; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets access to the KryptonContextMenu instance.
         /// </summary>
         public KryptonContextMenu KryptonContextMenu { get; }
 
-	    #endregion
-	}
+        #endregion
+    }
 }

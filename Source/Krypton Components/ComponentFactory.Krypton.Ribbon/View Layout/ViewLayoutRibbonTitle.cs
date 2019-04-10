@@ -14,9 +14,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// View element that draws nothing and will center all children within itself.
-	/// </summary>
+    /// <summary>
+    /// View element that draws nothing and will center all children within itself.
+    /// </summary>
     internal class ViewLayoutRibbonTitle: ViewLayoutDocker
     {
         #region Instance Fields
@@ -31,15 +31,15 @@ namespace ComponentFactory.Krypton.Ribbon
         {
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutRibbonTitle:" + Id;
-		}
+        }
         #endregion
 
         #region VertOffset
@@ -52,11 +52,11 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Layout
         /// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
             // Let base class perform simple layout
             base.Layout(context);
 
@@ -78,6 +78,6 @@ namespace ComponentFactory.Krypton.Ribbon
             // Must restore the original value
             context.DisplayRectangle = tempRect;
         }
-		#endregion
-	}
+        #endregion
+    }
 }

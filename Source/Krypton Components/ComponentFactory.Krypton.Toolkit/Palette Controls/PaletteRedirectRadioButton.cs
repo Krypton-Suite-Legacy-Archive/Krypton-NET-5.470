@@ -14,19 +14,19 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Redirects requests for radio button images from the RadioButtonImages instance.
-	/// </summary>
+    /// <summary>
+    /// Redirects requests for radio button images from the RadioButtonImages instance.
+    /// </summary>
     public class PaletteRedirectRadioButton : PaletteRedirect
     {
         #region Instance Fields
         private readonly RadioButtonImages _images;
-		#endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteRedirectRadioButton class.
-		/// </summary>
+        /// </summary>
         /// <param name="images">Reference to source of radio button images.</param>
         public PaletteRedirectRadioButton(RadioButtonImages images)
             : this(null, images)
@@ -35,19 +35,19 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// Initialize a new instance of the PaletteRedirectRadioButton class.
-		/// </summary>
+        /// </summary>
         /// <param name="target">Initial palette target for redirection.</param>
         /// <param name="images">Reference to source of radio button images.</param>
         public PaletteRedirectRadioButton(IPalette target,
                                           RadioButtonImages images)
             : base(target)
-		{
+        {
             Debug.Assert(images != null);
 
             // Remember incoming target
             _images = images;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Images
         /// <summary>

@@ -900,10 +900,10 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonBreadCrumbItemsEditor class.
-		/// </summary>
+        /// </summary>
         public KryptonBreadCrumbItemsEditor()
             : base(typeof(KryptonBreadCrumbItem.BreadCrumbItems))
-		{
+        {
         }
         #endregion
 

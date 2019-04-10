@@ -19,9 +19,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws a context title.
-	/// </summary>
+    /// <summary>
+    /// Draws a context title.
+    /// </summary>
     internal class ViewDrawRibbonContextTitle : ViewLeaf,
                                                 IPaletteRibbonBack,
                                                 IContentValues
@@ -436,8 +436,8 @@ namespace ComponentFactory.Krypton.Ribbon
             if (rectClip.IntersectsWith(ClientRectangle))
             {
                 // Get the hDC for the graphics instance and create a memory DC
-			    IntPtr gDC = context.Graphics.GetHdc();
-			    IntPtr mDC = PI.CreateCompatibleDC(gDC);
+                IntPtr gDC = context.Graphics.GetHdc();
+                IntPtr mDC = PI.CreateCompatibleDC(gDC);
 
                 PI.BITMAPINFO bmi = new PI.BITMAPINFO();
                 bmi.biSize = Marshal.SizeOf(bmi);
@@ -467,7 +467,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     }
                 }
 
-			    // Select the font for use when drawing
+                // Select the font for use when drawing
                 IntPtr hFont = _contentProvider.GetContentShortTextFont(State).ToHfont();
                 PI.SelectObject(mDC, hFont);
 
@@ -502,13 +502,13 @@ namespace ComponentFactory.Krypton.Ribbon
                                    GetShortText(), -1, (int)TEXT_FORMAT,
                                    ref textBounds, ref dttOpts);
 
-			    // Copy to foreground
+                // Copy to foreground
                 PI.BitBlt(gDC,
                           ClientLocation.X, ClientLocation.Y,
                           ClientWidth, ClientHeight,
                           mDC, 0, 0, 0x00CC0020);
 
-			    // Dispose of allocated objects
+                // Dispose of allocated objects
                 PI.DeleteObject(hFont);
                 PI.DeleteObject(hDIB);
                 PI.DeleteDC(mDC);

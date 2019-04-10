@@ -16,23 +16,23 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for label content value information.
-	/// </summary>
-	public class LabelValues : Storage,
-							   IContentValues
-	{
-		#region Static Fields
-		private const string _defaultText = "Label";
+    /// <summary>
+    /// Storage for label content value information.
+    /// </summary>
+    public class LabelValues : Storage,
+                               IContentValues
+    {
+        #region Static Fields
+        private const string _defaultText = "Label";
         private static readonly string _defaultExtraText = string.Empty;
-		#endregion
+        #endregion
 
-		#region Instance Fields
+        #region Instance Fields
         private Image _image;
         private Color _transparent;
-		private string _text;
-		private string _extraText;
-		#endregion
+        private string _text;
+        private string _extraText;
+        #endregion
 
         #region Events
         /// <summary>
@@ -43,79 +43,79 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Identity
         /// <summary>
-		/// Initialize a new instance of the LabelValues class.
-		/// </summary>
+        /// Initialize a new instance of the LabelValues class.
+        /// </summary>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public LabelValues(NeedPaintHandler needPaint)
-		{
+        {
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
 
-			// Set initial values
+            // Set initial values
             _image = null;
             _transparent = Color.Empty;
-			_text = _defaultText;
-			_extraText = _defaultExtraText;
-		}
-		#endregion
+            _text = _defaultText;
+            _extraText = _defaultExtraText;
+        }
+        #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => ((Image == null) &&
-		                                   (ImageTransparentColor == Color.Empty) &&
-		                                   (Text == _defaultText) &&
-		                                   (ExtraText == _defaultExtraText));
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => ((Image == null) &&
+                                           (ImageTransparentColor == Color.Empty) &&
+                                           (Text == _defaultText) &&
+                                           (ExtraText == _defaultExtraText));
 
-	    #endregion
+        #endregion
 
-		#region Image
-		/// <summary>
-		/// Gets and sets the label image.
-		/// </summary>
-		[Localizable(true)]
-		[Category("Visuals")]
-		[Description("Label image.")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public Image Image
-		{
-			get => _image;
+        #region Image
+        /// <summary>
+        /// Gets and sets the label image.
+        /// </summary>
+        [Localizable(true)]
+        [Category("Visuals")]
+        [Description("Label image.")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public Image Image
+        {
+            get => _image;
 
-		    set
-			{
-				if (_image != value)
-				{
-					_image = value;
-					PerformNeedPaint(true);
-				}
-			}
-		}
+            set
+            {
+                if (_image != value)
+                {
+                    _image = value;
+                    PerformNeedPaint(true);
+                }
+            }
+        }
 
-		private bool ShouldSerializeImage()
-		{
-			return Image != null;
-		}
+        private bool ShouldSerializeImage()
+        {
+            return Image != null;
+        }
 
-		/// <summary>
-		/// Resets the Image property to its default value.
-		/// </summary>
-		public void ResetImage()
-		{
-			Image = null;
-		}
+        /// <summary>
+        /// Resets the Image property to its default value.
+        /// </summary>
+        public void ResetImage()
+        {
+            Image = null;
+        }
 
-		/// <summary>
-		/// Gets the content image.
-		/// </summary>
+        /// <summary>
+        /// Gets the content image.
+        /// </summary>
         /// <param name="state">The state for which the image is needed.</param>
         /// <returns>Image value.</returns>
         public Image GetImage(PaletteState state)
-		{
-			return Image;
-		}
-		#endregion
+        {
+            return Image;
+        }
+        #endregion
 
         #region ImageTransparentColor
         /// <summary>
@@ -164,96 +164,96 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Text
-		/// <summary>
-		/// Gets and sets the label text.
-		/// </summary>
-		[Localizable(true)]
-		[Category("Visuals")]
-		[Description("Label text.")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		[Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
+        #region Text
+        /// <summary>
+        /// Gets and sets the label text.
+        /// </summary>
+        [Localizable(true)]
+        [Category("Visuals")]
+        [Description("Label text.")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         public string Text
-		{
-			get => _text;
+        {
+            get => _text;
 
-		    set
-			{
-				if (_text != value)
-				{
-					_text = value;
-					PerformNeedPaint(true);
+            set
+            {
+                if (_text != value)
+                {
+                    _text = value;
+                    PerformNeedPaint(true);
                     TextChanged?.Invoke(this, EventArgs.Empty);
                 }
-			}
-		}
+            }
+        }
 
-		private bool ShouldSerializeText()
-		{
-			return Text != _defaultText;
-		}
+        private bool ShouldSerializeText()
+        {
+            return Text != _defaultText;
+        }
 
-		/// <summary>
-		/// Resets the Text property to its default value.
-		/// </summary>
-		public void ResetText()
-		{
-			Text = _defaultText;
-		}
+        /// <summary>
+        /// Resets the Text property to its default value.
+        /// </summary>
+        public void ResetText()
+        {
+            Text = _defaultText;
+        }
 
-		/// <summary>
-		/// Gets the content short text.
-		/// </summary>
-		public string GetShortText()
-		{
-			return Text;
-		}
-		#endregion
+        /// <summary>
+        /// Gets the content short text.
+        /// </summary>
+        public string GetShortText()
+        {
+            return Text;
+        }
+        #endregion
 
-		#region ExtraText
-		/// <summary>
-		/// Gets and sets the label extra text.
-		/// </summary>
-		[Localizable(true)]
-		[Category("Visuals")]
-		[Description("Label extra text.")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		[Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
+        #region ExtraText
+        /// <summary>
+        /// Gets and sets the label extra text.
+        /// </summary>
+        [Localizable(true)]
+        [Category("Visuals")]
+        [Description("Label extra text.")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         [DefaultValue("")]
         public string ExtraText
-		{
-			get => _extraText;
+        {
+            get => _extraText;
 
-		    set
-			{
-				if (_extraText != value)
-				{
-					_extraText = value;
-					PerformNeedPaint(true);
-				}
-			}
-		}
+            set
+            {
+                if (_extraText != value)
+                {
+                    _extraText = value;
+                    PerformNeedPaint(true);
+                }
+            }
+        }
 
-		private bool ShouldSerializeExtraText()
-		{
-			return ExtraText != _defaultExtraText;
-		}
+        private bool ShouldSerializeExtraText()
+        {
+            return ExtraText != _defaultExtraText;
+        }
 
-		/// <summary>
-		/// Resets the Description property to its default value.
-		/// </summary>
-		public void ResetExtraText()
-		{
-			ExtraText = ExtraText;
-		}
+        /// <summary>
+        /// Resets the Description property to its default value.
+        /// </summary>
+        public void ResetExtraText()
+        {
+            ExtraText = ExtraText;
+        }
 
-		/// <summary>
-		/// Gets the content long text.
-		/// </summary>
-		public string GetLongText()
-		{
-			return ExtraText;
-		}
-		#endregion
-	}
+        /// <summary>
+        /// Gets the content long text.
+        /// </summary>
+        public string GetLongText()
+        {
+            return ExtraText;
+        }
+        #endregion
+    }
 }

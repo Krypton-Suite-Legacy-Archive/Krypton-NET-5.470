@@ -18,10 +18,10 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// View element that can size and position each page entry on the bar.
-	/// </summary>
-	internal class ViewLayoutBar : ViewComposite
+    /// <summary>
+    /// View element that can size and position each page entry on the bar.
+    /// </summary>
+    internal class ViewLayoutBar : ViewComposite
     {
         #region LineDetails
         private struct LineDetails
@@ -152,13 +152,13 @@ namespace ComponentFactory.Krypton.Navigator
             ItemOrientation = VisualOrientation.Top;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutBar:" + Id;
         }
         #endregion

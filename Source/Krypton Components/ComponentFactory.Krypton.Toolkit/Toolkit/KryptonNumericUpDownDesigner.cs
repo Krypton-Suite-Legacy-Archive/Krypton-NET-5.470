@@ -19,7 +19,7 @@ using System.Windows.Forms.Design;
 namespace ComponentFactory.Krypton.Toolkit
 {
     internal class KryptonNumericUpDownDesigner : ControlDesigner
-	{
+    {
         #region Instance Fields
         private bool _lastHitTest;
         private KryptonNumericUpDown _numericUpDown;
@@ -68,7 +68,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public override ICollection AssociatedComponents =>
             _numericUpDown != null ? _numericUpDown.ButtonSpecs : base.AssociatedComponents;
 
-	    /// <summary>
+        /// <summary>
         /// Gets the selection rules that indicate the movement capabilities of a component.
         /// </summary>
         public override SelectionRules SelectionRules

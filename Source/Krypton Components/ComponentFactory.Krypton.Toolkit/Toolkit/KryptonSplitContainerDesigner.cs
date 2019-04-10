@@ -19,7 +19,7 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	internal class KryptonSplitContainerDesigner : ParentControlDesigner
+    internal class KryptonSplitContainerDesigner : ParentControlDesigner
     {
         #region Instance Fields
         private KryptonSplitContainer _splitContainer;

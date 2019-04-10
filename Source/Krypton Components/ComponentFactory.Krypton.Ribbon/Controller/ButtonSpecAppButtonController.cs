@@ -17,9 +17,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Process mouse events for an application menu based button spec button.
-	/// </summary>
+    /// <summary>
+    /// Process mouse events for an application menu based button spec button.
+    /// </summary>
     internal class ButtonSpecAppButtonController : ButtonController,
                                                    IContextMenuTarget
     {
@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ButtonSpecAppButtonController class.
-		/// </summary>
+        /// </summary>
         /// <param name="viewManager">Owning view manager instance.</param>
         /// <param name="target">Target for state changes.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
@@ -39,11 +39,11 @@ namespace ComponentFactory.Krypton.Ribbon
                                              ViewDrawButton target,
                                              NeedPaintHandler needPaint)
             : base(target, needPaint)
-		{
+        {
             _target = target;
             _viewManager = viewManager;
         }
-		#endregion
+        #endregion
 
         #region Key Notifications
         /// <summary>

@@ -28,11 +28,11 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the NullController class.
-		/// </summary>
+        /// </summary>
         private NullController()
-		{
+        {
         }
-		#endregion
+        #endregion
 
         #region Static Public
         /// <summary>

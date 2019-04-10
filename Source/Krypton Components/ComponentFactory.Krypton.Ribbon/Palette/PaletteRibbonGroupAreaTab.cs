@@ -14,39 +14,39 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Implement storage for a ribbon state.
-	/// </summary>
+    /// <summary>
+    /// Implement storage for a ribbon state.
+    /// </summary>
     public class PaletteRibbonGroupAreaTab : PaletteRibbonJustTab
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly PaletteRibbonBack _ribbonGroupArea;
-		#endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteRibbonGroupAreaTab class.
-		/// </summary>
+        /// </summary>
         /// <param name="inherit">Source for inheriting values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteRibbonGroupAreaTab(PaletteRibbonRedirect inherit,
                                          NeedPaintHandler needPaint)
             : base(inherit, needPaint)
-		{
-			// Create storage that maps onto the inherit instances
+        {
+            // Create storage that maps onto the inherit instances
             _ribbonGroupArea = new PaletteRibbonBack(inherit.RibbonGroupArea, needPaint);
         }
-		#endregion
+        #endregion
 
         #region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (base.IsDefault &&
-		                                   RibbonGroupArea.IsDefault);
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (base.IsDefault &&
+                                           RibbonGroupArea.IsDefault);
 
-	    #endregion
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -80,10 +80,10 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteRibbonBack RibbonGroupArea => _ribbonGroupArea;
 
-	    private bool ShouldSerializeRibbonGroupArea()
+        private bool ShouldSerializeRibbonGroupArea()
         {
             return !_ribbonGroupArea.IsDefault;
         }
         #endregion
-	}
+    }
 }

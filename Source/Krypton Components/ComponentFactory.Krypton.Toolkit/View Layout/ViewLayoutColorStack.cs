@@ -13,27 +13,27 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	internal class ViewLayoutColorStack : ViewLayoutStack
-	{
-		#region Identity
-		/// <summary>
+    internal class ViewLayoutColorStack : ViewLayoutStack
+    {
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the ViewLayoutStack class.
-		/// </summary>
+        /// </summary>
         public ViewLayoutColorStack()
             : base(false)
         {
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutColorStack:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Paint
         /// <summary>

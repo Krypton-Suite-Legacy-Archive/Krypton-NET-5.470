@@ -19,7 +19,7 @@ using System.Diagnostics;
 namespace ComponentFactory.Krypton.Toolkit
 {
     internal class KryptonGroupDesigner : ParentControlDesigner
-	{
+    {
         #region Instance Fields
         private KryptonGroup _group;
         private IDesignerHost _designerHost;
@@ -96,7 +96,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>The number of internal control designers in the ControlDesigner.</returns>
         public override int NumberOfInternalControlDesigners() => _group != null ? 1 : 0;
 
-	    /// <summary>
+        /// <summary>
         ///  Gets the design-time action lists supported by the component associated with the designer.
         /// </summary>
         public override DesignerActionListCollection ActionLists

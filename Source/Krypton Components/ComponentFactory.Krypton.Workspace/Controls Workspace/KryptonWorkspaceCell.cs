@@ -418,8 +418,8 @@ namespace ComponentFactory.Krypton.Workspace
         public ButtonSpecNavigator MaximizeRestoreButton { get; }
 
         /// <summary>
-		/// Request this cell save its information.
-		/// </summary>
+        /// Request this cell save its information.
+        /// </summary>
         /// <param name="workspace">Reference to owning workspace instance..</param>
         /// <param name="xmlWriter">Xml writer to save information into.</param>
         public void SaveToXml(KryptonWorkspace workspace, XmlWriter xmlWriter)
@@ -451,9 +451,9 @@ namespace ComponentFactory.Krypton.Workspace
             xmlWriter.WriteEndElement();
         }
 
-		/// <summary>
-		/// Request this cell load and update state.
-		/// </summary>
+        /// <summary>
+        /// Request this cell load and update state.
+        /// </summary>
         /// <param name="workspace">Reference to owning workspace instance.</param>
         /// <param name="xmlReader">Xml reader for loading information.</param>
         /// <param name="existingPages">Dictionary on existing pages before load.</param>

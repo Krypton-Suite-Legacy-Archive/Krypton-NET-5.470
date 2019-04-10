@@ -13,12 +13,12 @@ using System.Drawing;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Provide inheritance of palette ribbon general properties.
-	/// </summary>
+    /// <summary>
+    /// Provide inheritance of palette ribbon general properties.
+    /// </summary>
     public abstract class PaletteRibbonGeneralInherit : GlobalId,
                                                         IPaletteRibbonGeneral
-	{
+    {
         #region IPaletteRibbon
         /// <summary>
         /// Gets the ribbon shape that should be used.

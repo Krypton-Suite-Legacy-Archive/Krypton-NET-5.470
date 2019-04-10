@@ -20,9 +20,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws an individual RibbonGroup.
-	/// </summary>
+    /// <summary>
+    /// Draws an individual RibbonGroup.
+    /// </summary>
     internal class ViewDrawRibbonGroup : ViewComposite,
                                          IRibbonViewGroupSize
     {
@@ -71,10 +71,10 @@ namespace ComponentFactory.Krypton.Ribbon
         private int _totalBorders;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonGroup class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonGroup">Reference to ribbon group this represents.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
@@ -107,15 +107,15 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbonGroup.PropertyChanged += OnGroupPropertyChanged;
         }
         
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonGroup:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.
@@ -476,27 +476,27 @@ namespace ComponentFactory.Krypton.Ribbon
         }
 
         /// <summary>
-		/// Discover the preferred size of the element.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override Size GetPreferredSize(ViewLayoutContext context)
-		{
+        /// Discover the preferred size of the element.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override Size GetPreferredSize(ViewLayoutContext context)
+        {
             Size preferredSize = base.GetPreferredSize(context);
             preferredSize.Width = Math.Max(preferredSize.Width, MINIMUM_GROUP_WIDTH);
             preferredSize.Height = _ribbon.CalculatedValues.GroupHeight;
             return preferredSize;
-		}
+        }
 
-		/// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
+        /// <summary>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
             Debug.Assert(context != null);
 
             // We take on all the available display area
-			ClientRectangle = context.DisplayRectangle;
+            ClientRectangle = context.DisplayRectangle;
 
             // Update the title element with the height of the group title area
             _viewNormalTitle.Height = _ribbon.CalculatedValues.GroupTitleHeight;
@@ -509,8 +509,8 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Put back the original display value now we have finished
             context.DisplayRectangle = ClientRectangle;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Paint
         /// <summary>

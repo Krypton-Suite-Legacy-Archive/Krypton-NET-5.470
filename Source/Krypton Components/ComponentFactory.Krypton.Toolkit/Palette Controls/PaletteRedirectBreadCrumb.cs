@@ -32,7 +32,7 @@ namespace ComponentFactory.Krypton.Toolkit
             Right = false;
             TopBottom = true;
         }
-		#endregion
+        #endregion
 
         #region Left
         /// <summary>

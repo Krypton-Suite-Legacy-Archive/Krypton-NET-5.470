@@ -15,24 +15,24 @@ using System.Drawing.Drawing2D;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Restrict graphics clipping using the provided path/region instance.
-	/// </summary>
+    /// <summary>
+    /// Restrict graphics clipping using the provided path/region instance.
+    /// </summary>
     public class Clipping : GlobalId,
                             IDisposable
-	{
-		#region Instance Fields
-		private readonly Graphics _graphics;
+    {
+        #region Instance Fields
+        private readonly Graphics _graphics;
         private readonly Region _previousRegion;
         private Region _newRegion;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the Clipping class.
-		/// </summary>
-		/// <param name="graphics">Graphics context.</param>
-		/// <param name="path">Path to clip.</param>
+        /// </summary>
+        /// <param name="graphics">Graphics context.</param>
+        /// <param name="path">Path to clip.</param>
         public Clipping(Graphics graphics, GraphicsPath path)
             : this(graphics, path, false)
         {
@@ -41,14 +41,14 @@ namespace ComponentFactory.Krypton.Toolkit
         
         /// <summary>
         /// Initialize a new instance of the Clipping class.
-		/// </summary>
-		/// <param name="graphics">Graphics context.</param>
-		/// <param name="path">Path to clip.</param>
+        /// </summary>
+        /// <param name="graphics">Graphics context.</param>
+        /// <param name="path">Path to clip.</param>
         /// <param name="exclude">Exclude path from clipping.</param>
         public Clipping(Graphics graphics, GraphicsPath path, bool exclude)
-		{
-			// Cache graphics instance
-			_graphics = graphics;
+        {
+            // Cache graphics instance
+            _graphics = graphics;
 
             // Save the existing clipping region
             _previousRegion = _graphics.Clip;
@@ -66,28 +66,28 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             _graphics.Clip = _newRegion;
-		}
+        }
 
-		/// <summary>
+        /// <summary>
         /// Initialize a new instance of the Clipping class.
-		/// </summary>
-		/// <param name="graphics">Graphics context.</param>
+        /// </summary>
+        /// <param name="graphics">Graphics context.</param>
         /// <param name="region">Clipping region.</param>
         public Clipping(Graphics graphics, Region region)
             : this(graphics, region, false)
         {
         }
 
-		/// <summary>
+        /// <summary>
         /// Initialize a new instance of the Clipping class.
-		/// </summary>
-		/// <param name="graphics">Graphics context.</param>
+        /// </summary>
+        /// <param name="graphics">Graphics context.</param>
         /// <param name="region">Clipping region.</param>
         /// <param name="exclude">Exclude region from clipping.</param>
         public Clipping(Graphics graphics, Region region, bool exclude)
-		{
-			// Cache graphics instance
-			_graphics = graphics;
+        {
+            // Cache graphics instance
+            _graphics = graphics;
 
             // Save the existing clipping region
             _previousRegion = _graphics.Clip;
@@ -105,7 +105,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             _graphics.Clip = _newRegion;
-		}
+        }
 
         /// <summary>
         /// Initialize a new instance of the Clipping class.
@@ -146,11 +146,11 @@ namespace ComponentFactory.Krypton.Toolkit
             _graphics.Clip = _newRegion;
         }
 
-		/// <summary>
-		/// Reverse the smoothing mode change.
-		/// </summary>
-		public void Dispose()
-		{
+        /// <summary>
+        /// Reverse the smoothing mode change.
+        /// </summary>
+        public void Dispose()
+        {
             if (_graphics != null)
             {
                 try
@@ -171,7 +171,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
                 catch { }
             }
-		}
-		#endregion
-	}
+        }
+        #endregion
+    }
 }

@@ -16,10 +16,10 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// View element that draws nothing and will split the space equally between the children.
-	/// </summary>
-	public class ViewLayoutFit : ViewComposite
+    /// <summary>
+    /// View element that draws nothing and will split the space equally between the children.
+    /// </summary>
+    public class ViewLayoutFit : ViewComposite
     {
         #region Instance Fields
         private readonly Orientation _orientation;
@@ -35,25 +35,25 @@ namespace ComponentFactory.Krypton.Toolkit
             _orientation = orientation;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutFit:" + Id;
-		}
+        }
         #endregion
 
         #region Layout
         /// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
+            Debug.Assert(context != null);
 
             // Validate incoming reference
             if (context == null)
@@ -116,6 +116,6 @@ namespace ComponentFactory.Krypton.Toolkit
             // Put back the original display value now we have finished
             context.DisplayRectangle = original;
         }
-		#endregion
-	}
+        #endregion
+    }
 }

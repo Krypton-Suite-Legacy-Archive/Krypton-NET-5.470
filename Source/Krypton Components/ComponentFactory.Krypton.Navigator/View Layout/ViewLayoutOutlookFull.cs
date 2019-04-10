@@ -27,7 +27,7 @@ namespace ComponentFactory.Krypton.Navigator
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewLayoutOutlookFull class.
-		/// </summary>
+        /// </summary>
         /// <param name="viewBuilder">View builder reference.</param>
         /// <param name="rootControl">Top level visual control.</param>
         /// <param name="viewportFiller">View element to place inside viewport.</param>

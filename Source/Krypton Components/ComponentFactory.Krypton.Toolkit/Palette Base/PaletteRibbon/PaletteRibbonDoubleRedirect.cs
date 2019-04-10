@@ -15,9 +15,9 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for ribbon background and text values.
-	/// </summary>
+    /// <summary>
+    /// Storage for ribbon background and text values.
+    /// </summary>
     public class PaletteRibbonDoubleRedirect : Storage,
                                                IPaletteRibbonBack,
                                                IPaletteRibbonText
@@ -36,7 +36,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteRibbonDoubleRedirect class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Inheritence redirection instance.</param>
         /// <param name="backStyle">Inheritence ribbon back style.</param>
         /// <param name="textStyle">Inheritence ribbon text style.</param>
@@ -45,7 +45,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                            PaletteRibbonBackStyle backStyle,
                                            PaletteRibbonTextStyle textStyle,
                                            NeedPaintHandler needPaint) 
-		{
+        {
             Debug.Assert(redirect != null);
 
             // Store the provided paint notification delegate
@@ -77,17 +77,17 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (BackColor1 == Color.Empty) &&
-		                                  (BackColor2 == Color.Empty) &&
-		                                  (BackColor3 == Color.Empty) &&
-		                                  (BackColor4 == Color.Empty) &&
-		                                  (BackColor5 == Color.Empty) &&
-		                                  (TextColor == Color.Empty);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (BackColor1 == Color.Empty) &&
+                                          (BackColor2 == Color.Empty) &&
+                                          (BackColor3 == Color.Empty) &&
+                                          (BackColor4 == Color.Empty) &&
+                                          (BackColor5 == Color.Empty) &&
+                                          (TextColor == Color.Empty);
 
         #endregion
 

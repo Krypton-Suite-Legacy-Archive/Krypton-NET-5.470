@@ -14,40 +14,40 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Implement storage for a KryptonDataGridView normal state.
-	/// </summary>
+    /// <summary>
+    /// Implement storage for a KryptonDataGridView normal state.
+    /// </summary>
     public class PaletteDataGridViewAll : PaletteDataGridViewCells
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly PaletteDouble _background;
-		#endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteDataGridViewAll class.
-		/// </summary>
+        /// </summary>
         /// <param name="inherit">Source for inheriting values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteDataGridViewAll(PaletteDataGridViewRedirect inherit,
                                       NeedPaintHandler needPaint)
             : base(inherit, needPaint)
-		{
+        {
             Debug.Assert(inherit != null);
 
-			// Create storage that maps onto the inherit instances
+            // Create storage that maps onto the inherit instances
             _background = new PaletteDouble(inherit.BackgroundDouble, needPaint);
         }
-		#endregion
+        #endregion
 
         #region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (Background.IsDefault && base.IsDefault);
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (Background.IsDefault && base.IsDefault);
 
-	    #endregion
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -91,10 +91,10 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteBack Background => _background.Back;
 
-	    private bool ShouldSerializeBackground()
+        private bool ShouldSerializeBackground()
         {
             return !_background.IsDefault;
         }
         #endregion
-	}
+    }
 }

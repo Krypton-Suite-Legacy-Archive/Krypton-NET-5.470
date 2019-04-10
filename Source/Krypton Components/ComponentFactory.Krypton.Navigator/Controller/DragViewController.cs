@@ -17,24 +17,24 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Process mouse events for handling drag and drop operations.
-	/// </summary>
+    /// <summary>
+    /// Process mouse events for handling drag and drop operations.
+    /// </summary>
     public class DragViewController : GlobalId,
                                       IMouseController,
                                       IKeyController,
                                       ISourceController
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
 
-	    private bool _mouseOver;
+        private bool _mouseOver;
         private bool _dragging;
-	    private bool _draggingAttempt;
+        private bool _draggingAttempt;
         private DateTime _lastClick;
-	    private Rectangle _dragRect;
+        private Rectangle _dragRect;
         #endregion
 
-		#region Events
+        #region Events
         /// <summary>
         /// Occurs when the left mouse button is pressed down.
         /// </summary>
@@ -71,22 +71,22 @@ namespace ComponentFactory.Krypton.Navigator
         public event EventHandler DragQuit;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the DragViewController class.
-		/// </summary>
-		/// <param name="target">Target for state changes.</param>
+        /// </summary>
+        /// <param name="target">Target for state changes.</param>
         public DragViewController(ViewBase target)
-		{
-			Debug.Assert(target != null);
+        {
+            Debug.Assert(target != null);
 
             MousePoint = CommonHelper.NullPoint;
             AllowDragging = true;
             _dragging = false;
-			Target = target;
+            Target = target;
             _lastClick = DateTime.Now.AddDays(-1);
         }
-		#endregion
+        #endregion
 
         #region MousePoint
         /// <summary>
@@ -94,7 +94,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public Point MousePoint { get; private set; }
 
-	    #endregion
+        #endregion
 
         #region AllowDragging
         /// <summary>
@@ -102,25 +102,25 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public bool AllowDragging { get; set; }
 
-	    #endregion
+        #endregion
 
         #region Mouse Notifications
         /// <summary>
-		/// Mouse has entered the view.
-		/// </summary>
+        /// Mouse has entered the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         public virtual void MouseEnter(Control c)
-		{
+        {
             _mouseOver = true;
-		}
+        }
 
-		/// <summary>
-		/// Mouse has moved inside the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse has moved inside the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
         public virtual void MouseMove(Control c, Point pt)
-		{
+        {
             // Track the mouse point
             MousePoint = pt;
 
@@ -143,17 +143,17 @@ namespace ComponentFactory.Krypton.Navigator
                     }
                 }
             }
-		}
+        }
 
-		/// <summary>
-		/// Mouse button has been pressed in the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse button has been pressed in the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
-		/// <param name="button">Mouse button pressed down.</param>
-		/// <returns>True if capturing input; otherwise false.</returns>
+        /// <param name="button">Mouse button pressed down.</param>
+        /// <returns>True if capturing input; otherwise false.</returns>
         public virtual bool MouseDown(Control c, Point pt, MouseButtons button)
-		{
+        {
             // Only interested in left mouse pressing down
             if (button == MouseButtons.Left)
             {
@@ -175,17 +175,17 @@ namespace ComponentFactory.Krypton.Navigator
                 OnRightMouseDown(EventArgs.Empty);
             }
 
-			return Captured;
-		}
+            return Captured;
+        }
 
-		/// <summary>
-		/// Mouse button has been released in the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse button has been released in the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
-		/// <param name="button">Mouse button released.</param>
+        /// <param name="button">Mouse button released.</param>
         public virtual void MouseUp(Control c, Point pt, MouseButtons button)
-		{
+        {
             // If the mouse is currently captured
             if (Captured)
             {
@@ -205,15 +205,15 @@ namespace ComponentFactory.Krypton.Navigator
                     }
                 }
             }
-		}
+        }
 
-		/// <summary>
-		/// Mouse has left the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse has left the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="next">Reference to view that is next to have the mouse.</param>
         public virtual void MouseLeave(Control c, ViewBase next)
-		{
+        {
             // Only if mouse is leaving all the children monitored by controller.
             if (!Target.ContainsRecurse(next))
             {
@@ -232,7 +232,7 @@ namespace ComponentFactory.Krypton.Navigator
                     OnDragQuit();
                 }
             }
-		}
+        }
 
         /// <summary>
         /// Left mouse button double click.
@@ -248,7 +248,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public virtual bool IgnoreVisualFormLeftButtonDown => false;
 
-	    #endregion
+        #endregion
 
         #region Key Notifications
         /// <summary>
@@ -366,15 +366,15 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public ViewBase Target { get; }
 
-	    #endregion
+        #endregion
 
-		#region Protected
+        #region Protected
         /// <summary>
         /// Gets a value indicating if mouse input is being captured.
         /// </summary>
         protected bool Captured { get; set; }
 
-	    /// <summary>
+        /// <summary>
         /// Raises the LeftMouseDown event.
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
@@ -469,6 +469,6 @@ namespace ComponentFactory.Krypton.Navigator
             _dragging = false;
             DragQuit?.Invoke(this, EventArgs.Empty);
         }
-		#endregion
-	}
+        #endregion
+    }
 }

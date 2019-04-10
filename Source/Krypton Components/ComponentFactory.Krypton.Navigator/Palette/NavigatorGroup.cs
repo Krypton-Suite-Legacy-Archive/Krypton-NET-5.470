@@ -15,9 +15,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Storage for group related properties.
-	/// </summary>
+    /// <summary>
+    /// Storage for group related properties.
+    /// </summary>
     public class NavigatorGroup : Storage
     {
         #region Instance Fields
@@ -29,12 +29,12 @@ namespace ComponentFactory.Krypton.Navigator
         #region Identity
         /// <summary>
         /// Initialize a new instance of the NavigatorGroup class.
-		/// </summary>
+        /// </summary>
         /// <param name="navigator">Reference to owning navigator instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public NavigatorGroup(KryptonNavigator navigator,
                               NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(navigator != null);
             
             // Remember back reference
@@ -47,7 +47,7 @@ namespace ComponentFactory.Krypton.Navigator
             _groupBackStyle = PaletteBackStyle.ControlClient;
             _groupBorderStyle = PaletteBorderStyle.ControlClient;
         }
-		#endregion
+        #endregion
 
         #region IsDefault
         /// <summary>

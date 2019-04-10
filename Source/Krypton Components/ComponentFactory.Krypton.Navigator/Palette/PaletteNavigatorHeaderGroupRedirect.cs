@@ -15,20 +15,20 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
+    /// <summary>
     /// Redirect storage for Navigator HeaderGroup states.
-	/// </summary>
+    /// </summary>
     public class PaletteNavigatorHeaderGroupRedirect : PaletteHeaderGroupRedirect
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
-		/// Initialize a new instance of the PaletteNavigatorHeaderGroupRedirect class.
-		/// </summary>
-		/// <param name="redirect">Inheritence redirection instance.</param>
+        #region Identity
+        /// <summary>
+        /// Initialize a new instance of the PaletteNavigatorHeaderGroupRedirect class.
+        /// </summary>
+        /// <param name="redirect">Inheritence redirection instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteNavigatorHeaderGroupRedirect(PaletteRedirect redirect,
                                                    NeedPaintHandler needPaint)
@@ -38,7 +38,7 @@ namespace ComponentFactory.Krypton.Navigator
 
         /// <summary>
         /// Initialize a new instance of the PaletteNavigatorHeaderGroupRedirect class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirectHeaderGroup">Inheritence redirection for header group.</param>
         /// <param name="redirectHeaderPrimary">Inheritence redirection for primary header.</param>
         /// <param name="redirectHeaderSecondary">Inheritence redirection for secondary header.</param>
@@ -53,7 +53,7 @@ namespace ComponentFactory.Krypton.Navigator
                                                    NeedPaintHandler needPaint)
             : base(redirectHeaderGroup, redirectHeaderPrimary,
                    redirectHeaderSecondary, needPaint)
-		{
+        {
             Debug.Assert(redirectHeaderBar != null);
             Debug.Assert(redirectHeaderOverflow != null);
 
@@ -61,33 +61,33 @@ namespace ComponentFactory.Krypton.Navigator
             HeaderBar = new PaletteHeaderPaddingRedirect(redirectHeaderBar, PaletteBackStyle.HeaderSecondary, PaletteBorderStyle.HeaderSecondary, PaletteContentStyle.HeaderSecondary, needPaint);
             HeaderOverflow = new PaletteHeaderPaddingRedirect(redirectHeaderOverflow, PaletteBackStyle.ButtonNavigatorStack, PaletteBorderStyle.HeaderSecondary, PaletteContentStyle.HeaderSecondary, needPaint);
         }
-		#endregion
+        #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (base.IsDefault &&
-		                                   HeaderBar.IsDefault &&
-		                                   HeaderOverflow.IsDefault);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (base.IsDefault &&
+                                           HeaderBar.IsDefault &&
+                                           HeaderOverflow.IsDefault);
 
-	    #endregion
+        #endregion
 
         #region HeaderBar
         /// <summary>
-		/// Gets access to the bar header appearance entries.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Overrides for defining bar header appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        /// Gets access to the bar header appearance entries.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Overrides for defining bar header appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteHeaderPaddingRedirect HeaderBar { get; }
 
-	    private bool ShouldSerializeHeaderBar()
-		{
-			return !HeaderBar.IsDefault;
-		}
-		#endregion
+        private bool ShouldSerializeHeaderBar()
+        {
+            return !HeaderBar.IsDefault;
+        }
+        #endregion
 
         #region HeaderOverflow
         /// <summary>
@@ -98,7 +98,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteHeaderPaddingRedirect HeaderOverflow { get; }
 
-	    private bool ShouldSerializeHeaderOverflow()
+        private bool ShouldSerializeHeaderOverflow()
         {
             return !HeaderOverflow.IsDefault;
         }

@@ -15,9 +15,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
+    /// <summary>
     /// Base class for implementation of 'HeaderBar - CheckButton' modes.
-	/// </summary>
+    /// </summary>
     internal abstract class ViewBuilderHeaderBarCheckButtonBase : ViewBuilderItemBase
     {
         #region Instance Fields
@@ -26,12 +26,12 @@ namespace ComponentFactory.Krypton.Navigator
         #endregion
 
         #region Protected
-		/// <summary>
-		/// Construct the view appropriate for this builder.
-		/// </summary>
-		/// <param name="navigator">Reference to navigator instance.</param>
-		/// <param name="manager">Reference to current manager.</param>
-		/// <param name="redirector">Palette redirector.</param>
+        /// <summary>
+        /// Construct the view appropriate for this builder.
+        /// </summary>
+        /// <param name="navigator">Reference to navigator instance.</param>
+        /// <param name="manager">Reference to current manager.</param>
+        /// <param name="redirector">Palette redirector.</param>
         public override void Construct(KryptonNavigator navigator,
                                        ViewManager manager,
                                        PaletteRedirect redirector)

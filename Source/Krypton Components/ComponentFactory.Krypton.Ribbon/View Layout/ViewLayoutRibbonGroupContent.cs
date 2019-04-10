@@ -18,9 +18,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Extends the ViewComposite by creating and laying out elements to represent ribbon group content.
-	/// </summary>
+    /// <summary>
+    /// Extends the ViewComposite by creating and laying out elements to represent ribbon group content.
+    /// </summary>
     internal class ViewLayoutRibbonGroupContent : ViewComposite,
                                                   IRibbonViewGroupSize
     {
@@ -47,7 +47,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewLayoutRibbonGroupContent class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Owning ribbon control instance.</param>
         /// <param name="ribbonGroup">The ribbon group this layout is used to display.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
@@ -68,15 +68,15 @@ namespace ComponentFactory.Krypton.Ribbon
             _containerToView = new ContainerToView();
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutRibbonGroupContent:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.

@@ -16,9 +16,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// View element adds padding to the provided drawing area.
-	/// </summary>
+    /// <summary>
+    /// View element adds padding to the provided drawing area.
+    /// </summary>
     internal class ViewLayoutRibbonPadding : ViewComposite
     {
         #region Instance Fields
@@ -35,15 +35,15 @@ namespace ComponentFactory.Krypton.Ribbon
             _preferredPadding = preferredPadding;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutRibbonPadding:" + Id;
-		}
+        }
         #endregion
 
         #region Layout
@@ -62,19 +62,19 @@ namespace ComponentFactory.Krypton.Ribbon
         }
 
         /// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
             // Validate incoming reference
             if (context == null)
             {
                 throw new ArgumentNullException(nameof(context));
             }
 
-		    // We take on all the available display area
-			ClientRectangle = context.DisplayRectangle;
+            // We take on all the available display area
+            ClientRectangle = context.DisplayRectangle;
 
             // Find the rectangle for the child elements by applying padding
             context.DisplayRectangle = CommonHelper.ApplyPadding(Orientation.Horizontal, ClientRectangle, _preferredPadding);
@@ -86,5 +86,5 @@ namespace ComponentFactory.Krypton.Ribbon
             context.DisplayRectangle = ClientRectangle;
         }
         #endregion
-	}
+    }
 }

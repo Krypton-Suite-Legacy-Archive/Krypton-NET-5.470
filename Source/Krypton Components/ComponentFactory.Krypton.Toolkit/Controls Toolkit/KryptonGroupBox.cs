@@ -51,7 +51,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonGroupBox class.
-		/// </summary>
+        /// </summary>
         public KryptonGroupBox()
         {
             // Set default values
@@ -262,9 +262,9 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Gets and sets the border style.
-		/// </summary>
-		[Category("Visuals")]
+        /// Gets and sets the border style.
+        /// </summary>
+        [Category("Visuals")]
         [Description("Border style.")]
         [DefaultValue(typeof(PaletteBorderStyle), "ControlGroupBox")]
         public PaletteBorderStyle GroupBorderStyle
@@ -480,9 +480,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool ShouldSerializeStateCommon() => !StateCommon.IsDefault;
 
         /// <summary>
-		/// Gets access to the disabled header group appearance entries.
-		/// </summary>
-		[Category("Visuals")]
+        /// Gets access to the disabled header group appearance entries.
+        /// </summary>
+        [Category("Visuals")]
         [Description("Overrides for defining disabled header group appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteGroupBox StateDisabled { get; }
@@ -490,9 +490,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool ShouldSerializeStateDisabled() => !StateDisabled.IsDefault;
 
         /// <summary>
-		/// Gets access to the normal header group appearance entries.
-		/// </summary>
-		[Category("Visuals")]
+        /// Gets access to the normal header group appearance entries.
+        /// </summary>
+        [Category("Visuals")]
         [Description("Overrides for defining normal header group appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteGroupBox StateNormal { get; }
@@ -500,9 +500,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool ShouldSerializeStateNormal() => !StateNormal.IsDefault;
 
         /// <summary>
-		/// Gets access to the caption content.
-		/// </summary>
-		[Category("Visuals")]
+        /// Gets access to the caption content.
+        /// </summary>
+        [Category("Visuals")]
         [Description("Caption values")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public CaptionValues Values { get; }

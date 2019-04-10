@@ -14,24 +14,24 @@ using System.Drawing;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Details for an event that provides a button drag offset value.
-	/// </summary>
-	public class ButtonDragOffsetEventArgs : EventArgs
-	{
-		#region Instance Fields
+    /// </summary>
+    public class ButtonDragOffsetEventArgs : EventArgs
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the ButtonDragOffsetEventArgs class.
-		/// </summary>
+        /// </summary>
         /// <param name="offset">Mouse offset for button dragging.</param>
         public ButtonDragOffsetEventArgs(Point offset)
-		{
+        {
             PointOffset = offset;
-		}
+        }
         #endregion
 
         #region Point
@@ -40,6 +40,6 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Point PointOffset { get; }
 
-	    #endregion
+        #endregion
     }
 }

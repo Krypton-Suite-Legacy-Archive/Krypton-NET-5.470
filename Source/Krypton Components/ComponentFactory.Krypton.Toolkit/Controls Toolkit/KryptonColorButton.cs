@@ -111,7 +111,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonColorButton class.
-		/// </summary>
+        /// </summary>
         public KryptonColorButton()
         {
             // We generate click events manually, suppress default
@@ -552,9 +552,9 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Gets and sets the color button style.
-		/// </summary>
-		[Category("Visuals")]
+        /// Gets and sets the color button style.
+        /// </summary>
+        [Category("Visuals")]
         [Description("Color button style.")]
         public ButtonStyle ButtonStyle
         {

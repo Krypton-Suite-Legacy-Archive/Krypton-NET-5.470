@@ -15,11 +15,11 @@ using System.Windows.Forms.Design;
 namespace ComponentFactory.Krypton.Toolkit
 {
     internal class KryptonLabelDesigner : ControlDesigner
-	{
-		#region Identity
-		/// <summary>
+    {
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the KryptonLabelDesigner class.
-		/// </summary>
+        /// </summary>
         public KryptonLabelDesigner()
         {
             // The resizing handles around the control need to change depending on the
@@ -27,7 +27,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // do not get the resizing handles, otherwise you do.
             AutoResizeHandles = true;
         }            
-		#endregion
+        #endregion
 
         #region Public Overrides
         /// <summary>

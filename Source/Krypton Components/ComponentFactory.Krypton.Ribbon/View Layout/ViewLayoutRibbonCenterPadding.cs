@@ -17,9 +17,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// View element adds padding to the contained elements and positions all elements centered.
-	/// </summary>
+    /// <summary>
+    /// View element adds padding to the contained elements and positions all elements centered.
+    /// </summary>
     internal class ViewLayoutRibbonCenterPadding : ViewLayoutRibbonCenter
     {
         #region Instance Fields
@@ -36,15 +36,15 @@ namespace ComponentFactory.Krypton.Ribbon
             PreferredPadding = preferredPadding;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutRibbonCenterPadding:" + Id;
-		}
+        }
         #endregion
 
         #region PreferredPadding
@@ -132,5 +132,5 @@ namespace ComponentFactory.Krypton.Ribbon
             context.DisplayRectangle = ClientRectangle;
         }
         #endregion
-	}
+    }
 }

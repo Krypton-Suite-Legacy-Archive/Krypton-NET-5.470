@@ -13,25 +13,25 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
+    /// <summary>
     /// Implements the NavigatorMode.BarCheckButtonGroupOutside mode.
-	/// </summary>
+    /// </summary>
     internal class ViewBuilderBarCheckButtonGroupOutside : ViewBuilderBarItemBase
     {
-		#region Public
-		/// <summary>
-		/// Construct the view appropriate for this builder.
-		/// </summary>
-		/// <param name="navigator">Reference to navigator instance.</param>
-		/// <param name="manager">Reference to current manager.</param>
-		/// <param name="redirector">Palette redirector.</param>
-		public override void Construct(KryptonNavigator navigator, 
-									   ViewManager manager,
-									   PaletteRedirect redirector)
-		{
-			// Let base class perform common operations
-			base.Construct(navigator, manager, redirector);
-		}
+        #region Public
+        /// <summary>
+        /// Construct the view appropriate for this builder.
+        /// </summary>
+        /// <param name="navigator">Reference to navigator instance.</param>
+        /// <param name="manager">Reference to current manager.</param>
+        /// <param name="redirector">Palette redirector.</param>
+        public override void Construct(KryptonNavigator navigator, 
+                                       ViewManager manager,
+                                       PaletteRedirect redirector)
+        {
+            // Let base class perform common operations
+            base.Construct(navigator, manager, redirector);
+        }
 
         /// <summary>
         /// Gets a value indicating if the mode is a tab strip style mode.

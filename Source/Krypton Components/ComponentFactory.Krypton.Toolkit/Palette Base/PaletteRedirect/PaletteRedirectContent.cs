@@ -87,7 +87,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                       IPaletteContent linkNotVisitedOverride,
                                       IPaletteContent linkPressedOverride)
             : base(target)
-		{
+        {
             // Remember state specific inheritance
             _disabled = disabled;
             _normal = normal;
@@ -102,7 +102,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _linkNotVisitedOverride = linkNotVisitedOverride;
             _linkPressedOverride = linkPressedOverride;
         }
-		#endregion
+        #endregion
 
         #region SetRedirectStates
         /// <summary>

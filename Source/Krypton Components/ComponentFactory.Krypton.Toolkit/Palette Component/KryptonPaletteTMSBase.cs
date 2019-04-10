@@ -13,10 +13,10 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Base class for the palette TMS storage classes to derive from.
-	/// </summary>
-	public abstract class KryptonPaletteTMSBase : Storage
+    /// <summary>
+    /// Base class for the palette TMS storage classes to derive from.
+    /// </summary>
+    public abstract class KryptonPaletteTMSBase : Storage
     {
         #region Instance Fields
 
@@ -25,12 +25,12 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonPaletteKCTBase class.
-		/// </summary>
+        /// </summary>
         /// <param name="internalKCT">Reference to inherited values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         internal KryptonPaletteTMSBase(KryptonInternalKCT internalKCT,
                                        NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(internalKCT != null);
 
             InternalKCT = internalKCT;

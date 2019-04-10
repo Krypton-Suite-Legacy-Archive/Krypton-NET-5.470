@@ -14,40 +14,40 @@ using System.Xml;
 
 namespace ComponentFactory.Krypton.Workspace
 {
-	/// <summary>
-	/// Event data for persisting extra data for a workspace.
-	/// </summary>
-	public class XmlLoadingEventArgs : EventArgs
-	{
-		#region Instance Fields
+    /// <summary>
+    /// Event data for persisting extra data for a workspace.
+    /// </summary>
+    public class XmlLoadingEventArgs : EventArgs
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the XmlLoadingEventArgs class.
-		/// </summary>
+        /// </summary>
         /// <param name="workspace">Reference to owning workspace control.</param>
         /// <param name="xmlReading">Xml reader for persisting custom data.</param>
         public XmlLoadingEventArgs(KryptonWorkspace workspace,
                                    XmlReader xmlReading)
-		{
+        {
             Workspace = workspace;
             XmlReader = xmlReading;
-		}
-		#endregion
+        }
+        #endregion
 
-		#region Public
-		/// <summary>
+        #region Public
+        /// <summary>
         /// Gets the workspace reference.
-		/// </summary>
+        /// </summary>
         public KryptonWorkspace Workspace { get; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets the xml reader.
         /// </summary>
         public XmlReader XmlReader { get; }
 
-	    #endregion
-	}
+        #endregion
+    }
 }

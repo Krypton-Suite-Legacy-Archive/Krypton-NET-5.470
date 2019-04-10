@@ -33,7 +33,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             _inherit = inherit;
         }
-		#endregion
+        #endregion
 
         #region ButtonSpec
         /// <summary>

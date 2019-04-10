@@ -16,9 +16,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
+    /// <summary>
     /// Implements the NavigatorMode.OutlookMini mode.
-	/// </summary>
+    /// </summary>
     internal class ViewBuilderOutlookMini : ViewBuilderOutlookBase
     {
         #region Instance Fields

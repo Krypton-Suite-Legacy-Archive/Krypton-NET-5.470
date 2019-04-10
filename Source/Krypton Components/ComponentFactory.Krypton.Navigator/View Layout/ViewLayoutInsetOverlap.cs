@@ -15,10 +15,10 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// View element that insets children by the border rounding value of a source.
-	/// </summary>
-	internal class ViewLayoutInsetOverlap : ViewComposite
+    /// <summary>
+    /// View element that insets children by the border rounding value of a source.
+    /// </summary>
+    internal class ViewLayoutInsetOverlap : ViewComposite
     {
         #region Instance Fields
         private readonly ViewDrawCanvas _drawCanvas;
@@ -40,13 +40,13 @@ namespace ComponentFactory.Krypton.Navigator
             Orientation = VisualOrientation.Top;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutInsetForRounding:" + Id;
         }
         #endregion

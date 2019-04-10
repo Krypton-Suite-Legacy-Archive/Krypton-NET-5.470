@@ -14,10 +14,10 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws either a large or small image from a group button.
-	/// </summary>
-	internal class ViewDrawRibbonGroupButtonImage : ViewDrawRibbonGroupImageBase
+    /// <summary>
+    /// Draws either a large or small image from a group button.
+    /// </summary>
+    internal class ViewDrawRibbonGroupButtonImage : ViewDrawRibbonGroupImageBase
 
     {
         #region Static Fields

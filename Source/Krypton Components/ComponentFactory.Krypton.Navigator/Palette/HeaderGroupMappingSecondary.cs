@@ -15,12 +15,12 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
+    /// <summary>
     /// Storage and mapping for secondary header.
-	/// </summary>
+    /// </summary>
     public class HeaderGroupMappingSecondary : HeaderGroupMappingBase
-	{
-		#region Static Fields
+    {
+        #region Static Fields
         private const string _defaultDescription = " ";
         #endregion
 
@@ -38,32 +38,32 @@ namespace ComponentFactory.Krypton.Navigator
         #endregion
 
         #region Default Values
-		/// <summary>
-		/// Gets the default image value.
-		/// </summary>
-		/// <returns>Image reference.</returns>
-		protected override Image GetImageDefault()
-		{
-			return null;
-		}
+        /// <summary>
+        /// Gets the default image value.
+        /// </summary>
+        /// <returns>Image reference.</returns>
+        protected override Image GetImageDefault()
+        {
+            return null;
+        }
 
-		/// <summary>
-		/// Gets the default heading value.
-		/// </summary>
-		/// <returns>String reference.</returns>
-		protected override string GetHeadingDefault()
-		{
+        /// <summary>
+        /// Gets the default heading value.
+        /// </summary>
+        /// <returns>String reference.</returns>
+        protected override string GetHeadingDefault()
+        {
             return _defaultDescription;
-		}
+        }
 
-		/// <summary>
-		/// Gets the default description value.
-		/// </summary>
-		/// <returns>String reference.</returns>
-		protected override string GetDescriptionDefault()
-		{
+        /// <summary>
+        /// Gets the default description value.
+        /// </summary>
+        /// <returns>String reference.</returns>
+        protected override string GetDescriptionDefault()
+        {
             return string.Empty;
-		}
+        }
 
         /// <summary>
         /// Gets the default image mapping value.
@@ -90,7 +90,7 @@ namespace ComponentFactory.Krypton.Navigator
         protected override MapKryptonPageText GetMapDescriptionDefault()
         {
             return MapKryptonPageText.None;
-        }		
+        }        
         #endregion
 
         #region MapImage

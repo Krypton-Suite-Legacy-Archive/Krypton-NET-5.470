@@ -13,26 +13,26 @@ using System;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
+    /// <summary>
     /// Details for an event that provides a new index position for a specified page.
-	/// </summary>
-	public class TabMovedEventArgs : EventArgs
-	{
-		#region Instance Fields
+    /// </summary>
+    public class TabMovedEventArgs : EventArgs
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the TabMovedEventArgs class.
-		/// </summary>
+        /// </summary>
         /// <param name="page">Reference to page that has been moved.</param>
         /// <param name="index">New index of the page within the page collection.</param>
         public TabMovedEventArgs(KryptonPage page, int index)
-		{
+        {
             Page = page;
             Index = index;
-		}
+        }
         #endregion
 
         #region Dropped
@@ -41,7 +41,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public KryptonPage Page { get; }
 
-	    #endregion
+        #endregion
 
         #region Pages
         /// <summary>
@@ -49,6 +49,6 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public int Index { get; }
 
-	    #endregion
+        #endregion
     }
 }

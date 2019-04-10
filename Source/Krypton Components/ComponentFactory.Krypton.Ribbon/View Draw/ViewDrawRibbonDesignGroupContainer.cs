@@ -17,9 +17,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws an design time only for adding a new container to a group.
-	/// </summary>
+    /// <summary>
+    /// Draws an design time only for adding a new container to a group.
+    /// </summary>
     internal class ViewDrawRibbonDesignGroupContainer : ViewDrawRibbonDesignBase
     {
         #region Static Fields
@@ -32,7 +32,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private ContextMenuStrip _cms;
         #endregion
 
-		#region Identity
+        #region Identity
         static ViewDrawRibbonDesignGroupContainer()
         {
             // Use image list to convert background Magenta to transparent
@@ -46,9 +46,9 @@ namespace ComponentFactory.Krypton.Ribbon
                                                    Properties.Resources.KryptonGallery});
         }
 
-		/// <summary>
+        /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonDesignGroup class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonGroup">Associated ribbon group.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
@@ -61,15 +61,15 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbonGroup = ribbonGroup;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonDesignGroupContainer:" + Id;
-		}
+        }
         #endregion
 
         #region Protected

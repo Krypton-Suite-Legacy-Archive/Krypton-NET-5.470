@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="state">The state for which the image is needed.</param>
         /// <returns>Image value.</returns>
-		Image GetImage(PaletteState state);
+        Image GetImage(PaletteState state);
 
         /// <summary>
         /// Gets the image color that should be transparent.
@@ -44,13 +44,13 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets the content short text.
         /// </summary>
         /// <returns>String value.</returns>
-		string GetShortText();
+        string GetShortText();
 
         /// <summary>
         /// Gets the content long text.
         /// </summary>
         /// <returns>String value.</returns>
-		string GetLongText();
+        string GetLongText();
     }
     #endregion
 
@@ -688,8 +688,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
     #region IKryptonDebug
     /// <summary>
-	/// Exposes access to the debugging helpers for krypton controls.
-	/// </summary>
+    /// Exposes access to the debugging helpers for krypton controls.
+    /// </summary>
     public interface IKryptonDebug
     {
         /// <summary>
@@ -711,8 +711,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
     #region IKryptonDesignerSelect
     /// <summary>
-	/// Exposes design time selection of parent control.
-	/// </summary>
+    /// Exposes design time selection of parent control.
+    /// </summary>
     public interface IKryptonDesignerSelect
     {
         /// <summary>
@@ -781,9 +781,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
     #region Enum VisualOrientation
     /// <summary>
-	/// Specifies the orientation of a visual element.
-	/// </summary>
-	public enum VisualOrientation
+    /// Specifies the orientation of a visual element.
+    /// </summary>
+    public enum VisualOrientation
     {
         /// <summary>
         /// Specifies the element is orientated in a vertical top down manner.

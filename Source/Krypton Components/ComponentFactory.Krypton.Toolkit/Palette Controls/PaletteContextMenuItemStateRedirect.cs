@@ -11,12 +11,12 @@
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Redirection for KryptonContextMenuItem state values.
-	/// </summary>
-	public class PaletteContextMenuItemStateRedirect : Storage
-	{
-		#region Instance Fields
+    /// </summary>
+    public class PaletteContextMenuItemStateRedirect : Storage
+    {
+        #region Instance Fields
         private readonly PaletteRedirectDouble _itemHighlight;
         private readonly PaletteRedirectTriple _itemImage;
         private readonly PaletteRedirectContent _itemShortcutText;
@@ -24,14 +24,14 @@ namespace ComponentFactory.Krypton.Toolkit
         private readonly PaletteRedirectContent _itemStandard;
         private readonly PaletteRedirectContent _itemAlternate;
 
-	    #endregion
+        #endregion
 
-		#region Identity
+        #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteContextMenuItemStateRedirect class.
-		/// </summary>
+        /// </summary>
         public PaletteContextMenuItemStateRedirect()
-		{
+        {
             _itemHighlight = new PaletteRedirectDouble();
             _itemImage = new PaletteRedirectTriple();
             _itemShortcutText = new PaletteRedirectContent();
@@ -46,7 +46,7 @@ namespace ComponentFactory.Krypton.Toolkit
             ItemTextStandard = new PaletteContentInheritRedirect(_itemStandard, PaletteContentStyle.ContextMenuItemTextStandard);
             ItemTextAlternate = new PaletteContentInheritRedirect(_itemAlternate, PaletteContentStyle.ContextMenuItemTextAlternate);
         }
-		#endregion
+        #endregion
 
         #region IsDefault
         /// <summary>
@@ -54,7 +54,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public override bool IsDefault => true;
 
-	    #endregion
+        #endregion
 
         #region SetRedirector
         /// <summary>
@@ -85,7 +85,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteDoubleMetricRedirect ItemHighlight { get; }
 
-	    #endregion
+        #endregion
 
         #region ItemImage
         /// <summary>
@@ -93,7 +93,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteTripleJustImageRedirect ItemImage { get; }
 
-	    #endregion
+        #endregion
 
         #region ItemShortcutText
         /// <summary>
@@ -101,7 +101,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteContentInheritRedirect ItemShortcutText { get; }
 
-	    #endregion
+        #endregion
 
         #region ItemSplit
         /// <summary>
@@ -109,7 +109,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteDoubleRedirect ItemSplit { get; }
 
-	    #endregion
+        #endregion
 
         #region ItemTextAlternate
         /// <summary>
@@ -117,7 +117,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteContentInheritRedirect ItemTextAlternate { get; }
 
-	    #endregion
+        #endregion
 
         #region ItemTextStandard
         /// <summary>
@@ -125,6 +125,6 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteContentInheritRedirect ItemTextStandard { get; }
 
-	    #endregion
+        #endregion
     }
 }

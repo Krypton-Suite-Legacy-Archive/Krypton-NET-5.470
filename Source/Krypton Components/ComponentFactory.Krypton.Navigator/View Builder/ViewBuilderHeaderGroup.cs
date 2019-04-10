@@ -18,32 +18,32 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Implements the NavigatorMode.HeaderGroup view.
-	/// </summary>
+    /// <summary>
+    /// Implements the NavigatorMode.HeaderGroup view.
+    /// </summary>
     internal class ViewBuilderHeaderGroup : ViewBuilderBase
-	{
-		#region Instance Fields
-		private ViewBase _oldRoot;
+    {
+        #region Instance Fields
+        private ViewBase _oldRoot;
         private ViewletHeaderGroup _headerGroup;
         #endregion
 
-		#region Public
-		/// <summary>
-		/// Construct the view appropriate for this builder.
-		/// </summary>
-		/// <param name="navigator">Reference to navigator instance.</param>
-		/// <param name="manager">Reference to current manager.</param>
-		/// <param name="redirector">Palette redirector.</param>
-		public override void Construct(KryptonNavigator navigator, 
-									   ViewManager manager,
-									   PaletteRedirect redirector)
-		{
+        #region Public
+        /// <summary>
+        /// Construct the view appropriate for this builder.
+        /// </summary>
+        /// <param name="navigator">Reference to navigator instance.</param>
+        /// <param name="manager">Reference to current manager.</param>
+        /// <param name="redirector">Palette redirector.</param>
+        public override void Construct(KryptonNavigator navigator, 
+                                       ViewManager manager,
+                                       PaletteRedirect redirector)
+        {
             // Let base class perform common operations
-			base.Construct(navigator, manager, redirector);
+            base.Construct(navigator, manager, redirector);
 
-			// Get the current root element
-			_oldRoot = ViewManager.Root;
+            // Get the current root element
+            _oldRoot = ViewManager.Root;
 
             // Construct the viewlet instance
             _headerGroup = new ViewletHeaderGroup(navigator, redirector, NeedPaintDelegate);
@@ -52,12 +52,12 @@ namespace ComponentFactory.Krypton.Navigator
             ViewBase newRoot = _headerGroup.Construct(_oldRoot);
             _headerGroup.PostCreate();
 
-			// Assign the new root
+            // Assign the new root
             ViewManager.Root = newRoot;
 
-			// Need to monitor changes in the enabled state
-			Navigator.EnabledChanged += OnEnabledChanged;
-		}
+            // Need to monitor changes in the enabled state
+            Navigator.EnabledChanged += OnEnabledChanged;
+        }
 
         /// <summary>
         /// Destruct the previously created view.
@@ -82,7 +82,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public override bool IsTabStripMode => false;
 
-	    /// <summary>
+        /// <summary>
         /// Gets the KryptonPage associated with the provided view element.
         /// </summary>
         /// <param name="element">Element to search against.</param>
@@ -355,11 +355,11 @@ namespace ComponentFactory.Krypton.Navigator
         }
         #endregion
 
-		#region Implementation
+        #region Implementation
         private void OnEnabledChanged(object sender, EventArgs e)
         {
             UpdateStatePalettes();
         }
         #endregion
-	}
+    }
 }

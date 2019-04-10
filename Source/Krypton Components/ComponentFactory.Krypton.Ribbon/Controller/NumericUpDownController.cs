@@ -15,31 +15,31 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Process mouse events for a ribbon group numeric up-down.
-	/// </summary>
+    /// <summary>
+    /// Process mouse events for a ribbon group numeric up-down.
+    /// </summary>
     internal class NumericUpDownController : GlobalId,
                                              ISourceController,
                                              IKeyController,
                                              IRibbonKeyTipTarget
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly KryptonRibbon _ribbon;
         private readonly KryptonRibbonGroupNumericUpDown _numericUpDown;
         private readonly ViewDrawRibbonGroupNumericUpDown _target;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the NumericUpDownController class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         /// <param name="numericUpDown">Source definition.</param>
         /// <param name="target">Target view element.</param>
         public NumericUpDownController(KryptonRibbon ribbon,
                                        KryptonRibbonGroupNumericUpDown numericUpDown,
                                        ViewDrawRibbonGroupNumericUpDown target)
-		{
+        {
             Debug.Assert(ribbon != null);
             Debug.Assert(numericUpDown != null);
             Debug.Assert(target != null);
@@ -48,7 +48,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _numericUpDown = numericUpDown;
             _target = target;
         }
-		#endregion
+        #endregion
 
         #region Focus Notifications
         /// <summary>

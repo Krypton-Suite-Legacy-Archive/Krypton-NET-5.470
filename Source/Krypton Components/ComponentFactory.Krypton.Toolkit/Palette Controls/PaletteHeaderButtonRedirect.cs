@@ -15,54 +15,54 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Redirect storage for button metrics.
-	/// </summary>
+    /// </summary>
     public class PaletteHeaderButtonRedirect : PaletteTripleMetricRedirect
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly PaletteRedirect _redirect;
         private Padding _buttonPadding;
         private int _buttonEdgeInset;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteHeaderButtonRedirect class.
-		/// </summary>
-		/// <param name="redirect">Inheritence redirection instance.</param>
-		/// <param name="backStyle">Initial background style.</param>
-		/// <param name="borderStyle">Initial border style.</param>
-		/// <param name="contentStyle">Initial content style.</param>
+        /// </summary>
+        /// <param name="redirect">Inheritence redirection instance.</param>
+        /// <param name="backStyle">Initial background style.</param>
+        /// <param name="borderStyle">Initial border style.</param>
+        /// <param name="contentStyle">Initial content style.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteHeaderButtonRedirect(PaletteRedirect redirect,
-										   PaletteBackStyle backStyle,
-										   PaletteBorderStyle borderStyle,
-										   PaletteContentStyle contentStyle,
+                                           PaletteBackStyle backStyle,
+                                           PaletteBorderStyle borderStyle,
+                                           PaletteContentStyle contentStyle,
                                            NeedPaintHandler needPaint)
             : base(redirect, backStyle, borderStyle, contentStyle, needPaint)
-		{
+        {
             Debug.Assert(redirect != null);
 
             // Remember the redirect reference
             _redirect = redirect;
 
-			// Set default value for padding property
+            // Set default value for padding property
             _buttonPadding = CommonHelper.InheritPadding;
             _buttonEdgeInset = -1;
         }
-		#endregion
+        #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (base.IsDefault &&
-		                                   ButtonPadding.Equals(CommonHelper.InheritPadding) &&
-		                                   (ButtonEdgeInset == -1));
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (base.IsDefault &&
+                                           ButtonPadding.Equals(CommonHelper.InheritPadding) &&
+                                           (ButtonEdgeInset == -1));
 
-	    #endregion
+        #endregion
 
         #region ButtonEdgeInset
         /// <summary>

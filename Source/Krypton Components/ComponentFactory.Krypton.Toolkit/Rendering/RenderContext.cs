@@ -16,10 +16,10 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Encapsulates context for view render operations.
-	/// </summary>
-	public class RenderContext : ViewContext
+    /// <summary>
+    /// Encapsulates context for view render operations.
+    /// </summary>
+    public class RenderContext : ViewContext
     {
         #region Instance Fields
 
@@ -42,13 +42,13 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Initialize a new instance of the ViewContext class.
-		/// </summary>
+        /// Initialize a new instance of the ViewContext class.
+        /// </summary>
         /// <param name="control">Control associated with rendering.</param>
         /// <param name="alignControl">Control used to align elements.</param>
         /// <param name="graphics">Graphics instance for drawing.</param>
         /// <param name="clipRect">Rectangle that needs rendering.</param>
-		/// <param name="renderer">Rendering provider.</param>
+        /// <param name="renderer">Rendering provider.</param>
         public RenderContext(Control control,
                              Control alignControl,
                              Graphics graphics,
@@ -59,27 +59,27 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Initialize a new instance of the ViewContext class.
-		/// </summary>
+        /// Initialize a new instance of the ViewContext class.
+        /// </summary>
         /// <param name="manager">Reference to the view manager.</param>
         /// <param name="control">Control associated with rendering.</param>
         /// <param name="alignControl">Control used to align elements.</param>
         /// <param name="graphics">Graphics instance for drawing.</param>
         /// <param name="clipRect">Rectangle that needs rendering.</param>
-		/// <param name="renderer">Rendering provider.</param>
+        /// <param name="renderer">Rendering provider.</param>
         public RenderContext(ViewManager manager,
                              Control control, 
                              Control alignControl,
-							 Graphics graphics,
+                             Graphics graphics,
                              Rectangle clipRect,
-							 IRenderer renderer)
+                             IRenderer renderer)
             : base(manager, control, alignControl, graphics, renderer)
-		{
+        {
             ClipRect = clipRect;
-		}
-		#endregion
+        }
+        #endregion
 
-		#region Public
+        #region Public
         /// <summary>
         /// Gets the rectangle that needs rendering.
         /// </summary>
@@ -93,32 +93,32 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <returns></returns>
         public Rectangle GetAlignedRectangle(PaletteRectangleAlign align, Rectangle local)
-		{
-			switch (align)
-			{
-				case PaletteRectangleAlign.Local:
-					// Gradient should cover just the local view element itself
-					local.Inflate(2, 2);
+        {
+            switch (align)
+            {
+                case PaletteRectangleAlign.Local:
+                    // Gradient should cover just the local view element itself
+                    local.Inflate(2, 2);
                     return local;
-				case PaletteRectangleAlign.Control:
+                case PaletteRectangleAlign.Control:
                     Rectangle clientRect = (AlignControl == Control)
                         ? Control.ClientRectangle
                         : Control.RectangleToClient(AlignControl.RectangleToScreen(AlignControl.ClientRectangle));
 
                     clientRect.Inflate(2, 2);
                     return clientRect;
-				case PaletteRectangleAlign.Form:
-					// Gradient should cover the owning control (most likely a Form)
+                case PaletteRectangleAlign.Form:
+                    // Gradient should cover the owning control (most likely a Form)
                     Rectangle formRect = Control.RectangleToClient(TopControl.RectangleToScreen(AlignControl.ClientRectangle));
                     formRect.Inflate(2, 2);
                     return formRect;
-				case PaletteRectangleAlign.Inherit:
-				default:
-					// Should never call this routine with inherit value
-					Debug.Assert(false);
-					throw new ArgumentOutOfRangeException(nameof(align));
-			}
-		}
-		#endregion
-	}
+                case PaletteRectangleAlign.Inherit:
+                default:
+                    // Should never call this routine with inherit value
+                    Debug.Assert(false);
+                    throw new ArgumentOutOfRangeException(nameof(align));
+            }
+        }
+        #endregion
+    }
 }

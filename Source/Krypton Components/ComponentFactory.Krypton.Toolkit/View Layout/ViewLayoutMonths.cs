@@ -480,7 +480,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Gets the size required to draw a single month.
         /// </summary>
-		/// <param name="context">Layout context.</param>
+        /// <param name="context">Layout context.</param>
         public Size GetSingleMonthSize(ViewLayoutContext context)
         {
             Debug.Assert(context != null);
@@ -513,10 +513,10 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Discover the preferred size of the element.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override Size GetPreferredSize(ViewLayoutContext context)
+        /// Discover the preferred size of the element.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override Size GetPreferredSize(ViewLayoutContext context)
         {
             Debug.Assert(context != null);
 

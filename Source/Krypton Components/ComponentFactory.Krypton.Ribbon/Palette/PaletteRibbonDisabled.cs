@@ -14,46 +14,46 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Implement storage for a ribbon disabled state.
-	/// </summary>
-	public class PaletteRibbonDisabled : Storage
-	{
-		#region Instance Fields
+    /// <summary>
+    /// Implement storage for a ribbon disabled state.
+    /// </summary>
+    public class PaletteRibbonDisabled : Storage
+    {
+        #region Instance Fields
         private readonly PaletteRibbonText _ribbonGroupCheckBoxText;
         private readonly PaletteRibbonText _ribbonGroupButtonText;
         private readonly PaletteRibbonText _ribbonGroupLabelText;
         private readonly PaletteRibbonText _ribbonGroupRadioButtonText;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteRibbonDisabled class.
-		/// </summary>
+        /// </summary>
         /// <param name="inherit">Source for inheriting values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteRibbonDisabled(PaletteRibbonRedirect inherit,
                                      NeedPaintHandler needPaint)
-		{
+        {
             // Create storage that maps onto the inherit instances
             _ribbonGroupCheckBoxText = new PaletteRibbonText(inherit.RibbonGroupCheckBoxText, needPaint);
             _ribbonGroupButtonText = new PaletteRibbonText(inherit.RibbonGroupButtonText, needPaint);
             _ribbonGroupLabelText = new PaletteRibbonText(inherit.RibbonGroupLabelText, needPaint);
             _ribbonGroupRadioButtonText = new PaletteRibbonText(inherit.RibbonGroupRadioButtonText, needPaint);
         }
-		#endregion
+        #endregion
 
         #region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => RibbonGroupCheckBoxText.IsDefault &&
-		                                  RibbonGroupButtonText.IsDefault &&
-		                                  RibbonGroupLabelText.IsDefault &&
-		                                  RibbonGroupRadioButtonText.IsDefault;
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => RibbonGroupCheckBoxText.IsDefault &&
+                                          RibbonGroupButtonText.IsDefault &&
+                                          RibbonGroupLabelText.IsDefault &&
+                                          RibbonGroupRadioButtonText.IsDefault;
 
-	    #endregion
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -91,7 +91,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteRibbonText RibbonGroupCheckBoxText => _ribbonGroupCheckBoxText;
 
-	    private bool ShouldSerializeRibbonGroupCheckBoxText()
+        private bool ShouldSerializeRibbonGroupCheckBoxText()
         {
             return !_ribbonGroupCheckBoxText.IsDefault;
         }
@@ -106,7 +106,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteRibbonText RibbonGroupButtonText => _ribbonGroupButtonText;
 
-	    private bool ShouldSerializeRibbonGroupButtonText()
+        private bool ShouldSerializeRibbonGroupButtonText()
         {
             return !_ribbonGroupButtonText.IsDefault;
         }
@@ -121,7 +121,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteRibbonText RibbonGroupLabelText => _ribbonGroupLabelText;
 
-	    private bool ShouldSerializeRibbonGroupLabelText()
+        private bool ShouldSerializeRibbonGroupLabelText()
         {
             return !_ribbonGroupLabelText.IsDefault;
         }
@@ -136,23 +136,23 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteRibbonText RibbonGroupRadioButtonText => _ribbonGroupRadioButtonText;
 
-	    private bool ShouldSerializeRibbonGroupRadioButtonText()
+        private bool ShouldSerializeRibbonGroupRadioButtonText()
         {
             return !_ribbonGroupRadioButtonText.IsDefault;
         }
         #endregion
 
-		#region Implementation
-		/// <summary>
-		/// Handle a change event from palette source.
-		/// </summary>
-		/// <param name="sender">Source of the event.</param>
-		/// <param name="needLayout">True if a layout is also needed.</param>
+        #region Implementation
+        /// <summary>
+        /// Handle a change event from palette source.
+        /// </summary>
+        /// <param name="sender">Source of the event.</param>
+        /// <param name="needLayout">True if a layout is also needed.</param>
         protected void OnNeedPaint(object sender, bool needLayout)
-		{
-			// Pass request from child to our own handler
-			PerformNeedPaint(needLayout);
-		}
-		#endregion
-	}
+        {
+            // Pass request from child to our own handler
+            PerformNeedPaint(needLayout);
+        }
+        #endregion
+    }
 }

@@ -17,9 +17,9 @@ using System.Runtime.InteropServices;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Allocate a spacer for the right side of a window that prevents layout over the min/max/close buttons.
-	/// </summary>
+    /// <summary>
+    /// Allocate a spacer for the right side of a window that prevents layout over the min/max/close buttons.
+    /// </summary>
     internal class ViewDrawRibbonCompoRightBorder : ViewLeaf
     {
         #region Static Fields
@@ -36,20 +36,20 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonCompoRightBorder class.
-		/// </summary>
+        /// </summary>
         public ViewDrawRibbonCompoRightBorder()
         {
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonCompoRightBorder:" + Id;
-		}
+        }
         #endregion
 
         #region CompOwnerForm
