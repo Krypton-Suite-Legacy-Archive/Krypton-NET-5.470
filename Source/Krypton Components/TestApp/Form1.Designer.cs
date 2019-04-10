@@ -66,8 +66,7 @@
             // 
             // kryptonManager1
             // 
-            this.kryptonManager1.GlobalPalette = this.kryptonPalette1;
-            this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Custom;
+            this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office365Blue;
             // 
             // kryptonPalette1
             // 

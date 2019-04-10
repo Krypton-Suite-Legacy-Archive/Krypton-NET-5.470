@@ -12,7 +12,11 @@
 
 =======
 
-## NOTE: With the advent of Windows 10 1803 being released to the general public, I am pleased to announce the availability of a 5.472 release that will support the .NET 4.7.2 framework. You can follow the project [here](https://github.com/Wagnerp/Krypton-NET-5.472).
+## Available Versions
+* [Krypton Toolkit Suite for .NET 4.5](https://github.com/Wagnerp/Krypton-NET-5.450)
+* [Krypton Toolkit Suite for .NET 4.7.1](https://github.com/Wagnerp/Krypton-NET-5.471)
+* [Krypton Toolkit Suite for .NET 4.7.2](https://github.com/Wagnerp/Krypton-NET-5.472)
+* [Krypton Toolkit Suite for .NET 4.8](https://github.com/Wagnerp/Krypton-NET-5.480)
 
 =======
 
