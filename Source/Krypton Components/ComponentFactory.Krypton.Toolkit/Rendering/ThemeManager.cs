@@ -682,8 +682,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
             catch (Exception exc)
             {
-
-                throw;
+                ExceptionHandler.CaptureException(exc);
             }
         }
 
@@ -700,8 +699,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
             catch (Exception exc)
             {
-
-                throw;
+                ExceptionHandler.CaptureException(exc);
             }
         }
 
@@ -720,8 +718,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
             catch (Exception exc)
             {
-
-                throw;
+                ExceptionHandler.CaptureException(exc);
             }
         }
 
@@ -740,8 +737,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
             catch (Exception exc)
             {
-
-                throw;
+                ExceptionHandler.CaptureException(exc);
             }
         }
 
@@ -760,9 +756,22 @@ namespace ComponentFactory.Krypton.Toolkit
             }
             catch (Exception exc)
             {
-
-                throw;
+                ExceptionHandler.CaptureException(exc);
             }
+        }
+
+        public static PaletteMode ApplyThemeMode(string themeName)
+        {
+            PaletteMode mode = (PaletteMode)Enum.Parse(typeof(PaletteMode), themeName);
+
+            return mode;
+        }
+
+        public static PaletteModeManager ApplyThemeManagerMode(string themeName)
+        {
+            PaletteModeManager modeManager = (PaletteModeManager)Enum.Parse(typeof(PaletteModeManager), themeName);
+
+            return modeManager;
         }
         #endregion
     }
