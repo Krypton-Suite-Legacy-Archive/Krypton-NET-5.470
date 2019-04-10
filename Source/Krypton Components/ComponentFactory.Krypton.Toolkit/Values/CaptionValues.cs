@@ -14,54 +14,54 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for the group box caption values.
-	/// </summary>
-	public class CaptionValues : HeaderValuesBase
-	{
-		#region Static Fields
+    /// <summary>
+    /// Storage for the group box caption values.
+    /// </summary>
+    public class CaptionValues : HeaderValuesBase
+    {
+        #region Static Fields
         private const string _defaultText = "Caption";
-		#endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the CaptionValues class.
-		/// </summary>
+        /// </summary>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public CaptionValues(NeedPaintHandler needPaint)
             : base(needPaint)
-		{
-		}
-		#endregion
+        {
+        }
+        #endregion
 
-		#region Default Values
-		/// <summary>
-		/// Gets the default image value.
-		/// </summary>
-		/// <returns>Image reference.</returns>
-		protected override Image GetImageDefault()
-		{
-			return null;
-		}
+        #region Default Values
+        /// <summary>
+        /// Gets the default image value.
+        /// </summary>
+        /// <returns>Image reference.</returns>
+        protected override Image GetImageDefault()
+        {
+            return null;
+        }
 
-		/// <summary>
-		/// Gets the default heading value.
-		/// </summary>
-		/// <returns>String reference.</returns>
-		protected override string GetHeadingDefault()
-		{
+        /// <summary>
+        /// Gets the default heading value.
+        /// </summary>
+        /// <returns>String reference.</returns>
+        protected override string GetHeadingDefault()
+        {
             return _defaultText;
-		}
+        }
 
-		/// <summary>
-		/// Gets the default description value.
-		/// </summary>
-		/// <returns>String reference.</returns>
-		protected override string GetDescriptionDefault()
-		{
+        /// <summary>
+        /// Gets the default description value.
+        /// </summary>
+        /// <returns>String reference.</returns>
+        protected override string GetDescriptionDefault()
+        {
             return string.Empty;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Description
         /// <summary>

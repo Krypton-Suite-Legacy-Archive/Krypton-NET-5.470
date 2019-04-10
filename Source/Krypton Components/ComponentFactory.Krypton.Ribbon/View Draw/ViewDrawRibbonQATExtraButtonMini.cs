@@ -30,7 +30,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonQATExtraButtonMini class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public ViewDrawRibbonQATExtraButtonMini(KryptonRibbon ribbon,
@@ -39,15 +39,15 @@ namespace ComponentFactory.Krypton.Ribbon
         {
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonQATExtraButtonMini:" + Id;
-		}
+        }
         #endregion
 
         #region Layout

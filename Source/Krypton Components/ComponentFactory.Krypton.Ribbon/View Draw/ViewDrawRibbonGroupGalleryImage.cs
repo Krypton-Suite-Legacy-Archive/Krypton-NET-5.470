@@ -14,9 +14,9 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws a large image from a gallery.
-	/// </summary>
+    /// <summary>
+    /// Draws a large image from a gallery.
+    /// </summary>
     internal class ViewDrawRibbonGroupGalleryImage : ViewDrawRibbonGroupImageBase
                                               
     {
@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonGroupGalleryImage class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonGallery">Reference to ribbon group gallery definition.</param>
         public ViewDrawRibbonGroupGalleryImage(KryptonRibbon ribbon,
@@ -43,15 +43,15 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbonGallery = ribbonGallery;
         }        
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonGroupGalleryImage:" + Id;
-		}
+        }
         #endregion
 
         #region Protected

@@ -13,9 +13,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for palette separator states.
-	/// </summary>
+    /// <summary>
+    /// Storage for palette separator states.
+    /// </summary>
     public class KryptonPaletteSeparator : Storage
     {
         #region Instance Fields
@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonPaletteSeparator class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Redirector to inherit values from.</param>
         /// <param name="backStyle">Background style.</param>
         /// <param name="borderStyle">Border style.</param>
@@ -34,7 +34,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                        PaletteBackStyle backStyle,
                                        PaletteBorderStyle borderStyle,
                                        NeedPaintHandler needPaint) 
-		{
+        {
             // Create the storage objects
             StateCommon = new PaletteSeparatorPaddingRedirect(redirect, backStyle, borderStyle, needPaint);
             StateDisabled = new PaletteSeparatorPadding(StateCommon, StateCommon, needPaint);
@@ -55,16 +55,16 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => StateCommon.IsDefault &&
-		                                  StateDisabled.IsDefault &&
-		                                  StateNormal.IsDefault &&
-		                                  StateTracking.IsDefault &&
-		                                  StatePressed.IsDefault;
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => StateCommon.IsDefault &&
+                                          StateDisabled.IsDefault &&
+                                          StateNormal.IsDefault &&
+                                          StateTracking.IsDefault &&
+                                          StatePressed.IsDefault;
 
         #endregion
 

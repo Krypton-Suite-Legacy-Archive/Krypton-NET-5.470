@@ -111,9 +111,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Identity
         /// <summary>
-		/// Initialize a new instance of the KryptonSplitContainer class.
-		/// </summary>
-		public KryptonSplitContainer()
+        /// Initialize a new instance of the KryptonSplitContainer class.
+        /// </summary>
+        public KryptonSplitContainer()
         {
             // Create the palette storage
             StateCommon = new PaletteSplitContainerRedirect(Redirector, PaletteBackStyle.PanelClient,

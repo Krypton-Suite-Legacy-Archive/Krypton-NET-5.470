@@ -16,7 +16,7 @@ using System.ComponentModel.Design;
 namespace ComponentFactory.Krypton.Toolkit
 {
     internal class KryptonComboBoxColumnDesigner : ComponentDesigner
-	{
+    {
         #region Instance Fields
         private KryptonDataGridViewComboBoxColumn _comboBox;
         private IComponentChangeService _changeService;
@@ -45,7 +45,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public override ICollection AssociatedComponents =>
             _comboBox != null ? _comboBox.ButtonSpecs : base.AssociatedComponents;
 
-	    #endregion
+        #endregion
 
         #region Private
         private void OnComponentRemoving(object sender, ComponentEventArgs e)

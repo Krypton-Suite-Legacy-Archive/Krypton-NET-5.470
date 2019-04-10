@@ -14,9 +14,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Navigator view element for drawing a stack check button for the Outlook mode.
-	/// </summary>
+    /// <summary>
+    /// Navigator view element for drawing a stack check button for the Outlook mode.
+    /// </summary>
     internal class ViewDrawNavOutlookStack : ViewDrawNavCheckButtonBase
     {
         #region Instance Fields
@@ -39,16 +39,16 @@ namespace ComponentFactory.Krypton.Navigator
             _full = (navigator.NavigatorMode == NavigatorMode.OutlookFull);
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawNavOutlookStack:" + Id + " Text:" + Page.Text;
-		}
-		#endregion
+        }
+        #endregion
 
         #region UpdateButtonSpecMapping
         /// <summary>

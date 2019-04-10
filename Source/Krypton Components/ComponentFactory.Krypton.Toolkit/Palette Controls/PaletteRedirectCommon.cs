@@ -36,7 +36,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                      IPaletteTriple disabled,
                                      IPaletteTriple others)
             : base(target)
-		{
+        {
             Debug.Assert(disabled != null);
             Debug.Assert(others != null);
 
@@ -44,7 +44,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _disabled = disabled;
             _others = others;
         }
-		#endregion
+        #endregion
 
         #region Back
         /// <summary>

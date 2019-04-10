@@ -16,11 +16,11 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Implement storage for palette border details.
-	/// </summary>
-	public class PaletteBorder : Storage, 
-								 IPaletteBorder
+    /// <summary>
+    /// Implement storage for palette border details.
+    /// </summary>
+    public class PaletteBorder : Storage, 
+                                 IPaletteBorder
     {
         #region Internal Classes
         private class InternalStorage
@@ -60,8 +60,8 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             /// <summary>
-		    /// Gets a value indicating if all values are default.
-		    /// </summary>
+            /// Gets a value indicating if all values are default.
+            /// </summary>
             public bool IsDefault => (BorderDraw == InheritBool.Inherit) &&
                                      (BorderDrawBorders == PaletteDrawBorders.Inherit) &&
                                      (BorderGraphicsHint == PaletteGraphicsHint.Inherit) &&
@@ -92,31 +92,31 @@ namespace ComponentFactory.Krypton.Toolkit
         public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
-		#region Identity
-		/// <summary>
-		/// Initialize a new instance of the PaletteBorder class.
-		/// </summary>
-		/// <param name="inherit">Source for inheriting defaulted values.</param>
+        #region Identity
+        /// <summary>
+        /// Initialize a new instance of the PaletteBorder class.
+        /// </summary>
+        /// <param name="inherit">Source for inheriting defaulted values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteBorder(IPaletteBorder inherit,
                              NeedPaintHandler needPaint)
-		{
-			Debug.Assert(inherit != null);
+        {
+            Debug.Assert(inherit != null);
 
-			// Remember inheritance
-			_inherit = inherit;
+            // Remember inheritance
+            _inherit = inherit;
 
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
         }
-		#endregion
+        #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (_storage == null) || _storage.IsDefault;
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (_storage == null) || _storage.IsDefault;
 
         #endregion
 
@@ -154,21 +154,21 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Draw
-		/// <summary>
-		/// Gets a value indicating if border should be drawn.
-		/// </summary>
+        #region Draw
+        /// <summary>
+        /// Gets a value indicating if border should be drawn.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Should border be drawn.")]
-		[DefaultValue(typeof(InheritBool), "Inherit")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public InheritBool Draw
-		{
+        [Description("Should border be drawn.")]
+        [DefaultValue(typeof(InheritBool), "Inherit")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public InheritBool Draw
+        {
             get => _storage?.BorderDraw ?? InheritBool.Inherit;
 
-		    set 
-			{
+            set 
+            {
                 if (_storage != null)
                 {
                     if (_storage.BorderDraw != value)
@@ -190,8 +190,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint();
                     }
                 }
-			}
-		}
+            }
+        }
 
         /// <summary>
         /// Gets the actual border draw value.
@@ -252,21 +252,21 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #endregion
 
-		#region GraphicsHint
-		/// <summary>
-		/// Gets the graphics hint for drawing the border.
-		/// </summary>
+        #region GraphicsHint
+        /// <summary>
+        /// Gets the graphics hint for drawing the border.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Hint for drawing graphics.")]
-		[DefaultValue(typeof(PaletteGraphicsHint), "Inherit")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public PaletteGraphicsHint GraphicsHint
-		{
-			get => _storage?.BorderGraphicsHint ?? PaletteGraphicsHint.Inherit;
+        [Description("Hint for drawing graphics.")]
+        [DefaultValue(typeof(PaletteGraphicsHint), "Inherit")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public PaletteGraphicsHint GraphicsHint
+        {
+            get => _storage?.BorderGraphicsHint ?? PaletteGraphicsHint.Inherit;
 
-		    set
-			{
+            set
+            {
                 if (_storage != null)
                 {
                     if (_storage.BorderGraphicsHint != value)
@@ -288,8 +288,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint();
                     }
                 }
-			}
-		}
+            }
+        }
 
         /// <summary>
         /// Gets the actual border graphics hint value.
@@ -306,15 +306,15 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Main border color.")]
+        [Description("Main border color.")]
         [KryptonDefaultColorAttribute()]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-		public Color Color1
-		{
-			get => _storage?.BorderColor1 ?? Color.Empty;
+        public Color Color1
+        {
+            get => _storage?.BorderColor1 ?? Color.Empty;
 
             set 
-			{
+            {
                 if (_storage != null)
                 {
                     if (_storage.BorderColor1 != value)
@@ -336,33 +336,33 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint();
                     }
                 }
-			}
-		}
+            }
+        }
 
-		/// <summary>
-		/// Gets the actual first border color.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color value.</returns>
-		public Color GetBorderColor1(PaletteState state) => Color1 != Color.Empty ? Color1 : _inherit.GetBorderColor1(state);
+        /// <summary>
+        /// Gets the actual first border color.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
+        public Color GetBorderColor1(PaletteState state) => Color1 != Color.Empty ? Color1 : _inherit.GetBorderColor1(state);
 
         #endregion
 
-		#region Color2
-		/// <summary>
-		/// Gets and sets the second border color.
-		/// </summary>
+        #region Color2
+        /// <summary>
+        /// Gets and sets the second border color.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Secondary border color.")]
+        [Description("Secondary border color.")]
         [KryptonDefaultColorAttribute()]
         [RefreshPropertiesAttribute(RefreshProperties.All)]
-		public Color Color2
-		{
-			get => _storage?.BorderColor2 ?? Color.Empty;
+        public Color Color2
+        {
+            get => _storage?.BorderColor2 ?? Color.Empty;
 
-		    set
-			{
+            set
+            {
                 if (_storage != null)
                 {
                     if (_storage.BorderColor2 != value)
@@ -384,8 +384,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint();
                     }
                 }
-			}
-		}
+            }
+        }
 
         /// <summary>
         /// Gets the second border color.
@@ -401,15 +401,15 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Border color drawing style.")]
-		[DefaultValue(typeof(PaletteColorStyle), "Inherit")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public PaletteColorStyle ColorStyle
-		{
+        [Description("Border color drawing style.")]
+        [DefaultValue(typeof(PaletteColorStyle), "Inherit")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public PaletteColorStyle ColorStyle
+        {
             get => _storage?.BorderColorStyle ?? PaletteColorStyle.Inherit;
 
             set
-			{
+            {
                 if (_storage != null)
                 {
                     if (_storage.BorderColorStyle != value)
@@ -431,8 +431,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint();
                     }
                 }
-			}
-		}
+            }
+        }
 
         /// <summary>
         /// Gets the color drawing style.
@@ -450,15 +450,15 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Border color alignment style.")]
-		[DefaultValue(typeof(PaletteRectangleAlign), "Inherit")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public PaletteRectangleAlign ColorAlign
-		{
-			get => _storage?.BorderColorAlign ?? PaletteRectangleAlign.Inherit;
+        [Description("Border color alignment style.")]
+        [DefaultValue(typeof(PaletteRectangleAlign), "Inherit")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public PaletteRectangleAlign ColorAlign
+        {
+            get => _storage?.BorderColorAlign ?? PaletteRectangleAlign.Inherit;
 
             set
-			{
+            {
                 if (_storage != null)
                 {
                     if (_storage.BorderColorAlign != value)
@@ -480,8 +480,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint();
                     }
                 }
-			}
-		}
+            }
+        }
 
         /// <summary>
         /// Gets the color alignment style.
@@ -498,12 +498,12 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Border color angle.")]
-		[DefaultValue(-1f)]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public float ColorAngle
-		{
-			get 
+        [Description("Border color angle.")]
+        [DefaultValue(-1f)]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public float ColorAngle
+        {
+            get 
             {
                 if (_storage == null)
                 {
@@ -515,8 +515,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
 
-			set
-			{
+            set
+            {
                 if (_storage != null)
                 {
                     if (_storage.BorderColorAngle != value)
@@ -538,8 +538,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint();
                     }
                 }
-			}
-		}
+            }
+        }
 
         /// <summary>
         /// Gets the color border angle.
@@ -555,12 +555,12 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Border width.")]
-		[DefaultValue(-1)]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public int Width
-		{
-			get 
+        [Description("Border width.")]
+        [DefaultValue(-1)]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public int Width
+        {
+            get 
             {
                 if (_storage == null)
                 {
@@ -572,8 +572,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
 
-			set
-			{
+            set
+            {
                 if (_storage != null)
                 {
                     if (_storage.BorderWidth != value)
@@ -595,8 +595,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint(true);
                     }
                 }
-			}
-		}
+            }
+        }
 
         /// <summary>
         /// Gets the border width.
@@ -612,12 +612,12 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("How much to round the border corners.")]
-		[DefaultValue(-1)]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public int Rounding
-		{
-			get 
+        [Description("How much to round the border corners.")]
+        [DefaultValue(-1)]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public int Rounding
+        {
+            get 
             {
                 if (_storage == null)
                 {
@@ -629,8 +629,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
 
-			set
-			{
+            set
+            {
                 if (_storage != null)
                 {
                     if (_storage.BorderRounding != value)
@@ -652,8 +652,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint(true);
                     }
                 }
-			}
-		}
+            }
+        }
 
         /// <summary>
         /// Gets the border rounding.
@@ -669,15 +669,15 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Border image.")]
-		[DefaultValue(null)]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public Image Image
-		{
-			get => _storage?.BorderImage;
+        [Description("Border image.")]
+        [DefaultValue(null)]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public Image Image
+        {
+            get => _storage?.BorderImage;
 
-		    set
-			{
+            set
+            {
                 if (_storage != null)
                 {
                     if (_storage.BorderImage != value)
@@ -699,8 +699,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint();
                     }
                 }
-			}
-		}
+            }
+        }
 
         /// <summary>
         /// Gets a border image.
@@ -716,15 +716,15 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Border image style.")]
-		[DefaultValue(typeof(PaletteImageStyle), "Inherit")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public PaletteImageStyle ImageStyle
-		{
-			get => _storage?.BorderImageStyle ?? PaletteImageStyle.Inherit;
+        [Description("Border image style.")]
+        [DefaultValue(typeof(PaletteImageStyle), "Inherit")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public PaletteImageStyle ImageStyle
+        {
+            get => _storage?.BorderImageStyle ?? PaletteImageStyle.Inherit;
 
             set
-			{
+            {
                 if (_storage != null)
                 {
                     if (_storage.BorderImageStyle != value)
@@ -746,8 +746,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint();
                     }
                 }
-			}
-		}
+            }
+        }
 
         private bool ShouldSerializeImageStyle()
         {
@@ -770,15 +770,15 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Border image alignment style.")]
-		[DefaultValue(typeof(PaletteRectangleAlign), "Inherit")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public PaletteRectangleAlign ImageAlign
-		{
-			get => _storage?.BorderImageAlign ?? PaletteRectangleAlign.Inherit;
+        [Description("Border image alignment style.")]
+        [DefaultValue(typeof(PaletteRectangleAlign), "Inherit")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public PaletteRectangleAlign ImageAlign
+        {
+            get => _storage?.BorderImageAlign ?? PaletteRectangleAlign.Inherit;
 
             set
-			{
+            {
                 if (_storage != null)
                 {
                     if (_storage.BorderImageAlign != value)
@@ -800,8 +800,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint();
                     }
                 }
-			}
-		}
+            }
+        }
 
         /// <summary>
         /// Gets the image alignment style.

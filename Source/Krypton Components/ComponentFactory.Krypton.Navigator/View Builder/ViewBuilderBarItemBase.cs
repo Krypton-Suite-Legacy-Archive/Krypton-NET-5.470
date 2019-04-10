@@ -15,9 +15,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
+    /// <summary>
     /// Base class for implementation of 'Bar' modes.
-	/// </summary>
+    /// </summary>
     internal abstract class ViewBuilderBarItemBase : ViewBuilderItemBase
     {
         #region Instance Fields

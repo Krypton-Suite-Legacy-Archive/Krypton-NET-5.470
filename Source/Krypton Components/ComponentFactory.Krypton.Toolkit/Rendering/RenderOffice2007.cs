@@ -17,9 +17,9 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Extends the professional renderer to provide Office2007 style additions.
-	/// </summary>
+    /// <summary>
+    /// Extends the professional renderer to provide Office2007 style additions.
+    /// </summary>
     public class RenderOffice2007 : RenderProfessional
     {
         #region Static Fields

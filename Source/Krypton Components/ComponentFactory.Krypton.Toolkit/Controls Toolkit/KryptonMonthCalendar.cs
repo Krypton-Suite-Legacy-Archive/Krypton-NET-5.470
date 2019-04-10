@@ -165,7 +165,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonMonthCalendar class.
-		/// </summary>
+        /// </summary>
         public KryptonMonthCalendar()
         {
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);

@@ -19,9 +19,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Extends the ViewComposite by creating and laying out elements to represent a ribbon group button cluster.
-	/// </summary>
+    /// <summary>
+    /// Extends the ViewComposite by creating and laying out elements to represent a ribbon group button cluster.
+    /// </summary>
     internal class ViewLayoutRibbonGroupCluster : ViewComposite,
                                                   IRibbonViewGroupItemView
 
@@ -53,7 +53,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewLayoutRibbonGroupCluster class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Owning ribbon control instance.</param>
         /// <param name="ribbonCluster">Reference to cluster definition.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
@@ -104,15 +104,15 @@ namespace ComponentFactory.Krypton.Ribbon
             }
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutRibbonGroupCluster:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.

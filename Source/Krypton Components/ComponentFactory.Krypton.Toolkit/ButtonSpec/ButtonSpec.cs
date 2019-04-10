@@ -72,9 +72,9 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ButtonSpec class.
-		/// </summary>
+        /// </summary>
         public ButtonSpec()
-		{
+        {
             _image = null;
             _toolTipImage = null;
             _colorMap = Color.Empty;
@@ -147,28 +147,28 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region IsDefault
         /// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public virtual bool IsDefault => (_imageStates.IsDefault &&
-		                                  (Image == null) &&
-		                                  (ToolTipImage == null) &&
-		                                  (ColorMap == Color.Empty) &&
-		                                  (ImageTransparentColor == Color.Empty) &&
-		                                  (ToolTipImageTransparentColor == Color.Empty) &&
-		                                  (Text == string.Empty) &&
-		                                  (ExtraText == string.Empty) &&
-		                                  (ToolTipTitle == string.Empty) &&
-		                                  (ToolTipBody == string.Empty) &&
-		                                  (ToolTipStyle == LabelStyle.ToolTip) &&
-		                                  (Style == PaletteButtonStyle.Inherit) &&
-		                                  (Orientation == PaletteButtonOrientation.Inherit) &&
-		                                  (Edge == PaletteRelativeEdgeAlign.Inherit) &&
-		                                  (ContextMenuStrip == null) &&
-		                                  AllowInheritImage &&
-		                                  AllowInheritText &&
-		                                  AllowInheritExtraText &&
-		                                  AllowInheritToolTipTitle);
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public virtual bool IsDefault => (_imageStates.IsDefault &&
+                                          (Image == null) &&
+                                          (ToolTipImage == null) &&
+                                          (ColorMap == Color.Empty) &&
+                                          (ImageTransparentColor == Color.Empty) &&
+                                          (ToolTipImageTransparentColor == Color.Empty) &&
+                                          (Text == string.Empty) &&
+                                          (ExtraText == string.Empty) &&
+                                          (ToolTipTitle == string.Empty) &&
+                                          (ToolTipBody == string.Empty) &&
+                                          (ToolTipStyle == LabelStyle.ToolTip) &&
+                                          (Style == PaletteButtonStyle.Inherit) &&
+                                          (Orientation == PaletteButtonOrientation.Inherit) &&
+                                          (Edge == PaletteRelativeEdgeAlign.Inherit) &&
+                                          (ContextMenuStrip == null) &&
+                                          AllowInheritImage &&
+                                          AllowInheritText &&
+                                          AllowInheritExtraText &&
+                                          AllowInheritToolTipTitle);
 
         #endregion
 

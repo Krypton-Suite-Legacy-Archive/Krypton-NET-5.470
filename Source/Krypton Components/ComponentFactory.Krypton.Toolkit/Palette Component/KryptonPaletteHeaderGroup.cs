@@ -14,9 +14,9 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for palette header group states.
-	/// </summary>
+    /// <summary>
+    /// Storage for palette header group states.
+    /// </summary>
     public class KryptonPaletteHeaderGroup : Storage
     {
         #region Instance Fields

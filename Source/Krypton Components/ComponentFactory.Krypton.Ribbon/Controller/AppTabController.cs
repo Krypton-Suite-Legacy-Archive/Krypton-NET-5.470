@@ -54,13 +54,13 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the AppTabController class.
-		/// </summary>
+        /// </summary>
         public AppTabController(KryptonRibbon ribbon)
-		{
+        {
             _ribbon = ribbon;
             Keyboard = false;
         }
-		#endregion
+        #endregion
 
         #region Public
         /// <summary>

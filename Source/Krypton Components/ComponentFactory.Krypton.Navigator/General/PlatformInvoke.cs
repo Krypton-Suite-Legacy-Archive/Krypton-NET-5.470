@@ -27,7 +27,7 @@ namespace ComponentFactory.Krypton.Navigator
         internal const int SW_SHOWNOACTIVATE = 4;
         internal const int ULW_ALPHA = 0x00000002;
         internal const int HTTRANSPARENT = -1;
-		internal const byte AC_SRC_OVER  = 0x00;
+        internal const byte AC_SRC_OVER  = 0x00;
         internal const byte AC_SRC_ALPHA = 0x01;
         #endregion
 

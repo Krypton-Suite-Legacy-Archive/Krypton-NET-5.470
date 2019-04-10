@@ -18,16 +18,16 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Page class used inside visual containers.
-	/// </summary>
-	[ToolboxItem(false)]
+    /// <summary>
+    /// Page class used inside visual containers.
+    /// </summary>
+    [ToolboxItem(false)]
     [ToolboxBitmap(typeof(KryptonPage), "ToolboxBitmaps.KryptonPage.bmp")]
     [DefaultEvent("Click")]
-	[DefaultProperty("Text")]
+    [DefaultProperty("Text")]
     [Designer(typeof(KryptonPageDesigner))]
     [DesignerCategory("code")]
-	[DesignTimeVisible(false)]
+    [DesignTimeVisible(false)]
     public class KryptonPage : VisualPanel
     {
         #region Instance Fields
@@ -68,7 +68,7 @@ namespace ComponentFactory.Krypton.Navigator
         private Size _autoHiddenSlideSize;
         #endregion
 
-		#region Events
+        #region Events
         /// <summary>
         /// Occurs when the control is loaded.
         /// </summary>
@@ -98,42 +98,42 @@ namespace ComponentFactory.Krypton.Navigator
         public event EventHandler AutoHiddenSlideSizeChanged;
 
         /// <summary>
-		/// Occurs when the value of the Dock property changes.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
+        /// Occurs when the value of the Dock property changes.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new event EventHandler DockChanged;
 
-		/// <summary>
-		/// Occurs when the value of the Location property changes.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
+        /// <summary>
+        /// Occurs when the value of the Location property changes.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new event EventHandler LocationChanged;
 
-		/// <summary>
-		/// Occurs when the value of the TabIndex property changes.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
+        /// <summary>
+        /// Occurs when the value of the TabIndex property changes.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new event EventHandler TabIndexChanged;
 
-		/// <summary>
-		/// Occurs when the value of the TabStop property changes.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
+        /// <summary>
+        /// Occurs when the value of the TabStop property changes.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new event EventHandler TabStopChanged;
-		#endregion
+        #endregion
 
-		#region Identity
+        #region Identity
         /// <summary>
-		/// Initialize a new instance of the KryptonPage class.
-		/// </summary>
+        /// Initialize a new instance of the KryptonPage class.
+        /// </summary>
         public KryptonPage()
             : this("Page", null)
         {
@@ -160,13 +160,13 @@ namespace ComponentFactory.Krypton.Navigator
         }
 
         /// <summary>
-		/// Initialize a new instance of the KryptonPage class.
-		/// </summary>
+        /// Initialize a new instance of the KryptonPage class.
+        /// </summary>
         /// <param name="text">Initial text.</param>
         /// <param name="imageSmall">Initial small image.</param>
         /// <param name="uniqueName">Initial unique name.</param>
         public KryptonPage(string text, Image imageSmall, string uniqueName)
-		{
+        {
             // Default properties
             Text = text;
             MinimumSize = new Size(50, 50);
@@ -246,17 +246,17 @@ namespace ComponentFactory.Krypton.Navigator
             ViewManager = new ViewManager(this, _drawPanel);
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			return "KryptonPage " + Text;
-		}
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            return "KryptonPage " + Text;
+        }
         #endregion
 
-		#region Public
+        #region Public
         /// <summary>
         /// Gets or sets the palette to be applied.
         /// </summary>
@@ -909,41 +909,41 @@ namespace ComponentFactory.Krypton.Navigator
             }
         }
 
-		/// <summary>
-		/// Gets or sets the background color for the control.
-		/// </summary>
+        /// <summary>
+        /// Gets or sets the background color for the control.
+        /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override Color BackColor
-		{
-			get => base.BackColor;
-		    set => base.BackColor = value;
-		}
+        {
+            get => base.BackColor;
+            set => base.BackColor = value;
+        }
 
-		/// <summary>
-		/// Gets or sets which edges of the control are anchored to the edges of its container.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public override AnchorStyles Anchor
-		{
-			get => base.Anchor;
-		    set => base.Anchor = value;
-		}
+        /// <summary>
+        /// Gets or sets which edges of the control are anchored to the edges of its container.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public override AnchorStyles Anchor
+        {
+            get => base.Anchor;
+            set => base.Anchor = value;
+        }
 
-		/// <summary>
-		/// Gets or sets a value indicating whether the control is automatically resized to display its entire contents.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public override bool AutoSize
-		{
-			get => base.AutoSize;
-		    set => base.AutoSize = value;
-		}
+        /// <summary>
+        /// Gets or sets a value indicating whether the control is automatically resized to display its entire contents.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public override bool AutoSize
+        {
+            get => base.AutoSize;
+            set => base.AutoSize = value;
+        }
 
         /// <summary>
         /// Gets or sets the size of the control.
@@ -958,65 +958,65 @@ namespace ComponentFactory.Krypton.Navigator
         }
         
         /// <summary>
-		/// Gets or sets a value indicating whether the control is automatically resized to display its entire contents.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public override AutoSizeMode AutoSizeMode
-		{
-			get => base.AutoSizeMode;
+        /// Gets or sets a value indicating whether the control is automatically resized to display its entire contents.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public override AutoSizeMode AutoSizeMode
+        {
+            get => base.AutoSizeMode;
             set => base.AutoSizeMode = value;
         }
 
-		/// <summary>
-		/// Gets or sets which edge of the parent container a control is docked to.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public override DockStyle Dock
-		{
-			get => base.Dock;
-		    set => base.Dock = value;
-		}
+        /// <summary>
+        /// Gets or sets which edge of the parent container a control is docked to.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public override DockStyle Dock
+        {
+            get => base.Dock;
+            set => base.Dock = value;
+        }
 
-		/// <summary>
-		/// Gets or sets the coordinates of the upper-left corner of the control relative to the upper-left corner of its container.
-		/// </summary>
-		[Browsable(false)]
-		[Bindable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new Point Location
-		{
-			get => base.Location;
-		    set => base.Location = value;
-		}
+        /// <summary>
+        /// Gets or sets the coordinates of the upper-left corner of the control relative to the upper-left corner of its container.
+        /// </summary>
+        [Browsable(false)]
+        [Bindable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new Point Location
+        {
+            get => base.Location;
+            set => base.Location = value;
+        }
 
-		/// <summary>
-		/// Gets or sets the tab order of the control within its container.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new int TabIndex
-		{
-			get => base.TabIndex;
-		    set => base.TabIndex = value;
-		}
+        /// <summary>
+        /// Gets or sets the tab order of the control within its container.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new int TabIndex
+        {
+            get => base.TabIndex;
+            set => base.TabIndex = value;
+        }
 
-		/// <summary>
-		/// Gets or sets a value indicating whether the user can give the focus to this control using the TAB key.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new bool TabStop
-		{
-			get => base.TabStop;
-		    set => base.TabStop = value;
-		}
+        /// <summary>
+        /// Gets or sets a value indicating whether the user can give the focus to this control using the TAB key.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new bool TabStop
+        {
+            get => base.TabStop;
+            set => base.TabStop = value;
+        }
 
         /// <summary>
         /// Gets the string that matches the mapping request.
@@ -1318,9 +1318,9 @@ namespace ComponentFactory.Krypton.Navigator
         }
 
         /// <summary>
-		/// Raises the EnabledChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
+        /// Raises the EnabledChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
         protected override void OnEnabledChanged(EventArgs e)
         {
             // Push correct palettes into the view
@@ -1338,38 +1338,38 @@ namespace ComponentFactory.Krypton.Navigator
 
 
         /// <summary>
-		/// Raises the DockChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs containing the event data.</param>
-		protected override void OnDockChanged(EventArgs e)
-		{
+        /// Raises the DockChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs containing the event data.</param>
+        protected override void OnDockChanged(EventArgs e)
+        {
             DockChanged?.Invoke(this, e);
         }
 
-		/// <summary>
-		/// Raises the LocationChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs containing the event data.</param>
-		protected override void OnLocationChanged(EventArgs e)
-		{
+        /// <summary>
+        /// Raises the LocationChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs containing the event data.</param>
+        protected override void OnLocationChanged(EventArgs e)
+        {
             LocationChanged?.Invoke(this, e);
         }
 
-		/// <summary>
-		/// Raises the TabIndexChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs containing the event data.</param>
-		protected override void OnTabIndexChanged(EventArgs e)
-		{
+        /// <summary>
+        /// Raises the TabIndexChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs containing the event data.</param>
+        protected override void OnTabIndexChanged(EventArgs e)
+        {
             TabIndexChanged?.Invoke(this, e);
         }
 
-		/// <summary>
-		/// Raises the TabStopChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs containing the event data.</param>
-		protected override void OnTabStopChanged(EventArgs e)
-		{
+        /// <summary>
+        /// Raises the TabStopChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs containing the event data.</param>
+        protected override void OnTabStopChanged(EventArgs e)
+        {
             TabStopChanged?.Invoke(this, e);
         }
 
@@ -1410,18 +1410,18 @@ namespace ComponentFactory.Krypton.Navigator
         }
 
         /// <summary>
-		/// Processes the need for a repaint for the disabled palette values.
-		/// </summary>
+        /// Processes the need for a repaint for the disabled palette values.
+        /// </summary>
         /// <param name="sender">Source of the event.</param>
         /// <param name="e">An NeedLayoutEventArgs containing event data.</param>
         protected virtual void OnNeedDisabledPaint(object sender, NeedLayoutEventArgs e)
-		{
+        {
             if (!Enabled)
             {
                 OnAppearancePropertyChanged("Palette");
                 OnNeedPaint(this, e);
             }
-		}
+        }
 
         /// <summary>
         /// Processes the need for a repaint for the enabled palette values.

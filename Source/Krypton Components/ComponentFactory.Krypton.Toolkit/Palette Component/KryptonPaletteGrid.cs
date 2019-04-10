@@ -13,9 +13,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage of palette grid states.
-	/// </summary>
+    /// <summary>
+    /// Storage of palette grid states.
+    /// </summary>
     public class KryptonPaletteGrid : Storage
     {
         #region Instance Fields
@@ -25,14 +25,14 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonPaletteGrid class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Redirector to inherit values from.</param>
         /// <param name="gridStyle">Grid style.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public KryptonPaletteGrid(PaletteRedirect redirect,
                                   GridStyle gridStyle,
                                   NeedPaintHandler needPaint) 
-		{
+        {
             // Create the storage objects
             StateCommon = new PaletteDataGridViewRedirect(redirect, needPaint);
             StateDisabled = new PaletteDataGridViewAll(StateCommon, needPaint);
@@ -56,15 +56,15 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region IsDefault
         /// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => StateCommon.IsDefault &&
-		                                  StateDisabled.IsDefault &&
-		                                  StateNormal.IsDefault &&
-		                                  StateTracking.IsDefault &&
-		                                  StatePressed.IsDefault &&
-		                                  StateSelected.IsDefault;
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => StateCommon.IsDefault &&
+                                          StateDisabled.IsDefault &&
+                                          StateNormal.IsDefault &&
+                                          StateTracking.IsDefault &&
+                                          StatePressed.IsDefault &&
+                                          StateSelected.IsDefault;
 
         #endregion
 

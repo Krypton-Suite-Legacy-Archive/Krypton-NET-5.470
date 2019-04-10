@@ -32,7 +32,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewRibbonManager class.
-		/// </summary>
+        /// </summary>
         /// <param name="control">Owning control.</param>
         /// <param name="viewGroups">Group view elements.</param>
         /// <param name="root">Root of the view hierarchy.</param>
@@ -44,7 +44,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                  bool minimizedMode,
                                  NeedPaintHandler needPaintDelegate)
             : base(control, root)
-		{
+        {
             Debug.Assert(viewGroups != null);
             Debug.Assert(root != null);
             Debug.Assert(needPaintDelegate != null);
@@ -54,7 +54,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _needPaintDelegate = needPaintDelegate;
             _active = true;
             _minimizedMode = minimizedMode;
-		}
+        }
         #endregion
 
         #region Active
@@ -85,10 +85,10 @@ namespace ComponentFactory.Krypton.Ribbon
         #endregion
 
         #region GetPreferredSize
-		/// <summary>
-		/// Discover the preferred size of the view.
-		/// </summary>
-		/// <param name="renderer">Renderer provider.</param>
+        /// <summary>
+        /// Discover the preferred size of the view.
+        /// </summary>
+        /// <param name="renderer">Renderer provider.</param>
         /// <param name="proposedSize">The custom-sized area for a control.</param>
         public override Size GetPreferredSize(IRenderer renderer,
                                               Size proposedSize)
@@ -103,8 +103,8 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Layout
         /// <summary>
-		/// Perform a layout of the view.
-		/// </summary>
+        /// Perform a layout of the view.
+        /// </summary>
         /// <param name="context">View context for layout operation.</param>
         public override void Layout(ViewLayoutContext context)
         {

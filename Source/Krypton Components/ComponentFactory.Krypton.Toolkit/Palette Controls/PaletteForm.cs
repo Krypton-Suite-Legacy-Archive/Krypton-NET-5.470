@@ -15,21 +15,21 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Implement storage for PaletteForm states.
-	/// </summary>
-	public class PaletteForm : PaletteDouble,
+    /// <summary>
+    /// Implement storage for PaletteForm states.
+    /// </summary>
+    public class PaletteForm : PaletteDouble,
                                IPaletteMetric
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private IPaletteMetric _inherit;
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteForm class.
-		/// </summary>
+        /// </summary>
         /// <param name="inheritForm">Source for inheriting palette defaulted values.</param>
         /// <param name="inheritHeader">Source for inheriting header defaulted values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
@@ -37,26 +37,26 @@ namespace ComponentFactory.Krypton.Toolkit
                            PaletteTripleMetricRedirect inheritHeader,
                            NeedPaintHandler needPaint)
             : base(inheritForm, needPaint)
-		{
+        {
             Debug.Assert(inheritForm != null);
             Debug.Assert(inheritHeader != null);
 
             // Remember the inheritance
             _inherit = inheritForm;
 
-			// Create the palette storage
+            // Create the palette storage
             Header = new PaletteTripleMetric(inheritHeader, needPaint);
         }
-		#endregion
+        #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (base.IsDefault && Header.IsDefault);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (base.IsDefault && Header.IsDefault);
 
-	    #endregion
+        #endregion
 
         #region SetInherit
         /// <summary>
@@ -73,18 +73,18 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Header
         /// <summary>
-		/// Gets access to the header appearance entries.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Overrides for defining header appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        /// Gets access to the header appearance entries.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Overrides for defining header appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTripleMetric Header { get; }
 
-	    private bool ShouldSerializeHeader()
-		{
-			return !Header.IsDefault;
-		}
-		#endregion
+        private bool ShouldSerializeHeader()
+        {
+            return !Header.IsDefault;
+        }
+        #endregion
 
         #region IPaletteMetric
         /// <summary>

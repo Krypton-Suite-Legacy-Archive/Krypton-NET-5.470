@@ -14,31 +14,31 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for separator entries of the professional color table.
-	/// </summary>
+    /// <summary>
+    /// Storage for separator entries of the professional color table.
+    /// </summary>
     public class KryptonPaletteTMSSeparator : KryptonPaletteTMSBase
     {
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonPaletteKCTSeparator class.
-		/// </summary>
+        /// </summary>
         /// <param name="internalKCT">Reference to inherited values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         internal KryptonPaletteTMSSeparator(KryptonInternalKCT internalKCT,
                                             NeedPaintHandler needPaint)
             : base(internalKCT, needPaint)
-		{
-		}
+        {
+        }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (InternalKCT.InternalSeparatorDark == Color.Empty) &&
-		                                  (InternalKCT.InternalSeparatorLight == Color.Empty);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (InternalKCT.InternalSeparatorDark == Color.Empty) &&
+                                          (InternalKCT.InternalSeparatorLight == Color.Empty);
 
         #endregion
 

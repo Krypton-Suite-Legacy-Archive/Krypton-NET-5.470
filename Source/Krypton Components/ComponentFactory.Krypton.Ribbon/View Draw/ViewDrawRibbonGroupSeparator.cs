@@ -17,9 +17,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws a long vertical group separator.
-	/// </summary>
+    /// <summary>
+    /// Draws a long vertical group separator.
+    /// </summary>
     internal class ViewDrawRibbonGroupSeparator : ViewLeaf,
                                                   IRibbonViewGroupContainerView
     {
@@ -39,7 +39,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonGroupSeparator class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonSeparator">Reference to group separator definition.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
@@ -77,15 +77,15 @@ namespace ComponentFactory.Krypton.Ribbon
             _preferredSize = _preferredSize2007;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonGroupSeparator:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.
@@ -224,10 +224,10 @@ namespace ComponentFactory.Krypton.Ribbon
             return _preferredSize;
         }
 
-		/// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
+        /// <summary>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
         public override void Layout(ViewLayoutContext context)
         {
             Debug.Assert(context != null);

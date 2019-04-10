@@ -15,31 +15,31 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Process mouse events for a ribbon group domain up-down.
-	/// </summary>
+    /// <summary>
+    /// Process mouse events for a ribbon group domain up-down.
+    /// </summary>
     internal class DomainUpDownController : GlobalId,
                                             ISourceController,
                                             IKeyController,
                                             IRibbonKeyTipTarget
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly KryptonRibbon _ribbon;
         private readonly KryptonRibbonGroupDomainUpDown _domainUpDown;
         private readonly ViewDrawRibbonGroupDomainUpDown _target;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the DomainUpDownController class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         /// <param name="domainUpDown">Source definition.</param>
         /// <param name="target">Target view element.</param>
         public DomainUpDownController(KryptonRibbon ribbon,
                                       KryptonRibbonGroupDomainUpDown domainUpDown,
                                       ViewDrawRibbonGroupDomainUpDown target)
-		{
+        {
             Debug.Assert(ribbon != null);
             Debug.Assert(domainUpDown != null);
             Debug.Assert(target != null);
@@ -48,7 +48,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _domainUpDown = domainUpDown;
             _target = target;
         }
-		#endregion
+        #endregion
 
         #region Focus Notifications
         /// <summary>

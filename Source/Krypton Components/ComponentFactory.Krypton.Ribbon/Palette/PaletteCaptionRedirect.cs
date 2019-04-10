@@ -19,14 +19,14 @@ namespace ComponentFactory.Krypton.Ribbon
     internal class PaletteCaptionRedirect : PaletteRedirect
     {
         #region Identity
-		/// <summary>
+        /// <summary>
         /// Initialize a new instance of the PaletteCaptionRedirect class.
-		/// </summary>
+        /// </summary>
         /// <param name="target">Initial palette target for redirection.</param>
         public PaletteCaptionRedirect(IPalette target)
             : base(target)
-		{
-		}
+        {
+        }
         #endregion
 
         #region GetBorderDrawBorders

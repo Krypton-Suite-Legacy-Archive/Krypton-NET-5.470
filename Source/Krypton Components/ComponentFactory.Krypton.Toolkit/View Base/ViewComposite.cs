@@ -17,32 +17,32 @@ using System.Linq;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Extends the base class by managing a collection of child views.
-	/// </summary>
-	public abstract class ViewComposite : ViewBase
-	{
-		#region Instance Fields
-		private readonly List<ViewBase> _views;
+    /// <summary>
+    /// Extends the base class by managing a collection of child views.
+    /// </summary>
+    public abstract class ViewComposite : ViewBase
+    {
+        #region Instance Fields
+        private readonly List<ViewBase> _views;
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
-		/// Initialize a new instance of the ViewComposite class.
-		/// </summary>
-		protected ViewComposite()
-		{
-			// Default state
-			_views = new List<ViewBase>();
-		}
+        #region Identity
+        /// <summary>
+        /// Initialize a new instance of the ViewComposite class.
+        /// </summary>
+        protected ViewComposite()
+        {
+            // Default state
+            _views = new List<ViewBase>();
+        }
 
-		/// <summary>
-		/// Release unmanaged and optionally managed resources.
-		/// </summary>
-		/// <param name="disposing">Called from Dispose method.</param>
-		protected override void Dispose(bool disposing)
-		{
+        /// <summary>
+        /// Release unmanaged and optionally managed resources.
+        /// </summary>
+        /// <param name="disposing">Called from Dispose method.</param>
+        protected override void Dispose(bool disposing)
+        {
             // Dispose of all child views
             while (Count > 0)
             {
@@ -52,20 +52,20 @@ namespace ComponentFactory.Krypton.Toolkit
 
             _views.Clear();
             
-			// Must call base class to finish disposing
-			base.Dispose(disposing);
-		}
+            // Must call base class to finish disposing
+            base.Dispose(disposing);
+        }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier with child count
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier with child count
             return "ViewComposite:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region ReverseRenderOrder
         /// <summary>
@@ -73,7 +73,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool ReverseRenderOrder { get; set; }
 
-	    #endregion
+        #endregion
 
         #region Eval
         /// <summary>
@@ -104,28 +104,28 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Layout
-		/// <summary>
-		/// Discover the preferred size of the element.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override Size GetPreferredSize(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        #region Layout
+        /// <summary>
+        /// Discover the preferred size of the element.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override Size GetPreferredSize(ViewLayoutContext context)
+        {
+            Debug.Assert(context != null);
 
-			// As a composite we have no preferred size ourself
-			Size preferredSize = Size.Empty;
+            // As a composite we have no preferred size ourself
+            Size preferredSize = Size.Empty;
 
-			foreach (ViewBase child in this)
-			{
-				// Only investigate visible children
-				if (child.Visible)
-				{
-					// Ask child for it's own preferred size
-					Size childPreferred = child.GetPreferredSize(context);
+            foreach (ViewBase child in this)
+            {
+                // Only investigate visible children
+                if (child.Visible)
+                {
+                    // Ask child for it's own preferred size
+                    Size childPreferred = child.GetPreferredSize(context);
 
-					// As a composite we need to be big enough to encompass the largest child
-					if (childPreferred.Width > preferredSize.Width)
+                    // As a composite we need to be big enough to encompass the largest child
+                    if (childPreferred.Width > preferredSize.Width)
                     {
                         preferredSize.Width = childPreferred.Width;
                     }
@@ -135,44 +135,44 @@ namespace ComponentFactory.Krypton.Toolkit
                         preferredSize.Height = childPreferred.Height;
                     }
                 }
-			}
+            }
 
-			return preferredSize;
-		}
+            return preferredSize;
+        }
 
-		/// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        /// <summary>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
+            Debug.Assert(context != null);
 
-			// Ask each child to layout in turn
-			foreach (ViewBase child in this)
-			{
-				// Only layout visible children
-				if (child.Visible)
+            // Ask each child to layout in turn
+            foreach (ViewBase child in this)
+            {
+                // Only layout visible children
+                if (child.Visible)
                 {
                     child.Layout(context);
                 }
             }
-		}
-		#endregion
+        }
+        #endregion
 
-		#region Paint
-		/// <summary>
-		/// Perform a render of the elements.
-		/// </summary>
-		/// <param name="context">Rendering context.</param>
-		public override void Render(RenderContext context)
-		{
-			Debug.Assert(context != null);
+        #region Paint
+        /// <summary>
+        /// Perform a render of the elements.
+        /// </summary>
+        /// <param name="context">Rendering context.</param>
+        public override void Render(RenderContext context)
+        {
+            Debug.Assert(context != null);
 
-			// Perform rendering before any children
-			RenderBefore(context);
+            // Perform rendering before any children
+            RenderBefore(context);
 
-		    IEnumerable<ViewBase> ordering = ReverseRenderOrder ? Reverse() : this;
+            IEnumerable<ViewBase> ordering = ReverseRenderOrder ? Reverse() : this;
 
             // Ask each child to render in turn
             foreach (ViewBase child in ordering
@@ -183,22 +183,22 @@ namespace ComponentFactory.Krypton.Toolkit
                 child.Render(context);
             }
 
-			// Perform rendering after that of children
-			RenderAfter(context);
-		}
-		#endregion
+            // Perform rendering after that of children
+            RenderAfter(context);
+        }
+        #endregion
 
-		#region Collection
+        #region Collection
 
-	    /// <summary>
-	    /// Append a view to the collection.
-	    /// </summary>
-	    /// <param name="item">ViewBase reference.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    public override void Add(ViewBase item)
-		{
-			// We do not allow null references in the collection
-			if (item == null)
+        /// <summary>
+        /// Append a view to the collection.
+        /// </summary>
+        /// <param name="item">ViewBase reference.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public override void Add(ViewBase item)
+        {
+            // We do not allow null references in the collection
+            if (item == null)
             {
                 throw new ArgumentNullException(nameof(item), @"Cannot add a null view into a composite view.");
             }
@@ -211,13 +211,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Setup back reference
                 item.Parent = this;
             }
-		}
+        }
 
-		/// <summary>
-		/// Remove all views from the collection.
-		/// </summary>
-		public override void Clear()
-		{
+        /// <summary>
+        /// Remove all views from the collection.
+        /// </summary>
+        public override void Clear()
+        {
             if (_views != null)
             {
                 // Remove back references
@@ -229,15 +229,15 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Let type safe collection perform operation
                 _views.Clear();
             }
-		}
+        }
 
-		/// <summary>
-		/// Determines whether the collection contains the view.
-		/// </summary>
-		/// <param name="item">ViewBase reference.</param>
-		/// <returns>True if view found; otherwise false.</returns>
-		public override bool Contains(ViewBase item)
-		{
+        /// <summary>
+        /// Determines whether the collection contains the view.
+        /// </summary>
+        /// <param name="item">ViewBase reference.</param>
+        /// <returns>True if view found; otherwise false.</returns>
+        public override bool Contains(ViewBase item)
+        {
             // Let type safe collection perform operation
             if (_views != null)
             {
@@ -274,24 +274,24 @@ namespace ComponentFactory.Krypton.Toolkit
             return false;
         }
 
-		/// <summary>
-		/// Copies views to specified array starting at particular index.
-		/// </summary>
-		/// <param name="array">Target array.</param>
-		/// <param name="arrayIndex">Starting array index.</param>
-		public override void CopyTo(ViewBase[] array, int arrayIndex)
-		{
-		    // Let type safe collection perform operation
-		    _views?.CopyTo(array, arrayIndex);
-		}
+        /// <summary>
+        /// Copies views to specified array starting at particular index.
+        /// </summary>
+        /// <param name="array">Target array.</param>
+        /// <param name="arrayIndex">Starting array index.</param>
+        public override void CopyTo(ViewBase[] array, int arrayIndex)
+        {
+            // Let type safe collection perform operation
+            _views?.CopyTo(array, arrayIndex);
+        }
 
-		/// <summary>
-		/// Removes first occurence of specified view.
-		/// </summary>
-		/// <param name="item">ViewBase reference.</param>
-		/// <returns>True if removed; otherwise false.</returns>
-		public override bool Remove(ViewBase item)
-		{
+        /// <summary>
+        /// Removes first occurence of specified view.
+        /// </summary>
+        /// <param name="item">ViewBase reference.</param>
+        /// <returns>True if removed; otherwise false.</returns>
+        public override bool Remove(ViewBase item)
+        {
             // Let type safe collection perform operation
             bool ret = _views?.Remove(item) ?? false;
 
@@ -302,14 +302,14 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             return ret;
-		}
+        }
 
-		/// <summary>
-		/// Gets the number of views in collection.
-		/// </summary>
-		public override int Count 
-		{
-			get 
+        /// <summary>
+        /// Gets the number of views in collection.
+        /// </summary>
+        public override int Count 
+        {
+            get 
             {
                 if (_views != null)
                 {
@@ -320,16 +320,16 @@ namespace ComponentFactory.Krypton.Toolkit
                     return 0;
                 }
             }
-		}
+        }
 
-		/// <summary>
-		/// Determines the index of the specified view in the collection.
-		/// </summary>
-		/// <param name="item">ViewBase reference.</param>
-		/// <returns>-1 if not found; otherwise index position.</returns>
-		public override int IndexOf(ViewBase item)
-		{
-			// Let type safe collection perform operation
+        /// <summary>
+        /// Determines the index of the specified view in the collection.
+        /// </summary>
+        /// <param name="item">ViewBase reference.</param>
+        /// <returns>-1 if not found; otherwise index position.</returns>
+        public override int IndexOf(ViewBase item)
+        {
+            // Let type safe collection perform operation
             if (_views != null)
             {
                 return _views.IndexOf(item);
@@ -340,16 +340,16 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-	    /// <summary>
-	    /// Inserts a view to the collection at the specified index.
-	    /// </summary>
-	    /// <param name="index">Insert index.</param>
-	    /// <param name="item">ViewBase reference.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    public override void Insert(int index, ViewBase item)
-		{
-			// We do not allow null references in the collection
-			if (item == null)
+        /// <summary>
+        /// Inserts a view to the collection at the specified index.
+        /// </summary>
+        /// <param name="index">Insert index.</param>
+        /// <param name="item">ViewBase reference.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public override void Insert(int index, ViewBase item)
+        {
+            // We do not allow null references in the collection
+            if (item == null)
             {
                 throw new ArgumentNullException(nameof(item), @"Cannot insert a null view inside a composite view.");
             }
@@ -362,14 +362,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Setup back reference
                 item.Parent = this;
             }
-		}
+        }
 
-		/// <summary>
-		/// Removes the view at the specified index.
-		/// </summary>
-		/// <param name="index">Remove index.</param>
-		public override void RemoveAt(int index)
-		{
+        /// <summary>
+        /// Removes the view at the specified index.
+        /// </summary>
+        /// <param name="index">Remove index.</param>
+        public override void RemoveAt(int index)
+        {
             if (_views != null)
             {
                 // Cache reference to removing item
@@ -381,21 +381,21 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Remove back reference
                 item.Parent = null;
             }
-		}
+        }
 
-		/// <summary>
-		/// Gets or sets the view at the specified index.
-		/// </summary>
-		/// <param name="index">ViewBase index.</param>
-		/// <returns>ViewBase at specified index.</returns>
-		public override ViewBase this[int index] 
-		{ 
-			get => _views?[index];
+        /// <summary>
+        /// Gets or sets the view at the specified index.
+        /// </summary>
+        /// <param name="index">ViewBase index.</param>
+        /// <returns>ViewBase at specified index.</returns>
+        public override ViewBase this[int index] 
+        { 
+            get => _views?[index];
 
-		    set
-			{
-				// We do not allow null references in the collection
-				if (value == null)
+            set
+            {
+                // We do not allow null references in the collection
+                if (value == null)
                 {
                     throw new ArgumentNullException(nameof(value), @"Cannot set a null view into a composite view.");
                 }
@@ -414,15 +414,15 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Setup back reference to new item
                     value.Parent = this;
                 }
-			}
-		}
+            }
+        }
 
-		/// <summary>
-		/// Shallow enumerate forward over children of the element.
-		/// </summary>
-		/// <returns>Enumerator instance.</returns>
-		public override IEnumerator<ViewBase> GetEnumerator()
-		{
+        /// <summary>
+        /// Shallow enumerate forward over children of the element.
+        /// </summary>
+        /// <returns>Enumerator instance.</returns>
+        public override IEnumerator<ViewBase> GetEnumerator()
+        {
             // Use the boilerplate enumerator exposed from the IList<T>
             if (_views != null)
             {
@@ -434,12 +434,12 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Deep enumerate forward over children of the element.
-		/// </summary>
-		/// <returns>Enumerator instance.</returns>
-		public override IEnumerable<ViewBase> Recurse()
-		{
+        /// <summary>
+        /// Deep enumerate forward over children of the element.
+        /// </summary>
+        /// <returns>Enumerator instance.</returns>
+        public override IEnumerable<ViewBase> Recurse()
+        {
             if (_views != null)
             {
                 // Enumerate each child in turn
@@ -457,12 +457,12 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Shallow enumerate backwards over children of the element.
-		/// </summary>
-		/// <returns>Enumerator instance.</returns>
-		public override IEnumerable<ViewBase> Reverse()
-		{
+        /// <summary>
+        /// Shallow enumerate backwards over children of the element.
+        /// </summary>
+        /// <returns>Enumerator instance.</returns>
+        public override IEnumerable<ViewBase> Reverse()
+        {
             if (_views != null)
             {
                 // Return the child views in reverse order
@@ -471,31 +471,31 @@ namespace ComponentFactory.Krypton.Toolkit
                     yield return _views[i];
                 }
             }
-		}
+        }
 
-		/// <summary>
-		/// Deep enumerate backwards over children of the element.
-		/// </summary>
-		/// <returns>Enumerator instance.</returns>
-		public override IEnumerable<ViewBase> ReverseRecurse()
-		{
+        /// <summary>
+        /// Deep enumerate backwards over children of the element.
+        /// </summary>
+        /// <returns>Enumerator instance.</returns>
+        public override IEnumerable<ViewBase> ReverseRecurse()
+        {
             if (_views != null)
             {
-			    // Enumerate the child views in reverse order
-			    for (int i = _views.Count - 1; i >= 0; i--)
-			    {
-				    // Traverse the view first
-				    yield return _views[i];
+                // Enumerate the child views in reverse order
+                for (int i = _views.Count - 1; i >= 0; i--)
+                {
+                    // Traverse the view first
+                    yield return _views[i];
 
-				    // Recurse inside the child view
-				    foreach (ViewBase child in _views[i].Recurse())
+                    // Recurse inside the child view
+                    foreach (ViewBase child in _views[i].Recurse())
                     {
                         yield return child;
                     }
                 }
             }
         }
-		#endregion
+        #endregion
 
         #region FixedState
         /// <summary>
@@ -534,18 +534,18 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region ViewFromPoint
-		/// <summary>
-		/// Find the view that contains the specified point.
-		/// </summary>
-		/// <param name="pt">Point in view coordinates.</param>
-		/// <returns>ViewBase if a match is found; otherwise false.</returns>
-		public override ViewBase ViewFromPoint(Point pt)
-		{
-			ViewBase ret = null;
+        #region ViewFromPoint
+        /// <summary>
+        /// Find the view that contains the specified point.
+        /// </summary>
+        /// <param name="pt">Point in view coordinates.</param>
+        /// <returns>ViewBase if a match is found; otherwise false.</returns>
+        public override ViewBase ViewFromPoint(Point pt)
+        {
+            ViewBase ret = null;
 
-			// Do we contain the point?
-			if (ClientRectangle.Contains(pt))
+            // Do we contain the point?
+            if (ClientRectangle.Contains(pt))
             {
                 // Give children a chance to specify a more accurate match but
                 // we search the children in reverse order as the last child in 
@@ -561,14 +561,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 // If none of the children, match then we do
-				if (ret == null)
+                if (ret == null)
                 {
                     ret = this;
                 }
             }
 
-			return ret;
-		}
-		#endregion
-	}
+            return ret;
+        }
+        #endregion
+    }
 }

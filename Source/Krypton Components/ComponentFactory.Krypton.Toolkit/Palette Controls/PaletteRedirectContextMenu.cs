@@ -14,31 +14,31 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Redirects requests for context menu images from the ContextMenuImages instance.
-	/// </summary>
+    /// <summary>
+    /// Redirects requests for context menu images from the ContextMenuImages instance.
+    /// </summary>
     public class PaletteRedirectContextMenu : PaletteRedirect
     {
         #region Instance Fields
         private readonly ContextMenuImages _images;
-		#endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteRedirectContextMenu class.
-		/// </summary>
+        /// </summary>
         /// <param name="target">Initial palette target for redirection.</param>
         /// <param name="images">Reference to source of context menu images.</param>
         public PaletteRedirectContextMenu(IPalette target,
                                           ContextMenuImages images)
             : base(target)
-		{
+        {
             Debug.Assert(images != null);
 
             // Remember incoming target
             _images = images;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Images
         /// <summary>

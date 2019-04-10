@@ -14,9 +14,9 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for an individual navigator states.
-	/// </summary>
+    /// <summary>
+    /// Storage for an individual navigator states.
+    /// </summary>
     public class KryptonPaletteNavigatorState : Storage
     {
         #region Instance Fields

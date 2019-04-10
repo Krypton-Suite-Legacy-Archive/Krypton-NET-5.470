@@ -25,12 +25,12 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the HeaderGroupButtonSpec class.
-		/// </summary>
+        /// </summary>
         public ButtonSpecHeaderGroup()
-		{
+        {
             _location = HeaderLocation.PrimaryHeader;
-		}
-		#endregion
+        }
+        #endregion
 
         #region IsDefault
         /// <summary>

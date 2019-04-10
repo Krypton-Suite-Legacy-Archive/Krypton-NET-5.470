@@ -14,9 +14,9 @@ using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Provides the Silver color scheme variant of the Office 2007 palette.
-	/// </summary>
+    /// <summary>
+    /// Provides the Silver color scheme variant of the Office 2007 palette.
+    /// </summary>
     public class PaletteOffice2007Silver : PaletteOffice2007Base
     {
         #region Static Fields
@@ -284,7 +284,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// Initialize a new instance of the PaletteOffice2007Silver class.
-		/// </summary>
+        /// </summary>
         public PaletteOffice2007Silver()
             : base(_schemeColors,
                    _checkBoxList,
@@ -292,16 +292,16 @@ namespace ComponentFactory.Krypton.Toolkit
                    _radioButtonArray,
                    _trackBarColors)
         {
-		}
-		#endregion
+        }
+        #endregion
 
         #region Back
-		/// <summary>
-		/// Gets the color background drawing style.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color drawing style.</returns>
+        /// <summary>
+        /// Gets the color background drawing style.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color drawing style.</returns>
         public override PaletteColorStyle GetBackColorStyle(PaletteBackStyle style, PaletteState state)
         {
             switch (style)

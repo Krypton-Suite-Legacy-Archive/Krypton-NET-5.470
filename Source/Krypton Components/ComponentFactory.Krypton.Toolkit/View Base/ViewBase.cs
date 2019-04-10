@@ -142,9 +142,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Enabled
         /// <summary>
-		/// Gets and sets the enabled state of the element.
-		/// </summary>
-		public virtual bool Enabled
+        /// Gets and sets the enabled state of the element.
+        /// </summary>
+        public virtual bool Enabled
         {
             [System.Diagnostics.DebuggerStepThrough]
             get { return _enabled; }
@@ -254,10 +254,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Layout
         /// <summary>
-		/// Discover the preferred size of the element.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public abstract Size GetPreferredSize(ViewLayoutContext context);
+        /// Discover the preferred size of the element.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public abstract Size GetPreferredSize(ViewLayoutContext context);
 
         /// <summary>
         /// Perform a layout of the elements.
@@ -457,8 +457,8 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Mouse has entered the view.
-		/// </summary>
+        /// Mouse has entered the view.
+        /// </summary>
         public virtual void MouseEnter()
         {
             // Use mouse controller as first preference
@@ -798,11 +798,11 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region ViewFromPoint
         /// <summary>
-		/// Find the view that contains the specified point.
-		/// </summary>
-		/// <param name="pt">Point in view coordinates.</param>
-		/// <returns>ViewBase if a match is found; otherwise false.</returns>
-		public abstract ViewBase ViewFromPoint(Point pt);
+        /// Find the view that contains the specified point.
+        /// </summary>
+        /// <param name="pt">Point in view coordinates.</param>
+        /// <returns>ViewBase if a match is found; otherwise false.</returns>
+        public abstract ViewBase ViewFromPoint(Point pt);
         #endregion
     }
 }

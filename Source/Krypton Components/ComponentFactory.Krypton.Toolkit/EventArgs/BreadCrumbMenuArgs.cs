@@ -11,16 +11,16 @@
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Details of the context menu showing related to a bread crumb.
-	/// </summary>
+    /// <summary>
+    /// Details of the context menu showing related to a bread crumb.
+    /// </summary>
     public class BreadCrumbMenuArgs : ContextPositionMenuArgs
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
+        #region Identity
         /// <summary>
         /// Initialize a new instance of the ContextMenuArgs class.
         /// </summary>
@@ -38,12 +38,12 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Public
-		/// <summary>
+        #region Public
+        /// <summary>
         /// Gets and sets the crumb related to the event.
-		/// </summary>
+        /// </summary>
         public KryptonBreadCrumbItem Crumb { get; set; }
 
-	    #endregion
-	}
+        #endregion
+    }
 }

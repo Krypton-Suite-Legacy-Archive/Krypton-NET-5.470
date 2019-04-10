@@ -15,31 +15,31 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Process mouse events for a ribbon group custom control.
-	/// </summary>
+    /// <summary>
+    /// Process mouse events for a ribbon group custom control.
+    /// </summary>
     internal class CustomControlController : GlobalId,
                                              ISourceController,
                                              IKeyController,
                                              IRibbonKeyTipTarget
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly KryptonRibbon _ribbon;
         private readonly KryptonRibbonGroupCustomControl _customControl;
         private readonly ViewDrawRibbonGroupCustomControl _target;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the CustomControlController class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         /// <param name="customControl">Source definition.</param>
         /// <param name="target">Target view element.</param>
         public CustomControlController(KryptonRibbon ribbon,
                                        KryptonRibbonGroupCustomControl customControl,
                                        ViewDrawRibbonGroupCustomControl target)
-		{
+        {
             Debug.Assert(ribbon != null);
             Debug.Assert(customControl != null);
             Debug.Assert(customControl != null);
@@ -48,7 +48,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _customControl = customControl;
             _target = target;
         }
-		#endregion
+        #endregion
 
         #region Focus Notifications
         /// <summary>

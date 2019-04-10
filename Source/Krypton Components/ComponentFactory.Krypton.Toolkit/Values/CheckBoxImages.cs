@@ -14,9 +14,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for check box images.
-	/// </summary>
+    /// <summary>
+    /// Storage for check box images.
+    /// </summary>
     public class CheckBoxImages : Storage
     {
         #region Instance Fields
@@ -38,7 +38,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the CheckBoxImages class.
-		/// </summary>
+        /// </summary>
         public CheckBoxImages()
             : this(null)
         {
@@ -46,10 +46,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// Initialize a new instance of the CheckBoxImages class.
-		/// </summary>
+        /// </summary>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public CheckBoxImages(NeedPaintHandler needPaint) 
-		{
+        {
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
 
@@ -70,24 +70,24 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (_common == null) &&
-		                                  (_uncheckedDisabled == null) &&
-		                                  (_uncheckedNormal == null) &&
-		                                  (_uncheckedTracking == null) &&
-		                                  (_uncheckedPressed == null) &&
-		                                  (_checkedDisabled == null) &&
-		                                  (_checkedNormal == null) &&
-		                                  (_checkedTracking == null) &&
-		                                  (_checkedPressed == null) &&
-		                                  (_indeterminateDisabled == null) &&
-		                                  (_indeterminateNormal == null) &&
-		                                  (_indeterminateTracking == null) &&
-		                                  (_indeterminatePressed == null);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (_common == null) &&
+                                          (_uncheckedDisabled == null) &&
+                                          (_uncheckedNormal == null) &&
+                                          (_uncheckedTracking == null) &&
+                                          (_uncheckedPressed == null) &&
+                                          (_checkedDisabled == null) &&
+                                          (_checkedNormal == null) &&
+                                          (_checkedTracking == null) &&
+                                          (_checkedPressed == null) &&
+                                          (_indeterminateDisabled == null) &&
+                                          (_indeterminateNormal == null) &&
+                                          (_indeterminateTracking == null) &&
+                                          (_indeterminatePressed == null);
 
         #endregion
 

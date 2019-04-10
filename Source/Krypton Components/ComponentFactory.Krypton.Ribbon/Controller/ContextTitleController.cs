@@ -30,14 +30,14 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ContextTitleController class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         public ContextTitleController(KryptonRibbon ribbon)
-		{
+        {
             Debug.Assert(ribbon != null);
             _ribbon = ribbon;
         }
-		#endregion
+        #endregion
 
         #region ContextTabSet
         /// <summary>

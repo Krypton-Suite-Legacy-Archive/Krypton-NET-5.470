@@ -353,10 +353,10 @@ namespace ComponentFactory.Krypton.Navigator
         #endregion
 
         #region Paint
-		/// <summary>
-		/// Perform a render of the elements.
-		/// </summary>
-		/// <param name="context">Rendering context.</param>
+        /// <summary>
+        /// Perform a render of the elements.
+        /// </summary>
+        /// <param name="context">Rendering context.</param>
         public override void Render(RenderContext context)
         {
             // Ensure we are using the correct palette

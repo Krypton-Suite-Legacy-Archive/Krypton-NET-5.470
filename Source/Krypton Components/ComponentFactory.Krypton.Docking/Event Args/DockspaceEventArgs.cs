@@ -13,40 +13,40 @@ using System;
 
 namespace ComponentFactory.Krypton.Docking
 {
-	/// <summary>
+    /// <summary>
     /// Event arguments for a DockspaceAdding/DockspaceRemoved events.
-	/// </summary>
-	public class DockspaceEventArgs : EventArgs
-	{
-		#region Instance Fields
+    /// </summary>
+    public class DockspaceEventArgs : EventArgs
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the DockspaceEventArgs class.
-		/// </summary>
+        /// </summary>
         /// <param name="dockspace">Reference to new dockspace control instance.</param>
         /// <param name="element">Reference to docking dockspace element that is managing the dockspace control.</param>
         public DockspaceEventArgs(KryptonDockspace dockspace,
                                   KryptonDockingDockspace element)
-		{
+        {
             DockspaceControl = dockspace;
             DockspaceElement = element;
-		}
+        }
         #endregion
 
-		#region Public
+        #region Public
         /// <summary>
         /// Gets a reference to the KryptonDockspace control.
         /// </summary>
         public KryptonDockspace DockspaceControl { get; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets a reference to the KryptonDockingDockspace that is managing the dockspace control.
         /// </summary>
         public KryptonDockingDockspace DockspaceElement { get; }
 
-	    #endregion
-	}
+        #endregion
+    }
 }

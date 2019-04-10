@@ -13,19 +13,19 @@ using System.Drawing;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for button content value information.
-	/// </summary>
+    /// <summary>
+    /// Storage for button content value information.
+    /// </summary>
     public class CheckButtonValues : ButtonValues
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private CheckButtonImageStates _imageStates;
-		#endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
-		/// Initialize a new instance of the CheckButtonValues class.
-		/// </summary>
+        #region Identity
+        /// <summary>
+        /// Initialize a new instance of the CheckButtonValues class.
+        /// </summary>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public CheckButtonValues(NeedPaintHandler needPaint)
             : base(needPaint)

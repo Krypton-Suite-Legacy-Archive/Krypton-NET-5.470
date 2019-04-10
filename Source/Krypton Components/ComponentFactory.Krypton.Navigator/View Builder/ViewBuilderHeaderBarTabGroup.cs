@@ -17,11 +17,11 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
+    /// <summary>
     /// Implements the NavigatorMode.HeaderGroupTab view.
-	/// </summary>
+    /// </summary>
     internal class ViewBuilderHeaderBarTabGroup : ViewBuilderBarTabBase
-	{
+    {
         #region Instance Fields
         private ViewLayoutInsetOverlap _layoutOverlap;
         private ViewDrawDocker _viewHeadingPrimary;
@@ -54,7 +54,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public override bool IsTabStripMode => false;
 
-	    /// <summary>
+        /// <summary>
         /// Gets the ButtonSpec associated with the provided view element.
         /// </summary>
         /// <param name="element">Element to search against.</param>

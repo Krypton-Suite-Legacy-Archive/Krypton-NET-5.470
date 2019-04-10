@@ -16,53 +16,53 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Base class from which all decorator views inherit.
-	/// </summary>
+    /// <summary>
+    /// Base class from which all decorator views inherit.
+    /// </summary>
     public abstract class ViewDecorator : ViewBase
-	{
-		#region Instance Fields
-		private ViewBase _child;
-		#endregion
+    {
+        #region Instance Fields
+        private ViewBase _child;
+        #endregion
 
-		#region Identity
-		/// <summary>
-		/// Initialize a new instance of the ViewBase class.
-		/// </summary>
-		protected ViewDecorator(ViewBase child)
-		{
+        #region Identity
+        /// <summary>
+        /// Initialize a new instance of the ViewBase class.
+        /// </summary>
+        protected ViewDecorator(ViewBase child)
+        {
             Debug.Assert(child != null);
             _child = child;
             _child.Parent = this;
-		}
+        }
 
-		/// <summary>
-		/// Release unmanaged and optionally managed resources.
-		/// </summary>
-		/// <param name="disposing">Called from Dispose method.</param>
-		protected override void Dispose(bool disposing)
-		{
-			// If called from explicit call to Dispose
-			if (disposing)
-			{
+        /// <summary>
+        /// Release unmanaged and optionally managed resources.
+        /// </summary>
+        /// <param name="disposing">Called from Dispose method.</param>
+        protected override void Dispose(bool disposing)
+        {
+            // If called from explicit call to Dispose
+            if (disposing)
+            {
                 if (_child != null)
                 {
                     _child.Dispose();
                     _child = null;
                 }
-			}
-		}
+            }
+        }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDecorator:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Enabled
         /// <summary>
@@ -239,7 +239,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public override int Count => _child.Count;
 
-	    /// <summary>
+        /// <summary>
         /// Determines the index of the specified view in the collection.
         /// </summary>
         /// <param name="item">ViewBase reference.</param>
@@ -514,7 +514,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public override bool IsFixed => _child.IsFixed;
 
-	    #endregion
+        #endregion
 
         #region EnableDependant
         /// <summary>
@@ -531,7 +531,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public override bool IsEnableDependant => _child.IsEnableDependant;
 
-	    #endregion
+        #endregion
 
         #region ViewFromPoint
         /// <summary>

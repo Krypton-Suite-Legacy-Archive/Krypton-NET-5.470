@@ -15,9 +15,9 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for ribbon background and text values.
-	/// </summary>
+    /// <summary>
+    /// Storage for ribbon background and text values.
+    /// </summary>
     public class PaletteRibbonDouble : Storage,
                                        IPaletteRibbonBack,
                                        IPaletteRibbonText
@@ -36,14 +36,14 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteRibbonDouble class.
-		/// </summary>
+        /// </summary>
         /// <param name="inheritBack">Source for inheriting background values.</param>
         /// <param name="inheritText">Source for inheriting text values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteRibbonDouble(IPaletteRibbonBack inheritBack,
                                    IPaletteRibbonText inheritText,
                                    NeedPaintHandler needPaint) 
-		{
+        {
             Debug.Assert(inheritBack != null);
             Debug.Assert(inheritText != null);
 
@@ -64,17 +64,17 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (BackColor1 == Color.Empty) &&
-		                                  (BackColor2 == Color.Empty) &&
-		                                  (BackColor3 == Color.Empty) &&
-		                                  (BackColor4 == Color.Empty) &&
-		                                  (BackColor5 == Color.Empty) &&
-		                                  (TextColor == Color.Empty);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (BackColor1 == Color.Empty) &&
+                                          (BackColor2 == Color.Empty) &&
+                                          (BackColor3 == Color.Empty) &&
+                                          (BackColor4 == Color.Empty) &&
+                                          (BackColor5 == Color.Empty) &&
+                                          (TextColor == Color.Empty);
 
         #endregion
 

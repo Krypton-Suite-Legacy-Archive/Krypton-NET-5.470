@@ -15,23 +15,23 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Draws the month day names.
-	/// </summary>
-	public class ViewDrawMonthDayNames : ViewLeaf,
+    /// <summary>
+    /// Draws the month day names.
+    /// </summary>
+    public class ViewDrawMonthDayNames : ViewLeaf,
                                          IContentValues
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly IKryptonMonthCalendar _calendar;
         private readonly ViewLayoutMonths _months;
         private readonly IDisposable[] _dayMementos;
         private string _drawText;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the ViewDrawMonthDayNames class.
-		/// </summary>
+        /// </summary>
         /// <param name="calendar">Reference to calendar provider.</param>
         /// <param name="months">Reference to months instance.</param>
         public ViewDrawMonthDayNames(IKryptonMonthCalendar calendar, ViewLayoutMonths months)
@@ -43,15 +43,15 @@ namespace ComponentFactory.Krypton.Toolkit
             _dayMementos = new IDisposable[7];
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawMonthDayNames:" + Id;
-		}
+        }
 
         /// <summary>
         /// Release unmanaged and optionally managed resources.
@@ -71,7 +71,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             base.Dispose(disposing);
         }
-		#endregion
+        #endregion
 
         #region Layout
         /// <summary>
@@ -94,9 +94,9 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         
         /// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
         public override void Layout(ViewLayoutContext context)
         {
             Debug.Assert(context != null);

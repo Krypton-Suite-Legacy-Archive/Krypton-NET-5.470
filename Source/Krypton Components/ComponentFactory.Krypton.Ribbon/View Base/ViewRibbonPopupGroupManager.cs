@@ -30,7 +30,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewRibbonPopupGroupManager class.
-		/// </summary>
+        /// </summary>
         /// <param name="control">Owning control.</param>
         /// <param name="ribbon">Owning ribbon control instance.</param>
         /// <param name="root">View for group we are tracking.</param>
@@ -42,7 +42,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                            ViewDrawRibbonGroup viewGroup,
                                            NeedPaintHandler needPaintDelegate)
             : base(control, root)
-		{
+        {
             Debug.Assert(ribbon != null);
             Debug.Assert(viewGroup != null);
             Debug.Assert(needPaintDelegate != null);
@@ -50,7 +50,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbon = ribbon;
             _viewGroup = viewGroup;
             _needPaintDelegate = needPaintDelegate;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.

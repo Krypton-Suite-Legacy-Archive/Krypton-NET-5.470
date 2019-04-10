@@ -848,6 +848,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Protected Virtual
+        // ReSharper disable VirtualMemberNeverOverridden.Global
         /// <summary>
         /// Suspend processing of non-client painting.
         /// </summary>
@@ -1585,7 +1586,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets and sets the need to layout the view.
         /// </summary>
         protected bool NeedLayout { get; set; }
-
+        // ReSharper restore VirtualMemberNeverOverridden.Global
         #endregion
 
         #region Protected Chrome

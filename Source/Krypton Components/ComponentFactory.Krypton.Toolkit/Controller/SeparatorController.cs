@@ -215,7 +215,7 @@ namespace ComponentFactory.Krypton.Toolkit
     //       #region Identity
     //       /// <summary>
     //       /// Initialize a new instance of the SeparatorController class.
-    //	/// </summary>
+    //    /// </summary>
     //       /// <param name="source">Source of separator information.</param>
     //       /// <param name="target">Target for state changes.</param>
     //       /// <param name="splitCursors">Show as split or movement cursors.</param>
@@ -401,8 +401,8 @@ namespace ComponentFactory.Krypton.Toolkit
     //       }
 
     //       /// <summary>
-    //	/// Mouse has left the view.
-    //	/// </summary>
+    //    /// Mouse has left the view.
+    //    /// </summary>
     //       /// <param name="c">Reference to the source control instance.</param>
     //       /// <param name="next">Reference to view that is next to have the mouse.</param>
     //       public override void MouseLeave(Control c, ViewBase next)

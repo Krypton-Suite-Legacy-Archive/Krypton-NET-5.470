@@ -14,19 +14,19 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Docking
 {
-	/// <summary>
+    /// <summary>
     /// Event arguments for a DockspaceSeparatorResize event.
-	/// </summary>
+    /// </summary>
     public class DockspaceSeparatorResizeEventArgs : DockspaceSeparatorEventArgs
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the DockspaceSeparatorResizeEventArgs class.
-		/// </summary>
+        /// </summary>
         /// <param name="separator">Reference to separator control instance.</param>
         /// <param name="element">Reference to dockspace docking element that is managing the separator.</param>
         /// <param name="resizeRect">Initial resizing rectangle.</param>
@@ -34,17 +34,17 @@ namespace ComponentFactory.Krypton.Docking
                                                  KryptonDockingDockspace element,
                                                  Rectangle resizeRect)
             : base(separator, element)
-		{
+        {
             ResizeRect = resizeRect;
-		}
-		#endregion
+        }
+        #endregion
 
-		#region Public
+        #region Public
         /// <summary>
         /// Gets and sets the rectangle that limits resizing of the dockspace using the separator.
         /// </summary>
         public Rectangle ResizeRect { get; set; }
 
-	    #endregion
-	}
+        #endregion
+    }
 }

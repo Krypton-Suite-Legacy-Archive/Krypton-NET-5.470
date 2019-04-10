@@ -15,9 +15,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
+    /// <summary>
     /// Implements the NavigatorMode.HeaderBarCheckButtonHeaderGroup mode.
-	/// </summary>
+    /// </summary>
     internal class ViewBuilderHeaderBarCheckButtonHeaderGroup : ViewBuilderHeaderBarCheckButtonBase
     {
         #region Instance Fields

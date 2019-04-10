@@ -13,15 +13,15 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for palette form states.
-	/// </summary>
+    /// <summary>
+    /// Storage for palette form states.
+    /// </summary>
     public class KryptonPaletteForm : KryptonPaletteDouble3
     {
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonPaletteForm class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Redirector to inherit values from.</param>
         /// <param name="backStyle">Background style.</param>
         /// <param name="borderStyle">Border style.</param>
@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                   PaletteBorderStyle borderStyle,
                                   NeedPaintHandler needPaint) 
             : base(redirect, backStyle, borderStyle, needPaint)
-		{
+        {
         }
         #endregion
 

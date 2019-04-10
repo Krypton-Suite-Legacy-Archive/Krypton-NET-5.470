@@ -85,8 +85,8 @@ namespace ComponentFactory.Krypton.Navigator
         public event EventHandler<KryptonPageCancelEventArgs> Selecting;
 
         /// <summary>
-		/// Occurs after a page is selected.
-		/// </summary>
+        /// Occurs after a page is selected.
+        /// </summary>
         [Category("Navigator Selection")]
         [Description("Occurs after a page is selected.")]
         public event EventHandler<KryptonPageEventArgs> Selected;
@@ -376,17 +376,17 @@ namespace ComponentFactory.Krypton.Navigator
         public KryptonPageCollection Pages { get; private set; }
 
         /// <summary>
-		/// Gets the collection of controls contained within the control.
-		/// </summary>
-		[Browsable(false)]
+        /// Gets the collection of controls contained within the control.
+        /// </summary>
+        [Browsable(false)]
         [Bindable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new ControlCollection Controls => base.Controls;
 
         /// <summary>
-		/// Gets or sets the index of the currently-selected page.
-		/// </summary>
-		[Browsable(false)]
+        /// Gets or sets the index of the currently-selected page.
+        /// </summary>
+        [Browsable(false)]
         [Category("Behavior")]
         [Description("Index of the currently-selected page.")]
         [DefaultValue(-1)]
@@ -680,9 +680,9 @@ namespace ComponentFactory.Krypton.Navigator
         }
 
         /// <summary>
-		/// Gets access to the tracking navigator appearance entries.
-		/// </summary>
-		[Category("Visuals")]
+        /// Gets access to the tracking navigator appearance entries.
+        /// </summary>
+        [Category("Visuals")]
         [Description("Overrides for defining tracking navigator appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteNavigatorOtherEx StateTracking { get; private set; }
@@ -732,9 +732,9 @@ namespace ComponentFactory.Krypton.Navigator
         }
 
         /// <summary>
-		/// Gets and sets the display mode.
-		/// </summary>
-		[Category("Visuals")]
+        /// Gets and sets the display mode.
+        /// </summary>
+        [Category("Visuals")]
         [Description("Display mode of the control instance.")]
         [DefaultValue(typeof(NavigatorMode), "Bar - Tab - Group")]
         public NavigatorMode NavigatorMode
@@ -1453,9 +1453,9 @@ namespace ComponentFactory.Krypton.Navigator
         }
 
         /// <summary>
-		/// Gets the default size of the control.
-		/// </summary>
-		protected override Size DefaultSize => new Size(250, 150);
+        /// Gets the default size of the control.
+        /// </summary>
+        protected override Size DefaultSize => new Size(250, 150);
 
         /// <summary>
         /// Update global event attachments.
@@ -1553,10 +1553,10 @@ namespace ComponentFactory.Krypton.Navigator
         }
 
         /// <summary>
-		/// Raises the SelectedPageChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs containing event details.</param>
-		protected virtual void OnSelectedPageChanged(EventArgs e)
+        /// Raises the SelectedPageChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs containing event details.</param>
+        protected virtual void OnSelectedPageChanged(EventArgs e)
         {
             // Ignore call as view builder is already destructed
             if (!IsDisposed && (ViewBuilder != null))
@@ -1945,9 +1945,9 @@ namespace ComponentFactory.Krypton.Navigator
         }
 
         /// <summary>
-		/// Processes a notification from palette storage of a paint and optional layout required that involves the selected page.
-		/// </summary>
-		/// <param name="sender">Source of notification.</param>
+        /// Processes a notification from palette storage of a paint and optional layout required that involves the selected page.
+        /// </summary>
+        /// <param name="sender">Source of notification.</param>
         /// <param name="e">An NeedLayoutEventArgs containing event data.</param>
         protected virtual void OnNeedPagePaint(object sender, NeedLayoutEventArgs e)
         {

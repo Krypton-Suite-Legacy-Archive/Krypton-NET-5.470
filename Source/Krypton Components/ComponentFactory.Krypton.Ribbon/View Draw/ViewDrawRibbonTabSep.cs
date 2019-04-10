@@ -16,9 +16,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws a separator between ribbon tabs.
-	/// </summary>
+    /// <summary>
+    /// Draws a separator between ribbon tabs.
+    /// </summary>
     internal class ViewDrawRibbonTabSep : ViewLayoutRibbonSeparator
     {
         #region Static Fields
@@ -45,7 +45,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonTabSep class.
-		/// </summary>
+        /// </summary>
         /// <param name="palette">Source for palette values.</param>
         public ViewDrawRibbonTabSep(IPaletteRibbonGeneral palette)
             : base(SEP_WIDTH, true)
@@ -54,16 +54,16 @@ namespace ComponentFactory.Krypton.Ribbon
             _palette = palette;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonTabSep:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Draw
         /// <summary>

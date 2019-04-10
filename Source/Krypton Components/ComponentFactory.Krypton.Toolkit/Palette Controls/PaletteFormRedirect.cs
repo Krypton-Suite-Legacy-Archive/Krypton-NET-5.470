@@ -15,23 +15,23 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Redirect storage for PaletteForm states.
-	/// </summary>
-	public class PaletteFormRedirect : PaletteDoubleRedirect,
+    /// </summary>
+    public class PaletteFormRedirect : PaletteDoubleRedirect,
                                        IPaletteMetric
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly PaletteRedirect _redirect;
         private InheritBool _overlayHeaders;
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteFormRedirect class.
-		/// </summary>
-		/// <param name="redirect">Inheritence redirection instance.</param>
+        /// </summary>
+        /// <param name="redirect">Inheritence redirection instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteFormRedirect(PaletteRedirect redirect,
                                    NeedPaintHandler needPaint)
@@ -41,7 +41,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// Initialize a new instance of the PaletteFormRedirect class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirectForm">Inheritence redirection for form group.</param>
         /// <param name="redirectHeader">Inheritence redirection for header.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
@@ -52,7 +52,7 @@ namespace ComponentFactory.Krypton.Toolkit
                    PaletteBackStyle.FormMain,
                    PaletteBorderStyle.FormMain, 
                    needPaint)
-		{
+        {
             Debug.Assert(redirectForm != null);
             Debug.Assert(redirectHeader != null);
             
@@ -62,59 +62,59 @@ namespace ComponentFactory.Krypton.Toolkit
             // Create the palette storage
             Header = new PaletteHeaderButtonRedirect(redirectHeader, PaletteBackStyle.HeaderForm, PaletteBorderStyle.HeaderForm, PaletteContentStyle.HeaderForm, needPaint);
 
-			// Default other values
-			_overlayHeaders = InheritBool.Inherit;
-		}
-		#endregion
+            // Default other values
+            _overlayHeaders = InheritBool.Inherit;
+        }
+        #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (base.IsDefault &&
-		                                   Header.IsDefault &&
-		                                   (OverlayHeaders == InheritBool.Inherit));
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (base.IsDefault &&
+                                           Header.IsDefault &&
+                                           (OverlayHeaders == InheritBool.Inherit));
 
-	    #endregion
+        #endregion
 
         #region Header
         /// <summary>
-		/// Gets access to the header appearance entries.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Overrides for defining header appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        /// Gets access to the header appearance entries.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Overrides for defining header appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteHeaderButtonRedirect Header { get; }
 
-	    private bool ShouldSerializeHeader()
-		{
-			return !Header.IsDefault;
-		}
-		#endregion
+        private bool ShouldSerializeHeader()
+        {
+            return !Header.IsDefault;
+        }
+        #endregion
 
         #region OverlayHeaders
         /// <summary>
-		/// Gets and sets a value indicating if headers should overlay the border.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Should headers overlay the border.")]
-		[DefaultValue(typeof(InheritBool), "Inherit")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public InheritBool OverlayHeaders
-		{
-			get => _overlayHeaders;
+        /// Gets and sets a value indicating if headers should overlay the border.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Should headers overlay the border.")]
+        [DefaultValue(typeof(InheritBool), "Inherit")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public InheritBool OverlayHeaders
+        {
+            get => _overlayHeaders;
 
             set
-			{
-				if (_overlayHeaders != value)
-				{
-					_overlayHeaders = value;
-					PerformNeedPaint();
-				}
-			}
-		}
-		#endregion
+            {
+                if (_overlayHeaders != value)
+                {
+                    _overlayHeaders = value;
+                    PerformNeedPaint();
+                }
+            }
+        }
+        #endregion
 
         #region IPaletteMetric
         /// <summary>

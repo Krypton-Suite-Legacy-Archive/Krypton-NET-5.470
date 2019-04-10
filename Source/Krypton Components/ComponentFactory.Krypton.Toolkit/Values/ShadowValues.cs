@@ -27,17 +27,23 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool _enableShadows;
         private Padding _margins;
         private Color _colour;
+        private bool _hideOnNonActiveForm;
 
         #endregion
 
         #region Events
-        /// <summary>
-        /// Occurs when the value of the Text property changes.
-        /// </summary>
+#pragma warning disable 1591
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public event EventHandler EnableShadowsChanged;
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public event EventHandler MarginsChanged;
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public event EventHandler BlurDistanceChanged;
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public event EventHandler<ColorEventArgs> ColourChanged;
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public event EventHandler HideOnNonActiveFormChanged;
+#pragma warning restore 1591
         #endregion
 
         #region Identity
@@ -58,6 +64,7 @@ namespace ComponentFactory.Krypton.Toolkit
             ResetMargins();
             ResetBlurDistance();
             ResetColour();
+            ResetHideOnNonActiveForm();
         }
         #endregion Identity
 
@@ -140,7 +147,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        private bool ShouldBlurDistance()
+        private bool ShouldSerializeBlurDistance()
         {
             return Math.Abs(BlurDistance - 50) > 0.001;
         }
@@ -182,6 +189,36 @@ namespace ComponentFactory.Krypton.Toolkit
             Colour = SystemColors.ActiveBorder;
         }
 
+        /// <summary>
+        /// </summary>
+        [Description("Hide the shadow when the form is deactivated")]
+        [DefaultValue(false)]
+        public bool HideOnNonActiveForm
+        {
+            get => _hideOnNonActiveForm;
+            set
+            {
+                if (_hideOnNonActiveForm != value)
+                {
+                    _hideOnNonActiveForm = value;
+                    HideOnNonActiveFormChanged?.Invoke(this, EventArgs.Empty);
+                }
+            }
+        }
+
+        private bool ShouldSerializeHideOnNonActiveForm()
+        {
+            return !HideOnNonActiveForm;
+        }
+
+        /// <summary>
+        /// </summary>
+        public void ResetHideOnNonActiveForm()
+        {
+            HideOnNonActiveForm = false;
+        }
+
+
 
         #region Default Values
         /// <summary>
@@ -189,8 +226,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public override bool IsDefault => (!ShouldSerializeEnableShadows()
                                             && !ShouldSerializeMargins()
-                                            && !ShouldBlurDistance()
+                                            && !ShouldSerializeBlurDistance()
                                             && !ShouldSerializeColour()
+                                            && !ShouldSerializeHideOnNonActiveForm()
                                             );
         #endregion Default Values
     }

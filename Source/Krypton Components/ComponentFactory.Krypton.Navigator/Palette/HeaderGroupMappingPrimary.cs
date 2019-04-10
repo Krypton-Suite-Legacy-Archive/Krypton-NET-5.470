@@ -14,14 +14,14 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Storage and mapping for primary header.
-	/// </summary>
-	public class HeaderGroupMappingPrimary : HeaderGroupMappingBase
+    /// <summary>
+    /// Storage and mapping for primary header.
+    /// </summary>
+    public class HeaderGroupMappingPrimary : HeaderGroupMappingBase
     {
         #region Static Fields
         private const string _defaultHeading = "(Empty)";
-		#endregion
+        #endregion
 
         #region Identity
         /// <summary>
@@ -36,24 +36,24 @@ namespace ComponentFactory.Krypton.Navigator
         }
         #endregion
 
-		#region Default Values
-		/// <summary>
-		/// Gets the default heading value.
-		/// </summary>
-		/// <returns>String reference.</returns>
-		protected override string GetHeadingDefault()
-		{
-			return _defaultHeading;
-		}
+        #region Default Values
+        /// <summary>
+        /// Gets the default heading value.
+        /// </summary>
+        /// <returns>String reference.</returns>
+        protected override string GetHeadingDefault()
+        {
+            return _defaultHeading;
+        }
 
-		/// <summary>
-		/// Gets the default description value.
-		/// </summary>
-		/// <returns>String reference.</returns>
-		protected override string GetDescriptionDefault()
-		{
-			return string.Empty;
-		}
+        /// <summary>
+        /// Gets the default description value.
+        /// </summary>
+        /// <returns>String reference.</returns>
+        protected override string GetDescriptionDefault()
+        {
+            return string.Empty;
+        }
 
         /// <summary>
         /// Gets the default image mapping value.

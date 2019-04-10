@@ -14,9 +14,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for drag and drop values.
-	/// </summary>
+    /// <summary>
+    /// Storage for drag and drop values.
+    /// </summary>
     public class PaletteDragDrop : Storage,
                                    IPaletteDragDrop
     {

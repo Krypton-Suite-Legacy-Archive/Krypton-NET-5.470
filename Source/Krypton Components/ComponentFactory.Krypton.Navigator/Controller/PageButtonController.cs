@@ -13,22 +13,22 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Handle a button by ensuring that contained button specs are not treated as part of the button itself.
-	/// </summary>
+    /// <summary>
+    /// Handle a button by ensuring that contained button specs are not treated as part of the button itself.
+    /// </summary>
     public class PageButtonController : ButtonController
-	{
-		#region Identity
-		/// <summary>
-		/// Initialize a new instance of the PageButtonController class.
-		/// </summary>
-		/// <param name="target">Target for state changes.</param>
+    {
+        #region Identity
+        /// <summary>
+        /// Initialize a new instance of the PageButtonController class.
+        /// </summary>
+        /// <param name="target">Target for state changes.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PageButtonController(ViewBase target, NeedPaintHandler needPaint)
             : base(target, needPaint)
         {
         }
-		#endregion
+        #endregion
 
         #region Protected
         /// <summary>

@@ -15,12 +15,12 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
+    /// <summary>
     /// Implement storage for a gallery palette redirect. 
-	/// </summary>
+    /// </summary>
     public class PaletteGalleryRedirect : PaletteMetricRedirect
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         // Storage
         private readonly PaletteRibbonBack _ribbonBack;
         private readonly PaletteRibbonBack _ribbonBorder;
@@ -30,17 +30,17 @@ namespace ComponentFactory.Krypton.Ribbon
         private readonly PaletteRibbonBackInheritRedirect _ribbonBorderInherit;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteGalleryRedirect class.
-		/// </summary>
-		/// <param name="redirect">Inheritence redirection instance.</param>
+        /// </summary>
+        /// <param name="redirect">Inheritence redirection instance.</param>
         /// <param name="needPaint">Paint delegate.</param>
         public PaletteGalleryRedirect(PaletteRedirect redirect,
                                       NeedPaintHandler needPaint)
             : base(redirect)
-		{
-			Debug.Assert(redirect != null);
+        {
+            Debug.Assert(redirect != null);
 
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
@@ -49,11 +49,11 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbonBorderInherit = new PaletteRibbonBackInheritRedirect(redirect, PaletteRibbonBackStyle.RibbonGalleryBorder);
             _ribbonBackInherit = new PaletteRibbonBackInheritRedirect(redirect, PaletteRibbonBackStyle.RibbonGalleryBack);
 
-			// Create storage that maps onto the inherit instances
+            // Create storage that maps onto the inherit instances
             _ribbonBack = new PaletteRibbonBack(_ribbonBackInherit, needPaint);
             _ribbonBorder = new PaletteRibbonBack(_ribbonBorderInherit, needPaint);
         }
-		#endregion
+        #endregion
 
         #region SetRedirector
         /// <summary>
@@ -68,15 +68,15 @@ namespace ComponentFactory.Krypton.Ribbon
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (RibbonGalleryBack.IsDefault &
-		                                   RibbonGalleryBorder.IsDefault);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (RibbonGalleryBack.IsDefault &
+                                           RibbonGalleryBorder.IsDefault);
 
-	    #endregion
+        #endregion
 
         #region RibbonGalleryBack
         /// <summary>
@@ -87,7 +87,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteRibbonBack RibbonGalleryBack => _ribbonBack;
 
-	    private bool ShouldSerializeRibbonGalleryBack()
+        private bool ShouldSerializeRibbonGalleryBack()
         {
             return !_ribbonBack.IsDefault;
         }
@@ -102,7 +102,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteRibbonBack RibbonGalleryBorder => _ribbonBorder;
 
-	    private bool ShouldSerializeRibbonGalleryBorder()
+        private bool ShouldSerializeRibbonGalleryBorder()
         {
             return !_ribbonBorder.IsDefault;
         }

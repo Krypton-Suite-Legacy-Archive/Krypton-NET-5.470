@@ -17,9 +17,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws a design time item.
-	/// </summary>
+    /// <summary>
+    /// Draws a design time item.
+    /// </summary>
     internal class ViewDrawRibbonDesignBase : ViewComposite,
                                               IContentValues
     {
@@ -29,10 +29,10 @@ namespace ComponentFactory.Krypton.Ribbon
         private readonly DesignTextToContent _contentProvider;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonDesignBase class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public ViewDrawRibbonDesignBase(KryptonRibbon ribbon,
@@ -55,15 +55,15 @@ namespace ComponentFactory.Krypton.Ribbon
             MouseController = controller;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonDesignBase:" + Id;
-		}
+        }
         #endregion
 
         #region Ribbon
@@ -90,15 +90,15 @@ namespace ComponentFactory.Krypton.Ribbon
         }
 
         /// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
+            Debug.Assert(context != null);
 
             // We take on all the available display area
-			ClientRectangle = context.DisplayRectangle;
+            ClientRectangle = context.DisplayRectangle;
 
             // Reduce our size by a padding around the element
             ClientRectangle = new Rectangle(ClientLocation.X + OuterPadding.Left,
@@ -117,8 +117,8 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Put back the original display value now we have finished
             context.DisplayRectangle = ClientRectangle;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Paint
         /// <summary>

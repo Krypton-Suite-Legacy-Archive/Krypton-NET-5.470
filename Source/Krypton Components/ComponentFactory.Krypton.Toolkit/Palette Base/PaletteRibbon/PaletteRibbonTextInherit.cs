@@ -13,12 +13,12 @@ using System.Drawing;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Provide inheritance of palette ribbon text properties.
-	/// </summary>
+    /// <summary>
+    /// Provide inheritance of palette ribbon text properties.
+    /// </summary>
     public abstract class PaletteRibbonTextInherit : GlobalId,
                                                      IPaletteRibbonText
-	{
+    {
         #region IPaletteRibbonText
         /// <summary>
         /// Gets the tab color for the item text.

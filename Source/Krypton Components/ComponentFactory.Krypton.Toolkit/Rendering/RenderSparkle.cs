@@ -17,9 +17,9 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Extends the professional renderer to provide Sparkle style additions.
-	/// </summary>
+    /// <summary>
+    /// Extends the professional renderer to provide Sparkle style additions.
+    /// </summary>
     public class RenderSparkle : RenderProfessional
     {
         #region Static Fields

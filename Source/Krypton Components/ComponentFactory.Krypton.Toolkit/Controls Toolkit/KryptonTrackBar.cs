@@ -59,8 +59,8 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonTrackBar class.
-		/// </summary>
-		public KryptonTrackBar()
+        /// </summary>
+        public KryptonTrackBar()
         {
             // Default values
             _autoSize = true;
@@ -169,9 +169,9 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Gets and sets the background style.
-		/// </summary>
-		[Category("Visuals")]
+        /// Gets and sets the background style.
+        /// </summary>
+        [Category("Visuals")]
         [Description("Background style.")]
         public PaletteBackStyle BackStyle
         {
@@ -662,10 +662,10 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Raises the EnabledChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
-		protected override void OnEnabledChanged(EventArgs e)
+        /// Raises the EnabledChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        protected override void OnEnabledChanged(EventArgs e)
         {
             _drawTrackBar.Enabled = Enabled;
 

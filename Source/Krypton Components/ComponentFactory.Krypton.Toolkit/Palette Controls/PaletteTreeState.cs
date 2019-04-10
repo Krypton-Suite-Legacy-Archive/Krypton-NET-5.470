@@ -13,19 +13,19 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Implement storage for background, border and node triple.
-	/// </summary>
+    /// </summary>
     public class PaletteTreeState : PaletteDouble
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteTreeState class.
-		/// </summary>
+        /// </summary>
         /// <param name="inherit">Source for inheriting values.</param>
         /// <param name="back">Reference to back storage.</param>
         /// <param name="border">Reference to border storage.</param>
@@ -35,19 +35,19 @@ namespace ComponentFactory.Krypton.Toolkit
                                 PaletteBorder border,
                                 NeedPaintHandler needPaint)
             : base(inherit, back, border, needPaint)
-		{
+        {
             Node = new PaletteTriple(inherit.Node, needPaint);
-		}
-		#endregion
+        }
+        #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (base.IsDefault && Node.IsDefault);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (base.IsDefault && Node.IsDefault);
 
-	    #endregion
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -63,15 +63,15 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Node
         /// <summary>
-		/// Gets the node appearance overrides.
-		/// </summary>
+        /// Gets the node appearance overrides.
+        /// </summary>
         [KryptonPersist]
         [Category("Visuals")]
         [Description("Overrides for defining node appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteTriple Node { get; }
+        public PaletteTriple Node { get; }
 
-	    private bool ShouldSerializeItem()
+        private bool ShouldSerializeItem()
         {
             return !Node.IsDefault;
         }

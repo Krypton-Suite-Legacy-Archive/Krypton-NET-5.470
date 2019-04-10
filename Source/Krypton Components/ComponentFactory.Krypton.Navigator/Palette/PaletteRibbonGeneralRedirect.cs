@@ -16,9 +16,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Storage for general ribbon values.
-	/// </summary>
+    /// <summary>
+    /// Storage for general ribbon values.
+    /// </summary>
     public class PaletteRibbonGeneralNavRedirect : Storage,
                                                    IPaletteRibbonGeneral
     {

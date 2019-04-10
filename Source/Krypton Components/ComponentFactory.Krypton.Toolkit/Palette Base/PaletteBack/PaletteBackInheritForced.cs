@@ -14,15 +14,15 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Allow the background values to be forced to fixed values.
-	/// </summary>
+    /// </summary>
     public class PaletteBackInheritForced : PaletteBackInherit
-	{
+    {
         #region Instance Fields
         private IPaletteBack _inherit;
 
-	    #endregion
+        #endregion
 
         #region Identity
         /// <summary>
@@ -59,7 +59,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool BorderIgnoreNormal { get; set; }
 
-	    #endregion
+        #endregion
 
         #region ForceGraphicsHint
         /// <summary>
@@ -67,7 +67,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteGraphicsHint ForceGraphicsHint { get; set; }
 
-	    #endregion
+        #endregion
 
         #region ForceDraw
         /// <summary>
@@ -75,14 +75,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public InheritBool ForceDraw { get; set; }
 
-	    #endregion
+        #endregion
 
         #region IPaletteBack
-		/// <summary>
-		/// Gets a value indicating if background should be drawn.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
+        /// <summary>
+        /// Gets a value indicating if background should be drawn.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
         public override InheritBool GetBackDraw(PaletteState state)
         {
             if (ForceDraw != InheritBool.Inherit)
@@ -102,13 +102,13 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Gets the graphics drawing hint.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>PaletteGraphicsHint value.</returns>
+        /// <summary>
+        /// Gets the graphics drawing hint.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>PaletteGraphicsHint value.</returns>
         public override PaletteGraphicsHint GetBackGraphicsHint(PaletteState state) =>
-		    ForceGraphicsHint != PaletteGraphicsHint.Inherit ? ForceGraphicsHint : _inherit.GetBackGraphicsHint(state);
+            ForceGraphicsHint != PaletteGraphicsHint.Inherit ? ForceGraphicsHint : _inherit.GetBackGraphicsHint(state);
 
         /// <summary>
         /// Gets the first background color.

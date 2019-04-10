@@ -29,12 +29,12 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawMenuRadioButton class.
-		/// </summary>
+        /// </summary>
         /// <param name="provider">Reference to provider.</param>
         /// <param name="radioButton">Reference to owning radio button entry.</param>
         public ViewDrawMenuRadioButton(IContextMenuProvider provider,
                                        KryptonContextMenuRadioButton radioButton)
-		{
+        {
             _provider = provider;
             KryptonContextMenuRadioButton = radioButton;
 
@@ -100,15 +100,15 @@ namespace ComponentFactory.Krypton.Toolkit
             Add(_outerDocker);
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawMenuRadioButton:" + Id;
-		}
+        }
 
         /// <summary>
         /// Release unmanaged and optionally managed resources.

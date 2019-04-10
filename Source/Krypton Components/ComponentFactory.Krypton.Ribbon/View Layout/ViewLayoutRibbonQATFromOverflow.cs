@@ -16,9 +16,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
+    /// <summary>
     /// Extends the ViewLayoutRibbonQATContents by providing the definitions that are overflowing the original source.
-	/// </summary>
+    /// </summary>
     internal class ViewLayoutRibbonQATFromOverflow : ViewLayoutRibbonQATContents
     {
         #region Instance Fields
@@ -29,7 +29,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewLayoutRibbonQATFromOverflow class.
-		/// </summary>
+        /// </summary>
         /// <param name="parentControl">Owning control used to find screen positions.</param>
         /// <param name="ribbon">Owning ribbon control instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>

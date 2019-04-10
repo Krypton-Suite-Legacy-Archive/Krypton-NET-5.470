@@ -606,6 +606,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Protected Virtual
+        // ReSharper disable VirtualMemberNeverOverridden.Global
         /// <summary>
         /// Gets a value indicating if inside edge spacers are required.
         /// </summary>
@@ -708,6 +709,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             NeedPaint?.Invoke(sender, new NeedLayoutEventArgs(needLayout));
         }
+        // ReSharper restore VirtualMemberNeverOverridden.Global
         #endregion
 
         #region Implementation

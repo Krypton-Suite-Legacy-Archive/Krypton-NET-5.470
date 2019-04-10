@@ -13,16 +13,16 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Storage for KryptonContextMenuItem checked state values.
-	/// </summary>
-	public class PaletteContextMenuItemStateChecked : Storage
-	{
-		#region Instance Fields
+    /// </summary>
+    public class PaletteContextMenuItemStateChecked : Storage
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
+        #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteContextMenuItemStateChecked class.
         /// </summary>
@@ -34,7 +34,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// Initialize a new instance of the PaletteContextMenuItemStateChecked class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Redirector for inheriting values.</param>
         public PaletteContextMenuItemStateChecked(PaletteContextMenuItemStateRedirect redirect)
             : this(redirect.ItemImage)
@@ -44,12 +44,12 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// Initialize a new instance of the PaletteContextMenuItemStateChecked class.
-		/// </summary>
+        /// </summary>
         public PaletteContextMenuItemStateChecked(PaletteTripleJustImageRedirect redirectItemImage)
-		{
+        {
             ItemImage = new PaletteTripleJustImage(redirectItemImage);
         }
-		#endregion
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -67,14 +67,14 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (ItemImage.IsDefault);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (ItemImage.IsDefault);
 
-	    #endregion
+        #endregion
 
         #region ItemImage
         /// <summary>
@@ -86,7 +86,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTripleJustImage ItemImage { get; }
 
-	    private bool ShouldSerializeItemImage()
+        private bool ShouldSerializeItemImage()
         {
             return !ItemImage.IsDefault;
         }

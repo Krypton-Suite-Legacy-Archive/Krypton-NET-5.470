@@ -13,16 +13,16 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Storage for KryptonContextMenuItem highlight state values.
-	/// </summary>
+    /// </summary>
     public class PaletteContextMenuItemStateHighlight : Storage
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
+        #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteContextMenuItemStateHighlight class.
         /// </summary>
@@ -34,7 +34,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// Initialize a new instance of the PaletteContextMenuItemStateHighlight class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Redirector for inheriting values.</param>
         public PaletteContextMenuItemStateHighlight(PaletteContextMenuItemStateRedirect redirect)
             : this(redirect.ItemHighlight, redirect.ItemSplit)
@@ -43,26 +43,26 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// Initialize a new instance of the PaletteContextMenuItemStateHighlight class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirectItemHighlight">Redirector for the ItemHighlight.</param>
         /// <param name="redirectItemSplit">Redirector for the ItemSplit.</param>
         public PaletteContextMenuItemStateHighlight(PaletteDoubleMetricRedirect redirectItemHighlight,
                                                     PaletteDoubleRedirect redirectItemSplit)
-		{
+        {
             ItemHighlight = new PaletteDoubleMetric(redirectItemHighlight);
             ItemSplit = new PaletteDouble(redirectItemSplit);
         }
-		#endregion
+        #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => ItemHighlight.IsDefault &&
-		                                  ItemSplit.IsDefault;
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => ItemHighlight.IsDefault &&
+                                          ItemSplit.IsDefault;
 
-	    #endregion
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -92,7 +92,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteDoubleMetric ItemHighlight { get; }
 
-	    private bool ShouldSerializeItemHighlight()
+        private bool ShouldSerializeItemHighlight()
         {
             return !ItemHighlight.IsDefault;
         }
@@ -108,7 +108,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteDouble ItemSplit { get; }
 
-	    private bool ShouldSerializeItemSplit()
+        private bool ShouldSerializeItemSplit()
         {
             return !ItemSplit.IsDefault;
         }

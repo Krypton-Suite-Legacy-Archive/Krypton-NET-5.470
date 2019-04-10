@@ -30,12 +30,12 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawMenuColorColumns class.
-		/// </summary>
+        /// </summary>
         /// <param name="provider">Reference to provider.</param>
         /// <param name="colorColumns">Reference to owning color columns entry.</param>
         public ViewDrawMenuColorColumns(IContextMenuProvider provider,
                                         KryptonContextMenuColorColumns colorColumns)
-		{
+        {
             _provider = provider;
             _colorColumns = colorColumns;
 
@@ -94,10 +94,10 @@ namespace ComponentFactory.Krypton.Toolkit
             Add(_outerDocker);
         }
 
-		/// <summary>
-		/// Release unmanaged and optionally managed resources.
-		/// </summary>
-		/// <param name="disposing">Called from Dispose method.</param>
+        /// <summary>
+        /// Release unmanaged and optionally managed resources.
+        /// </summary>
+        /// <param name="disposing">Called from Dispose method.</param>
         protected override void Dispose(bool disposing)
         {
             // Prevent memory leak
@@ -106,21 +106,21 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawMenuColorColumns:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Layout
         /// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
         public override void Layout(ViewLayoutContext context)
         {
             Debug.Assert(context != null);

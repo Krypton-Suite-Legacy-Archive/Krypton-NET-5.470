@@ -15,9 +15,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Override the text colors for button specs that are drawn on aero glass.
-	/// </summary>
+    /// <summary>
+    /// Override the text colors for button specs that are drawn on aero glass.
+    /// </summary>
     public class PaletteRedirectRibbonAeroOverride : PaletteRedirect
     {
         #region Instance Fields
@@ -27,16 +27,16 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteRedirectRibbonAeroOverride class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning Ribbon instance.</param>
         /// <param name="redirect">Source for inheriting values.</param>
         public PaletteRedirectRibbonAeroOverride(KryptonRibbon ribbon,
                                                  PaletteRedirect redirect)
             : base(redirect)
-		{
+        {
             _ribbon = ribbon;
         }
-		#endregion
+        #endregion
 
         #region ShortText
         /// <summary>

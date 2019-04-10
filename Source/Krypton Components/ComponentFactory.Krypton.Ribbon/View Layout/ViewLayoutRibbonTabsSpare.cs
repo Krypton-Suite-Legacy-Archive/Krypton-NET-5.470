@@ -16,9 +16,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// View element that draws nothing and takes up all given space.
-	/// </summary>
+    /// <summary>
+    /// View element that draws nothing and takes up all given space.
+    /// </summary>
     internal class ViewLayoutRibbonTabsSpare : ViewLeaf
     {
         #region Identity
@@ -29,15 +29,15 @@ namespace ComponentFactory.Krypton.Ribbon
         {
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutRibbonTabsSpare:" + Id;
-		}
+        }
         #endregion
 
         #region Layout
@@ -52,12 +52,12 @@ namespace ComponentFactory.Krypton.Ribbon
         }
 
         /// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
+            Debug.Assert(context != null);
 
             // Validate incoming reference
             if (context == null)
@@ -65,9 +65,9 @@ namespace ComponentFactory.Krypton.Ribbon
                 throw new ArgumentNullException(nameof(context));
             }
 
-		    // We take on all the available display area
-			ClientRectangle = context.DisplayRectangle;
+            // We take on all the available display area
+            ClientRectangle = context.DisplayRectangle;
         }
-		#endregion
-	}
+        #endregion
+    }
 }

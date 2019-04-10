@@ -44,12 +44,12 @@ namespace ComponentFactory.Krypton.Toolkit
                                          PaletteBorderEdge disabled,
                                          PaletteBorderEdge normal)
             : base(target)
-		{
+        {
             // Remember state specific inheritance
             _disabled = disabled;
             _normal = normal;
         }
-		#endregion
+        #endregion
 
         #region SetRedirectStates
         /// <summary>

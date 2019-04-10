@@ -40,7 +40,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Initialize a new instance of the ViewDrawDocker class.
         /// </summary>
-        /// <param name="paletteBack">Palette source for the background.</param>		
+        /// <param name="paletteBack">Palette source for the background.</param>        
         /// <param name="paletteBorder">Palette source for the border.</param>
         public ViewDrawDocker(IPaletteBack paletteBack,
                               IPaletteBorder paletteBorder)
@@ -51,7 +51,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Initialize a new instance of the ViewDrawDocker class.
         /// </summary>
-        /// <param name="paletteBack">Palette source for the background.</param>		
+        /// <param name="paletteBack">Palette source for the background.</param>        
         /// <param name="paletteBorder">Palette source for the border.</param>
         /// <param name="paletteMetric">Palette source for metrics.</param>
         public ViewDrawDocker(IPaletteBack paletteBack,
@@ -62,11 +62,11 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Initialize a new instance of the ViewDrawDocker class.
-		/// </summary>
-		/// <param name="paletteBack">Palette source for the background.</param>		
-		/// <param name="paletteBorder">Palette source for the border.</param>
-		/// <param name="paletteMetric">Palette source for metrics.</param>
+        /// Initialize a new instance of the ViewDrawDocker class.
+        /// </summary>
+        /// <param name="paletteBack">Palette source for the background.</param>        
+        /// <param name="paletteBorder">Palette source for the border.</param>
+        /// <param name="paletteMetric">Palette source for metrics.</param>
         /// <param name="metricOverlay">Metric to use for border overlay.</param>
         public ViewDrawDocker(IPaletteBack paletteBack,
                               IPaletteBorder paletteBorder,
@@ -81,7 +81,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Initialize a new instance of the ViewDrawDocker class.
         /// </summary>
-        /// <param name="paletteBack">Palette source for the background.</param>		
+        /// <param name="paletteBack">Palette source for the background.</param>        
         /// <param name="paletteBorder">Palette source for the border.</param>
         /// <param name="paletteMetric">Palette source for metric values.</param>
         /// <param name="metricOverlay">Metric to use for border overlay.</param>

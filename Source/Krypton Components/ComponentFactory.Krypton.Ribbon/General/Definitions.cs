@@ -19,10 +19,10 @@ namespace ComponentFactory.Krypton.Ribbon
 {
     #region IQuickAccessToolbarButton
     /// <summary>
-	/// Information needed for a quick access toolbar entry.
-	/// </summary>
+    /// Information needed for a quick access toolbar entry.
+    /// </summary>
     public interface IQuickAccessToolbarButton
-	{
+    {
         /// <summary>
         /// Occurs when the quick access toolbar button has been clicked.
         /// </summary>
@@ -43,7 +43,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Gets the entry image.
         /// </summary>
         /// <returns>Image value.</returns>
-		Image GetImage();
+        Image GetImage();
 
         /// <summary>
         /// Gets the entry text.
@@ -105,7 +105,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         void PerformClick();
     }
-	#endregion
+    #endregion
 
     #region IRibbonGroupItem
     /// <summary>

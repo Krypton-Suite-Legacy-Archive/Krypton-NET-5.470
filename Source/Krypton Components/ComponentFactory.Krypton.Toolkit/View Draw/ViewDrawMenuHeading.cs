@@ -25,12 +25,12 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawMenuHeading class.
-		/// </summary>
+        /// </summary>
         /// <param name="heading">Reference to owning heading entry.</param>
         /// <param name="palette">Reference to palette source.</param>
         public ViewDrawMenuHeading(KryptonContextMenuHeading heading,
                                    PaletteTripleRedirect palette)
-		{
+        {
             // Create fixed storage of the content values
             _contentValues = new FixedContentValue(heading.Text,
                                                    heading.ExtraText,
@@ -53,16 +53,16 @@ namespace ComponentFactory.Krypton.Toolkit
             Add(_drawDocker);
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawMenuHeading:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Layout
 
@@ -72,8 +72,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="context">Layout context.</param>
         /// <exception cref="ArgumentNullException"></exception>
         public override void Layout(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        {
+            Debug.Assert(context != null);
 
             // Validate incoming reference
             if (context == null)
@@ -84,9 +84,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // We take on all the available display area
             ClientRectangle = context.DisplayRectangle;
 
-			// Let base class perform usual processing
-			base.Layout(context);
-		}
-		#endregion
+            // Let base class perform usual processing
+            base.Layout(context);
+        }
+        #endregion
     }
 }

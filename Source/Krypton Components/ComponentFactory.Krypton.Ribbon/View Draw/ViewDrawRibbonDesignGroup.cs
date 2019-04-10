@@ -15,19 +15,19 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws an design time only for adding a new group to the selected tab.
-	/// </summary>
+    /// <summary>
+    /// Draws an design time only for adding a new group to the selected tab.
+    /// </summary>
     internal class ViewDrawRibbonDesignGroup : ViewDrawRibbonDesignBase
     {
         #region Static Fields
         private static readonly Padding _padding = new Padding(5, 0, 0, 1);
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonDesignGroup class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public ViewDrawRibbonDesignGroup(KryptonRibbon ribbon,
@@ -36,15 +36,15 @@ namespace ComponentFactory.Krypton.Ribbon
         {
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonDesignGroup:" + Id;
-		}
+        }
         #endregion
 
         #region Protected

@@ -15,9 +15,9 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for ribbon background values.
-	/// </summary>
+    /// <summary>
+    /// Storage for ribbon background values.
+    /// </summary>
     public class PaletteRibbonBack : Storage,
                                      IPaletteRibbonBack
     {
@@ -33,12 +33,12 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteRibbonBack class.
-		/// </summary>
+        /// </summary>
         /// <param name="inheritBack">Source for inheriting background values.</param>
         /// <param name="needPaint">Delegate for notifying changes in value.</param>
         public PaletteRibbonBack(IPaletteRibbonBack inheritBack,
                                  NeedPaintHandler needPaint) 
-		{
+        {
             Debug.Assert(inheritBack != null);
 
             // Remember inheritance
@@ -56,16 +56,16 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (BackColor1 == Color.Empty) &&
-		                                  (BackColor2 == Color.Empty) &&
-		                                  (BackColor3 == Color.Empty) &&
-		                                  (BackColor4 == Color.Empty) &&
-		                                  (BackColor5 == Color.Empty);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (BackColor1 == Color.Empty) &&
+                                          (BackColor2 == Color.Empty) &&
+                                          (BackColor3 == Color.Empty) &&
+                                          (BackColor4 == Color.Empty) &&
+                                          (BackColor5 == Color.Empty);
 
         #endregion
 

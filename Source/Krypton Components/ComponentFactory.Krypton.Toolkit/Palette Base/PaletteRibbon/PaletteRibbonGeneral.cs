@@ -15,9 +15,9 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for general ribbon values.
-	/// </summary>
+    /// <summary>
+    /// Storage for general ribbon values.
+    /// </summary>
     public class PaletteRibbonGeneral : Storage,
                                         IPaletteRibbonGeneral
     {
@@ -704,13 +704,13 @@ namespace ComponentFactory.Krypton.Toolkit
             get => _tabSeparatorColor;
 
             set
-			{
+            {
                 if (_tabSeparatorColor != value)
-				{
+                {
                     _tabSeparatorColor = value;
-					PerformNeedPaint();
-				}
-			}
+                    PerformNeedPaint();
+                }
+            }
         }
 
         /// <summary>

@@ -14,32 +14,32 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Event arguments for the drop down menu of a gallery.
-	/// </summary>
-	public class GalleryDropMenuEventArgs : CancelEventArgs
-	{
-		#region Instance Fields
+    /// <summary>
+    /// Event arguments for the drop down menu of a gallery.
+    /// </summary>
+    public class GalleryDropMenuEventArgs : CancelEventArgs
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the GalleryDropMenuEventArgs class.
-		/// </summary>
+        /// </summary>
         /// <param name="contextMenu">Context menu.</param>
         public GalleryDropMenuEventArgs(KryptonContextMenu contextMenu)
-		{
+        {
             KryptonContextMenu = contextMenu;
-		}
-		#endregion
+        }
+        #endregion
 
-		#region Public
-		/// <summary>
-		/// KryptonContextMenu for display.
-		/// </summary>
+        #region Public
+        /// <summary>
+        /// KryptonContextMenu for display.
+        /// </summary>
         public KryptonContextMenu KryptonContextMenu { get; }
 
-	    #endregion
-	}
+        #endregion
+    }
 }

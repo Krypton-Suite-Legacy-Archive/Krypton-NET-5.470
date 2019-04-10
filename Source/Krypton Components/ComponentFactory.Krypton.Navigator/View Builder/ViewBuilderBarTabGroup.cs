@@ -13,9 +13,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
+    /// <summary>
     /// Implements the NavigatorMode.BarTabGroup mode.
-	/// </summary>
+    /// </summary>
     internal class ViewBuilderBarTabGroup : ViewBuilderBarTabBase
     {
         #region Instance Fields

@@ -15,9 +15,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Storage for header related properties.
-	/// </summary>
+    /// <summary>
+    /// Storage for header related properties.
+    /// </summary>
     public class NavigatorHeader : Storage
     {
         #region Instance Fields
@@ -37,12 +37,12 @@ namespace ComponentFactory.Krypton.Navigator
         #region Identity
         /// <summary>
         /// Initialize a new instance of the NavigatorHeader class.
-		/// </summary>
+        /// </summary>
         /// <param name="navigator">Reference to owning navigator instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public NavigatorHeader(KryptonNavigator navigator,
                                NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(navigator != null);
             
             // Remember back reference
@@ -64,7 +64,7 @@ namespace ComponentFactory.Krypton.Navigator
             HeaderValuesPrimary = new HeaderGroupMappingPrimary(_navigator, needPaint);
             HeaderValuesSecondary = new HeaderGroupMappingSecondary(_navigator, needPaint);
         }
-		#endregion
+        #endregion
 
         #region IsDefault
         /// <summary>

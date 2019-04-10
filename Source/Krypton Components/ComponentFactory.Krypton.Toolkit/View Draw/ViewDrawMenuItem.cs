@@ -17,7 +17,7 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	internal class ViewDrawMenuItem : ViewDrawCanvas
+    internal class ViewDrawMenuItem : ViewDrawCanvas
     {
         #region Static Fields
         private static readonly Image _empty16x16;
@@ -47,7 +47,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// Initialize a new instance of the ViewDrawMenuItem class.
-		/// </summary>
+        /// </summary>
         /// <param name="provider">Provider of context menu information.</param>
         /// <param name="menuItem">Menu item definition.</param>
         /// <param name="columns">Containing columns.</param>
@@ -63,7 +63,7 @@ namespace ComponentFactory.Krypton.Toolkit
                    menuItem.StateNormal.ItemHighlight,
                    PaletteMetricPadding.ContextMenuItemHighlight,
                    VisualOrientation.Top)
-		{
+        {
             // Remember values
             _provider = provider;
             KryptonContextMenuItem = menuItem;
@@ -172,15 +172,15 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawMenuItem:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.
@@ -201,7 +201,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             base.Dispose(disposing);
-        }		
+        }        
         #endregion
 
         #region KryptonContextMenuItem
@@ -655,16 +655,16 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
             Debug.Assert(context != null);
             ClientRectangle = context.DisplayRectangle;
             base.Layout(context);
         }
-		#endregion
+        #endregion
 
         #region Implementation
         private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)

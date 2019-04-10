@@ -18,8 +18,8 @@ using System.Diagnostics;
 namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
-	/// Process the mouse/keyboard/focus for the month calendar.
-	/// </summary>
+    /// Process the mouse/keyboard/focus for the month calendar.
+    /// </summary>
     public class MonthCalendarController : GlobalId,
                                            IMouseController,
                                            IKeyController,
@@ -38,7 +38,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the MonthCalendarController class.
-		/// </summary>
+        /// </summary>
         /// <param name="monthCalendar">Reference to owning month calendar entry.</param>
         /// <param name="viewManager">Owning view manager instance.</param>
         /// <param name="months">Reference to view that manages the display of months.</param>
@@ -47,14 +47,14 @@ namespace ComponentFactory.Krypton.Toolkit
                                        ViewContextMenuManager viewManager,
                                        ViewLayoutMonths months, 
                                        NeedPaintHandler needPaint)
-		{
+        {
             _monthCalendar = monthCalendar;
             ViewManager = viewManager;
             _months = months;
             _needPaint = needPaint;
             _mouseOver = false;
             _captured = false;
-		}
+        }
         #endregion
 
         #region ContextMenuTarget Notifications

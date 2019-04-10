@@ -13,28 +13,28 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Implement storage for GroupBox states.
-	/// </summary>
-	public class PaletteGroupBox : PaletteDouble
-	{
-		#region Instance Fields
+    /// <summary>
+    /// Implement storage for GroupBox states.
+    /// </summary>
+    public class PaletteGroupBox : PaletteDouble
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteGroupBox class.
-		/// </summary>
+        /// </summary>
         /// <param name="inherit">Source for inheriting palette defaulted values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteGroupBox(PaletteGroupBoxRedirect inherit,
                                NeedPaintHandler needPaint)
             : base(inherit, needPaint)
-		{
+        {
             Content = new PaletteContent(inherit.PaletteContent, needPaint);
         }
-		#endregion
+        #endregion
 
         #region Content
         /// <summary>
@@ -46,7 +46,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteContent Content { get; }
 
-	    private bool ShouldSerializeContent()
+        private bool ShouldSerializeContent()
         {
             return !Content.IsDefault;
         }
@@ -59,6 +59,6 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IPaletteContent PaletteContent => Content;
 
-	    #endregion
+        #endregion
     }
 }

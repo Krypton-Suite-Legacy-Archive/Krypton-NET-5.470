@@ -31,7 +31,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the QATButtonController class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         /// <param name="target">Target for state changes.</param>
         /// <param name="needPaint">Delegate for notifying changes in display.</param>
@@ -39,9 +39,9 @@ namespace ComponentFactory.Krypton.Ribbon
                                    ViewBase target, 
                                    NeedPaintHandler needPaint)
             : base(ribbon, target, needPaint)
-		{
+        {
         }
-		#endregion
+        #endregion
 
         #region Mouse Nofifications
         /// <summary>

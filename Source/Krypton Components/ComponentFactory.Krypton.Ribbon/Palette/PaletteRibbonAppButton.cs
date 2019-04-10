@@ -15,12 +15,12 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Implement storage for a ribbon state.
-	/// </summary>
+    /// <summary>
+    /// Implement storage for a ribbon state.
+    /// </summary>
     public class PaletteRibbonAppButton : Storage
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly PaletteRibbonBack _ribbonAppButton;
         private readonly PaletteRibbonBack _ribbonGroupCollapsedBorder;
         private readonly PaletteRibbonBack _ribbonGroupCollapsedBack;
@@ -29,15 +29,15 @@ namespace ComponentFactory.Krypton.Ribbon
         private readonly PaletteRibbonText _ribbonGroupCollapsedText;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteRibbonAppButton class.
-		/// </summary>
+        /// </summary>
         /// <param name="inherit">Source for inheriting values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteRibbonAppButton(PaletteRibbonRedirect inherit,
                                       NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(inherit != null);
 
             // Store the provided paint notification delegate
@@ -51,21 +51,21 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbonGroupCollapsedFrameBack = new PaletteRibbonBack(inherit.RibbonGroupCollapsedFrameBack, needPaint);
             _ribbonGroupCollapsedText = new PaletteRibbonText(inherit.RibbonGroupCollapsedText, needPaint);
         }
-		#endregion
+        #endregion
 
         #region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (RibbonAppButton.IsDefault &&
-		                                   RibbonGroupCollapsedBorder.IsDefault &&
-		                                   RibbonGroupCollapsedBack.IsDefault &&
-		                                   RibbonGroupCollapsedFrameBorder.IsDefault &&
-		                                   RibbonGroupCollapsedFrameBack.IsDefault &&
-		                                   RibbonGroupCollapsedText.IsDefault);
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (RibbonAppButton.IsDefault &&
+                                           RibbonGroupCollapsedBorder.IsDefault &&
+                                           RibbonGroupCollapsedBack.IsDefault &&
+                                           RibbonGroupCollapsedFrameBorder.IsDefault &&
+                                           RibbonGroupCollapsedFrameBack.IsDefault &&
+                                           RibbonGroupCollapsedText.IsDefault);
 
-	    #endregion
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -107,7 +107,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteRibbonBack RibbonAppButton => _ribbonAppButton;
 
-	    private bool ShouldSerializeRibbonAppButton()
+        private bool ShouldSerializeRibbonAppButton()
         {
             return !_ribbonAppButton.IsDefault;
         }
@@ -122,7 +122,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteRibbonBack RibbonGroupCollapsedBorder => _ribbonGroupCollapsedBorder;
 
-	    private bool ShouldSerializeRibbonGroupCollapsedBorder()
+        private bool ShouldSerializeRibbonGroupCollapsedBorder()
         {
             return !_ribbonGroupCollapsedBorder.IsDefault;
         }
@@ -137,7 +137,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteRibbonBack RibbonGroupCollapsedBack => _ribbonGroupCollapsedBack;
 
-	    private bool ShouldSerializeRibbonGroupCollapsedBack()
+        private bool ShouldSerializeRibbonGroupCollapsedBack()
         {
             return !_ribbonGroupCollapsedBack.IsDefault;
         }
@@ -152,7 +152,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteRibbonBack RibbonGroupCollapsedFrameBorder => _ribbonGroupCollapsedFrameBorder;
 
-	    private bool ShouldSerializeRibbonGroupCollapsedFrameBorder()
+        private bool ShouldSerializeRibbonGroupCollapsedFrameBorder()
         {
             return !_ribbonGroupCollapsedFrameBorder.IsDefault;
         }
@@ -167,7 +167,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteRibbonBack RibbonGroupCollapsedFrameBack => _ribbonGroupCollapsedFrameBack;
 
-	    private bool ShouldSerializeRibbonGroupCollapsedFrameBack()
+        private bool ShouldSerializeRibbonGroupCollapsedFrameBack()
         {
             return !_ribbonGroupCollapsedFrameBack.IsDefault;
         }
@@ -182,7 +182,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteRibbonText RibbonGroupCollapsedText => _ribbonGroupCollapsedText;
 
-	    private bool ShouldSerializeRibbonGroupCollapsedText()
+        private bool ShouldSerializeRibbonGroupCollapsedText()
         {
             return !_ribbonGroupCollapsedText.IsDefault;
         }

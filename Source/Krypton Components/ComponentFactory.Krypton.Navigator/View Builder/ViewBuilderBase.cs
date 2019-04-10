@@ -19,11 +19,11 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Base class for view builder implementations.
-	/// </summary>
-	internal abstract class ViewBuilderBase
-	{
+    /// <summary>
+    /// Base class for view builder implementations.
+    /// </summary>
+    internal abstract class ViewBuilderBase
+    {
         #region Type Definitons
         protected class PageToNavCheckItem : Dictionary<KryptonPage, INavCheckItem> { };
         protected class PageToNavCheckButton : Dictionary<KryptonPage, ViewDrawNavCheckButtonBase> { };
@@ -31,81 +31,81 @@ namespace ComponentFactory.Krypton.Navigator
 
         #region Instance Fields
         private bool _constructed;
-	    private NeedPaintHandler _needPaintDelegate;
+        private NeedPaintHandler _needPaintDelegate;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the ViewBuilderBase class.
-		/// </summary>
+        /// </summary>
         public ViewBuilderBase()
-		{
-			_constructed = false;
-		}
-		#endregion
+        {
+            _constructed = false;
+        }
+        #endregion
 
-		#region Properties
-		/// <summary>
-		/// Gets access to the navigator instance.
-		/// </summary>
-		public KryptonNavigator Navigator
-		{
-		    [DebuggerStepThrough]
-		    get;
-		    private set;
-	    }
+        #region Properties
+        /// <summary>
+        /// Gets access to the navigator instance.
+        /// </summary>
+        public KryptonNavigator Navigator
+        {
+            [DebuggerStepThrough]
+            get;
+            private set;
+        }
 
-	    /// <summary>
-		/// Gets access to the view manager instance.
-		/// </summary>
-		public ViewManager ViewManager
-	    {
-	        [DebuggerStepThrough]
-	        get;
-	        private set;
-	    }
+        /// <summary>
+        /// Gets access to the view manager instance.
+        /// </summary>
+        public ViewManager ViewManager
+        {
+            [DebuggerStepThrough]
+            get;
+            private set;
+        }
 
-	    /// <summary>
-		/// Gets the palette redirector.
-		/// </summary>
-		public PaletteRedirect Redirector
-	    {
-	        [DebuggerStepThrough]
-	        get;
-	        private set;
-	    }
+        /// <summary>
+        /// Gets the palette redirector.
+        /// </summary>
+        public PaletteRedirect Redirector
+        {
+            [DebuggerStepThrough]
+            get;
+            private set;
+        }
 
-	    /// <summary>
+        /// <summary>
         /// Gets a value indicating if the mode is a tab strip style mode.
         /// </summary>
         public abstract bool IsTabStripMode { get; }
         #endregion
 
-		#region Methods
-		/// <summary>
-		/// Construct the view appropriate for this builder.
-		/// </summary>
-		/// <param name="navigator">Reference to navigator instance.</param>
-		/// <param name="manager">Reference to current manager.</param>
-		/// <param name="redirector">Palette redirector.</param>
-		public virtual void Construct(KryptonNavigator navigator, 
-									  ViewManager manager,
-									  PaletteRedirect redirector)
-		{
-			Debug.Assert(navigator != null);
-			Debug.Assert(manager != null);
-			Debug.Assert(redirector != null);
-			Debug.Assert(_constructed == false);
+        #region Methods
+        /// <summary>
+        /// Construct the view appropriate for this builder.
+        /// </summary>
+        /// <param name="navigator">Reference to navigator instance.</param>
+        /// <param name="manager">Reference to current manager.</param>
+        /// <param name="redirector">Palette redirector.</param>
+        public virtual void Construct(KryptonNavigator navigator, 
+                                      ViewManager manager,
+                                      PaletteRedirect redirector)
+        {
+            Debug.Assert(navigator != null);
+            Debug.Assert(manager != null);
+            Debug.Assert(redirector != null);
+            Debug.Assert(_constructed == false);
 
             // Save provided references
-			Navigator = navigator;
-			ViewManager = manager;
-			Redirector = redirector;
-			_constructed = true;
+            Navigator = navigator;
+            ViewManager = manager;
+            Redirector = redirector;
+            _constructed = true;
 
             // Hook into the navigator events
             Navigator.ViewBuilderPropertyChanged += OnViewBuilderPropertyChanged;
-		}
+        }
 
         /// <summary>
         /// Destruct the previously created view.
@@ -322,7 +322,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public virtual bool CanFocus => false;
 
-	    /// <summary>
+        /// <summary>
         /// Occurs when the navigator takes the focus.
         /// </summary>
         public virtual void GotFocus() { }
@@ -725,9 +725,9 @@ namespace ComponentFactory.Krypton.Navigator
         }
 
         /// <summary>
-		/// Perform a need paint on the navigator.
-		/// </summary>
-		/// <param name="sender">Source of notification.</param>
+        /// Perform a need paint on the navigator.
+        /// </summary>
+        /// <param name="sender">Source of notification.</param>
         /// <param name="e">An NeedLayoutEventArgs containing event data.</param>
         protected void OnNeedPaint(object sender, NeedLayoutEventArgs e)
         {
@@ -778,14 +778,14 @@ namespace ComponentFactory.Krypton.Navigator
 
         #region Static Methods
         /// <summary>
-		/// Create a new view builder appropriate for the provided mode.
-		/// </summary>
-		/// <param name="mode">Navigator mode of operation.</param>
-		/// <returns>ViewBuild appropriate for mode.</returns>
-		public static ViewBuilderBase CreateViewBuilder(NavigatorMode mode)
-		{
-			switch (mode)
-			{
+        /// Create a new view builder appropriate for the provided mode.
+        /// </summary>
+        /// <param name="mode">Navigator mode of operation.</param>
+        /// <returns>ViewBuild appropriate for mode.</returns>
+        public static ViewBuilderBase CreateViewBuilder(NavigatorMode mode)
+        {
+            switch (mode)
+            {
                 case NavigatorMode.BarTabGroup:
                     return new ViewBuilderBarTabGroup();
                 case NavigatorMode.BarTabOnly:
@@ -819,17 +819,17 @@ namespace ComponentFactory.Krypton.Navigator
                case NavigatorMode.OutlookMini:
                    return new ViewBuilderOutlookMini();
                case NavigatorMode.HeaderGroup:
-					return new ViewBuilderHeaderGroup();
+                    return new ViewBuilderHeaderGroup();
                 case NavigatorMode.Group:
                     return new ViewBuilderGroup();
                 case NavigatorMode.Panel:
                     return new ViewBuilderPanel();
                 default:
-					// Should never happen!
-					Debug.Assert(false);
-					throw new ArgumentOutOfRangeException(nameof(mode));
-			}
-		}
-		#endregion
-	}
+                    // Should never happen!
+                    Debug.Assert(false);
+                    throw new ArgumentOutOfRangeException(nameof(mode));
+            }
+        }
+        #endregion
+    }
 }

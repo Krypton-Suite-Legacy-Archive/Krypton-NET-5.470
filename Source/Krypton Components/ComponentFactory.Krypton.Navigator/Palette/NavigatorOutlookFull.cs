@@ -15,9 +15,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Storage for outlook full mode related properties.
-	/// </summary>
+    /// <summary>
+    /// Storage for outlook full mode related properties.
+    /// </summary>
     public class NavigatorOutlookFull : Storage
     {
         #region Instance Fields
@@ -33,12 +33,12 @@ namespace ComponentFactory.Krypton.Navigator
         #region Identity
         /// <summary>
         /// Initialize a new instance of the NavigatorOutlookFull class.
-		/// </summary>
+        /// </summary>
         /// <param name="navigator">Reference to owning navigator instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public NavigatorOutlookFull(KryptonNavigator navigator,
                                     NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(navigator != null);
             
             // Remember back reference
@@ -55,7 +55,7 @@ namespace ComponentFactory.Krypton.Navigator
             _stackMapText = MapKryptonPageText.TextTitle;
             _stackMapExtraText = MapKryptonPageText.None;
         }
-		#endregion
+        #endregion
 
         #region IsDefault
         /// <summary>

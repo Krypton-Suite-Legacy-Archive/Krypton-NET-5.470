@@ -54,9 +54,9 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the AppButtonController class.
-		/// </summary>
+        /// </summary>
         public AppButtonController(KryptonRibbon ribbon)
-		{
+        {
             _ribbon = ribbon;
             _updateTimer = new Timer
             {
@@ -65,7 +65,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _updateTimer.Tick += OnUpdateTimer;
             Keyboard = false;
         }
-		#endregion
+        #endregion
 
         #region Public
         /// <summary>

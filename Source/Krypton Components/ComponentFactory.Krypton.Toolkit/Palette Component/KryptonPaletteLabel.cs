@@ -13,9 +13,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for palette label states.
-	/// </summary>
+    /// <summary>
+    /// Storage for palette label states.
+    /// </summary>
     public class KryptonPaletteLabel : Storage
     {
         #region Instance Fields
@@ -26,14 +26,14 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonPaletteLabel class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Redirector to inherit values from.</param>
         /// <param name="contentStyle">Content style.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public KryptonPaletteLabel(PaletteRedirect redirect,
                                    PaletteContentStyle contentStyle,
                                    NeedPaintHandler needPaint) 
-		{
+        {
             // Create the storage objects
             _stateInherit = new PaletteContentInheritRedirect(redirect, contentStyle);
             StateCommon = new PaletteContent(_stateInherit, needPaint);
@@ -57,18 +57,18 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => StateCommon.IsDefault &&
-		                                  StateDisabled.IsDefault &&
-		                                  StateNormal.IsDefault &&
-		                                  OverrideFocus.IsDefault &&
-		                                  OverrideVisited.IsDefault &&
-		                                  OverrideNotVisited.IsDefault &&
-		                                  OverridePressed.IsDefault;
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => StateCommon.IsDefault &&
+                                          StateDisabled.IsDefault &&
+                                          StateNormal.IsDefault &&
+                                          OverrideFocus.IsDefault &&
+                                          OverrideVisited.IsDefault &&
+                                          OverrideNotVisited.IsDefault &&
+                                          OverridePressed.IsDefault;
 
         #endregion
 

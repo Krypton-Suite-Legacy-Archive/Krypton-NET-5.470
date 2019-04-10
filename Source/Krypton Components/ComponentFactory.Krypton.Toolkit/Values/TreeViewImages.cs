@@ -14,9 +14,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for tree view images.
-	/// </summary>
+    /// <summary>
+    /// Storage for tree view images.
+    /// </summary>
     public class TreeViewImages : Storage
     {
         #region Instance Fields
@@ -27,7 +27,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the TreeViewImages class.
-		/// </summary>
+        /// </summary>
         public TreeViewImages()
             : this(null)
         {
@@ -35,10 +35,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// Initialize a new instance of the TreeViewImages class.
-		/// </summary>
+        /// </summary>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public TreeViewImages(NeedPaintHandler needPaint) 
-		{
+        {
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
 
@@ -48,13 +48,13 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (_plus == null) &&
-		                                  (_minus == null);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (_plus == null) &&
+                                          (_minus == null);
 
         #endregion
 

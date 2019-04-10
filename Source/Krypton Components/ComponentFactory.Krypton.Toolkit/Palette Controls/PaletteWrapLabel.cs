@@ -52,19 +52,19 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Font
-		/// <summary>
-		/// Gets the font for label text.
-		/// </summary>
+        /// <summary>
+        /// Gets the font for label text.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Font for drawing the label text.")]
-		[DefaultValue(null)]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public virtual Font Font
-		{
+        [Description("Font for drawing the label text.")]
+        [DefaultValue(null)]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public virtual Font Font
+        {
             get => _font;
 
-		    set
+            set
             {
                 _font = value;
                 _wrapLabel.PerformLayout();
@@ -94,10 +94,10 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Hint
-		/// <summary>
-		/// Gets the text rendering hint for the text.
-		/// </summary>
+        #region Hint
+        /// <summary>
+        /// Gets the text rendering hint for the text.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
         [Description("Text rendering hint for the content text.")]
@@ -107,7 +107,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get => _hint;
 
-		    set
+            set
             {
                 _hint = value;
                 _wrapLabel.Invalidate();

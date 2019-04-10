@@ -18,9 +18,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws a ribbon group masked textbox.
-	/// </summary>
+    /// <summary>
+    /// Draws a ribbon group masked textbox.
+    /// </summary>
     internal class ViewDrawRibbonGroupMaskedTextBox : ViewComposite,
                                                       IRibbonViewGroupItemView
     {
@@ -41,7 +41,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonGroupMaskedTextBox class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonMaskedTextBox">Reference to source masked textbox.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
@@ -93,15 +93,15 @@ namespace ComponentFactory.Krypton.Ribbon
             GroupMaskedTextBox.PropertyChanged += OnMaskedTextBoxPropertyChanged;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonGroupMaskedTextBox:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.

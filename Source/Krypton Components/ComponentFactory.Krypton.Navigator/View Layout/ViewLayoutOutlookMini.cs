@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Navigator
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewLayoutOutlookMini class.
-		/// </summary>
+        /// </summary>
         /// <param name="viewBuilder">View builder reference.</param>
         public ViewLayoutOutlookMini(ViewBuilderOutlookBase viewBuilder)
         {

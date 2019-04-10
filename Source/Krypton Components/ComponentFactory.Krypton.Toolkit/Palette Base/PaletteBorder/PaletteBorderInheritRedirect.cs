@@ -13,38 +13,38 @@ using System.Drawing;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Provide inheritance of palette border properties from source redirector.
-	/// </summary>
-	public class PaletteBorderInheritRedirect : PaletteBorderInherit
-	{
-		#region Instance Fields
-		private PaletteRedirect _redirect;
+    /// <summary>
+    /// Provide inheritance of palette border properties from source redirector.
+    /// </summary>
+    public class PaletteBorderInheritRedirect : PaletteBorderInherit
+    {
+        #region Instance Fields
+        private PaletteRedirect _redirect;
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
-		/// Initialize a new instance of the PaletteBorderInheritRedirect class.
-		/// </summary>
-		/// <param name="redirect">Source for inherit requests.</param>
+        #region Identity
+        /// <summary>
+        /// Initialize a new instance of the PaletteBorderInheritRedirect class.
+        /// </summary>
+        /// <param name="redirect">Source for inherit requests.</param>
         public PaletteBorderInheritRedirect(PaletteRedirect redirect)
             : this(redirect, PaletteBorderStyle.ButtonStandalone)
         {
         }
 
         /// <summary>
-		/// Initialize a new instance of the PaletteBorderInheritRedirect class.
-		/// </summary>
-		/// <param name="redirect">Source for inherit requests.</param>
-		/// <param name="style">Style used in requests.</param>
-		public PaletteBorderInheritRedirect(PaletteRedirect redirect,
-											PaletteBorderStyle style)
-		{
-			_redirect = redirect;
-			Style = style;
-		}
-		#endregion
+        /// Initialize a new instance of the PaletteBorderInheritRedirect class.
+        /// </summary>
+        /// <param name="redirect">Source for inherit requests.</param>
+        /// <param name="style">Style used in requests.</param>
+        public PaletteBorderInheritRedirect(PaletteRedirect redirect,
+                                            PaletteBorderStyle style)
+        {
+            _redirect = redirect;
+            Style = style;
+        }
+        #endregion
 
         #region OverrideBorderToFalse
         /// <summary>
@@ -52,7 +52,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool OverrideBorderToFalse { get; set; }
 
-	    #endregion
+        #endregion
 
         #region GetRedirector
         /// <summary>
@@ -76,22 +76,22 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Style
-		/// <summary>
-		/// Gets and sets the style to use when inheriting.
-		/// </summary>
-		public PaletteBorderStyle Style { get; set; }
+        #region Style
+        /// <summary>
+        /// Gets and sets the style to use when inheriting.
+        /// </summary>
+        public PaletteBorderStyle Style { get; set; }
 
-	    #endregion
+        #endregion
 
-		#region IPaletteBorder
-		/// <summary>
-		/// Gets a value indicating if border should be drawn.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
-		public override InheritBool GetBorderDraw(PaletteState state) =>
-		    OverrideBorderToFalse ? InheritBool.False : _redirect.GetBorderDraw(Style, state);
+        #region IPaletteBorder
+        /// <summary>
+        /// Gets a value indicating if border should be drawn.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
+        public override InheritBool GetBorderDraw(PaletteState state) =>
+            OverrideBorderToFalse ? InheritBool.False : _redirect.GetBorderDraw(Style, state);
 
         /// <summary>
         /// Gets a value indicating which borders to draw.

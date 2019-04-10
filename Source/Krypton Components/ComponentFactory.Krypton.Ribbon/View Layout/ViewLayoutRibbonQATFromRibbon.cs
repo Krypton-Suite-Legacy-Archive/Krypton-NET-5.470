@@ -13,15 +13,15 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
+    /// <summary>
     /// Extends the ViewLayoutRibbonQATContents by providing the definitions from the ribbon control itself.
-	/// </summary>
+    /// </summary>
     internal class ViewLayoutRibbonQATFromRibbon : ViewLayoutRibbonQATContents
     {
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewLayoutRibbonQATFromRibbon class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Owning ribbon control instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         /// <param name="showExtraButton">Should the extra button be shown.</param>

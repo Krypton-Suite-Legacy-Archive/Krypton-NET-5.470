@@ -13,12 +13,12 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Navigator view element for drawing a tab check button for a krypton page.
-	/// </summary>
+    /// <summary>
+    /// Navigator view element for drawing a tab check button for a krypton page.
+    /// </summary>
     internal class ViewDrawNavCheckButtonTab : ViewDrawNavCheckButtonBar
-	{
-		#region Identity
+    {
+        #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawNavCheckButtonTab class.
         /// </summary>
@@ -38,16 +38,16 @@ namespace ComponentFactory.Krypton.Navigator
         {
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawNavCheckButtonTab:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region UpdateButtonSpecMapping
         /// <summary>
@@ -67,6 +67,6 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         protected override bool ButtonClickOnDown => true;
 
-	    #endregion
+        #endregion
     }
 }

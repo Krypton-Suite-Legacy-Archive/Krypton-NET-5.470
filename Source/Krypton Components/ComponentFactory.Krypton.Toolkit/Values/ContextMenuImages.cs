@@ -14,9 +14,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for context menu images.
-	/// </summary>
+    /// <summary>
+    /// Storage for context menu images.
+    /// </summary>
     public class ContextMenuImages : Storage
     {
         #region Instance Fields
@@ -28,10 +28,10 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ContextMenuImages class.
-		/// </summary>
+        /// </summary>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public ContextMenuImages(NeedPaintHandler needPaint) 
-		{
+        {
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
 
@@ -42,14 +42,14 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (_checked == null) &&
-		                                  (_indeterminate == null) &&
-		                                  (_subMenu == null);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (_checked == null) &&
+                                          (_indeterminate == null) &&
+                                          (_subMenu == null);
 
         #endregion
 

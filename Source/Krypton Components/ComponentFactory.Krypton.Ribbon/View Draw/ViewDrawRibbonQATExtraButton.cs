@@ -18,9 +18,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws the extra quick access button used for customization or overflowing.
-	/// </summary>
+    /// <summary>
+    /// Draws the extra quick access button used for customization or overflowing.
+    /// </summary>
     internal class ViewDrawRibbonQATExtraButton : ViewLeaf
     {
         #region Static Fields
@@ -45,7 +45,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonQATExtraButton class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public ViewDrawRibbonQATExtraButton(KryptonRibbon ribbon,
@@ -67,15 +67,15 @@ namespace ComponentFactory.Krypton.Ribbon
             KeyController = controller;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonQATExtraButton:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.
@@ -133,10 +133,10 @@ namespace ComponentFactory.Krypton.Ribbon
             return _viewSize;
         }
 
-		/// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
+        /// <summary>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
         public override void Layout(ViewLayoutContext context)
         {
             Debug.Assert(context != null);
@@ -162,7 +162,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Do we need to draw the background?
             if (paletteBack.GetBackDraw(State) == InheritBool.True)
-			{
+            {
                 // Get the border path which the background is clipped to drawing within
                 using (GraphicsPath borderPath = context.Renderer.RenderStandardBorder.GetBackPath(context, ClientRectangle, paletteBorder, VisualOrientation.Top, State))
                 {
@@ -171,12 +171,12 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Apply the padding depending on the orientation
                     Rectangle enclosingRect = CommonHelper.ApplyPadding(VisualOrientation.Top, ClientRectangle, borderPadding);
 
-				    // Render the background inside the border path
+                    // Render the background inside the border path
                     _mementoBack = context.Renderer.RenderStandardBack.DrawBack(context, enclosingRect, borderPath,
                                                                                 paletteBack, VisualOrientation.Top,
                                                                                 State, _mementoBack);
                 }
-			}
+            }
 
             // Do we need to draw the border?
             if (paletteBorder.GetBorderDraw(State) == InheritBool.True)

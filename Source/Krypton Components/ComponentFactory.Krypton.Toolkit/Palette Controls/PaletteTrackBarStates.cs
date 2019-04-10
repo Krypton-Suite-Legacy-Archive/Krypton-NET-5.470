@@ -14,19 +14,19 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Implement storage for a track bar state.
-	/// </summary>
-	public class PaletteTrackBarStates : Storage
-	{
-		#region Instance Fields
+    /// <summary>
+    /// Implement storage for a track bar state.
+    /// </summary>
+    public class PaletteTrackBarStates : Storage
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteTrackBarStates class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Source for inheriting values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteTrackBarStates(PaletteTrackBarRedirect redirect,
@@ -35,9 +35,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
         }
 
-		/// <summary>
+        /// <summary>
         /// Initialize a new instance of the PaletteTrackBarStates class.
-		/// </summary>
+        /// </summary>
         /// <param name="inheritTick">Source for inheriting tick values.</param>
         /// <param name="inheritTrack">Source for inheriting track values.</param>
         /// <param name="inheritPosition">Source for inheriting position values.</param>
@@ -46,7 +46,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                      IPaletteElementColor inheritTrack,
                                      IPaletteElementColor inheritPosition,
                                      NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(inheritTick != null);
             Debug.Assert(inheritTrack != null);
             Debug.Assert(inheritPosition != null);
@@ -59,18 +59,18 @@ namespace ComponentFactory.Krypton.Toolkit
             Track = new PaletteElementColor(inheritTrack, needPaint);
             Position = new PaletteElementColor(inheritPosition, needPaint);
         }
-		#endregion
+        #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (Tick.IsDefault &&
-		                                   Track.IsDefault &&
-		                                   Position.IsDefault);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (Tick.IsDefault &&
+                                           Track.IsDefault &&
+                                           Position.IsDefault);
 
-	    #endregion
+        #endregion
 
         #region SetInherit
         /// <summary>
@@ -112,7 +112,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteElementColor Tick { get; }
 
-	    private bool ShouldSerializeTick()
+        private bool ShouldSerializeTick()
         {
             return !Tick.IsDefault;
         }
@@ -128,7 +128,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteElementColor Track { get; }
 
-	    private bool ShouldSerializeTrack()
+        private bool ShouldSerializeTrack()
         {
             return !Track.IsDefault;
         }
@@ -144,10 +144,10 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteElementColor Position { get; }
 
-	    private bool ShouldSerializePosition()
+        private bool ShouldSerializePosition()
         {
             return !Position.IsDefault;
         }
         #endregion
-	}
+    }
 }

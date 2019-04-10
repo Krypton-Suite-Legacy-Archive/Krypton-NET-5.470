@@ -16,9 +16,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Override to draw tab items overlapping a group border and draw the selected tab item last.
-	/// </summary>
+    /// <summary>
+    /// Override to draw tab items overlapping a group border and draw the selected tab item last.
+    /// </summary>
     internal class ViewLayoutDockerOverlap : ViewLayoutDocker
     {
         #region Instance Fields
@@ -48,13 +48,13 @@ namespace ComponentFactory.Krypton.Navigator
             _layoutTabs = layoutTabs;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutDockerOverlap:" + Id;
         }
         #endregion

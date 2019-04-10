@@ -15,27 +15,27 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
+    /// <summary>
     /// Implements the NavigatorMode.Skeleton view.
-	/// </summary>
+    /// </summary>
     internal class ViewBuilderPanel : ViewBuilderBase
-	{
+    {
         #region Instance Fields
         private ViewBase _oldRoot;
         private ViewDrawPanel _drawPanel;
         #endregion
         
         #region Public
-		/// <summary>
-		/// Construct the view appropriate for this builder.
-		/// </summary>
-		/// <param name="navigator">Reference to navigator instance.</param>
-		/// <param name="manager">Reference to current manager.</param>
-		/// <param name="redirector">Palette redirector.</param>
-		public override void Construct(KryptonNavigator navigator, 
-									   ViewManager manager,
-									   PaletteRedirect redirector)
-		{
+        /// <summary>
+        /// Construct the view appropriate for this builder.
+        /// </summary>
+        /// <param name="navigator">Reference to navigator instance.</param>
+        /// <param name="manager">Reference to current manager.</param>
+        /// <param name="redirector">Palette redirector.</param>
+        public override void Construct(KryptonNavigator navigator, 
+                                       ViewManager manager,
+                                       PaletteRedirect redirector)
+        {
             // Let base class perform common operations
             base.Construct(navigator, manager, redirector);
 
@@ -61,14 +61,14 @@ namespace ComponentFactory.Krypton.Navigator
 
             // Need to monitor changes in the enabled state
             Navigator.EnabledChanged += OnEnabledChanged;
-		}
+        }
 
         /// <summary>
         /// Gets a value indicating if the mode is a tab strip style mode.
         /// </summary>
         public override bool IsTabStripMode => false;
 
-	    /// <summary>
+        /// <summary>
         /// Gets the KryptonPage associated with the provided view element.
         /// </summary>
         /// <param name="element">Element to search against.</param>
@@ -158,11 +158,11 @@ namespace ComponentFactory.Krypton.Navigator
             return false;
         }
 
-		/// <summary>
-		/// Destruct the previously created view.
-		/// </summary>
-		public override void Destruct()
-		{
+        /// <summary>
+        /// Destruct the previously created view.
+        /// </summary>
+        public override void Destruct()
+        {
             // Unhook from events
             Navigator.EnabledChanged -= OnEnabledChanged;
 
@@ -177,7 +177,7 @@ namespace ComponentFactory.Krypton.Navigator
 
             // Let base class perform common operations
             base.Destruct();
-		}
+        }
         #endregion
 
         #region Protected

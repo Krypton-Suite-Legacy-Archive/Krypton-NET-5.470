@@ -16,8 +16,8 @@ namespace ComponentFactory.Krypton.Toolkit
     /// <summary>
     /// Attribute that marks properties for persistence inside the Krypton palette.
     /// </summary>
-	[Serializable]
-	[AttributeUsage(AttributeTargets.Property)]
+    [Serializable]
+    [AttributeUsage(AttributeTargets.Property)]
     public sealed class KryptonPersistAttribute : Attribute
     {
         // Instance fields

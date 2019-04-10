@@ -19,7 +19,7 @@ using System.Windows.Forms.Design;
 namespace ComponentFactory.Krypton.Toolkit
 {
     internal class KryptonRichTextBoxDesigner : ControlDesigner
-	{
+    {
         #region Instance Fields
         private bool _lastHitTest;
         private KryptonRichTextBox _richTextBox;
@@ -68,7 +68,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public override ICollection AssociatedComponents =>
             _richTextBox != null ? _richTextBox.ButtonSpecs : base.AssociatedComponents;
 
-	    /// <summary>
+        /// <summary>
         /// Gets the selection rules that indicate the movement capabilities of a component.
         /// </summary>
         public override SelectionRules SelectionRules

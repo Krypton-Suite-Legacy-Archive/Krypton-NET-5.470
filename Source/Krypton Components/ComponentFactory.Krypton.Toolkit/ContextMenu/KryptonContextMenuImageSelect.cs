@@ -339,15 +339,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the Click event.
         /// </summary>
         /// <param name="e">An EventArgs that contains the event data.</param>
-        internal virtual void OnClick(EventArgs e)
-        {
-            if (Click != null)
-            {
-                Click(this, e);
-            }
-        }
-       
-
+        internal virtual void OnClick(EventArgs e) => Click?.Invoke(this, e);
         #endregion
 
         #region Internal

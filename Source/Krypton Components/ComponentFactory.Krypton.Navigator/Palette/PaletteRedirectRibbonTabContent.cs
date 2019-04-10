@@ -97,7 +97,7 @@ namespace ComponentFactory.Krypton.Navigator
                                                IPaletteContent selectedContent,
                                                IPaletteContent focusOverrideContent)
             : base(target)
-		{
+        {
             // Remember state specific inheritance
             _disabledBack = disabledBack;
             _normalBack = normalBack;
@@ -118,7 +118,7 @@ namespace ComponentFactory.Krypton.Navigator
             _selectedContent = selectedContent;
             _focusOverrideContent = focusOverrideContent;
         }
-		#endregion
+        #endregion
 
         #region SetRedirectStates
         /// <summary>

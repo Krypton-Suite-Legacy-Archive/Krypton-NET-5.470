@@ -55,9 +55,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Identity
         /// <summary>
-		/// Initialize a new instance of the KryptonLabel class.
-		/// </summary>
-		public KryptonLabel()
+        /// Initialize a new instance of the KryptonLabel class.
+        /// </summary>
+        public KryptonLabel()
         {
             // The label cannot take the focus
             SetStyle(ControlStyles.Selectable, false);
@@ -494,10 +494,10 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Raises the EnabledChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
-		protected override void OnEnabledChanged(EventArgs e)
+        /// Raises the EnabledChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        protected override void OnEnabledChanged(EventArgs e)
         {
             // Push correct palettes into the view
             _drawContent.SetPalette(Enabled ? StateNormal : StateDisabled);

@@ -13,36 +13,36 @@ using System.Drawing;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Override the contained child to present a fixed size.
-	/// </summary>
+    /// <summary>
+    /// Override the contained child to present a fixed size.
+    /// </summary>
     public class ViewDecoratorFixedSize : ViewDecorator
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
-		/// Initialize a new instance of the ViewBase class.
-		/// </summary>
+        #region Identity
+        /// <summary>
+        /// Initialize a new instance of the ViewBase class.
+        /// </summary>
         public ViewDecoratorFixedSize(ViewBase child, Size fixedSize)
             : base(child)
-		{
+        {
             FixedSize = fixedSize;
 
-		}
+        }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDecoratorFixedSize:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region FixedSize
         /// <summary>
@@ -50,7 +50,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Size FixedSize { get; set; }
 
-	    #endregion
+        #endregion
 
         #region Layout
         /// <summary>

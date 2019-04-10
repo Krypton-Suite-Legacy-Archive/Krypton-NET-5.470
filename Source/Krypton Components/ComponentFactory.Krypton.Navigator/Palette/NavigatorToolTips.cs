@@ -15,9 +15,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Storage for tooltip related properties.
-	/// </summary>
+    /// <summary>
+    /// Storage for tooltip related properties.
+    /// </summary>
     public class NavigatorToolTips : Storage
     {
         #region Instance Fields
@@ -28,12 +28,12 @@ namespace ComponentFactory.Krypton.Navigator
         #region Identity
         /// <summary>
         /// Initialize a new instance of the NavigatorPopupPage class.
-		/// </summary>
+        /// </summary>
         /// <param name="navigator">Reference to owning navigator instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public NavigatorToolTips(KryptonNavigator navigator,
                                 NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(navigator != null);
             Debug.Assert(needPaint != null);
             
@@ -50,7 +50,7 @@ namespace ComponentFactory.Krypton.Navigator
             MapText = MapKryptonPageText.ToolTipTitle;
             MapExtraText = MapKryptonPageText.ToolTipBody;
         }
-		#endregion
+        #endregion
 
         #region IsDefault
         /// <summary>

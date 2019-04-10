@@ -22,7 +22,7 @@ namespace ComponentFactory.Krypton.Toolkit
     /// <summary>
     /// Designer for a collection of context menu items.
     /// </summary>
-	public class KryptonContextMenuCollectionEditor : CollectionEditor
+    public class KryptonContextMenuCollectionEditor : CollectionEditor
     {
         #region Classes
         /// <summary>
@@ -1177,7 +1177,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonContextMenuCollectionEditor class.
-		/// </summary>
+        /// </summary>
         public KryptonContextMenuCollectionEditor()
             : base(typeof(KryptonContextMenuCollection))
         {

@@ -966,7 +966,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonDomainUpDown class.
-		/// </summary>
+        /// </summary>
         public KryptonDomainUpDown()
         {
             // Contains another control and needs marking as such for validation to work
@@ -1297,9 +1297,9 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Gets and sets the input control style.
-		/// </summary>
-		[Category("Visuals")]
+        /// Gets and sets the input control style.
+        /// </summary>
+        [Category("Visuals")]
         [Description("Input control style.")]
         public InputControlStyle InputControlStyle
         {
@@ -1508,9 +1508,9 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Gets the rectangle that represents the display area of the control.
-		/// </summary>
-		public override Rectangle DisplayRectangle
+        /// Gets the rectangle that represents the display area of the control.
+        /// </summary>
+        public override Rectangle DisplayRectangle
         {
             get
             {
@@ -1598,6 +1598,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Protected Virtual
+        // ReSharper disable VirtualMemberNeverOverridden.Global
         /// <summary>
         /// Raises the SelectedItemChanged event.
         /// </summary>
@@ -1621,6 +1622,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="e">An EventArgs containing the event data.</param>
         protected virtual void OnTrackMouseLeave(EventArgs e) => TrackMouseLeave?.Invoke(this, e);
+        // ReSharper restore VirtualMemberNeverOverridden.Global
         #endregion
 
         #region Protected Overrides
@@ -1655,10 +1657,10 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Raises the EnabledChanged event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
-		protected override void OnEnabledChanged(EventArgs e)
+        /// Raises the EnabledChanged event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        protected override void OnEnabledChanged(EventArgs e)
         {
             // Change in enabled state requires a layout and repaint
             UpdateStateAndPalettes();

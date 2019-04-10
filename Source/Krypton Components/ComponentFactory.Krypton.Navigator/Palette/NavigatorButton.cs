@@ -17,9 +17,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Storage for button related properties.
-	/// </summary>
+    /// <summary>
+    /// Storage for button related properties.
+    /// </summary>
     public class NavigatorButton : Storage
     {
         #region Static Fields
@@ -47,12 +47,12 @@ namespace ComponentFactory.Krypton.Navigator
         #region Identity
         /// <summary>
         /// Initialize a new instance of the NavigatorButton class.
-		/// </summary>
+        /// </summary>
         /// <param name="navigator">Reference to owning navigator instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public NavigatorButton(KryptonNavigator navigator,
                                NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(navigator != null);
             
             // Remember back reference
@@ -93,7 +93,7 @@ namespace ComponentFactory.Krypton.Navigator
             NextButtonShortcut = DEFAULT_SHORTCUT_NEXT;
             PreviousButtonShortcut = DEFAULT_SHORTCUT_PREVIOUS;
         }
-		#endregion
+        #endregion
 
         #region IsDefault
         /// <summary>

@@ -15,9 +15,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Workspace
 {
-	/// <summary>
-	/// Storage for workspace context menu for pages.
-	/// </summary>
+    /// <summary>
+    /// Storage for workspace context menu for pages.
+    /// </summary>
     public class WorkspaceMenus : Storage
     {
         #region Static Fields
@@ -48,10 +48,10 @@ namespace ComponentFactory.Krypton.Workspace
         #region Identity
         /// <summary>
         /// Initialize a new instance of the WorkspaceMenus class.
-		/// </summary>
+        /// </summary>
         public WorkspaceMenus(KryptonWorkspace workspace)
             : base()
-		{
+        {
             // Default values
             TextClose = DEFAULT_TEXT_CLOSE;
             TextCloseAllButThis = DEFAULT_TEXT_CLOSE_ALL_BUT_THIS;
@@ -72,7 +72,7 @@ namespace ComponentFactory.Krypton.Workspace
             ShortcutMaximizeRestore = DEFAULT_SHORTCUT_MAXIMIZE_RESTORE;
             ShowContextMenu = true;
         }
-		#endregion
+        #endregion
 
         #region IsDefault
         /// <summary>

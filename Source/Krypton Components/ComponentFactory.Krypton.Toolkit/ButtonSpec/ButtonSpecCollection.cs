@@ -17,9 +17,9 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Manage a collection of ButtonSpec instances.
-	/// </summary>
+    /// <summary>
+    /// Manage a collection of ButtonSpec instances.
+    /// </summary>
     [ListBindable(false)]
     public abstract class ButtonSpecCollectionBase : GlobalId
     {
@@ -117,56 +117,56 @@ namespace ComponentFactory.Krypton.Toolkit
     }
 
     /// <summary>
-	/// Manage a collection of ButtonSpec instances.
-	/// </summary>
+    /// Manage a collection of ButtonSpec instances.
+    /// </summary>
     public class ButtonSpecCollection<T> : ButtonSpecCollectionBase,
                                            IList,
-							               IList<T>,
-							               ICollection,
+                                           IList<T>,
+                                           ICollection,
                                            ICollection<T> where T : ButtonSpec
-										 
-										 
-	{
-		#region Instance Fields
+                                         
+                                         
+    {
+        #region Instance Fields
         private readonly List<T> _specs;
-		#endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the ButtonSpecCollection class.
-		/// </summary>
+        /// </summary>
         /// <param name="owner">Reference to owning object instance.</param>
         public ButtonSpecCollection(object owner)
             : base(owner)
-		{
-			// Create internal storage
+        {
+            // Create internal storage
             _specs = new List<T>(6);
-		}
+        }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
             return Count + " Instances";
-		}
-		#endregion
+        }
+        #endregion
 
-		#region IList
-		/// <summary>
-		/// Append a button spec to the collection.
-		/// </summary>
-		/// <param name="value">Object reference.</param>
+        #region IList
+        /// <summary>
+        /// Append a button spec to the collection.
+        /// </summary>
+        /// <param name="value">Object reference.</param>
         /// <returns>The position into which the new button spec was inserted.</returns>
-		public int Add(object value)
-		{
+        public int Add(object value)
+        {
             // Use strongly typed implementation
             Add(value as T);
 
             // Index is the last button spec in the collection
-			return (Count - 1);
-		}
+            return (Count - 1);
+        }
 
         /// <summary>
         /// Append an array of button spec instances.
@@ -180,141 +180,141 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
+        /// <summary>
         /// Determines whether the collection contains the button spec.
-		/// </summary>
-		/// <param name="value">Object reference.</param>
+        /// </summary>
+        /// <param name="value">Object reference.</param>
         /// <returns>True if button spec found; otherwise false.</returns>
-		public bool Contains(object value)
-		{
-			// Use strongly typed implementation
+        public bool Contains(object value)
+        {
+            // Use strongly typed implementation
             return Contains(value as T);
-		}
+        }
 
-		/// <summary>
+        /// <summary>
         /// Determines the index of the specified spec in the collection.
-		/// </summary>
-		/// <param name="value">Object reference.</param>
-		/// <returns>-1 if not found; otherwise index position.</returns>
-		public int IndexOf(object value)
-		{
-			// Use strongly typed implementation
+        /// </summary>
+        /// <param name="value">Object reference.</param>
+        /// <returns>-1 if not found; otherwise index position.</returns>
+        public int IndexOf(object value)
+        {
+            // Use strongly typed implementation
             return IndexOf(value as T);
-		}
+        }
 
-		/// <summary>
+        /// <summary>
         /// Inserts a button spec to the collection at the specified index.
-		/// </summary>
-		/// <param name="index">Insert index.</param>
-		/// <param name="value">Object reference.</param>
-		public void Insert(int index, object value)
-		{
+        /// </summary>
+        /// <param name="index">Insert index.</param>
+        /// <param name="value">Object reference.</param>
+        public void Insert(int index, object value)
+        {
             // Use strongly typed implementation
             Insert(index, value as T);
-		}
+        }
 
-		/// <summary>
-		/// Gets a value indicating whether the collection has a fixed size. 
-		/// </summary>
-		public bool IsFixedSize => false;
+        /// <summary>
+        /// Gets a value indicating whether the collection has a fixed size. 
+        /// </summary>
+        public bool IsFixedSize => false;
 
-	    /// <summary>
-		/// Removes first occurance of specified object.
-		/// </summary>
-		/// <param name="value">Object reference.</param>
-		public void Remove(object value)
-		{
+        /// <summary>
+        /// Removes first occurance of specified object.
+        /// </summary>
+        /// <param name="value">Object reference.</param>
+        public void Remove(object value)
+        {
             // Use strongly typed implementation
             Remove(value as T);
-		}
+        }
 
-		/// <summary>
+        /// <summary>
         /// Gets or sets the button spec at the specified index.
-		/// </summary>
-		/// <param name="index">Object index.</param>
-		/// <returns>Object at specified index.</returns>
-		object IList.this[int index]
-		{
-			get => _specs[index];
+        /// </summary>
+        /// <param name="index">Object index.</param>
+        /// <returns>Object at specified index.</returns>
+        object IList.this[int index]
+        {
+            get => _specs[index];
 
-		    set => throw new NotImplementedException("Cannot set a collection index with a new value");
-		}
-		#endregion
+            set => throw new NotImplementedException("Cannot set a collection index with a new value");
+        }
+        #endregion
 
         #region IList<T>
         /// <summary>
         /// Determines the index of the specified spec in the collection.
-		/// </summary>
+        /// </summary>
         /// <param name="item">T reference.</param>
-		/// <returns>-1 if not found; otherwise index position.</returns>
+        /// <returns>-1 if not found; otherwise index position.</returns>
         public int IndexOf(T item)
-		{
-			Debug.Assert(item != null);
-			return _specs.IndexOf(item);
-		}
+        {
+            Debug.Assert(item != null);
+            return _specs.IndexOf(item);
+        }
 
-	    /// <summary>
-	    /// Inserts a button spec to the collection at the specified index.
-	    /// </summary>
-	    /// <param name="index">Insert index.</param>
-	    /// <param name="item">T reference.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    public void Insert(int index, T item)
-		{
+        /// <summary>
+        /// Inserts a button spec to the collection at the specified index.
+        /// </summary>
+        /// <param name="index">Insert index.</param>
+        /// <param name="item">T reference.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public void Insert(int index, T item)
+        {
             Debug.Assert(item != null);
 
             // We do not allow an empty button spec to be added
-			if (item == null)
-			{
-			    throw new ArgumentNullException(nameof(item));
-			}
+            if (item == null)
+            {
+                throw new ArgumentNullException(nameof(item));
+            }
 
-		    // Not allow to add the same button spec more than once
-			if (_specs.Contains(item))
-			{
-			    throw new ArgumentOutOfRangeException(nameof(item), "T already in collection");
-			}
+            // Not allow to add the same button spec more than once
+            if (_specs.Contains(item))
+            {
+                throw new ArgumentOutOfRangeException(nameof(item), "T already in collection");
+            }
 
-		    // Generate before insert event
+            // Generate before insert event
             OnInserting(new ButtonSpecEventArgs(item, index));
 
-			// Add into the internal collection
-			_specs.Insert(index, item);
+            // Add into the internal collection
+            _specs.Insert(index, item);
 
-			// Generate after insert event
+            // Generate after insert event
             OnInserted(new ButtonSpecEventArgs(item, index));
-		}
+        }
 
-		/// <summary>
+        /// <summary>
         /// Removes the button spec at the specified index.
-		/// </summary>
-		/// <param name="index">Remove index.</param>
-		public void RemoveAt(int index)
-		{
+        /// </summary>
+        /// <param name="index">Remove index.</param>
+        public void RemoveAt(int index)
+        {
             // Cache the spec being removed
             T item = this[index];
 
-			// Generate before remove event
+            // Generate before remove event
             OnRemoving(new ButtonSpecEventArgs(item, index));
 
             // Remove spec from internal collection
-			_specs.RemoveAt(index);
+            _specs.RemoveAt(index);
 
-			// Generate after remove event
+            // Generate after remove event
             OnRemoved(new ButtonSpecEventArgs(item, index));
-		}
+        }
 
-		/// <summary>
+        /// <summary>
         /// Gets or sets the button spec at the specified index.
-		/// </summary>
+        /// </summary>
         /// <param name="index">T index.</param>
         /// <returns>T at specified index.</returns>
         public T this[int index]
-		{
-			get => _specs[index];
+        {
+            get => _specs[index];
 
-		    set => throw new NotImplementedException("Cannot set a collection index with a new value");
-		}
+            set => throw new NotImplementedException("Cannot set a collection index with a new value");
+        }
 
         /// <summary>
         /// Gets the button spec with the provided unique name.
@@ -351,118 +351,118 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region ICollection<T>
 
-	    /// <summary>
-	    /// Append a button spec to the collection.
-	    /// </summary>
-	    /// <param name="item">T reference.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    public void Add(T item)
-		{
-			Debug.Assert(item != null);
+        /// <summary>
+        /// Append a button spec to the collection.
+        /// </summary>
+        /// <param name="item">T reference.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public void Add(T item)
+        {
+            Debug.Assert(item != null);
 
             // We do not allow an empty button spec to be added
-			if (item == null)
-			{
-			    throw new ArgumentNullException(nameof(item));
-			}
+            if (item == null)
+            {
+                throw new ArgumentNullException(nameof(item));
+            }
 
-		    // Not allow to add the same button spec more than once
-			if (_specs.Contains(item))
-			{
-			    throw new ArgumentOutOfRangeException(nameof(item), "T already in collection");
-			}
+            // Not allow to add the same button spec more than once
+            if (_specs.Contains(item))
+            {
+                throw new ArgumentOutOfRangeException(nameof(item), "T already in collection");
+            }
 
-		    // Generate inserting event
+            // Generate inserting event
             OnInserting(new ButtonSpecEventArgs(item, _specs.Count));
 
-			// Add to the internal collection
-			_specs.Add(item);
+            // Add to the internal collection
+            _specs.Add(item);
 
-			// Generate inserted event
+            // Generate inserted event
             OnInserted(new ButtonSpecEventArgs(item, _specs.Count - 1));
-		}
+        }
 
-		/// <summary>
+        /// <summary>
         /// Determines whether the collection contains the button spec.
-		/// </summary>
+        /// </summary>
         /// <param name="item">T reference.</param>
         /// <returns>True if spec found; otherwise false.</returns>
         public bool Contains(T item)
-		{
-			Debug.Assert(item != null);
-			return _specs.Contains(item);
-		}
+        {
+            Debug.Assert(item != null);
+            return _specs.Contains(item);
+        }
 
-		/// <summary>
+        /// <summary>
         /// Copies button specs to specified array starting at particular index.
-		/// </summary>
-		/// <param name="array">Target array.</param>
-		/// <param name="arrayIndex">Starting array index.</param>
+        /// </summary>
+        /// <param name="array">Target array.</param>
+        /// <param name="arrayIndex">Starting array index.</param>
         public void CopyTo(T[] array, int arrayIndex)
-		{
-			Debug.Assert(array != null);
-			_specs.CopyTo(array, arrayIndex);
-		}
+        {
+            Debug.Assert(array != null);
+            _specs.CopyTo(array, arrayIndex);
+        }
 
-		/// <summary>
+        /// <summary>
         /// Gets the number of button specs in collection.
-		/// </summary>
-		public int Count => _specs.Count;
+        /// </summary>
+        public int Count => _specs.Count;
 
-	    /// <summary>
-		/// Gets a value indicating whether the collection is read-only.
-		/// </summary>
-		public bool IsReadOnly => false;
+        /// <summary>
+        /// Gets a value indicating whether the collection is read-only.
+        /// </summary>
+        public bool IsReadOnly => false;
 
-	    /// <summary>
+        /// <summary>
         /// Removes first occurance of specified spec.
-		/// </summary>
+        /// </summary>
         /// <param name="item">T reference.</param>
-		/// <returns>True if removed; otherwise false.</returns>
+        /// <returns>True if removed; otherwise false.</returns>
         public bool Remove(T item)
-		{
+        {
             Debug.Assert(item != null);
 
             // Cache the index of the button spec
-			int index = IndexOf(item);
+            int index = IndexOf(item);
 
-			// Generate before event
+            // Generate before event
             OnRemoving(new ButtonSpecEventArgs(item, index));
 
-			// Remove from the internal list
-			bool ret = _specs.Remove(item);
+            // Remove from the internal list
+            bool ret = _specs.Remove(item);
 
-			// Generate after event
+            // Generate after event
             OnRemoved(new ButtonSpecEventArgs(item, index));
 
-			return ret;
-		}
-		#endregion
+            return ret;
+        }
+        #endregion
 
-		#region ICollection
+        #region ICollection
 
-	    /// <summary>
-	    /// Copies all the elements of the current collection to the specified Array. 
-	    /// </summary>
-	    /// <param name="array">The Array that is the destination of the elements copied from the collection.</param>
-	    /// <param name="index">The index in array at which copying begins.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    public void CopyTo(Array array, int index)
-		{
+        /// <summary>
+        /// Copies all the elements of the current collection to the specified Array. 
+        /// </summary>
+        /// <param name="array">The Array that is the destination of the elements copied from the collection.</param>
+        /// <param name="index">The index in array at which copying begins.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public void CopyTo(Array array, int index)
+        {
             Debug.Assert(array != null);
 
-			// Cannot pass a null target array
-			if (array == null)
-			{
-			    throw new ArgumentNullException(nameof(array));
-			}
+            // Cannot pass a null target array
+            if (array == null)
+            {
+                throw new ArgumentNullException(nameof(array));
+            }
 
-		    // Try and copy each button spec to the destination array
+            // Try and copy each button spec to the destination array
             foreach (T spec in this)
             {
                 array.SetValue(spec, index++);
             }
-		}
+        }
 
         /// <summary>
         /// Remove all pages from the collection.
@@ -481,14 +481,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool IsSynchronized => false;
 
-	    /// <summary>
+        /// <summary>
         /// Gets an object that can be used to synchronize access to the collection. 
-		/// </summary>
-		public object SyncRoot => this;
+        /// </summary>
+        public object SyncRoot => this;
 
-	    #endregion
+        #endregion
 
-		#region IEnumerable
+        #region IEnumerable
         /// <summary>
         /// Provide non generic access to the enumerator.
         /// </summary>
@@ -500,21 +500,21 @@ namespace ComponentFactory.Krypton.Toolkit
         
         /// <summary>
         /// Shallow enumerate over button specs in the collection.
-		/// </summary>
-		/// <returns>Enumerator instance.</returns>
+        /// </summary>
+        /// <returns>Enumerator instance.</returns>
         public IEnumerator<T> GetEnumerator()
-		{
-			return _specs.GetEnumerator();
-		}
+        {
+            return _specs.GetEnumerator();
+        }
 
-		/// <summary>
-		/// Enumerate using non-generic interface.
-		/// </summary>
-		/// <returns>Enumerator instance.</returns>
-		IEnumerator IEnumerable.GetEnumerator()
-		{
-			return _specs.GetEnumerator();
-		}
+        /// <summary>
+        /// Enumerate using non-generic interface.
+        /// </summary>
+        /// <returns>Enumerator instance.</returns>
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return _specs.GetEnumerator();
+        }
         #endregion
-	}
+    }
 }

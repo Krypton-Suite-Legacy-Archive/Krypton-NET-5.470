@@ -14,9 +14,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Storage for string related properties.
-	/// </summary>
+    /// <summary>
+    /// Storage for string related properties.
+    /// </summary>
     public class RibbonStrings : Storage
     {
         #region Static Fields
@@ -45,9 +45,9 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the RibbonStrings class.
-		/// </summary>
+        /// </summary>
         public RibbonStrings()
-		{
+        {
             // Default values
             _appButtonKeyTip = DEFAULT_APP_BUTTON_KEY_TIP;
             CustomizeQuickAccessToolbar = DEFAULT_CUSTOMIZE_QUICK_ACCESS_TOOLBAR;
@@ -63,7 +63,7 @@ namespace ComponentFactory.Krypton.Ribbon
             StandardColors = DEFAULT_STANDARD_COLORS;
             ThemeColors = DEFAULT_THEME_COLORS;
         }
-		#endregion
+        #endregion
 
         #region IsDefault
         /// <summary>

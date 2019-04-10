@@ -19,29 +19,29 @@ namespace ComponentFactory.Krypton.Toolkit
 {
     internal class KryptonGroupPanelDesigner : KryptonPanelDesigner,
                                                IKryptonDesignerSelect
-	{
-		#region Instance Fields
-		private KryptonGroupPanel _panel;
+    {
+        #region Instance Fields
+        private KryptonGroupPanel _panel;
         private ISelectionService _selectionService;
         #endregion
 
         #region Public
         /// <summary>
-		/// Initializes the designer with the specified component.
-		/// </summary>
-		/// <param name="component">The IComponent to associate with the designer.</param>
-		public override void Initialize(IComponent component)
-		{
-			// Perform common base class initializating
-			base.Initialize(component);
+        /// Initializes the designer with the specified component.
+        /// </summary>
+        /// <param name="component">The IComponent to associate with the designer.</param>
+        public override void Initialize(IComponent component)
+        {
+            // Perform common base class initializating
+            base.Initialize(component);
 
-			// Remember references to components involved in design
+            // Remember references to components involved in design
             _panel = component as KryptonGroupPanel;
 
             // Acquire service interfaces
             _selectionService = (ISelectionService)GetService(typeof(ISelectionService));
 
-			// If inside a Krypton group container then always lock the component from user size/location change
+            // If inside a Krypton group container then always lock the component from user size/location change
             if (_panel != null)
             {
                 PropertyDescriptor descriptor = TypeDescriptor.GetProperties(component)["Locked"];
@@ -50,7 +50,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     descriptor.SetValue(component, true);
                 }
             }
-		}
+        }
 
         /// <summary>
         /// Indicates if this designer's control can be parented by the control of the specified designer.
@@ -63,15 +63,15 @@ namespace ComponentFactory.Krypton.Toolkit
             return ((parentDesigner is KryptonGroup) || (parentDesigner is KryptonHeaderGroup));
         }
 
-		/// <summary>
-		/// Gets the selection rules that indicate the movement capabilities of a component.
-		/// </summary>
-		public override SelectionRules SelectionRules
-		{
-			get
-			{
-				// If the panel is inside our Krypton group container then prevent 
-				// user changing the size or location of the group panel instance
+        /// <summary>
+        /// Gets the selection rules that indicate the movement capabilities of a component.
+        /// </summary>
+        public override SelectionRules SelectionRules
+        {
+            get
+            {
+                // If the panel is inside our Krypton group container then prevent 
+                // user changing the size or location of the group panel instance
                 if ((Control.Parent is KryptonGroup) || 
                     (Control.Parent is KryptonHeaderGroup))
                 {
@@ -81,38 +81,38 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     return SelectionRules.None;
                 }
-			}
-		}
+            }
+        }
 
-		/// <summary>
-		/// Gets a list of SnapLine objects representing significant alignment points for this control.
-		/// </summary>
-		public override IList SnapLines
-		{
-			get
-			{
-				ArrayList snapLines = null;
+        /// <summary>
+        /// Gets a list of SnapLine objects representing significant alignment points for this control.
+        /// </summary>
+        public override IList SnapLines
+        {
+            get
+            {
+                ArrayList snapLines = null;
 
-			    // ReSharper disable RedundantBaseQualifier
+                // ReSharper disable RedundantBaseQualifier
                 // Let the base class generate snap lines
                 base.AddPaddingSnapLines(ref snapLines);
-			    // ReSharper restore RedundantBaseQualifier
+                // ReSharper restore RedundantBaseQualifier
 
-				return snapLines;
-			}
-		}
+                return snapLines;
+            }
+        }
 
         /// <summary>
         ///  Gets the design-time action lists supported by the component associated with the designer.
         /// </summary>
         public override DesignerActionListCollection ActionLists => new DesignerActionListCollection();
 
-	    /// <summary>
+        /// <summary>
         /// Should painting be performed for the selection glyph.
         /// </summary>
         public bool CanPaint => true;
 
-	    /// <summary>
+        /// <summary>
         /// Select the control that contains the group panel.
         /// </summary>
         public void SelectParentControl()
@@ -124,7 +124,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Protected
+        #region Protected
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -144,58 +144,58 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Allows a designer to add to the set of properties that it exposes through a TypeDescriptor.
-		/// </summary>
-		/// <param name="properties">The properties for the class of the component.</param>
-		protected override void PreFilterProperties(IDictionary properties)
-		{
-			// Let base clas filter properties first
-			base.PreFilterProperties(properties);
+        /// <summary>
+        /// Allows a designer to add to the set of properties that it exposes through a TypeDescriptor.
+        /// </summary>
+        /// <param name="properties">The properties for the class of the component.</param>
+        protected override void PreFilterProperties(IDictionary properties)
+        {
+            // Let base clas filter properties first
+            base.PreFilterProperties(properties);
 
-			// Remove the design time properties we do not want
-			properties.Remove("Modifiers");
-			properties.Remove("Locked");
-			properties.Remove("GenerateMember");
+            // Remove the design time properties we do not want
+            properties.Remove("Modifiers");
+            properties.Remove("Locked");
+            properties.Remove("GenerateMember");
 
-			// Scan for the 'Name' propertty
-			foreach (DictionaryEntry entry in properties)
-			{
-				// Get the property descriptor for the entry
-				PropertyDescriptor descriptor = (PropertyDescriptor)entry.Value;
+            // Scan for the 'Name' propertty
+            foreach (DictionaryEntry entry in properties)
+            {
+                // Get the property descriptor for the entry
+                PropertyDescriptor descriptor = (PropertyDescriptor)entry.Value;
 
-				// Is this the 'Name' we are searching for?
-				if (descriptor.Name.Equals("Name") && descriptor.DesignTimeOnly)
-				{
-					// Hide the 'Name' property so the user cannot modify it
-					Attribute[] attributeArray = new Attribute[2] { BrowsableAttribute.No, DesignerSerializationVisibilityAttribute.Hidden };
-					properties[entry.Key] = TypeDescriptor.CreateProperty(descriptor.ComponentType, descriptor, attributeArray);
+                // Is this the 'Name' we are searching for?
+                if (descriptor.Name.Equals("Name") && descriptor.DesignTimeOnly)
+                {
+                    // Hide the 'Name' property so the user cannot modify it
+                    Attribute[] attributeArray = new Attribute[2] { BrowsableAttribute.No, DesignerSerializationVisibilityAttribute.Hidden };
+                    properties[entry.Key] = TypeDescriptor.CreateProperty(descriptor.ComponentType, descriptor, attributeArray);
 
-					// Finished
-					break;
-				}
-			}
-		}
+                    // Finished
+                    break;
+                }
+            }
+        }
 
-		/// <summary>
-		/// Gets an attribute that indicates the type of inheritance of the associated component.
-		/// </summary>
-		protected override InheritanceAttribute InheritanceAttribute
-		{
-			get
-			{
-				// If we have a valid Krypton splitter panel instance
-				if (_panel?.Parent != null)
-				{
-					// Then get the attribute associated with the parent of the panel
-					return (InheritanceAttribute)TypeDescriptor.GetAttributes(_panel.Parent)[typeof(InheritanceAttribute)];
-				}
-				else
-				{
-				    return base.InheritanceAttribute;
-				}
-			}
-		}
-		#endregion
-	}
+        /// <summary>
+        /// Gets an attribute that indicates the type of inheritance of the associated component.
+        /// </summary>
+        protected override InheritanceAttribute InheritanceAttribute
+        {
+            get
+            {
+                // If we have a valid Krypton splitter panel instance
+                if (_panel?.Parent != null)
+                {
+                    // Then get the attribute associated with the parent of the panel
+                    return (InheritanceAttribute)TypeDescriptor.GetAttributes(_panel.Parent)[typeof(InheritanceAttribute)];
+                }
+                else
+                {
+                    return base.InheritanceAttribute;
+                }
+            }
+        }
+        #endregion
+    }
 }

@@ -13,9 +13,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Base storage class for palette double (background/border) that expose three states.
-	/// </summary>
+    /// <summary>
+    /// Base storage class for palette double (background/border) that expose three states.
+    /// </summary>
     public abstract class KryptonPaletteDouble3 : Storage
     {
         #region Instance Fields
@@ -27,7 +27,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of KryptonPaletteDouble3 KryptonPaletteControl class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Redirector to inherit values from.</param>
         /// <param name="backStyle">Background style.</param>
         /// <param name="borderStyle">Border style.</param>
@@ -36,7 +36,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                      PaletteBackStyle backStyle,
                                      PaletteBorderStyle borderStyle,
                                      NeedPaintHandler needPaint) 
-		{
+        {
             // Create the storage objects
             _stateCommon = new PaletteDoubleRedirect(redirect, backStyle, borderStyle, needPaint);
             _stateDisabled = new PaletteDouble(_stateCommon, needPaint);
@@ -55,14 +55,14 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => _stateCommon.IsDefault &&
-		                                  _stateDisabled.IsDefault &&
-		                                  _stateNormal.IsDefault;
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => _stateCommon.IsDefault &&
+                                          _stateDisabled.IsDefault &&
+                                          _stateNormal.IsDefault;
 
         #endregion
 

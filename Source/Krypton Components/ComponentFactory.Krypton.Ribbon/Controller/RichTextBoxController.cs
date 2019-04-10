@@ -15,31 +15,31 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Process mouse events for a ribbon group richtextbox.
-	/// </summary>
+    /// <summary>
+    /// Process mouse events for a ribbon group richtextbox.
+    /// </summary>
     internal class RichTextBoxController : GlobalId,
                                            ISourceController,
                                            IKeyController,
                                            IRibbonKeyTipTarget
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly KryptonRibbon _ribbon;
         private readonly KryptonRibbonGroupRichTextBox _richTextBox;
         private readonly ViewDrawRibbonGroupRichTextBox _target;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the RichTextBoxController class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         /// <param name="richTextBox">Source definition.</param>
         /// <param name="target">Target view element.</param>
         public RichTextBoxController(KryptonRibbon ribbon,
                                      KryptonRibbonGroupRichTextBox richTextBox,
                                      ViewDrawRibbonGroupRichTextBox target)
-		{
+        {
             Debug.Assert(ribbon != null);
             Debug.Assert(richTextBox != null);
             Debug.Assert(target != null);
@@ -48,7 +48,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _richTextBox = richTextBox;
             _target = target;
         }
-		#endregion
+        #endregion
 
         #region Focus Notifications
         /// <summary>

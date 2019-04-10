@@ -20,76 +20,76 @@ using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Base class used for implementation of actual container controls.
-	/// </summary>
-	[ToolboxItem(false)]
-	[DesignerCategory("code")]
+    /// <summary>
+    /// Base class used for implementation of actual container controls.
+    /// </summary>
+    [ToolboxItem(false)]
+    [DesignerCategory("code")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     public abstract class VisualContainerControlBase : ContainerControl, 
                                                        IKryptonDebug
-	{
+    {
         #region Static Field
         private static MethodInfo _miPTB;
         #endregion
         
         #region Instance Fields
-		private bool _layoutDirty;
+        private bool _layoutDirty;
         private bool _refresh;
         private bool _refreshAll;
         private bool _paintTransparent;
         private bool _evalTransparent;
-	    private IPalette _localPalette;
-		private IPalette _palette;
-	    private PaletteMode _paletteMode;
-	    private readonly SimpleCall _refreshCall;
+        private IPalette _localPalette;
+        private IPalette _palette;
+        private PaletteMode _paletteMode;
+        private readonly SimpleCall _refreshCall;
         private readonly SimpleCall _layoutCall;
-	    private KryptonContextMenu _kryptonContextMenu;
+        private KryptonContextMenu _kryptonContextMenu;
         #endregion
 
-		#region Events
-		/// <summary>
-		/// Occurs when the palette changes.
-		/// </summary>
+        #region Events
+        /// <summary>
+        /// Occurs when the palette changes.
+        /// </summary>
         [Category("Property Changed")]
         [Description("Occurs when the value of the Palette property is changed.")]
-		public event EventHandler PaletteChanged;
-		#endregion
+        public event EventHandler PaletteChanged;
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the VisualContainerControlBase class.
-		/// </summary>
+        /// </summary>
         protected VisualContainerControlBase()
-		{
-			#region Default ControlStyle Values
-			// Default style values for Control are:-
-			//	True  - AllPaintingInWmPaint
-			//	False - CacheText
-			//	False - ContainerControl
-			//	False - EnableNotifyMessage
-			//	False - FixedHeight
-			//	False - FixedWidth
-			//	False - Opaque
-			//	False - OptimizedDoubleBuffer
-			//	False - ResizeRedraw
-			//	True  - Selectable
-			//	True  - StandardClick
-			//	True  - StandardDoubleClick
-			//	False - SupportsTransparentBackColor
-			//	False - UserMouse
-			//	True  - UserPaint
-			//	True  - UseTextForAccessibility
-			#endregion
+        {
+            #region Default ControlStyle Values
+            // Default style values for Control are:-
+            //    True  - AllPaintingInWmPaint
+            //    False - CacheText
+            //    False - ContainerControl
+            //    False - EnableNotifyMessage
+            //    False - FixedHeight
+            //    False - FixedWidth
+            //    False - Opaque
+            //    False - OptimizedDoubleBuffer
+            //    False - ResizeRedraw
+            //    True  - Selectable
+            //    True  - StandardClick
+            //    True  - StandardDoubleClick
+            //    False - SupportsTransparentBackColor
+            //    False - UserMouse
+            //    True  - UserPaint
+            //    True  - UseTextForAccessibility
+            #endregion
 
-			// We use double buffering to reduce drawing flicker
-			SetStyle(ControlStyles.OptimizedDoubleBuffer |
-					 ControlStyles.AllPaintingInWmPaint |
-					 ControlStyles.UserPaint, true);
+            // We use double buffering to reduce drawing flicker
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                     ControlStyles.AllPaintingInWmPaint |
+                     ControlStyles.UserPaint, true);
 
-			// We need to repaint entire control whenever resized
-			SetStyle(ControlStyles.ResizeRedraw, true);
+            // We need to repaint entire control whenever resized
+            SetStyle(ControlStyles.ResizeRedraw, true);
 
             // Yes, we want to be drawn double buffered by default
             DoubleBuffered = true;
@@ -102,8 +102,8 @@ namespace ComponentFactory.Krypton.Toolkit
             NeedPaintDelegate = OnNeedPaint;
             NeedPaintPaletteDelegate = OnPaletteNeedPaint;
 
-			// Must layout before first draw attempt
-			_layoutDirty = true;
+            // Must layout before first draw attempt
+            _layoutDirty = true;
             _evalTransparent = true;
             DirtyPaletteCounter = 1;
 
@@ -162,9 +162,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             base.Dispose(disposing);
         }
-		#endregion
+        #endregion
 
-		#region Public
+        #region Public
         /// <summary>
         /// Gets or sets the ContextMenuStrip associated with this control.
         /// </summary>
@@ -268,18 +268,18 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Gets or sets the palette to be applied.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Palette applied to drawing.")]
-		public PaletteMode PaletteMode
-		{
+        /// <summary>
+        /// Gets or sets the palette to be applied.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Palette applied to drawing.")]
+        public PaletteMode PaletteMode
+        {
             [DebuggerStepThrough]
             get { return _paletteMode; }
 
-			set
-			{
+            set
+            {
                 if (_paletteMode != value)
                 {
                     // Action despends on new value
@@ -305,81 +305,81 @@ namespace ComponentFactory.Krypton.Toolkit
                             break;
                     }
                 }
-			}
-		}
+            }
+        }
 
         private bool ShouldSerializePaletteMode()
         {
             return (PaletteMode != PaletteMode.Global);
         }
 
-		/// <summary>
-		/// Resets the PaletteMode property to its default value.
-		/// </summary>
-		public void ResetPaletteMode()
-		{
-			PaletteMode = PaletteMode.Global;
-		}
+        /// <summary>
+        /// Resets the PaletteMode property to its default value.
+        /// </summary>
+        public void ResetPaletteMode()
+        {
+            PaletteMode = PaletteMode.Global;
+        }
 
-		/// <summary>
-		/// Gets and sets the custom palette implementation.
-		/// </summary>
-		[Category("Visuals")]
-		[Description("Custom palette applied to drawing.")]
-		[DefaultValue(null)]
-		public IPalette Palette
-		{
+        /// <summary>
+        /// Gets and sets the custom palette implementation.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Custom palette applied to drawing.")]
+        [DefaultValue(null)]
+        public IPalette Palette
+        {
             [DebuggerStepThrough]
             get { return _localPalette; }
 
-			set
-			{
-				// Only interested in changes of value
+            set
+            {
+                // Only interested in changes of value
                 if (_localPalette != value)
-				{
-					// Remember the starting palette
+                {
+                    // Remember the starting palette
                     IPalette old = _localPalette;
 
-					// Use the provided palette value
+                    // Use the provided palette value
                     SetPalette(value);
 
-					// If no custom palette is required
-					if (value == null)
-					{
+                    // If no custom palette is required
+                    if (value == null)
+                    {
                         // No custom palette, so revert back to the global setting
                         _paletteMode = PaletteMode.Global;
 
                         // Get the appropriate palette for the global mode
                         _localPalette = null;
                         SetPalette(KryptonManager.GetPaletteForMode(_paletteMode));
-					}
-					else
-					{
-						// No longer using a standard palette
+                    }
+                    else
+                    {
+                        // No longer using a standard palette
                         _localPalette = value;
-						_paletteMode = PaletteMode.Custom;
-					}
+                        _paletteMode = PaletteMode.Custom;
+                    }
 
-					// If real change has occured
+                    // If real change has occured
                     if (old != _localPalette)
-					{
-						// Raise the change event
-						OnPaletteChanged(EventArgs.Empty);
+                    {
+                        // Raise the change event
+                        OnPaletteChanged(EventArgs.Empty);
 
                         // Need to layout again use new palette
                         PerformLayout();
                     }
-				}
-			}
-		}
+                }
+            }
+        }
 
-		/// <summary>
-		/// Resets the Palette property to its default value.
-		/// </summary>
-		public void ResetPalette()
-		{
-			PaletteMode = PaletteMode.Global;
-		}
+        /// <summary>
+        /// Resets the Palette property to its default value.
+        /// </summary>
+        public void ResetPalette()
+        {
+            PaletteMode = PaletteMode.Global;
+        }
 
         /// <summary>
         /// Gets access to the current renderer.
@@ -392,9 +392,9 @@ namespace ComponentFactory.Krypton.Toolkit
             [DebuggerStepThrough]
             get;
             private set;
-	    }
+        }
 
-	    /// <summary>
+        /// <summary>
         /// Create a tool strip renderer appropriate for the current renderer/palette pair.
         /// </summary>
         [Browsable(false)]
@@ -404,27 +404,27 @@ namespace ComponentFactory.Krypton.Toolkit
             return Renderer.RenderToolStrip(GetResolvedPalette());
         }
 
-		/// <summary>
-		/// Gets or sets the background image displayed in the control.
-		/// </summary>
-		[Browsable(false)]
-		[Bindable(false)]
-		public override Image BackgroundImage
-		{
-			get => base.BackgroundImage;
-		    set => base.BackgroundImage = value;
-		}
+        /// <summary>
+        /// Gets or sets the background image displayed in the control.
+        /// </summary>
+        [Browsable(false)]
+        [Bindable(false)]
+        public override Image BackgroundImage
+        {
+            get => base.BackgroundImage;
+            set => base.BackgroundImage = value;
+        }
 
-		/// <summary>
-		/// Gets or sets the background image layout.
-		/// </summary>
-		[Browsable(false)]
-		[Bindable(false)]
-		public override ImageLayout BackgroundImageLayout
-		{
-			get => base.BackgroundImageLayout;
-		    set => base.BackgroundImageLayout = value;
-		}
+        /// <summary>
+        /// Gets or sets the background image layout.
+        /// </summary>
+        [Browsable(false)]
+        [Bindable(false)]
+        public override ImageLayout BackgroundImageLayout
+        {
+            get => base.BackgroundImageLayout;
+            set => base.BackgroundImageLayout = value;
+        }
 
         /// <summary>
         /// Gets the ViewManager instance.
@@ -454,7 +454,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int DirtyPaletteCounter { get; set; }
 
-	    #endregion
+        #endregion
 
         #region Public IKryptonDebug
         /// <summary>
@@ -474,7 +474,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int KryptonLayoutCounter => ViewManager.LayoutCounter;
 
-	    /// <summary>
+        /// <summary>
         /// Gets the number of paint cycles performed since last reset.
         /// </summary>
         [Browsable(false)]
@@ -482,7 +482,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int KryptonPaintCounter => ViewManager.PaintCounter;
 
-	    #endregion
+        #endregion
         
         #region Protected
         /// <summary>
@@ -493,28 +493,28 @@ namespace ComponentFactory.Krypton.Toolkit
             [DebuggerStepThrough]
             get;
             set;
-	    }
+        }
 
-	    /// <summary>
-		/// Gets access to the palette redirector.
-		/// </summary>
-		protected PaletteRedirect Redirector
-	    {
-	        [DebuggerStepThrough]
-	        get;
-	    }
+        /// <summary>
+        /// Gets access to the palette redirector.
+        /// </summary>
+        protected PaletteRedirect Redirector
+        {
+            [DebuggerStepThrough]
+            get;
+        }
 
-	    /// <summary>
+        /// <summary>
         /// Gets access to the need paint delegate.
         /// </summary>
         protected NeedPaintHandler NeedPaintDelegate { get; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets access to the need paint palette delegate.
         /// </summary>
         protected NeedPaintHandler NeedPaintPaletteDelegate { get; }
 
-	    /// <summary>
+        /// <summary>
         /// Force the control to perform a krypton layout to calculate size and positioning.
         /// </summary>
         /// <returns>True if layout was p</returns>
@@ -590,33 +590,34 @@ namespace ComponentFactory.Krypton.Toolkit
             g.FillRectangle(backBrush, backRect);
         }
 
-		/// <summary>
-		/// Gets a value indicating is processing of mnemonics should be allowed.
-		/// </summary>
-		/// <returns>True to allow; otherwise false.</returns>
-		protected bool CanProcessMnemonic()
-		{
-			Control c = this;
+        /// <summary>
+        /// Gets a value indicating is processing of mnemonics should be allowed.
+        /// </summary>
+        /// <returns>True to allow; otherwise false.</returns>
+        protected bool CanProcessMnemonic()
+        {
+            Control c = this;
 
-			// Test each control in parent chain
-			while (c != null)
-			{
-				// Control must be visible and enabled
-				if (!Visible || !Enabled)
+            // Test each control in parent chain
+            while (c != null)
+            {
+                // Control must be visible and enabled
+                if (!Visible || !Enabled)
                 {
                     return false;
                 }
 
                 // Move up one level
                 c = c.Parent;
-			}
+            }
 
-			// Evert control in chain is visible and enabled, so allow mnemonics
-			return true;
-		}
+            // Evert control in chain is visible and enabled, so allow mnemonics
+            return true;
+        }
         #endregion
 
         #region Protected Virtual
+        // ReSharper disable VirtualMemberNeverOverridden.Global
         /// <summary>
         /// Work out if this control needs to paint transparent areas.
         /// </summary>
@@ -632,18 +633,18 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected virtual bool EvalInvokePaint => false;
 
-	    /// <summary>
+        /// <summary>
         /// Gets the control reference that is the parent for transparent drawing.
         /// </summary>
         protected virtual Control TransparentParent => Parent;
 
-	    /// <summary>
-	    /// Processes a notification from palette storage of a button spec change.
-	    /// </summary>
-	    /// <param name="sender">Source of notification.</param>
-	    /// <param name="e">An EventArgs containing event data.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    protected virtual void OnButtonSpecChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Processes a notification from palette storage of a button spec change.
+        /// </summary>
+        /// <param name="sender">Source of notification.</param>
+        /// <param name="e">An EventArgs containing event data.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        protected virtual void OnButtonSpecChanged(object sender, EventArgs e)
         {
             Debug.Assert(e != null);
 
@@ -684,13 +685,13 @@ namespace ComponentFactory.Krypton.Toolkit
             OnNeedPaint(sender, e);
         }
 
-	    /// <summary>
-	    /// Processes a notification from palette storage of a paint and optional layout required.
-	    /// </summary>
-	    /// <param name="sender">Source of notification.</param>
-	    /// <param name="e">An NeedLayoutEventArgs containing event data.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    protected virtual void OnNeedPaint(object sender, NeedLayoutEventArgs e)
+        /// <summary>
+        /// Processes a notification from palette storage of a paint and optional layout required.
+        /// </summary>
+        /// <param name="sender">Source of notification.</param>
+        /// <param name="e">An NeedLayoutEventArgs containing event data.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        protected virtual void OnNeedPaint(object sender, NeedLayoutEventArgs e)
         {
             Debug.Assert(e != null);
 
@@ -745,6 +746,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             return new PaletteRedirect(_palette);
         }
+        // ReSharper restore VirtualMemberNeverOverridden.Global
         #endregion
 
         #region Protected Overrides
@@ -763,12 +765,12 @@ namespace ComponentFactory.Krypton.Toolkit
             base.OnRightToLeftChanged(e);
         }
 
-		/// <summary>
-		/// Raises the Layout event.
-		/// </summary>
+        /// <summary>
+        /// Raises the Layout event.
+        /// </summary>
         /// <param name="levent">A LayoutEventArgs that contains the event data.</param>
-		protected override void OnLayout(LayoutEventArgs levent)
-		{
+        protected override void OnLayout(LayoutEventArgs levent)
+        {
             // Cannot process a message for a disposed control
             if (!IsDisposed && !Disposing)
             {
@@ -790,15 +792,15 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
 
-			// Let base class layout child controls
-			base.OnLayout(levent);
-		}
+            // Let base class layout child controls
+            base.OnLayout(levent);
+        }
 
-		/// <summary>
-		/// Raises the Paint event.
-		/// </summary>
-		/// <param name="e">A PaintEventArgs that contains the event data.</param>
-		protected override void OnPaint(PaintEventArgs e)
+        /// <summary>
+        /// Raises the Paint event.
+        /// </summary>
+        /// <param name="e">A PaintEventArgs that contains the event data.</param>
+        protected override void OnPaint(PaintEventArgs e)
         {
             // Cannot process a message for a disposed control
             if (!IsDisposed && !Disposing)
@@ -839,14 +841,14 @@ namespace ComponentFactory.Krypton.Toolkit
                     _refreshAll = false;
                 }
             }
-		}
+        }
 
-		/// <summary>
-		/// Raises the MouseMove event.
-		/// </summary>
-		/// <param name="e">A MouseEventArgs that contains the event data.</param>
-		protected override void OnMouseMove(MouseEventArgs e)
-		{
+        /// <summary>
+        /// Raises the MouseMove event.
+        /// </summary>
+        /// <param name="e">A MouseEventArgs that contains the event data.</param>
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
             // Cannot process a message for a disposed control
             if (!IsDisposed && !Disposing)
             {
@@ -854,16 +856,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 ViewManager?.MouseMove(e, new Point(e.X, e.Y));
             }
 
-			// Let base class fire events
-			base.OnMouseMove(e);
-		}
+            // Let base class fire events
+            base.OnMouseMove(e);
+        }
 
-		/// <summary>
-		/// Raises the MouseDown event.
-		/// </summary>
-		/// <param name="e">A MouseEventArgs that contains the event data.</param>
-		protected override void OnMouseDown(MouseEventArgs e)
-		{
+        /// <summary>
+        /// Raises the MouseDown event.
+        /// </summary>
+        /// <param name="e">A MouseEventArgs that contains the event data.</param>
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
             // Cannot process a message for a disposed control
             if (!IsDisposed && !Disposing)
             {
@@ -871,16 +873,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 ViewManager?.MouseDown(e, new Point(e.X, e.Y));
             }
 
-			// Let base class fire events
-			base.OnMouseDown(e);
-		}
+            // Let base class fire events
+            base.OnMouseDown(e);
+        }
 
-		/// <summary>
-		/// Raises the MouseUp event.
-		/// </summary>
-		/// <param name="e">A MouseEventArgs that contains the event data.</param>
-		protected override void OnMouseUp(MouseEventArgs e)
-		{
+        /// <summary>
+        /// Raises the MouseUp event.
+        /// </summary>
+        /// <param name="e">A MouseEventArgs that contains the event data.</param>
+        protected override void OnMouseUp(MouseEventArgs e)
+        {
             // Cannot process a message for a disposed control
             if (!IsDisposed && !Disposing)
             {
@@ -888,16 +890,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 ViewManager?.MouseUp(e, new Point(e.X, e.Y));
             }
 
-			// Let base class fire events
-			base.OnMouseUp(e);
-		}
+            // Let base class fire events
+            base.OnMouseUp(e);
+        }
 
-		/// <summary>
-		/// Raises the MouseLeave event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
-		protected override void OnMouseLeave(EventArgs e)
-		{
+        /// <summary>
+        /// Raises the MouseLeave event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        protected override void OnMouseLeave(EventArgs e)
+        {
             // Cannot process a message for a disposed control
             if (!IsDisposed && !Disposing)
             {
@@ -905,9 +907,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 ViewManager?.MouseLeave(e);
             }
 
-			// Let base class fire events
-			base.OnMouseLeave(e);
-		}
+            // Let base class fire events
+            base.OnMouseLeave(e);
+        }
 
         /// <summary>
         /// Raises the DoubleClick event.
@@ -977,12 +979,12 @@ namespace ComponentFactory.Krypton.Toolkit
             base.OnKeyUp(e);
         }
 
-		/// <summary>
-		/// Raises the GotFocus event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
-		protected override void OnGotFocus(EventArgs e)
-		{
+        /// <summary>
+        /// Raises the GotFocus event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        protected override void OnGotFocus(EventArgs e)
+        {
             // Cannot process a message for a disposed control
             if (!IsDisposed && !Disposing)
             {
@@ -990,16 +992,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 ViewManager?.GotFocus();
             }
 
-			// Let base class fire standard event
-			base.OnGotFocus(e);
-		}
+            // Let base class fire standard event
+            base.OnGotFocus(e);
+        }
 
-		/// <summary>
-		/// Raises the LostFocus event.
-		/// </summary>
-		/// <param name="e">An EventArgs that contains the event data.</param>
-		protected override void OnLostFocus(EventArgs e)
-		{
+        /// <summary>
+        /// Raises the LostFocus event.
+        /// </summary>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        protected override void OnLostFocus(EventArgs e)
+        {
             // Cannot process a message for a disposed control
             if (!IsDisposed && !Disposing)
             {
@@ -1007,9 +1009,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 ViewManager?.LostFocus();
             }
 
-			// Let base class fire standard event
-			base.OnLostFocus(e);
-		}
+            // Let base class fire standard event
+            base.OnLostFocus(e);
+        }
 
         /// <summary>
         /// Occurs when the global palette has been changed.
@@ -1142,14 +1144,14 @@ namespace ComponentFactory.Krypton.Toolkit
             Renderer = _palette.GetRenderer();
         }
 
-		private void PaintTransparentBackground(PaintEventArgs e)
-		{
+        private void PaintTransparentBackground(PaintEventArgs e)
+        {
             // Get the parent control for transparent drawing purposes
             Control parent = TransparentParent;
 
-			// Do we have a parent control and we need to paint background?
+            // Do we have a parent control and we need to paint background?
             if ((parent != null) && NeedTransparentPaint)
-			{
+            {
                 // Only grab the required reference once
                 if (_miPTB == null)
                 {
@@ -1162,13 +1164,13 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 _miPTB.Invoke(this, new object[] { e, ClientRectangle, null });
-			}
-			else
-			{
+            }
+            else
+            {
                 // Request the background be painted in the system colors
                 PaintBackground(e.Graphics, SystemBrushes.Control, ClientRectangle);
-			}
-		}
+            }
+        }
 
         private void OnPerformRefresh()
         {

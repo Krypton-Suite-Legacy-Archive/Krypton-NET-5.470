@@ -18,11 +18,11 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Extends the ViewComposite by creating and laying out elements to represent ribbon tabs.
-	/// </summary>
+    /// <summary>
+    /// Extends the ViewComposite by creating and laying out elements to represent ribbon tabs.
+    /// </summary>
     internal class ViewLayoutRibbonTabs : ViewComposite
-	{
+    {
         #region Type Definitions
         private class ViewDrawRibbonTabList : List<ViewDrawRibbonTab> { };
         private class ViewDrawRibbonTabSepList : List<ViewDrawRibbonTabSep> { };
@@ -31,19 +31,19 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Static Fields
 
-	    private const int TAB_MINWIDTH = 32;
-	    private const int TAB_EXCESS = 14;
+        private const int TAB_MINWIDTH = 32;
+        private const int TAB_EXCESS = 14;
 
-	    #endregion
+        #endregion
 
         #region Instance Fields
         private readonly KryptonRibbon _ribbon;
         private readonly ViewDrawRibbonTabList _tabCache;
         private readonly ViewDrawRibbonTabSepList _tabSepCache;
         private ViewDrawRibbonDesignTab _viewAddTab;
-	    private NeedPaintHandler _needPaint;
+        private NeedPaintHandler _needPaint;
         private ContextNameList _cachedSelectedContext;
-	    private Size[] _cachedSizes;
+        private Size[] _cachedSizes;
         private int _cachedPreferredWidth;
         private int _cachedMinimumWidth;
         private int _cachedAllTabCount;
@@ -51,15 +51,15 @@ namespace ComponentFactory.Krypton.Ribbon
         private bool _showSeparators;
         #endregion
 
-		#region Identity
+        #region Identity
         static ViewLayoutRibbonTabs()
         {
             ContextTabSets = new ContextTabSetCollection();
         }
 
-		/// <summary>
+        /// <summary>
         /// Initialize a new instance of the ViewLayoutRibbonTabs class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Owning ribbon control instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public ViewLayoutRibbonTabs(KryptonRibbon ribbon,
@@ -77,15 +77,15 @@ namespace ComponentFactory.Krypton.Ribbon
             _tabSepCache = new ViewDrawRibbonTabSepList();
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutRibbonTabs:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.
@@ -131,7 +131,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public Control ParentControl { get; set; }
 
-	    #endregion
+        #endregion
 
         #region GetViewForSpare
         /// <summary>
@@ -139,7 +139,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public ViewLayoutRibbonTabsSpare GetViewForSpare { get; private set; }
 
-	    #endregion
+        #endregion
 
         #region GetViewForRibbonTab
         /// <summary>
@@ -294,7 +294,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         public static ContextTabSetCollection ContextTabSets { get; }
 
-	    #endregion
+        #endregion
 
         #region ProcessMouseWheel
         /// <summary>
@@ -357,11 +357,11 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Layout
         /// <summary>
-		/// Discover the preferred size of the element.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override Size GetPreferredSize(ViewLayoutContext context)
-		{
+        /// Discover the preferred size of the element.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override Size GetPreferredSize(ViewLayoutContext context)
+        {
             // Sync child elements to represent the current ribbon tabs collection setup
             SyncChildrenToRibbonTabs();
 
@@ -445,21 +445,21 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             return preferredSize;
-		}
+        }
 
-		/// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
+        /// <summary>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
             Debug.Assert(context != null);
 
             // Sync child elements to represent the current ribbon tabs collection setup
             SyncChildrenToRibbonTabs();
 
             // We take on all the available display area
-			ClientRectangle = context.DisplayRectangle;
+            ClientRectangle = context.DisplayRectangle;
 
             int x = ClientLocation.X;
 
@@ -545,7 +545,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Update the display rectangle we allocated for use by parent
             context.DisplayRectangle = new Rectangle(ClientLocation, new Size(x - ClientLocation.X, ClientHeight));
         }
-		#endregion
+        #endregion
 
         #region Implementation
         private void SyncChildrenToRibbonTabs()

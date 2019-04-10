@@ -49,8 +49,8 @@ namespace ComponentFactory.Krypton.Toolkit
     #endregion
     
     /// <summary>
-	/// Set of common helper routines for the Toolkit
-	/// </summary>
+    /// Set of common helper routines for the Toolkit
+    /// </summary>
     public static class CommonHelper
     {
         #region Static Fields

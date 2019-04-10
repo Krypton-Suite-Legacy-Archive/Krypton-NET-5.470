@@ -19,9 +19,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws a ribbon group gallery.
-	/// </summary>
+    /// <summary>
+    /// Draws a ribbon group gallery.
+    /// </summary>
     internal class ViewDrawRibbonGroupGallery : ViewComposite,
                                                 IRibbonViewGroupContainerView
     {
@@ -50,7 +50,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonGroupGallery class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonGallery">Reference to source gallery.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
@@ -105,15 +105,15 @@ namespace ComponentFactory.Krypton.Ribbon
             GroupGallery.PropertyChanged += OnGalleryPropertyChanged;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonGroupGallery:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.

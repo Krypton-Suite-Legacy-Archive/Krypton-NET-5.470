@@ -19,9 +19,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
+    /// <summary>
     /// Base class for implementation of various check button modes.
-	/// </summary>
+    /// </summary>
     internal abstract class ViewBuilderItemBase : ViewBuilderBase
     {
         #region Instance Fields
@@ -38,22 +38,22 @@ namespace ComponentFactory.Krypton.Navigator
         private int _events;
         #endregion
 
-		#region Public
-		/// <summary>
-		/// Construct the view appropriate for this builder.
-		/// </summary>
-		/// <param name="navigator">Reference to navigator instance.</param>
-		/// <param name="manager">Reference to current manager.</param>
-		/// <param name="redirector">Palette redirector.</param>
-		public override void Construct(KryptonNavigator navigator, 
-									   ViewManager manager,
-									   PaletteRedirect redirector)
-		{
-			// Let base class perform common operations
-			base.Construct(navigator, manager, redirector);
+        #region Public
+        /// <summary>
+        /// Construct the view appropriate for this builder.
+        /// </summary>
+        /// <param name="navigator">Reference to navigator instance.</param>
+        /// <param name="manager">Reference to current manager.</param>
+        /// <param name="redirector">Palette redirector.</param>
+        public override void Construct(KryptonNavigator navigator, 
+                                       ViewManager manager,
+                                       PaletteRedirect redirector)
+        {
+            // Let base class perform common operations
+            base.Construct(navigator, manager, redirector);
 
-			// Get the current root element
-			_oldRoot = ViewManager.Root;
+            // Get the current root element
+            _oldRoot = ViewManager.Root;
 
             // Create and initialize all objects
             CreateCheckItemView();
@@ -65,15 +65,15 @@ namespace ComponentFactory.Krypton.Navigator
             PostCreate();
 
             // Force buttons to be recreated in the headers
-		    _buttonManager?.RecreateButtons();
+            _buttonManager?.RecreateButtons();
 
-		    // Canvas becomes the new root
+            // Canvas becomes the new root
             ViewManager.Root = _newRoot;
 
-			// Need to monitor changes in the enabled state
-			Navigator.EnabledChanged += OnNavigatorEnabledChanged;
+            // Need to monitor changes in the enabled state
+            Navigator.EnabledChanged += OnNavigatorEnabledChanged;
             Navigator.RightToLeftChanged += OnNavigatorRightToLeftChanged;
-		}
+        }
 
         /// <summary>
         /// Destruct the previously created view.
@@ -960,7 +960,7 @@ namespace ComponentFactory.Krypton.Navigator
         }
         #endregion
 
-		#region Implementation
+        #region Implementation
         private void CreateNavCheckItems()
         {
             // Maintain lookup between page and check button that represents it
@@ -1199,9 +1199,9 @@ namespace ComponentFactory.Krypton.Navigator
         }
         
         private void OnNavigatorEnabledChanged(object sender, EventArgs e)
-		{
+        {
             UpdateStatePalettes();
-		}
+        }
 
         private void OnNavigatorRightToLeftChanged(object sender, EventArgs e)
         {
@@ -1332,5 +1332,5 @@ namespace ComponentFactory.Krypton.Navigator
             }
         }
         #endregion
-	}
+    }
 }

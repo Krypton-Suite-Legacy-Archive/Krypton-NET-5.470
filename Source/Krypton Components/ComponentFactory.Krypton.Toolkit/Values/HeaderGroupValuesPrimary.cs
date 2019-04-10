@@ -13,45 +13,45 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for the primary header of the header group control.
-	/// </summary>
-	public class HeaderGroupValuesPrimary : HeaderValuesBase
-	{
-		#region Static Fields
+    /// <summary>
+    /// Storage for the primary header of the header group control.
+    /// </summary>
+    public class HeaderGroupValuesPrimary : HeaderValuesBase
+    {
+        #region Static Fields
         private const string _defaultHeading = "Heading";
-		#endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the HeaderGroupValuesPrimary class.
-		/// </summary>
+        /// </summary>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public HeaderGroupValuesPrimary(NeedPaintHandler needPaint)
             : base(needPaint)
-		{
-		}
-		#endregion
+        {
+        }
+        #endregion
 
-		#region Default Values
-		/// <summary>
-		/// Gets the default heading value.
-		/// </summary>
-		/// <returns>String reference.</returns>
-		protected override string GetHeadingDefault()
-		{
-			return _defaultHeading;
-		}
+        #region Default Values
+        /// <summary>
+        /// Gets the default heading value.
+        /// </summary>
+        /// <returns>String reference.</returns>
+        protected override string GetHeadingDefault()
+        {
+            return _defaultHeading;
+        }
 
-		/// <summary>
-		/// Gets the default description value.
-		/// </summary>
-		/// <returns>String reference.</returns>
-		protected override string GetDescriptionDefault()
-		{
-			return string.Empty;
-		}
-		#endregion
+        /// <summary>
+        /// Gets the default description value.
+        /// </summary>
+        /// <returns>String reference.</returns>
+        protected override string GetDescriptionDefault()
+        {
+            return string.Empty;
+        }
+        #endregion
 
         #region Heading
         /// <summary>
@@ -64,5 +64,5 @@ namespace ComponentFactory.Krypton.Toolkit
             set => base.Heading = value;
         }    
         #endregion
-	}
+    }
 }

@@ -16,13 +16,13 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// View element that represents a single gallery item.
-	/// </summary>
+    /// <summary>
+    /// View element that represents a single gallery item.
+    /// </summary>
     internal class ViewDrawRibbonGalleryItem : ViewDrawButton,
                                                IContentValues
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly KryptonGallery _gallery;
         private readonly GalleryItemController _controller;
         private ImageList _imageList;
@@ -30,10 +30,10 @@ namespace ComponentFactory.Krypton.Ribbon
         private int _imageIndex;
         #endregion
 
-		#region Identity
+        #region Identity
         /// <summary>
-		/// Initialize a new instance of the ViewDrawButton class.
-		/// </summary>
+        /// Initialize a new instance of the ViewDrawButton class.
+        /// </summary>
         /// <param name="gallery">Owning gallery instance.</param>
         /// <param name="palette">Palette used to recover values.</param>
         /// <param name="layout">Reference to item layout.</param>
@@ -58,15 +58,15 @@ namespace ComponentFactory.Krypton.Ribbon
             KeyController = _controller;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
-			return "ViewDrawRibbonGalleryItem:" + Id;
-		}
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
+            return "ViewDrawRibbonGalleryItem:" + Id;
+        }
 
         /// <summary>
         /// Clean up any resources being used.

@@ -15,9 +15,9 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// View element that is used to fill a docker area and positions a control to the same size.
-	/// </summary>
+    /// <summary>
+    /// View element that is used to fill a docker area and positions a control to the same size.
+    /// </summary>
     public class ViewLayoutFill : ViewLayoutNull
     {
         #region Instance Fields
@@ -37,23 +37,23 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// Initialize a new instance of the ViewLayoutNull class.
-		/// </summary>
+        /// </summary>
         /// <param name="control">Control to positon in fill location.</param>
         public ViewLayoutFill(Control control)
-		{
+        {
             _control = control;
-		}
+        }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutFill:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region DisplayPadding
         /// <summary>

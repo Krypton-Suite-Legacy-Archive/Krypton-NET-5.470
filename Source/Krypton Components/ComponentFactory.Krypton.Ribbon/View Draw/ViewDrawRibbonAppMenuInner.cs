@@ -14,11 +14,11 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Extends the ViewLayoutDocker by drawing the ribbon application button inner background.
-	/// </summary>
+    /// <summary>
+    /// Extends the ViewLayoutDocker by drawing the ribbon application button inner background.
+    /// </summary>
     internal class ViewDrawRibbonAppMenuInner : ViewLayoutDocker
-	{
+    {
         #region Instance Fields
         private readonly KryptonRibbon _ribbon;
         private IDisposable _memento;

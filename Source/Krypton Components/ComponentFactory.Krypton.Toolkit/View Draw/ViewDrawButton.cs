@@ -15,14 +15,14 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// View element that can draw a button.
-	/// </summary>
-	public class ViewDrawButton : ViewComposite
-	{
-		#region Instance Fields
+    /// <summary>
+    /// View element that can draw a button.
+    /// </summary>
+    public class ViewDrawButton : ViewComposite
+    {
+        #region Instance Fields
 
-	    private IPaletteTriple _paletteDisabled;
+        private IPaletteTriple _paletteDisabled;
         private IPaletteTriple _paletteNormal;
         private IPaletteTriple _paletteTracking;
         private IPaletteTriple _palettePressed;
@@ -35,27 +35,27 @@ namespace ComponentFactory.Krypton.Toolkit
         private readonly ViewDrawBorderEdge _drawSplitBorder;
         private readonly ViewLayoutCenter _drawDropDown;
         private readonly ViewDrawDropDownButton _drawDropDownButton;
-	    private VisualOrientation _dropDownPosition;
+        private VisualOrientation _dropDownPosition;
         private readonly ViewLayoutSeparator _drawOuterSeparator;
         private Rectangle _splitRectangle;
         private Rectangle _nonSplitRectangle;
         private bool _dropDown;
         private bool _splitter;
-	    private bool _forcePaletteUpdate;
-		#endregion
+        private bool _forcePaletteUpdate;
+        #endregion
 
-		#region Identity
+        #region Identity
         /// <summary>
-		/// Initialize a new instance of the ViewDrawButton class.
-		/// </summary>
-		/// <param name="paletteDisabled">Palette source for the disabled state.</param>
-		/// <param name="paletteNormal">Palette source for the normal state.</param>
-		/// <param name="paletteTracking">Palette source for the tracking state.</param>
-		/// <param name="palettePressed">Palette source for the pressed state.</param>
+        /// Initialize a new instance of the ViewDrawButton class.
+        /// </summary>
+        /// <param name="paletteDisabled">Palette source for the disabled state.</param>
+        /// <param name="paletteNormal">Palette source for the normal state.</param>
+        /// <param name="paletteTracking">Palette source for the tracking state.</param>
+        /// <param name="palettePressed">Palette source for the pressed state.</param>
         /// <param name="paletteMetric">Palette source for metric values.</param>
         /// <param name="buttonValues">Source for content values.</param>
-		/// <param name="orientation">Visual orientation of the content.</param>
-		/// <param name="useMnemonic">Use mnemonics.</param>
+        /// <param name="orientation">Visual orientation of the content.</param>
+        /// <param name="useMnemonic">Use mnemonics.</param>
         public ViewDrawButton(IPaletteTriple paletteDisabled,
                               IPaletteTriple paletteNormal,
                               IPaletteTriple paletteTracking,
@@ -71,39 +71,39 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Initialize a new instance of the ViewDrawButton class.
-		/// </summary>
-		/// <param name="paletteDisabled">Palette source for the disabled state.</param>
-		/// <param name="paletteNormal">Palette source for the normal state.</param>
-		/// <param name="paletteTracking">Palette source for the tracking state.</param>
-		/// <param name="palettePressed">Palette source for the pressed state.</param>
+        /// Initialize a new instance of the ViewDrawButton class.
+        /// </summary>
+        /// <param name="paletteDisabled">Palette source for the disabled state.</param>
+        /// <param name="paletteNormal">Palette source for the normal state.</param>
+        /// <param name="paletteTracking">Palette source for the tracking state.</param>
+        /// <param name="palettePressed">Palette source for the pressed state.</param>
         /// <param name="paletteCheckedNormal">Palette source for the normal checked state.</param>
         /// <param name="paletteCheckedTracking">Palette source for the tracking checked state.</param>
         /// <param name="paletteCheckedPressed">Palette source for the pressed checked state.</param>
         /// <param name="paletteMetric">Palette source for metric values.</param>
         /// <param name="buttonValues">Source for content values.</param>
-		/// <param name="orientation">Visual orientation of the content.</param>
-		/// <param name="useMnemonic">Use mnemonics.</param>
-		public ViewDrawButton(IPaletteTriple paletteDisabled,
-							  IPaletteTriple paletteNormal,
-							  IPaletteTriple paletteTracking,
-							  IPaletteTriple palettePressed,
+        /// <param name="orientation">Visual orientation of the content.</param>
+        /// <param name="useMnemonic">Use mnemonics.</param>
+        public ViewDrawButton(IPaletteTriple paletteDisabled,
+                              IPaletteTriple paletteNormal,
+                              IPaletteTriple paletteTracking,
+                              IPaletteTriple palettePressed,
                               IPaletteTriple paletteCheckedNormal,
                               IPaletteTriple paletteCheckedTracking,
                               IPaletteTriple paletteCheckedPressed,
                               IPaletteMetric paletteMetric,
                               IContentValues buttonValues,
-							  VisualOrientation orientation,
-							  bool useMnemonic)
-		{
-			// Remember the source information
-			_paletteDisabled = paletteDisabled;
-			_paletteNormal = paletteNormal;
-			_paletteTracking = paletteTracking;
-			_palettePressed = palettePressed;
-			_paletteCheckedNormal = paletteCheckedNormal;
-			_paletteCheckedTracking = paletteCheckedTracking;
-			_paletteCheckedPressed = paletteCheckedPressed;
+                              VisualOrientation orientation,
+                              bool useMnemonic)
+        {
+            // Remember the source information
+            _paletteDisabled = paletteDisabled;
+            _paletteNormal = paletteNormal;
+            _paletteTracking = paletteTracking;
+            _palettePressed = palettePressed;
+            _paletteCheckedNormal = paletteCheckedNormal;
+            _paletteCheckedTracking = paletteCheckedTracking;
+            _paletteCheckedPressed = paletteCheckedPressed;
             CurrentPalette = _paletteNormal;
 
             // Default to not being checked
@@ -123,7 +123,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _edgeRedirect = new PaletteBorderEdgeRedirect(_paletteNormal.PaletteBorder, null);
             _drawSplitBorder = new ViewDrawBorderEdge(new PaletteBorderEdge(_edgeRedirect, null), CommonHelper.VisualToOrientation(orientation));
 
-			// Our view contains background and border with content inside
+            // Our view contains background and border with content inside
             _drawContent = new ViewDrawContent(_paletteNormal.PaletteContent, buttonValues, orientation);
             _drawCanvas = new ViewDrawSplitCanvas(_paletteNormal.PaletteBack, _paletteNormal.PaletteBorder, paletteMetric, PaletteMetricPadding.None, orientation);
 
@@ -137,29 +137,29 @@ namespace ComponentFactory.Krypton.Toolkit
             };
             LayoutDocker.Tag = this;
 
-			// Pass the mnemonic default to the content view
-			_drawContent.UseMnemonic = useMnemonic;
+            // Pass the mnemonic default to the content view
+            _drawContent.UseMnemonic = useMnemonic;
 
-			// Place the content inside the canvas
+            // Place the content inside the canvas
             _drawCanvas.Add(LayoutDocker);
 
             // Set initial view element visible states
             UpdateDropDown();
 
-			// Place the canvas inside ourself
-			Add(_drawCanvas);
-		}
+            // Place the canvas inside ourself
+            Add(_drawCanvas);
+        }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
-			return "ViewDrawButton:" + Id;
-		}
-		#endregion
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
+            return "ViewDrawButton:" + Id;
+        }
+        #endregion
 
         #region LayoutDocker
         /// <summary>
@@ -167,7 +167,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public ViewLayoutDocker LayoutDocker { get; }
 
-	    #endregion
+        #endregion
 
         #region CurrentPalette
         /// <summary>
@@ -175,7 +175,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public IPaletteTriple CurrentPalette { get; private set; }
 
-	    #endregion
+        #endregion
 
         #region DropDown
         /// <summary>
@@ -270,7 +270,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Rectangle SplitRectangle => _splitRectangle;
 
-	    #endregion
+        #endregion
 
         #region NonSplitRectangle
         /// <summary>
@@ -278,7 +278,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Rectangle NonSplitRectangle => _nonSplitRectangle;
 
-	    #endregion
+        #endregion
 
         #region ButtonValues
         /// <summary>
@@ -315,39 +315,39 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Enabled
         /// <summary>
-		/// Gets and sets the enabled state of the element.
-		/// </summary>
-		public override bool Enabled
-		{
-			get => base.Enabled;
+        /// Gets and sets the enabled state of the element.
+        /// </summary>
+        public override bool Enabled
+        {
+            get => base.Enabled;
 
             set 
-			{ 
-				base.Enabled = value;
+            { 
+                base.Enabled = value;
 
                 if (Enabled && (ElementState == PaletteState.Disabled))
                 {
                     ElementState = Checked ? PaletteState.CheckedNormal : PaletteState.Normal;
                 }
 
-				// Pass on the new state to the child elements
-				_drawCanvas.Enabled = value;
-				_drawContent.Enabled = value;
+                // Pass on the new state to the child elements
+                _drawCanvas.Enabled = value;
+                _drawContent.Enabled = value;
                 _drawSplitBorder.Enabled = value;
                 _drawDropDownButton.Enabled = value;
-			}
-		}
-		#endregion
+            }
+        }
+        #endregion
 
-		#region Orientation
-		/// <summary>
-		/// Gets and sets the visual orientation.
-		/// </summary>
-		public virtual VisualOrientation Orientation
-		{
+        #region Orientation
+        /// <summary>
+        /// Gets and sets the visual orientation.
+        /// </summary>
+        public virtual VisualOrientation Orientation
+        {
             get => _drawCanvas.Orientation;
-		    set => SetOrientation(value, value);
-		}
+            set => SetOrientation(value, value);
+        }
 
         /// <summary>
         /// Set the orientation of the two button components.
@@ -361,18 +361,18 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawContent.Orientation = contentOrient;
             UpdateDropDown();
         }
-		#endregion
+        #endregion
 
-		#region UseMnemonic
-		/// <summary>
-		/// Gets and sets usage of mnemonics.
-		/// </summary>
-		public bool UseMnemonic
-		{
-			get => _drawContent.UseMnemonic;
-		    set => _drawContent.UseMnemonic = value;
-		}
-		#endregion
+        #region UseMnemonic
+        /// <summary>
+        /// Gets and sets usage of mnemonics.
+        /// </summary>
+        public bool UseMnemonic
+        {
+            get => _drawContent.UseMnemonic;
+            set => _drawContent.UseMnemonic = value;
+        }
+        #endregion
 
         #region Checked
         /// <summary>
@@ -380,7 +380,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool Checked { get; set; }
 
-	    #endregion
+        #endregion
 
         #region AllowUncheck
         /// <summary>
@@ -388,7 +388,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool AllowUncheck { get; set; }
 
-	    #endregion
+        #endregion
 
         #region DrawButtonComposition
         /// <summary>
@@ -484,29 +484,29 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Layout
         /// <summary>
-		/// Discover the preferred size of the element.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override Size GetPreferredSize(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
-			Debug.Assert(_drawCanvas != null);
+        /// Discover the preferred size of the element.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override Size GetPreferredSize(ViewLayoutContext context)
+        {
+            Debug.Assert(context != null);
+            Debug.Assert(_drawCanvas != null);
 
-			// Ensure that child elements have correct palette state
-			CheckPaletteState(context);
+            // Ensure that child elements have correct palette state
+            CheckPaletteState(context);
 
-			// Delegate work to the child canvas
-			return _drawCanvas.GetPreferredSize(context);
-		}
+            // Delegate work to the child canvas
+            return _drawCanvas.GetPreferredSize(context);
+        }
 
-	    /// <summary>
-	    /// Perform a layout of the elements.
-	    /// </summary>
-	    /// <param name="context">Layout context.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    public override void Layout(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        /// <summary>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public override void Layout(ViewLayoutContext context)
+        {
+            Debug.Assert(context != null);
 
             // Validate incoming reference
             if (context == null)
@@ -517,11 +517,11 @@ namespace ComponentFactory.Krypton.Toolkit
             // We take on all the available display area
             ClientRectangle = context.DisplayRectangle;
 
-			// Ensure that child elements have correct palette state
-			CheckPaletteState(context);
+            // Ensure that child elements have correct palette state
+            CheckPaletteState(context);
 
-			// Let base class perform usual processing
-			base.Layout(context);
+            // Let base class perform usual processing
+            base.Layout(context);
 
             // Extend the split border so it is not restricted by the content size
             Rectangle splitClientRect = _drawSplitBorder.ClientRectangle;
@@ -573,7 +573,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawCanvas.SplitRectangle = _splitRectangle;
             _drawCanvas.NonSplitRectangle = _nonSplitRectangle;
         }
-		#endregion
+        #endregion
 
         #region Paint
         /// <summary>
@@ -721,6 +721,6 @@ namespace ComponentFactory.Krypton.Toolkit
             LayoutDocker.SetDock(_drawDropDown, dockStyle);
             LayoutDocker.SetDock(_drawOuterSeparator, dockStyle);
         }
-		#endregion
-	}
+        #endregion
+    }
 }

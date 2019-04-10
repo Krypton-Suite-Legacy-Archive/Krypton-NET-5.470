@@ -60,7 +60,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonButton class.
-		/// </summary>
+        /// </summary>
         public KryptonButton()
         {
             // We generate click events manually, suppress default
@@ -619,6 +619,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Protected Virtual
+        // ReSharper disable VirtualMemberNeverOverridden.Global
         /// <summary>
         /// Update the state objects to reflect the new button style.
         /// </summary>
@@ -683,7 +684,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets access to the view element for the button.
         /// </summary>
         protected virtual ViewDrawButton ViewDrawButton => _drawButton;
-
+        // ReSharper restore VirtualMemberNeverOverridden.Global
         #endregion
 
         #region Implementation

@@ -14,9 +14,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for palette radio button images.
-	/// </summary>
+    /// <summary>
+    /// Storage for palette radio button images.
+    /// </summary>
     public class KryptonPaletteImagesRadioButton : Storage
     {
         #region Instance Fields
@@ -35,12 +35,12 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonPaletteImagesRadioButton class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Redirector to inherit values from.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public KryptonPaletteImagesRadioButton(PaletteRedirect redirect,
                                                NeedPaintHandler needPaint) 
-		{
+        {
             // Store the redirector
             _redirect = redirect;
 
@@ -60,20 +60,20 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (_common == null) &&
-		                                  (_uncheckedDisabled == null) &&
-		                                  (_uncheckedNormal == null) &&
-		                                  (_uncheckedTracking == null) &&
-		                                  (_uncheckedPressed == null) &&
-		                                  (_checkedDisabled == null) &&
-		                                  (_checkedNormal == null) &&
-		                                  (_checkedTracking == null) &&
-		                                  (_checkedPressed == null);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (_common == null) &&
+                                          (_uncheckedDisabled == null) &&
+                                          (_uncheckedNormal == null) &&
+                                          (_uncheckedTracking == null) &&
+                                          (_uncheckedPressed == null) &&
+                                          (_checkedDisabled == null) &&
+                                          (_checkedNormal == null) &&
+                                          (_checkedTracking == null) &&
+                                          (_checkedPressed == null);
 
         #endregion
 

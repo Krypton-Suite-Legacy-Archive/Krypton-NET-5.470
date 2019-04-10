@@ -35,7 +35,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawRibViewDrawRibbonGroupClusterColorButtonImagebonGroupClusterButtonImage class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonColorButton">Reference to ribbon group color button definition.</param>
         public ViewDrawRibbonGroupClusterColorButtonImage(KryptonRibbon ribbon,

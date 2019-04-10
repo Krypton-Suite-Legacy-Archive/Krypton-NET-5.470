@@ -16,15 +16,15 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Process mouse/keyboard/focus events for a track bar.
-	/// </summary>
+    /// <summary>
+    /// Process mouse/keyboard/focus events for a track bar.
+    /// </summary>
     public class TrackBarController : GlobalId,
                                       IMouseController,
                                       IKeyController,
                                       ISourceController
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly ViewDrawTP _drawTB;
         private Timer _repeatTimer;
         private bool _captured;
@@ -33,33 +33,33 @@ namespace ComponentFactory.Krypton.Toolkit
         private Point _lastMovePt;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the TrackBarController class.
-		/// </summary>
+        /// </summary>
         /// <param name="drawTB">Associated drawing element.</param>
         public TrackBarController(ViewDrawTP drawTB)
-		{
+        {
             _drawTB = drawTB;
         }
-		#endregion
+        #endregion
 
         #region Mouse Notifications
         /// <summary>
-		/// Mouse has entered the view.
-		/// </summary>
+        /// Mouse has entered the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         public virtual void MouseEnter(Control c)
-		{
-		}
+        {
+        }
 
-		/// <summary>
-		/// Mouse has moved inside the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse has moved inside the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
         public virtual void MouseMove(Control c, Point pt)
-		{
+        {
             if (_captured)
             {
                 // Only interested if the mouse is over the track area
@@ -96,17 +96,17 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 }
             }
-		}
+        }
 
-		/// <summary>
-		/// Mouse button has been pressed in the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse button has been pressed in the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
-		/// <param name="button">Mouse button pressed down.</param>
-		/// <returns>True if capturing input; otherwise false.</returns>
+        /// <param name="button">Mouse button pressed down.</param>
+        /// <returns>True if capturing input; otherwise false.</returns>
         public virtual bool MouseDown(Control c, Point pt, MouseButtons button)
-		{
+        {
             if (button == MouseButtons.Left)
             {
                 // Only interested if the mouse is over the track area
@@ -129,17 +129,17 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
 
-			return _captured;
-		}
+            return _captured;
+        }
 
-		/// <summary>
-		/// Mouse button has been released in the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse button has been released in the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
-		/// <param name="button">Mouse button released.</param>
+        /// <param name="button">Mouse button released.</param>
         public virtual void MouseUp(Control c, Point pt, MouseButtons button)
-		{
+        {
             if (_repeatTimer != null)
             {
                 _repeatTimer.Stop();
@@ -151,15 +151,15 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 _captured = false;
             }
-		}
+        }
 
-		/// <summary>
-		/// Mouse has left the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse has left the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="next">Reference to view that is next to have the mouse.</param>
         public virtual void MouseLeave(Control c, ViewBase next)
-		{
+        {
             if (_repeatTimer != null)
             {
                 _repeatTimer.Stop();
@@ -168,7 +168,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             _lastMovePt = Point.Empty;
-		}
+        }
 
         /// <summary>
         /// Left mouse button double click.
@@ -184,17 +184,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual bool IgnoreVisualFormLeftButtonDown => false;
 
-	    #endregion
+        #endregion
 
         #region Key Notifications
 
-	    /// <summary>
-	    /// Key has been pressed down.
-	    /// </summary>
-	    /// <param name="c">Reference to the source control instance.</param>
-	    /// <param name="e">A KeyEventArgs that contains the event data.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    public virtual void KeyDown(Control c, KeyEventArgs e)
+        /// <summary>
+        /// Key has been pressed down.
+        /// </summary>
+        /// <param name="c">Reference to the source control instance.</param>
+        /// <param name="e">A KeyEventArgs that contains the event data.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public virtual void KeyDown(Control c, KeyEventArgs e)
         {
             Debug.Assert(c != null);
             Debug.Assert(e != null);
@@ -276,14 +276,14 @@ namespace ComponentFactory.Krypton.Toolkit
         {
         }
 
-	    /// <summary>
-	    /// Key has been released.
-	    /// </summary>
-	    /// <param name="c">Reference to the source control instance.</param>
-	    /// <param name="e">A KeyEventArgs that contains the event data.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    /// <returns>True if capturing input; otherwise false.</returns>
-	    public virtual bool KeyUp(Control c, KeyEventArgs e)
+        /// <summary>
+        /// Key has been released.
+        /// </summary>
+        /// <param name="c">Reference to the source control instance.</param>
+        /// <param name="e">A KeyEventArgs that contains the event data.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns>True if capturing input; otherwise false.</returns>
+        public virtual bool KeyUp(Control c, KeyEventArgs e)
         {
             Debug.Assert(c != null);
             Debug.Assert(e != null);
@@ -312,12 +312,12 @@ namespace ComponentFactory.Krypton.Toolkit
         {
         }
 
-	    /// <summary>
-	    /// Source control has lost the focus.
-	    /// </summary>
-	    /// <param name="c">Reference to the source control instance.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    public virtual void LostFocus(Control c)
+        /// <summary>
+        /// Source control has lost the focus.
+        /// </summary>
+        /// <param name="c">Reference to the source control instance.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public virtual void LostFocus(Control c)
         {
             Debug.Assert(c != null);
 

@@ -14,9 +14,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for palette drop down button images.
-	/// </summary>
+    /// <summary>
+    /// Storage for palette drop down button images.
+    /// </summary>
     public class KryptonPaletteImagesDropDownButton : Storage
     {
         #region Instance Fields
@@ -31,12 +31,12 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonPaletteImagesDropDownButton class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Redirector to inherit values from.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public KryptonPaletteImagesDropDownButton(PaletteRedirect redirect,
                                                   NeedPaintHandler needPaint) 
-		{
+        {
             // Store the redirector
             _redirect = redirect;
 
@@ -52,16 +52,16 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (_common == null) &&
-		                                  (_disabled == null) &&
-		                                  (_normal == null) &&
-		                                  (_tracking == null) &&
-		                                  (_pressed == null);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (_common == null) &&
+                                          (_disabled == null) &&
+                                          (_normal == null) &&
+                                          (_tracking == null) &&
+                                          (_pressed == null);
 
         #endregion
 

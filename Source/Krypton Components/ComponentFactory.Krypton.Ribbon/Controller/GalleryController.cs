@@ -15,31 +15,31 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Process mouse events for a ribbon group textbox.
-	/// </summary>
+    /// <summary>
+    /// Process mouse events for a ribbon group textbox.
+    /// </summary>
     internal class GalleryController : GlobalId,
                                        ISourceController,
                                        IKeyController,
                                        IRibbonKeyTipTarget
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly KryptonRibbon _ribbon;
         private readonly KryptonRibbonGroupGallery _gallery;
         private readonly ViewDrawRibbonGroupGallery _target;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the GalleryController class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         /// <param name="gallery">Source definition.</param>
         /// <param name="target">Target view element.</param>
         public GalleryController(KryptonRibbon ribbon,
                                  KryptonRibbonGroupGallery gallery,
                                  ViewDrawRibbonGroupGallery target)
-		{
+        {
             Debug.Assert(ribbon != null);
             Debug.Assert(gallery != null);
             Debug.Assert(target != null);
@@ -48,7 +48,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _gallery = gallery;
             _target = target;
         }
-		#endregion
+        #endregion
 
         #region Focus Notifications
         /// <summary>

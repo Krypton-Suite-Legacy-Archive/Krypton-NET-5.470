@@ -52,11 +52,11 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonRibbonGroupClusterDesigner class.
-		/// </summary>
+        /// </summary>
         public KryptonRibbonGroupClusterDesigner()
         {
         }            
-		#endregion
+        #endregion
 
         #region Public
         /// <summary>

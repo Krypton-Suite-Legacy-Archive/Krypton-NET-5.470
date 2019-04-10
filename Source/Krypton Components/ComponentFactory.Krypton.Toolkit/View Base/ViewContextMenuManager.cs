@@ -34,19 +34,19 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewContextMenuManager class.
-		/// </summary>
+        /// </summary>
         /// <param name="control">Owning control.</param>
         /// <param name="root">Root of the view hierarchy.</param>
         public ViewContextMenuManager(Control control, ViewBase root)
             : base(control, root)
-		{
+        {
             // Create timer to notify targets when the standard delay expires
             _itemDelayTimer = new Timer
             {
                 Interval = Math.Max(1, SystemInformation.MenuShowDelay)
             };
             _itemDelayTimer.Tick += OnDelayTimerExpire;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources.

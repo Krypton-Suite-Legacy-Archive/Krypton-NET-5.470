@@ -15,18 +15,18 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// View element that can draw a panel (background but no border)
-	/// </summary>
-	public class ViewDrawPanel : ViewComposite
-	{
-		#region Instance Fields
-		internal IPaletteBack _paletteBack;
+    /// <summary>
+    /// View element that can draw a panel (background but no border)
+    /// </summary>
+    public class ViewDrawPanel : ViewComposite
+    {
+        #region Instance Fields
+        internal IPaletteBack _paletteBack;
         private IDisposable _memento;
 
-	    #endregion
+        #endregion
 
-		#region Identity
+        #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawPanel class.
         /// </summary>
@@ -38,24 +38,24 @@ namespace ComponentFactory.Krypton.Toolkit
         
         /// <summary>
         /// Initialize a new instance of the ViewDrawPanel class.
-		/// </summary>
-		/// <param name="paletteBack">Palette source for the background.</param>		
-		public ViewDrawPanel(IPaletteBack paletteBack)
-		{
-			Debug.Assert(paletteBack != null);
-			_paletteBack = paletteBack;
+        /// </summary>
+        /// <param name="paletteBack">Palette source for the background.</param>        
+        public ViewDrawPanel(IPaletteBack paletteBack)
+        {
+            Debug.Assert(paletteBack != null);
+            _paletteBack = paletteBack;
             VisualOrientation = VisualOrientation.Top;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
-			return "ViewDrawPanel:" + Id;
-		}
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
+            return "ViewDrawPanel:" + Id;
+        }
 
         /// <summary>
         /// Clean up any resources being used.
@@ -82,7 +82,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool IgnoreRender { get; set; }
 
-	    #endregion
+        #endregion
 
         #region Orientation
         /// <summary>
@@ -90,20 +90,20 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public VisualOrientation VisualOrientation { get; set; }
 
-	    #endregion
+        #endregion
 
         #region SetPalettes
         /// <summary>
-		/// Update the source palettes for drawing.
-		/// </summary>
-		/// <param name="paletteBack">Palette source for the background.</param>		
-		public void SetPalettes(IPaletteBack paletteBack)
-		{
-			Debug.Assert(paletteBack != null);
+        /// Update the source palettes for drawing.
+        /// </summary>
+        /// <param name="paletteBack">Palette source for the background.</param>        
+        public void SetPalettes(IPaletteBack paletteBack)
+        {
+            Debug.Assert(paletteBack != null);
 
-			// Use newly provided palettes
-			_paletteBack = paletteBack;
-		}
+            // Use newly provided palettes
+            _paletteBack = paletteBack;
+        }
 
         /// <summary>
         /// Gets the palette used for drawing the panel.
@@ -113,7 +113,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             return _paletteBack;
         }
-		#endregion
+        #endregion
 
         #region Eval
         /// <summary>
@@ -132,12 +132,12 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Layout
 
-	    /// <summary>
-	    /// Perform a layout of the elements.
-	    /// </summary>
-	    /// <param name="context">Layout context.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    public override void Layout(ViewLayoutContext context)
+        /// <summary>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public override void Layout(ViewLayoutContext context)
         {
             Debug.Assert(context != null);
 
@@ -155,16 +155,16 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Paint
+        #region Paint
 
-	    /// <summary>
-	    /// Perform rendering before child elements are rendered.
-	    /// </summary>
-	    /// <param name="context">Rendering context.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    public override void RenderBefore(RenderContext context) 
-		{
-			Debug.Assert(context != null);
+        /// <summary>
+        /// Perform rendering before child elements are rendered.
+        /// </summary>
+        /// <param name="context">Rendering context.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public override void RenderBefore(RenderContext context) 
+        {
+            Debug.Assert(context != null);
 
             // Validate incoming reference
             if (context == null)
@@ -188,7 +188,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 }
             }
-		}
-		#endregion
-	}
+        }
+        #endregion
+    }
 }

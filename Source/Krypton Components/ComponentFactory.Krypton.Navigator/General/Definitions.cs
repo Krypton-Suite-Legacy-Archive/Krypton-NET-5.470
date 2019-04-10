@@ -711,9 +711,9 @@ namespace ComponentFactory.Krypton.Navigator
     public interface IDropDockingIndicator
     {
         /// <summary>
-		/// Show the window relative to provided screen rectangle.
-		/// </summary>
-		/// <param name="screenRect">Screen rectangle.</param>
+        /// Show the window relative to provided screen rectangle.
+        /// </summary>
+        /// <param name="screenRect">Screen rectangle.</param>
         void ShowRelative(Rectangle screenRect);
 
         /// <summary>

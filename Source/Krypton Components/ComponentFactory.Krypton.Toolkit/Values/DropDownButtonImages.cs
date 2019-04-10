@@ -14,9 +14,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for drop down button images.
-	/// </summary>
+    /// <summary>
+    /// Storage for drop down button images.
+    /// </summary>
     public class DropDownButtonImages : Storage
     {
         #region Instance Fields
@@ -30,7 +30,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the DropDownButtonImages class.
-		/// </summary>
+        /// </summary>
         public DropDownButtonImages()
             : this(null)
         {
@@ -38,10 +38,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// Initialize a new instance of the DropDownButtonImages class.
-		/// </summary>
+        /// </summary>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public DropDownButtonImages(NeedPaintHandler needPaint) 
-		{
+        {
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
 
@@ -54,16 +54,16 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (_common == null) &&
-		                                  (_disabled == null) &&
-		                                  (_normal == null) &&
-		                                  (_tracking == null) &&
-		                                  (_pressed == null);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (_common == null) &&
+                                          (_disabled == null) &&
+                                          (_normal == null) &&
+                                          (_tracking == null) &&
+                                          (_pressed == null);
 
         #endregion
 

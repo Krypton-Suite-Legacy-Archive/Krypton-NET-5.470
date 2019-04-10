@@ -14,44 +14,44 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for menu entries of the professional color table.
-	/// </summary>
+    /// <summary>
+    /// Storage for menu entries of the professional color table.
+    /// </summary>
     public class KryptonPaletteTMSMenu : KryptonPaletteTMSBase
     {
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonPaletteKCTMenu class.
-		/// </summary>
+        /// </summary>
         /// <param name="internalKCT">Reference to inherited values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         internal KryptonPaletteTMSMenu(KryptonInternalKCT internalKCT,
                                        NeedPaintHandler needPaint)
             : base(internalKCT, needPaint)
-		{
-		}
+        {
+        }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (InternalKCT.InternalImageMarginGradientBegin == Color.Empty) &&
-		                                  (InternalKCT.InternalImageMarginGradientEnd == Color.Empty) &&
-		                                  (InternalKCT.InternalImageMarginGradientMiddle == Color.Empty) &&
-		                                  (InternalKCT.InternalImageMarginRevealedGradientBegin == Color.Empty) &&
-		                                  (InternalKCT.InternalImageMarginRevealedGradientEnd == Color.Empty) &&
-		                                  (InternalKCT.InternalImageMarginRevealedGradientMiddle == Color.Empty) &&
-		                                  (InternalKCT.InternalMenuBorder == Color.Empty) &&
-		                                  (InternalKCT.InternalMenuItemText == Color.Empty) &&
-		                                  (InternalKCT.InternalMenuItemBorder == Color.Empty) &&
-		                                  (InternalKCT.InternalMenuItemPressedGradientBegin == Color.Empty) &&
-		                                  (InternalKCT.InternalMenuItemPressedGradientEnd == Color.Empty) &&
-		                                  (InternalKCT.InternalMenuItemPressedGradientMiddle == Color.Empty) &&
-		                                  (InternalKCT.InternalMenuItemSelected == Color.Empty) &&
-		                                  (InternalKCT.InternalMenuItemSelectedGradientBegin == Color.Empty) &&
-		                                  (InternalKCT.InternalMenuItemSelectedGradientEnd == Color.Empty);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (InternalKCT.InternalImageMarginGradientBegin == Color.Empty) &&
+                                          (InternalKCT.InternalImageMarginGradientEnd == Color.Empty) &&
+                                          (InternalKCT.InternalImageMarginGradientMiddle == Color.Empty) &&
+                                          (InternalKCT.InternalImageMarginRevealedGradientBegin == Color.Empty) &&
+                                          (InternalKCT.InternalImageMarginRevealedGradientEnd == Color.Empty) &&
+                                          (InternalKCT.InternalImageMarginRevealedGradientMiddle == Color.Empty) &&
+                                          (InternalKCT.InternalMenuBorder == Color.Empty) &&
+                                          (InternalKCT.InternalMenuItemText == Color.Empty) &&
+                                          (InternalKCT.InternalMenuItemBorder == Color.Empty) &&
+                                          (InternalKCT.InternalMenuItemPressedGradientBegin == Color.Empty) &&
+                                          (InternalKCT.InternalMenuItemPressedGradientEnd == Color.Empty) &&
+                                          (InternalKCT.InternalMenuItemPressedGradientMiddle == Color.Empty) &&
+                                          (InternalKCT.InternalMenuItemSelected == Color.Empty) &&
+                                          (InternalKCT.InternalMenuItemSelectedGradientBegin == Color.Empty) &&
+                                          (InternalKCT.InternalMenuItemSelectedGradientEnd == Color.Empty);
 
         #endregion
 

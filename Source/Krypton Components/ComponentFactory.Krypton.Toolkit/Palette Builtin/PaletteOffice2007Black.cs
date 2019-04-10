@@ -14,11 +14,11 @@ using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Provides the Black color scheme variant of the Office 2007 palette.
-	/// </summary>
+    /// <summary>
+    /// Provides the Black color scheme variant of the Office 2007 palette.
+    /// </summary>
     public class PaletteOffice2007Black : PaletteOffice2007Base
-	{
+    {
         #region Static Fields
         private static readonly ImageList _checkBoxList;
         private static readonly ImageList _galleryButtonList;
@@ -262,7 +262,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                     };        
         #endregion
 
-		#region Identity
+        #region Identity
         static PaletteOffice2007Black()
         {
             _checkBoxList = new ImageList
@@ -288,18 +288,18 @@ namespace ComponentFactory.Krypton.Toolkit
                                             Properties.Resources.RB2007BlackPC};
         }
 
-		/// <summary>
+        /// <summary>
         /// Initialize a new instance of the PaletteOffice2007Black class.
-		/// </summary>
+        /// </summary>
         public PaletteOffice2007Black()
             : base(_schemeColors, 
                    _checkBoxList, 
                    _galleryButtonList, 
                    _radioButtonArray, 
                    _trackBarColors)
-		{
-		}
-		#endregion
+        {
+        }
+        #endregion
 
         #region Back
         /// <summary>
@@ -330,12 +330,12 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Gets the second back color.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color value.</returns>
+        /// <summary>
+        /// Gets the second back color.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
         public override Color GetBackColor2(PaletteBackStyle style, PaletteState state)
         {
             switch (style)
@@ -354,12 +354,12 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Border
-		/// <summary>
-		/// Gets the first border color.
-		/// </summary>
-		/// <param name="style">Border style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Color value.</returns>
+        /// <summary>
+        /// Gets the first border color.
+        /// </summary>
+        /// <param name="style">Border style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Color value.</returns>
         public override Color GetBorderColor1(PaletteBorderStyle style, PaletteState state)
         {
             switch (style)

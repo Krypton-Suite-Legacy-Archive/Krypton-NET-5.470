@@ -14,39 +14,39 @@ using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Image select event data.
-	/// </summary>
-	public class ImageSelectEventArgs : EventArgs
-	{
-		#region Instance Fields
+    /// <summary>
+    /// Image select event data.
+    /// </summary>
+    public class ImageSelectEventArgs : EventArgs
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the ImageSelectEventArgs class.
-		/// </summary>
+        /// </summary>
         /// <param name="imageList">Defined image list.</param>
         /// <param name="imageIndex">Index within the image list.</param>
         public ImageSelectEventArgs(ImageList imageList, int imageIndex)
-		{
+        {
             ImageList = imageList;
             ImageIndex = imageIndex;
-		}
-		#endregion
+        }
+        #endregion
 
-		#region Public
-		/// <summary>
-		/// Gets the image list.
-		/// </summary>
+        #region Public
+        /// <summary>
+        /// Gets the image list.
+        /// </summary>
         public ImageList ImageList { get; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets the image index.
         /// </summary>
         public int ImageIndex { get; }
 
-	    #endregion
-	}
+        #endregion
+    }
 }

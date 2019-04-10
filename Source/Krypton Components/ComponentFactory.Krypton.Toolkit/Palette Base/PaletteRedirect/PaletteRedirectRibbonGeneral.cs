@@ -51,14 +51,14 @@ namespace ComponentFactory.Krypton.Toolkit
                                             IPaletteRibbonGeneral tracking
                                            )
             : base(target)
-		{
+        {
             // Remember state specific inheritance
             _disabled = disabled;
             _normal = normal;
             _pressed = pressed;
             _tracking = tracking;
         }
-		#endregion
+        #endregion
 
         #region RibbonGeneral
         /// <summary>

@@ -13,16 +13,16 @@ using System;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Details about the context menu that has been closed up on a KryptonDateTimePicker.
-	/// </summary>
-	public class DateTimePickerCloseArgs : EventArgs
-	{
-		#region Instance Fields
+    /// <summary>
+    /// Details about the context menu that has been closed up on a KryptonDateTimePicker.
+    /// </summary>
+    public class DateTimePickerCloseArgs : EventArgs
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
+        #region Identity
         /// <summary>
         /// Initialize a new instance of the DateTimePickerCloseArgs class.
         /// </summary>
@@ -33,12 +33,12 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Public
+        #region Public
         /// <summary>
         /// Gets access to the KryptonContextMenu instance.
         /// </summary>
         public KryptonContextMenu KryptonContextMenu { get; }
 
-	    #endregion
-	}
+        #endregion
+    }
 }

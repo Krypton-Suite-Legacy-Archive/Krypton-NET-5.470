@@ -14,24 +14,24 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Implement redirected storage for page appearance.
-	/// </summary>
+    /// <summary>
+    /// Implement redirected storage for page appearance.
+    /// </summary>
     public class PalettePageRedirect : PaletteDoubleRedirect
-	{
-		#region Identity
-		/// <summary>
+    {
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PalettePageRedirect class.
-		/// </summary>
-		/// <param name="redirect">Inheritence redirection instance.</param>
+        /// </summary>
+        /// <param name="redirect">Inheritence redirection instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PalettePageRedirect(PaletteRedirect redirect,
                                    NeedPaintHandler needPaint)
             : base(redirect, PaletteBackStyle.ControlClient,
                              PaletteBorderStyle.ControlClient, needPaint)
-		{
-		}
-		#endregion
+        {
+        }
+        #endregion
 
         #region Border
         /// <summary>
@@ -42,7 +42,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override PaletteBorder Border => base.Border;
 
-	    /// <summary>
+        /// <summary>
         /// Gets the border palette.
         /// </summary>
         [Browsable(false)]
@@ -50,6 +50,6 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override IPaletteBorder PaletteBorder => base.PaletteBorder;
 
-	    #endregion
+        #endregion
     }
 }

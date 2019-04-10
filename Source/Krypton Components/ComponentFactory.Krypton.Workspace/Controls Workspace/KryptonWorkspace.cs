@@ -242,7 +242,7 @@ namespace ComponentFactory.Krypton.Workspace
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonWorkspace class.
-		/// </summary>
+        /// </summary>
         public KryptonWorkspace()
         {
             Root = new KryptonWorkspaceSequence();
@@ -2756,6 +2756,7 @@ namespace ComponentFactory.Krypton.Workspace
         #endregion
 
         #region Protected Virtual
+        // ReSharper disable VirtualMemberNeverOverridden.Global
         /// <summary>
         /// Raises the CellCountChanged event.
         /// </summary>
@@ -2849,7 +2850,7 @@ namespace ComponentFactory.Krypton.Workspace
         /// Raises the PageDrop event.
         /// </summary>
         /// <param name="e">A v containing event details.</param>
-        internal protected virtual void OnPageDrop(PageDropEventArgs e)
+        protected internal virtual void OnPageDrop(PageDropEventArgs e)
         {
             PageDrop?.Invoke(this, e);
         }
@@ -2877,6 +2878,7 @@ namespace ComponentFactory.Krypton.Workspace
             cell.SelectedPageChanged -= OnCellSelectedPageChanged;
             cell.Enter -= OnCellEnter;
         }
+        // ReSharper restore VirtualMemberNeverOverridden.Global
         #endregion
 
         #region Internal

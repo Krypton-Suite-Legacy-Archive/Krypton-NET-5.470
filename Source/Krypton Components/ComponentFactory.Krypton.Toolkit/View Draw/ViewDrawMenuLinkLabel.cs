@@ -31,12 +31,12 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawMenuLinkLabel class.
-		/// </summary>
+        /// </summary>
         /// <param name="provider">Reference to provider.</param>
         /// <param name="linkLabel">Reference to owning link label entry.</param>
         public ViewDrawMenuLinkLabel(IContextMenuProvider provider,
                                      KryptonContextMenuLinkLabel linkLabel)
-		{
+        {
             _provider = provider;
             KryptonContextMenuLinkLabel = linkLabel;
 
@@ -96,16 +96,16 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawMenuLinkLabel:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region ItemText
         /// <summary>
@@ -296,8 +296,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="context">Layout context.</param>
         /// <exception cref="ArgumentNullException"></exception>
         public override void Layout(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        {
+            Debug.Assert(context != null);
 
             // Validate incoming reference
             if (context == null)
@@ -308,10 +308,10 @@ namespace ComponentFactory.Krypton.Toolkit
             // We take on all the available display area
             ClientRectangle = context.DisplayRectangle;
 
-			// Let base class perform usual processing
-			base.Layout(context);
-		}
-		#endregion
+            // Let base class perform usual processing
+            base.Layout(context);
+        }
+        #endregion
 
         #region Private
         private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)

@@ -14,40 +14,40 @@ using System.Xml;
 
 namespace ComponentFactory.Krypton.Docking
 {
-	/// <summary>
+    /// <summary>
     /// Event data for loading global docking configuration.
-	/// </summary>
-	public class DockGlobalLoadingEventArgs : EventArgs
-	{
-		#region Instance Fields
+    /// </summary>
+    public class DockGlobalLoadingEventArgs : EventArgs
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the DockGlobalLoadingEventArgs class.
-		/// </summary>
+        /// </summary>
         /// <param name="manager">Reference to owning docking manager instance.</param>
         /// <param name="xmlReading">Xml reader for persisting custom data.</param>
         public DockGlobalLoadingEventArgs(KryptonDockingManager manager,
                                           XmlReader xmlReading)
-		{
+        {
             DockingManager = manager;
             XmlReader = xmlReading;
-		}
-		#endregion
+        }
+        #endregion
 
-		#region Public
-		/// <summary>
+        #region Public
+        /// <summary>
         /// Gets the docking manager reference.
-		/// </summary>
+        /// </summary>
         public KryptonDockingManager DockingManager { get; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets the xml reader.
         /// </summary>
         public XmlReader XmlReader { get; }
 
-	    #endregion
-	}
+        #endregion
+    }
 }

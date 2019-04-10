@@ -14,19 +14,19 @@ using ComponentFactory.Krypton.Navigator;
 
 namespace ComponentFactory.Krypton.Docking
 {
-	/// <summary>
+    /// <summary>
     /// Event data for loading docking page configuration.
-	/// </summary>
+    /// </summary>
     public class DockPageLoadingEventArgs : DockGlobalLoadingEventArgs
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the DockPageLoadingEventArgs class.
-		/// </summary>
+        /// </summary>
         /// <param name="manager">Reference to owning docking manager instance.</param>
         /// <param name="xmlReading">Xml reader for persisting custom data.</param>
         /// <param name="page">Reference to page being loaded.</param>
@@ -34,17 +34,17 @@ namespace ComponentFactory.Krypton.Docking
                                         XmlReader xmlReading,
                                         KryptonPage page)
             : base(manager, xmlReading)
-		{
+        {
             Page = page;
-		}
-		#endregion
+        }
+        #endregion
 
-		#region Public
-		/// <summary>
+        #region Public
+        /// <summary>
         /// Gets the loading page reference.
-		/// </summary>
+        /// </summary>
         public KryptonPage Page { get; }
 
-	    #endregion
-	}
+        #endregion
+    }
 }

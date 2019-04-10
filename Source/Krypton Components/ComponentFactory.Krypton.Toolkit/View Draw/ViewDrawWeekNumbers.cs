@@ -17,10 +17,10 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Draws all the month grid entries including the column names and day values
-	/// </summary>
-	public class ViewDrawWeekNumbers : ViewLeaf,
+    /// <summary>
+    /// Draws all the month grid entries including the column names and day values
+    /// </summary>
+    public class ViewDrawWeekNumbers : ViewLeaf,
                                        IContentValues
     {
         #region Static Fields
@@ -43,10 +43,10 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool _lastMonth;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the ViewDrawWeekNumbers class.
-		/// </summary>
+        /// </summary>
         /// <param name="calendar">Reference to calendar provider.</param>
         /// <param name="months">Reference to months instance.</param>
         public ViewDrawWeekNumbers(IKryptonMonthCalendar calendar, ViewLayoutMonths months)
@@ -57,15 +57,15 @@ namespace ComponentFactory.Krypton.Toolkit
             _dayMementos = new IDisposable[WEEKS];
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawWeekNumbers:" + Id;
-		}
+        }
 
         /// <summary>
         /// Release unmanaged and optionally managed resources.
@@ -85,7 +85,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             base.Dispose(disposing);
         }
-		#endregion
+        #endregion
 
         #region Public
         /// <summary>
@@ -148,9 +148,9 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         
         /// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
         public override void Layout(ViewLayoutContext context)
         {
             Debug.Assert(context != null);

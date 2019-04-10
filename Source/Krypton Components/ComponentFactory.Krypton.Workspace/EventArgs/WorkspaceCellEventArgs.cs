@@ -13,32 +13,32 @@ using System;
 
 namespace ComponentFactory.Krypton.Workspace
 {
-	/// <summary>
-	/// Workspace cell event data.
-	/// </summary>
-	public class WorkspaceCellEventArgs : EventArgs
-	{
-		#region Instance Fields
+    /// <summary>
+    /// Workspace cell event data.
+    /// </summary>
+    public class WorkspaceCellEventArgs : EventArgs
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the WorkspaceCellEventArgs class.
-		/// </summary>
+        /// </summary>
         /// <param name="cell">Workspace cell associated with the event.</param>
         public WorkspaceCellEventArgs(KryptonWorkspaceCell cell)
-		{
+        {
             Cell = cell;
-		}
-		#endregion
+        }
+        #endregion
 
-		#region Public
-		/// <summary>
+        #region Public
+        /// <summary>
         /// Gets the cell reference.
-		/// </summary>
+        /// </summary>
         public KryptonWorkspaceCell Cell { get; }
 
-	    #endregion
-	}
+        #endregion
+    }
 }

@@ -17,9 +17,9 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// View element that creates and lays out the image list items.
-	/// </summary>
+    /// <summary>
+    /// View element that creates and lays out the image list items.
+    /// </summary>
     internal class ViewLayoutMenuItemSelect : ViewComposite
     {
         #region Instance Fields
@@ -85,15 +85,15 @@ namespace ComponentFactory.Krypton.Toolkit
             _triple.SetStyles(itemSelect.ButtonStyle);
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutMenuItemSelect:" + Id;
-		}
+        }
         #endregion
 
         #region ItemEnabled
@@ -168,12 +168,12 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
+            Debug.Assert(context != null);
 
             // Validate incoming reference
             if (context == null)
@@ -221,7 +221,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Put back the original display value now we have finished
             context.DisplayRectangle = ClientRectangle;
         }
-		#endregion
+        #endregion
 
         #region Private
         public void SyncChildren()

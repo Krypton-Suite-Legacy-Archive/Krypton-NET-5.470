@@ -16,12 +16,12 @@ using System.Globalization;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Extends the ViewComposite by organising and drawing an individual month.
-	/// </summary>
-	public class ViewDrawMonth : ViewLayoutStack,
+    /// <summary>
+    /// Extends the ViewComposite by organising and drawing an individual month.
+    /// </summary>
+    public class ViewDrawMonth : ViewLayoutStack,
                                  IContentValues
-	{
+    {
         #region Type Definitions
         /// <summary>
         /// Collection for managing ButtonSpecCalendar instances.
@@ -41,7 +41,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Instance Fields
+        #region Instance Fields
         private readonly IKryptonMonthCalendar _calendar;
         private readonly ViewLayoutMonths _months;
         private readonly ViewDrawDocker _drawHeader;
@@ -49,7 +49,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private readonly ViewDrawContent _drawContent;
         private readonly ViewDrawMonthDayNames _drawMonthDayNames;
         private readonly ViewDrawBorderEdge _drawBorderEdge;
-	    private readonly ViewLayoutWeekCorner _drawWeekCorner;
+        private readonly ViewLayoutWeekCorner _drawWeekCorner;
         private readonly ViewDrawWeekNumbers _drawWeekNumbers;
         private readonly ViewLayoutStack _numberStack;
         private readonly PaletteBorderEdgeRedirect _borderEdgeRedirect;
@@ -61,10 +61,10 @@ namespace ComponentFactory.Krypton.Toolkit
         private string _header;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the ViewDrawMonth class.
-		/// </summary>
+        /// </summary>
         /// <param name="calendar">Reference to calendar provider.</param>
         /// <param name="months">Reference to months instance.</param>
         /// <param name="redirector">Redirector for getting values.</param>
@@ -158,16 +158,16 @@ namespace ComponentFactory.Krypton.Toolkit
             _buttonManager.RecreateButtons();
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawMonth:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Public
         /// <summary>
@@ -175,14 +175,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public ViewDrawMonthDays ViewDrawMonthDays { get; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets and sets the enabled state of the view.
         /// </summary>
         public override bool Enabled
         {
             get => base.Enabled;
 
-	        set
+            set
             {
                 _drawContent.Enabled = value;
                 _drawHeader.Enabled = value;

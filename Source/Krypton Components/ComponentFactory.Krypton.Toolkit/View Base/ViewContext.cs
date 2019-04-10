@@ -15,24 +15,24 @@ using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Encapsulates common context for view layout and render operations.
-	/// </summary>
+    /// <summary>
+    /// Encapsulates common context for view layout and render operations.
+    /// </summary>
     public class ViewContext : GlobalId,
                                IDisposable
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
 
-	    private Graphics _graphics;
-		private Control _topControl;
-	    private bool _disposeGraphics;
+        private Graphics _graphics;
+        private Control _topControl;
+        private bool _disposeGraphics;
         private readonly bool _disposeManager;
-		#endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
-		/// Initialize a new instance of the ViewContext class.
-		/// </summary>
+        #region Identity
+        /// <summary>
+        /// Initialize a new instance of the ViewContext class.
+        /// </summary>
         /// <param name="manager">Reference to the view manager.</param>
         /// <param name="control">Control associated with rendering.</param>
         /// <param name="alignControl">Control used for aligning elements.</param>
@@ -46,12 +46,12 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Initialize a new instance of the ViewContext class.
-		/// </summary>
+        /// Initialize a new instance of the ViewContext class.
+        /// </summary>
         /// <param name="control">Control associated with rendering.</param>
         /// <param name="alignControl">Control used for aligning elements.</param>
         /// <param name="graphics">Graphics instance for drawing.</param>
-		/// <param name="renderer">Rendering provider.</param>
+        /// <param name="renderer">Rendering provider.</param>
         public ViewContext(Control control,
                            Control alignControl,
                            Graphics graphics,
@@ -61,19 +61,19 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Initialize a new instance of the ViewContext class.
-		/// </summary>
+        /// Initialize a new instance of the ViewContext class.
+        /// </summary>
         /// <param name="manager">Reference to the view manager.</param>
         /// <param name="control">Control associated with rendering.</param>
         /// <param name="alignControl">Control used for aligning elements.</param>
         /// <param name="graphics">Graphics instance for drawing.</param>
-		/// <param name="renderer">Rendering provider.</param>
+        /// <param name="renderer">Rendering provider.</param>
         public ViewContext(ViewManager manager,
                            Control control,
                            Control alignControl,
                            Graphics graphics,
-						   IRenderer renderer)
-		{
+                           IRenderer renderer)
+        {
             // Use the manager is provided, otherwise create a temporary one with a null view
             if (manager != null)
             {
@@ -88,9 +88,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // Cache initial values
             Control = control;
             AlignControl = alignControl;
-			_graphics = graphics;
-			Renderer = renderer;
-		}
+            _graphics = graphics;
+            Renderer = renderer;
+        }
 
         /// <summary>
         /// Dispose of resources.
@@ -121,9 +121,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 ViewManager = null;
             }
         }
-		#endregion
+        #endregion
 
-		#region Public
+        #region Public
         /// <summary>
         /// Gets the owning view manager.
         /// </summary>
@@ -132,34 +132,34 @@ namespace ComponentFactory.Krypton.Toolkit
             [System.Diagnostics.DebuggerStepThrough]
             get;
             private set;
-	    }
+        }
 
-	    /// <summary>
-		/// Gets and sets the owning control associated with rendering.
-		/// </summary>
+        /// <summary>
+        /// Gets and sets the owning control associated with rendering.
+        /// </summary>
         public Control Control
-	    {
-	        [System.Diagnostics.DebuggerStepThrough]
-	        get;
-	        set;
-	    }
+        {
+            [System.Diagnostics.DebuggerStepThrough]
+            get;
+            set;
+        }
 
-	    /// <summary>
+        /// <summary>
         /// Gets and sets the control to use when aligning elements.
         /// </summary>
         public Control AlignControl
-	    {
-	        [System.Diagnostics.DebuggerStepThrough]
-	        get;
-	        set;
-	    }
+        {
+            [System.Diagnostics.DebuggerStepThrough]
+            get;
+            set;
+        }
 
-	    /// <summary>
-		/// Gets the graphics instance used for rendering operations.
-		/// </summary>
-		public Graphics Graphics
-		{
-			get 
+        /// <summary>
+        /// Gets the graphics instance used for rendering operations.
+        /// </summary>
+        public Graphics Graphics
+        {
+            get 
             {
                 // Do we need to create the graphics instance?
                 if (_graphics == null)
@@ -184,14 +184,14 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 return _graphics;
             }
-		}
+        }
 
-		/// <summary>
-		/// Gets the owning top level control associated with rendering.
-		/// </summary>
-		public Control TopControl
-		{
-			get 
+        /// <summary>
+        /// Gets the owning top level control associated with rendering.
+        /// </summary>
+        public Control TopControl
+        {
+            get 
             {
                 // If this is the first need for the top control...
                 if (_topControl == null)
@@ -225,17 +225,17 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 return _topControl; 
             }
-		}
+        }
 
-		/// <summary>
-		/// Gets access to the renderer provider.
-		/// </summary>
+        /// <summary>
+        /// Gets access to the renderer provider.
+        /// </summary>
         public IRenderer Renderer
-		{
-		    [System.Diagnostics.DebuggerStepThrough]
-		    get;
-	    }
+        {
+            [System.Diagnostics.DebuggerStepThrough]
+            get;
+        }
 
-	    #endregion
+        #endregion
     }
 }

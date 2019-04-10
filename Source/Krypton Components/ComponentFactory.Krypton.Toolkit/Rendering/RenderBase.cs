@@ -20,107 +20,107 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Provides base class for rendering implementations.
-	/// </summary>
-	[ToolboxItem(false)]
-	public abstract class RenderBase : Component,
-									   IRenderer,
-									   IRenderBorder,
-									   IRenderBack,
-									   IRenderContent,
+    /// <summary>
+    /// Provides base class for rendering implementations.
+    /// </summary>
+    [ToolboxItem(false)]
+    public abstract class RenderBase : Component,
+                                       IRenderer,
+                                       IRenderBorder,
+                                       IRenderBack,
+                                       IRenderContent,
                                        IRenderTabBorder,
                                        IRenderRibbon,
                                        IRenderGlyph
-	{
-		#region Static Fields
+    {
+        #region Static Fields
         private static readonly object _threadLock = new object();
 
         private static readonly ColorMatrix _matrixGrayScale = new ColorMatrix(new float[][]{new float[]{0.3f,0.3f,0.3f,0,0},
-															                                 new float[]{0.59f,0.59f,0.59f,0,0},
-															                                 new float[]{0.11f,0.11f,0.11f,0,0},
-															                                 new float[]{0,0,0,1,0},
-															                                 new float[]{0,0,0,0,1}});
+                                                                                             new float[]{0.59f,0.59f,0.59f,0,0},
+                                                                                             new float[]{0.11f,0.11f,0.11f,0,0},
+                                                                                             new float[]{0,0,0,1,0},
+                                                                                             new float[]{0,0,0,0,1}});
 
         private static readonly ColorMatrix _matrixGrayScaleRed = new ColorMatrix(new float[][]{new float[]{1,0,0,0,0},
-																                                new float[]{0,0.59f,0.59f,0,0},
-																                                new float[]{0,0.11f,0.11f,0,0},
-																                                new float[]{0,0,0,1,0},
-																                                new float[]{0,0,0,0,1}});
+                                                                                                new float[]{0,0.59f,0.59f,0,0},
+                                                                                                new float[]{0,0.11f,0.11f,0,0},
+                                                                                                new float[]{0,0,0,1,0},
+                                                                                                new float[]{0,0,0,0,1}});
 
         private static readonly ColorMatrix _matrixGrayScaleGreen = new ColorMatrix(new float[][]{new float[]{0.3f,0,0.3f,0,0},
-															                                      new float[]{0,1,0,0,0},
-															                                      new float[]{0.11f,0,0.11f,0,0},
-															                                      new float[]{0,0,0,1,0},
-															                                      new float[]{0,0,0,0,1}});
+                                                                                                  new float[]{0,1,0,0,0},
+                                                                                                  new float[]{0.11f,0,0.11f,0,0},
+                                                                                                  new float[]{0,0,0,1,0},
+                                                                                                  new float[]{0,0,0,0,1}});
 
         private static readonly ColorMatrix _matrixGrayScaleBlue = new ColorMatrix(new float[][]{new float[]{0.3f,0.3f,0,0,0},
-																                                 new float[]{0.59f,0.59f,0,0,0},
-																                                 new float[]{0,0,1,0,0},
-																                                 new float[]{0,0,0,1,0},
-																                                 new float[]{0,0,0,0,1}});
+                                                                                                 new float[]{0.59f,0.59f,0,0,0},
+                                                                                                 new float[]{0,0,1,0,0},
+                                                                                                 new float[]{0,0,0,1,0},
+                                                                                                 new float[]{0,0,0,0,1}});
 
         private static readonly ColorMatrix _matrixLight = new ColorMatrix(new float[][]{new float[]{1,0,0,0,0},
-													                                     new float[]{0,1,0,0,0},
-													                                     new float[]{0,0,1,0,0},
-													                                     new float[]{0,0,0,1,0},
-													                                     new float[]{0.1f,0.1f,0.1f,0,1}});
+                                                                                         new float[]{0,1,0,0,0},
+                                                                                         new float[]{0,0,1,0,0},
+                                                                                         new float[]{0,0,0,1,0},
+                                                                                         new float[]{0.1f,0.1f,0.1f,0,1}});
 
         private static readonly ColorMatrix _matrixLightLight = new ColorMatrix(new float[][]{new float[]{1,0,0,0,0},
-														                                      new float[]{0,1,0,0,0},
-														                                      new float[]{0,0,1,0,0},
-														                                      new float[]{0,0,0,1,0},
-														                                      new float[]{0.2f,0.2f,0.2f,0,1}});
+                                                                                              new float[]{0,1,0,0,0},
+                                                                                              new float[]{0,0,1,0,0},
+                                                                                              new float[]{0,0,0,1,0},
+                                                                                              new float[]{0.2f,0.2f,0.2f,0,1}});
 
         private static readonly ColorMatrix _matrixDark = new ColorMatrix(new float[][]{new float[]{1,0,0,0,0},
-													                                    new float[]{0,1,0,0,0},
-													                                    new float[]{0,0,1,0,0},
-													                                    new float[]{0,0,0,1,0},
-													                                    new float[]{-0.1f,-0.1f,-0.1f,0,1}});
+                                                                                        new float[]{0,1,0,0,0},
+                                                                                        new float[]{0,0,1,0,0},
+                                                                                        new float[]{0,0,0,1,0},
+                                                                                        new float[]{-0.1f,-0.1f,-0.1f,0,1}});
 
         private static readonly ColorMatrix _matrixDarkDark = new ColorMatrix(new float[][]{new float[]{1,0,0,0,0},
-														                                    new float[]{0,1,0,0,0},
-														                                    new float[]{0,0,1,0,0},
-														                                    new float[]{0,0,0,1,0},
-														                                    new float[]{-0.25f,-0.25f,-0.25f,0,1}});
-		#endregion
+                                                                                            new float[]{0,1,0,0,0},
+                                                                                            new float[]{0,0,1,0,0},
+                                                                                            new float[]{0,0,0,1,0},
+                                                                                            new float[]{-0.25f,-0.25f,-0.25f,0,1}});
+        #endregion
 
-		#region IRenderer
-		/// <summary>
-		/// Gets the standard border renderer.
-		/// </summary>
+        #region IRenderer
+        /// <summary>
+        /// Gets the standard border renderer.
+        /// </summary>
         public IRenderBorder RenderStandardBorder 
-		{
+        {
             [DebuggerStepThrough]
             get { return this; }
-		}
+        }
 
-		/// <summary>
+        /// <summary>
         /// Gets the standard background renderer.
-		/// </summary>
+        /// </summary>
         public IRenderBack RenderStandardBack
-		{
+        {
             [DebuggerStepThrough]
             get { return this; }
-		}
+        }
 
-		/// <summary>
+        /// <summary>
         /// Gets the standard content renderer.
-		/// </summary>
+        /// </summary>
         public IRenderContent RenderStandardContent
-		{
+        {
             [DebuggerStepThrough]
             get { return this; }
-		}
+        }
 
         /// <summary>
         /// Gets the tab border renderer.
         /// </summary>
         public IRenderTabBorder RenderTabBorder
-		{
+        {
             [DebuggerStepThrough]
             get { return this; }
-		}
+        }
 
         /// <summary>
         /// Gets the ribbon renderer.
@@ -147,7 +147,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public abstract ToolStripRenderer RenderToolStrip(IPalette colorPalette);
         #endregion
 
-		#region RenderStandardBorder
+        #region RenderStandardBorder
         /// <summary>
         /// Gets the raw padding used per edge of the border.
         /// </summary>
@@ -160,13 +160,13 @@ namespace ComponentFactory.Krypton.Toolkit
                                                     VisualOrientation orientation);
 
         /// <summary>
-		/// Gets the padding used to position display elements completely inside border drawing.
-		/// </summary>
-		/// <param name="palette">Palette used for drawing.</param>
+        /// Gets the padding used to position display elements completely inside border drawing.
+        /// </summary>
+        /// <param name="palette">Palette used for drawing.</param>
         /// <param name="state">State associated with rendering.</param>
         /// <param name="orientation">Visual orientation of the border.</param>
         /// <returns>Padding structure detailing all four edges.</returns>
-		public abstract Padding GetBorderDisplayPadding(IPaletteBorder palette,
+        public abstract Padding GetBorderDisplayPadding(IPaletteBorder palette,
                                                         PaletteState state,
                                                         VisualOrientation orientation);
 
@@ -188,15 +188,15 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Generate a graphics path that is in the middle of the border.
         /// </summary>
-		/// <param name="context">Rendering context.</param>
-		/// <param name="rect">Target rectangle.</param>
-		/// <param name="palette">Palette used for drawing.</param>
+        /// <param name="context">Rendering context.</param>
+        /// <param name="rect">Target rectangle.</param>
+        /// <param name="palette">Palette used for drawing.</param>
         /// <param name="orientation">Visual orientation of the border.</param>
         /// <param name="state">State associated with rendering.</param>
-		/// <returns>GraphicsPath instance.</returns>
-		public abstract GraphicsPath GetBorderPath(RenderContext context, 
-												   Rectangle rect, 
-												   IPaletteBorder palette,
+        /// <returns>GraphicsPath instance.</returns>
+        public abstract GraphicsPath GetBorderPath(RenderContext context, 
+                                                   Rectangle rect, 
+                                                   IPaletteBorder palette,
                                                    VisualOrientation orientation,
                                                    PaletteState state);
 
@@ -216,99 +216,99 @@ namespace ComponentFactory.Krypton.Toolkit
                                                  PaletteState state);
         
         /// <summary>
-		/// Draw border on the inside edge of the specified rectangle.
-		/// </summary>
-		/// <param name="context">Rendering context.</param>
-		/// <param name="rect">Target rectangle.</param>
-		/// <param name="palette">Palette used for drawing.</param>
-		/// <param name="orientation">Visual orientation of the border.</param>
-		/// <param name="state">State associated with rendering.</param>
-		public abstract void DrawBorder(RenderContext context, 
-										Rectangle rect, 
-										IPaletteBorder palette,
-										VisualOrientation orientation,
-										PaletteState state);
-		#endregion
+        /// Draw border on the inside edge of the specified rectangle.
+        /// </summary>
+        /// <param name="context">Rendering context.</param>
+        /// <param name="rect">Target rectangle.</param>
+        /// <param name="palette">Palette used for drawing.</param>
+        /// <param name="orientation">Visual orientation of the border.</param>
+        /// <param name="state">State associated with rendering.</param>
+        public abstract void DrawBorder(RenderContext context, 
+                                        Rectangle rect, 
+                                        IPaletteBorder palette,
+                                        VisualOrientation orientation,
+                                        PaletteState state);
+        #endregion
 
-		#region RenderStandardBack
-		/// <summary>
-		/// Draw background to fill the specified path.
-		/// </summary>
-		/// <param name="context">Rendering context.</param>
-		/// <param name="rect">Target rectangle that encloses path.</param>
-		/// <param name="path">Graphics path.</param>
-		/// <param name="palette">Palette used for drawing.</param>
-		/// <param name="orientation">Visual orientation of the background.</param>
-		/// <param name="state">State associated with rendering.</param>
+        #region RenderStandardBack
+        /// <summary>
+        /// Draw background to fill the specified path.
+        /// </summary>
+        /// <param name="context">Rendering context.</param>
+        /// <param name="rect">Target rectangle that encloses path.</param>
+        /// <param name="path">Graphics path.</param>
+        /// <param name="palette">Palette used for drawing.</param>
+        /// <param name="orientation">Visual orientation of the background.</param>
+        /// <param name="state">State associated with rendering.</param>
         /// <param name="memento">Cache used for drawing.</param>
         public abstract IDisposable DrawBack(RenderContext context, 
-									         Rectangle rect,
-									         GraphicsPath path, 
-									         IPaletteBack palette,
-									         VisualOrientation orientation,
-									         PaletteState state,
+                                             Rectangle rect,
+                                             GraphicsPath path, 
+                                             IPaletteBack palette,
+                                             VisualOrientation orientation,
+                                             PaletteState state,
                                              IDisposable memento);
-		#endregion
+        #endregion
 
-		#region RenderStandardContent
-		/// <summary>
-		/// Get the preferred size for drawing the content.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		/// <param name="palette">Content palette details.</param>
-		/// <param name="values">Content values.</param>
-		/// <param name="orientation">Visual orientation of the content.</param>
+        #region RenderStandardContent
+        /// <summary>
+        /// Get the preferred size for drawing the content.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        /// <param name="palette">Content palette details.</param>
+        /// <param name="values">Content values.</param>
+        /// <param name="orientation">Visual orientation of the content.</param>
         /// <param name="state">State associated with rendering.</param>
         /// <param name="composition">Drawing onto a composition element.</param>
         /// <param name="glowing">If composition, should glowing be drawn.</param>
         /// <returns>Preferred size.</returns>
-		public abstract Size GetContentPreferredSize(ViewLayoutContext context,
-													 IPaletteContent palette,
-													 IContentValues values,
-													 VisualOrientation orientation,
-													 PaletteState state,
+        public abstract Size GetContentPreferredSize(ViewLayoutContext context,
+                                                     IPaletteContent palette,
+                                                     IContentValues values,
+                                                     VisualOrientation orientation,
+                                                     PaletteState state,
                                                      bool composition,
                                                      bool glowing);
 
-		/// <summary>
-		/// Perform layout calculations on the provided content.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		/// <param name="availableRect">Space available for laying out.</param>
-		/// <param name="palette">Content palette details.</param>
-		/// <param name="values">Content values.</param>
-		/// <param name="orientation">Visual orientation of the content.</param>
+        /// <summary>
+        /// Perform layout calculations on the provided content.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        /// <param name="availableRect">Space available for laying out.</param>
+        /// <param name="palette">Content palette details.</param>
+        /// <param name="values">Content values.</param>
+        /// <param name="orientation">Visual orientation of the content.</param>
         /// <param name="state">State associated with rendering.</param>
         /// <param name="composition">Drawing onto a composition element.</param>
         /// <param name="glowing">If composition, should glowing be drawn.</param>
         /// <returns>Memento with cached information.</returns>
-		public abstract IDisposable LayoutContent(ViewLayoutContext context,
-											      Rectangle availableRect,
-											      IPaletteContent palette,
-											      IContentValues values,
-											      VisualOrientation orientation,
-											      PaletteState state,
+        public abstract IDisposable LayoutContent(ViewLayoutContext context,
+                                                  Rectangle availableRect,
+                                                  IPaletteContent palette,
+                                                  IContentValues values,
+                                                  VisualOrientation orientation,
+                                                  PaletteState state,
                                                   bool composition, 
                                                   bool glowing);
 
-		/// <summary>
-		/// Perform draw of content using provided memento.
-		/// </summary>
-		/// <param name="context">Render context.</param>
-		/// <param name="displayRect">Display area available for drawing.</param>
-		/// <param name="palette">Content palette details.</param>
-		/// <param name="memento">Cached values from layout call.</param>
-		/// <param name="orientation">Visual orientation of the content.</param>
+        /// <summary>
+        /// Perform draw of content using provided memento.
+        /// </summary>
+        /// <param name="context">Render context.</param>
+        /// <param name="displayRect">Display area available for drawing.</param>
+        /// <param name="palette">Content palette details.</param>
+        /// <param name="memento">Cached values from layout call.</param>
+        /// <param name="orientation">Visual orientation of the content.</param>
         /// <param name="state">State associated with rendering.</param>
         /// <param name="composition">Drawing onto a composition element.</param>
         /// <param name="glowing">If compisition, should glowing be drawn.</param>
         /// <param name="allowFocusRect">Allow drawing of focus rectangle.</param>
         public abstract void DrawContent(RenderContext context,
-										 Rectangle displayRect,
-										 IPaletteContent palette,
+                                         Rectangle displayRect,
+                                         IPaletteContent palette,
                                          IDisposable memento,
-										 VisualOrientation orientation,
-										 PaletteState state,
+                                         VisualOrientation orientation,
+                                         PaletteState state,
                                          bool composition,
                                          bool glowing,
                                          bool allowFocusRect);
@@ -902,19 +902,19 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region DrawIconHelper
 
-	    /// <summary>
-	    /// Helper routine to draw an image taking into account various properties.
-	    /// </summary>
-	    /// <param name="context">Rendering context.</param>
-	    /// <param name="icon">Icon to be drawn.</param>
-	    /// <param name="iconRect">Destination rectangle.</param>
-	    /// <param name="orientation">Visual orientation.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    protected static void DrawIconHelper(ViewContext context,
-								             Icon icon,
-								             Rectangle iconRect,
-								             VisualOrientation orientation)
-		{
+        /// <summary>
+        /// Helper routine to draw an image taking into account various properties.
+        /// </summary>
+        /// <param name="context">Rendering context.</param>
+        /// <param name="icon">Icon to be drawn.</param>
+        /// <param name="iconRect">Destination rectangle.</param>
+        /// <param name="orientation">Visual orientation.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        protected static void DrawIconHelper(ViewContext context,
+                                             Icon icon,
+                                             Rectangle iconRect,
+                                             VisualOrientation orientation)
+        {
             Debug.Assert(context != null);
 
             // Validate reference parameter
@@ -932,31 +932,31 @@ namespace ComponentFactory.Krypton.Toolkit
             {
             }
         }
-		#endregion
+        #endregion
 
         #region DrawImageHelper
 
-	    /// <summary>
-	    /// Helper routine to draw an image taking into account various properties.
-	    /// </summary>
-	    /// <param name="context">Rendering context.</param>
-	    /// <param name="image">Image to be drawn.</param>
-	    /// <param name="remapTransparent">Color that should become transparent.</param>
-	    /// <param name="imageRect">Destination rectangle.</param>
-	    /// <param name="orientation">Visual orientation.</param>
-	    /// <param name="effect">Drawing effect.</param>
-	    /// <param name="remapColor">Image color to remap.</param>
-	    /// <param name="remapNew">New color for remap.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    protected static void DrawImageHelper(ViewContext context,
-									          Image image,
+        /// <summary>
+        /// Helper routine to draw an image taking into account various properties.
+        /// </summary>
+        /// <param name="context">Rendering context.</param>
+        /// <param name="image">Image to be drawn.</param>
+        /// <param name="remapTransparent">Color that should become transparent.</param>
+        /// <param name="imageRect">Destination rectangle.</param>
+        /// <param name="orientation">Visual orientation.</param>
+        /// <param name="effect">Drawing effect.</param>
+        /// <param name="remapColor">Image color to remap.</param>
+        /// <param name="remapNew">New color for remap.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        protected static void DrawImageHelper(ViewContext context,
+                                              Image image,
                                               Color remapTransparent,
-									          Rectangle imageRect,
-									          VisualOrientation orientation,
-									          PaletteImageEffect effect,
+                                              Rectangle imageRect,
+                                              VisualOrientation orientation,
+                                              PaletteImageEffect effect,
                                               Color remapColor,
                                               Color remapNew)
-		{
+        {
             Debug.Assert(context != null);
 
             // Prevent problems with multiple threads using the same palette images 
@@ -1106,6 +1106,6 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
         }
-		#endregion
-	}
+        #endregion
+    }
 }

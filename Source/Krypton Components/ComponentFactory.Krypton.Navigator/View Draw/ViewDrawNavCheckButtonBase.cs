@@ -18,17 +18,17 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Navigator view base element for drawing a check button for a krypton page.
-	/// </summary>
+    /// <summary>
+    /// Navigator view base element for drawing a check button for a krypton page.
+    /// </summary>
     internal abstract class ViewDrawNavCheckButtonBase : ViewDrawButton,
                                                          IContentValues
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
 
-	    private KryptonPage _page;
+        private KryptonPage _page;
         private NeedPaintHandler _needPaint;
-	    private PageButtonController _buttonController;
+        private PageButtonController _buttonController;
         private DateTime _lastClick;
 
         /// <summary>Override for accessing the disable state.</summary>
@@ -189,16 +189,16 @@ namespace ComponentFactory.Krypton.Navigator
             base.Dispose(disposing);
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawNavCheckButtonBase:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region NeedPaint
         /// <summary>
@@ -289,7 +289,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public KryptonNavigator Navigator { get; }
 
-	    #endregion
+        #endregion
 
         #region ButtonSpecFromView
         /// <summary>
@@ -309,7 +309,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public virtual bool AllowButtonSpecs => true;
 
-	    #endregion
+        #endregion
 
         #region PerformClick
         /// <summary>
@@ -358,7 +358,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         protected virtual bool ButtonClickOnDown => false;
 
-	    #endregion
+        #endregion
 
         #region ButtonSpecManager
         /// <summary>
@@ -366,7 +366,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public ButtonSpecNavManagerLayoutBar ButtonSpecManager { get; private set; }
 
-	    #endregion
+        #endregion
 
         #region UpdateButtonSpecMapping
         /// <summary>

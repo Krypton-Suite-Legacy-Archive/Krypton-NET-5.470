@@ -15,31 +15,31 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Process mouse events for a ribbon group textbox.
-	/// </summary>
+    /// <summary>
+    /// Process mouse events for a ribbon group textbox.
+    /// </summary>
     internal class TextBoxController : GlobalId,
                                        ISourceController,
                                        IKeyController,
                                        IRibbonKeyTipTarget
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly KryptonRibbon _ribbon;
         private readonly KryptonRibbonGroupTextBox _textBox;
         private readonly ViewDrawRibbonGroupTextBox _target;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the TextBoxController class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon instance.</param>
         /// <param name="textBox">Source definition.</param>
         /// <param name="target">Target view element.</param>
         public TextBoxController(KryptonRibbon ribbon,
                                  KryptonRibbonGroupTextBox textBox,
                                  ViewDrawRibbonGroupTextBox target)
-		{
+        {
             Debug.Assert(ribbon != null);
             Debug.Assert(textBox != null);
             Debug.Assert(target != null);
@@ -48,7 +48,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _textBox = textBox;
             _target = target;
         }
-		#endregion
+        #endregion
 
         #region Focus Notifications
         /// <summary>

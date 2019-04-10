@@ -10,30 +10,30 @@
 // *****************************************************************************
 
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
-using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for button content value information.
-	/// </summary>
-	public class ButtonValues : Storage,
-								IContentValues
-	{
-		#region Static Fields
+    /// <summary>
+    /// Storage for button content value information.
+    /// </summary>
+    public class ButtonValues : Storage,
+                                IContentValues
+    {
+        #region Static Fields
         private const string _defaultText = "Button";
         private static readonly string _defaultExtraText = string.Empty;
-		#endregion
+        #endregion
 
-		#region Instance Fields
+        #region Instance Fields
         private Image _image;
         private Color _transparent;
         private string _text;
-		private string _extraText;
+        private string _extraText;
 
-	    #endregion
+        #endregion
 
         #region Events
         /// <summary>
@@ -41,75 +41,75 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public event EventHandler TextChanged;
         #endregion
-        
+
         #region Identity
-		/// <summary>
-		/// Initialize a new instance of the ButtonValues class.
-		/// </summary>
+        /// <summary>
+        /// Initialize a new instance of the ButtonValues class.
+        /// </summary>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public ButtonValues(NeedPaintHandler needPaint)
-		{
+        {
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
 
-			// Set initial values
+            // Set initial values
             _image = null;
             _transparent = Color.Empty;
             _text = _defaultText;
-			_extraText = _defaultExtraText;
+            _extraText = _defaultExtraText;
             ImageStates = CreateImageStates();
             ImageStates.NeedPaint = needPaint;
-		}
-		#endregion
+        }
+        #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (ImageStates.IsDefault &&
-		                                   (Image == null) &&
-		                                   (ImageTransparentColor == Color.Empty) &&
-		                                   (Text == _defaultText) &&
-		                                   (ExtraText == _defaultExtraText));
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (ImageStates.IsDefault &&
+                                           (Image == null) &&
+                                           (ImageTransparentColor == Color.Empty) &&
+                                           (Text == _defaultText) &&
+                                           (ExtraText == _defaultExtraText));
 
-	    #endregion
+        #endregion
 
         #region Image
-		/// <summary>
-		/// Gets and sets the button image.
-		/// </summary>
-		[Localizable(true)]
-		[Category("Visuals")]
-		[Description("Button image.")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public Image Image
-		{
-			get => _image;
+        /// <summary>
+        /// Gets and sets the button image.
+        /// </summary>
+        [Localizable(true)]
+        [Category("Visuals")]
+        [Description("Button image.")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public Image Image
+        {
+            get => _image;
 
-		    set
-			{
-				if (_image != value)
-				{
-					_image = value;
-					PerformNeedPaint(true);
-				}
-			}
-		}
+            set
+            {
+                if (_image != value)
+                {
+                    _image = value;
+                    PerformNeedPaint(true);
+                }
+            }
+        }
 
-		private bool ShouldSerializeImage()
-		{
-			return Image != null;
-		}
+        private bool ShouldSerializeImage()
+        {
+            return Image != null;
+        }
 
-		/// <summary>
-		/// Resets the Image property to its default value.
-		/// </summary>
-		public void ResetImage()
-		{
+        /// <summary>
+        /// Resets the Image property to its default value.
+        /// </summary>
+        public void ResetImage()
+        {
             Image = null;
-		}
-		#endregion
+        }
+        #endregion
 
         #region ImageTransparentColor
         /// <summary>
@@ -167,87 +167,87 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public ButtonImageStates ImageStates { get; }
 
-	    private bool ShouldSerializeImageStates()
+        private bool ShouldSerializeImageStates()
         {
             return !ImageStates.IsDefault;
         }
         #endregion
 
-		#region Text
-		/// <summary>
-		/// Gets and sets the button text.
-		/// </summary>
-		[Localizable(true)]
-		[Category("Visuals")]
-		[Description("Button text.")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		[Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
+        #region Text
+        /// <summary>
+        /// Gets and sets the button text.
+        /// </summary>
+        [Localizable(true)]
+        [Category("Visuals")]
+        [Description("Button text.")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         public string Text
-		{
-			get => _text;
+        {
+            get => _text;
 
-		    set
-			{
-				if (_text != value)
-				{
-					_text = value;
-					PerformNeedPaint(true);
+            set
+            {
+                if (_text != value)
+                {
+                    _text = value;
+                    PerformNeedPaint(true);
                     TextChanged?.Invoke(this, EventArgs.Empty);
                 }
-			}
-		}
+            }
+        }
 
-		private bool ShouldSerializeText()
-		{
-			return Text != _defaultText;
-		}
+        private bool ShouldSerializeText()
+        {
+            return Text != _defaultText;
+        }
 
-		/// <summary>
-		/// Resets the Text property to its default value.
-		/// </summary>
-		public void ResetText()
-		{
-			Text = _defaultText;
-		}
-		#endregion
+        /// <summary>
+        /// Resets the Text property to its default value.
+        /// </summary>
+        public void ResetText()
+        {
+            Text = _defaultText;
+        }
+        #endregion
 
-		#region ExtraText
-		/// <summary>
-		/// Gets and sets the button extra text.
-		/// </summary>
-		[Localizable(true)]
-		[Category("Visuals")]
-		[Description("Button extra text.")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		[Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
+        #region ExtraText
+        /// <summary>
+        /// Gets and sets the button extra text.
+        /// </summary>
+        [Localizable(true)]
+        [Category("Visuals")]
+        [Description("Button extra text.")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         [DefaultValue("")]
-		public string ExtraText
-		{
-			get => _extraText;
+        public string ExtraText
+        {
+            get => _extraText;
 
-		    set
-			{
-				if (_extraText != value)
-				{
-					_extraText = value;
-					PerformNeedPaint(true);
-				}
-			}
-		}
+            set
+            {
+                if (_extraText != value)
+                {
+                    _extraText = value;
+                    PerformNeedPaint(true);
+                }
+            }
+        }
 
-		private bool ShouldSerializeExtraText()
-		{
-			return ExtraText != _defaultExtraText;
-		}
+        private bool ShouldSerializeExtraText()
+        {
+            return ExtraText != _defaultExtraText;
+        }
 
-		/// <summary>
-		/// Resets the Description property to its default value.
-		/// </summary>
-		public void ResetExtraText()
-		{
+        /// <summary>
+        /// Resets the Description property to its default value.
+        /// </summary>
+        public void ResetExtraText()
+        {
             ExtraText = _defaultExtraText;
-		}
-		#endregion
+        }
+        #endregion
 
         #region CreateImageStates
         /// <summary>

@@ -16,9 +16,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws the title string for a group.
-	/// </summary>
+    /// <summary>
+    /// Draws the title string for a group.
+    /// </summary>
     internal class ViewDrawRibbonGroupTitle : ViewLeaf,
                                               IContentValues
     {
@@ -35,7 +35,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonGroupTitle class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Source ribbon control.</param>
         /// <param name="ribbonGroup">Ribbon group to display title for.</param>
         public ViewDrawRibbonGroupTitle(KryptonRibbon ribbon,
@@ -52,15 +52,15 @@ namespace ComponentFactory.Krypton.Ribbon
                                                             ribbon.StateNormal.RibbonGroupNormalTitle);
         }        
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonGroupTitle:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.
@@ -79,7 +79,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             base.Dispose(disposing);
         }
-		#endregion
+        #endregion
 
         #region MakeDirty
         /// <summary>

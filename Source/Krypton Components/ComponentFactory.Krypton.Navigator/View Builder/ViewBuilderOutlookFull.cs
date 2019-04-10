@@ -17,9 +17,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
+    /// <summary>
     /// Implements the NavigatorMode.OutlookFull mode.
-	/// </summary>
+    /// </summary>
     internal class ViewBuilderOutlookFull : ViewBuilderOutlookBase
     {
         #region Instance Fields

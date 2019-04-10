@@ -15,16 +15,16 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Details for context menu related events.
-	/// </summary>
-	public class ViewControlHitTestArgs : CancelEventArgs
-	{
-		#region Instance Fields
+    /// <summary>
+    /// Details for context menu related events.
+    /// </summary>
+    public class ViewControlHitTestArgs : CancelEventArgs
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
+        #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewControlHitTestArgs class.
         /// </summary>
@@ -37,17 +37,17 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Public
-		/// <summary>
-		/// Gets access to the point.
-		/// </summary>
+        #region Public
+        /// <summary>
+        /// Gets access to the point.
+        /// </summary>
         public Point Point { get; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets and sets the result.
         /// </summary>
         public IntPtr Result { get; set; }
 
-	    #endregion
-	}
+        #endregion
+    }
 }

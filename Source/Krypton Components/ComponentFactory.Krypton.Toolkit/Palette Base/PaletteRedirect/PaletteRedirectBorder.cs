@@ -95,7 +95,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                      IPaletteBorder focusOverride,
                                      IPaletteBorder normalDefaultOverride)
             : base(target)
-		{
+        {
             // Remember state specific inheritance
             _disabled = disabled;
             _normal = normal;
@@ -107,7 +107,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _focusOverride = focusOverride;
             _normalDefaultOverride = normalDefaultOverride;
         }
-		#endregion
+        #endregion
 
         #region SetRedirectStates
         /// <summary>

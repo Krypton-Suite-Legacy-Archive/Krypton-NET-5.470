@@ -15,29 +15,29 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Redirect storage for a palette with metrics.
-	/// </summary>
-	public class PaletteMetricRedirect : Storage,
+    /// </summary>
+    public class PaletteMetricRedirect : Storage,
                                          IPaletteMetric
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private PaletteRedirect _redirect;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteMetricRedirect class.
-		/// </summary>
-		/// <param name="redirect">Inheritence redirection instance.</param>
+        /// </summary>
+        /// <param name="redirect">Inheritence redirection instance.</param>
         public PaletteMetricRedirect(PaletteRedirect redirect)
-		{
-			Debug.Assert(redirect != null);
+        {
+            Debug.Assert(redirect != null);
 
             // Remember the redirect reference
             _redirect = redirect;
         }
-		#endregion
+        #endregion
 
         #region SetRedirector
         /// <summary>
@@ -57,7 +57,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         public override bool IsDefault => true;
 
-	    #endregion
+        #endregion
 
         #region IPaletteMetric
         /// <summary>

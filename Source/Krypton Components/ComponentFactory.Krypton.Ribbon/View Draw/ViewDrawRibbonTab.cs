@@ -19,9 +19,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws an individual RibbonTab.
-	/// </summary>
+    /// <summary>
+    /// Draws an individual RibbonTab.
+    /// </summary>
     internal class ViewDrawRibbonTab : ViewComposite,
                                        IContentValues
     {
@@ -58,7 +58,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private PaletteState _cacheState;
         #endregion
 
-		#region Identity
+        #region Identity
         static ViewDrawRibbonTab()
         {
             _contextBlend2007 = new Blend
@@ -74,9 +74,9 @@ namespace ComponentFactory.Krypton.Ribbon
             };
         }
 
-		/// <summary>
+        /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonTab class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="layoutTabs">Reference to view used for layout out tabs.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
@@ -129,15 +129,15 @@ namespace ComponentFactory.Krypton.Ribbon
             _mementos = new IDisposable[Enum.GetValues(typeof(PaletteState)).Length];
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonTab:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.
@@ -320,11 +320,11 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Layout
         /// <summary>
-		/// Discover the preferred size of the element.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override Size GetPreferredSize(ViewLayoutContext context)
-		{
+        /// Discover the preferred size of the element.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override Size GetPreferredSize(ViewLayoutContext context)
+        {
             // Ensure that child elements have correct palette state
             CheckPaletteState(context);
 
@@ -351,21 +351,21 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             return _preferredSize;
-		}
+        }
 
-		/// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        /// <summary>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
+            Debug.Assert(context != null);
 
             // Ensure that child elements have correct palette state
             CheckPaletteState(context);
 
             // We take on all the available display area
-			ClientRectangle = context.DisplayRectangle;
+            ClientRectangle = context.DisplayRectangle;
 
             // A change in state always causes a size and layout calculation
             if (_cacheState != State)
@@ -396,7 +396,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 _dirtyPaletteLayout = Ribbon.DirtyPaletteCounter;
             }
         }
-		#endregion
+        #endregion
 
         #region Paint
         /// <summary>

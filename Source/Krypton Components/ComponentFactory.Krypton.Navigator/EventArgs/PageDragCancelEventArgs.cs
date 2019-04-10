@@ -15,19 +15,19 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Details for an cancellable event that provides pages associated with a page dragging event.
-	/// </summary>
-	public class PageDragCancelEventArgs : CancelEventArgs
-	{
-		#region Instance Fields
+    /// <summary>
+    /// Details for an cancellable event that provides pages associated with a page dragging event.
+    /// </summary>
+    public class PageDragCancelEventArgs : CancelEventArgs
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PageDragCancelEventArgs class.
-		/// </summary>
+        /// </summary>
         /// <param name="elementOffset">Offset from the top left of the element.</param>
         /// <param name="screenPoint">Screen point of the mouse.</param>
         /// <param name="c">Control that started the drag operation.</param>
@@ -36,7 +36,7 @@ namespace ComponentFactory.Krypton.Navigator
                                        Point elementOffset,
                                        Control c,
                                        KryptonPage[] pages)
-		{
+        {
             ScreenPoint = screenPoint;
             ElementOffset = elementOffset;
             Control = c;
@@ -46,7 +46,7 @@ namespace ComponentFactory.Krypton.Navigator
             {
                 Pages.AddRange(pages);
             }
-		}
+        }
 
         /// <summary>
         /// Initialize a new instance of the PageDragCancelEventArgs class.
@@ -73,7 +73,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public Point ScreenPoint { get; }
 
-	    #endregion
+        #endregion
 
         #region ElementOffset
         /// <summary>
@@ -81,7 +81,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public Point ElementOffset { get; }
 
-	    #endregion
+        #endregion
 
         #region ElementOffset
         /// <summary>
@@ -89,7 +89,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public Control Control { get; }
 
-	    #endregion
+        #endregion
 
         #region Pages
         /// <summary>
@@ -97,6 +97,6 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public KryptonPageCollection Pages { get; }
 
-	    #endregion
+        #endregion
     }
 }

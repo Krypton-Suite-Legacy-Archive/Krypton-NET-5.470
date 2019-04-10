@@ -15,9 +15,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Storage for metrics that can be overriden by the developer.
-	/// </summary>
+    /// <summary>
+    /// Storage for metrics that can be overriden by the developer.
+    /// </summary>
     public class PaletteMetrics : Storage
     {
         #region Instance Fields
@@ -29,12 +29,12 @@ namespace ComponentFactory.Krypton.Navigator
         #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteMetrics class.
-		/// </summary>
+        /// </summary>
         /// <param name="navigator">Reference to owning navigator.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteMetrics(KryptonNavigator navigator,
                               NeedPaintHandler needPaint)
-		{
+        {
             _navigator = navigator;
 
             // Store the provided paint notification delegate
@@ -44,7 +44,7 @@ namespace ComponentFactory.Krypton.Navigator
             _pageButtonSpecInset = -1;
             _pageButtonSpecPadding = CommonHelper.InheritPadding;
         }
-		#endregion
+        #endregion
 
         #region IsDefault
         /// <summary>

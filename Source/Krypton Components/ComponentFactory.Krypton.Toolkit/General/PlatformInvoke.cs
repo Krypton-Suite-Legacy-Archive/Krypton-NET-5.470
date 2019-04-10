@@ -42,7 +42,7 @@ namespace ComponentFactory.Krypton.Toolkit
         internal const int WM_DESTROY = 0x0002;
         internal const int WM_NCDESTROY = 0x0082;
         internal const int WM_MOVE = 0x0003;
-        internal const int WM_SIZE = 0x0005; //	The WM_SIZE message is sent to a window after its size has changed.
+        internal const int WM_SIZE = 0x0005; //    The WM_SIZE message is sent to a window after its size has changed.
         internal const int WM_SETFOCUS = 0x0007;
         internal const int WM_KILLFOCUS = 0x0008;
         internal const int WM_SETREDRAW = 0x000B;
@@ -52,7 +52,7 @@ namespace ComponentFactory.Krypton.Toolkit
         internal const int WM_CTLCOLOR = 0x0019;
         internal const int WM_ERASEBKGND = 0x0014;
         internal const int WM_MOUSEACTIVATE = 0x0021;
-        //	The WM_SHOWWINDOW message is sent to a window when the window is about to be hidden or shown
+        //    The WM_SHOWWINDOW message is sent to a window when the window is about to be hidden or shown
         internal const int WM_SHOWWINDOW = 0x0018; 
         // The WM_WINDOWPOSCHANGING message is sent to a window whose size, position, or place in the Z order is about to change as a result of a call to the SetWindowPos function or another window-management function.
         internal const int WM_WINDOWPOSCHANGING = 0x0046;

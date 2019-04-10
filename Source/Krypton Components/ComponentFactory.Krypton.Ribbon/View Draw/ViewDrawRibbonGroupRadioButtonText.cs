@@ -16,9 +16,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws the text string for a group radio button.
-	/// </summary>
+    /// <summary>
+    /// Draws the text string for a group radio button.
+    /// </summary>
     internal class ViewDrawRibbonGroupRadioButtonText : ViewLeaf,
                                                         IContentValues
     {
@@ -39,7 +39,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonGroupRadioButtonText class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Source ribbon control.</param>
         /// <param name="ribbonRadioButton">Group radio button to display title for.</param>
         /// <param name="firstText">Should show the first button text.</param>
@@ -60,15 +60,15 @@ namespace ComponentFactory.Krypton.Ribbon
                                                                           ribbon.StateDisabled.RibbonGroupRadioButtonText);
         }        
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonGroupRadioButtonText:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.

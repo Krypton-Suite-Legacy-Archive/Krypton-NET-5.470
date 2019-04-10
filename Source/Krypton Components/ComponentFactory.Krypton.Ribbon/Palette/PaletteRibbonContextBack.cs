@@ -15,9 +15,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Return inhertied values unless empty in which case return the context color.
-	/// </summary>
+    /// <summary>
+    /// Return inhertied values unless empty in which case return the context color.
+    /// </summary>
     public class PaletteRibbonContextBack: IPaletteRibbonBack
     {
         #region Instance Fields
@@ -28,10 +28,10 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteRibbonContextBack class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to ribbon control.</param>
         public PaletteRibbonContextBack(KryptonRibbon ribbon) 
-		{
+        {
             Debug.Assert(ribbon != null);
             _ribbon = ribbon;
         }

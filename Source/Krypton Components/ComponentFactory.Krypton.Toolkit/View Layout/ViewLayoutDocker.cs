@@ -16,21 +16,21 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Extends the ViewComposite by applying a docking style for each child.
-	/// </summary>
-	public class ViewLayoutDocker : ViewComposite
-	{
-		#region Instance Fields
+    /// <summary>
+    /// Extends the ViewComposite by applying a docking style for each child.
+    /// </summary>
+    public class ViewLayoutDocker : ViewComposite
+    {
+        #region Instance Fields
 
-	    private ViewDockStyleLookup _childDocking;
+        private ViewDockStyleLookup _childDocking;
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the ViewLayoutDocker class.
-		/// </summary>
+        /// </summary>
         public ViewLayoutDocker()
         {
             // Create child to dock style lookup
@@ -46,16 +46,16 @@ namespace ComponentFactory.Krypton.Toolkit
             Padding = Padding.Empty;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutDocker:" + Id + " " + _childDocking.Count.ToString();
-		}
-		#endregion
+        }
+        #endregion
 
         #region IgnoreRightToLeftLayout
         /// <summary>
@@ -63,7 +63,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool IgnoreRightToLeftLayout { get; set; }
 
-	    #endregion
+        #endregion
 
         #region Orientation
         /// <summary>
@@ -71,7 +71,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public VisualOrientation Orientation { get; set; }
 
-	    #endregion
+        #endregion
 
         #region Padding
         /// <summary>
@@ -79,7 +79,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Padding Padding { get; set; }
 
-	    #endregion
+        #endregion
 
         #region MaxBorderEdges
         /// <summary>
@@ -87,7 +87,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteDrawBorders MaxBorderEdges { get; set; }
 
-	    #endregion
+        #endregion
 
         #region RemoveChildBorders
         /// <summary>
@@ -95,7 +95,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool RemoveChildBorders { get; set; }
 
-	    #endregion
+        #endregion
 
         #region PreferredSizeAll
         /// <summary>
@@ -103,74 +103,74 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool PreferredSizeAll { get; set; }
 
-	    #endregion
+        #endregion
 
-		#region FillRect
-		/// <summary>
-		/// Gets the fill rectangle left after positioning all children.
-		/// </summary>
-		public Rectangle FillRectangle { get; private set; }
+        #region FillRect
+        /// <summary>
+        /// Gets the fill rectangle left after positioning all children.
+        /// </summary>
+        public Rectangle FillRectangle { get; private set; }
 
-	    #endregion
+        #endregion
 
-		#region Dock
-		/// <summary>
-		/// Gets the dock setting for the provided child instance.
-		/// </summary>
-		/// <param name="child">Child view element.</param>
-		/// <returns>Docking setting.</returns>
+        #region Dock
+        /// <summary>
+        /// Gets the dock setting for the provided child instance.
+        /// </summary>
+        /// <param name="child">Child view element.</param>
+        /// <returns>Docking setting.</returns>
         public ViewDockStyle GetDock(ViewBase child)
-		{
-			Debug.Assert(child != null);
+        {
+            Debug.Assert(child != null);
 
-			// Does this element exist in the lookup?
-			if (!_childDocking.ContainsKey(child))
-			{
-				// No, so add with a default value
-				_childDocking.Add(child, ViewDockStyle.Top);
-			}
+            // Does this element exist in the lookup?
+            if (!_childDocking.ContainsKey(child))
+            {
+                // No, so add with a default value
+                _childDocking.Add(child, ViewDockStyle.Top);
+            }
 
-			return _childDocking[child];
-		}
+            return _childDocking[child];
+        }
 
-		/// <summary>
-		/// Sets the dock setting for the provided child instance.
-		/// </summary>
-		/// <param name="child">Child view element.</param>
+        /// <summary>
+        /// Sets the dock setting for the provided child instance.
+        /// </summary>
+        /// <param name="child">Child view element.</param>
         /// <param name="dock">ViewDockStyle setting.</param>
         public void SetDock(ViewBase child, ViewDockStyle dock)
-		{
-			Debug.Assert(child != null);
+        {
+            Debug.Assert(child != null);
 
-			// If the lookup is not already defined
-			if (!_childDocking.ContainsKey(child))
-			{
-				// Then just add the value
-				_childDocking.Add(child, dock);
-			}
-			else
-			{
-				// Overwrite the existing value
-				_childDocking[child] = dock;
-			}
-		}
-		#endregion
+            // If the lookup is not already defined
+            if (!_childDocking.ContainsKey(child))
+            {
+                // Then just add the value
+                _childDocking.Add(child, dock);
+            }
+            else
+            {
+                // Overwrite the existing value
+                _childDocking[child] = dock;
+            }
+        }
+        #endregion
 
-		#region Collection
-		/// <summary>
-		/// Append a view to the collection.
-		/// </summary>
-		/// <param name="item">ViewBase reference.</param>
-		/// <param name="dock">DockStyle setting.</param>
+        #region Collection
+        /// <summary>
+        /// Append a view to the collection.
+        /// </summary>
+        /// <param name="item">ViewBase reference.</param>
+        /// <param name="dock">DockStyle setting.</param>
         public void Add(ViewBase item, ViewDockStyle dock)
-		{
-			// Add the child to the view
-			Add(item);
+        {
+            // Add the child to the view
+            Add(item);
 
-			// Set the initial docking for the new element
-			SetDock(item, dock);
-		}
-		#endregion
+            // Set the initial docking for the new element
+            SetDock(item, dock);
+        }
+        #endregion
 
         #region Tag
         /// <summary>
@@ -178,16 +178,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public object Tag { get; set; }
 
-	    #endregion
+        #endregion
 
         #region Layout
         /// <summary>
-		/// Discover the preferred size of the element.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override Size GetPreferredSize(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        /// Discover the preferred size of the element.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override Size GetPreferredSize(ViewLayoutContext context)
+        {
+            Debug.Assert(context != null);
 
             // Create new lookup that only contains entries for current child items
             ViewDockStyleLookup newChildDocking = new ViewDockStyleLookup();
@@ -277,12 +277,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
 
-			// Check for the fill child last
-			foreach (ViewBase child in Reverse())
-			{
+            // Check for the fill child last
+            foreach (ViewBase child in Reverse())
+            {
                 // Only interested in a visible 'fill' child
                 if ((child.Visible || PreferredSizeAll) && (GetDock(child) == ViewDockStyle.Fill))
-				{
+                {
                     // Prevent children from showing adjacent borders that are not needed
                     UpdateChildBorders(child, context, ref leftEdges, ref rightEdges,
                                        ref topEdges, ref bottomEdges, ref fillEdges);
@@ -328,21 +328,21 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Allow the preferred size to be modified before being used
             return UpdatePreferredSize(preferredSize);
-		}
+        }
 
-		/// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        /// <summary>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
+            Debug.Assert(context != null);
 
             // We take on all the available display area
-			ClientRectangle = context.DisplayRectangle;
+            ClientRectangle = context.DisplayRectangle;
 
             // Space available for children begins with our space
-			Rectangle fillerRect = ClientRectangle;
+            Rectangle fillerRect = ClientRectangle;
 
             // Apply the padding against the rect
             switch (Orientation)
@@ -381,11 +381,11 @@ namespace ComponentFactory.Krypton.Toolkit
             PaletteDrawBorders fillEdges = PaletteDrawBorders.All;
             
             // Position all except the filler
-			foreach (ViewBase child in Reverse())
-			{
+            foreach (ViewBase child in Reverse())
+            {
                 // Only position visible children that are not 'fill'
                 if (child.Visible && (GetDock(child) != ViewDockStyle.Fill))
-				{
+                {
                     // Prevent children from showing adjacent borders that are not needed
                     UpdateChildBorders(child, context, ref leftEdges, ref rightEdges,
                                        ref topEdges, ref bottomEdges, ref fillEdges);
@@ -394,35 +394,35 @@ namespace ComponentFactory.Krypton.Toolkit
                     context.DisplayRectangle = fillerRect;
 
                     // Get the preferred size of the child
-					Size childSize = child.GetPreferredSize(context);
+                    Size childSize = child.GetPreferredSize(context);
 
-					// Position the child inside the available space
+                    // Position the child inside the available space
                     switch (CalculateDock(OrientateDock(GetDock(child)), context.Control))
-					{
+                    {
                         case ViewDockStyle.Top:
-							context.DisplayRectangle = new Rectangle(fillerRect.X, fillerRect.Y, fillerRect.Width, childSize.Height);
-							fillerRect.Height -= childSize.Height;
-							fillerRect.Y += childSize.Height;
-							break;
+                            context.DisplayRectangle = new Rectangle(fillerRect.X, fillerRect.Y, fillerRect.Width, childSize.Height);
+                            fillerRect.Height -= childSize.Height;
+                            fillerRect.Y += childSize.Height;
+                            break;
                         case ViewDockStyle.Bottom:
-							context.DisplayRectangle = new Rectangle(fillerRect.X, fillerRect.Bottom - childSize.Height, fillerRect.Width, childSize.Height);
-							fillerRect.Height -= childSize.Height;
-							break;
+                            context.DisplayRectangle = new Rectangle(fillerRect.X, fillerRect.Bottom - childSize.Height, fillerRect.Width, childSize.Height);
+                            fillerRect.Height -= childSize.Height;
+                            break;
                         case ViewDockStyle.Left:
-							context.DisplayRectangle = new Rectangle(fillerRect.X, fillerRect.Y, childSize.Width, fillerRect.Height);
-							fillerRect.Width -= childSize.Width;
-							fillerRect.X += childSize.Width;
-							break;
+                            context.DisplayRectangle = new Rectangle(fillerRect.X, fillerRect.Y, childSize.Width, fillerRect.Height);
+                            fillerRect.Width -= childSize.Width;
+                            fillerRect.X += childSize.Width;
+                            break;
                         case ViewDockStyle.Right:
-							context.DisplayRectangle = new Rectangle(fillerRect.Right - childSize.Width, fillerRect.Y, childSize.Width, fillerRect.Height);
-							fillerRect.Width -= childSize.Width;
-							break;
-					}
+                            context.DisplayRectangle = new Rectangle(fillerRect.Right - childSize.Width, fillerRect.Y, childSize.Width, fillerRect.Height);
+                            fillerRect.Width -= childSize.Width;
+                            break;
+                    }
 
-					// Layout child in the provided space
-					child.Layout(context);
-				}
-			}
+                    // Layout child in the provided space
+                    child.Layout(context);
+                }
+            }
 
             // Allow the filler rectangle to be modified before being used
             fillerRect = UpdateFillerRect(fillerRect, context.Control);
@@ -449,9 +449,9 @@ namespace ComponentFactory.Krypton.Toolkit
             context.DisplayRectangle = ClientRectangle;
 
             // Remember the filler size
-			FillRectangle = fillerRect;
-		}
-		#endregion
+            FillRectangle = fillerRect;
+        }
+        #endregion
 
         #region Protected Virtual
         /// <summary>

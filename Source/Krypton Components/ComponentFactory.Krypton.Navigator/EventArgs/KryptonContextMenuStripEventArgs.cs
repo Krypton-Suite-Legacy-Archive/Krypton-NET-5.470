@@ -13,30 +13,30 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Details providing a KryptonContextMenu instance.
-	/// </summary>
+    /// <summary>
+    /// Details providing a KryptonContextMenu instance.
+    /// </summary>
     public class KryptonContextMenuEventArgs : KryptonPageEventArgs
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the KryptonContextMenuEventArgs class.
-		/// </summary>
-		/// <param name="page">Page effected by event.</param>
-		/// <param name="index">Index of page in the owning collection.</param>
+        /// </summary>
+        /// <param name="page">Page effected by event.</param>
+        /// <param name="index">Index of page in the owning collection.</param>
         /// <param name="contextMenu">Prepopulated context menu ready for display.</param>
         public KryptonContextMenuEventArgs(KryptonPage page, 
                                            int index,
                                            KryptonContextMenu contextMenu)
-			: base(page, index)
-		{
+            : base(page, index)
+        {
             KryptonContextMenu = contextMenu;
-		}
-		#endregion
+        }
+        #endregion
 
         #region KryptonContextMenu
         /// <summary>
@@ -44,6 +44,6 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public KryptonContextMenu KryptonContextMenu { get; }
 
-	    #endregion
+        #endregion
     }
 }

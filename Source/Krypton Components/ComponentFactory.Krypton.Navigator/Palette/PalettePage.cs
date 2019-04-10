@@ -14,23 +14,23 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Implement storage for page appearance.
-	/// </summary>
+    /// <summary>
+    /// Implement storage for page appearance.
+    /// </summary>
     public class PalettePage : PaletteDouble
     {
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PalettePage class.
-		/// </summary>
+        /// </summary>
         /// <param name="inherit">Source for inheriting values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PalettePage(IPaletteDouble inherit,
                            NeedPaintHandler needPaint)
             : base(inherit, needPaint)
-		{
-		}
-		#endregion
+        {
+        }
+        #endregion
 
         #region Border
         /// <summary>

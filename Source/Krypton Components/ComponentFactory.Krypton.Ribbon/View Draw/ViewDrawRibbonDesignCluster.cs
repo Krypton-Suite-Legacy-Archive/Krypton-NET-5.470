@@ -17,9 +17,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws an design time only for adding a new button to a cluster.
-	/// </summary>
+    /// <summary>
+    /// Draws an design time only for adding a new button to a cluster.
+    /// </summary>
     internal class ViewDrawRibbonDesignCluster : ViewDrawRibbonDesignBase
     {
         #region Static Fields
@@ -46,7 +46,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
         /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonDesignCluster class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Reference to owning ribbon control.</param>
         /// <param name="ribbonCluster">Reference to cluster definition.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
@@ -59,15 +59,15 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbonCluster = ribbonCluster;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonDesignCluster:" + Id;
-		}
+        }
         #endregion
 
         #region Protected

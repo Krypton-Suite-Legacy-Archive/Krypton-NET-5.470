@@ -20,37 +20,37 @@ namespace ComponentFactory.Krypton.Ribbon
     /// </summary>
     internal class ViewDrawRibbonRecentShortcut : ViewDrawContent
     {
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonRecentShortcut class.
-		/// </summary>
-		/// <param name="paletteContent">Palette source for the content.</param>
-		/// <param name="values">Reference to actual content values.</param>
+        /// </summary>
+        /// <param name="paletteContent">Palette source for the content.</param>
+        /// <param name="values">Reference to actual content values.</param>
         public ViewDrawRibbonRecentShortcut(IPaletteContent paletteContent, 
-							                IContentValues values)
+                                            IContentValues values)
             : base(paletteContent, values, VisualOrientation.Top)
-		{
+        {
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonRecentShortcut:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Paint
-		/// <summary>
-		/// Perform rendering before child elements are rendered.
-		/// </summary>
-		/// <param name="context">Rendering context.</param>
-		public override void RenderBefore(RenderContext context) 
-		{
-			Debug.Assert(context != null);
+        /// <summary>
+        /// Perform rendering before child elements are rendered.
+        /// </summary>
+        /// <param name="context">Rendering context.</param>
+        public override void RenderBefore(RenderContext context) 
+        {
+            Debug.Assert(context != null);
 
             // Validate incoming reference
             if (context == null)
@@ -58,7 +58,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 throw new ArgumentNullException(nameof(context));
             }
 
-		    // Only draw the shortcut text if there is some defined
+            // Only draw the shortcut text if there is some defined
             string shortcut = Values.GetShortText();
             if (!string.IsNullOrEmpty(shortcut))
             {
@@ -68,7 +68,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     base.RenderBefore(context);
                 }
             }
-		}
-		#endregion
+        }
+        #endregion
     }
 }

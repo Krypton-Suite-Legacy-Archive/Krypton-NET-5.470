@@ -15,48 +15,48 @@ using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Process mouse events a track bar position indicator.
-	/// </summary>
+    /// <summary>
+    /// Process mouse events a track bar position indicator.
+    /// </summary>
     public class TrackPositionController : GlobalId,
                                            IMouseController
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private readonly ViewDrawTP _drawTB;
         private Point _lastMovePt;
         private bool _captured;
         private bool _mouseOver;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the TrackPositionController class.
-		/// </summary>
+        /// </summary>
         /// <param name="drawTB">Associated drawing element.</param>
         public TrackPositionController(ViewDrawTP drawTB)
-		{
+        {
             _drawTB = drawTB;
         }
-		#endregion
+        #endregion
 
         #region Mouse Notifications
         /// <summary>
-		/// Mouse has entered the view.
-		/// </summary>
+        /// Mouse has entered the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         public virtual void MouseEnter(Control c)
-		{
+        {
             _mouseOver = true;
             UpdateTargetState();
-		}
+        }
 
-		/// <summary>
-		/// Mouse has moved inside the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse has moved inside the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
         public virtual void MouseMove(Control c, Point pt)
-		{
+        {
             if (_captured)
             {
                 // Ignore multiple calls with the same point
@@ -74,52 +74,52 @@ namespace ComponentFactory.Krypton.Toolkit
                     }
                 }
             }
-		}
+        }
 
-		/// <summary>
-		/// Mouse button has been pressed in the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse button has been pressed in the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
-		/// <param name="button">Mouse button pressed down.</param>
-		/// <returns>True if capturing input; otherwise false.</returns>
+        /// <param name="button">Mouse button pressed down.</param>
+        /// <returns>True if capturing input; otherwise false.</returns>
         public virtual bool MouseDown(Control c, Point pt, MouseButtons button)
-		{
+        {
             if (button == MouseButtons.Left)
             {
                 _captured = true;
                 UpdateTargetState();
             }
 
-			return _captured;
-		}
+            return _captured;
+        }
 
-		/// <summary>
-		/// Mouse button has been released in the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse button has been released in the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
-		/// <param name="button">Mouse button released.</param>
+        /// <param name="button">Mouse button released.</param>
         public virtual void MouseUp(Control c, Point pt, MouseButtons button)
-		{
+        {
             if (_captured)
             {
                 _captured = false;
                 UpdateTargetState();
             }
-		}
+        }
 
-		/// <summary>
-		/// Mouse has left the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse has left the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="next">Reference to view that is next to have the mouse.</param>
         public virtual void MouseLeave(Control c, ViewBase next)
-		{
+        {
             _mouseOver = false;
             _lastMovePt = Point.Empty;
             UpdateTargetState();
-		}
+        }
 
         /// <summary>
         /// Left mouse button double click.
@@ -135,7 +135,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual bool IgnoreVisualFormLeftButtonDown => false;
 
-	    #endregion
+        #endregion
 
         #region Implementation
         private void UpdateTargetState()

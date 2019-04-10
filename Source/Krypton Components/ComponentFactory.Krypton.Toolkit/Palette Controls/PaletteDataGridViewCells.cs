@@ -14,48 +14,48 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Implement storage for a KryptonDataGridView tracking/pressed/selected states.
-	/// </summary>
-	public class PaletteDataGridViewCells : Storage
-	{
-		#region Instance Fields
+    /// <summary>
+    /// Implement storage for a KryptonDataGridView tracking/pressed/selected states.
+    /// </summary>
+    public class PaletteDataGridViewCells : Storage
+    {
+        #region Instance Fields
         private readonly PaletteDataGridViewTripleStates _dataCell;
         private readonly PaletteDataGridViewTripleStates _headerColumn;
         private readonly PaletteDataGridViewTripleStates _headerRow;
-		#endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteDataGridViewCells class.
-		/// </summary>
+        /// </summary>
         /// <param name="inherit">Source for inheriting values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteDataGridViewCells(PaletteDataGridViewRedirect inherit,
                                         NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(inherit != null);
 
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
 
-			// Create storage that maps onto the inherit instances
+            // Create storage that maps onto the inherit instances
             _dataCell = new PaletteDataGridViewTripleStates(inherit.DataCell, needPaint);
             _headerColumn = new PaletteDataGridViewTripleStates(inherit.HeaderColumn, needPaint);
             _headerRow = new PaletteDataGridViewTripleStates(inherit.HeaderRow, needPaint);
         }
-		#endregion
+        #endregion
 
         #region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (DataCell.IsDefault &&
-		                                   HeaderColumn.IsDefault &&
-		                                   HeaderRow.IsDefault);
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (DataCell.IsDefault &&
+                                           HeaderColumn.IsDefault &&
+                                           HeaderRow.IsDefault);
 
-	    #endregion
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -125,7 +125,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteDataGridViewTripleStates DataCell => _dataCell;
 
-	    private bool ShouldSerializeDataCell()
+        private bool ShouldSerializeDataCell()
         {
             return !_dataCell.IsDefault;
         }
@@ -141,7 +141,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteDataGridViewTripleStates HeaderColumn => _headerColumn;
 
-	    private bool ShouldSerializeHeaderColumn()
+        private bool ShouldSerializeHeaderColumn()
         {
             return !_headerColumn.IsDefault;
         }
@@ -157,23 +157,23 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteDataGridViewTripleStates HeaderRow => _headerRow;
 
-	    private bool ShouldSerializeHeaderRow()
+        private bool ShouldSerializeHeaderRow()
         {
             return !_headerRow.IsDefault;
         }
         #endregion
 
         #region Implementation
-		/// <summary>
-		/// Handle a change event from palette source.
-		/// </summary>
-		/// <param name="sender">Source of the event.</param>
-		/// <param name="needLayout">True if a layout is also needed.</param>
+        /// <summary>
+        /// Handle a change event from palette source.
+        /// </summary>
+        /// <param name="sender">Source of the event.</param>
+        /// <param name="needLayout">True if a layout is also needed.</param>
         protected void OnNeedPaint(object sender, bool needLayout)
-		{
-			// Pass request from child to our own handler
-			PerformNeedPaint(needLayout);
-		}
-		#endregion
-	}
+        {
+            // Pass request from child to our own handler
+            PerformNeedPaint(needLayout);
+        }
+        #endregion
+    }
 }

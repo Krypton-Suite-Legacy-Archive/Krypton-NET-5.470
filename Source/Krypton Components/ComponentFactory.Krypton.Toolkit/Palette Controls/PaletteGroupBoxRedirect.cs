@@ -14,21 +14,21 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Redirect storage for GroupBox states.
-	/// </summary>
-	public class PaletteGroupBoxRedirect : PaletteDoubleRedirect
-	{
-		#region Instance Fields
+    /// </summary>
+    public class PaletteGroupBoxRedirect : PaletteDoubleRedirect
+    {
+        #region Instance Fields
 
-	    private readonly PaletteContentInheritRedirect _contentInherit;
+        private readonly PaletteContentInheritRedirect _contentInherit;
         #endregion
 
-		#region Identity
-		/// <summary>
-		/// Initialize a new instance of the PaletteGroupBoxRedirect class.
-		/// </summary>
-		/// <param name="redirect">Inheritence redirection instance.</param>
+        #region Identity
+        /// <summary>
+        /// Initialize a new instance of the PaletteGroupBoxRedirect class.
+        /// </summary>
+        /// <param name="redirect">Inheritence redirection instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteGroupBoxRedirect(PaletteRedirect redirect,
                                        NeedPaintHandler needPaint)
@@ -38,7 +38,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// Initialize a new instance of the PaletteGroupBoxRedirect class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirectDouble">Inheritence redirection for group border/background.</param>
         /// <param name="redirectContent">Inheritence redirection for group header.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
@@ -46,23 +46,23 @@ namespace ComponentFactory.Krypton.Toolkit
                                        PaletteRedirect redirectContent,
                                        NeedPaintHandler needPaint)
             : base(redirectDouble, PaletteBackStyle.ControlGroupBox, PaletteBorderStyle.ControlGroupBox, needPaint)
-		{
+        {
             Debug.Assert(redirectDouble != null);
             Debug.Assert(redirectContent != null);
 
             _contentInherit = new PaletteContentInheritRedirect(redirectContent, PaletteContentStyle.LabelGroupBoxCaption);
             Content = new PaletteContent(_contentInherit, needPaint);
-		}
-		#endregion
+        }
+        #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (base.IsDefault && Content.IsDefault);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (base.IsDefault && Content.IsDefault);
 
-	    #endregion
+        #endregion
 
         #region Content
         /// <summary>
@@ -74,7 +74,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteContent Content { get; }
 
-	    private bool ShouldSerializeContent()
+        private bool ShouldSerializeContent()
         {
             return !Content.IsDefault;
         }
@@ -87,7 +87,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IPaletteContent PaletteContent => Content;
 
-	    /// <summary>
+        /// <summary>
         /// Gets and sets the content palette style.
         /// </summary>
         [Browsable(false)]
@@ -98,6 +98,6 @@ namespace ComponentFactory.Krypton.Toolkit
             get => _contentInherit.Style;
             set => _contentInherit.Style = value;
         }
-		#endregion
+        #endregion
     }
 }

@@ -77,7 +77,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                            IPaletteRibbonText focusOverrideText
                                           )
             : base(target)
-		{
+        {
             // Remember state specific inheritance
             _disabledBack = disabledBack;
             _normalBack = normalBack;
@@ -92,7 +92,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _selectedText = selectedText;
             _focusOverrideText = focusOverrideText;
         }
-		#endregion
+        #endregion
 
         #region SetRedirectStates
         /// <summary>

@@ -16,9 +16,9 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// View element that can draw a date time picker button.
-	/// </summary>
+    /// <summary>
+    /// View element that can draw a date time picker button.
+    /// </summary>
     public class ViewDrawDateTimeButton : ViewDrawButton
     {
         #region Enums
@@ -64,8 +64,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Identity
         /// <summary>
-		/// Initialize a new instance of the ViewDrawButton class.
-		/// </summary>
+        /// Initialize a new instance of the ViewDrawButton class.
+        /// </summary>
         /// <param name="dateTimePicker">Owning control.</param>
         /// <param name="paletteState">Palette source for states.</param>
         /// <param name="paletteMetric">Palette source for metric values.</param>
@@ -98,16 +98,16 @@ namespace ComponentFactory.Krypton.Toolkit
             MouseController = _controller;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
-			return "ViewDrawDateTimeButton:" + Id;
-		}
-		#endregion
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
+            return "ViewDrawDateTimeButton:" + Id;
+        }
+        #endregion
 
         #region RemoveFixed
         /// <summary>

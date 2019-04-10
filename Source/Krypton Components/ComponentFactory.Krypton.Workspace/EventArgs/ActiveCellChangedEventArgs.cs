@@ -13,40 +13,40 @@ using System;
 
 namespace ComponentFactory.Krypton.Workspace
 {
-	/// <summary>
-	/// Data associated with a change in the active cell.
-	/// </summary>
-	public class ActiveCellChangedEventArgs : EventArgs
-	{
-		#region Instance Fields
+    /// <summary>
+    /// Data associated with a change in the active cell.
+    /// </summary>
+    public class ActiveCellChangedEventArgs : EventArgs
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the ActiveCellChangedEventArgs class.
-		/// </summary>
+        /// </summary>
         /// <param name="oldCell">Previous active cell value.</param>
         /// <param name="newCell">New active cell value.</param>
         public ActiveCellChangedEventArgs(KryptonWorkspaceCell oldCell,
                                           KryptonWorkspaceCell newCell)
-		{
+        {
             OldCell = oldCell;
             NewCell = newCell;
         }
-		#endregion
+        #endregion
 
-		#region Public
-		/// <summary>
+        #region Public
+        /// <summary>
         /// Gets the old cell reference.
-		/// </summary>
+        /// </summary>
         public KryptonWorkspaceCell OldCell { get; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets the new cell reference.
         /// </summary>
         public KryptonWorkspaceCell NewCell { get; }
 
-	    #endregion
-	}
+        #endregion
+    }
 }

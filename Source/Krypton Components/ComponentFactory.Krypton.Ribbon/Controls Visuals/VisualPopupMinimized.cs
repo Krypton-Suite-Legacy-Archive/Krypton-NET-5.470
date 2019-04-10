@@ -34,7 +34,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the VisualPopupMinimized class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Owning ribbon control instance.</param>
         /// <param name="viewManager">View manager instance for managing view display.</param>
         /// <param name="captionArea">View element that manages the custom chrome injection.</param>
@@ -44,7 +44,7 @@ namespace ComponentFactory.Krypton.Ribbon
                                     ViewDrawRibbonCaptionArea captionArea,
                                     IRenderer renderer)
             : base(viewManager, renderer, true)
-		{
+        {
             Debug.Assert(ribbon != null);
             Debug.Assert(captionArea != null);
 

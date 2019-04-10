@@ -235,12 +235,12 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Back
         /// <summary>
-		/// Gets a value indicating if background should be drawn.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
-		public override InheritBool GetBackDraw(PaletteBackStyle style, PaletteState state)
+        /// Gets a value indicating if background should be drawn.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
+        public override InheritBool GetBackDraw(PaletteBackStyle style, PaletteState state)
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))

@@ -14,25 +14,25 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Implement storage for palette border, background and content for the data grid view common state.
-	/// </summary>
-	public class PaletteDataGridViewTripleCommon : Storage,
-								                   IPaletteTriple
-	{
-		#region Instance Fields
+    /// <summary>
+    /// Implement storage for palette border, background and content for the data grid view common state.
+    /// </summary>
+    public class PaletteDataGridViewTripleCommon : Storage,
+                                                   IPaletteTriple
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteDataGridViewTripleCommon class.
-		/// </summary>
+        /// </summary>
         /// <param name="inherit">Source for inheriting values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteDataGridViewTripleCommon(IPaletteTriple inherit,
                                                NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(inherit != null);
 
             // Store the provided paint notification delegate
@@ -42,19 +42,19 @@ namespace ComponentFactory.Krypton.Toolkit
             Back = new PaletteBack(inherit.PaletteBack, needPaint);
             Border = new PaletteBorder(inherit.PaletteBorder, needPaint);
             Content = new PaletteDataGridViewContentCommon(inherit.PaletteContent, needPaint);
-		}
-		#endregion
+        }
+        #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (Back.IsDefault &&
-		                                   Border.IsDefault &&
-		                                   Content.IsDefault);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (Back.IsDefault &&
+                                           Border.IsDefault &&
+                                           Content.IsDefault);
 
-	    #endregion
+        #endregion
 
         #region SetInherit
         /// <summary>
@@ -81,92 +81,92 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Back
-		/// <summary>
-		/// Gets access to the background palette details.
-		/// </summary>
+        #region Back
+        /// <summary>
+        /// Gets access to the background palette details.
+        /// </summary>
         [KryptonPersist]
         [Category("Visuals")]
-		[Description("Overrides for defining background appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteBack Back { get; }
+        [Description("Overrides for defining background appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public PaletteBack Back { get; }
 
-	    private bool ShouldSerializeBack()
-		{
-			return !Back.IsDefault;
-		}
+        private bool ShouldSerializeBack()
+        {
+            return !Back.IsDefault;
+        }
 
-		/// <summary>
-		/// Gets the background palette.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Advanced)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public IPaletteBack PaletteBack => Back;
+        /// <summary>
+        /// Gets the background palette.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Advanced)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public IPaletteBack PaletteBack => Back;
 
-	    #endregion
+        #endregion
 
-		#region Border
-		/// <summary>
-		/// Gets access to the border palette details.
-		/// </summary>
+        #region Border
+        /// <summary>
+        /// Gets access to the border palette details.
+        /// </summary>
         [KryptonPersist]
         [Category("Visuals")]
-		[Description("Overrides for defining border appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public PaletteBorder Border { get; }
+        [Description("Overrides for defining border appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public PaletteBorder Border { get; }
 
-	    private bool ShouldSerializeBorder()
-		{
-			return !Border.IsDefault;
-		}
+        private bool ShouldSerializeBorder()
+        {
+            return !Border.IsDefault;
+        }
 
-		/// <summary>
-		/// Gets the border palette.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Advanced)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public IPaletteBorder PaletteBorder => Border;
+        /// <summary>
+        /// Gets the border palette.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Advanced)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public IPaletteBorder PaletteBorder => Border;
 
-	    #endregion
+        #endregion
 
-		#region Content
-		/// <summary>
-		/// Gets access to the content palette details.
-		/// </summary>
+        #region Content
+        /// <summary>
+        /// Gets access to the content palette details.
+        /// </summary>
         [KryptonPersist]
         [Category("Visuals")]
-		[Description("Overrides for defining content appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [Description("Overrides for defining content appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteDataGridViewContentCommon Content { get; }
 
-	    private bool ShouldSerializeContent()
-		{
-			return !Content.IsDefault;
-		}
+        private bool ShouldSerializeContent()
+        {
+            return !Content.IsDefault;
+        }
 
-		/// <summary>
-		/// Gets the content palette.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Advanced)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public IPaletteContent PaletteContent => Content;
+        /// <summary>
+        /// Gets the content palette.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Advanced)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public IPaletteContent PaletteContent => Content;
 
-	    #endregion
+        #endregion
 
-		#region Implementation
-		/// <summary>
-		/// Handle a change event from palette source.
-		/// </summary>
-		/// <param name="sender">Source of the event.</param>
-		/// <param name="needLayout">True if a layout is also needed.</param>
+        #region Implementation
+        /// <summary>
+        /// Handle a change event from palette source.
+        /// </summary>
+        /// <param name="sender">Source of the event.</param>
+        /// <param name="needLayout">True if a layout is also needed.</param>
         protected void OnNeedPaint(object sender, bool needLayout)
-		{
-			// Pass request from child to our own handler
-			PerformNeedPaint(needLayout);
-		}
-		#endregion
-	}
+        {
+            // Pass request from child to our own handler
+            PerformNeedPaint(needLayout);
+        }
+        #endregion
+    }
 }

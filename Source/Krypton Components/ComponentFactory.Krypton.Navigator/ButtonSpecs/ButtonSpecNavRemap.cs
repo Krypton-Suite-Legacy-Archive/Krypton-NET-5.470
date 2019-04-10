@@ -140,7 +140,7 @@ namespace ComponentFactory.Krypton.Navigator
             _buttonSpec = buttonSpec;
             _remapTarget = remapTarget;
         }
-		#endregion
+        #endregion
 
         #region GetContentImageColorMap
         /// <summary>

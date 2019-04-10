@@ -14,24 +14,24 @@ using System.Drawing;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
+    /// <summary>
     /// Details for an event that provides pages associated with a page dragging event.
-	/// </summary>
-	public class PageDragEventArgs : EventArgs
-	{
-		#region Instance Fields
+    /// </summary>
+    public class PageDragEventArgs : EventArgs
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the KryptonPageDragEventArgs class.
-		/// </summary>
+        /// </summary>
         /// <param name="screenPoint">Screen point of the mouse.</param>
         /// <param name="pages">Array of event associated pages.</param>
         public PageDragEventArgs(Point screenPoint,
                                  KryptonPage[] pages)
-		{
+        {
             ScreenPoint = screenPoint;
             Pages = new KryptonPageCollection();
 
@@ -39,7 +39,7 @@ namespace ComponentFactory.Krypton.Navigator
             {
                 Pages.AddRange(pages);
             }
-		}
+        }
 
         /// <summary>
         /// Initialize a new instance of the KryptonPageDragEventArgs class.
@@ -60,7 +60,7 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public Point ScreenPoint { get; }
 
-	    #endregion
+        #endregion
 
         #region Pages
         /// <summary>
@@ -68,6 +68,6 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public KryptonPageCollection Pages { get; }
 
-	    #endregion
+        #endregion
     }
 }

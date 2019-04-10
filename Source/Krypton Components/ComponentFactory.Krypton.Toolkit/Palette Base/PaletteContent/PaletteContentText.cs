@@ -14,11 +14,11 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Implement storage for palette content text details.
-	/// </summary>
-	public class PaletteContentText : Storage
-	{
+    /// <summary>
+    /// Implement storage for palette content text details.
+    /// </summary>
+    public class PaletteContentText : Storage
+    {
         #region Internal Classes
         private class InternalStorage
         {
@@ -83,7 +83,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Instance Fields
+        #region Instance Fields
         private InternalStorage _storage;
         #endregion
 
@@ -96,42 +96,42 @@ namespace ComponentFactory.Krypton.Toolkit
         public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
-		#region Identity
-		/// <summary>
-		/// Initialize a new instance of the PaletteContentText class.
-		/// </summary>
+        #region Identity
+        /// <summary>
+        /// Initialize a new instance of the PaletteContentText class.
+        /// </summary>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteContentText(NeedPaintHandler needPaint)
-		{
+        {
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
         }
-		#endregion
+        #endregion
 
         #region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => ((_storage == null) || _storage.IsDefault);
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => ((_storage == null) || _storage.IsDefault);
 
-	    #endregion
+        #endregion
 
-		#region Font
-		/// <summary>
-		/// Gets the font for the text.
-		/// </summary>
+        #region Font
+        /// <summary>
+        /// Gets the font for the text.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Font for drawing the content text.")]
-		[DefaultValue(null)]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public virtual Font Font
-		{
+        [Description("Font for drawing the content text.")]
+        [DefaultValue(null)]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public virtual Font Font
+        {
             get => _storage?.ContentTextFont;
 
-		    set
-			{
+            set
+            {
                 if (_storage != null)
                 {
                     if (_storage.ContentTextFont != value)
@@ -153,25 +153,25 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint(true);
                     }
                 }
-			}
-		}
-		#endregion
+            }
+        }
+        #endregion
 
-		#region Hint
-		/// <summary>
-		/// Gets the text rendering hint for the text.
-		/// </summary>
+        #region Hint
+        /// <summary>
+        /// Gets the text rendering hint for the text.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Text rendering hint for the content text.")]
-		[DefaultValue(typeof(PaletteTextHint), "Inherit")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
+        [Description("Text rendering hint for the content text.")]
+        [DefaultValue(typeof(PaletteTextHint), "Inherit")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual PaletteTextHint Hint
-		{
+        {
             get => _storage?.ContentTextHint ?? PaletteTextHint.Inherit;
 
-		    set
-			{
+            set
+            {
                 if (_storage != null)
                 {
                     if (_storage.ContentTextHint != value)
@@ -193,25 +193,25 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint(true);
                     }
                 }
-			}
-		}
-		#endregion
+            }
+        }
+        #endregion
 
-		#region Trim
-		/// <summary>
-		/// Gets the text trimming for the text.
-		/// </summary>
+        #region Trim
+        /// <summary>
+        /// Gets the text trimming for the text.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Text trimming style for the content text.")]
-		[DefaultValue(typeof(PaletteTextTrim), "Inherit")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
+        [Description("Text trimming style for the content text.")]
+        [DefaultValue(typeof(PaletteTextTrim), "Inherit")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual PaletteTextTrim Trim
-		{
+        {
             get => _storage?.ContentTextTrim ?? PaletteTextTrim.Inherit;
 
-		    set
-			{
+            set
+            {
                 if (_storage != null)
                 {
                     if (_storage.ContentTextTrim != value)
@@ -233,9 +233,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint(true);
                     }
                 }
-			}
-		}
-		#endregion
+            }
+        }
+        #endregion
 
         #region Prefix
         /// <summary>
@@ -278,20 +278,20 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
         
         #region TextH
-		/// <summary>
-		/// Gets the horizontal relative alignment of the text.
-		/// </summary>
+        /// <summary>
+        /// Gets the horizontal relative alignment of the text.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Relative horizontal alignment of content text.")]
-		[DefaultValue(typeof(PaletteRelativeAlign), "Inherit")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
+        [Description("Relative horizontal alignment of content text.")]
+        [DefaultValue(typeof(PaletteRelativeAlign), "Inherit")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual PaletteRelativeAlign TextH
-		{
+        {
             get => _storage?.ContentTextH ?? PaletteRelativeAlign.Inherit;
 
-		    set
-			{
+            set
+            {
                 if (_storage != null)
                 {
                     if (_storage.ContentTextH != value)
@@ -313,25 +313,25 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint(true);
                     }
                 }
-			}
-		}
-		#endregion
+            }
+        }
+        #endregion
 
-		#region TextV
-		/// <summary>
-		/// Gets the vertical relative alignment of the text.
-		/// </summary>
+        #region TextV
+        /// <summary>
+        /// Gets the vertical relative alignment of the text.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Relative vertical alignment of content text.")]
-		[DefaultValue(typeof(PaletteRelativeAlign), "Inherit")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
+        [Description("Relative vertical alignment of content text.")]
+        [DefaultValue(typeof(PaletteRelativeAlign), "Inherit")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual PaletteRelativeAlign TextV
-		{
+        {
             get => _storage?.ContentTextV ?? PaletteRelativeAlign.Inherit;
 
-		    set
-			{
+            set
+            {
                 if (_storage != null)
                 {
                     if (_storage.ContentTextV != value)
@@ -353,25 +353,25 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint(true);
                     }
                 }
-			}
-		}
-		#endregion
+            }
+        }
+        #endregion
 
-		#region MultiLineH
-		/// <summary>
-		/// Gets the relative horizontal alignment of multiline content text.
-		/// </summary>
+        #region MultiLineH
+        /// <summary>
+        /// Gets the relative horizontal alignment of multiline content text.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Relative horizontal alignment of multiline content text.")]
-		[DefaultValue(typeof(PaletteRelativeAlign), "Inherit")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
+        [Description("Relative horizontal alignment of multiline content text.")]
+        [DefaultValue(typeof(PaletteRelativeAlign), "Inherit")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual PaletteRelativeAlign MultiLineH
-		{
+        {
             get => _storage?.ContentTextMultiLineH ?? PaletteRelativeAlign.Inherit;
 
-		    set
-			{
+            set
+            {
                 if (_storage != null)
                 {
                     if (_storage.ContentTextMultiLineH != value)
@@ -393,25 +393,25 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint(true);
                     }
                 }
-			}
-		}
-		#endregion
+            }
+        }
+        #endregion
 
-		#region MultiLine
-		/// <summary>
-		/// Gets the flag indicating if multiline text is allowed.
-		/// </summary>
+        #region MultiLine
+        /// <summary>
+        /// Gets the flag indicating if multiline text is allowed.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Flag indicating if multiline text is allowed..")]
-		[DefaultValue(typeof(InheritBool), "Inherit")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
+        [Description("Flag indicating if multiline text is allowed..")]
+        [DefaultValue(typeof(InheritBool), "Inherit")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
         public virtual InheritBool MultiLine
-		{
+        {
             get => _storage?.ContentTextMultiLine ?? InheritBool.Inherit;
 
-		    set
-			{
+            set
+            {
                 if (_storage != null)
                 {
                     if (_storage.ContentTextMultiLine != value)
@@ -433,9 +433,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         PerformNeedPaint(true);
                     }
                 }
-			}
-		}
-		#endregion
+            }
+        }
+        #endregion
 
         #region Color1
         /// <summary>

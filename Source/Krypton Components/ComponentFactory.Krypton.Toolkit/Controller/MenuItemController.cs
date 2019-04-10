@@ -22,25 +22,25 @@ namespace ComponentFactory.Krypton.Toolkit
                                         IKeyController,
                                         ISourceController,
                                         IContextMenuTarget
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
         private bool _mouseOver;
         private readonly ViewDrawMenuItem _menuItem;
-		private NeedPaintHandler _needPaint;
+        private NeedPaintHandler _needPaint;
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the MenuItemController class.
-		/// </summary>
+        /// </summary>
         /// <param name="viewManager">Owning view manager instance.</param>
         /// <param name="menuItem">Target menu item view element.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public MenuItemController(ViewContextMenuManager viewManager,
                                   ViewDrawMenuItem menuItem,
                                   NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(viewManager != null);
             Debug.Assert(menuItem != null);
             Debug.Assert(needPaint != null);
@@ -49,7 +49,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _menuItem = menuItem;
             NeedPaint = needPaint;
         }
-		#endregion
+        #endregion
 
         #region ContextMenuTarget Notifications
         /// <summary>
@@ -57,7 +57,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual bool HasSubMenu => _menuItem.HasSubMenu;
 
-	    /// <summary>
+        /// <summary>
         /// This target should display as the active target.
         /// </summary>
         public virtual void ShowTarget()
@@ -134,7 +134,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Rectangle ClientRectangle => _menuItem.ClientRectangle;
 
-	    /// <summary>
+        /// <summary>
         /// Should a mouse down at the provided point cause the currently stacked context menu to become current.
         /// </summary>
         /// <param name="pt">Client coordinates point.</param>
@@ -155,36 +155,36 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Mouse Notifications
         /// <summary>
-		/// Mouse has entered the view.
-		/// </summary>
+        /// Mouse has entered the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         public virtual void MouseEnter(Control c)
-		{
+        {
             if (!_mouseOver && _menuItem.ItemEnabled)
             {
                 _mouseOver = true;
                 ViewManager.SetTarget(this, true);
             }
-		}
+        }
 
-		/// <summary>
-		/// Mouse has moved inside the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse has moved inside the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
         public virtual void MouseMove(Control c, Point pt)
-		{
-		}
+        {
+        }
 
-		/// <summary>
-		/// Mouse button has been pressed in the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse button has been pressed in the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
-		/// <param name="button">Mouse button pressed down.</param>
-		/// <returns>True if capturing input; otherwise false.</returns>
+        /// <param name="button">Mouse button pressed down.</param>
+        /// <returns>True if capturing input; otherwise false.</returns>
         public virtual bool MouseDown(Control c, Point pt, MouseButtons button)
-		{
+        {
             if (_menuItem.ItemEnabled)
             {
                 if (_menuItem.PointInSubMenu(pt))
@@ -194,16 +194,16 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             return false;
-		}
+        }
 
-		/// <summary>
-		/// Mouse button has been released in the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse button has been released in the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="pt">Mouse position relative to control.</param>
-		/// <param name="button">Mouse button released.</param>
+        /// <param name="button">Mouse button released.</param>
         public virtual void MouseUp(Control c, Point pt, MouseButtons button)
-		{
+        {
             // Only interested in processing if the menu item is enabled
             if (_menuItem.ItemEnabled)
             {
@@ -217,15 +217,15 @@ namespace ComponentFactory.Krypton.Toolkit
                     PressMenuItem();
                 }
             }
-		}
+        }
 
-		/// <summary>
-		/// Mouse has left the view.
-		/// </summary>
+        /// <summary>
+        /// Mouse has left the view.
+        /// </summary>
         /// <param name="c">Reference to the source control instance.</param>
         /// <param name="next">Reference to view that is next to have the mouse.</param>
         public virtual void MouseLeave(Control c, ViewBase next)
-		{
+        {
             // Only if mouse is leaving all the children monitored by controller.
             if (_mouseOver && !_menuItem.ContainsRecurse(next))
             {
@@ -247,17 +247,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual bool IgnoreVisualFormLeftButtonDown => false;
 
-	    #endregion
+        #endregion
 
         #region Key Notifications
 
-	    /// <summary>
-	    /// Key has been pressed down.
-	    /// </summary>
-	    /// <param name="c">Reference to the source control instance.</param>
-	    /// <param name="e">A KeyEventArgs that contains the event data.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    public virtual void KeyDown(Control c, KeyEventArgs e)
+        /// <summary>
+        /// Key has been pressed down.
+        /// </summary>
+        /// <param name="c">Reference to the source control instance.</param>
+        /// <param name="e">A KeyEventArgs that contains the event data.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public virtual void KeyDown(Control c, KeyEventArgs e)
         {
             Debug.Assert(c != null);
             Debug.Assert(e != null);
@@ -330,13 +330,13 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-	    /// <summary>
-	    /// Key has been pressed.
-	    /// </summary>
-	    /// <param name="c">Reference to the source control instance.</param>
-	    /// <param name="e">A KeyPressEventArgs that contains the event data.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    public virtual void KeyPress(Control c, KeyPressEventArgs e)
+        /// <summary>
+        /// Key has been pressed.
+        /// </summary>
+        /// <param name="c">Reference to the source control instance.</param>
+        /// <param name="e">A KeyPressEventArgs that contains the event data.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public virtual void KeyPress(Control c, KeyPressEventArgs e)
         {
             Debug.Assert(c != null);
             Debug.Assert(e != null);
@@ -355,14 +355,14 @@ namespace ComponentFactory.Krypton.Toolkit
             ViewManager.KeyMnemonic(e.KeyChar);
         }
 
-	    /// <summary>
-	    /// Key has been released.
-	    /// </summary>
-	    /// <param name="c">Reference to the source control instance.</param>
-	    /// <param name="e">A KeyEventArgs that contains the event data.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    /// <returns>True if capturing input; otherwise false.</returns>
-	    public virtual bool KeyUp(Control c, KeyEventArgs e)
+        /// <summary>
+        /// Key has been released.
+        /// </summary>
+        /// <param name="c">Reference to the source control instance.</param>
+        /// <param name="e">A KeyEventArgs that contains the event data.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns>True if capturing input; otherwise false.</returns>
+        public virtual bool KeyUp(Control c, KeyEventArgs e)
         {
             Debug.Assert(c != null);
             Debug.Assert(e != null);
@@ -418,20 +418,20 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Fires the NeedPaint event.
-		/// </summary>
+        /// <summary>
+        /// Fires the NeedPaint event.
+        /// </summary>
         /// <param name="layout">Does a layout need to occur.</param>
-		public void PerformNeedPaint(bool layout)
-		{
+        public void PerformNeedPaint(bool layout)
+        {
             OnNeedPaint(layout);
-		}
-		#endregion
+        }
+        #endregion
 
         #region Implementation
         private ViewContextMenuManager ViewManager { get; }
 
-	    private void PressMenuItem()
+        private void PressMenuItem()
         {
             // Should we automatically try and close the context menu stack
             if (_menuItem.KryptonContextMenuItem.AutoClose)
@@ -493,13 +493,13 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Raises the NeedPaint event.
-		/// </summary>
-		/// <param name="needLayout">Does the palette change require a layout.</param>
-		protected virtual void OnNeedPaint(bool needLayout)
-		{
+        /// Raises the NeedPaint event.
+        /// </summary>
+        /// <param name="needLayout">Does the palette change require a layout.</param>
+        protected virtual void OnNeedPaint(bool needLayout)
+        {
             _needPaint?.Invoke(this, new NeedLayoutEventArgs(needLayout, _menuItem.ClientRectangle));
         }
-		#endregion
-	}
+        #endregion
+    }
 }

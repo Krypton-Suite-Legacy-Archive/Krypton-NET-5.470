@@ -30,10 +30,10 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawTrackPosition class.
-		/// </summary>
+        /// </summary>
         /// <param name="drawTrackBar">Reference to owning track bar.</param>
         public ViewDrawTP(ViewDrawTrackBar drawTrackBar)
-		{
+        {
             ViewDrawTrackBar = drawTrackBar;
 
             // Create child view elements
@@ -53,16 +53,16 @@ namespace ComponentFactory.Krypton.Toolkit
             ViewDrawTrackPosition.MouseController = tpController;
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawTP:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Public
         /// <summary>

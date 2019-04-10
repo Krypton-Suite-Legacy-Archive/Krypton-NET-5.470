@@ -13,46 +13,46 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Implement storage for palette border and background.
-	/// </summary>
-	public class PaletteDouble : Storage,
-								 IPaletteDouble
-	{
-		#region Instance Fields
-		private readonly PaletteBack _back;
-		private readonly PaletteBorder _border;
-		#endregion
+    /// <summary>
+    /// Implement storage for palette border and background.
+    /// </summary>
+    public class PaletteDouble : Storage,
+                                 IPaletteDouble
+    {
+        #region Instance Fields
+        private readonly PaletteBack _back;
+        private readonly PaletteBorder _border;
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteDouble class.
-		/// </summary>
+        /// </summary>
         /// <param name="inherit">Source for inheriting values.</param>
         public PaletteDouble(IPaletteDouble inherit)
             : this(inherit, null)
         {
         }
 
-		/// <summary>
+        /// <summary>
         /// Initialize a new instance of the PaletteDouble class.
-		/// </summary>
+        /// </summary>
         /// <param name="inherit">Source for inheriting values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteDouble(IPaletteDouble inherit,
                              NeedPaintHandler needPaint)
-		{
+        {
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
 
-			// Create storage that maps onto the inherit instances
+            // Create storage that maps onto the inherit instances
             _back = new PaletteBack(inherit.PaletteBack, needPaint);
             _border = new PaletteBorder(inherit.PaletteBorder, needPaint);
-		}
+        }
 
-		/// <summary>
+        /// <summary>
         /// Initialize a new instance of the PaletteDouble class.
-		/// </summary>
+        /// </summary>
         /// <param name="inherit">Source for inheriting values.</param>
         /// <param name="back">Reference to back storage.</param>
         /// <param name="border">Reference to border storage.</param>
@@ -61,22 +61,22 @@ namespace ComponentFactory.Krypton.Toolkit
                              PaletteBack back,
                              PaletteBorder border,
                              NeedPaintHandler needPaint)
-		{
+        {
             // Store the provided references
             NeedPaint = needPaint;
             _back = back;
             _border = border;
-		}
+        }
         #endregion
 
         #region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (Back.IsDefault && Border.IsDefault);
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (Back.IsDefault && Border.IsDefault);
 
-	    #endregion
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -101,67 +101,67 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Back
-		/// <summary>
-		/// Gets access to the background palette details.
-		/// </summary>
+        #region Back
+        /// <summary>
+        /// Gets access to the background palette details.
+        /// </summary>
         [KryptonPersist]
         [Category("Visuals")]
-		[Description("Overrides for defining background appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [Description("Overrides for defining background appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual PaletteBack Back => _back;
 
-	    private bool ShouldSerializeBack()
-		{
-			return !_back.IsDefault;
-		}
+        private bool ShouldSerializeBack()
+        {
+            return !_back.IsDefault;
+        }
 
-		/// <summary>
-		/// Gets the background palette.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Advanced)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        /// <summary>
+        /// Gets the background palette.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Advanced)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public virtual IPaletteBack PaletteBack => Back;
 
-	    #endregion
+        #endregion
 
-		#region Border
-		/// <summary>
-		/// Gets access to the border palette details.
-		/// </summary>
+        #region Border
+        /// <summary>
+        /// Gets access to the border palette details.
+        /// </summary>
         [KryptonPersist]
         [Category("Visuals")]
-		[Description("Overrides for defining border appearance.")]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public virtual PaletteBorder Border => _border;
+        [Description("Overrides for defining border appearance.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public virtual PaletteBorder Border => _border;
 
-	    private bool ShouldSerializeBorder()
-		{
-			return !_border.IsDefault;
-		}
+        private bool ShouldSerializeBorder()
+        {
+            return !_border.IsDefault;
+        }
 
-		/// <summary>
-		/// Gets the border palette.
-		/// </summary>
-		[Browsable(false)]
-		[EditorBrowsable(EditorBrowsableState.Advanced)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        /// <summary>
+        /// Gets the border palette.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Advanced)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public virtual IPaletteBorder PaletteBorder => Border;
 
-	    #endregion
+        #endregion
 
-		#region Protected
-		/// <summary>
-		/// Handle a change event from palette source.
-		/// </summary>
-		/// <param name="sender">Source of the event.</param>
-		/// <param name="needLayout">True if a layout is also needed.</param>
+        #region Protected
+        /// <summary>
+        /// Handle a change event from palette source.
+        /// </summary>
+        /// <param name="sender">Source of the event.</param>
+        /// <param name="needLayout">True if a layout is also needed.</param>
         protected void OnNeedPaint(object sender, bool needLayout)
-		{
-			// Pass request from child to our own handler
-			PerformNeedPaint(needLayout);
-		}
-		#endregion
+        {
+            // Pass request from child to our own handler
+            PerformNeedPaint(needLayout);
+        }
+        #endregion
     }
 }

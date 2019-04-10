@@ -17,7 +17,7 @@ using System.Windows.Forms.Design;
 namespace ComponentFactory.Krypton.Toolkit
 {
     internal class KryptonTreeViewDesigner : ControlDesigner
-	{
+    {
         #region Public Overrides
         /// <summary>
         /// Initializes the designer with the specified component.

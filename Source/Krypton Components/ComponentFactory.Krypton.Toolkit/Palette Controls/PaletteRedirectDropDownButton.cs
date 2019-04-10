@@ -14,40 +14,40 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Redirects requests for drop down button images from the DropDownButtonImages instance.
-	/// </summary>
+    /// <summary>
+    /// Redirects requests for drop down button images from the DropDownButtonImages instance.
+    /// </summary>
     public class PaletteRedirectDropDownButton : PaletteRedirect
     {
         #region Instance Fields
         private readonly DropDownButtonImages _images;
-		#endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteRedirectDropDownButton class.
-		/// </summary>
+        /// </summary>
         /// <param name="images">Reference to source of drop down button images.</param>
         public PaletteRedirectDropDownButton(DropDownButtonImages images)
             : this(null, images)
         {
         }
 
-		/// <summary>
+        /// <summary>
         /// Initialize a new instance of the PaletteRedirectDropDownButton class.
-		/// </summary>
+        /// </summary>
         /// <param name="target">Initial palette target for redirection.</param>
         /// <param name="images">Reference to source of drop down button images.</param>
         public PaletteRedirectDropDownButton(IPalette target,
                                              DropDownButtonImages images)
             : base(target)
-		{
+        {
             Debug.Assert(images != null);
 
             // Remember incoming target
             _images = images;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Images
         /// <summary>

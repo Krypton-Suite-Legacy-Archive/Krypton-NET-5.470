@@ -67,8 +67,8 @@ namespace ComponentFactory.Krypton.Navigator
         public PaletteRedirect Redirector { get; }
 
         /// <summary>
-		/// Construct the view appropriate for this builder.
-		/// </summary>
+        /// Construct the view appropriate for this builder.
+        /// </summary>
         /// <param name="filler">View element to fill in the header group.</param>
         /// <returns>The root of the header group hierarchy.</returns>
         public ViewDrawDocker Construct(ViewBase filler)

@@ -15,15 +15,15 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Positions the child within a border that is drawn as the column background color.
-	/// </summary>
+    /// <summary>
+    /// Positions the child within a border that is drawn as the column background color.
+    /// </summary>
     public class ViewDrawMenuColorColumn : ViewComposite
     {
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawMenuColorColumn class.
-		/// </summary>
+        /// </summary>
         /// <param name="provider">Reference to provider.</param>
         /// <param name="colorColumns">Reference to owning color columns entry.</param>
         /// <param name="colors">Set of colors to initialize from.</param>\
@@ -53,31 +53,31 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <returns>User readable name of the instance.</returns>
         public override string ToString()
-		{
-			// Return the class name and instance identifier
+        {
+            // Return the class name and instance identifier
             return "ViewDrawMenuColorColumn:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Layout
-		/// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
-			Debug.Assert(context != null);
+        /// <summary>
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
+            Debug.Assert(context != null);
 
             // We take on all the available display area
-			ClientRectangle = context.DisplayRectangle;
+            ClientRectangle = context.DisplayRectangle;
 
             // Let base class layout the children
             base.Layout(context);
 
             // Put back the original size before returning
             context.DisplayRectangle = ClientRectangle;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Paint
 

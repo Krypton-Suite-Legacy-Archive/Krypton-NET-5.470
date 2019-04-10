@@ -14,9 +14,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for element color values.
-	/// </summary>
+    /// <summary>
+    /// Storage for element color values.
+    /// </summary>
     public class PaletteElementColor : Storage,
                                        IPaletteElementColor
     {
@@ -32,12 +32,12 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteElementColor class.
-		/// </summary>
+        /// </summary>
         /// <param name="inheritElementColor">Source for inheriting values.</param>
         /// <param name="needPaint">Delegate for notifying changes in value.</param>
         public PaletteElementColor(IPaletteElementColor inheritElementColor,
                                    NeedPaintHandler needPaint) 
-		{
+        {
             // Remember inheritance
             _inheritElementColor = inheritElementColor;
 
@@ -53,16 +53,16 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (Color1 == Color.Empty) &&
-		                                  (Color2 == Color.Empty) &&
-		                                  (Color3 == Color.Empty) &&
-		                                  (Color4 == Color.Empty) &&
-		                                  (Color5 == Color.Empty);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (Color1 == Color.Empty) &&
+                                          (Color2 == Color.Empty) &&
+                                          (Color3 == Color.Empty) &&
+                                          (Color4 == Color.Empty) &&
+                                          (Color5 == Color.Empty);
 
         #endregion
 

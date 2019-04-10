@@ -30,12 +30,12 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawMenuCheckButton class.
-		/// </summary>
+        /// </summary>
         /// <param name="provider">Reference to provider.</param>
         /// <param name="checkButton">Reference to owning check button entry.</param>
         public ViewDrawMenuCheckButton(IContextMenuProvider provider,
                                        KryptonContextMenuCheckButton checkButton)
-		{
+        {
             _provider = provider;
             KryptonContextMenuCheckButton = checkButton;
 
@@ -106,15 +106,15 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawMenuCheckButton:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.

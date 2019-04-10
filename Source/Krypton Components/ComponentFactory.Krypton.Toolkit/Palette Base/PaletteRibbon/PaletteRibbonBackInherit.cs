@@ -13,12 +13,12 @@ using System.Drawing;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Provide inheritance of palette ribbon background properties.
-	/// </summary>
+    /// <summary>
+    /// Provide inheritance of palette ribbon background properties.
+    /// </summary>
     public abstract class PaletteRibbonBackInherit : GlobalId,
                                                      IPaletteRibbonBack
-	{
+    {
         #region IPaletteRibbonBack
         /// <summary>
         /// Gets the method used to draw the background of a ribbon item.

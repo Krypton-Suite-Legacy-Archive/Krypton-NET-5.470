@@ -16,9 +16,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws a border edge but with a lighter inside area.
-	/// </summary>
+    /// <summary>
+    /// Draws a border edge but with a lighter inside area.
+    /// </summary>
     internal class ViewDrawRibbonGroupClusterEdge : ViewDrawBorderEdge
     {
         #region Instance Fields

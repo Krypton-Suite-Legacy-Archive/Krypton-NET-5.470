@@ -16,9 +16,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws the text string for a group cluster button.
-	/// </summary>
+    /// <summary>
+    /// Draws the text string for a group cluster button.
+    /// </summary>
     internal class ViewDrawRibbonGroupClusterButtonText : ViewLeaf,
                                                           IContentValues
     {
@@ -38,7 +38,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonGroupButtonText class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Source ribbon control.</param>
         /// <param name="ribbonButton">Group cluster button to display title for.</param>
         public ViewDrawRibbonGroupClusterButtonText(KryptonRibbon ribbon,
@@ -57,15 +57,15 @@ namespace ComponentFactory.Krypton.Ribbon
                                                                   ribbon.StateDisabled.RibbonGroupButtonText);
         }        
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonGroupClusterButtonText:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.

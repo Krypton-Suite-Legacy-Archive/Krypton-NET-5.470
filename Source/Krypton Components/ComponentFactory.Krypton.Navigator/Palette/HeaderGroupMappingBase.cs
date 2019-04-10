@@ -16,10 +16,10 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Base class for storage and mapping of navigator header values.
-	/// </summary>
-	public abstract class HeaderGroupMappingBase : HeaderValuesBase
+    /// <summary>
+    /// Base class for storage and mapping of navigator header values.
+    /// </summary>
+    public abstract class HeaderGroupMappingBase : HeaderValuesBase
     {
         #region Instance Fields
         private readonly KryptonNavigator _navigator;

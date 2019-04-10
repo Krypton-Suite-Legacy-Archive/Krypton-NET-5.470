@@ -16,16 +16,16 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// View element that draws nothing and will center all children within itself.
-	/// </summary>
-	public class ViewLayoutCenter : ViewComposite
-	{
+    /// <summary>
+    /// View element that draws nothing and will center all children within itself.
+    /// </summary>
+    public class ViewLayoutCenter : ViewComposite
+    {
         #region Instance Fields
         private Padding _rectPadding;
         private readonly IPaletteMetric _paletteMetric;
 
-	    #endregion
+        #endregion
 
         #region Identity
         /// <summary>
@@ -91,15 +91,15 @@ namespace ComponentFactory.Krypton.Toolkit
             _rectPadding = new Padding(size);
         }
         
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutCenter:" + Id;
-		}
+        }
         #endregion
 
         #region MetricPadding
@@ -108,7 +108,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteMetricPadding MetricPadding { get; set; }
 
-	    #endregion
+        #endregion
 
         #region Orientation
         /// <summary>
@@ -116,7 +116,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public VisualOrientation Orientation { get; set; }
 
-	    #endregion
+        #endregion
 
         #region Layout
         /// <summary>
@@ -181,11 +181,11 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Perform a layout of the elements.
-		/// </summary>
-		/// <param name="context">Layout context.</param>
-		public override void Layout(ViewLayoutContext context)
-		{
+        /// Perform a layout of the elements.
+        /// </summary>
+        /// <param name="context">Layout context.</param>
+        public override void Layout(ViewLayoutContext context)
+        {
             Debug.Assert(context != null);
 
             // Validate incoming reference
@@ -305,6 +305,6 @@ namespace ComponentFactory.Krypton.Toolkit
             // Put back the original display value now we have finished
             context.DisplayRectangle = original;
         }
-		#endregion
-	}
+        #endregion
+    }
 }

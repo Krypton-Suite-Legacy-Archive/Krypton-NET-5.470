@@ -14,9 +14,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Storage for palette tree view images.
-	/// </summary>
+    /// <summary>
+    /// Storage for palette tree view images.
+    /// </summary>
     public class KryptonPaletteImagesTreeView : Storage
     {
         #region Instance Fields
@@ -28,12 +28,12 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonPaletteImagesTreeView class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Redirector to inherit values from.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public KryptonPaletteImagesTreeView(PaletteRedirect redirect,
                                             NeedPaintHandler needPaint) 
-		{
+        {
             // Store the redirector
             _redirect = redirect;
 
@@ -46,13 +46,13 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (_plus == null) &&
-		                                  (_minus == null);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (_plus == null) &&
+                                          (_minus == null);
 
         #endregion
 

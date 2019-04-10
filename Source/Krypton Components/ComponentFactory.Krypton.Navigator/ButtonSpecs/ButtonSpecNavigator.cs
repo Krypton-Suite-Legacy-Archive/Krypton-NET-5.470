@@ -23,11 +23,11 @@ namespace ComponentFactory.Krypton.Navigator
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ButtonSpecNavigator class.
-		/// </summary>
+        /// </summary>
         public ButtonSpecNavigator()
-		{
+        {
             ProtectedType = NavigatorToPaletteType(PaletteNavButtonSpecStyle.Generic);
-		}
+        }
         #endregion
 
         #region Type

@@ -15,47 +15,47 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Implement storage for input control palette background details.
-	/// </summary>
-	public class PaletteInputControlBackStates : Storage,
-								                 IPaletteBack
-	{
+    /// <summary>
+    /// Implement storage for input control palette background details.
+    /// </summary>
+    public class PaletteInputControlBackStates : Storage,
+                                                 IPaletteBack
+    {
         #region Instance Fields
 
-	    private Color _color1;
+        private Color _color1;
         #endregion
 
         #region Identity
-		/// <summary>
+        /// <summary>
         /// Initialize a new instance of the PaletteInputControlBackStates class.
-		/// </summary>
-		/// <param name="inherit">Source for inheriting defaulted values.</param>
+        /// </summary>
+        /// <param name="inherit">Source for inheriting defaulted values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteInputControlBackStates(IPaletteBack inherit,
                                              NeedPaintHandler needPaint)
-		{
-			Debug.Assert(inherit != null);
+        {
+            Debug.Assert(inherit != null);
 
-			// Remember inheritance
-			Inherit = inherit;
+            // Remember inheritance
+            Inherit = inherit;
 
             // Store the provided paint notification delegate
             NeedPaint = needPaint;
 
             // Default the initial values
             _color1 = Color.Empty;
-   		}
-		#endregion
+           }
+        #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (Color1 == Color.Empty);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (Color1 == Color.Empty);
 
-	    #endregion
+        #endregion
 
         #region SetInherit
         /// <summary>
@@ -234,6 +234,6 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected IPaletteBack Inherit { get; private set; }
 
-	    #endregion
+        #endregion
     }
 }

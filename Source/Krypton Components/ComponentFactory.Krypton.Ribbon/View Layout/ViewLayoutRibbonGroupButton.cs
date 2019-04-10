@@ -13,9 +13,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Layout area for the group button.
-	/// </summary>
+    /// <summary>
+    /// Layout area for the group button.
+    /// </summary>
     internal class ViewLayoutRibbonGroupButton : ViewLayoutDocker
     {
         #region Instance Fields
@@ -26,7 +26,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewLayoutRibbonGroupButton class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Owning control instance.</param>
         /// <param name="ribbonGroup">Reference to ribbon group this represents.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
@@ -44,16 +44,16 @@ namespace ComponentFactory.Krypton.Ribbon
             Add(_centerButton, ViewDockStyle.Fill);
         }
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewLayoutRibbonGroupButton:" + Id;
-		}
-		#endregion
+        }
+        #endregion
 
         #region DialogButtonController
         /// <summary>

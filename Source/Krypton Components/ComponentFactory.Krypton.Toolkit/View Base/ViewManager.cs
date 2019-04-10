@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         #region Instance Fields
         private ViewBase _root;
-		private ViewBase _activeView;
+        private ViewBase _activeView;
         private long _outputStart;
         #endregion
 
@@ -58,24 +58,24 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Identity
         /// <summary>
-		/// Initialize a new instance of the ViewManager class.
-		/// </summary>
+        /// Initialize a new instance of the ViewManager class.
+        /// </summary>
         public ViewManager()
         {
         }
 
         /// <summary>
-		/// Initialize a new instance of the ViewManager class.
-		/// </summary>
+        /// Initialize a new instance of the ViewManager class.
+        /// </summary>
         /// <param name="control">Owning control.</param>
         /// <param name="root">Root of the view hierarchy.</param>
         public ViewManager(Control control, ViewBase root)
-		{
-			_root = root;
+        {
+            _root = root;
             _root.OwningControl = control;
             Control = control;
             AlignControl = control;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources.
@@ -87,7 +87,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Public Properties
+        #region Public Properties
         /// <summary>
         /// Attach the view manager to provided control and root element.
         /// </summary>
@@ -101,21 +101,21 @@ namespace ComponentFactory.Krypton.Toolkit
             AlignControl = control;
         }
 
-		/// <summary>
-		/// Gets and sets the view root.
-		/// </summary>
-		public ViewBase Root
-		{
+        /// <summary>
+        /// Gets and sets the view root.
+        /// </summary>
+        public ViewBase Root
+        {
             [DebuggerStepThrough]
             get { return _root; }
-			
-			set 
-			{
-				Debug.Assert(value != null);
-				_root = value;
+            
+            set 
+            {
+                Debug.Assert(value != null);
+                _root = value;
                 _root.OwningControl = Control;
-			}
-		}
+            }
+        }
 
         /// <summary>
         /// Control owning the view manager.
@@ -159,15 +159,15 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #endregion
 
-		#region GetPreferredSize
-		/// <summary>
-		/// Discover the preferred size of the view.
-		/// </summary>
-		/// <param name="renderer">Renderer provider.</param>
+        #region GetPreferredSize
+        /// <summary>
+        /// Discover the preferred size of the view.
+        /// </summary>
+        /// <param name="renderer">Renderer provider.</param>
         /// <param name="proposedSize">The custom-sized area for a control.</param>
         public virtual Size GetPreferredSize(IRenderer renderer,
                                              Size proposedSize)
-		{
+        {
             if ((renderer == null) || (Root == null))
             {
                 return Size.Empty;
@@ -200,7 +200,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             return retSize;
         }
-		#endregion
+        #endregion
 
         #region EvalTransparentPaint
 
@@ -322,7 +322,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="context">View context for layout operation.</param>
         /// <exception cref="ArgumentNullException"></exception>
         public virtual void Layout(ViewLayoutContext context)
-		{
+        {
             Debug.Assert(context != null);
             Debug.Assert(context.Renderer != null);
             Debug.Assert(Root != null);
@@ -368,9 +368,9 @@ namespace ComponentFactory.Krypton.Toolkit
                 LayoutCounter++;
             }
         }
-		#endregion
+        #endregion
 
-		#region Paint
+        #region Paint
 
         /// <summary>
         /// Perform a paint of the view.
@@ -416,9 +416,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="context">Renderer context.</param>
         /// <exception cref="ArgumentNullException"></exception>
         public virtual void Paint(RenderContext context)
-		{
+        {
             Debug.Assert(context != null);
-			Debug.Assert(Root != null);
+            Debug.Assert(Root != null);
 
             // Validate incoming reference
             if (context == null)
@@ -453,9 +453,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // Maintain internal counters for measuring perf
             PaintCounter++;
         }
-		#endregion
+        #endregion
 
-		#region Mouse
+        #region Mouse
 
         /// <summary>
         /// Perform mouse movement handling.
@@ -464,7 +464,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="rawPt">The actual point provided from the windows message.</param>
         /// <exception cref="ArgumentNullException"></exception>
         public virtual void MouseMove(MouseEventArgs e, Point rawPt)
-		{
+        {
             Debug.Assert(e != null);
 
             // Validate incoming reference
@@ -475,12 +475,12 @@ namespace ComponentFactory.Krypton.Toolkit
 
             Point pt = new Point(e.X, e.Y);
 
-			// Set the correct active view from the point
+            // Set the correct active view from the point
             UpdateViewFromPoint(Control, pt);
 
-			// Tell current view of mouse movement
-		    ActiveView?.MouseMove(rawPt);
-		}
+            // Tell current view of mouse movement
+            ActiveView?.MouseMove(rawPt);
+        }
 
         /// <summary>
         /// Perform mouse down processing.
@@ -489,7 +489,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="rawPt">The actual point provided from the windows message.</param>
         /// <exception cref="ArgumentNullException"></exception>
         public virtual void MouseDown(MouseEventArgs e, Point rawPt)
-		{
+        {
             Debug.Assert(e != null);
 
             // Validate incoming reference
@@ -500,10 +500,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
             Point pt = new Point(e.X, e.Y);
 
-			// Set the correct active view from the point
+            // Set the correct active view from the point
             UpdateViewFromPoint(Control, pt);
 
-			// Tell current view of mouse down
+            // Tell current view of mouse down
             if (ActiveView != null)
             {
                 MouseCaptured = ActiveView.MouseDown(rawPt, e.Button);
@@ -511,7 +511,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Generate event to indicate the view manager has processed a mouse down
             PerformMouseDownProcessed(e);
-		}
+        }
 
         /// <summary>
         /// Perform mouse up processing.
@@ -520,7 +520,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="rawPt">The actual point provided from the windows message.</param>
         /// <exception cref="ArgumentNullException"></exception>
         public virtual void MouseUp(MouseEventArgs e, Point rawPt)
-		{
+        {
             Debug.Assert(e != null);
 
             // Validate incoming reference
@@ -531,13 +531,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
             Point pt = new Point(e.X, e.Y);
 
-			// Set the correct active view from the point
+            // Set the correct active view from the point
             UpdateViewFromPoint(Control, pt);
 
-			// Tell current view of mouse up
-		    ActiveView?.MouseUp(rawPt, e.Button);
+            // Tell current view of mouse up
+            ActiveView?.MouseUp(rawPt, e.Button);
 
-		    // Release any capture of the mouse
+            // Release any capture of the mouse
             MouseCaptured = false;
 
             // Generate event to indicate the view manager has processed a mouse up
@@ -551,7 +551,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="e">An EventArgs that contains the event data.</param>
         /// <exception cref="ArgumentNullException"></exception>
         public virtual void MouseLeave(EventArgs e)
-		{
+        {
             Debug.Assert(e != null);
 
             // Validate incoming reference
@@ -562,14 +562,14 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // If there is an active element
             if (ActiveView != null)
-			{
+            {
                 // Remove active view
                 ActiveView = null;
 
-				// No capture is in place anymore
+                // No capture is in place anymore
                 MouseCaptured = false;
-			}
-		}
+            }
+        }
 
         /// <summary>
         /// Perform double click processing.
@@ -719,14 +719,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="control">Source control.</param>
         /// <param name="pt">Point within the source control.</param>
         protected virtual void UpdateViewFromPoint(Control control, Point pt)
-		{
-			// Can only change view if not captured
+        {
+            // Can only change view if not captured
             if (!MouseCaptured)
-			{
+            {
                 // Update the active view with that found under the mouse position
-				ActiveView = Root.ViewFromPoint(pt);
-			}
-		}
-		#endregion
+                ActiveView = Root.ViewFromPoint(pt);
+            }
+        }
+        #endregion
     }
 }

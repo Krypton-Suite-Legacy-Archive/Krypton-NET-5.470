@@ -13,9 +13,9 @@ using System.ComponentModel;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Implement storage for month calendar appearance states.
-	/// </summary>
+    /// <summary>
+    /// Implement storage for month calendar appearance states.
+    /// </summary>
     public class PaletteMonthCalendarDoubleState : PaletteDouble
     {
         #region Instance Fields
@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteMonthCalendarDoubleState class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Inheritence redirection instance.</param>
         public PaletteMonthCalendarDoubleState(PaletteMonthCalendarRedirect redirect)
             : this(redirect, null)
@@ -34,28 +34,28 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// Initialize a new instance of the PaletteMonthCalendarDoubleState class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Inheritence redirection instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteMonthCalendarDoubleState(PaletteMonthCalendarRedirect redirect,
                                                NeedPaintHandler needPaint) 
             : base(redirect, needPaint)
-		{
+        {
             Header = new PaletteTriple(redirect.Header, needPaint);
             Day = new PaletteTriple(redirect.Day, needPaint);
             DayOfWeek = new PaletteTriple(redirect.DayOfWeek, needPaint);
         }
         #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (base.IsDefault && 
-		                                   Header.IsDefault &&
-		                                   Day.IsDefault &&
-		                                   DayOfWeek.IsDefault);
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (base.IsDefault && 
+                                           Header.IsDefault &&
+                                           Day.IsDefault &&
+                                           DayOfWeek.IsDefault);
 
         #endregion
 

@@ -95,7 +95,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonBreadCrumb class.
-		/// </summary>
+        /// </summary>
         public KryptonBreadCrumb()
         {
             // The bread crumb cannot take the focus
@@ -622,9 +622,9 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-		/// Gets the default size of the control.
-		/// </summary>
-		protected override Size DefaultSize => new Size(200, 28);
+        /// Gets the default size of the control.
+        /// </summary>
+        protected override Size DefaultSize => new Size(200, 28);
 
         /// <summary>
         /// Processes a notification from palette storage of a button spec change.
@@ -646,7 +646,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the CrumbDropDown event.
         /// </summary>
         /// <param name="e">An ContextPositionMenuArgs containing the event data.</param>
-        internal protected virtual void OnCrumbDropDown(BreadCrumbMenuArgs e)
+        protected internal virtual void OnCrumbDropDown(BreadCrumbMenuArgs e)
         {
             CrumbDropDown?.Invoke(this, e);
         }
@@ -655,7 +655,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Raises the OverflowDropDown event.
         /// </summary>
         /// <param name="e">An ContextPositionMenuArgs containing the event data.</param>
-        internal protected virtual void OnOverflowDropDown(ContextPositionMenuArgs e)
+        protected internal virtual void OnOverflowDropDown(ContextPositionMenuArgs e)
         {
             OverflowDropDown?.Invoke(this, e);
         }

@@ -16,10 +16,10 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Draws a window containing square docking indicators.
-	/// </summary>
-	public class DropDockingIndicatorsSquare : Form,
+    /// <summary>
+    /// Draws a window containing square docking indicators.
+    /// </summary>
+    public class DropDockingIndicatorsSquare : Form,
                                                IDropDockingIndicator
     {
         #region Instance Fields
@@ -31,20 +31,20 @@ namespace ComponentFactory.Krypton.Navigator
         #region Identity
         /// <summary>
         /// Initialize a new instance of the DropDockingIndicatorsSquare class.
-		/// </summary>
+        /// </summary>
         /// <param name="paletteDragDrop">Drawing palette.</param>
         /// <param name="renderer">Drawing renderer.</param>
-		/// <param name="showLeft">Show left hot area.</param>
-		/// <param name="showRight">Show right hot area.</param>
-		/// <param name="showTop">Show top hot area.</param>
-		/// <param name="showBottom">Show bottom hot area.</param>
+        /// <param name="showLeft">Show left hot area.</param>
+        /// <param name="showRight">Show right hot area.</param>
+        /// <param name="showTop">Show top hot area.</param>
+        /// <param name="showBottom">Show bottom hot area.</param>
         /// <param name="showMiddle">Show middle hot area.</param>
         public DropDockingIndicatorsSquare(IPaletteDragDrop paletteDragDrop, 
                                            IRenderer renderer,
-							               bool showLeft, bool showRight,
-							               bool showTop, bool showBottom,
+                                           bool showLeft, bool showRight,
+                                           bool showTop, bool showBottom,
                                            bool showMiddle)
-		{
+        {
             _paletteDragDrop = paletteDragDrop;
             _renderer = renderer;
 
@@ -75,14 +75,14 @@ namespace ComponentFactory.Krypton.Navigator
 
         #region Public
         /// <summary>
-		/// Show the window relative to provided screen rectangle.
-		/// </summary>
-		/// <param name="screenRect">Screen rectangle.</param>
-		public void ShowRelative(Rectangle screenRect)
-		{
-			// Find screen middle points
-			int yMid = screenRect.Y + (screenRect.Height / 2);
-			int xMid = screenRect.X + (screenRect.Width / 2);
+        /// Show the window relative to provided screen rectangle.
+        /// </summary>
+        /// <param name="screenRect">Screen rectangle.</param>
+        public void ShowRelative(Rectangle screenRect)
+        {
+            // Find screen middle points
+            int yMid = screenRect.Y + (screenRect.Height / 2);
+            int xMid = screenRect.X + (screenRect.Width / 2);
 
             // Find docking size middle points
             int yHalf = _dragData.DockWindowSize.Height / 2;
@@ -109,90 +109,90 @@ namespace ComponentFactory.Krypton.Navigator
                 Location = new Point(xMid - xHalf, yMid - yHalf);
             }
 
-		    // Show the window without activating it (i.e. do not take focus)
-			PI.ShowWindow(Handle, PI.SW_SHOWNOACTIVATE);
-		}
+            // Show the window without activating it (i.e. do not take focus)
+            PI.ShowWindow(Handle, PI.SW_SHOWNOACTIVATE);
+        }
 
-		/// <summary>
-		/// Perofrm mouse hit testing against a screen point.
-		/// </summary>
-		/// <param name="screenPoint">Screen point.</param>
-		/// <returns>Area that is active.</returns>
-		public int ScreenMouseMove(Point screenPoint)
-		{
-			// Convert from screen to client coordinates
-			Point pt = PointToClient(screenPoint);
+        /// <summary>
+        /// Perofrm mouse hit testing against a screen point.
+        /// </summary>
+        /// <param name="screenPoint">Screen point.</param>
+        /// <returns>Area that is active.</returns>
+        public int ScreenMouseMove(Point screenPoint)
+        {
+            // Convert from screen to client coordinates
+            Point pt = PointToClient(screenPoint);
 
-			// Remember the current active value
+            // Remember the current active value
             int activeBefore = _dragData.ActiveFlags;
 
-			// Reset active back to nothing
+            // Reset active back to nothing
             _dragData.ClearActive();
 
-			// Find new active area
+            // Find new active area
             if (_dragData.ShowLeft && _dragData.RectLeft.Contains(pt))
             {
                 _dragData.ActiveLeft = true;
             }
-		    if (_dragData.ShowRight && _dragData.RectRight.Contains(pt))
-		    {
-		        _dragData.ActiveRight = true;
-		    }
-		    if (_dragData.ShowTop && _dragData.RectTop.Contains(pt))
-		    {
-		        _dragData.ActiveTop = true;
-		    }
-		    if (_dragData.ShowBottom && _dragData.RectBottom.Contains(pt))
-		    {
-		        _dragData.ActiveBottom = true;
-		    }
+            if (_dragData.ShowRight && _dragData.RectRight.Contains(pt))
+            {
+                _dragData.ActiveRight = true;
+            }
+            if (_dragData.ShowTop && _dragData.RectTop.Contains(pt))
+            {
+                _dragData.ActiveTop = true;
+            }
+            if (_dragData.ShowBottom && _dragData.RectBottom.Contains(pt))
+            {
+                _dragData.ActiveBottom = true;
+            }
 
-		    // Only consider the middle if the others do not match
+            // Only consider the middle if the others do not match
             if ((_dragData.ActiveFlags == 0) && _dragData.ShowMiddle && _dragData.RectMiddle.Contains(pt))
             {
                 _dragData.ActiveMiddle = true;
             }
 
-		    // Do we need to update the display?
+            // Do we need to update the display?
             if (_dragData.ActiveFlags != activeBefore)
             {
                 Invalidate();
             }
 
-		    return _dragData.ActiveFlags;
-		}
+            return _dragData.ActiveFlags;
+        }
 
-		/// <summary>
-		/// Ensure the state is updated to reflect the mouse not being over the control.
-		/// </summary>
-		public void MouseReset()
-		{
-			// Do we need to update display?
-			if (_dragData.AnyActive)
-			{
+        /// <summary>
+        /// Ensure the state is updated to reflect the mouse not being over the control.
+        /// </summary>
+        public void MouseReset()
+        {
+            // Do we need to update display?
+            if (_dragData.AnyActive)
+            {
                 _dragData.ClearActive();
-				Invalidate();
-			}
+                Invalidate();
+            }
         }
         #endregion
 
         #region Implementation
         private void DropIndicators_Paint(object sender, PaintEventArgs e)
-		{
+        {
             using(RenderContext context = new RenderContext(this, e.Graphics, e.ClipRectangle, _renderer))
             {
                 _renderer.RenderGlyph.DrawDragDropDockingGlyph(context, _dragData, _paletteDragDrop, PaletteDragFeedback.Square);
             }
-		}
+        }
 
-		private void DrawPath(Graphics g, Color baseColor, GraphicsPath path)
-		{
-			// Draw a smooth outline around the circle
-			using(Pen outline = new Pen(baseColor))
-			{
-			    g.DrawPath(outline, path);
-			}
-		}
+        private void DrawPath(Graphics g, Color baseColor, GraphicsPath path)
+        {
+            // Draw a smooth outline around the circle
+            using(Pen outline = new Pen(baseColor))
+            {
+                g.DrawPath(outline, path);
+            }
+        }
         #endregion
     }
 }

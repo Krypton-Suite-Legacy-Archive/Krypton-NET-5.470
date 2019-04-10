@@ -16,9 +16,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
-	/// <summary>
-	/// Draws the text string for a group check box.
-	/// </summary>
+    /// <summary>
+    /// Draws the text string for a group check box.
+    /// </summary>
     internal class ViewDrawRibbonGroupCheckBoxText : ViewLeaf,
                                                      IContentValues
     {
@@ -39,7 +39,7 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the ViewDrawRibbonGroupCheckBoxText class.
-		/// </summary>
+        /// </summary>
         /// <param name="ribbon">Source ribbon control.</param>
         /// <param name="ribbonCheckBox">Group check box to display title for.</param>
         /// <param name="firstText">Should show the first button text.</param>
@@ -60,15 +60,15 @@ namespace ComponentFactory.Krypton.Ribbon
                                                                           ribbon.StateDisabled.RibbonGroupCheckBoxText);
         }        
 
-		/// <summary>
-		/// Obtains the String representation of this instance.
-		/// </summary>
-		/// <returns>User readable name of the instance.</returns>
-		public override string ToString()
-		{
-			// Return the class name and instance identifier
+        /// <summary>
+        /// Obtains the String representation of this instance.
+        /// </summary>
+        /// <returns>User readable name of the instance.</returns>
+        public override string ToString()
+        {
+            // Return the class name and instance identifier
             return "ViewDrawRibbonGroupCheckBoxText:" + Id;
-		}
+        }
 
         /// <summary>
         /// Clean up any resources being used.

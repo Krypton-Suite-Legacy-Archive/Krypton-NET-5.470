@@ -16,11 +16,11 @@ using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Implement storage for data grid view palette content details.
-	/// </summary>
+    /// <summary>
+    /// Implement storage for data grid view palette content details.
+    /// </summary>
     public class PaletteDataGridViewContentCommon : PaletteDataGridViewContentStates
-	{
+    {
         #region Instance Fields
         private Padding _padding;
         private Font _font;
@@ -31,32 +31,32 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteDataGridViewContentCommon class.
-		/// </summary>
-		/// <param name="inherit">Source for inheriting defaulted values.</param>
+        /// </summary>
+        /// <param name="inherit">Source for inheriting defaulted values.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteDataGridViewContentCommon(IPaletteContent inherit,
                                                 NeedPaintHandler needPaint)
             : base(inherit, needPaint)
-		{
+        {
             // Default the initial values
             _padding = CommonHelper.InheritPadding;
             _textH = PaletteRelativeAlign.Inherit;
             _textV = PaletteRelativeAlign.Inherit;
-   		}
-		#endregion
+           }
+        #endregion
 
-		#region IsDefault
-		/// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (base.IsDefault &&
-		                                   (Padding.Equals(CommonHelper.InheritPadding)) &&
-		                                   (Font == null) &&
-		                                   (TextH == PaletteRelativeAlign.Inherit) &&
-		                                   (TextV == PaletteRelativeAlign.Inherit));
+        #region IsDefault
+        /// <summary>
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (base.IsDefault &&
+                                           (Padding.Equals(CommonHelper.InheritPadding)) &&
+                                           (Font == null) &&
+                                           (TextH == PaletteRelativeAlign.Inherit) &&
+                                           (TextV == PaletteRelativeAlign.Inherit));
 
-	    #endregion
+        #endregion
 
         #region PopulateFromBase
         /// <summary>
@@ -97,14 +97,14 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Gets the actual content short text font value.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Font value.</returns>
-		public override Font GetContentShortTextFont(PaletteState state)
-		{
-			if (_font != null)
+        /// <summary>
+        /// Gets the actual content short text font value.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Font value.</returns>
+        public override Font GetContentShortTextFont(PaletteState state)
+        {
+            if (_font != null)
             {
                 return _font;
             }
@@ -139,14 +139,14 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Gets the actual content short text horizontal alignment value.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
-		public override PaletteRelativeAlign GetContentShortTextH(PaletteState state)
-		{
-			if (_textH != PaletteRelativeAlign.Inherit)
+        /// <summary>
+        /// Gets the actual content short text horizontal alignment value.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
+        public override PaletteRelativeAlign GetContentShortTextH(PaletteState state)
+        {
+            if (_textH != PaletteRelativeAlign.Inherit)
             {
                 return _textH;
             }
@@ -181,14 +181,14 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-		/// <summary>
-		/// Gets the actual content short text vertical alignment value.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>RelativeAlignment value.</returns>
-		public override PaletteRelativeAlign GetContentShortTextV(PaletteState state)
-		{
-			if (_textV != PaletteRelativeAlign.Inherit)
+        /// <summary>
+        /// Gets the actual content short text vertical alignment value.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>RelativeAlignment value.</returns>
+        public override PaletteRelativeAlign GetContentShortTextV(PaletteState state)
+        {
+            if (_textV != PaletteRelativeAlign.Inherit)
             {
                 return _textV;
             }
@@ -199,50 +199,50 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region Padding
-		/// <summary>
-		/// Gets the padding between the border and content drawing.
-		/// </summary>
+        #region Padding
+        /// <summary>
+        /// Gets the padding between the border and content drawing.
+        /// </summary>
         [KryptonPersist(false)]
         [Category("Visuals")]
-		[Description("Padding between the border and content drawing.")]
-		[DefaultValue(typeof(Padding), "-1,-1,-1,-1")]
-		[RefreshPropertiesAttribute(RefreshProperties.All)]
-		public Padding Padding
-		{
+        [Description("Padding between the border and content drawing.")]
+        [DefaultValue(typeof(Padding), "-1,-1,-1,-1")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public Padding Padding
+        {
             get => _padding;
 
-		    set
-			{
+            set
+            {
                 if (!value.Equals(_padding))
                 {
                     _padding = value;
                     OnSyncPropertyChanged(EventArgs.Empty);
                     PerformNeedPaint(true);
                 }
-			}
-		}
+            }
+        }
 
-		/// <summary>
-		/// Reset the Padding to the default value.
-		/// </summary>
-		public void ResetPadding()
-		{
+        /// <summary>
+        /// Reset the Padding to the default value.
+        /// </summary>
+        public void ResetPadding()
+        {
             Padding = CommonHelper.InheritPadding;
-		}
+        }
 
-		/// <summary>
-		/// Gets the actual padding between the border and content drawing.
-		/// </summary>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>Padding value.</returns>
-		public override Padding GetContentPadding(PaletteState state)
-		{
-			// Initialize the padding from inherited values
+        /// <summary>
+        /// Gets the actual padding between the border and content drawing.
+        /// </summary>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>Padding value.</returns>
+        public override Padding GetContentPadding(PaletteState state)
+        {
+            // Initialize the padding from inherited values
             Padding paddingInherit = Inherit.GetContentPadding(state);
             Padding paddingThis = Padding;
 
-			// Override with specified values
+            // Override with specified values
             if (paddingThis.Left != -1)
             {
                 paddingInherit.Left = paddingThis.Left;
@@ -264,7 +264,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             return paddingInherit;
-		}
-		#endregion
+        }
+        #endregion
     }
 }

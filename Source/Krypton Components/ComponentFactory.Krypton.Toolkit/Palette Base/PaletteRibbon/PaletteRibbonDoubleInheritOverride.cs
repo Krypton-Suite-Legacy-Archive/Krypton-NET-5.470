@@ -14,9 +14,9 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Inherit properties from primary source in preference to the backup source.
-	/// </summary>
+    /// <summary>
+    /// Inherit properties from primary source in preference to the backup source.
+    /// </summary>
     public class PaletteRibbonDoubleInheritOverride : PaletteRibbonDoubleInherit
     {
         #region Instance Fields
@@ -30,7 +30,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteRibbonDoubleInheritOverride class.
-		/// </summary>
+        /// </summary>
         /// <param name="primaryBack">First choice inheritence background.</param>
         /// <param name="primaryText">First choice inheritence text.</param>
         /// <param name="backupBack">Backup inheritence background.</param>
@@ -41,7 +41,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                   IPaletteRibbonBack backupBack,
                                                   IPaletteRibbonText backupText,
                                                   PaletteState state) 
-		{
+        {
             Debug.Assert(primaryBack != null);
             Debug.Assert(primaryText != null);
             Debug.Assert(backupBack != null);

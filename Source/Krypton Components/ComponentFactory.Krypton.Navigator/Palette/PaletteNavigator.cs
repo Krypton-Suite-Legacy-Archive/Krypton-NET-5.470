@@ -14,9 +14,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Implement storage for normal and disable navigator appearance.
-	/// </summary>
+    /// <summary>
+    /// Implement storage for normal and disable navigator appearance.
+    /// </summary>
     public class PaletteNavigator : PaletteDoubleMetric
     {
         #region Instance Fields
@@ -25,14 +25,14 @@ namespace ComponentFactory.Krypton.Navigator
 
         #region Identity
         /// <summary>
-		/// Initialize a new instance of the PaletteNavigatorNormabled class.
-		/// </summary>
-		/// <param name="redirect">Inheritence redirection instance.</param>
+        /// Initialize a new instance of the PaletteNavigatorNormabled class.
+        /// </summary>
+        /// <param name="redirect">Inheritence redirection instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteNavigator(PaletteNavigatorRedirect redirect,
                                 NeedPaintHandler needPaint)
             : base(redirect, needPaint)
-		{
+        {
             // Create the palette storage
             PalettePage = new PalettePage(redirect.PalettePage, needPaint);
             HeaderGroup = new PaletteNavigatorHeaderGroup(redirect.HeaderGroup, redirect.HeaderGroup.HeaderPrimary, redirect.HeaderGroup.HeaderSecondary, redirect.HeaderGroup.HeaderBar, redirect.HeaderGroup.HeaderOverflow, needPaint);
@@ -44,23 +44,23 @@ namespace ComponentFactory.Krypton.Navigator
             Tab = new PaletteTabTriple(redirect.Tab, needPaint);
             RibbonTab = new PaletteRibbonTabContent(redirect.RibbonTab.TabDraw, redirect.RibbonTab.TabDraw, redirect.RibbonTab.Content, needPaint);
         }
-		#endregion
+        #endregion
 
         #region IsDefault
         /// <summary>
-		/// Gets a value indicating if all values are default.
-		/// </summary>
-		[Browsable(false)]
-		public override bool IsDefault => (base.IsDefault &&
-		                                   PalettePage.IsDefault &&
-		                                   HeaderGroup.IsDefault &&
-		                                   CheckButton.IsDefault &&
-		                                   OverflowButton.IsDefault &&
-		                                   MiniButton.IsDefault &&
-		                                   BorderEdge.IsDefault &&
-		                                   Separator.IsDefault &&
-		                                   Tab.IsDefault &&
-		                                   RibbonTab.IsDefault);
+        /// Gets a value indicating if all values are default.
+        /// </summary>
+        [Browsable(false)]
+        public override bool IsDefault => (base.IsDefault &&
+                                           PalettePage.IsDefault &&
+                                           HeaderGroup.IsDefault &&
+                                           CheckButton.IsDefault &&
+                                           OverflowButton.IsDefault &&
+                                           MiniButton.IsDefault &&
+                                           BorderEdge.IsDefault &&
+                                           Separator.IsDefault &&
+                                           Tab.IsDefault &&
+                                           RibbonTab.IsDefault);
 
         #endregion
 

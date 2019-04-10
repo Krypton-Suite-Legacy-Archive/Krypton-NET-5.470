@@ -15,19 +15,19 @@ using ComponentFactory.Krypton.Navigator;
 
 namespace ComponentFactory.Krypton.Docking
 {
-	/// <summary>
+    /// <summary>
     /// Event arguments for events that need a page and context menu.
-	/// </summary>
-	public class ContextPageEventArgs : CancelEventArgs
-	{
-		#region Instance Fields
+    /// </summary>
+    public class ContextPageEventArgs : CancelEventArgs
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the ContextPageEventArgs class.
-		/// </summary>
+        /// </summary>
         /// <param name="page">Page associated with the context menu.</param>
         /// <param name="contextMenu">Context menu that can be customized.</param>
         /// <param name="cancel">Initial value for the cancel property.</param>
@@ -35,23 +35,23 @@ namespace ComponentFactory.Krypton.Docking
                                     KryptonContextMenu contextMenu,
                                     bool cancel)
             : base(cancel)
-		{
+        {
             Page = page;
             KryptonContextMenu = contextMenu;
-		}
+        }
         #endregion
 
-		#region Public
+        #region Public
         /// <summary>
         /// Gets access to page associated with the context menu.
         /// </summary>
         public KryptonPage Page { get; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets access to context menu that can be customized.
         /// </summary>
         public KryptonContextMenu KryptonContextMenu { get; }
 
-	    #endregion
-	}
+        #endregion
+    }
 }

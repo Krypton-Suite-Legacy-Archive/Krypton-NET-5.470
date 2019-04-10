@@ -15,9 +15,9 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Redirects requests for tree view images from the TreeViewImages instance.
-	/// </summary>
+    /// <summary>
+    /// Redirects requests for tree view images from the TreeViewImages instance.
+    /// </summary>
     public class PaletteRedirectTreeView : PaletteRedirect
     {
         #region Instance Fields
@@ -25,10 +25,10 @@ namespace ComponentFactory.Krypton.Toolkit
         private readonly CheckBoxImages _checkboxImages;
         #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the PaletteRedirectTreeView class.
-		/// </summary>
+        /// </summary>
         /// <param name="plusMinusImages">Reference to source of tree view images.</param>
         /// <param name="checkboxImages">Reference to source of check box images.</param>
         public PaletteRedirectTreeView(TreeViewImages plusMinusImages,
@@ -37,9 +37,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
         }
 
-		/// <summary>
+        /// <summary>
         /// Initialize a new instance of the PaletteRedirectTreeView class.
-		/// </summary>
+        /// </summary>
         /// <param name="target">Initial palette target for redirection.</param>
         /// <param name="plusMinusImages">Reference to source of tree view images.</param>
         /// <param name="checkboxImages">Reference to source of check box images.</param>
@@ -47,14 +47,14 @@ namespace ComponentFactory.Krypton.Toolkit
                                        TreeViewImages plusMinusImages,
                                        CheckBoxImages checkboxImages)
             : base(target)
-		{
+        {
             Debug.Assert(plusMinusImages != null);
 
             // Remember incoming targets
             _plusMinusImages = plusMinusImages;
             _checkboxImages = checkboxImages;
-		}
-		#endregion
+        }
+        #endregion
 
         #region Images
         /// <summary>

@@ -69,47 +69,47 @@ namespace ComponentFactory.Krypton.Navigator
         }
 
         /// <summary>
-		/// Release resources.
-		/// </summary>
+        /// Release resources.
+        /// </summary>
         ~DragTarget()
-		{
-			// Only dispose of resources once
-			if (!IsDisposed)
-			{
-				// Only dispose of managed resources
-				Dispose(false);
-			}
-		}
+        {
+            // Only dispose of resources once
+            if (!IsDisposed)
+            {
+                // Only dispose of managed resources
+                Dispose(false);
+            }
+        }
 
-		/// <summary>
-		/// Release managed and unmanaged resources.
-		/// </summary>
-		public void Dispose()
-		{
-			// Only dispose of resources once
-			if (!IsDisposed)
-			{
-				// Dispose of managed and unmanaged resources
-				Dispose(true);
-			}
-		}
+        /// <summary>
+        /// Release managed and unmanaged resources.
+        /// </summary>
+        public void Dispose()
+        {
+            // Only dispose of resources once
+            if (!IsDisposed)
+            {
+                // Dispose of managed and unmanaged resources
+                Dispose(true);
+            }
+        }
 
-		/// <summary>
-		/// Release unmanaged and optionally managed resources.
-		/// </summary>
-		/// <param name="disposing">Called from Dispose method.</param>
-		protected virtual void Dispose(bool disposing)
-		{
-			// If called from explicit call to Dispose
-			if (disposing)
-			{
-				// No need to call destructor once dispose has occured
-				GC.SuppressFinalize(this);
-			}
+        /// <summary>
+        /// Release unmanaged and optionally managed resources.
+        /// </summary>
+        /// <param name="disposing">Called from Dispose method.</param>
+        protected virtual void Dispose(bool disposing)
+        {
+            // If called from explicit call to Dispose
+            if (disposing)
+            {
+                // No need to call destructor once dispose has occured
+                GC.SuppressFinalize(this);
+            }
 
-			// Mark as disposed
-			IsDisposed = true;
-		}
+            // Mark as disposed
+            IsDisposed = true;
+        }
 
         /// <summary>
         /// Gets a value indicating if the view has been disposed.

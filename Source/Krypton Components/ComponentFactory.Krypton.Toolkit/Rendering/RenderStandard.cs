@@ -1050,7 +1050,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                      PaletteState state,
                                                      bool composition,
                                                      bool glowing)
-		{
+        {
             Debug.Assert(context != null);
             Debug.Assert(palette != null);
             Debug.Assert(values != null);
@@ -1146,14 +1146,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <exception cref="ArgumentNullException"></exception>
         /// <returns>Memento with cached information.</returns>
         public override IDisposable LayoutContent(ViewLayoutContext context,
-											      Rectangle availableRect,
-											      IPaletteContent palette,
-											      IContentValues values,
-											      VisualOrientation orientation,
-											      PaletteState state,
+                                                  Rectangle availableRect,
+                                                  IPaletteContent palette,
+                                                  IContentValues values,
+                                                  VisualOrientation orientation,
+                                                  PaletteState state,
                                                   bool composition,
                                                   bool glowing)
-		{
+        {
             Debug.Assert(context != null);
             Debug.Assert(palette != null);
             Debug.Assert(values != null);

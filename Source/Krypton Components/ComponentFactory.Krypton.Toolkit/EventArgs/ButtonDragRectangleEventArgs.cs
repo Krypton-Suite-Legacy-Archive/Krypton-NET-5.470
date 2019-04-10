@@ -15,29 +15,29 @@ using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Details for an event that discovers the rectangle that the mouse has to leave to begin dragging.
-	/// </summary>
-	public class ButtonDragRectangleEventArgs : EventArgs
-	{
-		#region Instance Fields
+    /// </summary>
+    public class ButtonDragRectangleEventArgs : EventArgs
+    {
+        #region Instance Fields
 
-	    private Rectangle _dragRect;
+        private Rectangle _dragRect;
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the ButtonDragRectangleEventArgs class.
-		/// </summary>
+        /// </summary>
         /// <param name="point">Left mouse down point.</param>
         public ButtonDragRectangleEventArgs(Point point)
-		{
+        {
             Point = point;
             _dragRect = new Rectangle(Point, Size.Empty);
             _dragRect.Inflate(SystemInformation.DragSize);
             PreDragOffset = true;
-		}
+        }
         #endregion
 
         #region Point
@@ -46,7 +46,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public Point Point { get; }
 
-	    #endregion
+        #endregion
 
         #region DragRect
         /// <summary>
@@ -65,6 +65,6 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public bool PreDragOffset { get; set; }
 
-	    #endregion
+        #endregion
     }
 }

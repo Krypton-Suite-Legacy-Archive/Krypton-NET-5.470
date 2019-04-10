@@ -87,11 +87,11 @@ namespace ComponentFactory.Krypton.Ribbon
         #region Identity
         /// <summary>
         /// Initialize a new instance of the KryptonRibbonGroupLinesDesigner class.
-		/// </summary>
+        /// </summary>
         public KryptonRibbonGroupLinesDesigner()
         {
         }            
-		#endregion
+        #endregion
 
         #region Public
         /// <summary>

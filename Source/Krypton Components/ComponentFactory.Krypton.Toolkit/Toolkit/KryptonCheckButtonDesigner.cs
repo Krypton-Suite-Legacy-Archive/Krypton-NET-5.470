@@ -14,7 +14,7 @@ using System.ComponentModel.Design;
 namespace ComponentFactory.Krypton.Toolkit
 {
     internal class KryptonCheckButtonDesigner : KryptonButtonDesigner
-	{
+    {
         #region Public Overrides
         /// <summary>
         ///  Gets the design-time action lists supported by the component associated with the designer.

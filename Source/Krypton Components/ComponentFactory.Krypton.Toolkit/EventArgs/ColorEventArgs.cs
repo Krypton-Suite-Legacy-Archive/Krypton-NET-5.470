@@ -14,32 +14,32 @@ using System.Drawing;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Color event data.
-	/// </summary>
-	public class ColorEventArgs : EventArgs
-	{
-		#region Instance Fields
+    /// <summary>
+    /// Color event data.
+    /// </summary>
+    public class ColorEventArgs : EventArgs
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
+        #region Identity
+        /// <summary>
         /// Initialize a new instance of the ColorEventArgs class.
-		/// </summary>
+        /// </summary>
         /// <param name="color">Color associated with the event.</param>
         public ColorEventArgs(Color color)
-		{
+        {
             Color = color;
-		}
-		#endregion
+        }
+        #endregion
 
-		#region Public
-		/// <summary>
-		/// Gets the color.
-		/// </summary>
+        #region Public
+        /// <summary>
+        /// Gets the color.
+        /// </summary>
         public Color Color { get; }
 
-	    #endregion
-	}
+        #endregion
+    }
 }

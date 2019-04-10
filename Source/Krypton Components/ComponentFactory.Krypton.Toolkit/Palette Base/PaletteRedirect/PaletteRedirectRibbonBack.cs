@@ -69,7 +69,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                          IPaletteRibbonBack selectedBack,
                                          IPaletteRibbonBack focusOverrideBack)
             : base(target)
-		{
+        {
             // Remember state specific inheritance
             _disabledBack = disabledBack;
             _normalBack = normalBack;
@@ -78,7 +78,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _selectedBack = selectedBack;
             _focusOverrideBack = focusOverrideBack;
         }
-		#endregion
+        #endregion
 
         #region SetRedirectStates
         /// <summary>

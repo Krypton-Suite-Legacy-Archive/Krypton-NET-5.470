@@ -14,12 +14,12 @@ using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Provides a fixed orange variation on the sparkle appearance.
-	/// </summary>
+    /// </summary>
     public class PaletteSparkleOrange : PaletteSparkleBase
     {
-		#region Static Fields
+        #region Static Fields
         private static readonly ImageList _checkBoxList;
         private static readonly Image[] _radioButtonArray;
 
@@ -301,7 +301,7 @@ namespace ComponentFactory.Krypton.Toolkit
         
         #endregion
 
-		#region Identity
+        #region Identity
         static PaletteSparkleOrange()
         {
             _checkBoxList = new ImageList
@@ -330,6 +330,6 @@ namespace ComponentFactory.Krypton.Toolkit
                    _checkBoxList, _radioButtonArray)
         {
         }
-		#endregion
+        #endregion
     }
 }

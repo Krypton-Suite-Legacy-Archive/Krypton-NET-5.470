@@ -14,31 +14,31 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Provide inheritance of palette ribbon background properties from source redirector.
-	/// </summary>
+    /// <summary>
+    /// Provide inheritance of palette ribbon background properties from source redirector.
+    /// </summary>
     public class PaletteRibbonBackInheritRedirect : PaletteRibbonBackInherit
-	{
-		#region Instance Fields
-		private PaletteRedirect _redirect;
+    {
+        #region Instance Fields
+        private PaletteRedirect _redirect;
 
-	    #endregion
+        #endregion
 
-		#region Identity
+        #region Identity
         /// <summary>
         /// Initialize a new instance of the PaletteRibbonBackInheritRedirect class.
-		/// </summary>
+        /// </summary>
         /// <param name="redirect">Source for inherit requests.</param>
         /// <param name="styleBack">Ribbon item background style.</param>
         public PaletteRibbonBackInheritRedirect(PaletteRedirect redirect,
                                                 PaletteRibbonBackStyle styleBack)
-		{
-			Debug.Assert(redirect != null);
+        {
+            Debug.Assert(redirect != null);
 
-			_redirect = redirect;
+            _redirect = redirect;
             StyleBack = styleBack;
-		}
-		#endregion
+        }
+        #endregion
 
         #region SetRedirector
         /// <summary>
@@ -57,7 +57,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public PaletteRibbonBackStyle StyleBack { get; set; }
 
-	    #endregion
+        #endregion
 
         #region IPaletteRibbonBack
         /// <summary>

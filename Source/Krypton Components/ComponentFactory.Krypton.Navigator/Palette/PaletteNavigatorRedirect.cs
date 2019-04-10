@@ -15,23 +15,23 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Implement redirected storage for common navigator appearance.
-	/// </summary>
+    /// <summary>
+    /// Implement redirected storage for common navigator appearance.
+    /// </summary>
     public class PaletteNavigatorRedirect : PaletteDoubleMetricRedirect
-	{
+    {
         #region Instance Fields
 
-	    private readonly PaletteBorderInheritRedirect _paletteBorderEdgeInheritRedirect;
+        private readonly PaletteBorderInheritRedirect _paletteBorderEdgeInheritRedirect;
 
-	    #endregion
+        #endregion
 
-		#region Identity
-		/// <summary>
-		/// Initialize a new instance of the PaletteNavigatorNormabled class.
-		/// </summary>
+        #region Identity
+        /// <summary>
+        /// Initialize a new instance of the PaletteNavigatorNormabled class.
+        /// </summary>
         /// <param name="navigator">Reference to owning navigator.</param>
-		/// <param name="redirect">Inheritence redirection instance.</param>
+        /// <param name="redirect">Inheritence redirection instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public PaletteNavigatorRedirect(KryptonNavigator navigator,
                                         PaletteRedirect redirect,
@@ -45,9 +45,9 @@ namespace ComponentFactory.Krypton.Navigator
         {
         }
 
-		/// <summary>
-		/// Initialize a new instance of the PaletteNavigatorNormabled class.
-		/// </summary>
+        /// <summary>
+        /// Initialize a new instance of the PaletteNavigatorNormabled class.
+        /// </summary>
         /// <param name="navigator">Reference to owning navigator.</param>
         /// <param name="redirectNavigator">Inheritence redirection for navigator level.</param>
         /// <param name="redirectNavigatorPage">Inheritence redirection for page level.</param>
@@ -86,7 +86,7 @@ namespace ComponentFactory.Krypton.Navigator
                                         NeedPaintHandler needPaint)
             : base(redirectNavigator, PaletteBackStyle.PanelClient,
                    PaletteBorderStyle.ControlClient, needPaint)
-		{
+        {
             // Create the palette storage
             PalettePage = new PalettePageRedirect(redirectNavigatorPage, needPaint);
             HeaderGroup = new PaletteNavigatorHeaderGroupRedirect(redirectNavigatorHeaderGroup, redirectNavigatorHeaderPrimary, redirectNavigatorHeaderSecondary, redirectNavigatorHeaderBar, redirectNavigatorHeaderOverflow, needPaint);
@@ -102,7 +102,7 @@ namespace ComponentFactory.Krypton.Navigator
             RibbonGeneral = new PaletteRibbonGeneralNavRedirect(redirectNavigatorRibbonGeneral, needPaint);
             Metrics = new PaletteMetrics(navigator, needPaint);
         }
-		#endregion
+        #endregion
 
         #region RedirectBorderEdge
         /// <summary>
@@ -143,7 +143,7 @@ namespace ComponentFactory.Krypton.Navigator
                                            RibbonGeneral.IsDefault &&
                                            Metrics.IsDefault);
 
-	    #endregion
+        #endregion
 
         #region Bar
         /// <summary>
@@ -154,7 +154,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteBarRedirect Bar { get; }
 
-	    private bool ShouldSerializeBar()
+        private bool ShouldSerializeBar()
         {
             return !Bar.IsDefault;
         }
@@ -170,7 +170,7 @@ namespace ComponentFactory.Krypton.Navigator
         public override PaletteBack Back => base.Back;
 
 
-	    /// <summary>
+        /// <summary>
         /// Gets the background palette.
         /// </summary>
         [Browsable(false)]
@@ -178,7 +178,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override IPaletteBack PaletteBack => base.PaletteBack;
 
-	    #endregion
+        #endregion
 
         #region Border
         /// <summary>
@@ -189,7 +189,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override PaletteBorder Border => base.Border;
 
-	    /// <summary>
+        /// <summary>
         /// Gets the border palette.
         /// </summary>
         [Browsable(false)]
@@ -197,7 +197,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override IPaletteBorder PaletteBorder => base.PaletteBorder;
 
-	    #endregion
+        #endregion
 
         #region Panel
         /// <summary>
@@ -208,7 +208,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteBack Panel => base.Back;
 
-	    private bool ShouldSerializePanel()
+        private bool ShouldSerializePanel()
         {
             return !base.Back.IsDefault;
         }
@@ -223,7 +223,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTripleRedirect CheckButton { get; }
 
-	    private bool ShouldSerializeCheckButton()
+        private bool ShouldSerializeCheckButton()
         {
             return !CheckButton.IsDefault;
         }
@@ -238,7 +238,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTripleRedirect OverflowButton { get; }
 
-	    private bool ShouldSerializeOverflowButton()
+        private bool ShouldSerializeOverflowButton()
         {
             return !OverflowButton.IsDefault;
         }
@@ -253,7 +253,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTripleRedirect MiniButton { get; }
 
-	    private bool ShouldSerializeMiniButton()
+        private bool ShouldSerializeMiniButton()
         {
             return !MiniButton.IsDefault;
         }
@@ -268,7 +268,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteNavigatorHeaderGroupRedirect HeaderGroup { get; }
 
-	    private bool ShouldSerializeHeaderGroup()
+        private bool ShouldSerializeHeaderGroup()
         {
             return !HeaderGroup.IsDefault;
         }
@@ -283,7 +283,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteBack Page => PalettePage.Back;
 
-	    private bool ShouldSerializePage()
+        private bool ShouldSerializePage()
         {
             return !PalettePage.Back.IsDefault;
         }
@@ -298,7 +298,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteBorderEdgeRedirect BorderEdge { get; }
 
-	    private bool ShouldSerializeBorderEdge()
+        private bool ShouldSerializeBorderEdge()
         {
             return !BorderEdge.IsDefault;
         }
@@ -313,7 +313,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteMetrics Metrics { get; }
 
-	    private bool ShouldSerializeMetrics()
+        private bool ShouldSerializeMetrics()
         {
             return !Metrics.IsDefault;
         }
@@ -328,7 +328,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteSeparatorPaddingRedirect Separator { get; }
 
-	    private bool ShouldSerializeSeparator()
+        private bool ShouldSerializeSeparator()
         {
             return !Separator.IsDefault;
         }
@@ -343,7 +343,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTabTripleRedirect Tab { get; }
 
-	    private bool ShouldSerializeTab()
+        private bool ShouldSerializeTab()
         {
             return !Tab.IsDefault;
         }
@@ -358,7 +358,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteRibbonTabContentRedirect RibbonTab { get; }
 
-	    private bool ShouldSerializeRibbonTab()
+        private bool ShouldSerializeRibbonTab()
         {
             return !RibbonTab.IsDefault;
         }
@@ -373,7 +373,7 @@ namespace ComponentFactory.Krypton.Navigator
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteRibbonGeneralNavRedirect RibbonGeneral { get; }
 
-	    private bool ShouldSerializeRibbonGeneral()
+        private bool ShouldSerializeRibbonGeneral()
         {
             return !RibbonGeneral.IsDefault;
         }
@@ -428,10 +428,10 @@ namespace ComponentFactory.Krypton.Navigator
         #region Internal
         internal PalettePageRedirect PalettePage { get; }
 
-	    internal PaletteBorderStyle BorderEdgeStyle
+        internal PaletteBorderStyle BorderEdgeStyle
         {
             set => _paletteBorderEdgeInheritRedirect.Style = value;
-	    }
+        }
         #endregion    
     }
 }

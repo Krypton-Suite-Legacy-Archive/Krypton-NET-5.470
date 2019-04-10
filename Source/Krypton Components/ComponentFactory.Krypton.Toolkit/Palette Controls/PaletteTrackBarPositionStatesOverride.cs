@@ -15,25 +15,25 @@ using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
-	/// Implement storage for a track bar position only states.
-	/// </summary>
+    /// <summary>
+    /// Implement storage for a track bar position only states.
+    /// </summary>
     public class PaletteTrackBarPositionStatesOverride : GlobalId
-	{
-		#region Instance Fields
+    {
+        #region Instance Fields
 
-	    #endregion
+        #endregion
 
-		#region Identity
+        #region Identity
 
-	    /// <summary>
-	    /// Initialize a new instance of the PaletteTrackBarPositionStatesOverride class.
-	    /// </summary>
-	    /// <param name="normalStates">Normal state values.</param>
-	    /// <param name="overrideStates">Override state values.</param>
-	    /// <param name="overrideState">State to override.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    public PaletteTrackBarPositionStatesOverride(PaletteTrackBarRedirect normalStates,
+        /// <summary>
+        /// Initialize a new instance of the PaletteTrackBarPositionStatesOverride class.
+        /// </summary>
+        /// <param name="normalStates">Normal state values.</param>
+        /// <param name="overrideStates">Override state values.</param>
+        /// <param name="overrideState">State to override.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public PaletteTrackBarPositionStatesOverride(PaletteTrackBarRedirect normalStates,
                                                      PaletteTrackBarPositionStates overrideStates,
                                                      PaletteState overrideState)
         {
@@ -78,14 +78,14 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Apply
         /// <summary>
-		/// Gets and sets a value indicating if override should be applied.
-		/// </summary>
-		public bool Apply
-		{
+        /// Gets and sets a value indicating if override should be applied.
+        /// </summary>
+        public bool Apply
+        {
             get => Position.Apply;
             set => Position.Apply = value;
         }
-		#endregion
+        #endregion
 
         #region Override
         /// <summary>
@@ -98,16 +98,16 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
-		#region OverrideState
-		/// <summary>
-		/// Gets and sets the override palette state to use.
-		/// </summary>
-		public PaletteState OverrideState
-		{
+        #region OverrideState
+        /// <summary>
+        /// Gets and sets the override palette state to use.
+        /// </summary>
+        public PaletteState OverrideState
+        {
             get => Position.OverrideState;
-		    set => Position.OverrideState = value;
-		}
-		#endregion
+            set => Position.OverrideState = value;
+        }
+        #endregion
 
         #region Position
         /// <summary>
@@ -119,6 +119,6 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteElementColorInheritOverride Position { get; }
 
-	    #endregion
-	}
+        #endregion
+    }
 }

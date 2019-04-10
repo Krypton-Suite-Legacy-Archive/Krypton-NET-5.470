@@ -16,9 +16,9 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
 {
-	/// <summary>
-	/// Storage for outlook mode related properties.
-	/// </summary>
+    /// <summary>
+    /// Storage for outlook mode related properties.
+    /// </summary>
     public class NavigatorOutlook : Storage
     {
         #region Static Fields
@@ -43,12 +43,12 @@ namespace ComponentFactory.Krypton.Navigator
         #region Identity
         /// <summary>
         /// Initialize a new instance of the NavigatorOutlook class.
-		/// </summary>
+        /// </summary>
         /// <param name="navigator">Reference to owning navigator instance.</param>
         /// <param name="needPaint">Delegate for notifying paint requests.</param>
         public NavigatorOutlook(KryptonNavigator navigator,
                                 NeedPaintHandler needPaint)
-		{
+        {
             Debug.Assert(navigator != null);
             
             // Remember back reference
@@ -73,7 +73,7 @@ namespace ComponentFactory.Krypton.Navigator
             TextAddRemoveButtons = DEFAULT_ADD_REMOVE_BUTTONS;
             _showDropDownButton = true;
         }
-		#endregion
+        #endregion
 
         #region IsDefault
         /// <summary>
