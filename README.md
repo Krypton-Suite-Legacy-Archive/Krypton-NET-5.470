@@ -22,7 +22,7 @@
 
 ## 2019-04-04 Build 856 - Bugfixes and contributions
 * Fixed issue [#104](https://github.com/Wagnerp/Krypton-NET-5.470/issues/104), designer usage exceptions
-* Fixed issue [#116](https://github.com/Wagnerp/Krypton-NET-5.470/issues/116), 
+* Fixed issue [#116](https://github.com/Wagnerp/Krypton-NET-5.470/issues/116)
 * `KryptonManager` now displays themes and names correctly
 * General fixes to `ThemeManager.cs` & `RibbonThemeManager.cs`
 * Implement `DrawItem()` event in KryptonComboBox
