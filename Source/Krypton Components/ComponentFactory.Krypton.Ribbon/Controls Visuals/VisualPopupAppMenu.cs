@@ -10,10 +10,11 @@
 // *****************************************************************************
 
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using System.ComponentModel;
+
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
@@ -64,7 +65,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _ribbon = ribbon;
             _rectAppButtonTopHalf = rectAppButtonTopHalf;
             _rectAppButtonBottomHalf = rectAppButtonBottomHalf;
-            
+
             // Create the view manager instance with root element
             ViewManager = new ViewContextMenuManager(this, new ViewLayoutNull());
 
@@ -77,7 +78,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Create provider instance
             _provider = new AppButtonMenuProvider((ViewContextMenuManager)ViewManager,
                                                   _ribbon.RibbonAppButton.AppButtonMenuItems,
-                                                  _viewColumns, palette, paletteMode, 
+                                                  _viewColumns, palette, paletteMode,
                                                   redirector, NeedPaintDelegate);
 
             _provider.Closing += OnProviderClosing;
@@ -441,7 +442,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (e.KeyData == Keys.Escape)
                 {
                     // Using the escape key should give a close reason of keyboard
-                    _provider.ProviderCloseReason = ToolStripDropDownCloseReason.Keyboard;                    
+                    _provider.ProviderCloseReason = ToolStripDropDownCloseReason.Keyboard;
                 }
             }
 

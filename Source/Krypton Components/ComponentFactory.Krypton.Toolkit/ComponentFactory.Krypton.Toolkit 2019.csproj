@@ -505,7 +505,6 @@
     <Compile Include="Palette Controls\PaletteColorButtonStrings.cs" />
     <Compile Include="Rendering\KryptonOffice2013Renderer.cs" />
     <Compile Include="Rendering\KryptonOffice365Renderer.cs" />
-    <Compile Include="Rendering\RenderFormShadow.cs" />
     <Compile Include="Rendering\RenderOffice2013.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1388,7 +1387,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_StartDate="2000/1/1" DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" />
+      <UserProperties DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" BuildVersion_StartDate="2000/1/1" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

@@ -167,7 +167,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (positionPlacementRectangle.IntersectsWith(new Rectangle(controlMousePosition, (Size)currentCursorHotSpot)))
                     {
                         // TODO: SKC: Should really get the HotSpot from the Icon and use that !
-                        popupLocation.X = controlMousePosition.X+4; // Still might "Bounce back" due to offscreen location
+                        popupLocation.X = controlMousePosition.X + 4; // Still might "Bounce back" due to offscreen location
                     }
                     break;
                 case PlacementMode.Bottom:
@@ -182,7 +182,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (positionPlacementRectangle.IntersectsWith(new Rectangle(controlMousePosition, (Size)currentCursorHotSpot)))
                     {
                         // TODO: SKC: Should really get the HotSpot from the Icon and use that !
-                        popupLocation.X = controlMousePosition.X+4; // Still might "Bounce back" due to offscreen location
+                        popupLocation.X = controlMousePosition.X + 4; // Still might "Bounce back" due to offscreen location
                     }
                     break;
                 case PlacementMode.Left:
@@ -216,7 +216,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Find the screen position the popup will be relative to
             Point currentCursorHotSpot = CommonHelper.CaptureCursor();
-            controlMousePosition.Offset(currentCursorHotSpot.X+2, currentCursorHotSpot.Y + 2);
+            controlMousePosition.Offset(currentCursorHotSpot.X + 2, currentCursorHotSpot.Y + 2);
             // Show it now!
             Show(controlMousePosition, popupSize);
         }

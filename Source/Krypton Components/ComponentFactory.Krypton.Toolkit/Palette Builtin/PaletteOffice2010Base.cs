@@ -13,6 +13,7 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
+
 using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -226,12 +227,12 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Back
         /// <summary>
-		/// Gets a value indicating if background should be drawn.
-		/// </summary>
-		/// <param name="style">Background style.</param>
-		/// <param name="state">Palette value should be applicable to this state.</param>
-		/// <returns>InheritBool value.</returns>
-		public override InheritBool GetBackDraw(PaletteBackStyle style, PaletteState state)
+        /// Gets a value indicating if background should be drawn.
+        /// </summary>
+        /// <param name="style">Background style.</param>
+        /// <param name="state">Palette value should be applicable to this state.</param>
+        /// <returns>InheritBool value.</returns>
+        public override InheritBool GetBackDraw(PaletteBackStyle style, PaletteState state)
         {
             // We do not provide override values
             if (CommonHelper.IsOverrideState(state))
@@ -5720,7 +5721,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteContentStyle.InputControlCustom1:
                 case PaletteContentStyle.InputControlCustom2:
                 case PaletteContentStyle.InputControlCustom3:
-                    if (state != PaletteState.Normal)
+                    if (state == PaletteState.Disabled)
                     {
                         return _ribbonColors[(int)SchemeOfficeColors.InputControlTextDisabled];
                     }

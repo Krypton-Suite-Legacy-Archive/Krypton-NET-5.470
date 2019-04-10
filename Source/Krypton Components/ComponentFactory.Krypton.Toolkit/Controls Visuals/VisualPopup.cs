@@ -24,17 +24,17 @@ namespace ComponentFactory.Krypton.Toolkit
     /// Base class used for implementation of popup controls.
     /// </summary>
     [ToolboxItem(false)]
-	[DesignerCategory("code")]
+    [DesignerCategory("code")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     public class VisualPopup : ContainerControl
-	{
+    {
         #region Instance Fields
         private bool _layoutDirty;
         private bool _refresh;
         private bool _refreshAll;
         private readonly SimpleCall _refreshCall;
-	    private VisualPopupShadow _shadow;
+        private VisualPopupShadow _shadow;
         #endregion
 
         #region Identity
@@ -49,7 +49,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// Initialize a new instance of the VisualPopup class.
-		/// </summary>
+        /// </summary>
         /// <param name="renderer">Drawing renderer.</param>
         /// <param name="shadow">Does the popup need a shadow effect.</param>
         public VisualPopup(IRenderer renderer,
@@ -60,41 +60,41 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// Initialize a new instance of the VisualPopup class.
-		/// </summary>
+        /// </summary>
         /// <param name="viewManager">View manager instance for managing view display.</param>
         /// <param name="renderer">Drawing renderer.</param>
         /// <param name="shadow">Does the popup need a shadow effect.</param>
         public VisualPopup(ViewManager viewManager,
                            IRenderer renderer,
                            bool shadow)
-		{
-			#region Default ControlStyle Values
-			// Default style values for Control are:-
-			//	True  - AllPaintingInWmPaint
-			//	False - CacheText
-			//	False - ContainerControl
-			//	False - EnableNotifyMessage
-			//	False - FixedHeight
-			//	False - FixedWidth
-			//	False - Opaque
-			//	False - OptimizedDoubleBuffer
-			//	False - ResizeRedraw
-			//	False - Selectable
-			//	True  - StandardClick
-			//	True  - StandardDoubleClick
-			//	False - SupportsTransparentBackColor
-			//	False - UserMouse
-			//	True  - UserPaint
-			//	True  - UseTextForAccessibility
-			#endregion
+        {
+            #region Default ControlStyle Values
+            // Default style values for Control are:-
+            //	True  - AllPaintingInWmPaint
+            //	False - CacheText
+            //	False - ContainerControl
+            //	False - EnableNotifyMessage
+            //	False - FixedHeight
+            //	False - FixedWidth
+            //	False - Opaque
+            //	False - OptimizedDoubleBuffer
+            //	False - ResizeRedraw
+            //	False - Selectable
+            //	True  - StandardClick
+            //	True  - StandardDoubleClick
+            //	False - SupportsTransparentBackColor
+            //	False - UserMouse
+            //	True  - UserPaint
+            //	True  - UseTextForAccessibility
+            #endregion
 
-			// We use double buffering to reduce drawing flicker
-			SetStyle(ControlStyles.OptimizedDoubleBuffer |
-					 ControlStyles.AllPaintingInWmPaint |
-					 ControlStyles.UserPaint, true);
+            // We use double buffering to reduce drawing flicker
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                                                                                                     ControlStyles.AllPaintingInWmPaint |
+                                                                                                     ControlStyles.UserPaint, true);
 
-			// We need to repaint entire control whenever resized
-			SetStyle(ControlStyles.ResizeRedraw, true);
+            // We need to repaint entire control whenever resized
+            SetStyle(ControlStyles.ResizeRedraw, true);
 
             // Cannot select control by using mouse to click it
             SetStyle(ControlStyles.Selectable, false);
@@ -153,7 +153,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 DismissedDelegate = null;
             }
         }
-		#endregion
+        #endregion
 
         #region Public
         /// <summary>
@@ -163,7 +163,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public virtual void Show(Rectangle screenRect)
         {
             // Update the screen position
-            SetBounds(screenRect.X, screenRect.Y, 
+            SetBounds(screenRect.X, screenRect.Y,
                       screenRect.Width, screenRect.Height);
 
             // If we have a shadow then update it now
@@ -291,17 +291,17 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         public virtual bool AllowBecomeActiveWhenCurrent => true;
 
-	    /// <summary>
+        /// <summary>
         /// Should the mouse move at provided screen point be allowed.
         /// </summary>
         /// <param name="m">Original message.</param>
         /// <param name="pt">Client coordinates point.</param>
         /// <returns>True to allow; otherwise false.</returns>
         public virtual bool AllowMouseMove(Message m, Point pt)
-	    {
-	        // If we have the focus then we always allow the mouse move
-	        return ContainsFocus || RectangleToScreen(ClientRectangle).Contains(pt);
-	    }
+        {
+            // If we have the focus then we always allow the mouse move
+            return ContainsFocus || RectangleToScreen(ClientRectangle).Contains(pt);
+        }
 
         /// <summary>
         /// Create a tool strip renderer appropriate for the current renderer/palette pair.
@@ -334,9 +334,9 @@ namespace ComponentFactory.Krypton.Toolkit
             [DebuggerStepThrough]
             get;
             set;
-	    }
+        }
 
-	    /// <summary>
+        /// <summary>
         /// Fires the NeedPaint event.
         /// </summary>
         /// <param name="needLayout">Does the palette change require a layout.</param>
@@ -354,14 +354,14 @@ namespace ComponentFactory.Krypton.Toolkit
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public EventHandler DismissedDelegate { get; set; }
 
-	    /// <summary>
+        /// <summary>
         /// Gets a value indicating if the keyboard is passed to this popup.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public virtual bool KeyboardInert => false;
 
-	    /// <summary>
+        /// <summary>
         /// Gets access to the view manager of the popup.
         /// </summary>
         /// <returns></returns>
@@ -380,18 +380,18 @@ namespace ComponentFactory.Krypton.Toolkit
             [DebuggerStepThrough]
             get;
             set;
-	    }
+        }
 
-	    /// <summary>
+        /// <summary>
         /// Gets access to the need paint delegate.
         /// </summary>
         protected NeedPaintHandler NeedPaintDelegate
-	    {
-	        [DebuggerStepThrough]
-	        get;
-	    }
+        {
+            [DebuggerStepThrough]
+            get;
+        }
 
-	    #endregion
+        #endregion
 
         #region Protected Virtual
         /// <summary>
@@ -399,13 +399,13 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected virtual bool EvalInvokePaint => false;
 
-	    /// <summary>
-	    /// Processes a notification from palette storage of a paint and optional layout required.
-	    /// </summary>
-	    /// <param name="sender">Source of notification.</param>
-	    /// <param name="e">An NeedLayoutEventArgs containing event data.</param>
-	    /// <exception cref="ArgumentNullException"></exception>
-	    protected virtual void OnNeedPaint(object sender, NeedLayoutEventArgs e)
+        /// <summary>
+        /// Processes a notification from palette storage of a paint and optional layout required.
+        /// </summary>
+        /// <param name="sender">Source of notification.</param>
+        /// <param name="e">An NeedLayoutEventArgs containing event data.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        protected virtual void OnNeedPaint(object sender, NeedLayoutEventArgs e)
         {
             Debug.Assert(e != null);
 
