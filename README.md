@@ -20,6 +20,17 @@
 
 =======
 
+## 2019-04-11 Build 872 - Bugfixes and Alterations
+* Fixed issue [#132](https://github.com/Wagnerp/Krypton-NET-5.470/issues/132), missing `OnDropDownClosed()` event for `KryptonComboBox`
+* Fixed issue [#129](https://github.com/Wagnerp/Krypton-NET-5.470/issues/129), hints appeared grey even though they were enabled
+* Fixed issue [#124](https://github.com/Wagnerp/Krypton-NET-5.470/issues/124), tooltips would occasionally throw an exception
+* Removed files relating to 2018 [#130](https://github.com/Wagnerp/Krypton-NET-5.470/issues/130)
+* Minor alterations to `ThemeManager.cs`
+* New installer [#133](https://github.com/Wagnerp/Krypton-NET-5.470/issues/133)
+* Build 872 (build date Thursday 10th April, 2019) is now available on NuGet
+
+=======
+
 ## 2019-04-04 Build 856 - Bugfixes and contributions
 * Fixed issue [#104](https://github.com/Wagnerp/Krypton-NET-5.470/issues/104), designer usage exceptions
 * Fixed issue [#116](https://github.com/Wagnerp/Krypton-NET-5.470/issues/116)
