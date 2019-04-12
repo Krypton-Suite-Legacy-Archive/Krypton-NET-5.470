@@ -886,10 +886,7 @@ namespace KryptonExplorer
 
             tslVersion.Text = $"Version: { _currentVersion.ToString() }";
 
-            foreach (string item in ThemeManager.SupportedThemeArray)
-            {
-                kcmbTheme.Items.Add(item);
-            }
+            ThemeManager.PropagateThemeSelector(kcmbTheme);
         }
 
         private void kbtnOpenApplicationPath_Click(object sender, EventArgs e)
@@ -909,7 +906,9 @@ namespace KryptonExplorer
 
         private void kbtnApplyTheme_Click(object sender, EventArgs e)
         {
-            ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.ApplyThemeMode(kcmbTheme.Text));
+            ThemeManager.SetTheme(kcmbTheme.Text, kryptonManager1);
+
+            ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.GetPaletteMode(kryptonManager1));
 
             Invalidate();
 
