@@ -106,6 +106,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Krypton.ico" />
+    <None Include="Resources\KR 32 x 32 Orange.png" />
+    <None Include="Resources\Square Design 32 x 32 New Green.png" />
+    <None Include="Resources\Square Design 64 x 64 New Green.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="KryptonToolkitSuite5470">

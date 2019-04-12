@@ -914,5 +914,20 @@ namespace KryptonExplorer
 
             kbtnApplyTheme.Enabled = false;
         }
+
+        private void KbtnKryptonToolkitPackage_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.nuget.org/packages/KryptonToolkitSuite5470/");
+        }
+
+        private void KbtnKryptonExtendedToolkitPackage_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.nuget.org/packages/KryptonExtendedToolkit5470/");
+        }
+
+        private void KbtnKryptonDemoApplicationPackage_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.nuget.org/packages/KryptonToolkitSuite5470Demos/");
+        }
     }
 }
