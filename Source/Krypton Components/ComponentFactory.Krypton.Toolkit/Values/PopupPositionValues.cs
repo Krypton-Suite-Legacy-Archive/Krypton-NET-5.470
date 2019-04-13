@@ -36,7 +36,7 @@ namespace ComponentFactory.Krypton.Toolkit.Values
         /// </summary>
         public void Reset()
         {
-            PlacementMode = PlacementMode.Mouse;
+            PlacementMode = PlacementMode.Bottom;
             PlacementTarget = null;
             PlacementRectangle = new Rectangle();
         }

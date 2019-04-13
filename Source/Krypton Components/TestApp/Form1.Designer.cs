@@ -38,6 +38,7 @@
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonButton3 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kbtnLoadTheme = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonNavigator1 = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
             this.kryptonPage1 = new ComponentFactory.Krypton.Navigator.KryptonPage();
@@ -52,7 +53,6 @@
             this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.kryptonButton3 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
@@ -100,6 +100,19 @@
             this.kryptonPanel2.Name = "kryptonPanel2";
             this.kryptonPanel2.Size = new System.Drawing.Size(800, 450);
             this.kryptonPanel2.TabIndex = 0;
+            // 
+            // kryptonButton3
+            // 
+            this.kryptonButton3.Location = new System.Drawing.Point(174, 338);
+            this.kryptonButton3.Name = "kryptonButton3";
+            this.kryptonButton3.Size = new System.Drawing.Size(143, 53);
+            this.kryptonButton3.TabIndex = 17;
+            this.kryptonButton3.ToolTipValues.Description = "Applies the user selected theme";
+            this.kryptonButton3.ToolTipValues.EnableToolTips = true;
+            this.kryptonButton3.ToolTipValues.Heading = "Apply Theme";
+            this.kryptonButton3.ToolTipValues.Image = global::TestApp.Properties.Resources.Square_Design_32_x_32_New_Green;
+            this.kryptonButton3.Values.Text = "Show Small \r\nTooltip Form";
+            this.kryptonButton3.Click += new System.EventHandler(this.kryptonButton3_Click);
             // 
             // kbtnLoadTheme
             // 
@@ -268,19 +281,6 @@
             this.buttonSpecAny1.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.SuperTip;
             this.buttonSpecAny1.ToolTipTitle = "Title";
             this.buttonSpecAny1.UniqueName = "8D0C7B51F6A946484D932C2A06451172";
-            // 
-            // kryptonButton3
-            // 
-            this.kryptonButton3.Location = new System.Drawing.Point(174, 338);
-            this.kryptonButton3.Name = "kryptonButton3";
-            this.kryptonButton3.Size = new System.Drawing.Size(143, 53);
-            this.kryptonButton3.TabIndex = 17;
-            this.kryptonButton3.ToolTipValues.Description = "Applies the user selected theme";
-            this.kryptonButton3.ToolTipValues.EnableToolTips = true;
-            this.kryptonButton3.ToolTipValues.Heading = "Apply Theme";
-            this.kryptonButton3.ToolTipValues.Image = global::TestApp.Properties.Resources.Square_Design_32_x_32_New_Green;
-            this.kryptonButton3.Values.Text = "Show Small \r\nTooltip Form";
-            this.kryptonButton3.Click += new System.EventHandler(this.kryptonButton3_Click);
             // 
             // Form1
             // 

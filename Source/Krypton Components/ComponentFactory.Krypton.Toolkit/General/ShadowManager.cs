@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private KryptonForm kryptonForm;
         private ShadowValues shadowValues;
         private bool allowDrawing;
-        private Form[] shadowForms;
+        private VisualShadowBase[] shadowForms;
         #endregion
 
         #region Identity
@@ -38,36 +38,26 @@ namespace ComponentFactory.Krypton.Toolkit
             shadowValues.MarginsChanged += ShadowValues_MarginsChanged;
             shadowValues.BlurDistanceChanged += ShadowValues_BlurDistanceChanged;
             shadowValues.ColourChanged += ShadowValues_ColourChanged;
-
-    }
+            shadowValues.HideOnNonActiveFormChanged += ShadowValues_HideOnNonActiveForm;
+        }
+        #endregion
 
         private void InitialiseShadowForms()
         {
-            shadowForms = new Form[4];
+            shadowForms = new VisualShadowBase[4];
             for (int i = 0; i < 4; i++)
             {
-                Form cur = new Form
-                {
-                    StartPosition = FormStartPosition.Manual,
-                    ShowIcon = false,
-                    ShowInTaskbar = false,
-                    Enabled = false,
-                    FormBorderStyle = FormBorderStyle.None,
-                    AccessibleRole = AccessibleRole.None,
-                    TransparencyKey = Color.Magenta,
-                    BackColor = Color.Magenta
-                };
-                shadowForms[i] = cur;
+                shadowForms[i] = new VisualShadowBase();
             }
         }
 
-        public bool AllowDrawing
+        private bool AllowDrawing
         {
-            get => allowDrawing && shadowValues.EnableShadows && kryptonForm.Visible;
-            set => allowDrawing = value;
+            get => allowDrawing
+                   && shadowValues.EnableShadows
+                   && (!shadowValues.HideOnNonActiveForm || kryptonForm.WindowActive)
+                   && kryptonForm.Visible;
         }
-
-        #endregion
 
         private void KryptonFormOnClosing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -79,7 +69,6 @@ namespace ComponentFactory.Krypton.Toolkit
             kryptonForm.Shown -= KryptonFormOnShown;
             kryptonForm.VisibleChanged -= KryptonFormOnVisibleChanged;
         }
-
 
         private void KryptonFormOnVisibleChanged(object sender, EventArgs e)
         {
@@ -113,6 +102,19 @@ namespace ComponentFactory.Krypton.Toolkit
         private void KryptonFormOnMove(object sender, EventArgs e)
         {
             PositionShadowForms();
+        }
+
+        private void ShadowValues_HideOnNonActiveForm(object sender, EventArgs e)
+        {
+            foreach (Form shadowForm in shadowForms)
+            {
+                shadowForm.Visible = AllowDrawing;
+            }
+
+            if (AllowDrawing)
+            {
+                PositionShadowForms();
+            }
         }
 
         private void ShadowValues_ColourChanged(object sender, ColorEventArgs e)

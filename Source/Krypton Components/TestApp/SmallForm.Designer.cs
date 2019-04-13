@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ComponentFactory.Krypton.Toolkit.Values.PopupPositionValues popupPositionValues1 = new ComponentFactory.Krypton.Toolkit.Values.PopupPositionValues();
             this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton3 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -45,6 +46,8 @@
             this.kryptonButton2.TabIndex = 1;
             this.kryptonButton2.ToolTipValues.EnableToolTips = true;
             this.kryptonButton2.ToolTipValues.Image = null;
+            popupPositionValues1.PlacementMode = ComponentFactory.Krypton.Toolkit.PlacementMode.MousePoint;
+            this.kryptonButton2.ToolTipValues.ToolTipPosition = popupPositionValues1;
             this.kryptonButton2.Values.Text = "ToolTip Me";
             // 
             // kryptonButton3
