@@ -55,6 +55,22 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Krypton Docking, Version=5.470.692.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\Krypton Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton Navigator, Version=5.470.673.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\Krypton Navigator.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton Toolkit, Version=5.470.872.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\Krypton Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton Workspace, Version=5.470.670.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\Krypton Workspace.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -103,11 +119,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Krypton.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="KryptonToolkitSuite5470">
-      <Version>5.470.872</Version>
-    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

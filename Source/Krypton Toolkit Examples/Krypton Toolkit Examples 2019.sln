@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.2043
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 14.0.25123.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KryptonButton Examples 2019", "KryptonButton Examples\KryptonButton Examples 2019.csproj", "{B50563E6-3123-49FC-816D-F873A0BCB789}"
 EndProject
@@ -100,6 +100,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KryptonTaskDialog Examples 2019", "KryptonTaskDialog Examples\KryptonTaskDialog Examples 2019.csproj", "{F5725FE2-F65B-4781-9037-9B4CEBDECAAB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KryptonInputBox Examples 2019", "KryptonInputBox Examples\KryptonInputBox Examples 2019.csproj", "{16DA7141-9737-4A0A-8A3D-F53775657C29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentFactory.Krypton.Toolkit 2019", "..\Krypton Components\ComponentFactory.Krypton.Toolkit\ComponentFactory.Krypton.Toolkit 2019.csproj", "{96ECAECC-54F8-4AA5-8591-B443C2D9565F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -303,6 +305,10 @@ Global
 		{16DA7141-9737-4A0A-8A3D-F53775657C29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16DA7141-9737-4A0A-8A3D-F53775657C29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16DA7141-9737-4A0A-8A3D-F53775657C29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96ECAECC-54F8-4AA5-8591-B443C2D9565F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96ECAECC-54F8-4AA5-8591-B443C2D9565F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96ECAECC-54F8-4AA5-8591-B443C2D9565F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96ECAECC-54F8-4AA5-8591-B443C2D9565F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

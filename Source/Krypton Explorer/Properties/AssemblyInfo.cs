@@ -9,17 +9,15 @@
 // *****************************************************************************
 
 using System;
-using System.Security;
-using System.Resources;
 using System.Reflection;
-using System.Diagnostics;
-using System.Security.Permissions;
+using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Security;
 
 [assembly: AssemblyVersion("17.470.6015.15")]
 [assembly: AssemblyFileVersion("17.470.6015.15")]
-[assembly: AssemblyInformationalVersion("4.5.15.0")]
+[assembly: AssemblyInformationalVersion("17.470.6015.15")]
 [assembly: AssemblyCopyright("© Component Factory Pty Ltd 2012 - 2019. All rights reserved.")]
 [assembly: AssemblyProduct("Krypton Explorer")]
 [assembly: AssemblyDefaultAlias("KryptonExplorer.dll")]

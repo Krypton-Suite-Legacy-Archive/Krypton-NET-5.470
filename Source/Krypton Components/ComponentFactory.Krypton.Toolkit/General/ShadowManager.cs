@@ -47,7 +47,7 @@ namespace ComponentFactory.Krypton.Toolkit
             shadowForms = new VisualShadowBase[4];
             for (int i = 0; i < 4; i++)
             {
-                shadowForms[i] = new VisualShadowBase();
+                shadowForms[i] = new VisualShadowBase(shadowValues, (VisualOrientation)i);
             }
         }
 

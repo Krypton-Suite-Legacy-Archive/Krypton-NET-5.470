@@ -36,6 +36,10 @@
     <ApplicationIcon>Resources\Krypton.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Krypton Toolkit, Version=5.470.872.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\Krypton Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -78,11 +82,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Krypton.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="KryptonToolkitSuite5470">
-      <Version>5.470.872</Version>
-    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
