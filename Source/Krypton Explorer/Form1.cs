@@ -9,12 +9,14 @@
 //  Version 4.7.0.0  www.ComponentFactory.com
 // *************************************************************************
 
-using ComponentFactory.Krypton.Toolkit;
-using KryptonExplorer.Properties;
 using System;
 using System.Diagnostics;
 using System.Reflection;
 using System.Windows.Forms;
+
+using ComponentFactory.Krypton.Toolkit;
+
+using KryptonExplorer.Properties;
 
 namespace KryptonExplorer
 {

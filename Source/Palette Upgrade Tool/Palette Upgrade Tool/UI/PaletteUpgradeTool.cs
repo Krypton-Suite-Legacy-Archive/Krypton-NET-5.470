@@ -1,5 +1,9 @@
-﻿using ComponentFactory.Krypton.Toolkit;
-using PaletteUpgradeTool.Properties;
+﻿// *****************************************************************************
+// BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
+//  Created by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2018 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
+//  Version 5.470.0.0  www.ComponentFactory.com
+// *****************************************************************************
+
 using System;
 using System.Drawing;
 using System.IO;
@@ -7,6 +11,10 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.XPath;
 using System.Xml.Xsl;
+
+using ComponentFactory.Krypton.Toolkit;
+
+using PaletteUpgradeTool.Properties;
 
 namespace PaletteUpgradeTool.UI
 {

@@ -13,6 +13,9 @@ namespace ComponentFactory.Krypton.Toolkit
 {
     internal class VisualShadowBase : Form
     {
+        private readonly ShadowValues _shadowValues;
+        private readonly VisualOrientation _visualOrientation;
+
         #region Static Fields
         private const int SHADOW_SIZE = 3;
         private static readonly Brush[] _brushes;
@@ -35,8 +38,15 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-        public VisualShadowBase()
+        /// <summary>
+        /// Create a shadow thingy
+        /// </summary>
+        /// <param name="shadowValues">What value will be used</param>
+        /// <param name="visualOrientation">What orientation for the shadow placement</param>
+        public VisualShadowBase(ShadowValues shadowValues, VisualOrientation visualOrientation)
         {
+            _shadowValues = shadowValues;
+            _visualOrientation = visualOrientation;
             // Update form properties so we do not have a border and do not show
             // in the task bar. We draw the background in Magenta and set that as
             // the transparency key so it is a see through window.
