@@ -36,10 +36,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Krypton Navigator">
-      <HintPath>A:\Developer DLLs\Krypton DLLs\Versions\5.470\Krypton Navigator.dll</HintPath>
+      <HintPath>..\..\..\Bin\Krypton Navigator.dll</HintPath>
     </Reference>
     <Reference Include="Krypton Toolkit">
-      <HintPath>A:\Developer DLLs\Krypton DLLs\Versions\5.470\Krypton Toolkit.dll</HintPath>
+      <HintPath>..\..\..\Bin\Krypton Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WindowsAPICodePack.1.1.0\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
