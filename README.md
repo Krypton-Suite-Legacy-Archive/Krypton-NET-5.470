@@ -2,9 +2,9 @@
 
 =======
 
-| NuGet | Current NuGet Version | Demos NuGet | Demos NuGet Version | Github License |
-|---|---|---|---|---|
-| [![NuGet](https://img.shields.io/badge/NuGet-Krypton%20.NET%205.470-green.svg)](https://www.nuget.org/packages/KryptonToolkitSuite5470/) | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470.svg) | [![NuGet](https://img.shields.io/badge/NuGet-Krypton%20.NET%205.470%20Demos-yellowgreen.svg)](https://www.nuget.org/packages/KryptonToolkitSuite5470Demos/17.470.6015.15) | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470Demos.svg) | ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) |
+| NuGet | Current NuGet Version | Github License |
+|---|---|---|
+| [![NuGet](https://img.shields.io/badge/NuGet-Krypton%20.NET%205.470-green.svg)](https://www.nuget.org/packages/KryptonToolkitSuite5470/) | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470.svg) ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) |
 
 =======
 
@@ -17,6 +17,12 @@
 * [Krypton Toolkit Suite for .NET 4.7.1](https://github.com/Wagnerp/Krypton-NET-5.471)
 * [Krypton Toolkit Suite for .NET 4.7.2](https://github.com/Wagnerp/Krypton-NET-5.472)
 * [Krypton Toolkit Suite for .NET 4.8](https://github.com/Wagnerp/Krypton-NET-5.480)
+
+=======
+
+## Demo Releases
+
+You can check out the demos by clicking [here](https://github.com/Wagnerp/Krypton-NET-5.470/releases)
 
 =======
 
