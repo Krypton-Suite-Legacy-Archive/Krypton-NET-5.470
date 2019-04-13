@@ -2,9 +2,9 @@
 
 =======
 
-| NuGet | Current NuGet Version | Github License |
-|---|---|---|
-| [![NuGet](https://img.shields.io/badge/NuGet-Krypton%20.NET%205.470-green.svg)](https://www.nuget.org/packages/KryptonToolkitSuite5470/) | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470.svg)| ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) | 
+| NuGet | Current NuGet Version | Demos NuGet | Demos NuGet Version | Github License |
+|---|---|---|---|---|
+| [![NuGet](https://img.shields.io/badge/NuGet-Krypton%20.NET%205.470-green.svg)](https://www.nuget.org/packages/KryptonToolkitSuite5470/) | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470.svg) | [![NuGet](https://img.shields.io/badge/NuGet-Krypton%20.NET%205.470%20Demos-yellowgreen.svg)](https://www.nuget.org/packages/KryptonToolkitSuite5470Demos/17.470.6015.15) | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470Demos.svg) | ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) |
 
 =======
 
@@ -20,9 +20,20 @@
 
 =======
 
+## 2019-04-11 Build 872 - Bugfixes and Alterations
+* Fixed issue [#132](https://github.com/Wagnerp/Krypton-NET-5.470/issues/132), missing `OnDropDownClosed()` event for `KryptonComboBox`
+* Fixed issue [#129](https://github.com/Wagnerp/Krypton-NET-5.470/issues/129), hints appeared grey even though they were enabled
+* Fixed issue [#124](https://github.com/Wagnerp/Krypton-NET-5.470/issues/124), tooltips would occasionally throw an exception
+* Removed files relating to 2018 [#130](https://github.com/Wagnerp/Krypton-NET-5.470/issues/130)
+* Minor alterations to `ThemeManager.cs`
+* New installer [#133](https://github.com/Wagnerp/Krypton-NET-5.470/issues/133)
+* Build 872 (build date Thursday 10th April, 2019) is now available on NuGet
+
+=======
+
 ## 2019-04-04 Build 856 - Bugfixes and contributions
 * Fixed issue [#104](https://github.com/Wagnerp/Krypton-NET-5.470/issues/104), designer usage exceptions
-* Fixed issue [#116](https://github.com/Wagnerp/Krypton-NET-5.470/issues/116), 
+* Fixed issue [#116](https://github.com/Wagnerp/Krypton-NET-5.470/issues/116)
 * `KryptonManager` now displays themes and names correctly
 * General fixes to `ThemeManager.cs` & `RibbonThemeManager.cs`
 * Implement `DrawItem()` event in KryptonComboBox

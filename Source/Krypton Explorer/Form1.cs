@@ -886,10 +886,7 @@ namespace KryptonExplorer
 
             tslVersion.Text = $"Version: { _currentVersion.ToString() }";
 
-            foreach (string item in ThemeManager.SupportedThemeArray)
-            {
-                kcmbTheme.Items.Add(item);
-            }
+            ThemeManager.PropagateThemeSelector(kcmbTheme);
         }
 
         private void kbtnOpenApplicationPath_Click(object sender, EventArgs e)
@@ -909,11 +906,28 @@ namespace KryptonExplorer
 
         private void kbtnApplyTheme_Click(object sender, EventArgs e)
         {
-            ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.ApplyThemeMode(kcmbTheme.Text));
+            ThemeManager.SetTheme(kcmbTheme.Text, kryptonManager1);
+
+            ThemeManager.ApplyGlobalTheme(kryptonManager1, ThemeManager.GetPaletteMode(kryptonManager1));
 
             Invalidate();
 
             kbtnApplyTheme.Enabled = false;
+        }
+
+        private void KbtnKryptonToolkitPackage_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.nuget.org/packages/KryptonToolkitSuite5470/");
+        }
+
+        private void KbtnKryptonExtendedToolkitPackage_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.nuget.org/packages/KryptonExtendedToolkit5470/");
+        }
+
+        private void KbtnKryptonDemoApplicationPackage_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.nuget.org/packages/KryptonToolkitSuite5470Demos/");
         }
     }
 }

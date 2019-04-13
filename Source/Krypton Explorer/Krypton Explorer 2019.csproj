@@ -106,10 +106,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Krypton.ico" />
+    <None Include="Resources\KR 32 x 32 Orange.png" />
+    <None Include="Resources\Square Design 32 x 32 New Green.png" />
+    <None Include="Resources\Square Design 64 x 64 New Green.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="KryptonToolkitSuite5470">
-      <Version>5.470.741</Version>
+      <Version>5.470.872</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

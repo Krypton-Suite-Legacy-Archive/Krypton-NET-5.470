@@ -527,6 +527,7 @@
     </Compile>
     <Compile Include="Rendering\Win10Glass\ThemeService.cs" />
     <Compile Include="Rendering\Win10Glass\UserSystemPreferencesService.cs" />
+    <Compile Include="Tooling\ExceptionHandler.cs" />
     <Compile Include="Toolkit\KryptonBorderEdgeActionList.cs" />
     <Compile Include="Toolkit\KryptonBorderEdgeDesigner.cs" />
     <Compile Include="Toolkit\KryptonBreadCrumbActionList.cs" />

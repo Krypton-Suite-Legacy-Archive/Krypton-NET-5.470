@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2026
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28809.33
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentFactory.Krypton.Toolkit 2019", "ComponentFactory.Krypton.Toolkit\ComponentFactory.Krypton.Toolkit 2019.csproj", "{96ECAECC-54F8-4AA5-8591-B443C2D9565F}"
 EndProject
@@ -756,6 +756,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tutorials", "Tutorials", "{
 		..\..\Help\DocFX\articles\Tutorials\TutorialStack9.png = ..\..\Help\DocFX\articles\Tutorials\TutorialStack9.png
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet Package", "NuGet Package", "{44CD53AB-6395-46BC-BF33-CC45344362F3}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Installer Project Files\Nuget Spec\KryptonToolkitSuite5470.nupkg = ..\..\Installer Project Files\Nuget Spec\KryptonToolkitSuite5470.nupkg
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -808,7 +813,7 @@ Global
 		{6DCB3B4C-0707-42D2-AE45-29EE43C6BCF1} = {642A2DBC-D742-47CA-8C78-76FEE09C0DCB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		BuildVersion_StartDate = 2000/1/1
 		SolutionGuid = {ECEA7A85-0CA8-47A4-93BE-6AA896E9749D}
+		BuildVersion_StartDate = 2000/1/1
 	EndGlobalSection
 EndGlobal
