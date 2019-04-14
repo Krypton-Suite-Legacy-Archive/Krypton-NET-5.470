@@ -126,7 +126,7 @@ namespace ComponentFactory.Krypton.Ribbon
         internal static extern int GetDeviceCaps(IntPtr hDC, int nIndex);
 
         [DllImport("gdi32.dll", CharSet = CharSet.Auto)]
-        internal static extern IntPtr CreateDIBSection(IntPtr hDC, BITMAPINFO pBMI, uint iUsage, int ppvBits, IntPtr hSection, uint dwOffset);
+        internal static extern IntPtr CreateDIBSection(IntPtr hDC, ref BITMAPINFO pBMI, uint iUsage, out IntPtr ppvBits, IntPtr hSection, uint dwOffset);
 
         [DllImport("gdi32.dll", CharSet = CharSet.Auto)]
         internal static extern IntPtr CreateCompatibleDC(IntPtr hDC);
@@ -209,7 +209,7 @@ namespace ComponentFactory.Krypton.Ribbon
         }
 
         [StructLayout(LayoutKind.Sequential)]
-        internal class BITMAPINFO
+        internal struct BITMAPINFO
         {
             public int biSize;
             public int biWidth;
