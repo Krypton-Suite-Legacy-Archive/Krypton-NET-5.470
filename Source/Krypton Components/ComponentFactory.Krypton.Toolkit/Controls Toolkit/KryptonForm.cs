@@ -196,6 +196,13 @@ namespace ComponentFactory.Krypton.Toolkit
             _shadowManager = new ShadowManager(this, ShadowValues);
         }
 
+        [System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, Name = "FullTrust")]
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            _shadowManager.WndProc(ref m);
+        }
+
         /// <summary>
         /// Releases all resources used by the Control. 
         /// </summary>
@@ -247,13 +254,6 @@ namespace ComponentFactory.Krypton.Toolkit
                 PerformNeedPaint(true);
             }
         }
-
-        /// <summary>
-        /// Gets access to the button content.
-        /// </summary>
-        [Category("Visuals")]
-        [Description("Form Shadowing")]
-        public ShadowValues ShadowValues { get; }
 
         /// <summary>
         /// Gets and sets a value indicating if tooltips should be displayed for button specs.
@@ -410,7 +410,11 @@ namespace ComponentFactory.Krypton.Toolkit
         ///   <c>true</c> if this instance is in administrator mode; otherwise, <c>false</c>.
         /// </value>
         [Category("Appearance"), Description("Is the user currently an administrator."), DefaultValue(false)]
-        public bool IsInAdministratorMode { get => _isInAdministratorMode; set => _isInAdministratorMode = value; }
+        public bool IsInAdministratorMode
+        {
+            get => _isInAdministratorMode;
+            set => _isInAdministratorMode = value;
+        }
 
         /// <summary>
         /// Gets access to the common form appearance entries that other states can override.
@@ -420,10 +424,21 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteFormRedirect StateCommon { get; }
 
-        private bool ShouldSerializeStateCommon()
-        {
-            return !StateCommon.IsDefault;
-        }
+        private bool ShouldSerializeStateCommon() => !StateCommon.IsDefault;
+
+        /// <summary>
+        /// Gets access to the button content.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Form Shadowing")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public ShadowValues ShadowValues { get; set; }
+
+        private bool ShouldSerializeShadowValues() => !ShadowValues.IsDefault;
+
+        /// <summary>
+        /// </summary>
+        public void ResetShadowValues() => ShadowValues.Reset();
 
         /// <summary>
         /// Gets access to the inactive form appearance entries.
@@ -433,10 +448,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteForm StateInactive { get; }
 
-        private bool ShouldSerializeStateInactive()
-        {
-            return !StateInactive.IsDefault;
-        }
+        private bool ShouldSerializeStateInactive() => !StateInactive.IsDefault;
 
         /// <summary>
         /// Gets access to the active form appearance entries.
@@ -446,10 +458,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteForm StateActive { get; }
 
-        private bool ShouldSerializeStateActive()
-        {
-            return !StateActive.IsDefault;
-        }
+        private bool ShouldSerializeStateActive() => !StateActive.IsDefault;
 
         /// <summary>
         /// Gets the collection of button specifications.
