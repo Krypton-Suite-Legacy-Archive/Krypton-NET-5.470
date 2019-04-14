@@ -26,6 +26,14 @@ You can check out the demos by clicking [here](https://github.com/Wagnerp/Krypto
 
 =======
 
+## 2019-04-14 Build 890 - Bugfixes
+* Fixed issue [#127](https://github.com/Wagnerp/Krypton-NET-5.470/issues/127), flashing tooltips
+* Fixed issue [#130](https://github.com/Wagnerp/Krypton-NET-5.470/issues/130)
+* Completed issue [#137](https://github.com/Wagnerp/Krypton-NET-5.470/issues/137)
+* Build 890 (build date Sunday 14th April, 2019) is now available on NuGet
+
+=======
+
 ## 2019-04-11 Build 872 - Bugfixes and Alterations
 * Fixed issue [#132](https://github.com/Wagnerp/Krypton-NET-5.470/issues/132), missing `OnDropDownClosed()` event for `KryptonComboBox`
 * Fixed issue [#129](https://github.com/Wagnerp/Krypton-NET-5.470/issues/129), hints appeared grey even though they were enabled
