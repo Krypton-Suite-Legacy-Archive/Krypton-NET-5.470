@@ -18,6 +18,7 @@ using System.Runtime.InteropServices;
 // ReSharper disable UnusedMember.Local
 // ReSharper disable ArrangeTypeMemberModifiers
 // ReSharper disable BuiltInTypeReferenceStyle
+#pragma warning disable 649
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -30,8 +31,13 @@ namespace ComponentFactory.Krypton.Toolkit
         internal const uint WS_VISIBLE = 0x10000000;
         internal const uint WS_BORDER = 0x00800000;
         internal const int PRF_CLIENT = 0x00000004;
+        internal const int CS_VREDRAW = 0x01;
+        internal const int CS_HREDRAW = 0x02;
+        internal const int WS_EX_NOPARENTNOTIFY = 0x00000004;
         internal const int WS_EX_TOPMOST = 0x00000008;
         internal const int WS_EX_TOOLWINDOW = 0x00000080;
+        internal const int WS_EX_TRANSPARENT = 0x00000020;
+        internal const int WS_EX_NOACTIVATE = 0x08000000;
         internal const int WS_EX_LAYERED = 0x00080000;
         internal const int WS_EX_CLIENTEDGE = 0x00000200;
         internal const int SC_MINIMIZE = 0xF020;
@@ -43,6 +49,7 @@ namespace ComponentFactory.Krypton.Toolkit
         internal const int WM_NCDESTROY = 0x0082;
         internal const int WM_MOVE = 0x0003;
         internal const int WM_SIZE = 0x0005; //    The WM_SIZE message is sent to a window after its size has changed.
+        internal const int WM_ACTIVATE = 0x0006;
         internal const int WM_SETFOCUS = 0x0007;
         internal const int WM_KILLFOCUS = 0x0008;
         internal const int WM_SETREDRAW = 0x000B;
@@ -342,6 +349,22 @@ namespace ComponentFactory.Krypton.Toolkit
             /// <remarks>SWP_SHOWWINDOW</remarks>
             SWP_SHOWWINDOW = 0x0040,
         }
+        /// <summary>
+        ///     Places the window above all non-topmost windows. The window maintains its topmost position even when it is deactivated.
+        /// </summary>
+        internal static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
+        /// <summary>
+        ///     Places the window above all non-topmost windows (that is, behind all topmost windows). This flag has no effect if the window is already a non-topmost window.
+        /// </summary>
+        internal static readonly IntPtr HWND_NOTOPMOST = new IntPtr(-2);
+        /// <summary>
+        ///     Places the window at the top of the Z order.
+        /// </summary>
+        internal static readonly IntPtr HWND_TOP = new IntPtr(0);
+        /// <summary>
+        ///     Places the window at the bottom of the Z order. If the hWnd parameter identifies a topmost window, the window loses its topmost status and is placed at the bottom of all other windows.
+        /// </summary>
+        internal static readonly IntPtr HWND_BOTTOM = new IntPtr(1);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         internal static extern int SetWindowPos(IntPtr hWnd, IntPtr hWndAfter, int X, int Y, int Width, int Height, SetWindowPosFlags flags);
@@ -687,6 +710,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             public int cx;
             public int cy;
+
+            public SIZE(int width, int height) 
+                : this()
+            {
+                cx = width;
+                cy = height;
+            }
         }
 
         [StructLayout(LayoutKind.Sequential)]
@@ -694,6 +724,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             public Int32 X;
             public Int32 Y;
+
+            public POINT(int x, int y) 
+                : this()
+            {
+                X = x;
+                Y = y;
+            }
         }
 
         [StructLayout(LayoutKind.Sequential)]
@@ -748,7 +785,7 @@ namespace ComponentFactory.Krypton.Toolkit
             public int y;
             public int cx;
             public int cy;
-            public uint flags;
+            public SetWindowPosFlags flags;
         }
 
         [StructLayout(LayoutKind.Sequential)]

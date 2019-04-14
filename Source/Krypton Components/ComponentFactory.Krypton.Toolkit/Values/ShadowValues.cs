@@ -28,7 +28,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private Padding _margins;
         private Color _colour;
         private bool _hideOnNonActiveForm;
-
+        private double _opacity;
         #endregion
 
         #region Events
@@ -43,6 +43,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public event EventHandler<ColorEventArgs> ColourChanged;
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public event EventHandler HideOnNonActiveFormChanged;
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public event EventHandler OpacityChanged;
 #pragma warning restore 1591
         #endregion
 
@@ -65,6 +67,7 @@ namespace ComponentFactory.Krypton.Toolkit
             ResetBlurDistance();
             ResetColour();
             ResetHideOnNonActiveForm();
+            ResetOpacity();
         }
         #endregion Identity
 
@@ -87,7 +90,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private bool ShouldSerializeEnableShadows()
         {
-            return !EnableShadows;
+            return EnableShadows;
         }
 
         /// <summary>
@@ -129,7 +132,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// </summary>
-        [Description("% of each side to start blur +ve or -ve")]
+        [Description("% of max side to start blur +ve")]
         [DefaultValue(50.0)]
         public double BlurDistance
         {
@@ -137,8 +140,8 @@ namespace ComponentFactory.Krypton.Toolkit
             set
             {
                 if (Math.Abs(_blurDistance - value) > 0.001 
-                    && -100 < _blurDistance 
-                    && _blurDistance < 100
+                    && 0 <= value
+                    && value <= 100
                     )
                 {
                     _blurDistance = value;
@@ -208,7 +211,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private bool ShouldSerializeHideOnNonActiveForm()
         {
-            return !HideOnNonActiveForm;
+            return HideOnNonActiveForm;
         }
 
         /// <summary>
@@ -218,6 +221,37 @@ namespace ComponentFactory.Krypton.Toolkit
             HideOnNonActiveForm = false;
         }
 
+        /// <summary>
+        /// </summary>
+        [Description("Opacity Percentage")]
+        [DefaultValue(95.0)]
+        public double Opacity
+        {
+            get => _opacity;
+            set
+            {
+                if (Math.Abs(_opacity - value) > 0.001
+                    && 0 <= value
+                    && value <= 100
+                )
+                {
+                    _opacity = value;
+                    OpacityChanged?.Invoke(this, EventArgs.Empty);
+                }
+            }
+        }   
+
+        private bool ShouldSerializeOpacity()
+        {
+            return Math.Abs(_opacity - 95) > 0.001;
+        }
+
+        /// <summary>
+        /// </summary>
+        public void ResetOpacity()
+        {
+            _opacity = 95;
+        }
 
 
         #region Default Values
@@ -229,7 +263,9 @@ namespace ComponentFactory.Krypton.Toolkit
                                             && !ShouldSerializeBlurDistance()
                                             && !ShouldSerializeColour()
                                             && !ShouldSerializeHideOnNonActiveForm()
+                                            && !ShouldSerializeOpacity()
                                             );
+
         #endregion Default Values
     }
 }
