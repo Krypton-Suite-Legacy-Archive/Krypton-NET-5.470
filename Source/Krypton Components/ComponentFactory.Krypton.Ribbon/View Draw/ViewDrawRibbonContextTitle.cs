@@ -448,7 +448,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 bmi.biPlanes = 1;
 
                 // Create a device independant bitmp and select into the memory DC
-                IntPtr hDIB = PI.CreateDIBSection(gDC, bmi, 0, 0, IntPtr.Zero, 0);
+                IntPtr hDIB = PI.CreateDIBSection(gDC, ref bmi, 0, out _, IntPtr.Zero, 0);
                 PI.SelectObject(mDC, hDIB);
 
                 // To call the renderer we need to convert from Win32 HDC to Graphics object
