@@ -26,6 +26,13 @@ You can check out the demos by clicking [here](https://github.com/Wagnerp/Krypto
 
 =======
 
+## 2019-04-15 Build 901 - Drop Shadows
+* New feature - now you can specify drop shadows on `KryptonForm` [#121](https://github.com/Wagnerp/Krypton-NET-5.470/issues/121). By design (or by accident :)), changing the shadow or form size values will display a offset of the shadow outcome.
+* Patch for [#142](https://github.com/Wagnerp/Krypton-NET-5.470/issues/142) ribbon tab text not working, courtesy of Tape-Worm
+* Build 901 (build date Monday 15th April, 2019) is now available on NuGet
+
+=======
+
 ## 2019-04-14 Build 890 - Bugfixes
 * Fixed issue [#127](https://github.com/Wagnerp/Krypton-NET-5.470/issues/127), flashing tooltips
 * Fixed issue [#130](https://github.com/Wagnerp/Krypton-NET-5.470/issues/130)
