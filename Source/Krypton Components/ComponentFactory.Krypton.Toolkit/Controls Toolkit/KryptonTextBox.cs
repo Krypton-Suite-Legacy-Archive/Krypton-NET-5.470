@@ -581,6 +581,13 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
+        /// </summary>
+        public void ResetHint()
+        {
+            Hint = string.Empty;
+        }
+
+        /// <summary>
         /// Gets and sets if the control is in the tab chain.
         /// </summary>
         public new bool TabStop

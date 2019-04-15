@@ -18,14 +18,23 @@ namespace ComponentFactory.Krypton.Toolkit.Values
     [ComVisible(true)]
     public class ToolTipValues : HeaderValues
     {
+        private LabelStyle _toolTipStyle;
+
         /// <summary>
         /// </summary>
         /// <param name="needPaint"></param>
         public ToolTipValues(NeedPaintHandler needPaint)
             : base(needPaint)
         {
-            ToolTipStyle = LabelStyle.SuperTip;
+            ResetToolTipStyle();
             ToolTipPosition = new PopupPositionValues();
+        }
+
+        public void Reset()
+        {
+            ResetEnableToolTips();
+            ResetToolTipStyle();
+            ResetToolTipPosition();
         }
 
         /// <summary>
@@ -38,6 +47,11 @@ namespace ComponentFactory.Krypton.Toolkit.Values
         private bool ShouldSerializeEnableToolTips()
         {
             return EnableToolTips;
+        }
+
+        public void ResetEnableToolTips()
+        {
+            EnableToolTips = false;
         }
 
         /// <summary>
@@ -60,12 +74,17 @@ namespace ComponentFactory.Krypton.Toolkit.Values
         }
 
         #region ToolTipStyle
+
         /// <summary>
         /// Gets and sets the tooltip label style.
         /// </summary>
         [Description("Button tooltip label style.")]
         [DefaultValue(typeof(LabelStyle), "SuperTip")]
-        public LabelStyle ToolTipStyle { get; set; }
+        public LabelStyle ToolTipStyle
+        {
+            get => _toolTipStyle;
+            set => _toolTipStyle = value;
+        }
 
         private bool ShouldSerializeToolTipStyle()
         {
@@ -86,9 +105,9 @@ namespace ComponentFactory.Krypton.Toolkit.Values
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault => (!EnableToolTips
-                                           && (ToolTipStyle == LabelStyle.SuperTip)
-                                           && ToolTipPosition.IsDefault
+        public override bool IsDefault => (!ShouldSerializeEnableToolTips()
+                                           && !ShouldSerializeToolTipStyle()
+                                           && !ShouldSerializeToolTipPosition()
                                            && base.IsDefault
             );
 

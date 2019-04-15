@@ -36,9 +36,9 @@ namespace ComponentFactory.Krypton.Toolkit.Values
         /// </summary>
         public void Reset()
         {
-            PlacementMode = PlacementMode.Bottom;
-            PlacementTarget = null;
-            PlacementRectangle = new Rectangle();
+            ResetPlacementMode();
+            ResetPlacementTarget();
+            ResetPlacementRectangle();
         }
 
         #endregion Identity
@@ -47,12 +47,12 @@ namespace ComponentFactory.Krypton.Toolkit.Values
         /// 
         /// </summary>
         [Description("Describes the placement of where a Popup control appears on the screen.")]
-        [DefaultValue(typeof(PlacementMode), "Mouse")]
+        [DefaultValue(typeof(PlacementMode), "Bottom")]
         public PlacementMode PlacementMode { get; set; }
 
         private bool ShouldSerializePlacementMode()
         {
-            return PlacementMode != PlacementMode.Mouse;
+            return PlacementMode != PlacementMode.Bottom;
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace ComponentFactory.Krypton.Toolkit.Values
         /// </summary>
         public void ResetPlacementMode()
         {
-            PlacementMode = PlacementMode.Mouse;
+            PlacementMode = PlacementMode.Bottom;
         }
 
         /// <summary>

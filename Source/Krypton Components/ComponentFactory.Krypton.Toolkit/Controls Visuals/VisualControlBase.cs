@@ -496,7 +496,20 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("ToolTip")]
         [Description("Control ToolTip Text")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public ToolTipValues ToolTipValues { get; }
+        public ToolTipValues ToolTipValues { get; set; }
+
+        private bool ShouldSerializeToolTipValues()
+        {
+            return !ToolTipValues.IsDefault;
+        }
+
+        /// <summary>
+        /// Resets the ToolTipValues property to its default value.
+        /// </summary>
+        public void ResetToolTipValues()
+        {
+            ToolTipValues.Reset();
+        }
 
         #endregion
 
