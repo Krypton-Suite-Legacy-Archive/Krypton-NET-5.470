@@ -437,6 +437,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool ShouldSerializeShadowValues() => !ShadowValues.IsDefault;
 
         /// <summary>
+        /// Resets the <see cref="KryptonForm"/> shadow values.
         /// </summary>
         public void ResetShadowValues() => ShadowValues.Reset();
 

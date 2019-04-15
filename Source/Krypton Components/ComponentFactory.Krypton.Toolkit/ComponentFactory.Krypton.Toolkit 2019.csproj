@@ -61,7 +61,7 @@
     <CodeAnalysisRules>
     </CodeAnalysisRules>
     <Prefer32Bit>false</Prefer32Bit>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>default</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -1391,7 +1391,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_StartDate="2000/1/1" DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" />
+      <UserProperties DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" BuildVersion_StartDate="2000/1/1" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

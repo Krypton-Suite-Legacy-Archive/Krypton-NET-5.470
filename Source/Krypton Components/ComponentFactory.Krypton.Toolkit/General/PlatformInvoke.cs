@@ -833,7 +833,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         [StructLayout(LayoutKind.Sequential)]
-        internal class BITMAPINFO
+        internal struct BITMAPINFO
         {
             public uint biSize;
             public int biWidth;

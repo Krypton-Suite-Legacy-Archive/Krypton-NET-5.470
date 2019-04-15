@@ -242,7 +242,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Gets the current palette mode.
         /// </summary>
         /// <param name="manager">The manager.</param>
-        /// <returns></returns>
+        /// <returns>The current <see cref="PaletteModeManager"/>.</returns>
         public static PaletteModeManager GetCurrentPaletteMode(KryptonManager manager)
         {
             return manager.GlobalPaletteMode;
@@ -264,7 +264,6 @@ namespace ComponentFactory.Krypton.Ribbon
             catch (Exception exc)
             {
 
-                throw;
             }
         }
 
@@ -273,7 +272,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// </summary>
         /// <param name="paletteModeManager">The palette mode manager.</param>
         /// <param name="manager">The manager.</param>
-        /// <returns></returns>
+        /// <returns>The current <see cref="PaletteModeManager"/> as a string.</returns>
         public static string ReturnPaletteModeManagerAsString(PaletteModeManager paletteModeManager, KryptonManager manager = null)
         {
             string result = null;
@@ -306,11 +305,11 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 if (manager.GlobalPaletteMode == PaletteModeManager.Office2013White) result = "Office 2013 - White";
 
-                if (manager.GlobalPaletteMode == PaletteModeManager.SparkleBlue) result = "Sparkle Blue";
+                if (manager.GlobalPaletteMode == PaletteModeManager.SparkleBlue) result = "Sparkle - Blue";
 
-                if (manager.GlobalPaletteMode == PaletteModeManager.SparkleOrange) result = "Sparkle Orange";
+                if (manager.GlobalPaletteMode == PaletteModeManager.SparkleOrange) result = "Sparkle - Orange";
 
-                if (manager.GlobalPaletteMode == PaletteModeManager.SparklePurple) result = "Sparkle Purple";
+                if (manager.GlobalPaletteMode == PaletteModeManager.SparklePurple) result = "Sparkle - Purple";
 
                 if (manager.GlobalPaletteMode == PaletteModeManager.Office365Blue) result = "Office 365 - Blue";
 
@@ -348,11 +347,11 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 if (paletteModeManager == PaletteModeManager.Office2013White) result = "Office 2013 - White";
 
-                if (paletteModeManager == PaletteModeManager.SparkleBlue) result = "Sparkle Blue";
+                if (paletteModeManager == PaletteModeManager.SparkleBlue) result = "Sparkle - Blue";
 
-                if (paletteModeManager == PaletteModeManager.SparkleOrange) result = "Sparkle Orange";
+                if (paletteModeManager == PaletteModeManager.SparkleOrange) result = "Sparkle - Orange";
 
-                if (paletteModeManager == PaletteModeManager.SparklePurple) result = "Sparkle Purple";
+                if (paletteModeManager == PaletteModeManager.SparklePurple) result = "Sparkle - Purple";
 
                 if (paletteModeManager == PaletteModeManager.Office365Blue) result = "Office 365 - Blue";
 
@@ -370,7 +369,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Returns the palette mode as string.
         /// </summary>
         /// <param name="paletteMode">The palette mode.</param>
-        /// <returns></returns>
+        /// <returns>The current <see cref="PaletteMode"/> as a string.</returns>
         public static string ReturnPaletteModeAsString(PaletteMode paletteMode)
         {
             string result = null;
@@ -403,11 +402,11 @@ namespace ComponentFactory.Krypton.Ribbon
 
             if (paletteMode == PaletteMode.Office2013White) result = "Office 2013 - White";
 
-            if (paletteMode == PaletteMode.SparkleBlue) result = "Sparkle Blue";
+            if (paletteMode == PaletteMode.SparkleBlue) result = "Sparkle - Blue";
 
-            if (paletteMode == PaletteMode.SparkleOrange) result = "Sparkle Orange";
+            if (paletteMode == PaletteMode.SparkleOrange) result = "Sparkle - Orange";
 
-            if (paletteMode == PaletteMode.SparklePurple) result = "Sparkle Purple";
+            if (paletteMode == PaletteMode.SparklePurple) result = "Sparkle - Purple";
 
             if (paletteMode == PaletteMode.Office365Blue) result = "Office 365 - Blue";
 
@@ -454,6 +453,30 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 throw;
             }
+        }
+
+        /// <summary>
+        /// Applies the theme mode.
+        /// </summary>
+        /// <param name="themeName">Name of the theme.</param>
+        /// <returns>The <see cref="PaletteMode"/> equivalent.</returns>
+        public static PaletteMode ApplyThemeMode(string themeName)
+        {
+            PaletteMode mode = (PaletteMode)Enum.Parse(typeof(PaletteMode), themeName);
+
+            return mode;
+        }
+
+        /// <summary>
+        /// Applies the theme manager mode.
+        /// </summary>
+        /// <param name="themeName">Name of the theme.</param>
+        /// <returns>The <see cref="PaletteModeManager"/> equivalent.</returns>
+        public static PaletteModeManager ApplyThemeManagerMode(string themeName)
+        {
+            PaletteModeManager modeManager = (PaletteModeManager)Enum.Parse(typeof(PaletteModeManager), themeName);
+
+            return modeManager;
         }
         #endregion
 

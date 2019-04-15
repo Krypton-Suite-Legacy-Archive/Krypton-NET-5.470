@@ -2,9 +2,9 @@
 
 =======
 
-| NuGet | Current NuGet Version | Demos NuGet | Demos NuGet Version | Github License |
-|---|---|---|---|---|
-| [![NuGet](https://img.shields.io/badge/NuGet-Krypton%20.NET%205.470-green.svg)](https://www.nuget.org/packages/KryptonToolkitSuite5470/) | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470.svg) | [![NuGet](https://img.shields.io/badge/NuGet-Krypton%20.NET%205.470%20Demos-yellowgreen.svg)](https://www.nuget.org/packages/KryptonToolkitSuite5470Demos/17.470.6015.15) | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470Demos.svg) | ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) |
+| NuGet | Current NuGet Version | Github License |
+|---|---|---|
+| [![NuGet](https://img.shields.io/badge/NuGet-Krypton%20.NET%205.470-green.svg)](https://www.nuget.org/packages/KryptonToolkitSuite5470/) | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470.svg) | ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) |
 
 =======
 
@@ -17,6 +17,27 @@
 * [Krypton Toolkit Suite for .NET 4.7.1](https://github.com/Wagnerp/Krypton-NET-5.471)
 * [Krypton Toolkit Suite for .NET 4.7.2](https://github.com/Wagnerp/Krypton-NET-5.472)
 * [Krypton Toolkit Suite for .NET 4.8](https://github.com/Wagnerp/Krypton-NET-5.480)
+
+=======
+
+## Demo Releases
+
+You can check out the demos by clicking [here](https://github.com/Wagnerp/Krypton-NET-5.470/releases)
+
+=======
+
+## 2019-04-15 Build 901 - Drop Shadows
+* New feature - now you can specify drop shadows on `KryptonForm` [#121](https://github.com/Wagnerp/Krypton-NET-5.470/issues/121). By design (or by accident :)), changing the shadow or form size values will display a offset of the shadow outcome.
+* Patch for [#142](https://github.com/Wagnerp/Krypton-NET-5.470/issues/142) ribbon tab text not working, courtesy of Tape-Worm
+* Build 901 (build date Monday 15th April, 2019) is now available on NuGet
+
+=======
+
+## 2019-04-14 Build 890 - Bugfixes
+* Fixed issue [#127](https://github.com/Wagnerp/Krypton-NET-5.470/issues/127), flashing tooltips
+* Fixed issue [#130](https://github.com/Wagnerp/Krypton-NET-5.470/issues/130)
+* Completed issue [#137](https://github.com/Wagnerp/Krypton-NET-5.470/issues/137)
+* Build 890 (build date Sunday 14th April, 2019) is now available on NuGet
 
 =======
 
