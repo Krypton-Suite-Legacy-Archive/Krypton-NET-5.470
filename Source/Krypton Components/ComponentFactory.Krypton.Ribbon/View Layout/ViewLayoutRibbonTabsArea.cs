@@ -634,9 +634,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             if (_activeMdiChild != null)
             {
-                uint windowStyle = PI.GetWindowLong(_activeMdiChild.Handle, -16);
-                windowStyle |= PI.WS_SYSMENU;
-                PI.SetWindowLong(_activeMdiChild.Handle, -16, windowStyle);
+                uint windowStyle = PI.GetWindowLong(_activeMdiChild.Handle, PI.GWL_.STYLE);
+                windowStyle |= PI.WS_.SYSMENU;
+                PI.SetWindowLong(_activeMdiChild.Handle, PI.GWL_.STYLE, windowStyle);
             }
         }
 

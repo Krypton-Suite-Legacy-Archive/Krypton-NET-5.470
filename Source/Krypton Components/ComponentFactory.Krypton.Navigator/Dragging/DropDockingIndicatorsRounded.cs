@@ -13,6 +13,7 @@ using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
+
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Navigator
@@ -73,16 +74,16 @@ namespace ComponentFactory.Krypton.Navigator
                 Parent = IntPtr.Zero,
 
                 // Appear as a top-level window
-                Style = unchecked((int)PI.WS_POPUP),
+                Style = unchecked((int)PI.WS_.POPUP),
 
                 // Set styles so that it does not have a caption bar and is above all other 
                 // windows in the ZOrder, i.e. TOPMOST
-                ExStyle = PI.WS_EX_TOPMOST +
-                         PI.WS_EX_TOOLWINDOW
+                ExStyle = PI.WS_EX_.TOPMOST |
+                          PI.WS_EX_.TOOLWINDOW
             };
 
-            // We are going to use per-pixrl alpha blending and so need a layered window
-            cp.ExStyle += PI.WS_EX_LAYERED;
+            // We are going to use per-pixel alpha blending and so need a layered window
+            cp.ExStyle |= PI.WS_EX_.LAYERED;
 
             // Create the actual window
             CreateHandle(cp);
@@ -138,7 +139,7 @@ namespace ComponentFactory.Krypton.Navigator
             UpdateLayeredWindow(new Rectangle(location, _showRect.Size));
             
             // Show the window without activating it (i.e. do not take focus)
-            PI.ShowWindow(Handle, PI.SW_SHOWNOACTIVATE);
+            PI.ShowWindow(Handle, PI.ShowWindowCommands.SW_SHOWNOACTIVATE);
         }
 
         /// <summary>
@@ -146,11 +147,11 @@ namespace ComponentFactory.Krypton.Navigator
         /// </summary>
         public void Hide()
         {
-            PI.ShowWindow(Handle, PI.SW_HIDE);
+            PI.ShowWindow(Handle, PI.ShowWindowCommands.SW_HIDE);
         }
 
         /// <summary>
-        /// Perofrm mouse hit testing against a screen point.
+        /// Perform mouse hit testing against a screen point.
         /// </summary>
         /// <param name="screenPoint">Screen point.</param>
         /// <returns>Area that is active.</returns>
@@ -250,14 +251,9 @@ namespace ComponentFactory.Krypton.Navigator
                     ulwsize.cy = rect.Height;
 
                     // New window position
-                    PI.POINT topPos;
-                    topPos.x = rect.Left;
-                    topPos.y = rect.Top;
-
+                    PI.POINT topPos = new PI.POINT(rect.Left,rect.Top);
                     // Offset into memory bitmap is always zero
-                    PI.POINT pointSource;
-                    pointSource.x = 0;
-                    pointSource.y = 0;
+                    PI.POINT pointSource = new PI.POINT(0, 0);
 
                     // We want to make the entire bitmap opaque 
                     PI.BLENDFUNCTION blend = new PI.BLENDFUNCTION

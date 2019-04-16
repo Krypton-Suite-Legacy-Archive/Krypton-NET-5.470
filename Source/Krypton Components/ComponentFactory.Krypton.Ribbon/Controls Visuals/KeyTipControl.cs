@@ -168,7 +168,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 _prefix += key;
 
                 // Hide ourself and then show again to force redraw
-                PI.ShowWindow(Handle, PI.SW_HIDE);
+                PI.ShowWindow(Handle, PI.ShowWindowCommands.SW_HIDE);
 
                 // Use timer to force redraw
                 StartTimer();
@@ -179,7 +179,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (key != 27)
                 {
                     // Issue a windows error sound
-                    PI.MessageBeep(PI.MESSAGE_BEEP_ERROR);
+                    PI.MessageBeep(PI.BeepType.Exclamation);
                 }
             }
         }
@@ -195,8 +195,8 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 CreateParams cp = base.CreateParams;
                 cp.Parent = IntPtr.Zero;
-                cp.Style |= unchecked((int)PI.WS_POPUP);
-                cp.ExStyle |= PI.WS_EX_TOPMOST + PI.WS_EX_TOOLWINDOW;
+                cp.Style |= unchecked((int)PI.WS_.POPUP);
+                cp.ExStyle |= PI.WS_EX_.TOPMOST | PI.WS_EX_.TOOLWINDOW;
                 return cp;
             }
         }
@@ -288,7 +288,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Show the window and so cause it to be redrawn
             if (!IsDisposed && (Handle != IntPtr.Zero))
             {
-                PI.ShowWindow(Handle, PI.SW_SHOWNOACTIVATE);
+                PI.ShowWindow(Handle, PI.ShowWindowCommands.SW_SHOWNOACTIVATE);
             }
         }
         #endregion

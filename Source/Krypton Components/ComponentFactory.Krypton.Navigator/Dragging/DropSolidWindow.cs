@@ -69,7 +69,7 @@ namespace ComponentFactory.Krypton.Navigator
         public void ShowWithoutActivate()
         {
             // Show the window without activating it (i.e. do not take focus)
-            PI.ShowWindow(Handle, PI.SW_SHOWNOACTIVATE);
+            PI.ShowWindow(Handle, PI.ShowWindowCommands.SW_SHOWNOACTIVATE);
         }
 
         /// <summary>
@@ -118,10 +118,10 @@ namespace ComponentFactory.Krypton.Navigator
         protected override void WndProc(ref Message m)
         {
             // We are a transparent window, so mouse is never over us
-            if (m.Msg == PI.WM_NCHITTEST)
+            if (m.Msg == PI.WM_.NCHITTEST)
             {
                 // Allow actions to occur to window beneath us
-                m.Result = (IntPtr)PI.HTTRANSPARENT;
+                m.Result = (IntPtr)PI.HT.TRANSPARENT;
             }
             else
             {

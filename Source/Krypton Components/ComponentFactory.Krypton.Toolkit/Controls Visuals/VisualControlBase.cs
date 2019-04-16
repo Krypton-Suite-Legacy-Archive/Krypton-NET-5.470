@@ -1175,7 +1175,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void WndProc(ref Message m)
         {
             // We need to snoop the need to show a context menu
-            if (m.Msg == PI.WM_CONTEXTMENU)
+            if (m.Msg == PI.WM_.CONTEXTMENU)
             {
                 // Only interested in overriding the behaviour when we have a krypton context menu...
                 if (KryptonContextMenu != null)

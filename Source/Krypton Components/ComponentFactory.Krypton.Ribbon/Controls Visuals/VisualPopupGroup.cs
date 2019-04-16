@@ -323,7 +323,7 @@ namespace ComponentFactory.Krypton.Ribbon
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.Style |= PI.WS_CLIPCHILDREN;
+                cp.Style |= (int) PI.WS_.CLIPCHILDREN;
                 return cp;
             }
         }
@@ -334,7 +334,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="levent">An EventArgs that contains the event data.</param>
         protected override void OnLayout(LayoutEventArgs levent)
         {
-            // Let base class calulcate fill rectangle
+            // Let base class calculate fill rectangle
             base.OnLayout(levent);
 
             // Ribbon shape determines the border rounding required

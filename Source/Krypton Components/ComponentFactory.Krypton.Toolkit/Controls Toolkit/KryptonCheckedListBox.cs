@@ -683,32 +683,32 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 switch (m.Msg)
                 {
-                    case PI.WM_KEYDOWN:
+                    case PI.WM_.KEYDOWN:
                         WmKeyDown(ref m);
                         base.WndProc(ref m);
                         return;
-                    case PI.WM_ERASEBKGND:
+                    case PI.WM_.ERASEBKGND:
                         // Do not draw the background here, always do it in the paint 
                         // instead to prevent flicker because of a two stage drawing process
                         break;
-                    case PI.WM_PRINTCLIENT:
-                    case PI.WM_PAINT:
+                    case PI.WM_.PRINTCLIENT:
+                    case PI.WM_.PAINT:
                         WmPaint(ref m);
                         break;
-                    case PI.WM_VSCROLL:
-                    case PI.WM_HSCROLL:
-                    case PI.WM_MOUSEWHEEL:
+                    case PI.WM_.VSCROLL:
+                    case PI.WM_.HSCROLL:
+                    case PI.WM_.MOUSEWHEEL:
                         Invalidate();
                         base.WndProc(ref m);
                         break;
-                    case PI.WM_MOUSELEAVE:
+                    case PI.WM_.MOUSELEAVE:
                         // Mouse is not over the control
                         MouseOver = false;
                         _kryptonCheckedListBox.PerformNeedPaint(true);
                         Invalidate();
                         base.WndProc(ref m);
                         break;
-                    case PI.WM_MOUSEMOVE:
+                    case PI.WM_.MOUSEMOVE:
                         // Mouse is over the control
                         if (!MouseOver)
                         {

@@ -860,7 +860,7 @@ namespace ComponentFactory.Krypton.Toolkit
             public void ShowWithoutActivate()
             {
                 // Show the window without activating it (i.e. do not take focus)
-                PI.ShowWindow(this.Handle, (short)PI.SW_SHOWNOACTIVATE);
+                PI.ShowWindow(this.Handle, PI.ShowWindowCommands.SW_SHOWNOACTIVATE);
             }
 
             /// <summary>
@@ -891,10 +891,10 @@ namespace ComponentFactory.Krypton.Toolkit
             protected override void WndProc(ref Message m)
             {
                 // We are a transparent window, so mouse is never over us
-                if (m.Msg == (int)PI.WM_NCHITTEST)
+                if (m.Msg == PI.WM_.NCHITTEST)
                 {
                     // Allow actions to occur to window beneath us
-                    m.Result = (IntPtr)PI.HTTRANSPARENT;
+                    m.Result = (IntPtr)PI.HT.TRANSPARENT;
                 }
                 else
                 {

@@ -90,9 +90,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             PI.SetWindowPos(Handle, _ownerHandle /*hWndInsertAfter*/, TargetRect.X, TargetRect.Y, TargetRect.Width,
                 TargetRect.Height,
-                PI.SetWindowPosFlags.SWP_NOREDRAW |
-                PI.SetWindowPosFlags.SWP_NOACTIVATE |
-                PI.SetWindowPosFlags.SWP_SHOWWINDOW
+                PI.SWP_.NOREDRAW |
+                PI.SWP_.NOACTIVATE |
+                PI.SWP_.SHOWWINDOW
             );
         }
 
@@ -113,7 +113,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 CreateParams cp = base.CreateParams;
                 cp.Parent = _ownerHandle;
-                cp.ExStyle |= PI.WS_EX_LAYERED | PI.WS_EX_NOACTIVATE | PI.WS_EX_TRANSPARENT | PI.WS_EX_NOPARENTNOTIFY;
+                cp.ExStyle |= PI.WS_EX_.LAYERED | PI.WS_EX_.NOACTIVATE | PI.WS_EX_.TRANSPARENT | PI.WS_EX_.NOPARENTNOTIFY;
                 return cp;
             }
         }

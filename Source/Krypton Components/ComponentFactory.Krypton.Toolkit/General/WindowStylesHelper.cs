@@ -7,8 +7,8 @@ namespace ComponentFactory.Krypton.Toolkit
     {
         public WindowStylesHelper(IntPtr handle)
         {
-            WinStyle = PI.GetWindowLong(handle, -16);
-            WinExStyle = PI.GetWindowLong(handle, -20);
+            WinStyle = PI.GetWindowLong(handle, PI.GWL_.STYLE);
+            WinExStyle = PI.GetWindowLong(handle, PI.GWL_.EXSTYLE);
         }
 
         public WindowStylesHelper(IntPtr style, IntPtr exStyle)
@@ -71,7 +71,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 str1.Append("+WS_MAXIMIZEBOX ");
             }
 
-            if (((long)WinStyle & 2147483648L) != 0L)
+            if ((WinStyle & 2147483648L) != 0L)
             {
                 str1.Append("+WS_POPUP ");
             }
@@ -214,7 +214,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         public bool Popup
         {
-            get => ((long)WinStyle & 2147483648L) != 0L;
+            get => (WinStyle & 2147483648L) != 0L;
             set => WinStyle |= 2147483648U;
         }
 

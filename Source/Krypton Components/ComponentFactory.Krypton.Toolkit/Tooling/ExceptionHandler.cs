@@ -74,7 +74,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 writer.Dispose();
             }
-            catch (Exception ex)
+            catch
             {
 
                 throw;
@@ -103,7 +103,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 writer.Dispose();
             }
-            catch (Exception e)
+            catch
             {
 
                 throw;

@@ -105,8 +105,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         // Toggle between maximized and restored
                         KryptonForm.SendSysCommand(KryptonForm.WindowState == FormWindowState.Maximized
-                            ? PI.SC_RESTORE
-                            : PI.SC_MAXIMIZE);
+                            ? PI.SC_.RESTORE
+                            : PI.SC_.MAXIMIZE);
 
                         // Let base class fire any other attached events
                         base.OnClick(e);

@@ -1261,9 +1261,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Get the current window style (cannot use the 
             // WindowState property as it can be slightly out of date)
-            uint style = PI.GetWindowLong(f.Handle, PI.GWL_STYLE);
+            uint style = PI.GetWindowLong(f.Handle, PI.GWL_.STYLE);
 
-            return ((style & PI.WS_MINIMIZE) != 0);
+            return ((style & PI.WS_.MINIMIZE) != 0);
         }
 
         /// <summary>
@@ -1275,9 +1275,9 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Get the current window style (cannot use the 
             // WindowState property as it can be slightly out of date)
-            uint style = PI.GetWindowLong(f.Handle, PI.GWL_STYLE);
+            uint style = PI.GetWindowLong(f.Handle, PI.GWL_.STYLE);
 
-            return ((style & PI.WS_MAXIMIZE) != 0);
+            return ((style & PI.WS_.MAXIMIZE) != 0);
         }
 
 

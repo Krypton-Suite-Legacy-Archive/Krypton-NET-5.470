@@ -464,7 +464,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="sysCommand">System command.</param>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public void SendSysCommand(int sysCommand)
+        internal void SendSysCommand(PI.SC_ sysCommand)
         {
             SendSysCommand(sysCommand, IntPtr.Zero);
         }
@@ -475,10 +475,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="sysCommand">System command.</param>
         /// <param name="lParam">LPARAM value.</param>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public void SendSysCommand(int sysCommand, IntPtr lParam)
+        internal void SendSysCommand(PI.SC_ sysCommand, IntPtr lParam)
         {
             // Send window message to ourself
-            PI.SendMessage(Handle, PI.WM_SYSCOMMAND, (IntPtr)sysCommand, lParam);
+            PI.SendMessage(Handle, PI.WM_.SYSCOMMAND, (IntPtr)sysCommand, lParam);
         }
 
         /// <summary>
@@ -534,9 +534,9 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed && !Disposing && IsHandleCreated)
             {
                 PI.SetWindowPos(Handle, IntPtr.Zero, 0, 0, 0, 0,
-                                PI.SetWindowPosFlags.SWP_NOACTIVATE | PI.SetWindowPosFlags.SWP_NOMOVE |
-                                PI.SetWindowPosFlags.SWP_NOZORDER | PI.SetWindowPosFlags.SWP_NOSIZE |
-                                PI.SetWindowPosFlags.SWP_NOOWNERZORDER | PI.SetWindowPosFlags.SWP_FRAMECHANGED);
+                                PI.SWP_.NOACTIVATE | PI.SWP_.NOMOVE |
+                                PI.SWP_.NOZORDER | PI.SWP_.NOSIZE |
+                                PI.SWP_.NOOWNERZORDER | PI.SWP_.FRAMECHANGED);
             }
         }
         #endregion
@@ -970,10 +970,10 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 switch (m.Msg)
                 {
-                    case PI.WM_NCCALCSIZE:
+                    case PI.WM_.NCCALCSIZE:
                         processed = OnWM_NCCALCSIZE(ref m);
                         break;
-                    case PI.WM_GETMINMAXINFO:
+                    case PI.WM_.GETMINMAXINFO:
                         OnWM_GETMINMAXINFO(ref m);
                         /* Setting handled to false enables the application to process it's own Min/Max requirements,
                 * as mentioned by jason.bullard (comment from September 22, 2011) on http://gallery.expression.microsoft.com/ZuneWindowBehavior/ */
@@ -987,43 +987,43 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 switch (m.Msg)
                 {
-                    case PI.WM_NCPAINT:
+                    case PI.WM_.NCPAINT:
                         if (!ApplyComposition)
                         {
                             processed = _ignoreCount > 0 || OnWM_NCPAINT(ref m);
                         }
                         break;
-                    case PI.WM_NCHITTEST:
+                    case PI.WM_.NCHITTEST:
                         processed = ApplyComposition ? OnCompWM_NCHITTEST(ref m) : OnWM_NCHITTEST(ref m);
 
                         break;
-                    case PI.WM_NCACTIVATE:
+                    case PI.WM_.NCACTIVATE:
                         processed = OnWM_NCACTIVATE(ref m);
                         break;
-                    case PI.WM_NCMOUSEMOVE:
+                    case PI.WM_.NCMOUSEMOVE:
                         processed = OnWM_NCMOUSEMOVE(ref m);
                         break;
-                    case PI.WM_NCLBUTTONDOWN:
+                    case PI.WM_.NCLBUTTONDOWN:
                         processed = OnWM_NCLBUTTONDOWN(ref m);
                         break;
-                    case PI.WM_NCLBUTTONUP:
+                    case PI.WM_.NCLBUTTONUP:
                         processed = OnWM_NCLBUTTONUP(ref m);
                         break;
-                    case PI.WM_MOUSEMOVE:
+                    case PI.WM_.MOUSEMOVE:
                         if (_captured)
                         {
                             processed = OnWM_MOUSEMOVE(ref m);
                         }
 
                         break;
-                    case PI.WM_LBUTTONUP:
+                    case PI.WM_.LBUTTONUP:
                         if (_captured)
                         {
                             processed = OnWM_LBUTTONUP(ref m);
                         }
 
                         break;
-                    case PI.WM_NCMOUSELEAVE:
+                    case PI.WM_.NCMOUSELEAVE:
                         if (!_captured)
                         {
                             processed = OnWM_NCMOUSELEAVE(ref m);
@@ -1035,12 +1035,12 @@ namespace ComponentFactory.Krypton.Toolkit
                             Composition.CompNeedPaint(true);
                         }
                         break;
-                    case PI.WM_NCLBUTTONDBLCLK:
+                    case PI.WM_.NCLBUTTONDBLCLK:
                         processed = OnWM_NCLBUTTONDBLCLK(ref m);
                         break;
-                    case PI.WM_SYSCOMMAND:
+                    case PI.WM_.SYSCOMMAND:
                         // Is this the command for closing the form?
-                        if ((int)m.WParam.ToInt64() == PI.SC_CLOSE)
+                        if ((PI.SC_)m.WParam.ToInt64() == PI.SC_.CLOSE)
                         {
                             PropertyInfo pi = typeof(Form).GetProperty("CloseReason",
                                                                         BindingFlags.Instance |
@@ -1057,9 +1057,9 @@ namespace ComponentFactory.Krypton.Toolkit
                         }
 
                         break;
-                    case PI.WM_INITMENU:
-                    case PI.WM_SETTEXT:
-                    case PI.WM_HELP:
+                    case PI.WM_.INITMENU:
+                    case PI.WM_.SETTEXT:
+                    case PI.WM_.HELP:
                         processed = OnPaintNonClient(ref m);
                         break;
                     case 0x00AE:
@@ -1078,7 +1078,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // If the message has not been handled, let base class process it
-            if (!processed && m.Msg != PI.WM_GETMINMAXINFO)
+            if (!processed && m.Msg != PI.WM_.GETMINMAXINFO)
             {
                 base.WndProc(ref m);
             }
@@ -1103,8 +1103,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (monitor != IntPtr.Zero)
             {
 
-                PI.MONITORINFO monitorInfo = new PI.MONITORINFO();
-                PI.GetMonitorInfo(monitor, monitorInfo);
+                PI.MONITORINFO monitorInfo = PI.GetMonitorInfo(monitor);
                 PI.RECT rcWorkArea = monitorInfo.rcWork;
                 PI.RECT rcMonitorArea = monitorInfo.rcMonitor;
                 mmi.ptMaxPosition.X = Math.Abs(rcWorkArea.left - rcMonitorArea.left);
@@ -1209,7 +1208,7 @@ namespace ComponentFactory.Krypton.Toolkit
             m.Result = result;
 
             // If no result returned then let the base window routine process it
-            if (m.Result == (IntPtr)PI.HTNOWHERE)
+            if (m.Result == (IntPtr)PI.HT.NOWHERE)
             {
                 DefWndProc(ref m);
             }
@@ -1217,8 +1216,8 @@ namespace ComponentFactory.Krypton.Toolkit
             // If the window proc has decided it is in the CAPTION or CLIENT areas
             // then we might have something of our own in that area that we want to
             // override the return value for. So process it ourself.
-            if ((m.Result == (IntPtr)PI.HTCAPTION) ||
-                (m.Result == (IntPtr)PI.HTCLIENT))
+            if ((m.Result == (IntPtr)PI.HT.CAPTION) ||
+                (m.Result == (IntPtr)PI.HT.CLIENT))
             {
                 // Extract the point in screen coordinates
                 Point screenPoint = new Point((int)m.LParam.ToInt64());
@@ -1612,7 +1611,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns></returns>
         protected virtual IntPtr WindowChromeHitTest(Point pt, bool composition)
         {
-            return (IntPtr)PI.HTCLIENT;
+            return (IntPtr)PI.HT.CLIENT;
         }
 
         /// <summary>

@@ -87,10 +87,10 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 switch (m.Msg)
                 {
-                    case PI.WM_NCHITTEST:
+                    case PI.WM_.NCHITTEST:
                         if (_kryptonComboBox.InTransparentDesignMode)
                         {
-                            m.Result = (IntPtr)PI.HTTRANSPARENT;
+                            m.Result = (IntPtr)PI.HT.TRANSPARENT;
                         }
                         else
                         {
@@ -267,10 +267,10 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 switch (m.Msg)
                 {
-                    case PI.WM_NCHITTEST:
+                    case PI.WM_.NCHITTEST:
                         if (_kryptonComboBox.InTransparentDesignMode)
                         {
-                            m.Result = (IntPtr)PI.HTTRANSPARENT;
+                            m.Result = (IntPtr)PI.HT.TRANSPARENT;
                         }
                         else
                         {
@@ -278,7 +278,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         }
 
                         break;
-                    case PI.WM_MOUSELEAVE:
+                    case PI.WM_.MOUSELEAVE:
                         {
                             // Mouse is not over the control
                             MouseOver = false;
@@ -287,7 +287,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             Invalidate();
                         }
                         break;
-                    case PI.WM_MOUSEMOVE:
+                    case PI.WM_.MOUSEMOVE:
                         {
                             // Mouse is over the control
                             if (!MouseOver)
@@ -324,8 +324,8 @@ namespace ComponentFactory.Krypton.Toolkit
                             }
                         }
                         break;
-                    case PI.WM_PRINTCLIENT:
-                    case PI.WM_PAINT:
+                    case PI.WM_.PRINTCLIENT:
+                    case PI.WM_.PAINT:
                         {
                             PI.PAINTSTRUCT ps = new PI.PAINTSTRUCT();
 
@@ -444,7 +444,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             }
                         }
                         break;
-                    case PI.WM_CONTEXTMENU:
+                    case PI.WM_.CONTEXTMENU:
                         // Only interested in overriding the behavior when we have a krypton context menu...
                         if (_kryptonComboBox.KryptonContextMenu != null)
                         {
@@ -666,8 +666,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 set => PI.SetWindowPos(Handle,
                     IntPtr.Zero,
                     0, 0, 0, 0,
-                    (PI.SetWindowPosFlags.SWP_NOMOVE | PI.SetWindowPosFlags.SWP_NOSIZE |
-                           (value ? PI.SetWindowPosFlags.SWP_SHOWWINDOW : PI.SetWindowPosFlags.SWP_HIDEWINDOW))
+                    (PI.SWP_.NOMOVE | PI.SWP_.NOSIZE |
+                           (value ? PI.SWP_.SHOWWINDOW : PI.SWP_.HIDEWINDOW))
                     );
             }
             #endregion
@@ -681,10 +681,10 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 switch (m.Msg)
                 {
-                    case PI.WM_NCHITTEST:
+                    case PI.WM_.NCHITTEST:
                         if (_kryptonComboBox.InTransparentDesignMode)
                         {
-                            m.Result = (IntPtr)PI.HTTRANSPARENT;
+                            m.Result = (IntPtr)PI.HT.TRANSPARENT;
                         }
                         else
                         {
@@ -692,13 +692,13 @@ namespace ComponentFactory.Krypton.Toolkit
                         }
 
                         break;
-                    case PI.WM_MOUSELEAVE:
+                    case PI.WM_.MOUSELEAVE:
                         // Mouse is not over the control
                         MouseOver = false;
                         _kryptonComboBox.PerformNeedPaint(false);
                         base.WndProc(ref m);
                         break;
-                    case PI.WM_MOUSEMOVE:
+                    case PI.WM_.MOUSEMOVE:
                         // Mouse is over the control
                         if (!MouseOver)
                         {
@@ -724,7 +724,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         }
                         base.WndProc(ref m);
                         break;
-                    case PI.WM_CONTEXTMENU:
+                    case PI.WM_.CONTEXTMENU:
                         // Only interested in overriding the behavior when we have a krypton context menu...
                         if (_kryptonComboBox.KryptonContextMenu != null)
                         {
@@ -747,7 +747,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         }
                         base.WndProc(ref m);
                         break;
-                    case PI.WM_DESTROY:
+                    case PI.WM_.DESTROY:
                         // Remove this code as it prevents the auto suggest features from working
                         // _kryptonComboBox.DetachEditControl();
                         base.WndProc(ref m);
@@ -2635,10 +2635,10 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             switch (m.Msg)
             {
-                case PI.WM_NCHITTEST:
+                case PI.WM_.NCHITTEST:
                     if (InTransparentDesignMode)
                     {
-                        m.Result = (IntPtr)PI.HTTRANSPARENT;
+                        m.Result = (IntPtr)PI.HT.TRANSPARENT;
                     }
                     else
                     {
@@ -2678,7 +2678,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_subclassEdit == null)
                 {
                     // Find the first child
-                    IntPtr childPtr = PI.GetWindow(_comboBox.Handle, PI.GW_CHILD);
+                    IntPtr childPtr = PI.GetWindow(_comboBox.Handle, PI.GetWindowType.GW_CHILD);
 
                     // If we found a child then it is the edit class
                     if (childPtr != IntPtr.Zero)

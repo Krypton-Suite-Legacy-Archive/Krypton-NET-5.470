@@ -607,13 +607,13 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Get the current window style (cannot use the 
             // WindowState property as it can be slightly out of date)
-            uint style = PI.GetWindowLong(Handle, PI.GWL_STYLE);
+            uint style = PI.GetWindowLong(Handle, PI.GWL_.STYLE);
 
-            if ((style & PI.WS_MINIMIZE) != 0)
+            if ((style & PI.WS_.MINIMIZE) != 0)
             {
                 return FormWindowState.Minimized;
             }
-            else if ((style & PI.WS_MAXIMIZE) != 0)
+            else if ((style & PI.WS_.MAXIMIZE) != 0)
             {
                 return FormWindowState.Maximized;
             }
@@ -1018,7 +1018,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             if ((CustomCaptionArea != null) && CustomCaptionArea.Contains(pt))
             {
-                return (IntPtr)PI.HTCAPTION;
+                return (IntPtr)PI.HT.CAPTION;
             }
 
             if (!composition)
@@ -1043,7 +1043,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Do not allow the caption to be moved or the border resized
             if (InertForm)
             {
-                return (IntPtr)PI.HTCLIENT;
+                return (IntPtr)PI.HT.CLIENT;
             }
 
             using (ViewLayoutContext context = new ViewLayoutContext(this, Renderer))
@@ -1054,7 +1054,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Is the mouse over the image area
                     if (_drawContent.ImageRectangle(context).Contains(pt))
                     {
-                        return (IntPtr)PI.HTMENU;
+                        return (IntPtr)PI.HT.MENU;
                     }
                 }
             }
@@ -1101,7 +1101,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         (pt.Y > borders.Top) &&
                         (pt.Y < (Height - borders.Bottom)))
                     {
-                        return (IntPtr)PI.HTCAPTION;
+                        return (IntPtr)PI.HT.CAPTION;
                     }
                 }
 
@@ -1113,15 +1113,15 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         if (pt.Y <= HT_CORNER)
                         {
-                            return (IntPtr)PI.HTTOPLEFT;
+                            return (IntPtr)PI.HT.TOPLEFT;
                         }
 
                         if (pt.Y >= (Height - HT_CORNER))
                         {
-                            return (IntPtr)PI.HTBOTTOMLEFT;
+                            return (IntPtr)PI.HT.BOTTOMLEFT;
                         }
 
-                        return (IntPtr)PI.HTLEFT;
+                        return (IntPtr)PI.HT.LEFT;
                     }
 
                     // Is point over the right border?
@@ -1129,15 +1129,15 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         if (pt.Y <= HT_CORNER)
                         {
-                            return (IntPtr)PI.HTTOPRIGHT;
+                            return (IntPtr)PI.HT.TOPRIGHT;
                         }
 
                         if (pt.Y >= (Height - HT_CORNER))
                         {
-                            return (IntPtr)PI.HTBOTTOMRIGHT;
+                            return (IntPtr)PI.HT.BOTTOMRIGHT;
                         }
 
-                        return (IntPtr)PI.HTRIGHT;
+                        return (IntPtr)PI.HT.RIGHT;
                     }
 
                     // Is point over the bottom border?
@@ -1145,15 +1145,15 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         if (pt.X <= HT_CORNER)
                         {
-                            return (IntPtr)PI.HTBOTTOMLEFT;
+                            return (IntPtr)PI.HT.BOTTOMLEFT;
                         }
 
                         if (pt.X >= (Width - HT_CORNER))
                         {
-                            return (IntPtr)PI.HTBOTTOMRIGHT;
+                            return (IntPtr)PI.HT.BOTTOMRIGHT;
                         }
 
-                        return (IntPtr)PI.HTBOTTOM;
+                        return (IntPtr)PI.HT.BOTTOM;
                     }
 
                     // Is point over the top border?
@@ -1161,15 +1161,15 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         if (pt.X <= HT_CORNER)
                         {
-                            return (IntPtr)PI.HTTOPLEFT;
+                            return (IntPtr)PI.HT.TOPLEFT;
                         }
 
                         if (pt.X >= (Width - HT_CORNER))
                         {
-                            return (IntPtr)PI.HTTOPRIGHT;
+                            return (IntPtr)PI.HT.TOPRIGHT;
                         }
 
-                        return (IntPtr)PI.HTTOP;
+                        return (IntPtr)PI.HT.TOP;
                     }
                 }
 
@@ -1763,7 +1763,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     return false;
                 }
             }
-            catch (Exception exc)
+            catch
             {
                 return false;
             }

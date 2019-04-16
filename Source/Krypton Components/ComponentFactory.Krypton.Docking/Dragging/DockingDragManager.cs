@@ -14,6 +14,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Security.Permissions;
 using ComponentFactory.Krypton.Navigator;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Docking
 {
@@ -174,7 +175,7 @@ namespace ComponentFactory.Krypton.Docking
         public bool OnKEYDOWN(ref Message m)
         {
             // Pressing escape ends dragging
-            if ((int)m.WParam.ToInt64() == PI.VK_ESCAPE)
+            if ((int)m.WParam.ToInt64() == (int) Keys.Escape)
             {
                 DragQuit();
                 Dispose();
@@ -212,7 +213,7 @@ namespace ComponentFactory.Krypton.Docking
         {
             switch (m.Msg)
             {
-                case PI.WM_MOUSELEAVE:
+                case PI.WM_.MOUSELEAVE:
                     // Only interested in the mouse leave if it relates to the floating window and so ignore any
                     // message that comes from the mouse leaving the source of a drag such as a docked window or
                     // a workspace/navigator tab.
@@ -224,7 +225,7 @@ namespace ComponentFactory.Krypton.Docking
                         Dispose();
                     }
                     break;
-                case PI.WM_KEYDOWN:
+                case PI.WM_.KEYDOWN:
                     {
                         // Extract the keys being pressed
                         Keys keys = ((Keys)((int)m.WParam.ToInt64()));
@@ -238,7 +239,7 @@ namespace ComponentFactory.Krypton.Docking
 
                         return true;
                     }
-                case PI.WM_SYSKEYDOWN:
+                case PI.WM_.SYSKEYDOWN:
                     {
                         // Extract the keys being pressed
                         Keys keys = ((Keys)((int)m.WParam.ToInt64()));
@@ -252,14 +253,14 @@ namespace ComponentFactory.Krypton.Docking
 
                         break;
                     }
-                case PI.WM_MOUSEMOVE:
+                case PI.WM_.MOUSEMOVE:
                     if (_monitorMouse)
                     {
                         // Update feedback to reflect the current mouse position
                         DragMove(Control.MousePosition);
                     }
                     break;
-                case PI.WM_LBUTTONUP:
+                case PI.WM_.LBUTTONUP:
                     if (_monitorMouse)
                     {
                         DragEnd(Control.MousePosition);

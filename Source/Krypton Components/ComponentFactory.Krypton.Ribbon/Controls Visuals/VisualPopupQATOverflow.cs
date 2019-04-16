@@ -202,7 +202,7 @@ namespace ComponentFactory.Krypton.Ribbon
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.Style |= PI.WS_CLIPCHILDREN;
+                cp.Style |= (int) PI.WS_.CLIPCHILDREN;
                 return cp;
             }
         }

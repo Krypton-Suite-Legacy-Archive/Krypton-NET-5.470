@@ -512,7 +512,7 @@ namespace ComponentFactory.Krypton.Docking
             {
                 switch (msg.Msg)
                 {
-                    case PI.WM_KEYDOWN:
+                    case PI.WM_.KEYDOWN:
                         // Pressing escape removes the auto hidden window
                         if ((int)msg.WParam == PI.VK_ESCAPE)
                         {
@@ -520,7 +520,7 @@ namespace ComponentFactory.Krypton.Docking
                             return true;
                         }
                         break;
-                    case PI.WM_MOUSELEAVE:
+                    case PI.WM_.MOUSELEAVE:
                         // If the mouse is leaving a control then we start the dismiss timer so that a mouse move is required
                         // to cancel the mouse move and prevent the actual dismissal occuring. The exception to this is if the
                         // slide out dockspace has the focus, in which case we do nothing.
@@ -531,7 +531,7 @@ namespace ComponentFactory.Krypton.Docking
                             _dismissRunning = true;
                         }
                         break;
-                    case PI.WM_MOUSEMOVE:
+                    case PI.WM_.MOUSEMOVE:
                         // Convert the mouse position into a screen location
                         Point screenPt = CommonHelper.ClientMouseMessageToScreenPt(msg);
 

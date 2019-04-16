@@ -440,7 +440,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 IntPtr mDC = PI.CreateCompatibleDC(gDC);
 
                 PI.BITMAPINFO bmi = new PI.BITMAPINFO();
-                bmi.biSize = Marshal.SizeOf(bmi);
+                bmi.biSize = (uint) Marshal.SizeOf(bmi);
                 bmi.biWidth = ClientWidth;
                 bmi.biHeight = -ClientHeight;
                 bmi.biCompression = 0;

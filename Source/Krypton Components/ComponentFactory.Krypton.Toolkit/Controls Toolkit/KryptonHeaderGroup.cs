@@ -1015,7 +1015,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="m">A Windows-based message.</param>
         protected override void WndProc(ref Message m)
         {
-            if (m.Msg == PI.WM_WINDOWPOSCHANGING)
+            if (m.Msg == PI.WM_.WINDOWPOSCHANGING)
             {
                 // First time around we need to create the obscurer
                 if (_obscurer == null)
@@ -1034,7 +1034,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 BeginInvoke(_removeObscurer);
             }
 
-            if (m.Msg == PI.WM_WINDOWPOSCHANGED)
+            if (m.Msg == PI.WM_.WINDOWPOSCHANGED)
             {
                 // Uncover from the covered area
                 _obscurer?.Uncover();

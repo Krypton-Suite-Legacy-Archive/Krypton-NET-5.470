@@ -90,7 +90,7 @@ namespace ComponentFactory.Krypton.Toolkit
             ClientSize = screenRect.Size;
 
             // Show the window without activating it (i.e. do not take focus)
-            PI.ShowWindow(Handle, PI.SW_SHOWNOACTIVATE);
+            PI.ShowWindow(Handle, PI.ShowWindowCommands.SW_SHOWNOACTIVATE);
         }
 
         /// <summary>
@@ -126,8 +126,8 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 CreateParams cp = base.CreateParams;
                 cp.Parent = IntPtr.Zero;
-                cp.Style |= unchecked((int)PI.WS_POPUP);
-                cp.ExStyle |= PI.WS_EX_TOPMOST + PI.WS_EX_TOOLWINDOW;
+                cp.Style |= unchecked((int)PI.WS_.POPUP);
+                cp.ExStyle |= PI.WS_EX_.TOPMOST + PI.WS_EX_.TOOLWINDOW;
                 return cp;
             }
         }

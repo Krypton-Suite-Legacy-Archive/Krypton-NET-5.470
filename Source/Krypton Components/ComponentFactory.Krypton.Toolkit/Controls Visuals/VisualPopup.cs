@@ -170,7 +170,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _shadow?.Show(screenRect);
 
             // Show the window without activating it (i.e. do not take focus)
-            PI.ShowWindow(Handle, PI.SW_SHOWNOACTIVATE);
+            PI.ShowWindow(Handle, PI.ShowWindowCommands.SW_SHOWNOACTIVATE);
 
             // Use manager to track mouse/keyboard input and to dismiss the window
             VisualPopupManager.Singleton.StartTracking(this);
@@ -458,8 +458,8 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 CreateParams cp = base.CreateParams;
                 cp.Parent = IntPtr.Zero;
-                cp.Style = unchecked((int)PI.WS_POPUP);
-                cp.ExStyle = PI.WS_EX_TOPMOST + PI.WS_EX_TOOLWINDOW;
+                cp.Style = unchecked((int)PI.WS_.POPUP);
+                cp.ExStyle = PI.WS_EX_.TOPMOST + PI.WS_EX_.TOOLWINDOW;
                 return cp;
             }
         }
@@ -711,7 +711,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             switch (m.Msg)
             {
-                case PI.WM_MOUSEACTIVATE:
+                case PI.WM_.MOUSEACTIVATE:
                     // Prevent the popup window becoming active just because the user has
                     // pressed the mouse over the window, so return NOACTIVATE as result.
                     m.Result = (IntPtr)PI.MA_NOACTIVATE;
