@@ -681,7 +681,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 if (_ribbonTabs.GetViewForSpare.ClientRectangle.Contains(e.Point))
                 {
                     e.Cancel = false;
-                    e.Result = (IntPtr)PI.HTTRANSPARENT;
+                    e.Result = (IntPtr)PI.HT.TRANSPARENT;
                 }
             }
         }

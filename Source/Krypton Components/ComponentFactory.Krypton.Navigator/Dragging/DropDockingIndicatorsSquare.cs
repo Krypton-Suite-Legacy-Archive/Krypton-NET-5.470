@@ -110,11 +110,11 @@ namespace ComponentFactory.Krypton.Navigator
             }
 
             // Show the window without activating it (i.e. do not take focus)
-            PI.ShowWindow(Handle, PI.SW_SHOWNOACTIVATE);
+            PI.ShowWindow(Handle, PI.ShowWindowCommands.SW_SHOWNOACTIVATE);
         }
 
         /// <summary>
-        /// Perofrm mouse hit testing against a screen point.
+        /// Perform mouse hit testing against a screen point.
         /// </summary>
         /// <param name="screenPoint">Screen point.</param>
         /// <returns>Area that is active.</returns>

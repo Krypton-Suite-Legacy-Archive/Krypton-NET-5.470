@@ -137,8 +137,8 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 switch (m.Msg)
                 {
-                    case PI.WM_KEYDOWN:
-                    case PI.WM_SYSKEYDOWN:
+                    case PI.WM_.KEYDOWN:
+                    case PI.WM_.SYSKEYDOWN:
                         if (IgnoreAltF4)
                         {
                             // Extract the keys being pressed

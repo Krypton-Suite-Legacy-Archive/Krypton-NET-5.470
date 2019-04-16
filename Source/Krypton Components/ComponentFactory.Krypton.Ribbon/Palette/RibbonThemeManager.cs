@@ -22,7 +22,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     target.Items.Add(theme);
                 }
             }
-            catch (Exception exc)
+            catch
             {
 
                 throw;
@@ -42,7 +42,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     target.Items.Add(theme);
                 }
             }
-            catch (Exception exc)
+            catch
             {
 
                 throw;
@@ -261,9 +261,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 ApplyGlobalTheme(manager, GetCurrentPaletteMode(manager));
             }
-            catch (Exception exc)
+            catch
             {
-
+                // Swallow ?
             }
         }
 
@@ -430,7 +430,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 manager.GlobalPaletteMode = paletteModeManager;
             }
-            catch (Exception exc)
+            catch
             {
 
                 throw;
@@ -448,7 +448,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 manager.GlobalPaletteMode = (PaletteModeManager)mode;
             }
-            catch (Exception exc)
+            catch
             {
 
                 throw;

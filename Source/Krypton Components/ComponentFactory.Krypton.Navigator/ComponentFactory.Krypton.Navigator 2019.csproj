@@ -79,6 +79,9 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\ComponentFactory.Krypton.Toolkit\General\PlatformInvoke.cs">
+      <Link>General\PlatformInvoke.cs</Link>
+    </Compile>
     <Compile Include="ButtonSpecs\ButtonSpecNavManagerLayoutBar.cs" />
     <Compile Include="ButtonSpecs\ButtonSpecNavigator.cs">
       <SubType>Component</SubType>
@@ -147,7 +150,6 @@
     <Compile Include="EventArgs\DirectionActionEventArgs.cs" />
     <Compile Include="EventArgs\KryptonPageFlagsEventArgs.cs" />
     <Compile Include="General\PageToToolTipMapping.cs" />
-    <Compile Include="General\PlatformInvoke.cs" />
     <Compile Include="Navigator\KryptonNavigatorActionList.cs" />
     <Compile Include="Navigator\KryptonNavigatorDesigner.cs" />
     <Compile Include="Navigator\KryptonPageActionList.cs" />

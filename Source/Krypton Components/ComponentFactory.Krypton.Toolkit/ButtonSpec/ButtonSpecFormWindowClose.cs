@@ -104,7 +104,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                  PI.MAKEHIWORD(screenPos.Y));
 
                         // Request the form be closed down
-                        KryptonForm.SendSysCommand(PI.SC_CLOSE, lParam);
+                        KryptonForm.SendSysCommand(PI.SC_.CLOSE, lParam);
 
                         // Let base class fire any other attached events
                         base.OnClick(e);

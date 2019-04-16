@@ -79,6 +79,9 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\ComponentFactory.Krypton.Toolkit\General\PlatformInvoke.cs">
+      <Link>General\PlatformInvoke.cs</Link>
+    </Compile>
     <Compile Include="Control Docking\KryptonDockableNavigator.cs" />
     <Compile Include="Control Docking\KryptonDockspaceSlide.cs" />
     <Compile Include="Control Docking\KryptonStorePage.cs" />
@@ -151,7 +154,6 @@
     <Compile Include="General\DockingMultiUpdate.cs" />
     <Compile Include="General\DockingHelper.cs" />
     <Compile Include="General\Definitions.cs" />
-    <Compile Include="General\PlatformInvoke.cs" />
     <Compile Include="Palette\DockingManagerStrings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

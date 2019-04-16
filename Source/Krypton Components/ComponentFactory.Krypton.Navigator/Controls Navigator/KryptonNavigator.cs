@@ -1931,7 +1931,7 @@ namespace ComponentFactory.Krypton.Navigator
         protected override void WndProc(ref Message m)
         {
             // We need to snoop the need to show a context menu
-            if (m.Msg == PI.WM_CONTEXTMENU)
+            if (m.Msg == PI.WM_.CONTEXTMENU)
             {
                 // If already showing a context menu, because right clicking a tab can do 
                 // so, then we do not want to show the navigator defined context menu

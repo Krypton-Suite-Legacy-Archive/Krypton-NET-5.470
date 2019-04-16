@@ -79,16 +79,16 @@ namespace ComponentFactory.Krypton.Ribbon
                     {
                         // Create structure that will be populated by call to WM_GETTITLEBARINFOEX
                         PI.TITLEBARINFOEX tbi = new PI.TITLEBARINFOEX();
-                        tbi.cbSize = (uint)Marshal.SizeOf(tbi);
+                        tbi.cbSize = (uint) Marshal.SizeOf(tbi);
 
                         // Ask the window for the title bar information
-                        PI.SendMessage(CompOwnerForm.Handle, PI.WM_GETTITLEBARINFOEX, IntPtr.Zero, ref tbi);
+                        PI.SendMessage(CompOwnerForm.Handle, PI.WM_.GETTITLEBARINFOEX, IntPtr.Zero, ref tbi);
 
                         // Find width of the button rectangle
                         int closeWidth = tbi.rcCloseButton.right - tbi.rcCloseButton.left;
                         int helpWidth = tbi.rcHelpButton.right - tbi.rcHelpButton.left;
-                        int minWidth = tbi.rcMinButton.right - tbi.rcMinButton.left;
-                        int maxWidth = tbi.rcMaxButton.right - tbi.rcMaxButton.left;
+                        int minWidth = tbi.rcMinimizeButton.right - tbi.rcMinimizeButton.left;
+                        int maxWidth = tbi.rcMaximizeButton.right - tbi.rcMaximizeButton.left;
 
                         int clientWidth = CompOwnerForm.ClientSize.Width;
                         int clientScreenRight = CompOwnerForm.RectangleToScreen(CompOwnerForm.ClientRectangle).Right;
@@ -107,12 +107,12 @@ namespace ComponentFactory.Krypton.Ribbon
 
                         if ((minWidth > 0) && (minWidth < clientWidth))
                         {
-                            leftMost = Math.Min(leftMost, tbi.rcMinButton.left);
+                            leftMost = Math.Min(leftMost, tbi.rcMinimizeButton.left);
                         }
 
                         if ((maxWidth > 0) && (maxWidth < clientWidth))
                         {
-                            leftMost = Math.Min(leftMost, tbi.rcMaxButton.left);
+                            leftMost = Math.Min(leftMost, tbi.rcMaximizeButton.left);
                         }
 
                         // Our width is the distance between the left most button edge and the right

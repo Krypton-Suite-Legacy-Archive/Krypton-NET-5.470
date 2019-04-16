@@ -77,6 +77,9 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\ComponentFactory.Krypton.Toolkit\General\PlatformInvoke.cs">
+      <Link>General\PlatformInvoke.cs</Link>
+    </Compile>
     <Compile Include="ButtonSpec\ButtonSpecAppMenu.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -183,7 +186,6 @@
     <Compile Include="General\Definitions.cs" />
     <Compile Include="Controls Ribbon\KryptonRibbonQATButton.cs" />
     <Compile Include="Controls Ribbon\KryptonRibbonQATButtonCollection.cs" />
-    <Compile Include="General\PlatformInvoke.cs" />
     <Compile Include="Controls Visuals\VisualPopupMinimized.cs" />
     <Compile Include="Group Contents\KryptonRibbonGroupButton.cs" />
     <Compile Include="Group Contents\KryptonRibbonGroupCluster.cs" />

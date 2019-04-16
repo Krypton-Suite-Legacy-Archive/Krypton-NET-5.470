@@ -759,7 +759,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void WndProc(ref Message m)
         {
             // Prevent base class from showing a context menu when right clicking it
-            if (m.Msg != PI.WM_CONTEXTMENU)
+            if (m.Msg != PI.WM_.CONTEXTMENU)
             {
                 base.WndProc(ref m);
             }

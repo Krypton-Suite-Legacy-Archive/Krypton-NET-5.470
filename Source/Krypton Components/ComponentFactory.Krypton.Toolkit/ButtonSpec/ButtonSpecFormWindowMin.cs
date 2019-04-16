@@ -105,8 +105,8 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         // Toggle between minimized and restored
                         KryptonForm.SendSysCommand(KryptonForm.WindowState == FormWindowState.Minimized
-                            ? PI.SC_RESTORE
-                            : PI.SC_MINIMIZE);
+                            ? PI.SC_.RESTORE
+                            : PI.SC_.MINIMIZE);
 
                         // Let base class fire any other attached events
                         base.OnClick(e);

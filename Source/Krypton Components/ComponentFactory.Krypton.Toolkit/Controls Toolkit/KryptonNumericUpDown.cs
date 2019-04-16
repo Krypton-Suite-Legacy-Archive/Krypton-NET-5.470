@@ -165,10 +165,10 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 switch (m.Msg)
                 {
-                    case PI.WM_NCHITTEST:
+                    case PI.WM_.NCHITTEST:
                         if (_kryptonNumericUpDown.InTransparentDesignMode)
                         {
-                            m.Result = (IntPtr)PI.HTTRANSPARENT;
+                            m.Result = (IntPtr)PI.HT.TRANSPARENT;
                         }
                         else
                         {
@@ -176,14 +176,14 @@ namespace ComponentFactory.Krypton.Toolkit
                         }
 
                         break;
-                    case PI.WM_MOUSELEAVE:
+                    case PI.WM_.MOUSELEAVE:
                         // Mouse is not over the control
                         MouseOver = false;
                         _kryptonNumericUpDown.PerformNeedPaint(true);
                         Invalidate();
                         base.WndProc(ref m);
                         break;
-                    case PI.WM_MOUSEMOVE:
+                    case PI.WM_.MOUSEMOVE:
                         // Mouse is over the control
                         if (!MouseOver)
                         {
@@ -193,7 +193,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         }
                         base.WndProc(ref m);
                         break;
-                    case PI.WM_CONTEXTMENU:
+                    case PI.WM_.CONTEXTMENU:
                         // Only interested in overriding the behavior when we have a krypton context menu...
                         if (_kryptonNumericUpDown.KryptonContextMenu != null)
                         {
@@ -329,8 +329,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 set => PI.SetWindowPos(Handle,
                     IntPtr.Zero,
                     0, 0, 0, 0,
-                    (PI.SetWindowPosFlags.SWP_NOMOVE | PI.SetWindowPosFlags.SWP_NOSIZE |
-                           (value ? PI.SetWindowPosFlags.SWP_SHOWWINDOW : PI.SetWindowPosFlags.SWP_HIDEWINDOW))
+                    (PI.SWP_.NOMOVE | PI.SWP_.NOSIZE |
+                           (value ? PI.SWP_.SHOWWINDOW : PI.SWP_.HIDEWINDOW))
                     );
             }
             #endregion
@@ -349,10 +349,10 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 switch (m.Msg)
                 {
-                    case PI.WM_NCHITTEST:
+                    case PI.WM_.NCHITTEST:
                         if (NumericUpDown.InTransparentDesignMode)
                         {
-                            m.Result = (IntPtr)PI.HTTRANSPARENT;
+                            m.Result = (IntPtr)PI.HT.TRANSPARENT;
                         }
                         else
                         {
@@ -360,14 +360,14 @@ namespace ComponentFactory.Krypton.Toolkit
                         }
 
                         break;
-                    case PI.WM_MOUSELEAVE:
+                    case PI.WM_.MOUSELEAVE:
                         // Mouse is not over the control
                         MouseOver = false;
                         MousePoint = new Point(-int.MaxValue, -int.MaxValue);
                         NumericUpDown.PerformNeedPaint(true);
                         base.WndProc(ref m);
                         break;
-                    case PI.WM_MOUSEMOVE:
+                    case PI.WM_.MOUSEMOVE:
                         // Extra mouse position
                         MousePoint = new Point((int)m.LParam.ToInt64());
 
@@ -396,8 +396,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         }
                         base.WndProc(ref m);
                         break;
-                    case PI.WM_PRINTCLIENT:
-                    case PI.WM_PAINT:
+                    case PI.WM_.PRINTCLIENT:
+                    case PI.WM_.PAINT:
                         {
                             PI.PAINTSTRUCT ps = new PI.PAINTSTRUCT();
 
@@ -504,7 +504,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             }
                         }
                         break;
-                    case PI.WM_CONTEXTMENU:
+                    case PI.WM_.CONTEXTMENU:
                         // Only interested in overriding the behavior when we have a krypton context menu...
                         if (NumericUpDown.KryptonContextMenu != null)
                         {
@@ -624,23 +624,23 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 switch (m.Msg)
                 {
-                    case PI.WM_LBUTTONDBLCLK:
-                    case PI.WM_LBUTTONDOWN:
+                    case PI.WM_.LBUTTONDBLCLK:
+                    case PI.WM_.LBUTTONDOWN:
                         _mousePressed = new Point((int)m.LParam.ToInt64());
                         base.WndProc(ref m);
                         PI.RedrawWindow(Handle, IntPtr.Zero, IntPtr.Zero, 0x300);
                         break;
-                    case PI.WM_LBUTTONUP:
-                    case PI.WM_MBUTTONUP:
-                    case PI.WM_MBUTTONDOWN:
-                    case PI.WM_RBUTTONUP:
-                    case PI.WM_RBUTTONDOWN:
+                    case PI.WM_.LBUTTONUP:
+                    case PI.WM_.MBUTTONUP:
+                    case PI.WM_.MBUTTONDOWN:
+                    case PI.WM_.RBUTTONUP:
+                    case PI.WM_.RBUTTONDOWN:
                         _mousePressed = new Point(-int.MaxValue, -int.MaxValue);
                         base.WndProc(ref m);
                         PI.RedrawWindow(Handle, IntPtr.Zero, IntPtr.Zero, 0x300);
                         break;
-                    case PI.WM_PRINTCLIENT:
-                    case PI.WM_PAINT:
+                    case PI.WM_.PRINTCLIENT:
+                    case PI.WM_.PAINT:
                         PI.PAINTSTRUCT ps = new PI.PAINTSTRUCT();
 
                         // Do we need to BeginPaint or just take the given HDC?
@@ -1930,10 +1930,10 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             switch (m.Msg)
             {
-                case PI.WM_NCHITTEST:
+                case PI.WM_.NCHITTEST:
                     if (InTransparentDesignMode)
                     {
-                        m.Result = (IntPtr)PI.HTTRANSPARENT;
+                        m.Result = (IntPtr)PI.HT.TRANSPARENT;
                     }
                     else
                     {

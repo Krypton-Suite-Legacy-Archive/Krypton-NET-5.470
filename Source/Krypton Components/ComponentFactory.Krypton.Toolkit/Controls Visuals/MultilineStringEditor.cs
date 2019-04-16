@@ -132,11 +132,11 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void WndProc(ref Message m)
         {
             bool handled = false;
-            if (m.Msg == PI.WM_NCHITTEST)
+            if (m.Msg == PI.WM_.NCHITTEST)
             {
                 handled = OnNcHitTest(ref m);
             }
-            else if (m.Msg == PI.WM_GETMINMAXINFO)
+            else if (m.Msg == PI.WM_.GETMINMAXINFO)
             {
                 handled = OnGetMinMaxInfo(ref m);
             }
@@ -215,15 +215,15 @@ namespace ComponentFactory.Krypton.Toolkit
             GripBounds gripBounds = new GripBounds(ClientRectangle);
             if (gripBounds.BottomRight.Contains(clientLocation))
             {
-                m.Result = (IntPtr)PI.HTBOTTOMRIGHT;
+                m.Result = (IntPtr)PI.HT.BOTTOMRIGHT;
             }
             else if (gripBounds.Bottom.Contains(clientLocation))
             {
-                m.Result = (IntPtr)PI.HTBOTTOM;
+                m.Result = (IntPtr)PI.HT.BOTTOM;
             }
             else if (gripBounds.Right.Contains(clientLocation))
             {
-                m.Result = (IntPtr)PI.HTRIGHT;
+                m.Result = (IntPtr)PI.HT.RIGHT;
             }
 
             return m.Result != IntPtr.Zero;

@@ -103,17 +103,17 @@ namespace ComponentFactory.Krypton.Docking
         {
             switch (m.Msg)
             {
-                case PI.WM_NCLBUTTONDOWN:
+                case PI.WM_.NCLBUTTONDOWN:
                     {
                         // Perform a hit test to determine which area the mouse press is over at the moment
-                        uint result = PI.SendMessage(Handle, PI.WM_NCHITTEST, 0, (uint)m.LParam);
+                        uint result = PI.SendMessage(Handle, PI.WM_.NCHITTEST, IntPtr.Zero, m.LParam);
 
                         // Only want to override the behaviour of moving the window via the caption bar
-                        if (result == PI.HITTEST_CAPTION)
+                        if (result == PI.HT.CAPTION)
                         {
                             // Extract screen position of the mouse from the message LPARAM
-                            Point screenPos = new Point((short)((uint)m.LParam & 0x0000FFFFU),
-                                                        (short)(((uint)m.LParam & 0xFFFF0000U) >> 16));
+                            Point screenPos = new Point(PI.LOWORD(m.LParam),
+                                                        PI.HIWORD(m.LParam));
 
                             // Find the mouse offset relative to the top left of the window
                             Point offset = new Point(screenPos.X - Location.X, screenPos.Y - Location.Y);
@@ -134,17 +134,17 @@ namespace ComponentFactory.Krypton.Docking
                         }
                     }
                     break;
-                case PI.WM_KEYDOWN:
+                case PI.WM_.KEYDOWN:
                     base.WndProc(ref m);
                     FloatingMessages?.OnKEYDOWN(ref m);
 
                     return;
-                case PI.WM_MOUSEMOVE:
+                case PI.WM_.MOUSEMOVE:
                     base.WndProc(ref m);
                     FloatingMessages?.OnMOUSEMOVE();
 
                     return;
-                case PI.WM_LBUTTONUP:
+                case PI.WM_.LBUTTONUP:
                     base.WndProc(ref m);
                     FloatingMessages?.OnLBUTTONUP();
 

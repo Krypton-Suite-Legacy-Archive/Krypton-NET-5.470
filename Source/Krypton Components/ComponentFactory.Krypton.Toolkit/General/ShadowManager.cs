@@ -63,7 +63,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             switch (m.Msg)
             {
-                case PI.WM_SETCURSOR:
+                case PI.WM_.SETCURSOR:
                     if ((short)((long)m.LParam & 0xffff) == (-2))
                     {
                         short hiWord = (short)((((long)m.LParam) >> 16) & 0xffff);
@@ -78,13 +78,13 @@ namespace ComponentFactory.Krypton.Toolkit
                         }
                     }
                     break;
-                case PI.WM_WINDOWPOSCHANGED:
+                case PI.WM_.WINDOWPOSCHANGED:
                     {
                         PI.WINDOWPOS structure = (PI.WINDOWPOS)Marshal.PtrToStructure(m.LParam, typeof(PI.WINDOWPOS));
 
                         if (structure.hwndInsertAfter != IntPtr.Zero
-                            && structure.flags.HasFlag(PI.SetWindowPosFlags.SWP_NOSIZE | PI.SetWindowPosFlags.SWP_NOMOVE)
-                            && !structure.flags.HasFlag(PI.SetWindowPosFlags.SWP_NOZORDER)
+                            && structure.flags.HasFlag(PI.SWP_.NOSIZE | PI.SWP_.NOMOVE)
+                            && !structure.flags.HasFlag(PI.SWP_.NOZORDER)
                         )
                         {
                             IntPtr hWinPosInfo1 = PI.BeginDeferWindowPos(_shadowForms.Length);
@@ -92,10 +92,10 @@ namespace ComponentFactory.Krypton.Toolkit
                             foreach (VisualShadowBase shadowForm in _shadowForms)
                             {
                                 hWinPosInfo1 = PI.DeferWindowPos(hWinPosInfo1, shadowForm.Handle, m.HWnd, 0, 0, 0, 0,
-                                    PI.DeferWindowPosCommands.SWP_NOSIZE |
-                                    PI.DeferWindowPosCommands.SWP_NOMOVE |
-                                    PI.DeferWindowPosCommands.SWP_NOREDRAW |
-                                    PI.DeferWindowPosCommands.SWP_NOACTIVATE);
+                                    PI.SWP_.NOSIZE |
+                                    PI.SWP_.NOMOVE |
+                                    PI.SWP_.NOREDRAW |
+                                    PI.SWP_.NOACTIVATE);
                             }
 
                             PI.EndDeferWindowPos(hWinPosInfo1);
@@ -391,12 +391,12 @@ namespace ComponentFactory.Krypton.Toolkit
                         hWinPosInfo = PI.DeferWindowPos(hWinPosInfo, shadowForm.Handle,
                             PI.HWND_NOTOPMOST /*hWndInsertAfter*/,
                             targetRect.X, targetRect.Y, targetRect.Width, targetRect.Height,
-                            (moveOnly ? PI.DeferWindowPosCommands.SWP_NOSIZE : 0) |
-                            PI.DeferWindowPosCommands.SWP_NOACTIVATE
-                            | PI.DeferWindowPosCommands.SWP_NOREDRAW
-                            | PI.DeferWindowPosCommands.SWP_SHOWWINDOW
-                            | PI.DeferWindowPosCommands.SWP_NOCOPYBITS
-                            | PI.DeferWindowPosCommands.SWP_NOOWNERZORDER
+                            (moveOnly ? PI.SWP_.NOSIZE : 0) |
+                            PI.SWP_.NOACTIVATE
+                            | PI.SWP_.NOREDRAW
+                            | PI.SWP_.SHOWWINDOW
+                            | PI.SWP_.NOCOPYBITS
+                            | PI.SWP_.NOOWNERZORDER
                         );
                     }
                 }

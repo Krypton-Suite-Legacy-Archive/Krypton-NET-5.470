@@ -412,7 +412,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void WndProc(ref Message m)
         {
             // Only interested in intercepting the hit testing
-            if (m.Msg == PI.WM_NCHITTEST)
+            if (m.Msg == PI.WM_.NCHITTEST)
             {
                 // Extract the screen point for the hit test
                 Point screenPoint = new Point((int)m.LParam.ToInt64());
