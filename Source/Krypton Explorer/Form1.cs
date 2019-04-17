@@ -11,6 +11,7 @@
 
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -880,13 +881,15 @@ namespace KryptonExplorer
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo($"{ Path.GetDirectoryName(Application.ExecutablePath) }\\Krypton Toolkit.dll");
+
             Settings settings = new Settings();
 
             kryptonManager1.GlobalPaletteMode = settings.Theme;
 
             kcmbTheme.Text = ThemeManager.ReturnPaletteModeManagerAsString(settings.Theme);
 
-            tslVersion.Text = $"Version: { _currentVersion.ToString() }";
+            tslVersion.Text = $"Krypton Explorer Version: { _currentVersion.ToString() } - Toolkit Version: { fvi.FileVersion }";
 
             ThemeManager.PropagateThemeSelector(kcmbTheme);
         }
