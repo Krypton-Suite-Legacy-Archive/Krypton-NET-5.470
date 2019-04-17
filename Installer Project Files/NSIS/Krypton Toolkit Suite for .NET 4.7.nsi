@@ -39,11 +39,16 @@
 ; MUI end ------
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile "Setup.exe"
+OutFile "Krypton Toolkit Suite Demos Setup.exe"
 InstallDir "$PROGRAMFILES\Krypton Toolkit Suite for .NET 4.7"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
 ShowUnInstDetails show
+BrandingText 'Krypton Toolkit Suite for .NET 4.7'
+
+Function onGUIInit
+  Aero::Apply
+FunctionEnd
 
 Section "MainSection" SEC01
   SetOutPath "$INSTDIR"
@@ -563,4 +568,6 @@ Section Uninstall
   DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
   DeleteRegKey HKLM "${PRODUCT_DIR_REGKEY}"
   SetAutoClose true
+  
+  
 SectionEnd
