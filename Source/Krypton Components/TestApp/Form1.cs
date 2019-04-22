@@ -25,6 +25,12 @@ namespace TestApp
             ThemeManager.PropagateThemeSelector(kdbThemeCollection);
 
             ThemeManager.PropagateThemeSelector(klbThemes);
+
+            ThemeManager.PropagateThemeSelector(tscThemes);
+
+            ThemeManager.PropagateThemeSelector(cmbThemes);
+
+            ThemeManager.PropagateThemeSelector(dudThemes);
         }
 
         private void kcmbThemeCollection_SelectedIndexChanged(object sender, EventArgs e)
