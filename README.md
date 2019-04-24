@@ -22,7 +22,7 @@
 
 ## Demo Releases
 
-You can check out the demos by clicking [here](https://github.com/Wagnerp/Krypton-NET-5.470/releases)
+You can check out the demos by clicking [here](https://www.somsubhra.com/github-release-stats/?username=Wagnerp&repository=Krypton-NET-5.470)
 
 =======
 

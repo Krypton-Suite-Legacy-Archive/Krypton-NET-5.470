@@ -191,6 +191,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Set the UseDropShadow to true
             UseDropShadow = true;
+
+            AdministratorText = "Administrator";
         }
 
         /// <summary>

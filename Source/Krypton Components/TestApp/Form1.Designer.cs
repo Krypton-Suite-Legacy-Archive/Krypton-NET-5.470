@@ -50,6 +50,10 @@
             this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tscThemes = new System.Windows.Forms.ToolStripComboBox();
+            this.cmbThemes = new System.Windows.Forms.ComboBox();
+            this.dudThemes = new System.Windows.Forms.DomainUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
@@ -59,6 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPage1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPage2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kcmbThemeCollection)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonManager1
@@ -80,6 +85,9 @@
             // 
             // kryptonPanel2
             // 
+            this.kryptonPanel2.Controls.Add(this.dudThemes);
+            this.kryptonPanel2.Controls.Add(this.cmbThemes);
+            this.kryptonPanel2.Controls.Add(this.toolStrip1);
             this.kryptonPanel2.Controls.Add(this.kryptonTextBox2);
             this.kryptonPanel2.Controls.Add(this.kryptonButton3);
             this.kryptonPanel2.Controls.Add(this.kbtnLoadTheme);
@@ -104,7 +112,7 @@
             this.kryptonTextBox2.Hint = "watermark / cue / hint";
             this.kryptonTextBox2.Location = new System.Drawing.Point(25, 107);
             this.kryptonTextBox2.Name = "kryptonTextBox2";
-            this.kryptonTextBox2.Size = new System.Drawing.Size(191, 20);
+            this.kryptonTextBox2.Size = new System.Drawing.Size(191, 23);
             this.kryptonTextBox2.TabIndex = 19;
             this.kryptonTextBox2.ToolTipValues.Description = "";
             this.kryptonTextBox2.ToolTipValues.EnableToolTips = true;
@@ -222,7 +230,7 @@
             this.kryptonTextBox1.Hint = null;
             this.kryptonTextBox1.Location = new System.Drawing.Point(25, 59);
             this.kryptonTextBox1.Name = "kryptonTextBox1";
-            this.kryptonTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.kryptonTextBox1.Size = new System.Drawing.Size(100, 23);
             this.kryptonTextBox1.TabIndex = 4;
             this.kryptonTextBox1.Text = "kryptonTextBox1";
             this.kryptonTextBox1.ToolTipValues.Description = "Please type carefully -> Right";
@@ -289,6 +297,38 @@
             this.buttonSpecAny1.ToolTipTitle = "Title";
             this.buttonSpecAny1.UniqueName = "8D0C7B51F6A946484D932C2A06451172";
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tscThemes});
+            this.toolStrip1.Location = new System.Drawing.Point(25, 148);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(135, 25);
+            this.toolStrip1.TabIndex = 21;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tscThemes
+            // 
+            this.tscThemes.Name = "tscThemes";
+            this.tscThemes.Size = new System.Drawing.Size(121, 25);
+            // 
+            // cmbThemes
+            // 
+            this.cmbThemes.FormattingEnabled = true;
+            this.cmbThemes.Location = new System.Drawing.Point(174, 148);
+            this.cmbThemes.Name = "cmbThemes";
+            this.cmbThemes.Size = new System.Drawing.Size(121, 21);
+            this.cmbThemes.TabIndex = 22;
+            // 
+            // dudThemes
+            // 
+            this.dudThemes.Location = new System.Drawing.Point(302, 148);
+            this.dudThemes.Name = "dudThemes";
+            this.dudThemes.Size = new System.Drawing.Size(120, 20);
+            this.dudThemes.TabIndex = 23;
+            // 
             // Form1
             // 
             this.AllowButtonSpecToolTips = true;
@@ -319,6 +359,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPage1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPage2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kcmbThemeCollection)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -344,6 +386,10 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnLoadTheme;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton3;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox2;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripComboBox tscThemes;
+        private System.Windows.Forms.DomainUpDown dudThemes;
+        private System.Windows.Forms.ComboBox cmbThemes;
     }
 }
 
