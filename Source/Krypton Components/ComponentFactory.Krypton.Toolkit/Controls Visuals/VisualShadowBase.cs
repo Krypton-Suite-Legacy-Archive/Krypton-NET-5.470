@@ -5,14 +5,15 @@
 // *****************************************************************************
 
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-    internal class VisualShadowBase : Form
+    [DebuggerDisplay("({_visualOrientation} {_optimisedVisible})")]
+    internal class VisualShadowBase : NativeWindow, IDisposable
     {
         #region Instance Fields
         private readonly ShadowValues _shadowValues;
@@ -29,71 +30,66 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="shadowValues">What value will be used</param>
         /// <param name="visualOrientation">What orientation for the shadow placement</param>
-        /// <param name="kryptonForm"></param>
-        public VisualShadowBase(ShadowValues shadowValues, VisualOrientation visualOrientation, IntPtr kryptonForm)
+        /// <param name="control"></param>
+        public VisualShadowBase(ShadowValues shadowValues, VisualOrientation visualOrientation, IntPtr control)
         {
             //Form kryptonFormOwner = kryptonForm.Owner;
             //Owner = kryptonFormOwner;
             _shadowValues = shadowValues;
             _visualOrientation = visualOrientation;
-            _ownerHandle = kryptonForm;
+            _ownerHandle = control;
             // Update form properties so we do not have a border and do not show
             // in the task bar. We draw the background in Magenta and set that as
             // the transparency key so it is a see through window.
-            DoubleBuffered = true;
-            StartPosition = FormStartPosition.Manual;
-            ShowIcon = false;
-            ShowInTaskbar = false;
-            Enabled = false;
-            //SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-            FormBorderStyle = FormBorderStyle.None;
-            AccessibleRole = AccessibleRole.None;
-            //TransparencyKey = Color.Magenta;
-            //BackColor = Color.Transparent;
-            ClientSize = new Size(2, 2);
-            base.Visible = false;
+            CreateParams cp = new CreateParams
+            {
+                // Define the screen position/size
+                X = -2,
+                Y = -2,
+                Height = 2,
+                Width = 2,
+
+                Parent = IntPtr.Zero,//_ownerHandle,
+                Style = unchecked((int) (PI.WS_.DISABLED | PI.WS_.POPUP)),
+                ExStyle = PI.WS_EX_.LAYERED | PI.WS_EX_.NOACTIVATE | PI.WS_EX_.TRANSPARENT | PI.WS_EX_.NOPARENTNOTIFY
+            };
 
             _shadowClip = new Bitmap(1, 1);
             // Make the default transparent color transparent for myBitmap.
             _shadowClip.MakeTransparent();
+
+            // Create the actual window
+            CreateHandle(cp);
         }
 
+        /// <summary>
+        /// Make sure the resources are disposed of gracefully.
+        /// </summary>
+        public void Dispose()
+        {
+            DestroyHandle();
+            _shadowClip.Dispose();
+        }
         #endregion
 
         #region Public
         /// <summary>
         /// Show the window without activating it (i.e. do not take focus)
         /// </summary>
-        public new bool Visible
+        public bool Visible
         {
             get => _optimisedVisible;
             set
             {
-                if (IsHandleCreated
-                    && _optimisedVisible != value
-                    )
+                if ( _optimisedVisible != value )
                 {
                     _optimisedVisible = value;
                     if (!value)
                     {
-                        PI.ShowWindow(Handle, 0);
-                    }
-                    else
-                    {
-                        SetZOrder();
+                        PI.ShowWindow(Handle, PI.ShowWindowCommands.SW_HIDE);
                     }
                 }
             }
-        }
-
-        internal void SetZOrder()
-        {
-            PI.SetWindowPos(Handle, _ownerHandle /*hWndInsertAfter*/, TargetRect.X, TargetRect.Y, TargetRect.Width,
-                TargetRect.Height,
-                PI.SWP_.NOREDRAW |
-                PI.SWP_.NOACTIVATE |
-                PI.SWP_.SHOWWINDOW
-            );
         }
 
         /// <summary>
@@ -103,21 +99,6 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #endregion
 
-        #region Protected
-        /// <summary>
-        /// Gets the creation parameters.
-        /// </summary>
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.Parent = _ownerHandle;
-                cp.ExStyle |= PI.WS_EX_.LAYERED | PI.WS_EX_.NOACTIVATE | PI.WS_EX_.TRANSPARENT | PI.WS_EX_.NOPARENTNOTIFY;
-                return cp;
-            }
-        }
-        #endregion
 
         #region Implementation
         /// <summary>
@@ -133,7 +114,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             Rectangle rect = CalcRectangle(windowBounds);
             rect.Offset(clientLocation);
-            rect.Offset(-_shadowValues.Margins.Left, -_shadowValues.Margins.Top);
+            rect.Offset(_shadowValues.Offset);
             if (TargetRect != rect)
             {
                 TargetRect = rect;
@@ -147,7 +128,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Also invalidates to perform a redraw
         /// </summary>
-        /// <param name="sourceBitmap">This will be a single bitmap that would represent al the shadows</param>
+        /// <param name="sourceBitmap">This will be a single bitmap that would represent all the shadows</param>
         /// <param name="windowBounds"></param>
         public void ReCalcShadow(Bitmap sourceBitmap, Rectangle windowBounds)
         {
@@ -168,12 +149,18 @@ namespace ComponentFactory.Krypton.Toolkit
 
         internal void UpdateShadowLayer()
         {
-            // The Following is thanks to
-            // https://csharp.hotexamples.com/examples/-/NativeMethods.BLENDFUNCTION/-/php-nativemethods.blendfunction-class-examples.html
+            // The Following is also in
+            // $:\Krypton-NET-4.7\Source\Krypton Components\ComponentFactory.Krypton.Navigator\Dragging\DropDockingIndicatorsRounded.cs
             // Does this bitmap contain an alpha channel?
             if (_shadowClip.PixelFormat != PixelFormat.Format32bppArgb)
             {
                 throw new ApplicationException("The bitmap must be 32bpp with alpha-channel.");
+            }
+
+            // Must have a visible rectangle to render
+            if (TargetRect.Width <= 0 || TargetRect.Height <= 0)
+            {
+                return;
             }
 
             // Get device contexts
@@ -192,7 +179,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Set parameters for layered window update.
                 PI.SIZE newSize = new PI.SIZE(_shadowClip.Width, _shadowClip.Height);
                 PI.POINT sourceLocation = new PI.POINT(0, 0);
-                PI.POINT newLocation = new PI.POINT(Left, Top);
+                PI.POINT newLocation = new PI.POINT(TargetRect.Left, TargetRect.Top);
                 PI.BLENDFUNCTION blend = new PI.BLENDFUNCTION
                 {
                     BlendOp = PI.AC_SRC_OVER,
@@ -230,20 +217,16 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// Q: Why go to this trouble and not just have a "Huge bitmap"
-        /// A:memory 4K screen can eat a lot for a 32bit per pixel shader !
+        /// A: Memory for a 4K screen can eat a lot for a 32bit per pixel shader !
         /// </summary>
         /// <param name="windowBounds"></param>
         /// <returns></returns>
         private Rectangle CalcRectangle(Rectangle windowBounds)
         {
-            Padding margins = _shadowValues.Margins;
-            int maxMargin = new[]
-            {
-                _shadowValues.Margins.Left, _shadowValues.Margins.Right, _shadowValues.Margins.Top,
-                _shadowValues.Margins.Bottom
-            }.Max();
-            int w = windowBounds.Width + maxMargin * 2;
-            int h = windowBounds.Height + maxMargin * 2;
+            int extraWidth = (_shadowValues.ExtraWidth > 0) ? _shadowValues.ExtraWidth : 0;
+            int w = windowBounds.Width + extraWidth*2;
+            int h = windowBounds.Height + extraWidth*2;
+
             int top;
             int left;
             int bottom;
@@ -254,24 +237,24 @@ namespace ComponentFactory.Krypton.Toolkit
                 case VisualOrientation.Top:
                     top = 0;
                     left = 0;
-                    bottom = maxMargin*2 - margins.Top;
+                    bottom = Math.Abs(_shadowValues.Offset.Y)+ extraWidth;
                     right = w;
                     break;
                 case VisualOrientation.Left:
-                    top = maxMargin*2 - margins.Top;
+                    top = Math.Abs(_shadowValues.Offset.Y) + extraWidth;
                     left = 0;
                     bottom = h;
-                    right = maxMargin*2 - margins.Left;
+                    right = Math.Abs(_shadowValues.Offset.X) + extraWidth;
                     break;
                 case VisualOrientation.Bottom:
-                    top = h - maxMargin * 2 - margins.Bottom;
-                    left = maxMargin*2 - margins.Left;
+                    top = windowBounds.Height - (Math.Abs(_shadowValues.Offset.Y) + extraWidth);
+                    left = Math.Abs(_shadowValues.Offset.X) + extraWidth;
                     bottom = h;
-                    right = w - maxMargin * 2 - margins.Right;
+                    right = windowBounds.Width - (Math.Abs(_shadowValues.Offset.X) + extraWidth);
                     break;
                 case VisualOrientation.Right:
-                    top = maxMargin*2 - margins.Top;
-                    left = w - maxMargin * 2 - margins.Right;
+                    top = Math.Abs(_shadowValues.Offset.Y) + extraWidth;
+                    left = windowBounds.Width - (Math.Abs(_shadowValues.Offset.X) + extraWidth);
                     bottom = h;
                     right = w;
                     break;

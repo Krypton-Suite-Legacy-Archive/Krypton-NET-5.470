@@ -8,7 +8,6 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Runtime.InteropServices;
-using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -22,12 +21,12 @@ namespace ComponentFactory.Krypton.Toolkit
     public class ShadowValues : Storage
     {
         #region statics
-        private static Padding _defaultMargin = new Padding(-10, -10, 10, 10);
+        private static Point _defaultOffset = new Point(5,5);
         private double _blurDistance;
         private bool _enableShadows;
-        private Padding _margins;
+        private Point _offset;
+        private sbyte _extraWidth;
         private Color _colour;
-        private bool _hideOnNonActiveForm;
         private double _opacity;
         #endregion
 
@@ -41,8 +40,6 @@ namespace ComponentFactory.Krypton.Toolkit
         public event EventHandler BlurDistanceChanged;
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public event EventHandler<ColorEventArgs> ColourChanged;
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public event EventHandler HideOnNonActiveFormChanged;
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public event EventHandler OpacityChanged;
 #pragma warning restore 1591
@@ -63,10 +60,10 @@ namespace ComponentFactory.Krypton.Toolkit
         public void Reset()
         {
             ResetEnableShadows();
-            ResetMargins();
+            ResetOffset();
+            ResetExtraWidth();
             ResetBlurDistance();
             ResetColour();
-            ResetHideOnNonActiveForm();
             ResetOpacity();
         }
         #endregion Identity
@@ -103,36 +100,65 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// </summary>
-        [Description("How far does each side extend for the shadow")]
-        public Padding Margins
+        [Description("Relative location of the top-left of the shadow, to the form. +ve means shadow out the bottom right")]
+        public Point Offset
         {
-            get => _margins;
+            get => _offset;
             set
             {
-                if (_margins != value)
+                if (_offset != value)
                 {
-                    _margins = value;
+                    _offset = value;
                     MarginsChanged?.Invoke(this, EventArgs.Empty);
                 }
             }
         }
 
-        private bool ShouldSerializeMargins()
+        private bool ShouldSerializeOffset()
         {
-            return Margins != _defaultMargin;
+            return _offset != _defaultOffset;
         }
 
         /// <summary>
         /// </summary>
-        public void ResetMargins()
+        public void ResetOffset()
         {
-            Margins = _defaultMargin;
+            _offset = _defaultOffset;
         }
+
+        /// <summary>
+        /// </summary>
+        [Description("Extra width to be applied to all edges 'Signed byte'. A -ve value will not have a blur applied.")]
+        public sbyte ExtraWidth
+        {
+            get => _extraWidth;
+            set
+            {
+                if (_extraWidth != value)
+                {
+                    _extraWidth = value;
+                    MarginsChanged?.Invoke(this, EventArgs.Empty);
+                }
+            }
+        }
+
+        private bool ShouldSerializeExtraWidth()
+        {
+            return _extraWidth != 5;
+        }
+
+        /// <summary>
+        /// </summary>
+        public void ResetExtraWidth()
+        {
+            _extraWidth = 5;
+        }
+
 
 
         /// <summary>
         /// </summary>
-        [Description("% of max side to start blur +ve")]
+        [Description("% of 'Extra Width' to start blur +ve")]
         [DefaultValue(50.0)]
         public double BlurDistance
         {
@@ -194,35 +220,6 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// </summary>
-        [Description("Hide the shadow when the form is deactivated")]
-        [DefaultValue(false)]
-        public bool HideOnNonActiveForm
-        {
-            get => _hideOnNonActiveForm;
-            set
-            {
-                if (_hideOnNonActiveForm != value)
-                {
-                    _hideOnNonActiveForm = value;
-                    HideOnNonActiveFormChanged?.Invoke(this, EventArgs.Empty);
-                }
-            }
-        }
-
-        private bool ShouldSerializeHideOnNonActiveForm()
-        {
-            return HideOnNonActiveForm;
-        }
-
-        /// <summary>
-        /// </summary>
-        public void ResetHideOnNonActiveForm()
-        {
-            HideOnNonActiveForm = false;
-        }
-
-        /// <summary>
-        /// </summary>
         [Description("Opacity Percentage")]
         [DefaultValue(95.0)]
         public double Opacity
@@ -259,10 +256,10 @@ namespace ComponentFactory.Krypton.Toolkit
         /// 
         /// </summary>
         public override bool IsDefault => (!ShouldSerializeEnableShadows()
-                                            && !ShouldSerializeMargins()
+                                            && !ShouldSerializeOffset()
+                                            && !ShouldSerializeExtraWidth()
                                             && !ShouldSerializeBlurDistance()
                                             && !ShouldSerializeColour()
-                                            && !ShouldSerializeHideOnNonActiveForm()
                                             && !ShouldSerializeOpacity()
                                             );
 

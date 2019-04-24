@@ -101,7 +101,6 @@ namespace ComponentFactory.Krypton.Toolkit
         private StatusStrip _statusStrip;
         private Bitmap _cacheBitmap;
         private Icon _cacheIcon;
-        private ShadowManager _shadowManager;
         #endregion
 
         #region Identity
@@ -192,17 +191,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Set the UseDropShadow to true
             UseDropShadow = true;
-            ShadowValues = new ShadowValues();
-            _shadowManager = new ShadowManager(this, ShadowValues);
 
             AdministratorText = "Administrator";
-        }
-
-        [System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, Name = "FullTrust")]
-        protected override void WndProc(ref Message m)
-        {
-            base.WndProc(ref m);
-            _shadowManager.WndProc(ref m);
         }
 
         /// <summary>
@@ -427,21 +417,6 @@ namespace ComponentFactory.Krypton.Toolkit
         public PaletteFormRedirect StateCommon { get; }
 
         private bool ShouldSerializeStateCommon() => !StateCommon.IsDefault;
-
-        /// <summary>
-        /// Gets access to the button content.
-        /// </summary>
-        [Category("Visuals")]
-        [Description("Form Shadowing")]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public ShadowValues ShadowValues { get; set; }
-
-        private bool ShouldSerializeShadowValues() => !ShadowValues.IsDefault;
-
-        /// <summary>
-        /// Resets the <see cref="KryptonForm"/> shadow values.
-        /// </summary>
-        public void ResetShadowValues() => ShadowValues.Reset();
 
         /// <summary>
         /// Gets access to the inactive form appearance entries.
@@ -943,38 +918,6 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             // Test if we need to change the custom chrome usage
             UpdateCustomChromeDecision();
-        }
-
-        /// <summary>
-        /// Raises the Layout event.
-        /// </summary>
-        /// <param name="levent">An EventArgs that contains the event data.</param>
-        protected override void OnLayout(LayoutEventArgs levent)
-        {
-            // Let base class calculate fill rectangle
-            base.OnLayout(levent);
-
-            if (WindowState != FormWindowState.Normal)
-            {
-                return;
-            }
-            // Need a render context for accessing the renderer
-            //using (RenderContext context = new RenderContext(this, null, ClientRectangle, Renderer))
-            //{
-            //    // Grab a path that is the outside edge of the border
-            //    Rectangle borderRect = ClientRectangle;
-            //    GraphicsPath borderPath1 = Renderer.RenderStandardBorder.GetOutsideBorderPath(context, borderRect, _drawDocker.PaletteBorder, _drawDocker.Orientation, _drawDocker.State);
-            //    borderRect.Inflate(-1, -1);
-            //    GraphicsPath borderPath2 = Renderer.RenderStandardBorder.GetOutsideBorderPath(context, borderRect, _drawDocker.PaletteBorder, _drawDocker.Orientation, _drawDocker.State);
-            //    borderRect.Inflate(-1, -1);
-            //    GraphicsPath borderPath3 = Renderer.RenderStandardBorder.GetOutsideBorderPath(context, borderRect, _drawDocker.PaletteBorder, _drawDocker.Orientation, _drawDocker.State);
-
-            //    // Update the region of the popup to be the border path
-            //    Region = new Region(borderPath1);
-
-            //    // Inform the shadow to use the same paths for drawing the shadow
-            //    DefinePaths(borderPath1, borderPath2, borderPath3);
-            //}
         }
         #endregion
 
