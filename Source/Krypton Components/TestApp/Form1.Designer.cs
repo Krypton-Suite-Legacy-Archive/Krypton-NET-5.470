@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            ComponentFactory.Krypton.Toolkit.Values.PopupPositionValues popupPositionValues1 = new ComponentFactory.Krypton.Toolkit.Values.PopupPositionValues();
-            ComponentFactory.Krypton.Toolkit.Values.PopupPositionValues popupPositionValues2 = new ComponentFactory.Krypton.Toolkit.Values.PopupPositionValues();
-            ComponentFactory.Krypton.Toolkit.Values.PopupPositionValues popupPositionValues3 = new ComponentFactory.Krypton.Toolkit.Values.PopupPositionValues();
-            ComponentFactory.Krypton.Toolkit.Values.PopupPositionValues popupPositionValues4 = new ComponentFactory.Krypton.Toolkit.Values.PopupPositionValues();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
@@ -232,8 +228,7 @@
             this.kryptonTextBox1.ToolTipValues.Description = "Please type carefully -> Right";
             this.kryptonTextBox1.ToolTipValues.EnableToolTips = true;
             this.kryptonTextBox1.ToolTipValues.Heading = "This Text will explode";
-            popupPositionValues1.PlacementMode = ComponentFactory.Krypton.Toolkit.PlacementMode.Right;
-            this.kryptonTextBox1.ToolTipValues.ToolTipPosition = popupPositionValues1;
+            this.kryptonTextBox1.ToolTipValues.ToolTipPosition.PlacementMode = ComponentFactory.Krypton.Toolkit.PlacementMode.Right;
             // 
             // kryptonCheckedListBox1
             // 
@@ -244,8 +239,7 @@
             this.kryptonCheckedListBox1.ToolTipValues.Description = "Description\r\nof\r\nTool\r\ntip\r\nMadness";
             this.kryptonCheckedListBox1.ToolTipValues.EnableToolTips = true;
             this.kryptonCheckedListBox1.ToolTipValues.Heading = "Checked List Box";
-            popupPositionValues2.PlacementMode = ComponentFactory.Krypton.Toolkit.PlacementMode.Center;
-            this.kryptonCheckedListBox1.ToolTipValues.ToolTipPosition = popupPositionValues2;
+            this.kryptonCheckedListBox1.ToolTipValues.ToolTipPosition.PlacementMode = ComponentFactory.Krypton.Toolkit.PlacementMode.Center;
             // 
             // kryptonBorderEdge1
             // 
@@ -269,8 +263,7 @@
             this.kryptonButton2.TabIndex = 1;
             this.kryptonButton2.ToolTipValues.Description = "Description -> Top";
             this.kryptonButton2.ToolTipValues.EnableToolTips = true;
-            popupPositionValues3.PlacementMode = ComponentFactory.Krypton.Toolkit.PlacementMode.Top;
-            this.kryptonButton2.ToolTipValues.ToolTipPosition = popupPositionValues3;
+            this.kryptonButton2.ToolTipValues.ToolTipPosition.PlacementMode = ComponentFactory.Krypton.Toolkit.PlacementMode.Top;
             this.kryptonButton2.ToolTipValues.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.KeyTip;
             this.kryptonButton2.Values.Text = "Test Movement of\r\ntooltip to other \r\ncontrol";
             this.kryptonButton2.Click += new System.EventHandler(this.kryptonButton2_Click);
@@ -283,8 +276,7 @@
             this.kryptonButton1.TabIndex = 0;
             this.kryptonButton1.ToolTipValues.Description = "Description -> Left";
             this.kryptonButton1.ToolTipValues.EnableToolTips = true;
-            popupPositionValues4.PlacementMode = ComponentFactory.Krypton.Toolkit.PlacementMode.Left;
-            this.kryptonButton1.ToolTipValues.ToolTipPosition = popupPositionValues4;
+            this.kryptonButton1.ToolTipValues.ToolTipPosition.PlacementMode = ComponentFactory.Krypton.Toolkit.PlacementMode.Left;
             this.kryptonButton1.Values.Text = "Ribbon Test";
             this.kryptonButton1.Click += new System.EventHandler(this.kryptonButton1_Click);
             // 
@@ -309,6 +301,11 @@
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
+            this.ShadowValues.BlurDistance = 100D;
+            this.ShadowValues.Colour = System.Drawing.Color.Maroon;
+            this.ShadowValues.EnableShadows = true;
+            this.ShadowValues.ExtraWidth = ((sbyte)(-2));
+            this.ShadowValues.Opacity = 40D;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.Form1_HelpRequested);

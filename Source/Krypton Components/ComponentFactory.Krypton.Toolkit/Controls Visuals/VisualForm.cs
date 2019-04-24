@@ -55,6 +55,8 @@ namespace ComponentFactory.Krypton.Toolkit
         private IPalette _palette;
         private PaletteMode _paletteMode;
         private readonly IntPtr _screenDC;
+        private ShadowValues _shadowValues;
+        private ShadowManager _shadowManager;
         #endregion
 
         #region Events
@@ -124,6 +126,9 @@ namespace ComponentFactory.Krypton.Toolkit
             // Hook into global static events
             KryptonManager.GlobalPaletteChanged += OnGlobalPaletteChanged;
             SystemEvents.UserPreferenceChanged += OnUserPreferenceChanged;
+
+            ShadowValues = new ShadowValues();
+
         }
 
         /// <summary>
@@ -172,7 +177,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public bool ApplyCustomChrome
         {
             [DebuggerStepThrough]
-            get { return _applyCustomChrome; }
+            get => _applyCustomChrome;
 
             internal set
             {
@@ -310,7 +315,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public PaletteMode PaletteMode
         {
             [DebuggerStepThrough]
-            get { return _paletteMode; }
+            get => _paletteMode;
 
             set
             {
@@ -356,6 +361,30 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
+        /// Gets access to the button content.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Form Shadowing")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public ShadowValues ShadowValues
+        {
+            [DebuggerStepThrough]
+            get => _shadowValues;
+            set
+            {
+                _shadowValues = value;
+                _shadowManager = new ShadowManager(this, _shadowValues);
+            }
+        }
+
+        private bool ShouldSerializeShadowValues() => !_shadowValues.IsDefault;
+
+        /// <summary>
+        /// Resets the <see cref="KryptonForm"/> shadow values.
+        /// </summary>
+        public void ResetShadowValues() => _shadowValues.Reset();
+
+        /// <summary>
         /// Gets and sets the custom palette implementation.
         /// </summary>
         [Category("Visuals")]
@@ -364,7 +393,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public IPalette Palette
         {
             [DebuggerStepThrough]
-            get { return _localPalette; }
+            get => _localPalette;
 
             set
             {
@@ -958,6 +987,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Process Windows-based messages.
         /// </summary>
         /// <param name="m">A Windows-based message.</param>
+        [System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, Name = "FullTrust")]
         protected override void WndProc(ref Message m)
         {
             bool processed = false;
@@ -1081,6 +1111,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!processed && m.Msg != PI.WM_.GETMINMAXINFO)
             {
                 base.WndProc(ref m);
+                _shadowManager.WndProc(ref m);
             }
         }
 
@@ -1804,6 +1835,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Change in base renderer or base palette require we fetch the latest renderer
             Renderer = _palette.GetRenderer();
         }
+
         #endregion
     }
 }

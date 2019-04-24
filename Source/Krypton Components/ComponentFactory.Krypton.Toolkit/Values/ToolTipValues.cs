@@ -58,6 +58,7 @@ namespace ComponentFactory.Krypton.Toolkit.Values
         /// Gets and sets the EnableToolTips
         /// </summary>
         [Description("The orientation of the ToolTip control when it opens, and specifies how the ToolTip control behaves when it overlaps screen boundaries.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PopupPositionValues ToolTipPosition { get; set; }
 
         private bool ShouldSerializeToolTipPosition()

@@ -5,10 +5,10 @@
 // *****************************************************************************
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -20,185 +20,109 @@ namespace ComponentFactory.Krypton.Toolkit
     internal class ShadowManager
     {
         #region Instance Fields
-        private readonly KryptonForm _kryptonForm;
+        private readonly VisualForm _parentForm;
         private readonly ShadowValues _shadowValues;
         private bool _allowDrawing;
         private VisualShadowBase[] _shadowForms;
-        private System.Timers.Timer _dwmTimer;
         #endregion
 
         #region Identity
-        public ShadowManager(KryptonForm kryptonForm, ShadowValues shadowValues)
+        public ShadowManager(VisualForm kryptonForm, ShadowValues shadowValues)
         {
-            _kryptonForm = kryptonForm;
+            _parentForm = kryptonForm;
             _shadowValues = shadowValues;
-            kryptonForm.Load += KryptonForm_Load;
-            kryptonForm.Closing += KryptonFormOnClosing;
-            kryptonForm.Move += KryptonFormOnMove;
-            kryptonForm.Resize += KryptonForm_Resize;
-            kryptonForm.SizeChanged += KryptonFormOnSizeChanged;
-            kryptonForm.Shown += KryptonFormOnShown;
-            kryptonForm.VisibleChanged += KryptonFormOnVisibleChanged;
+
+            _parentForm.Closing += KryptonFormOnClosing;
+            _parentForm.Load += FormLoaded;
 
             shadowValues.EnableShadowsChanged += ShadowValues_EnableShadowsChanged;
             shadowValues.MarginsChanged += ShadowValues_MarginsChanged;
             shadowValues.BlurDistanceChanged += ShadowValues_BlurDistanceChanged;
             shadowValues.ColourChanged += ShadowValues_ColourChanged;
-            shadowValues.HideOnNonActiveFormChanged += ShadowValues_HideOnNonActiveForm;
             shadowValues.OpacityChanged += ShadowValues_OpacityChanged;
-
-            _dwmTimer = new System.Timers.Timer {Interval = 1500, AutoReset = false};
-            _dwmTimer.Elapsed += SmellyHackToCopeWithWindowsSpecialFlashingWhenOtherFormIsClicked;
 
         }
 
         internal void WndProc(ref Message m)
         {
-            if (!_allowDrawing
-                || !AllowDrawing
-                )
-            {
-                return;
-            }
-
             switch (m.Msg)
             {
-                case PI.WM_.SETCURSOR:
-                    if ((short)((long)m.LParam & 0xffff) == (-2))
-                    {
-                        short hiWord = (short)((((long)m.LParam) >> 16) & 0xffff);
-
-                        if ((hiWord == 0x0201
-                             || hiWord == 0x0204) 
-                            && !_dwmTimer.Enabled)
-                        {
-                            _dwmTimer.Stop();
-                            // Parent form is "Flashing" so reset ZOrder in a moment !
-                            _dwmTimer.Start();
-                        }
-                    }
-                    break;
                 case PI.WM_.WINDOWPOSCHANGED:
                     {
                         PI.WINDOWPOS structure = (PI.WINDOWPOS)Marshal.PtrToStructure(m.LParam, typeof(PI.WINDOWPOS));
-
-                        if (structure.hwndInsertAfter != IntPtr.Zero
-                            && structure.flags.HasFlag(PI.SWP_.NOSIZE | PI.SWP_.NOMOVE)
-                            && !structure.flags.HasFlag(PI.SWP_.NOZORDER)
-                        )
+                        bool move = !structure.flags.HasFlag(PI.SWP_.NOSIZE| PI.SWP_.NOMOVE);
+                        PositionShadowForms(move );
+                        if (!move)
                         {
-                            IntPtr hWinPosInfo1 = PI.BeginDeferWindowPos(_shadowForms.Length);
-
-                            foreach (VisualShadowBase shadowForm in _shadowForms)
-                            {
-                                hWinPosInfo1 = PI.DeferWindowPos(hWinPosInfo1, shadowForm.Handle, m.HWnd, 0, 0, 0, 0,
-                                    PI.SWP_.NOSIZE |
-                                    PI.SWP_.NOMOVE |
-                                    PI.SWP_.NOREDRAW |
-                                    PI.SWP_.NOACTIVATE);
-                            }
-
-                            PI.EndDeferWindowPos(hWinPosInfo1);
+                            ReCalcBrushes();
                         }
                     }
                     break;
             }
-        }
-
-        private void SmellyHackToCopeWithWindowsSpecialFlashingWhenOtherFormIsClicked(object sender, System.Timers.ElapsedEventArgs e)
-        {
-            _dwmTimer.Stop();
-            // The following hack does not appear to work reliably via RDP
-            _kryptonForm.Invoke((MethodInvoker) (() =>
-            {
-                InitialiseShadowForms();
-                Form flashForm = new Form
-                {
-                    Size = new Size(1, 1),
-                    StartPosition = FormStartPosition.Manual,
-                    Location = new Point(-100, -100)
-                };
-                flashForm.Show(_kryptonForm);
-                flashForm.Close();
-            }));
-        }
-
-        private void KryptonForm_Load(object sender, EventArgs e)
-        {
-            InitialiseShadowForms();
         }
 
         #endregion
 
         private void InitialiseShadowForms()
         {
+            if (_shadowForms != null)
+            {
+                foreach (VisualShadowBase shadowForm in _shadowForms)
+                {
+                    shadowForm.Visible = false;
+                    shadowForm.Dispose();
+                }
+            }
             _shadowForms = new VisualShadowBase[4];
+
             for (int i = 0; i < 4; i++)
             {
-                _shadowForms[i] = new VisualShadowBase(_shadowValues, (VisualOrientation)i, _kryptonForm.Handle);
-                _shadowForms[i].Show();
+                _shadowForms[i] = new VisualShadowBase(_shadowValues, (VisualOrientation)i, _parentForm.Handle);
             }
         }
 
         private bool AllowDrawing =>
             _allowDrawing
             && _shadowValues.EnableShadows
-            && (!_shadowValues.HideOnNonActiveForm || _kryptonForm.WindowActive)
-            && _kryptonForm.Visible;
+            && _parentForm.Visible;
 
-        private void KryptonFormOnClosing(object sender, CancelEventArgs e)
+        private void KryptonFormOnClosing(object sender, /*Cancel*/EventArgs e)
         {
             _allowDrawing = false;
-            if (_dwmTimer != null)
-            {
-                _dwmTimer.Dispose();
-            }
+            FlashWindowExListener.FlashEvent -= OnFlashWindowExListenerOnFlashEvent;
 
-            _dwmTimer = null;
-
-            PositionShadowForms(false);
-            _kryptonForm.Closing -= KryptonFormOnClosing;
-            _kryptonForm.Move -= KryptonFormOnMove;
-            _kryptonForm.Resize -= KryptonForm_Resize;
-            _kryptonForm.SizeChanged -= KryptonFormOnSizeChanged;
-            _kryptonForm.Shown -= KryptonFormOnShown;
-            _kryptonForm.VisibleChanged -= KryptonFormOnVisibleChanged;
             foreach (VisualShadowBase shadowForm in _shadowForms)
             {
-                shadowForm.Close();
+                shadowForm.Visible = false;
+                shadowForm.Dispose();
             }
 
         }
 
-        private void KryptonFormOnVisibleChanged(object sender, EventArgs e)
+        private void FormLoaded(object sender, EventArgs e)
         {
-            PositionShadowForms(false);
+            _allowDrawing = (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
+                            && (System.Diagnostics.Process.GetCurrentProcess().ProcessName != @"devenv");
+            if (_shadowForms == null)
+            {
+                InitialiseShadowForms();
+                SetShadowFormsSizes();
+                FlashWindowExListener.Register(_parentForm as Form);
+                FlashWindowExListener.FlashEvent += OnFlashWindowExListenerOnFlashEvent;
+            }
+            else
+            {
+                PositionShadowForms(false);
+            }
         }
 
-        private void KryptonFormOnShown(object sender, EventArgs e)
+        // Try and keep the shadows where  they are supposed to be when the form is flashing.
+        private void OnFlashWindowExListenerOnFlashEvent(Form form, bool flashing)
         {
-            _allowDrawing = (LicenseManager.UsageMode != LicenseUsageMode.Designtime);
-            SetShadowFormsSizes();
-        }
-
-        private void KryptonFormOnSizeChanged(object sender, EventArgs e)
-        {
-            SetShadowFormsSizes();
-        }
-
-        private void KryptonForm_Resize(object sender, EventArgs e)
-        {
-            SetShadowFormsSizes();
-        }
-
-        private void KryptonFormOnMove(object sender, EventArgs e)
-        {
-            PositionShadowForms(true);
-        }
-
-        private void ShadowValues_HideOnNonActiveForm(object sender, EventArgs e)
-        {
-            PositionShadowForms(false);
+            if (!flashing)
+            {
+                _parentForm.BeginInvoke((MethodInvoker) (() => PositionShadowForms(false)));
+            }
         }
 
         private void ShadowValues_ColourChanged(object sender, ColorEventArgs e)
@@ -250,7 +174,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // calculate the "whole" shadow
-            Rectangle clientRectangle = CommonHelper.RealClientRectangle(_kryptonForm.Handle);
+            Rectangle clientRectangle = CommonHelper.RealClientRectangle(_parentForm.Handle);
             using (Bitmap allShadow = DrawShadowBitmap(clientRectangle))
             {
                 foreach (VisualShadowBase shadowForm in _shadowForms)
@@ -267,17 +191,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns></returns>
         private Bitmap DrawShadowBitmap(Rectangle clientRectangle)
         {
-            int maxMargin = new[]
-            {
-                _shadowValues.Margins.Left, _shadowValues.Margins.Right, _shadowValues.Margins.Top,
-                _shadowValues.Margins.Bottom
-            }.Max();
-            int blur = (int)((_shadowValues.BlurDistance / 100.0) * maxMargin);
-            int w = clientRectangle.Width + maxMargin * 2;
-            int h = clientRectangle.Height + maxMargin * 2;
-            int solidW = clientRectangle.Width + blur * 2;
-            int solidH = clientRectangle.Height + blur * 2;
+            int extraWidth = (_shadowValues.ExtraWidth > 0) ? _shadowValues.ExtraWidth : 0;
+            int w = clientRectangle.Width + extraWidth * 2;
+            int h = clientRectangle.Height + extraWidth * 2;
 
+            float blur = (float)(_shadowValues.BlurDistance / 100.0 * Math.Abs(_shadowValues.ExtraWidth));
+            float solidW = clientRectangle.Width + blur*2;
+            float solidH = clientRectangle.Height + blur*2;
+            float blurOffset = _shadowValues.ExtraWidth - blur;
             Bitmap bitmap = new Bitmap(w, h);
             bitmap.MakeTransparent();
             using (Graphics g = Graphics.FromImage(bitmap))
@@ -286,31 +207,31 @@ namespace ComponentFactory.Krypton.Toolkit
                 //g.FillRectangle(Brushes.Magenta, 0,0,w,h);
                 // +1 to fill the gap
                 g.FillRectangle(new SolidBrush(_shadowValues.Colour),
-                    maxMargin - blur, maxMargin - blur, solidW + 1, solidH + 1);
+                    blurOffset, blurOffset, solidW + 1, solidH + 1);
 
-                if (_shadowValues.BlurDistance > 0)
+                // four dir gradient
+                if (blurOffset > 0)
                 {
-                    // four dir gradient
-                    using (LinearGradientBrush brush = new LinearGradientBrush(new Point(0, 0), new Point(blur, 0),
+                    using (LinearGradientBrush brush = new LinearGradientBrush(new PointF(0, 0), new PointF(blurOffset, 0),
                         Color.Transparent, _shadowValues.Colour))
                     {
                         // Left
-                        g.FillRectangle(brush, 0, blur, blur, solidH);
+                        g.FillRectangle(brush, 0, blurOffset, blurOffset, solidH);
 
                         // Top
                         brush.RotateTransform(90);
-                        g.FillRectangle(brush, blur, 0, solidW, blur);
+                        g.FillRectangle(brush, blurOffset, 0, solidW, blurOffset);
 
                         // Right
                         // make sure pattern is correct
                         brush.ResetTransform();
-                        brush.TranslateTransform(w % blur, h % blur);
+                        brush.TranslateTransform(w % blurOffset, h % blurOffset);
 
                         brush.RotateTransform(180);
-                        g.FillRectangle(brush, w - blur, blur, blur, solidH);
+                        g.FillRectangle(brush, w - blurOffset, blurOffset, blurOffset, solidH);
                         // Bottom
                         brush.RotateTransform(90);
-                        g.FillRectangle(brush, blur, h - blur, solidW, blur);
+                        g.FillRectangle(brush, blurOffset, h - blurOffset, solidW, blurOffset);
                     }
 
 
@@ -318,34 +239,34 @@ namespace ComponentFactory.Krypton.Toolkit
                     using (GraphicsPath gp = new GraphicsPath())
                     using (Matrix matrix = new Matrix())
                     {
-                        gp.AddEllipse(0, 0, blur * 2, blur * 2);
+                        gp.AddEllipse(0, 0, blurOffset * 2, blurOffset * 2);
                         using (PathGradientBrush pgb = new PathGradientBrush(gp)
                         {
                             CenterColor = _shadowValues.Colour,
-                            SurroundColors = new[] { Color.Transparent },
-                            CenterPoint = new Point(blur, blur)
+                            SurroundColors = new[] {Color.Transparent},
+                            CenterPoint = new PointF(blurOffset, blurOffset)
                         })
                         {
                             // left-Top
-                            g.FillPie(pgb, 0, 0, blur * 2, blur * 2, 180, 90);
+                            g.FillPie(pgb, 0, 0, blurOffset * 2, blurOffset * 2, 180, 90);
 
                             // right-Top
-                            matrix.Translate(w - blur * 2, 0);
+                            matrix.Translate(w - blurOffset * 2, 0);
 
                             pgb.Transform = matrix;
                             //pgb.Transform.Translate(w-blur*2, 0);
-                            g.FillPie(pgb, w - blur * 2, 0, blur * 2, blur * 2, 270, 90);
+                            g.FillPie(pgb, w - blurOffset * 2, 0, blurOffset * 2, blurOffset * 2, 270, 90);
 
                             // right-Bottom
-                            matrix.Translate(0, h - blur * 2);
+                            matrix.Translate(0, h - blurOffset * 2);
                             pgb.Transform = matrix;
-                            g.FillPie(pgb, w - blur * 2, h - blur * 2, blur * 2, blur * 2, 0, 90);
+                            g.FillPie(pgb, w - blurOffset * 2, h - blurOffset * 2, blurOffset * 2, blurOffset * 2, 0, 90);
 
                             // left-Bottom
                             matrix.Reset();
-                            matrix.Translate(0, h - blur * 2);
+                            matrix.Translate(0, h - blurOffset * 2);
                             pgb.Transform = matrix;
-                            g.FillPie(pgb, 0, h - blur * 2, blur * 2, blur * 2, 90, 90);
+                            g.FillPie(pgb, 0, h - blurOffset * 2, blurOffset * 2, blurOffset * 2, 90, 90);
                         }
                     }
                 }
@@ -361,58 +282,151 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <remarks>
         /// Move operations have to be done as a single operation to reduce flickering
         /// </remarks>
-        private void PositionShadowForms(bool moveOnly)
+        private void PositionShadowForms(bool move)
         {
             if (!_allowDrawing)
             {
-                // Call before shown is complete
+                // Probably called before shown is complete
                 return;
             }
 
-            void MI()
+            void Mi()
             {
+                bool shadowFormVisible = AllowDrawing;
                 foreach (VisualShadowBase shadowForm in _shadowForms)
                 {
-                    shadowForm.Visible = AllowDrawing;
+                    shadowForm.Visible = shadowFormVisible;
                 }
-                if (!AllowDrawing)
+                if (!shadowFormVisible)
                 {
                     return;
                 }
+
+                Point desktopLocation = _parentForm.DesktopLocation;
 
                 IntPtr hWinPosInfo = PI.BeginDeferWindowPos(_shadowForms.Length);
 
                 foreach (VisualShadowBase shadowForm in _shadowForms)
                 {
-                    if (shadowForm.CalcPositionShadowForm(_kryptonForm.DesktopLocation,
-                        CommonHelper.RealClientRectangle(_kryptonForm.Handle)))
-                    {
-                        Rectangle targetRect = shadowForm.TargetRect;
-                        hWinPosInfo = PI.DeferWindowPos(hWinPosInfo, shadowForm.Handle,
-                            PI.HWND_NOTOPMOST /*hWndInsertAfter*/,
-                            targetRect.X, targetRect.Y, targetRect.Width, targetRect.Height,
-                            (moveOnly ? PI.SWP_.NOSIZE : 0) |
-                            PI.SWP_.NOACTIVATE
-                            | PI.SWP_.NOREDRAW
-                            | PI.SWP_.SHOWWINDOW
-                            | PI.SWP_.NOCOPYBITS
-                            | PI.SWP_.NOOWNERZORDER
-                        );
-                    }
+                    shadowForm.CalcPositionShadowForm(desktopLocation,
+                        CommonHelper.RealClientRectangle(_parentForm.Handle));
+                    Rectangle targetRect = shadowForm.TargetRect;
+                    hWinPosInfo = PI.DeferWindowPos(hWinPosInfo, shadowForm.Handle, /*PI.HWND_TOPMOST, //*/_parentForm.Handle,
+                        targetRect.X, targetRect.Y, targetRect.Width, targetRect.Height,
+                        (move ? PI.SWP_.NOSIZE : 0) |
+                        PI.SWP_.NOACTIVATE
+                        | PI.SWP_.NOREDRAW
+                        | PI.SWP_.SHOWWINDOW
+                        | PI.SWP_.NOCOPYBITS
+                        | PI.SWP_.NOOWNERZORDER
+                    );
                 }
 
                 PI.EndDeferWindowPos(hWinPosInfo);
             }
 
-            if (_kryptonForm.InvokeRequired)
+            if (_parentForm.InvokeRequired)
             {
-                _kryptonForm.Invoke((MethodInvoker)MI);
+                _parentForm.Invoke((MethodInvoker)Mi);
             }
             else
             {
-                MI();
+                Mi();
             }
 
+        }
+    }
+
+    /// <summary>
+    /// https://stackoverflow.com/questions/25681443/how-to-detect-if-window-is-flashing
+    /// </summary>
+    internal static  class FlashWindowExListener
+    {
+        private static readonly Dictionary<IntPtr, Form> _forms = new Dictionary<IntPtr, Form>();
+        private static readonly IntPtr _hHook;
+        // Keep the HookProc delegate alive manually, such as using a class member as shown below,
+        // otherwise the garbage collector will clean up the hook delegate eventually,
+        // resulting in the code throwing a System.NullReferenceException.
+        // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
+        private static readonly PI.HookProc _hookProc;
+
+        /// <summary>
+        /// Make sure there is something to call first
+        /// </summary>
+        public static event FlashWindowExEventHandler FlashEvent = delegate { };
+
+        /// <summary>
+        /// the callback that is expected to be used
+        /// </summary>
+        /// <param name="f"></param>
+        /// <param name="isFlashing"></param>
+        public delegate void FlashWindowExEventHandler(Form f, bool isFlashing);
+
+        static FlashWindowExListener()
+        {
+            int processId = PI.GetCurrentThreadId();
+            // create an instance of the delegate that
+            // won't be garbage collected to avoid:
+            //   Managed Debugging Assistant 'CallbackOnCollectedDelegate' :** 
+            //   'A callback was made on a garbage collected delegate of type 
+            //   'WpfApp1!WpfApp1.MainWindow+NativeMethods+CBTProc::Invoke'. 
+            //   This may cause application crashes, corruption and data loss. 
+            //   When passing delegates to unmanaged code, they must be 
+            //   kept alive by the managed application until it is guaranteed 
+            //   that they will never be called.'
+            _hookProc = ShellProc;
+
+            // we are interested in listening to WH_SHELL events, mainly the HSHELL_REDRAW event.
+            _hHook = PI.SetWindowsHookEx(PI.WH_.SHELL, _hookProc, IntPtr.Zero, processId);
+
+            Application.ApplicationExit += delegate { PI.UnhookWindowsHookEx(_hHook); };
+        }
+
+        internal static void Register(Form f)
+        {
+            if (f.IsDisposed)
+            {
+                throw new ArgumentException("Cannot use disposed form.");
+            }
+
+            if (f.Handle == IntPtr.Zero)
+            {
+                f.HandleCreated += delegate { _forms[f.Handle] = f; };
+            }
+            else
+            {
+                _forms[f.Handle] = f;
+            }
+
+            f.Closing += delegate { Unregister(f); };
+        }
+
+        internal static void Unregister(Form f)
+        {
+            if (f.Handle != null)
+            {
+                _forms.Remove(f.Handle);
+            }
+        }
+
+        private static IntPtr ShellProc(int code, IntPtr wParam, IntPtr lParam)
+        {
+            if (code == PI.HSHELL_REDRAW)
+            {
+                try
+                {
+                    if (_forms.TryGetValue(wParam, out Form f))
+                    {
+                        FlashEvent(f, (int)lParam == 1);
+                    }
+                }
+                catch
+                {
+                    //
+                }
+            }
+
+            return PI.CallNextHookEx(_hHook, code, wParam, lParam);
         }
     }
 }
