@@ -10,6 +10,7 @@
 // *****************************************************************************
 
 using System;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -753,6 +754,63 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         /// <param name="target">The target.</param>
         public static void PropagateThemeSelector(KryptonDomainUpDown target)
+        {
+            try
+            {
+                foreach (string theme in SupportedThemeArray)
+                {
+                    target.Items.Add(theme);
+                }
+            }
+            catch (Exception exc)
+            {
+                ExceptionHandler.CaptureException(exc);
+            }
+        }
+
+        /// <summary>
+        /// Propagates the theme selector.
+        /// </summary>
+        /// <param name="target">The target.</param>
+        public static void PropagateThemeSelector(ComboBox target)
+        {
+            try
+            {
+                foreach (string theme in SupportedThemeArray)
+                {
+                    target.Items.Add(theme);
+                }
+            }
+            catch (Exception exc)
+            {
+                ExceptionHandler.CaptureException(exc);
+            }
+        }
+
+        /// <summary>
+        /// Propagates the theme selector.
+        /// </summary>
+        /// <param name="target">The target.</param>
+        public static void PropagateThemeSelector(DomainUpDown target)
+        {
+            try
+            {
+                foreach (string theme in SupportedThemeArray)
+                {
+                    target.Items.Add(theme);
+                }
+            }
+            catch (Exception exc)
+            {
+                ExceptionHandler.CaptureException(exc);
+            }
+        }
+
+        /// <summary>
+        /// Propagates the theme selector.
+        /// </summary>
+        /// <param name="target">The target.</param>
+        public static void PropagateThemeSelector(ToolStripComboBox target)
         {
             try
             {

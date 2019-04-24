@@ -20,11 +20,19 @@ namespace TestApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // UpdateTitle(GetHasCurrentInstanceGotAdministrativeRights());
+
             ThemeManager.PropagateThemeSelector(kcmbThemeCollection);
 
             ThemeManager.PropagateThemeSelector(kdbThemeCollection);
 
             ThemeManager.PropagateThemeSelector(klbThemes);
+
+            ThemeManager.PropagateThemeSelector(tscThemes);
+
+            ThemeManager.PropagateThemeSelector(cmbThemes);
+
+            ThemeManager.PropagateThemeSelector(dudThemes);
         }
 
         private void kcmbThemeCollection_SelectedIndexChanged(object sender, EventArgs e)

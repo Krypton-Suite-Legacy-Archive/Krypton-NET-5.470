@@ -194,6 +194,8 @@ namespace ComponentFactory.Krypton.Toolkit
             UseDropShadow = true;
             ShadowValues = new ShadowValues();
             _shadowManager = new ShadowManager(this, ShadowValues);
+
+            AdministratorText = "Administrator";
         }
 
         [System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, Name = "FullTrust")]
