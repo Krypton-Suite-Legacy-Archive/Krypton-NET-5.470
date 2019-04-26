@@ -66,7 +66,7 @@ namespace ComponentFactory.Krypton.Ribbon
         public override void RenderBefore(RenderContext context)
         {
             // If we are rendering using desktop window composition and using the Office 2010 shape 
-            // of ribbon then we need to draw the tabs area as part of the window chromw
+            // of ribbon then we need to draw the tabs area as part of the window chrome
             if (DrawOnComposition && (_ribbon.RibbonShape == PaletteRibbonShape.Office2010 || _ribbon.RibbonShape == PaletteRibbonShape.Office2013))
             {
                 int tabsHeight = _ribbon.TabsArea.ClientHeight;

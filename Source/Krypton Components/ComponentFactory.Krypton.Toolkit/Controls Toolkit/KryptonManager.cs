@@ -176,12 +176,12 @@ namespace ComponentFactory.Krypton.Toolkit
                                 InternalGlobalPalette = tempPalette;
 
                                 throw new ArgumentOutOfRangeException(nameof(value),
-                                    "Cannot use palette that would create a circular reference");
+                                    @"Cannot use palette that would create a circular reference");
                             }
                             else
                             {
-                                // Restore the original global pallete as 'SetPalette' will not 
-                                // work correctly unles it still has the old value in place
+                                // Restore the original global palette as 'SetPalette' will not 
+                                // work correctly unless it still has the old value in place
                                 InternalGlobalPalette = tempPalette;
                             }
 

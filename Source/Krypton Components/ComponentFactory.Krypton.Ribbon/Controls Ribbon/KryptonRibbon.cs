@@ -423,12 +423,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
         #region Public Exposed Properties
         /// <summary>
-        /// Gets or sets if the ribbon is allowed to override form chrome by integrating instead with operating system chrome.
         /// </summary>
         [Category("Visuals")]
-        [Description("Is ribbon is allowed to override form chrome by integrating instead with operating system chrome.")]
-        //[DefaultValue(true)]
-        [DefaultValue(false)]
+        [Description("Integrate with operating system chrome instead of Krypton Palette")]
         public bool AllowFormIntegrate
         {
             get => _allowFormIntegrate;
@@ -441,6 +438,20 @@ namespace ComponentFactory.Krypton.Ribbon
                 }
             }
         }
+
+        private bool ShouldSerializeAllowFormIntegrate()
+        {
+            return _allowFormIntegrate;
+        }
+
+        /// <summary>
+        /// Resets the AllowFormIntegrate property to its default value.
+        /// </summary>
+        public void ResetAllowFormIntegrate()
+        {
+            _allowFormIntegrate = false;
+        }
+
 
         /// <summary>
         /// Gets or sets if the user is allowed to change the minimized mode.
@@ -2730,7 +2741,7 @@ namespace ComponentFactory.Krypton.Ribbon
             ShowMinimizeButton = true;
             QATLocation = QATLocation.Above;
             QATUserChange = true;
-            AllowFormIntegrate = true;
+            ResetAllowFormIntegrate();
             LostFocusLosesKeyboard = true;
 
             BackStyle = PaletteBackStyle.PanelClient;

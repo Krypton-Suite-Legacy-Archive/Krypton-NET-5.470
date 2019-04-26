@@ -84,9 +84,9 @@ namespace MemoEditor
                 try
                 {
                     // Restore the global palette selected previously
-                    string globalPalette = memoEditorSettings.GetValue("GlobalPalette") as string;
-                    if (!string.IsNullOrEmpty(globalPalette))
-                        kryptonManager.GlobalPaletteMode = (PaletteModeManager)Enum.Parse(typeof(PaletteModeManager), globalPalette);
+                    //string globalPalette = memoEditorSettings.GetValue("GlobalPalette") as string;
+                    //if (!string.IsNullOrEmpty(globalPalette))
+                    //    kryptonManager.GlobalPaletteMode = (PaletteModeManager)Enum.Parse(typeof(PaletteModeManager), globalPalette);
 
                     // Restore the cell mode selected previously
                     string cellMode = memoEditorSettings.GetValue("CellMode") as string;
