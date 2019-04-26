@@ -308,7 +308,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 set
                 {
                     _hint = value;
-                    if (string.IsNullOrEmpty(Text) && !string.IsNullOrEmpty(Hint))
+                    if (string.IsNullOrEmpty(Text) && !string.IsNullOrWhiteSpace(Hint))
                     {
                         PI.SendMessage(Handle, PI.EM_SETCUEBANNER, (IntPtr)1, Hint);
                     }
@@ -579,6 +579,12 @@ namespace ComponentFactory.Krypton.Toolkit
             get => _textBox.Hint;
             set => _textBox.Hint = value;
         }
+
+        private bool ShouldSerializeHint()
+        {
+            return !string.IsNullOrWhiteSpace(Hint);
+        }
+
 
         /// <summary>
         /// </summary>
