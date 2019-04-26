@@ -26,6 +26,17 @@ You can check out the demos by clicking [here](https://www.somsubhra.com/github-
 
 =======
 
+## 2019-04-26 Build 968 - Bugfixes
+* Fixed issue [#147](https://github.com/Wagnerp/Krypton-NET-5.470/issues/147), hint does not have a designer reset option
+* Fixed issue [#146](https://github.com/Wagnerp/Krypton-NET-5.470/issues/146), PInvoke types should be structures and not classes
+* Fixed issue [#155](https://github.com/Wagnerp/Krypton-NET-5.470/issues/155), new Shadow feature does not handle "Window bar flashing" as expected 
+* Fixed issue [#156](https://github.com/Wagnerp/Krypton-NET-5.470/issues/156), new Shadow feature crashes for some variables entered
+* Fixed issue [#161](https://github.com/Wagnerp/Krypton-NET-5.470/issues/161), "Admin" does not show up in forms or MessageBox's
+* Fixed issues [#68](https://github.com/Wagnerp/Krypton-NET-5.470/issues/68), The look of krypton themes does not appear in windows 10 when I use the ribbon control & [#162](https://github.com/Wagnerp/Krypton-NET-5.470/issues/162), Adding a ribbon control to a blank form causes the form title bar to always be blue (system accent) when selected
+* Build 968 (build date Friday 26th April, 2019) is now available on NuGet
+
+=======
+
 ## 2019-04-15 Build 901 - Drop Shadows
 * New feature - now you can specify drop shadows on `KryptonForm` [#121](https://github.com/Wagnerp/Krypton-NET-5.470/issues/121). By design (or by accident :)), changing the shadow or form size values will display a offset of the shadow outcome.
 * Patch for [#142](https://github.com/Wagnerp/Krypton-NET-5.470/issues/142) ribbon tab text not working, courtesy of Tape-Worm
