@@ -9,18 +9,18 @@
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
+using ComponentFactory.Krypton.Toolkit;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
     /// <summary>
     /// Draws the border around the groups inside the groups area.
     /// </summary>
-    internal class ViewDrawRibbonGroupsBorder  : ViewComposite,
+    internal class ViewDrawRibbonGroupsBorder : ViewComposite,
                                                  IPaletteRibbonBack
     {
         #region Static Fields
@@ -28,6 +28,7 @@ namespace ComponentFactory.Krypton.Ribbon
         private static readonly Padding _borderPadding2010 = new Padding(1, 1, 1, 3);
         //TODO checkseb
         private static readonly Padding _borderPadding2013 = new Padding(1, 1, 1, 0);
+        private static readonly Padding _borderPadding365 = new Padding(1, 1, 1, 0);
         #endregion
 
         #region Instance Fields
@@ -107,8 +108,10 @@ namespace ComponentFactory.Krypton.Ribbon
                         return _borderPadding2007;
                     case PaletteRibbonShape.Office2010:
                         return _borderPadding2010;
-                    case PaletteRibbonShape.Office2013 :
+                    case PaletteRibbonShape.Office2013:
                         return _borderPadding2013;
+                    case PaletteRibbonShape.Office365:
+                        return _borderPadding365;
                 }
             }
         }
@@ -136,7 +139,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
             return preferredSize;
         }
-            
+
 
         /// <summary>
         /// Perform a layout of the elements.
@@ -194,7 +197,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 drawRect.Width += borderPadding.Horizontal;
                 drawRect.Height += borderPadding.Vertical;
             }
-            else if ((Ribbon.CaptionArea.DrawCaptionOnComposition) && 
+            else if ((Ribbon.CaptionArea.DrawCaptionOnComposition) &&
                      (Ribbon.RibbonShape == PaletteRibbonShape.Office2010))
             {
                 // Prevent the left and right edges from being drawn

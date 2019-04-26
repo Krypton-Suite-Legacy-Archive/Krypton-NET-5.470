@@ -5293,7 +5293,12 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Specifies the Office 2013 ribbon shape.
         /// </summary>
-        Office2013
+        Office2013,
+
+        /// <summary>
+        /// Specifies the office 365 ribbon shape.
+        /// </summary>
+        Office365
     }
     #endregion
 

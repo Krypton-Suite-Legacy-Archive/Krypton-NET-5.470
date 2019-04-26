@@ -9,10 +9,10 @@
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
+using ComponentFactory.Krypton.Toolkit;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Diagnostics;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
@@ -78,7 +78,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// Perform rendering before child elements are rendered.
         /// </summary>
         /// <param name="context">Rendering context.</param>
-        public override void RenderBefore(RenderContext context) 
+        public override void RenderBefore(RenderContext context)
         {
             if (Draw)
             {
@@ -92,6 +92,9 @@ namespace ComponentFactory.Krypton.Ribbon
                         default:
                         case PaletteRibbonShape.Office2007:
                         case PaletteRibbonShape.Office2013:
+                            context.Graphics.FillRectangle(sepBrush, ClientLocation.X + 2, ClientLocation.Y, 1, ClientHeight - 1);
+                            break;
+                        case PaletteRibbonShape.Office365:
                             context.Graphics.FillRectangle(sepBrush, ClientLocation.X + 2, ClientLocation.Y, 1, ClientHeight - 1);
                             break;
                         case PaletteRibbonShape.Office2010:

@@ -1260,10 +1260,10 @@ namespace ComponentFactory.Krypton.Ribbon
                 _kryptonForm.AllowComposition = _ribbon.AllowFormIntegrate && !_ribbon.InDesignMode;
 
                 //TODO call this function when palette is changing
-                bool newAllowIconDisplay = (!_integrated 
-                                            || !_ribbon.RibbonAppButton.AppButtonVisible 
-                                            || (_ribbon.RibbonAppButton.AppButtonVisible 
-                                                    && (_ribbon.RibbonShape == PaletteRibbonShape.Office2010 || _ribbon.RibbonShape == PaletteRibbonShape.Office2013)
+                bool newAllowIconDisplay = (!_integrated
+                                            || !_ribbon.RibbonAppButton.AppButtonVisible
+                                            || (_ribbon.RibbonAppButton.AppButtonVisible
+                                                    && (_ribbon.RibbonShape == PaletteRibbonShape.Office2010 || _ribbon.RibbonShape == PaletteRibbonShape.Office2013 || _ribbon.RibbonShape == PaletteRibbonShape.Office365)
                                                 )
                                             );
                 if (_kryptonForm.AllowIconDisplay != newAllowIconDisplay)

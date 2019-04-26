@@ -9,13 +9,13 @@
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Drawing;
-using System.ComponentModel;
-using System.Windows.Forms;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
 using ComponentFactory.Krypton.Toolkit;
+using System;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Drawing;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
@@ -400,7 +400,7 @@ namespace ComponentFactory.Krypton.Ribbon
             if (elapsed.TotalMilliseconds < SystemInformation.DoubleClickTime)
             {
                 // Office 2010 does not close on a double click
-                if (_ribbon.RibbonShape != PaletteRibbonShape.Office2010 || _ribbon.RibbonShape == PaletteRibbonShape.Office2013)
+                if (_ribbon.RibbonShape != PaletteRibbonShape.Office2010 || _ribbon.RibbonShape == PaletteRibbonShape.Office2013 || _ribbon.RibbonShape == PaletteRibbonShape.Office365)
                 {
                     // Close down the associated application window
                     Form ownerForm = _ribbon.FindForm();
@@ -868,80 +868,80 @@ namespace ComponentFactory.Krypton.Ribbon
                                 switch (e.Target)
                                 {
                                     case ViewDrawRibbonGroupButtonBackBorder viewElement3:
-                                    {
-                                        // Is the target is a button or cluster button
-                                        // Cast to correct type
-
-                                        // Create a content that recovers values from a KryptonRibbonGroupItem
-                                        GroupItemToolTipToContent groupItemContent = new GroupItemToolTipToContent(viewElement3.GroupItem);
-
-                                        // Is there actually anything to show for the tooltip
-                                        if (groupItemContent.HasContent)
                                         {
-                                            sourceContent = groupItemContent;
+                                            // Is the target is a button or cluster button
+                                            // Cast to correct type
 
-                                            // Grab the style from the group button/group cluster button settings
-                                            toolTipStyle = viewElement3.GroupItem.InternalToolTipStyle;
+                                            // Create a content that recovers values from a KryptonRibbonGroupItem
+                                            GroupItemToolTipToContent groupItemContent = new GroupItemToolTipToContent(viewElement3.GroupItem);
 
-                                            // Display below the bottom of the ribbon control
-                                            Rectangle ribbonScreenRect = _ribbon.ToolTipScreenRectangle;
-                                            screenRect.Y = ribbonScreenRect.Y;
-                                            screenRect.Height = ribbonScreenRect.Height;
-                                            screenRect.X = ribbonScreenRect.X + viewElement3.ClientLocation.X;
-                                            screenRect.Width = viewElement3.ClientWidth;
+                                            // Is there actually anything to show for the tooltip
+                                            if (groupItemContent.HasContent)
+                                            {
+                                                sourceContent = groupItemContent;
+
+                                                // Grab the style from the group button/group cluster button settings
+                                                toolTipStyle = viewElement3.GroupItem.InternalToolTipStyle;
+
+                                                // Display below the bottom of the ribbon control
+                                                Rectangle ribbonScreenRect = _ribbon.ToolTipScreenRectangle;
+                                                screenRect.Y = ribbonScreenRect.Y;
+                                                screenRect.Height = ribbonScreenRect.Height;
+                                                screenRect.X = ribbonScreenRect.X + viewElement3.ClientLocation.X;
+                                                screenRect.Width = viewElement3.ClientWidth;
+                                            }
+                                            break;
                                         }
-                                        break;
-                                    }
                                     case ViewLayoutRibbonCheckBox _:
-                                    {
-                                        // Cast to correct type
-                                        ViewDrawRibbonGroupCheckBox viewElement = (ViewDrawRibbonGroupCheckBox)e.Target.Parent;
-
-                                        // Create a content that recovers values from a KryptonRibbonGroupItem
-                                        GroupItemToolTipToContent groupItemContent = new GroupItemToolTipToContent(viewElement.GroupCheckBox);
-
-                                        // Is there actually anything to show for the tooltip
-                                        if (groupItemContent.HasContent)
                                         {
-                                            sourceContent = groupItemContent;
+                                            // Cast to correct type
+                                            ViewDrawRibbonGroupCheckBox viewElement = (ViewDrawRibbonGroupCheckBox)e.Target.Parent;
 
-                                            // Grab the style from the group check box cluster button settings
-                                            toolTipStyle = viewElement.GroupCheckBox.InternalToolTipStyle;
+                                            // Create a content that recovers values from a KryptonRibbonGroupItem
+                                            GroupItemToolTipToContent groupItemContent = new GroupItemToolTipToContent(viewElement.GroupCheckBox);
 
-                                            // Display below the bottom of the ribbon control
-                                            Rectangle ribbonScreenRect = _ribbon.ToolTipScreenRectangle;
-                                            screenRect.Y = ribbonScreenRect.Y;
-                                            screenRect.Height = ribbonScreenRect.Height;
-                                            screenRect.X = ribbonScreenRect.X + viewElement.ClientLocation.X;
-                                            screenRect.Width = viewElement.ClientWidth;
+                                            // Is there actually anything to show for the tooltip
+                                            if (groupItemContent.HasContent)
+                                            {
+                                                sourceContent = groupItemContent;
+
+                                                // Grab the style from the group check box cluster button settings
+                                                toolTipStyle = viewElement.GroupCheckBox.InternalToolTipStyle;
+
+                                                // Display below the bottom of the ribbon control
+                                                Rectangle ribbonScreenRect = _ribbon.ToolTipScreenRectangle;
+                                                screenRect.Y = ribbonScreenRect.Y;
+                                                screenRect.Height = ribbonScreenRect.Height;
+                                                screenRect.X = ribbonScreenRect.X + viewElement.ClientLocation.X;
+                                                screenRect.Width = viewElement.ClientWidth;
+                                            }
+                                            break;
                                         }
-                                        break;
-                                    }
                                     case ViewLayoutRibbonRadioButton _:
-                                    {
-                                        // Cast to correct type
-                                        ViewDrawRibbonGroupRadioButton viewElement = (ViewDrawRibbonGroupRadioButton)e.Target.Parent;
-
-                                        // Create a content that recovers values from a KryptonRibbonGroupItem
-                                        GroupItemToolTipToContent groupItemContent = new GroupItemToolTipToContent(viewElement.GroupRadioButton);
-
-                                        // Is there actually anything to show for the tooltip
-                                        if (groupItemContent.HasContent)
                                         {
-                                            sourceContent = groupItemContent;
+                                            // Cast to correct type
+                                            ViewDrawRibbonGroupRadioButton viewElement = (ViewDrawRibbonGroupRadioButton)e.Target.Parent;
 
-                                            // Grab the style from the group radio button button settings
-                                            toolTipStyle = viewElement.GroupRadioButton.InternalToolTipStyle;
+                                            // Create a content that recovers values from a KryptonRibbonGroupItem
+                                            GroupItemToolTipToContent groupItemContent = new GroupItemToolTipToContent(viewElement.GroupRadioButton);
 
-                                            // Display below the bottom of the ribbon control
-                                            Rectangle ribbonScreenRect = _ribbon.ToolTipScreenRectangle;
-                                            screenRect.Y = ribbonScreenRect.Y;
-                                            screenRect.Height = ribbonScreenRect.Height;
-                                            screenRect.X = ribbonScreenRect.X + viewElement.ClientLocation.X;
-                                            screenRect.Width = viewElement.ClientWidth;
+                                            // Is there actually anything to show for the tooltip
+                                            if (groupItemContent.HasContent)
+                                            {
+                                                sourceContent = groupItemContent;
+
+                                                // Grab the style from the group radio button button settings
+                                                toolTipStyle = viewElement.GroupRadioButton.InternalToolTipStyle;
+
+                                                // Display below the bottom of the ribbon control
+                                                Rectangle ribbonScreenRect = _ribbon.ToolTipScreenRectangle;
+                                                screenRect.Y = ribbonScreenRect.Y;
+                                                screenRect.Height = ribbonScreenRect.Height;
+                                                screenRect.X = ribbonScreenRect.X + viewElement.ClientLocation.X;
+                                                screenRect.Width = viewElement.ClientWidth;
+                                            }
+                                            break;
                                         }
-                                        break;
-                                    }
                                     default:
                                         // Find the button spec associated with the tooltip request
                                         ButtonSpec buttonSpec = ButtonSpecManager.ButtonSpecFromView(e.Target);

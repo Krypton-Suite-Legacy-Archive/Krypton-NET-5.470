@@ -9,10 +9,10 @@
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
+using ComponentFactory.Krypton.Toolkit;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
@@ -67,7 +67,7 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // If we are rendering using desktop window composition and using the Office 2010 shape 
             // of ribbon then we need to draw the tabs area as part of the window chromw
-            if (DrawOnComposition && (_ribbon.RibbonShape == PaletteRibbonShape.Office2010 || _ribbon.RibbonShape == PaletteRibbonShape.Office2013))
+            if (DrawOnComposition && (_ribbon.RibbonShape == PaletteRibbonShape.Office2010 || _ribbon.RibbonShape == PaletteRibbonShape.Office2013 || _ribbon.RibbonShape == PaletteRibbonShape.Office365))
             {
                 int tabsHeight = _ribbon.TabsArea.ClientHeight;
 
@@ -98,7 +98,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // If we are rendering using desktop window composition and using the Office 2010 shape 
             // of ribbon then we need to draw the tabs area as part of the window chrome
             // Not for 2013
-            if (DrawOnComposition && (_ribbon.RibbonShape == PaletteRibbonShape.Office2010 || _ribbon.RibbonShape == PaletteRibbonShape.Office2013))
+            if (DrawOnComposition && (_ribbon.RibbonShape == PaletteRibbonShape.Office2010 || _ribbon.RibbonShape == PaletteRibbonShape.Office2013 || _ribbon.RibbonShape == PaletteRibbonShape.Office365))
             {
                 if (edges)
                 {
@@ -131,6 +131,13 @@ namespace ComponentFactory.Krypton.Ribbon
                     }
                 }
                 else if (_ribbon.RibbonShape == PaletteRibbonShape.Office2013)
+                {
+                    using (SolidBrush backBrush = new SolidBrush(Color.White))
+                    {
+                        g.FillRectangle(backBrush, new Rectangle(rect.X, rect.Y, rect.Width, rect.Height - 1));
+                    }
+                }
+                else if (_ribbon.RibbonShape == PaletteRibbonShape.Office365)
                 {
                     using (SolidBrush backBrush = new SolidBrush(Color.White))
                     {
