@@ -9,12 +9,11 @@
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
+using Microsoft.Win32;
 using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-
-using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -9497,7 +9496,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns>Ribbon shape value.</returns>
         public override PaletteRibbonShape GetRibbonShape()
         {
-            return PaletteRibbonShape.Office2013;
+            return PaletteRibbonShape.Office365;
         }
 
         /// <summary>

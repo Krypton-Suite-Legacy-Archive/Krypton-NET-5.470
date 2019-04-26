@@ -9,13 +9,13 @@
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
+using ComponentFactory.Krypton.Toolkit;
 using System;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using System.Diagnostics;
-using System.ComponentModel;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
@@ -103,7 +103,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _overrideStateContextCheckedNormal = new PaletteRibbonDoubleInheritOverride(Ribbon.OverrideFocus.RibbonTab, Ribbon.OverrideFocus.RibbonTab, Ribbon.StateContextCheckedNormal.RibbonTab, Ribbon.StateContextCheckedNormal.RibbonTab, PaletteState.FocusOverride);
             _overrideStateContextCheckedTracking = new PaletteRibbonDoubleInheritOverride(Ribbon.OverrideFocus.RibbonTab, Ribbon.OverrideFocus.RibbonTab, Ribbon.StateContextCheckedTracking.RibbonTab, Ribbon.StateContextCheckedTracking.RibbonTab, PaletteState.FocusOverride);
             _overrideCurrent = _overrideStateNormal;
-            
+
             // Create and default the setup of the context colors provider
             _paletteContextCurrent = new PaletteRibbonContextDouble(Ribbon);
             _paletteContextCurrent.SetInherit(_overrideCurrent);
@@ -233,7 +233,7 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             get => _ribbonTab;
 
-            set 
+            set
             {
                 if (_ribbonTab != value)
                 {
@@ -258,7 +258,7 @@ namespace ComponentFactory.Krypton.Ribbon
 
                     // Pass reference onto the current context
                     _paletteContextCurrent.RibbonTab = value;
-                    
+
                     // Must perform new preferred size/layout calculations
                     MakeDirty();
                 }
@@ -291,6 +291,8 @@ namespace ComponentFactory.Krypton.Ribbon
                         return _preferredBorder2010;
                     case PaletteRibbonShape.Office2013:
                         return _preferredBorder2010;
+                    case PaletteRibbonShape.Office365:
+                        return _preferredBorder2010;
                 }
             }
         }
@@ -312,6 +314,8 @@ namespace ComponentFactory.Krypton.Ribbon
                     case PaletteRibbonShape.Office2010:
                         return _layoutBorder2010;
                     case PaletteRibbonShape.Office2013:
+                        return _layoutBorder2010;
+                    case PaletteRibbonShape.Office365:
                         return _layoutBorder2010;
                 }
             }
@@ -415,6 +419,7 @@ namespace ComponentFactory.Krypton.Ribbon
             {
                 default:
                 case PaletteRibbonShape.Office2013:
+                case PaletteRibbonShape.Office365:
                 case PaletteRibbonShape.Office2007:
                     if (cts != null)
                     {
@@ -430,7 +435,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     }
 
                     //_paletteContextCurrent.LightBackground = _ribbon.CaptionArea.DrawCaptionOnComposition;
-                    _paletteContextCurrent.LightBackground = Ribbon.CaptionArea.DrawCaptionOnComposition 
+                    _paletteContextCurrent.LightBackground = Ribbon.CaptionArea.DrawCaptionOnComposition
                                                              && (KryptonManager.CurrentGlobalPalette != KryptonManager.PaletteOffice2010Black);
                     break;
             }
@@ -549,7 +554,7 @@ namespace ComponentFactory.Krypton.Ribbon
             // Grab the colors we draw the context separators and background in
             Color c1 = _paletteGeneral.GetRibbonTabSeparatorContextColor(PaletteState.Normal);
             Color c2 = cts.ContextColor;
-            Color lightC2 = ControlPaint.Light(c2); 
+            Color lightC2 = ControlPaint.Light(c2);
             Color c3 = CommonHelper.MergeColors(Color.Black, 0.1f, c2, 0.9f);
 
             Rectangle contextRect = new Rectangle(ClientRectangle.X - 1, ClientRectangle.Y - 1, ClientRectangle.Width + 2, ClientRectangle.Height + 1);

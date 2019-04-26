@@ -9,10 +9,10 @@
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Drawing;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
+using System;
+using System.Diagnostics;
+using System.Drawing;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
@@ -55,7 +55,7 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             Debug.Assert(ribbon != null);
             _ribbon = ribbon;
-            
+
             _lastShape = PaletteRibbonShape.Inherit;
         }
         #endregion
@@ -78,6 +78,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         _groupsHeightModifier = 0;
                         break;
                     case PaletteRibbonShape.Office2013:
+                    case PaletteRibbonShape.Office365:
                     case PaletteRibbonShape.Office2010:
                         _groupHeightModifier = -3;
                         _groupsHeightModifier = -3;
