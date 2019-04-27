@@ -174,13 +174,15 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Public
-        /// <summary>
-        /// Gets or sets the ContextMenuStrip associated with this control.
-        /// </summary>
+        /// <summary>Gets or sets the <see cref="T:System.Windows.Forms.ContextMenuStrip" /> associated with this control.</summary>
+        /// <returns>The <see cref="T:System.Windows.Forms.ContextMenuStrip" /> for this control, or <see langword="null" /> if there is no <see cref="T:System.Windows.Forms.ContextMenuStrip" />. The default is <see langword="null" />.</returns>
+        [Category("Behavior")]
+        [Description("Consider using KryptonContextMenu within the behaviors section.\nThe Winforms shortcut menu to show when the user right-clicks the page.\nNote: The ContextMenu will be rendered.")]
+        [DefaultValue(null)]
         public override ContextMenuStrip ContextMenuStrip
         {
             [DebuggerStepThrough]
-            get { return base.ContextMenuStrip; }
+            get => base.ContextMenuStrip;
 
             set 
             { 
@@ -202,6 +204,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
         }
+
 
         /// <summary>
         /// Gets and sets the KryptonContextMenu to show when right clicked.
@@ -284,7 +287,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public PaletteMode PaletteMode
         {
             [DebuggerStepThrough]
-            get { return _paletteMode; }
+            get => _paletteMode;
 
             set
             {
@@ -338,7 +341,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public IPalette Palette
         {
             [DebuggerStepThrough]
-            get { return _localPalette; }
+            get => _localPalette;
 
             set
             {
@@ -1183,7 +1186,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Extract the screen mouse position (if might not actually be provided)
                     Point mousePt = new Point(PI.LOWORD(m.LParam), PI.HIWORD(m.LParam));
 
-                    // If keyboard activated, the menu position is centred
+                    // If keyboard activated, the menu position is centered
                     if (((int)((long)m.LParam)) == -1)
                     {
                         mousePt = new Point(Width / 2, Height / 2);

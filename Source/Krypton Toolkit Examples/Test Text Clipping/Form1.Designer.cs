@@ -1,4 +1,4 @@
-namespace ThreePaneApplication
+namespace TestTextClipping
 {
     partial class Form1
     {
