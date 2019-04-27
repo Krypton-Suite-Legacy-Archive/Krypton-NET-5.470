@@ -9,13 +9,13 @@
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Drawing;
-using System.Windows.Forms;
-using System.Diagnostics;
-using System.Windows.Forms.VisualStyles;
-using System.Runtime.InteropServices;
 using ComponentFactory.Krypton.Toolkit;
+using System;
+using System.Diagnostics;
+using System.Drawing;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
@@ -189,8 +189,8 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Use the font height to decide on the text rectangle
             int fontHeight = _ribbon.CalculatedValues.DrawFontHeight;
-            _textRect = new Rectangle(ClientLocation.X + TEXT_SIDE_GAP, 
-                                      ClientLocation.Y + (ClientHeight - fontHeight - TEXT_BOTTOM_GAP), 
+            _textRect = new Rectangle(ClientLocation.X + TEXT_SIDE_GAP,
+                                      ClientLocation.Y + (ClientHeight - fontHeight - TEXT_BOTTOM_GAP),
                                       ClientWidth - (TEXT_SIDE_GAP * 2),
                                       fontHeight);
 
@@ -214,7 +214,7 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             // Office 2010 draws a shadow effect of the text
-            if (_ribbon.RibbonShape == PaletteRibbonShape.Office2010 || _ribbon.RibbonShape == PaletteRibbonShape.Office2013)
+            if (_ribbon.RibbonShape == PaletteRibbonShape.Office2010 || _ribbon.RibbonShape == PaletteRibbonShape.Office2013 || _ribbon.RibbonShape == PaletteRibbonShape.Office365)
             {
                 Rectangle shadowTextRect1 = new Rectangle(_textRect.X - 1, _textRect.Y + 1, _textRect.Width, _textRect.Height);
                 Rectangle shadowTextRect2 = new Rectangle(_textRect.X + 1, _textRect.Y + 1, _textRect.Width, _textRect.Height);
@@ -228,8 +228,8 @@ namespace ComponentFactory.Krypton.Ribbon
 
                 _mementoContentShadow1 = context.Renderer.RenderStandardContent.LayoutContent(context, shadowTextRect1,
                                                                                              _contentProvider, this,
-                                                                                             VisualOrientation.Top, 
-                                                                                             PaletteState.Normal, false,false);
+                                                                                             VisualOrientation.Top,
+                                                                                             PaletteState.Normal, false, false);
 
                 _mementoContentShadow2 = context.Renderer.RenderStandardContent.LayoutContent(context, shadowTextRect2,
                                                                                              _contentProvider, this,
@@ -239,9 +239,9 @@ namespace ComponentFactory.Krypton.Ribbon
             }
 
             // Use the renderer to layout the text
-            _mementoContentText = context.Renderer.RenderStandardContent.LayoutContent(context, _textRect, 
-                                                                                       _contentProvider, this, 
-                                                                                       VisualOrientation.Top, 
+            _mementoContentText = context.Renderer.RenderStandardContent.LayoutContent(context, _textRect,
+                                                                                       _contentProvider, this,
+                                                                                       VisualOrientation.Top,
                                                                                        PaletteState.Normal, false, false);
 
             _contentProvider.OverrideTextHint = PaletteTextHint.Inherit;
@@ -276,7 +276,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 context.Renderer.RenderStandardContent.DrawContent(context, shadowTextRect1,
                                                                    _contentProvider, _mementoContentShadow1,
                                                                    VisualOrientation.Top,
-                                                                   state, false,false, true);
+                                                                   state, false, false, true);
 
                 context.Renderer.RenderStandardContent.DrawContent(context, shadowTextRect2,
                                                                    _contentProvider, _mementoContentShadow2,
@@ -440,7 +440,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 IntPtr mDC = PI.CreateCompatibleDC(gDC);
 
                 PI.BITMAPINFO bmi = new PI.BITMAPINFO();
-                bmi.biSize = (uint) Marshal.SizeOf(bmi);
+                bmi.biSize = (uint)Marshal.SizeOf(bmi);
                 bmi.biWidth = ClientWidth;
                 bmi.biHeight = -ClientHeight;
                 bmi.biCompression = 0;
@@ -457,9 +457,9 @@ namespace ComponentFactory.Krypton.Ribbon
                     Rectangle renderClientRect = new Rectangle(0, 0, ClientWidth, ClientHeight);
 
                     // Create new render context that uses the bitmap graphics instance
-                    using (RenderContext bitmapContext = new RenderContext(context.Control, 
-                                                                           bitmapG, 
-                                                                           renderClientRect, 
+                    using (RenderContext bitmapContext = new RenderContext(context.Control,
+                                                                           bitmapG,
+                                                                           renderClientRect,
                                                                            context.Renderer))
                     {
                         // Finally we get the renderer to draw the background for the bitmap
@@ -491,8 +491,8 @@ namespace ComponentFactory.Krypton.Ribbon
                 };
 
                 // Always draw text centered
-                const TextFormatFlags TEXT_FORMAT = TextFormatFlags.SingleLine | 
-                                                   TextFormatFlags.HorizontalCenter | 
+                const TextFormatFlags TEXT_FORMAT = TextFormatFlags.SingleLine |
+                                                   TextFormatFlags.HorizontalCenter |
                                                    TextFormatFlags.VerticalCenter |
                                                    TextFormatFlags.EndEllipsis;
 
@@ -525,8 +525,8 @@ namespace ComponentFactory.Krypton.Ribbon
             // We need an associated context
             return _context?.ContextColor ?? Color.Empty;
         }
-        #endregion    
-    
+        #endregion
+
         #region IContentValues
         /// <summary>
         /// Gets the image used for the ribbon tab.

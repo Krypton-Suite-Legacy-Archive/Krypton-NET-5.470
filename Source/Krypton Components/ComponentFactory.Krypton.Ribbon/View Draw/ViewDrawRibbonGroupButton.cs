@@ -9,12 +9,12 @@
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using System;
-using System.Drawing;
-using System.ComponentModel;
-using System.Windows.Forms;
-using System.Diagnostics;
 using ComponentFactory.Krypton.Toolkit;
+using System;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
@@ -229,7 +229,7 @@ namespace ComponentFactory.Krypton.Ribbon
                         break;
                 }
 
-                keyTipList.Add(new KeyTipInfo(GroupButton.Enabled, GroupButton.KeyTip, 
+                keyTipList.Add(new KeyTipInfo(GroupButton.Enabled, GroupButton.KeyTip,
                                               screenPt, this[0].ClientRectangle, controller));
             }
         }
@@ -259,7 +259,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="context">Layout context.</param>
         public override Size GetPreferredSize(ViewLayoutContext context)
         {
-            bool drawNonTrackingAreas = (_ribbon.RibbonShape != PaletteRibbonShape.Office2010 || _ribbon.RibbonShape == PaletteRibbonShape.Office2013);
+            bool drawNonTrackingAreas = (_ribbon.RibbonShape != PaletteRibbonShape.Office2010 || _ribbon.RibbonShape == PaletteRibbonShape.Office2013 || _ribbon.RibbonShape == PaletteRibbonShape.Office365);
 
             // Update the views with the type of button being used
             _viewLarge.ButtonType = GroupButton.ButtonType;
@@ -310,7 +310,7 @@ namespace ComponentFactory.Krypton.Ribbon
             else
             {
                 _viewLarge.SplitRectangle = Rectangle.Empty;
-                _viewMediumSmall.SplitRectangle = Rectangle.Empty; 
+                _viewMediumSmall.SplitRectangle = Rectangle.Empty;
             }
         }
         #endregion
@@ -397,7 +397,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _viewLarge.Add(contentLayout);
 
             // Create controller for intercepting events to determine tool tip handling
-            _viewLarge.MouseController = new ToolTipController(_ribbon.TabsArea.ButtonSpecManager.ToolTipManager, 
+            _viewLarge.MouseController = new ToolTipController(_ribbon.TabsArea.ButtonSpecManager.ToolTipManager,
                                                                _viewLarge, _viewLarge.MouseController);
         }
 
@@ -452,7 +452,7 @@ namespace ComponentFactory.Krypton.Ribbon
             _viewMediumSmall.Add(contentLayout);
 
             // Create controller for intercepting events to determine tool tip handling
-            _viewMediumSmall.MouseController = new ToolTipController(_ribbon.TabsArea.ButtonSpecManager.ToolTipManager, 
+            _viewMediumSmall.MouseController = new ToolTipController(_ribbon.TabsArea.ButtonSpecManager.ToolTipManager,
                                                                      _viewMediumSmall, _viewMediumSmall.MouseController);
         }
 
