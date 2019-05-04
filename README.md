@@ -2,9 +2,9 @@
 
 =======
 
-| NuGet | Current NuGet Version | Github License |
+| NuGet | Current NuGet Version | NuGet Downloads | Github License |
 |---|---|---|
-| [![NuGet](https://img.shields.io/badge/NuGet-Krypton%20.NET%205.470-green.svg)](https://www.nuget.org/packages/KryptonToolkitSuite5470/) | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470.svg) | ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) |
+| [![NuGet](https://img.shields.io/badge/NuGet-Krypton%20.NET%205.470-green.svg)](https://www.nuget.org/packages/KryptonToolkitSuite5470/) | ![Nuget](https://img.shields.io/nuget/dt/KryptonToolkitSuite5470.svg?color=blue&label=NuGet%20Downloads) | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470.svg) | ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) |
 
 =======
 
