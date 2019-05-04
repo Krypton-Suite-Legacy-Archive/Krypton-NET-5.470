@@ -13,6 +13,7 @@
 =======
 
 ## Available Versions
+* [Krypton Toolkit Suite for .NET 4.0](https://github.com/Wagnerp/Krypton-NET-5.400)
 * [Krypton Toolkit Suite for .NET 4.5](https://github.com/Wagnerp/Krypton-NET-5.450)
 * [Krypton Toolkit Suite for .NET 4.7.1](https://github.com/Wagnerp/Krypton-NET-5.471)
 * [Krypton Toolkit Suite for .NET 4.7.2](https://github.com/Wagnerp/Krypton-NET-5.472)
