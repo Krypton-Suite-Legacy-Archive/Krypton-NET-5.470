@@ -19,6 +19,8 @@
 * [Krypton Toolkit Suite for .NET 4.7.2](https://github.com/Wagnerp/Krypton-NET-5.472)
 * [Krypton Toolkit Suite for .NET 4.8](https://github.com/Wagnerp/Krypton-NET-5.480)
 
+=======
+
 ## Extended Toolkit
 
 * Looking for the **Extended Toolkit**? Try [here](https://github.com/Wagnerp/Krypton-Toolkit-Suite-Extended-NET-5.470)
