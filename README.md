@@ -2,9 +2,9 @@
 
 =======
 
-| NuGet | Current NuGet Version | Github License |
-|---|---|---|
-| [![NuGet](https://img.shields.io/badge/NuGet-Krypton%20.NET%205.470-green.svg)](https://www.nuget.org/packages/KryptonToolkitSuite5470/) | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470.svg) | ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) |
+| NuGet | Current NuGet Version | NuGet Downloads | Github License |
+|---|---|---|---|
+| [![NuGet](https://img.shields.io/badge/NuGet-Krypton%20.NET%205.470-green.svg)](https://www.nuget.org/packages/KryptonToolkitSuite5470/) | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470.svg) | ![Nuget](https://img.shields.io/nuget/dt/KryptonToolkitSuite5470.svg?color=blue&label=NuGet%20Downloads) | ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) |
 
 =======
 
@@ -13,6 +13,7 @@
 =======
 
 ## Available Versions
+* [Krypton Toolkit Suite for .NET 4.0](https://github.com/Wagnerp/Krypton-NET-5.400)
 * [Krypton Toolkit Suite for .NET 4.5](https://github.com/Wagnerp/Krypton-NET-5.450)
 * [Krypton Toolkit Suite for .NET 4.7.1](https://github.com/Wagnerp/Krypton-NET-5.471)
 * [Krypton Toolkit Suite for .NET 4.7.2](https://github.com/Wagnerp/Krypton-NET-5.472)
@@ -20,9 +21,26 @@
 
 =======
 
+## Extended Toolkit
+
+* Looking for the **Extended Toolkit**? Try [here](https://github.com/Wagnerp/Krypton-Toolkit-Suite-Extended-NET-5.470)
+
+=======
+
 ## Demo Releases
 
 You can check out the demos by clicking [here](https://www.somsubhra.com/github-release-stats/?username=Wagnerp&repository=Krypton-NET-5.470)
+
+=======
+
+## 2019-04-26 Build 968 - Bugfixes
+* Fixed issue [#147](https://github.com/Wagnerp/Krypton-NET-5.470/issues/147), hint does not have a designer reset option
+* Fixed issue [#146](https://github.com/Wagnerp/Krypton-NET-5.470/issues/146), PInvoke types should be structures and not classes
+* Fixed issue [#155](https://github.com/Wagnerp/Krypton-NET-5.470/issues/155), new Shadow feature does not handle "Window bar flashing" as expected 
+* Fixed issue [#156](https://github.com/Wagnerp/Krypton-NET-5.470/issues/156), new Shadow feature crashes for some variables entered
+* Fixed issue [#161](https://github.com/Wagnerp/Krypton-NET-5.470/issues/161), "Admin" does not show up in forms or MessageBox's
+* Fixed issues [#68](https://github.com/Wagnerp/Krypton-NET-5.470/issues/68), The look of krypton themes does not appear in windows 10 when I use the ribbon control & [#162](https://github.com/Wagnerp/Krypton-NET-5.470/issues/162), Adding a ribbon control to a blank form causes the form title bar to always be blue (system accent) when selected
+* Build 968 (build date Friday 26th April, 2019) is now available on NuGet
 
 =======
 
