@@ -33,6 +33,12 @@ You can check out the demos by clicking [here](https://www.somsubhra.com/github-
 
 =======
 
+## 2019-05-11 Repository additions
+* Created templates for issues, feedback, requests etc.
+* Added tags for GitHub SEO
+
+=======
+
 ## 2019-04-26 Build 968 - Bugfixes
 * Fixed issue [#147](https://github.com/Wagnerp/Krypton-NET-5.470/issues/147), hint does not have a designer reset option
 * Fixed issue [#146](https://github.com/Wagnerp/Krypton-NET-5.470/issues/146), PInvoke types should be structures and not classes
