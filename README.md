@@ -12,7 +12,7 @@
 
 =======
 
-# <img src="https://github.com/Wagnerp/Krypton-NET-5.470/blob/master/Krypton.png" /><a href="https://github.com/Wagnerp/Krypton-NET-Version-Dashboard">Krypton Releases</a>
+# <img src="https://github.com/Wagnerp/Krypton-NET-5.470/blob/master/Krypton.png" /><a href="https://github.com/Wagnerp/Krypton-NET-Version-Dashboard"> Krypton Releases</a>
 
 =======
 
