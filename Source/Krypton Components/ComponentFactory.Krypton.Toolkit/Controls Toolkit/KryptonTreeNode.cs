@@ -25,6 +25,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private string _longText;
         private Color _longForeColor;
         private Font _longNodeFont;
+        private bool _isCheckBoxVisible;
         #endregion
 
         #region Events
@@ -96,6 +97,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _longText = string.Empty;
             _longForeColor = Color.Empty;
             _longNodeFont = null;
+            _isCheckBoxVisible = true;
         }
         #endregion
 
@@ -115,7 +117,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_longText != value)
                 {
                     _longText = value;
-                    OnPropertyChanged(new PropertyChangedEventArgs("LongText"));
+                    OnPropertyChanged(new PropertyChangedEventArgs(@"LongText"));
                 }
             }
         }
@@ -141,7 +143,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_longForeColor != value)
                 {
                     _longForeColor = value;
-                    OnPropertyChanged(new PropertyChangedEventArgs("LongForeColor"));
+                    OnPropertyChanged(new PropertyChangedEventArgs(@"LongForeColor"));
                 }
             }
         }
@@ -167,7 +169,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_longNodeFont != value)
                 {
                     _longNodeFont = value;
-                    OnPropertyChanged(new PropertyChangedEventArgs("LongNodeFont"));
+                    OnPropertyChanged(new PropertyChangedEventArgs(@"LongNodeFont"));
                 }
             }
         }
@@ -177,6 +179,42 @@ namespace ComponentFactory.Krypton.Toolkit
             return _longNodeFont != null;
         }
         #endregion
+
+        #region LongText
+        /// <summary>
+        /// Gets and sets the long text.
+        /// </summary>
+        [Category("Appearance")]
+        [Description("Is the CheckBox Visible on this node when the TreeView has Checkboxes")]
+        [DefaultValue(true)]
+        public bool IsCheckBoxVisible
+        {
+            get => _isCheckBoxVisible;
+
+            set
+            {
+                if (_isCheckBoxVisible != value)
+                {
+                    _isCheckBoxVisible = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs(@"IsCheckBoxVisible"));
+                    Rectangle callOnce = Bounds;
+                    if (callOnce != Rectangle.Empty)
+                    {
+                        // Have to do this as RowBounds is not accessible ! and the check box is on the left, normally !
+                        Rectangle nodeWidth = Rectangle.FromLTRB(0, callOnce.Top, callOnce.Right + callOnce.Left,
+                            callOnce.Bottom);
+                        TreeView.Invalidate(nodeWidth);
+                        TreeView.Update();
+                    }
+                }
+            }
+        }
+
+        private bool ShouldSerializeIsCheckBoxVisible()
+        {
+            return !_isCheckBoxVisible;
+        }
+        #endregion    
 
         #region Protected
         /// <summary>

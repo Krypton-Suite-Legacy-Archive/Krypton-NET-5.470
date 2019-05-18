@@ -38,7 +38,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Initialize a new instance of the ViewLayoutNull class.
         /// </summary>
-        /// <param name="control">Control to positon in fill location.</param>
+        /// <param name="control">Control to position in fill location.</param>
         public ViewLayoutFill(Control control)
         {
             _control = control;
@@ -79,7 +79,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public override Size GetPreferredSize(ViewLayoutContext context)
         {
             // Get requested size of the control
-            Size size = (_control != null ? _control.GetPreferredSize(context.DisplayRectangle.Size) : Size.Empty);
+            Size size = _control?.GetPreferredSize(context.DisplayRectangle.Size) ?? Size.Empty;
 
             // Return size with padding added on
             return new Size(size.Width + DisplayPadding.Horizontal,

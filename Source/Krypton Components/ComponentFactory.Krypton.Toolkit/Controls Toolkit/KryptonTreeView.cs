@@ -1077,6 +1077,7 @@ namespace ComponentFactory.Krypton.Toolkit
             get => _treeView.RightToLeftLayout;
             set => _treeView.RightToLeftLayout = value;
         }
+       
         /// <summary>
         /// Gets the collection of tree nodes that are assigned to the tree view control.
         /// </summary>
@@ -1560,6 +1561,7 @@ namespace ComponentFactory.Krypton.Toolkit
             UpdateItemHeight();
             base.OnCreateControl();
         }
+        
         /// <summary>
         /// Raises the EnabledChanged event.
         /// </summary>
@@ -1888,6 +1890,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 _layoutImageStack.Visible = false;
             }
 
+            KryptonTreeNode kryptonNode = e.Node as KryptonTreeNode;
+
             // Work out if we need to draw a state image
             Image drawStateImage = null;
             if (StateImageList != null)
@@ -1897,7 +1901,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     // If showing check boxes then used fixed entries from the state image list
                     if (CheckBoxes)
                     {
-                        drawStateImage = e.Node.Checked ? StateImageList.Images[1] : StateImageList.Images[0];
+                        if (kryptonNode?.IsCheckBoxVisible != false)
+                        {
+                            drawStateImage = e.Node.Checked ? StateImageList.Images[1] : StateImageList.Images[0];
+                        }
                     }
                     else
                     {
@@ -1921,7 +1928,9 @@ namespace ComponentFactory.Krypton.Toolkit
             _layoutImageCenterState.Visible = (drawStateImage != null);
 
             // Do we need the check box?
-            _layoutCheckBox.Visible = (StateImageList == null) && CheckBoxes;
+            _layoutCheckBox.Visible = (StateImageList == null) 
+                                      && CheckBoxes 
+                                      && (kryptonNode?.IsCheckBoxVisible != false);
             if (_layoutCheckBox.Visible)
             {
                 _drawCheckBox.CheckState = e.Node.Checked ? CheckState.Checked : CheckState.Unchecked;

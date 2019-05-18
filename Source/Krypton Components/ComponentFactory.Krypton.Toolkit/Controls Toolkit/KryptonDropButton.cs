@@ -513,7 +513,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Decide if the default overrides should be applied
                 _overrideNormal.Apply = value;
 
-                // Change in deault state requires a layout and repaint
+                // Change in default state requires a layout and repaint
                 PerformNeedPaint(true);
             }
         }
@@ -582,7 +582,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-        /// Determins the IME status of the object when selected.
+        /// Determines the IME status of the object when selected.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -718,7 +718,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Processes a mnemonic character.
         /// </summary>
         /// <param name="charCode">The mnemonic character entered.</param>
-        /// <returns>true if the mnemonic was processsed; otherwise, false.</returns>
+        /// <returns>true if the mnemonic was processed; otherwise, false.</returns>
         protected override bool ProcessMnemonic(char charCode)
         {
             // Are we allowed to process mnemonics?

@@ -51,13 +51,153 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Constants
 
+        #region  TreeView
+        [Flags]
+        internal enum TVIF_
+        {
+            TEXT = 0x0001, // The pszText and cchTextMax members are valid.
+            IMAGE = 0x0002, // The iImage member is valid.
+            PARAM = 0x04, // The lParam member is valid.
+            STATE = 0x0008, // The state and stateMask members are valid.
+            HANDLE = 0x020, // The hItem member is valid.
+            CHILDREN = 0x0040, // The cChildren member is valid.
+            SELECTEDIMAGE = 32, // The iSelectedImage member is valid.
+            INTEGRAL = 128,
+            STATEEX = 256,
+            EXPANDEDIMAGE = 512,
+            DI_SETITEM = 4096 // The tree-view control will retain the supplied information and will not request it again.This flag is valid only when processing the TVN_GETDISPINFO notification.
+        }
+
+        [Flags]
+        internal enum TVIS_
+        {
+            BOLD, // The item is bold.
+            CUT, // The item is selected as part of a cut-and-paste operation.
+            DROPHILITED, // The item is selected as a drag-and-drop target.
+            EXPANDED = 0x0020, // The item's list of child items is currently expanded; that is, the child items are visible. This value applies only to parent items.
+            EXPANDEDONCE, // The item's list of child items has been expanded at least once. The TVN_ITEMEXPANDING and TVN_ITEMEXPANDED notification codes are not generated for parent items that have this state set in response to a TVM_EXPAND message. Using TVE_COLLAPSE and TVE_COLLAPSERESET with TVM_EXPAND will cause this state to be reset. This value applies only to parent items.
+            EXPANDPARTIAL, // Version 4.70. A partially expanded tree-view item. In this state, some, but not all, of the child items are visible and the parent item's plus symbol is displayed.
+            SELECTED = 0x0002, // The item is selected.Its appearance depends on whether it has the focus.The item will be drawn using the system colors for selection.
+            OVERLAYMASK, // Mask for the bits used to specify the item's overlay image index.
+            STATEIMAGEMASK = 0xF000, // Mask for the bits used to specify the item's state image index.
+            USERMASK = 0xF000, // Same as TVIS_STATEIMAGEMASK.
+        }
+
+        internal struct TVM_
+        {
+            public const int
+                TVM_INSERTITEMA = (0x1100 + 0),
+                TVM_INSERTITEMW = (0x1100 + 50),
+                TVM_DELETEITEM = (0x1100 + 1),
+                TVM_EXPAND = (0x1100 + 2),
+                TVM_GETITEMRECT = (0x1100 + 4),
+                TVM_GETINDENT = (0x1100 + 6),
+                TVM_SETINDENT = (0x1100 + 7),
+                TVM_GETIMAGELIST = (0x1100 + 8),
+                TVM_SETIMAGELIST = (0x1100 + 9),
+                TVM_GETNEXTITEM = (0x1100 + 10),
+                TVM_SELECTITEM = (0x1100 + 11),
+                TVM_GETITEMA = (0x1100 + 12),
+                TVM_GETITEMW = (0x1100 + 62),
+                TVM_SETITEMA = (0x1100 + 13),
+                TVM_SETITEMW = (0x1100 + 63),
+                TVM_EDITLABELA = (0x1100 + 14),
+                TVM_EDITLABELW = (0x1100 + 65),
+                TVM_GETEDITCONTROL = (0x1100 + 15),
+                TVM_GETVISIBLECOUNT = (0x1100 + 16),
+                TVM_HITTEST = (0x1100 + 17),
+                TVM_ENSUREVISIBLE = (0x1100 + 20),
+                TVM_ENDEDITLABELNOW = (0x1100 + 22),
+                TVM_GETISEARCHSTRINGA = (0x1100 + 23),
+                TVM_GETISEARCHSTRINGW = (0x1100 + 64),
+                TVM_SETITEMHEIGHT = (0x1100 + 27),
+                TVM_GETITEMHEIGHT = (0x1100 + 28),
+
+                SETITEMA = 0x110d,
+                SETITEM = 0x110d,
+                SETITEMW = 0x113f,
+                GETITEM = 0x110C
+                //TV_FIRST = 0x1100,
+                //TVM_SETBKCOLOR = (TV_FIRST + 29),
+                //TVM_SETTEXTCOLOR = (TV_FIRST + 30),
+                //TVM_GETLINECOLOR = (TV_FIRST + 41),
+                //TVM_SETLINECOLOR = (TV_FIRST + 40),
+                //TVM_SETTOOLTIPS = (TV_FIRST + 24),
+                //TVM_SORTCHILDRENCB = (TV_FIRST + 21),
+                ;
+        }
+
+        internal const int TVGN_ROOT = 0x0000;
+        internal const int TVGN_NEXT = 0x0001;
+        internal const int TVGN_PREVIOUS = 0x0002;
+        internal const int TVGN_PARENT = 0x0003;
+        internal const int TVGN_CHILD = 0x0004;
+        internal const int TVGN_FIRSTVISIBLE = 0x0005;
+        internal const int TVGN_NEXTVISIBLE = 0x0006;
+        internal const int TVGN_PREVIOUSVISIBLE = 0x0007;
+        internal const int TVGN_DROPHILITE = 0x0008;
+        internal const int TVGN_CARET = 0x0009;
+
+        // note: this flag has effect only on WinXP and up
+        internal const int TVSI_NOSINGLEEXPAND = 0x8000;
+
+        //TVC_UNKNOWN = 0x0000,
+        //TVC_BYMOUSE = 0x0001,
+        //TVC_BYKEYBOARD = 0x0002,
+
+        internal const int TVE_COLLAPSE = 0x0001;
+        internal const int TVE_EXPAND = 0x0002;
+
+        //TVI_ROOT = (unchecked((int)0xFFFF0000)),
+        //TVI_FIRST = (unchecked((int)0xFFFF0001)),
+
+        // style
+        internal const int TVS_EDITLABELS = 0x0008;
+        internal const int TVS_CHECKBOXES = 0x0100;
+        //TVS_HASBUTTONS = 0x0001,
+        //TVS_HASLINES = 0x0002,
+        //TVS_LINESATROOT = 0x0004,
+        //TVS_EDITLABELS = 0x0008,
+        //TVS_SHOWSELALWAYS = 0x0020,
+        //TVS_RTLREADING = 0x0040,
+        //TVS_CHECKBOXES = 0x0100,
+        //TVS_TRACKSELECT = 0x0200,
+        //TVS_FULLROWSELECT = 0x1000,
+        //TVS_NONEVENHEIGHT = 0x4000,
+        //TVS_INFOTIP = 0x0800,
+        //TVS_NOTOOLTIPS = 0x0080,
+
+        //TVN_SELCHANGINGA = ((0 - 400) - 1),
+        //TVN_SELCHANGINGW = ((0 - 400) - 50),
+        //TVN_GETINFOTIPA = ((0 - 400) - 13),
+        //TVN_GETINFOTIPW = ((0 - 400) - 14),
+        //TVN_SELCHANGEDA = ((0 - 400) - 2),
+        //TVN_SELCHANGEDW = ((0 - 400) - 51),
+        //TVN_GETDISPINFOA = ((0 - 400) - 3),
+        //TVN_GETDISPINFOW = ((0 - 400) - 52),
+        //TVN_SETDISPINFOA = ((0 - 400) - 4),
+        //TVN_SETDISPINFOW = ((0 - 400) - 53),
+        //TVN_ITEMEXPANDINGA = ((0 - 400) - 5),
+        //TVN_ITEMEXPANDINGW = ((0 - 400) - 54),
+        //TVN_ITEMEXPANDEDA = ((0 - 400) - 6),
+        //TVN_ITEMEXPANDEDW = ((0 - 400) - 55),
+        //TVN_BEGINDRAGA = ((0 - 400) - 7),
+        //TVN_BEGINDRAGW = ((0 - 400) - 56),
+        //TVN_BEGINRDRAGA = ((0 - 400) - 8),
+        //TVN_BEGINRDRAGW = ((0 - 400) - 57),
+        //TVN_BEGINLABELEDITA = ((0 - 400) - 10),
+        //TVN_BEGINLABELEDITW = ((0 - 400) - 59),
+        //TVN_ENDLABELEDITA = ((0 - 400) - 11),
+        //TVN_ENDLABELEDITW = ((0 - 400) - 60),
+        #endregion  TreeView
+
         [Flags]
         internal enum KEY_
         {
             NONE = 0,
             DOWN = 1,
             TOGGLED = 2
-        };
+        }
 
         [Flags]
         internal enum SWP_ : uint
@@ -2221,6 +2361,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         internal static extern uint SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, ref TITLEBARINFOEX lParam);
 
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        internal static extern IntPtr SendMessage(HandleRef hWnd, int msg, int wParam, ref TV_ITEM lParam);
+
         [DllImport("user32.dll", SetLastError = true)]
         internal static extern bool PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
 
@@ -2515,6 +2658,21 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Structures
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+        public struct TV_ITEM
+        {
+            public TVIF_ Mask;
+            public IntPtr ItemHandle;
+            public TVIS_ State;
+            public TVIS_ StateMask;
+            public IntPtr TextPtr;
+            public int TextMax;
+            public int Image;
+            public int SelectedImage;
+            public int Children;
+            public IntPtr LParam;
+        }
+
         [StructLayout(LayoutKind.Sequential)]
         internal struct SIZE
         {

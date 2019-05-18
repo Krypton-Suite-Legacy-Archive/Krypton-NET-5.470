@@ -49,7 +49,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public event CancelEventHandler Opening;
 
         /// <summary>
-        /// Occurs when the context menu is opended.
+        /// Occurs when the context menu is opened.
         /// </summary>
         [Category("Action")]
         [Description("Occurs when the context menu is fully opened for display.")]
@@ -209,14 +209,16 @@ namespace ComponentFactory.Krypton.Toolkit
         [Bindable(true)]
         public object Tag { get; set; }
 
-        private void ResetTag()
-        {
-            Tag = null;
-        }
-
         private bool ShouldSerializeTag()
         {
             return (Tag != null);
+        }
+
+        /// <summary>
+        /// </summary>
+        public void ResetTag()
+        {
+            Tag = null;
         }
 
         /// <summary>
@@ -455,7 +457,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Test for the provided shortcut and perform relevant action if a match is found.
         /// </summary>
-        /// <param name="keyData">Key data to check against shorcut definitions.</param>
+        /// <param name="keyData">Key data to check against shortcut definitions.</param>
         /// <returns>True if shortcut was handled, otherwise false.</returns>
         public bool ProcessShortcut(Keys keyData)
         {
@@ -562,7 +564,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Unhook from control, so it can be garbage collected
                 VisualContextMenu.Disposed -= OnContextMenuDisposed;
 
-                // Copy to ourself the close reason
+                // Copy to self the close reason
                 if (VisualContextMenu.CloseReason.HasValue)
                 {
                     CloseReason = VisualContextMenu.CloseReason.Value;

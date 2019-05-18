@@ -11,6 +11,9 @@
 
 using System;
 using System.ComponentModel;
+// ReSharper disable MemberCanBeProtected.Global
+// ReSharper disable MemberCanBeInternal
+// ReSharper disable MemberCanBePrivate.Global
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -83,7 +86,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_visible != value)
                 {
                     _visible = value;
-                    OnButtonSpecPropertyChanged("Visible");
+                    OnButtonSpecPropertyChanged(@"Visible");
                 }
             }
         }
@@ -115,7 +118,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_enabled != value)
                 {
                     _enabled = value;
-                    OnButtonSpecPropertyChanged("Enabled");
+                    OnButtonSpecPropertyChanged(@"Enabled");
                 }
             }
         }
@@ -147,7 +150,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_checked != value)
                 {
                     _checked = value;
-                    OnButtonSpecPropertyChanged("Checked");
+                    OnButtonSpecPropertyChanged(@"Checked");
                 }
             }
         }
@@ -218,7 +221,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (ProtectedType != value)
                 {
                     ProtectedType = value;
-                    OnButtonSpecPropertyChanged("Type");
+                    OnButtonSpecPropertyChanged(@"Type");
                 }
             }
         }
@@ -254,7 +257,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets the button visible value.
         /// </summary>
         /// <param name="palette">Palette to use for inheriting values.</param>
-        /// <returns>Button visibiliy.</returns>
+        /// <returns>Button visibility.</returns>
         public override bool GetVisible(IPalette palette)
         {
             return Visible;
@@ -294,7 +297,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 switch (propertyName)
                 {
-                    case "KryptonCommand":
+                    case @"KryptonCommand":
                         if (Checked != ButtonCheckState.NotCheckButton)
                         {
                             Checked = (KryptonCommand.Checked ? ButtonCheckState.Checked : ButtonCheckState.Unchecked);
@@ -302,7 +305,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                         Enabled = (KryptonCommand.Enabled ? ButtonEnabled.True : ButtonEnabled.False);
                         break;
-                    case "Checked":
+                    case @"Checked":
                         KryptonCommand.Checked = (Checked == ButtonCheckState.Checked);
                         break;
                 }
@@ -320,10 +323,10 @@ namespace ComponentFactory.Krypton.Toolkit
 
             switch (e.PropertyName)
             {
-                case "Checked":
+                case @"Checked":
                     Checked = (KryptonCommand.Checked ? ButtonCheckState.Checked : ButtonCheckState.Unchecked);
                     break;
-                case "Enabled":
+                case @"Enabled":
                     Enabled = (KryptonCommand.Enabled ? ButtonEnabled.True : ButtonEnabled.False);
                     break;
             }

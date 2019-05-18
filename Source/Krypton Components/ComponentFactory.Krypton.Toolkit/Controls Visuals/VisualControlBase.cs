@@ -210,7 +210,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets and sets the KryptonContextMenu to show when right clicked.
         /// </summary>
         [Category("Behavior")]
-        [Description("The shortcut menu to show when the user right-clicks the page.")]
+        [Description("The KryptonContextMenu to show when the user right-clicks the Control.")]
         [DefaultValue(null)]
         public virtual KryptonContextMenu KryptonContextMenu
         {
@@ -271,7 +271,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Layout cannot now be dirty
                         _layoutDirty = false;
 
-                        // Ask the view to peform a layout
+                        // Ask the view to perform a layout
                         ViewManager.Layout(Renderer);
 
                     } while (_layoutDirty && (max-- > 0));
@@ -293,7 +293,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 if (_paletteMode != value)
                 {
-                    // Action despends on new value
+                    // Action depends on new value
                     switch (value)
                     {
                         case PaletteMode.Custom:
@@ -552,16 +552,16 @@ namespace ComponentFactory.Krypton.Toolkit
             return ViewManager?.Root?.ViewFromPoint(pt);
         }
         #endregion
-        
+
         #region Protected
         /// <summary>
         /// Gets and sets the ViewManager instance.
         /// </summary>
-        protected ViewManager ViewManager
+        public ViewManager ViewManager
         {
             [DebuggerStepThrough]
-            get;
-            set;
+             get;
+             protected set;
         }
 
         /// <summary>
@@ -924,6 +924,10 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnMouseEnter(EventArgs e)
         {
             // Cannot process a message for a disposed control
@@ -1123,7 +1127,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // We only care if we are using the global palette
             if (PaletteMode == PaletteMode.Global)
             {
-                // Update ourself with the new global palette
+                // Update self with the new global palette
                 _localPalette = null;
                 SetPalette(KryptonManager.CurrentGlobalPalette);
                 Redirector.Target = _palette;
