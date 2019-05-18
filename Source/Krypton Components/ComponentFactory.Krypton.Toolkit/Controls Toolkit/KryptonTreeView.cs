@@ -323,6 +323,8 @@ namespace ComponentFactory.Krypton.Toolkit
         private readonly ViewDrawButton _drawButton;
         private readonly ViewDrawCheckBox _drawCheckBox;
         private readonly ViewLayoutCenter _layoutCheckBox;
+        private readonly ViewLayoutSeparator _layoutCheckBoxAfter;
+        private readonly ViewLayoutStack _layoutCheckBoxStack;
         private readonly ViewLayoutDocker _layoutDocker;
         private readonly ViewLayoutStack _layoutImageStack;
         private readonly ViewLayoutCenter _layoutImageCenter;
@@ -576,6 +578,12 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 _drawCheckBox
             };
+            _layoutCheckBoxAfter = new ViewLayoutSeparator(3, 0);
+            _layoutCheckBoxStack = new ViewLayoutStack(true)
+            {
+                _layoutCheckBox,
+                _layoutCheckBoxAfter
+            };
 
             // Stack used to layout the location of the node image
             _layoutImage = new ViewLayoutSeparator(0, 0);
@@ -603,7 +611,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 { _layoutImageStack, ViewDockStyle.Left },
                 { _layoutImageCenterState, ViewDockStyle.Left },
-                { _layoutCheckBox, ViewDockStyle.Left },
+                { _layoutCheckBoxStack, ViewDockStyle.Left },
                 { _drawButton, ViewDockStyle.Fill }
             };
 
@@ -1928,10 +1936,10 @@ namespace ComponentFactory.Krypton.Toolkit
             _layoutImageCenterState.Visible = (drawStateImage != null);
 
             // Do we need the check box?
-            _layoutCheckBox.Visible = (StateImageList == null) 
+            _layoutCheckBoxStack.Visible = (StateImageList == null) 
                                       && CheckBoxes 
                                       && (kryptonNode?.IsCheckBoxVisible != false);
-            if (_layoutCheckBox.Visible)
+            if (_layoutCheckBoxStack.Visible)
             {
                 _drawCheckBox.CheckState = e.Node.Checked ? CheckState.Checked : CheckState.Unchecked;
             }
