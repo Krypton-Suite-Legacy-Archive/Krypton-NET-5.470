@@ -29,7 +29,6 @@ using System.Runtime.InteropServices;
 [assembly: StringFreezing]
 [assembly: ComVisible(false)]
 [assembly: CLSCompliant(true)]
-[assembly: AllowPartiallyTrustedCallers()]
 [assembly: Dependency("System", LoadHint.Always)]
 [assembly: Dependency("System.Drawing", LoadHint.Always)]
 [assembly: Dependency("System.Windows.Forms", LoadHint.Always)]

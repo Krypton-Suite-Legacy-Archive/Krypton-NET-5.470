@@ -7,6 +7,7 @@
 
 using System;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 using ComponentFactory.Krypton.Toolkit;
@@ -119,6 +120,23 @@ namespace KryptonTreeViewExamples
         private void buttonClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void BtnToggleNodeCheckBox_Click(object sender, EventArgs e)
+        {
+            if (kryptonTreeView.SelectedNode is KryptonTreeNode kryptonNode)
+            {
+                kryptonNode.IsCheckBoxVisible = !kryptonNode.IsCheckBoxVisible;
+            }
+        }
+
+        private void KryptonTreeView_BeforeCheck(object sender, TreeViewCancelEventArgs e)
+        {
+            if (kryptonTreeView.SelectedNode is KryptonTreeNode kryptonNode)
+            {
+                // If the CheckBox is hidden then prevent the checking change event
+                e.Cancel = !kryptonNode.IsCheckBoxVisible;
+            }
         }
     }
 }

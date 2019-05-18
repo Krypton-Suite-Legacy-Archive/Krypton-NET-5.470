@@ -108,8 +108,8 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             [DebuggerStepThrough]
             get { return _root; }
-            
-            set 
+
+            set
             {
                 Debug.Assert(value != null);
                 _root = value;
@@ -138,7 +138,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-        /// Should child controls be layed out during layout calls.
+        /// Should child controls be laid out during layout calls.
         /// </summary>
         public bool DoNotLayoutControls
         {
@@ -192,8 +192,8 @@ namespace ComponentFactory.Krypton.Toolkit
             if (OutputDebug)
             {
                 Console.WriteLine("Id:{0} GetPreferredSize Type:{1} Ret:{2} Proposed:{3}",
-                    Id, 
-                    Control.GetType().ToString(), 
+                    Id,
+                    Control.GetType().ToString(),
                     retSize,
                     proposedSize);
             }
@@ -223,8 +223,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create a layout context for calculating size and positioning
             using (ViewContext context = new ViewContext(this,
-                                                         Control, 
-                                                         AlignControl, 
+                                                         Control,
+                                                         AlignControl,
                                                           renderer))
             {
                 // Ask the view to perform operation
@@ -263,7 +263,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Is the provided point associated with a component.
         /// </summary>
         /// <param name="pt">Mouse point.</param>
-        /// <returns>Component referecne; otherwise false.</returns>
+        /// <returns>Component reference; otherwise false.</returns>
         public virtual Component ComponentFromPoint(Point pt)
         {
             // Find the view element associated with the point
@@ -281,7 +281,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             return null;
-        }        
+        }
         #endregion
 
         #region MouseCaptured
@@ -357,7 +357,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     long outputDiff = outputEnd - _outputStart;
 
                     Console.WriteLine("Id:{0} Layout Type:{1} Elapsed:{2} Rect:{3}",
-                        Id, 
+                        Id,
                         context.Control.GetType().ToString(),
                         outputDiff.ToString(),
                         context.DisplayRectangle);
@@ -444,7 +444,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     long outputDiff = outputEnd - _outputStart;
 
                     Console.WriteLine("Id:{0} Paint Type:{1} Elapsed: {2}",
-                        Id, 
+                        Id,
                         Control.GetType().ToString(),
                         outputDiff.ToString());
                 }
