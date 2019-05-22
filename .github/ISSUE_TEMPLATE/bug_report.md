@@ -24,7 +24,7 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Desktop (please complete the following information):**
- - OS Version: [e.g. 10.0.17763]
+ - OS Version: [e.g. 10.0.18362]
  - Version [e.g. 22]
 
 
