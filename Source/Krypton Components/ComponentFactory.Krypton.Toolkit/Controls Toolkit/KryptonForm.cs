@@ -20,6 +20,16 @@ using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
+    #region Enumerations
+    public enum BracketType
+    {
+        CURVEDBRACKET,
+        CURLYBRACKET,
+        SQUAREBRACKET,
+        NOBRACKET
+    }
+    #endregion
+
     /// <summary>
     /// Draws the window chrome using a Krypton palette.
     /// </summary>
@@ -101,6 +111,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private StatusStrip _statusStrip;
         private Bitmap _cacheBitmap;
         private Icon _cacheIcon;
+        private BracketType _bracketType;
         #endregion
 
         #region Identity
@@ -193,6 +204,8 @@ namespace ComponentFactory.Krypton.Toolkit
             UseDropShadow = true;
 
             AdministratorText = "Administrator";
+
+            BracketType = BracketType.CURVEDBRACKET;
         }
 
         /// <summary>
@@ -407,6 +420,15 @@ namespace ComponentFactory.Krypton.Toolkit
             get => _isInAdministratorMode;
             set => _isInAdministratorMode = value;
         }
+
+        /// <summary>
+        /// Gets or sets the type of the bracket.
+        /// </summary>
+        /// <value>
+        /// The type of the bracket.
+        /// </value>
+        [Category("Appearance"), Description("For use in conjunction with administrator features."), DefaultValue(BracketType.CURVEDBRACKET)]
+        public BracketType BracketType { get => _bracketType; set => _bracketType = value; }
 
         /// <summary>
         /// Gets access to the common form appearance entries that other states can override.
@@ -831,7 +853,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // We only apply custom chrome when control is already created and positioned
             UpdateCustomChromeDecision();
 
-            UpdateTitle(GetHasCurrentInstanceGotAdministrativeRights());
+            UpdateTitle(GetHasCurrentInstanceGotAdministrativeRights(), BracketType);
         }
 
         /// <summary>
@@ -1691,7 +1713,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets the has current instance got administrative rights.
         /// </summary>
         /// <returns></returns>
-        private static bool GetHasCurrentInstanceGotAdministrativeRights()
+        public static bool GetHasCurrentInstanceGotAdministrativeRights()
         {
             try
             {
@@ -1718,11 +1740,28 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Updates the title.
         /// </summary>
         /// <param name="hasAdministrativeRights">if set to <c>true</c> [has administrative rights].</param>
-        private void UpdateTitle(bool hasAdministrativeRights)
+        /// <param name="bracketType">The type of bracket that will encapsulate the administrator text.</param>
+        public void UpdateTitle(bool hasAdministrativeRights, BracketType bracketType = BracketType.CURVEDBRACKET)
         {
             if (hasAdministrativeRights)
             {
-                Text = $"{ Text } - [{ AdministratorText }]";
+                switch (bracketType)
+                {
+                    case BracketType.CURVEDBRACKET:
+                        Text = $"{ Text } - ({ AdministratorText })";
+                        break;
+                    case BracketType.CURLYBRACKET:
+                        Text = $"{ Text } - {{{ AdministratorText}}}";
+                        break;
+                    case BracketType.SQUAREBRACKET:
+                        Text = $"{ Text } - [{ AdministratorText }]";
+                        break;
+                    case BracketType.NOBRACKET:
+                        Text = $"{ Text } - { AdministratorText }";
+                        break;
+                    default:
+                        break;
+                }
             }
         }
         #endregion
