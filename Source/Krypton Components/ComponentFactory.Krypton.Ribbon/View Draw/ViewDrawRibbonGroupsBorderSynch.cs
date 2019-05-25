@@ -9,10 +9,10 @@
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using System.Drawing;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Ribbon
 {
@@ -69,7 +69,7 @@ namespace ComponentFactory.Krypton.Ribbon
         public ViewDrawRibbonGroup ViewGroupFromPoint(Point pt)
         {
             // There can only be groups showing for the currently selected tab
-            if (Ribbon.SelectedTab != null)
+            if (Ribbon.SelectedTab != null && (_tabToView.ContainsKey(Ribbon.SelectedTab)))
             {
                 // Get the scroll port for this tab
                 ViewLayoutRibbonScrollPort viewScrollPort = _tabToView[Ribbon.SelectedTab];
@@ -189,7 +189,7 @@ namespace ComponentFactory.Krypton.Ribbon
             SyncChildrenToRibbonTabs();
             return base.GetPreferredSize(context);
         }
-            
+
         /// <summary>
         /// Perform a layout of the elements.
         /// </summary>
@@ -210,9 +210,9 @@ namespace ComponentFactory.Krypton.Ribbon
 
             // Create a new lookup that reflects any changes in tabs
             TabToView regenerate = new TabToView();
-            
+
             // Make sure we have a view element to match each tab
-            foreach(KryptonRibbonTab tab in Ribbon.RibbonTabs)
+            foreach (KryptonRibbonTab tab in Ribbon.RibbonTabs)
             {
                 ViewLayoutRibbonScrollPort view = null;
 
