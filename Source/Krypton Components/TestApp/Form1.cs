@@ -33,6 +33,13 @@ namespace TestApp
             ThemeManager.PropagateThemeSelector(cmbThemes);
 
             ThemeManager.PropagateThemeSelector(dudThemes);
+
+            kcbBracketType.DataSource = Enum.GetValues(typeof(BracketType));
+
+            //foreach (string bracketType in Enum.GetValues(typeof(BracketType)))
+            //{
+            //    kcbBracketType.Items.Add(bracketType);
+            //}
         }
 
         private void kcmbThemeCollection_SelectedIndexChanged(object sender, EventArgs e)
@@ -99,6 +106,31 @@ namespace TestApp
             using (SmallForm smallForm = new SmallForm())
             {
                 smallForm.ShowDialog(this);
+            }
+        }
+
+        private void KcbBracketType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ChangeBracketType(kcbBracketType.Text);
+        }
+
+        private void ChangeBracketType(string bracketType)
+        {
+            if (bracketType == "CURVEDBRACKET")
+            {
+                UpdateTitle(GetHasCurrentInstanceGotAdministrativeRights(), BracketType.CURVEDBRACKET);
+            }
+            else if (bracketType == "CURLYBRACKET")
+            {
+                UpdateTitle(GetHasCurrentInstanceGotAdministrativeRights(), BracketType.CURVEDBRACKET);
+            }
+            else if (bracketType == "SQUAREBRACKET")
+            {
+                UpdateTitle(GetHasCurrentInstanceGotAdministrativeRights(), BracketType.SQUAREBRACKET);
+            }
+            else if (bracketType == "NOBRACKET")
+            {
+                UpdateTitle(GetHasCurrentInstanceGotAdministrativeRights(), BracketType.NOBRACKET);
             }
         }
     }
