@@ -410,8 +410,14 @@ namespace ComponentFactory.Krypton.Toolkit
                                 // Grab the client area of the control
                                 PI.GetClientRect(Handle, out PI.RECT rect);
 
+                                PaletteState state = (NumericUpDown.Enabled
+                                        ? (NumericUpDown.IsActive ? PaletteState.Tracking : PaletteState.Normal)
+                                        : PaletteState.Disabled
+                                    );
+                                PaletteInputControlTripleStates states = NumericUpDown.GetTripleState();
+
                                 // Drawn entire client area in the background color
-                                using (SolidBrush backBrush = new SolidBrush(_internalNumericUpDown.BackColor))
+                                using (SolidBrush backBrush = new SolidBrush(states.PaletteBack.GetBackColor1(state)))
                                 {
                                     g.FillRectangle(backBrush, new Rectangle(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top));
                                 }
@@ -420,75 +426,78 @@ namespace ComponentFactory.Krypton.Toolkit
                                 Size borderSize = SystemInformation.BorderSize;
                                 rect.left -= (borderSize.Width + 1);
 
-                                // If enabled then let the combo draw the text area
-                                if (NumericUpDown.Enabled)
+                                //////////////////////////////////////////////////////
+                                // Following removed to allow the Draw to always happen, to allow centering etc  
+                                //// If enabled then let the combo draw the text area
+                                //if (NumericUpDown.Enabled)
+                                //{
+                                //    // Let base implementation draw the actual text area
+                                //    if (m.WParam == IntPtr.Zero)
+                                //    {
+                                //        m.WParam = hdc;
+                                //        DefWndProc(ref m);
+                                //        m.WParam = IntPtr.Zero;
+                                //    }
+                                //    else
+                                //    {
+                                //        DefWndProc(ref m);
+                                //    }
+                                //}
+                                //else
                                 {
-                                    // Let base implementation draw the actual text area
-                                    if (m.WParam == IntPtr.Zero)
-                                    {
-                                        m.WParam = hdc;
-                                        DefWndProc(ref m);
-                                        m.WParam = IntPtr.Zero;
-                                    }
-                                    else
-                                    {
-                                        DefWndProc(ref m);
-                                    }
-                                }
-                                else
-                                {
+
                                     // Set the correct text rendering hint for the text drawing. We only draw if the edit text is disabled so we
                                     // just always grab the disable state value. Without this line the wrong hint can occur because it inherits
                                     // it from the device context. Resulting in blurred text.
-                                    g.TextRenderingHint = CommonHelper.PaletteTextHintToRenderingHint(NumericUpDown.StateDisabled.PaletteContent.GetContentShortTextHint(PaletteState.Disabled));
+                                    g.TextRenderingHint = CommonHelper.PaletteTextHintToRenderingHint(states.Content.GetContentShortTextHint(state));
 
                                     // Define the string formatting requirements
                                     StringFormat stringFormat = new StringFormat
                                     {
                                         LineAlignment = StringAlignment.Near,
                                         FormatFlags = StringFormatFlags.NoWrap,
-                                        Trimming = StringTrimming.None
+                                        Trimming = StringTrimming.None,
+                                        // Use the correct prefix setting
+                                        HotkeyPrefix = System.Drawing.Text.HotkeyPrefix.None
                                     };
 
-                                    switch (NumericUpDown.TextAlign)
+                                    switch (states.Content.GetContentShortTextH(state))
                                     {
-                                        case HorizontalAlignment.Left:
+                                        case PaletteRelativeAlign.Near:
                                             stringFormat.Alignment = NumericUpDown.RightToLeft == RightToLeft.Yes
                                                 ? StringAlignment.Far
                                                 : StringAlignment.Near;
 
                                             break;
-                                        case HorizontalAlignment.Right:
+                                        case PaletteRelativeAlign.Far:
                                             stringFormat.Alignment = NumericUpDown.RightToLeft == RightToLeft.Yes
                                                 ? StringAlignment.Near
                                                 : StringAlignment.Far;
 
                                             break;
-                                        case HorizontalAlignment.Center:
+                                        case PaletteRelativeAlign.Center:
                                             stringFormat.Alignment = StringAlignment.Center;
                                             break;
                                     }
 
-                                    // Use the correct prefix setting
-                                    stringFormat.HotkeyPrefix = System.Drawing.Text.HotkeyPrefix.None;
+                                    Rectangle rectangle = new Rectangle(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top);
+                                    rectangle = CommonHelper.ApplyPadding(VisualOrientation.Top, rectangle,
+                                        states.Content.GetContentPadding(state));
 
                                     // Draw using a solid brush
                                     try
                                     {
-                                        using (SolidBrush foreBrush = new SolidBrush(_internalNumericUpDown.ForeColor))
+                                        using (SolidBrush foreBrush = new SolidBrush(states.Content.GetContentShortTextColor1(state)))
                                         {
-                                            g.DrawString(_internalNumericUpDown.Text, _internalNumericUpDown.Font, foreBrush,
-                                                         new RectangleF(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top),
-                                                         stringFormat);
+                                            g.DrawString(_internalNumericUpDown.Text, states.Content.GetContentShortTextFont(state), foreBrush,
+                                                rectangle, stringFormat);
                                         }
                                     }
                                     catch (ArgumentException)
                                     {
                                         using (SolidBrush foreBrush = new SolidBrush(_internalNumericUpDown.ForeColor))
                                         {
-                                            g.DrawString(_internalNumericUpDown.Text, NumericUpDown.GetTripleState().PaletteContent.GetContentShortTextFont(PaletteState.Disabled), foreBrush,
-                                                         new RectangleF(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top),
-                                                         stringFormat);
+                                            g.DrawString(_internalNumericUpDown.Text, _internalNumericUpDown.Font, foreBrush, rectangle, stringFormat);
                                         }
                                     }
                                 }
@@ -641,61 +650,67 @@ namespace ComponentFactory.Krypton.Toolkit
                         break;
                     case PI.WM_.PRINTCLIENT:
                     case PI.WM_.PAINT:
-                        PI.PAINTSTRUCT ps = new PI.PAINTSTRUCT();
-
-                        // Do we need to BeginPaint or just take the given HDC?
-                        IntPtr hdc = m.WParam == IntPtr.Zero ? PI.BeginPaint(Handle, ref ps) : m.WParam;
-
-                        // Grab the client area of the control
-                        PI.GetClientRect(Handle, out PI.RECT rect);
-                        Rectangle clientRect = new Rectangle(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top);
-
-                        try
                         {
-                            // Create bitmap that all drawing occurs onto, then we can blit it later to remove flicker
-                            IntPtr hBitmap = PI.CreateCompatibleBitmap(hdc, clientRect.Right, clientRect.Bottom);
+                            PI.PAINTSTRUCT ps = new PI.PAINTSTRUCT();
 
-                            // If we managed to get a compatible bitmap
-                            if (hBitmap != IntPtr.Zero)
+                            // Do we need to BeginPaint or just take the given HDC?
+                            IntPtr hdc = m.WParam == IntPtr.Zero ? PI.BeginPaint(Handle, ref ps) : m.WParam;
+
+                            // Grab the client area of the control
+                            PI.GetClientRect(Handle, out PI.RECT rect);
+                            Rectangle clientRect = new Rectangle(rect.left, rect.top, rect.right - rect.left,
+                                rect.bottom - rect.top);
+
+                            try
                             {
-                                try
+                                // Create bitmap that all drawing occurs onto, then we can blit it later to remove flicker
+                                IntPtr hBitmap = PI.CreateCompatibleBitmap(hdc, clientRect.Right, clientRect.Bottom);
+
+                                // If we managed to get a compatible bitmap
+                                if (hBitmap != IntPtr.Zero)
                                 {
-                                    // Must use the screen device context for the bitmap when drawing into the 
-                                    // bitmap otherwise the Opacity and RightToLeftLayout will not work correctly.
-                                    PI.SelectObject(_screenDC, hBitmap);
-
-                                    // Easier to draw using a graphics instance than a DC!
-                                    using (Graphics g = Graphics.FromHdc(_screenDC))
+                                    try
                                     {
-                                        // Drawn entire client area in the background color
-                                        using (SolidBrush backBrush = new SolidBrush(NumericUpDown.NumericUpDown.BackColor))
+                                        // Must use the screen device context for the bitmap when drawing into the 
+                                        // bitmap otherwise the Opacity and RightToLeftLayout will not work correctly.
+                                        PI.SelectObject(_screenDC, hBitmap);
+
+                                        // Easier to draw using a graphics instance than a DC!
+                                        using (Graphics g = Graphics.FromHdc(_screenDC))
                                         {
-                                            g.FillRectangle(backBrush, clientRect);
+                                            // Drawn entire client area in the background color
+                                            using (SolidBrush backBrush =
+                                                new SolidBrush(NumericUpDown.NumericUpDown.BackColor))
+                                            {
+                                                g.FillRectangle(backBrush, clientRect);
+                                            }
+
+                                            // Draw the actual up and down buttons split inside the client rectangle
+                                            DrawUpDownButtons(g,
+                                                new Rectangle(clientRect.X, clientRect.Y, clientRect.Width,
+                                                    clientRect.Height - 1));
+
+                                            // Now blit from the bitmap from the screen to the real dc
+                                            PI.BitBlt(hdc, clientRect.X, clientRect.Y, clientRect.Width, clientRect.Height,
+                                                _screenDC, clientRect.X, clientRect.Y, PI.SRCCOPY);
                                         }
-
-                                        // Draw the actual up and down buttons split inside the client rectangle
-                                        DrawUpDownButtons(g, new Rectangle(clientRect.X, clientRect.Y, clientRect.Width, clientRect.Height - 1));
-
-                                        // Now blit from the bitmap from the screen to the real dc
-                                        PI.BitBlt(hdc, clientRect.X, clientRect.Y, clientRect.Width, clientRect.Height, _screenDC, clientRect.X, clientRect.Y, PI.SRCCOPY);
+                                    }
+                                    finally
+                                    {
+                                        // Delete the temporary bitmap
+                                        PI.DeleteObject(hBitmap);
                                     }
                                 }
-                                finally
+                            }
+                            finally
+                            {
+                                // Do we need to match the original BeginPaint?
+                                if (m.WParam == IntPtr.Zero)
                                 {
-                                    // Delete the temporary bitmap
-                                    PI.DeleteObject(hBitmap);
+                                    PI.EndPaint(Handle, ref ps);
                                 }
                             }
                         }
-                        finally
-                        {
-                            // Do we need to match the original BeginPaint?
-                            if (m.WParam == IntPtr.Zero)
-                            {
-                                PI.EndPaint(Handle, ref ps);
-                            }
-                        }
-
                         break;
                     default:
                         base.WndProc(ref m);
@@ -1237,20 +1252,54 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets or sets how the text should be aligned for edit controls.
         /// </summary>
         [Category("Appearance")]
-        [Description("Indicates how the text should be aligned for edit controls.")]
+        [Description("Indicates how the text should be aligned for edit controls.\rDo not use this property, it is provided for backwards compatability only.")]
         [DefaultValue(typeof(HorizontalAlignment), "Left")]
         [Localizable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [Browsable(false)]
         public HorizontalAlignment TextAlign
         {
-            get => _numericUpDown.TextAlign;
-            set => _numericUpDown.TextAlign = value;
+            get
+            {
+                switch (StateCommon.Content.GetContentShortTextH(PaletteState.Normal))
+                {
+                    default:
+                    case PaletteRelativeAlign.Inherit:
+                    case PaletteRelativeAlign.Near:
+                        return HorizontalAlignment.Left;
+                    case PaletteRelativeAlign.Center:
+                        return HorizontalAlignment.Center;
+                    case PaletteRelativeAlign.Far:
+                        return HorizontalAlignment.Right;
+                }
+                //return _numericUpDown.TextAlign;
+            }
+            set
+            {
+                switch (value)
+                {
+                    default:
+                    case HorizontalAlignment.Left:
+                        StateCommon.Content.TextH = PaletteRelativeAlign.Near;
+                        break;
+                    case HorizontalAlignment.Right:
+                        StateCommon.Content.TextH = PaletteRelativeAlign.Far;
+                        break;
+                    case HorizontalAlignment.Center:
+                        StateCommon.Content.TextH = PaletteRelativeAlign.Center;
+                        break;
+                }
+                _numericUpDown.TextAlign = value;
+            }
         }
+
 
         /// <summary>
         /// Gets or sets weather the numeric up-down should display its value in hexadecimal.
         /// </summary>
         [Category("Appearance")]
-        [Description("Indicates wheather the numeric up-down should display its value in hexadecimal.")]
+        [Description("Indicates whether the numeric up-down should display its value in hexadecimal.")]
         [DefaultValue(false)]
         public bool Hexadecimal
         {
@@ -2039,7 +2088,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawDockerOuter.ElementState = state;
         }
 
-        internal IPaletteTriple GetTripleState() => Enabled ? (IsActive ? StateActive : StateNormal) : StateDisabled;
+        internal PaletteInputControlTripleStates GetTripleState() => Enabled ? (IsActive ? StateActive : StateNormal) : StateDisabled;
 
         private int PreferredHeight
         {

@@ -13,6 +13,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -319,7 +320,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             // Now blit from the bitmap from the screen to the real dc
                             PI.BitBlt(hdc, 0, 0, realRect.Width, realRect.Height, _screenDC, 0, 0, PI.SRCCOPY);
 
-                            // When disabled with no items the above code does not draw the backround!
+                            // When disabled with no items the above code does not draw the background!
                             if (Items.Count == 0)
                             {
                                 using (Graphics g = Graphics.FromHdc(hdc))
@@ -575,7 +576,7 @@ namespace ComponentFactory.Krypton.Toolkit
             _listBox.Validated += OnListBoxValidated;
             _listBox.Click += OnListBoxClick;  // SKC: make sure that the default click is also routed.
 
-            // Create the element that fills the remainder space and remembers fill rectange
+            // Create the element that fills the remainder space and remembers fill rectangle
             _layoutFill = new ViewLayoutFill(_listBox)
             {
                 DisplayPadding = new Padding(1)
@@ -1741,15 +1742,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
 
             // Do it the slow way, check each entry and assume they are in numerical order
-            for (int i = 0; i < left.Length; i++)
-            {
-                if (left[i] != right[i])
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return left.Where((t, i) => t != right[i]).Any();
         }
 
         private void OnListBoxSelectedValueChanged(object sender, EventArgs e)

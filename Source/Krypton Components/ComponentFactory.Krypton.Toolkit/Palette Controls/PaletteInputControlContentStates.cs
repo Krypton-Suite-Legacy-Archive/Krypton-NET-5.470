@@ -27,6 +27,8 @@ namespace ComponentFactory.Krypton.Toolkit
         private Font _font;
         private Color _color1;
         private Padding _padding;
+        internal PaletteRelativeAlign _shortTextH;
+
         #endregion
 
         #region Identity
@@ -50,7 +52,8 @@ namespace ComponentFactory.Krypton.Toolkit
             _font = null;
             _color1 = Color.Empty;
             _padding = CommonHelper.InheritPadding;
-           }
+            _shortTextH = PaletteRelativeAlign.Inherit;
+        }
         #endregion
 
         #region IsDefault
@@ -60,7 +63,9 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         public override bool IsDefault => ((Font == null) &&
                                            (Color1 == Color.Empty) &&
-                                           Padding.Equals(CommonHelper.InheritPadding));
+                                           Padding.Equals(CommonHelper.InheritPadding)
+                                           && (TextH == PaletteRelativeAlign.Inherit)
+                                            );
 
         #endregion
 
@@ -198,10 +203,8 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 return _font;
             }
-            else
-            {
-                return Inherit.GetContentShortTextFont(state);
-            }
+
+            return Inherit.GetContentShortTextFont(state);
         }
 
         /// <summary>
@@ -252,12 +255,39 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
+        /// Gets and sets the color for the text.
+        /// </summary>
+        [KryptonPersist(false)]
+        [Category("Visuals")]
+        [Description("Relative horizontal Content text alignment\nIn order to get this into the designer.cs you must also modify another value in this area!")]
+        [RefreshPropertiesAttribute(RefreshProperties.All)]
+        public virtual PaletteRelativeAlign TextH
+        {
+            get => _shortTextH;
+
+            set
+            {
+                if (value != _shortTextH)
+                {
+                    _shortTextH = value;
+                    PerformNeedPaint();
+                }
+            }
+        }
+
+
+        /// <summary>
         /// Gets the actual content short text horizontal alignment value.
         /// </summary>
         /// <param name="state">Palette value should be applicable to this state.</param>
         /// <returns>RelativeAlignment value.</returns>
         public virtual PaletteRelativeAlign GetContentShortTextH(PaletteState state)
         {
+            if (_shortTextH != PaletteRelativeAlign.Inherit)
+            {
+                return _shortTextH;
+            }
+
             return Inherit.GetContentShortTextH(state);
         }
 
@@ -324,10 +354,8 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 return _color1;
             }
-            else
-            {
-                return Inherit.GetContentShortTextColor1(state);
-            }
+
+            return Inherit.GetContentShortTextColor1(state);
         }
         
         /// <summary>
@@ -607,10 +635,8 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 return _padding;
             }
-            else
-            {
-                return Inherit.GetContentPadding(state);
-            }
+
+            return Inherit.GetContentPadding(state);
         }
         #endregion
 
