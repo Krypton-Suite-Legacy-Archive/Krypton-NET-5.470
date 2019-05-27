@@ -37,7 +37,6 @@ namespace ComponentFactory.Krypton.Toolkit
     public class KryptonComboBox : VisualControlBase,
                                    IContainedInputControl,
                                    ISupportInitializeNotification
-
     {
         #region Classes
         private class InternalPanel : Panel
@@ -115,7 +114,6 @@ namespace ComponentFactory.Krypton.Toolkit
             private Nullable<bool> _appThemed;
             private bool _mouseTracking;
             private bool _mouseOver;
-
             #endregion
 
             #region Events
@@ -276,7 +274,6 @@ namespace ComponentFactory.Krypton.Toolkit
                         {
                             base.WndProc(ref m);
                         }
-
                         break;
                     case PI.WM_.MOUSELEAVE:
                         {
@@ -332,14 +329,37 @@ namespace ComponentFactory.Krypton.Toolkit
                             // Do we need to BeginPaint or just take the given HDC?
                             IntPtr hdc = m.WParam == IntPtr.Zero ? PI.BeginPaint(Handle, ref ps) : m.WParam;
 
+                            //////////////////////////////////////////////////////
+                            // Following removed to allow the Draw to always happen, to allow centering etc  
+                            //if (_kryptonComboBox.Enabled && _kryptonComboBox.DropDownStyle == ComboBoxStyle.DropDown)
+                            //{
+                            //    // Let base implementation draw the actual text area
+                            //    if (m.WParam == IntPtr.Zero)
+                            //    {
+                            //        m.WParam = hdc;
+                            //        DefWndProc(ref m);
+                            //        m.WParam = IntPtr.Zero;
+                            //    }
+                            //    else
+                            //    {
+                            //        DefWndProc(ref m);
+                            //    }
+                            //}
+
                             // Paint the entire area in the background color
                             using (Graphics g = Graphics.FromHdc(hdc))
                             {
                                 // Grab the client area of the control
                                 PI.GetClientRect(Handle, out PI.RECT rect);
 
+                                PaletteState state = (_kryptonComboBox.Enabled
+                                        ? (_kryptonComboBox.IsActive ? PaletteState.Tracking : PaletteState.Normal)
+                                        : PaletteState.Disabled
+                                    );
+                                PaletteInputControlTripleStates states = _kryptonComboBox.GetComboBoxTripleState();
+
                                 // Drawn entire client area in the background color
-                                using (SolidBrush backBrush = new SolidBrush(BackColor))
+                                using (SolidBrush backBrush = new SolidBrush(states.PaletteBack.GetBackColor1(state)))
                                 {
                                     g.FillRectangle(backBrush, new Rectangle(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top));
                                 }
@@ -372,60 +392,63 @@ namespace ComponentFactory.Krypton.Toolkit
                                 // Exclude border from being drawn, we need to take off another 2 pixels from all edges
                                 PI.IntersectClipRect(hdc, rect.left + 2, rect.top + 2, rect.right - 2, rect.bottom - 2);
 
-                                // If enabled then let the combo draw the text area
-                                if (_kryptonComboBox.Enabled)
-                                {
-                                    // Let base implementation draw the actual text area
-                                    if (m.WParam == IntPtr.Zero)
-                                    {
-                                        m.WParam = hdc;
-                                        DefWndProc(ref m);
-                                        m.WParam = IntPtr.Zero;
-                                    }
-                                    else
-                                    {
-                                        DefWndProc(ref m);
-                                    }
-                                }
-                                else
+                                //////////////////////////////////////////////////////
+                                // Following commented out, to allow the Draw to always happen even tho the edit box will draw over afterwards  
+                                // If not enabled or not the dropDown Style then we can draw over the text area
+                                //if (!_kryptonComboBox.Enabled || _kryptonComboBox.DropDownStyle != ComboBoxStyle.DropDown)
                                 {
                                     // Set the correct text rendering hint for the text drawing. We only draw if the edit text is disabled so we
                                     // just always grab the disable state value. Without this line the wrong hint can occur because it inherits
                                     // it from the device context. Resulting in blurred text.
-                                    g.TextRenderingHint = CommonHelper.PaletteTextHintToRenderingHint(_kryptonComboBox.StateDisabled.Item.PaletteContent.GetContentShortTextHint(PaletteState.Disabled));
+                                    g.TextRenderingHint = CommonHelper.PaletteTextHintToRenderingHint(states.Content.GetContentShortTextHint(state));
 
                                     // Define the string formatting requirements
                                     StringFormat stringFormat = new StringFormat
                                     {
-                                        LineAlignment = StringAlignment.Center,
+                                        LineAlignment = StringAlignment.Near,
                                         FormatFlags = StringFormatFlags.NoWrap,
                                         Trimming = StringTrimming.None,
-                                        Alignment = _kryptonComboBox.RightToLeft == RightToLeft.Yes
-                                            ? StringAlignment.Far
-                                            : StringAlignment.Near,
                                         // Use the correct prefix setting
                                         HotkeyPrefix = System.Drawing.Text.HotkeyPrefix.None
                                     };
 
 
+                                    switch (states.Content.GetContentShortTextH(state))
+                                    {
+                                        case PaletteRelativeAlign.Near:
+                                            stringFormat.Alignment = RightToLeft == RightToLeft.Yes
+                                                ? StringAlignment.Far
+                                                : StringAlignment.Near;
+
+                                            break;
+                                        case PaletteRelativeAlign.Far:
+                                            stringFormat.Alignment = RightToLeft == RightToLeft.Yes
+                                                ? StringAlignment.Near
+                                                : StringAlignment.Far;
+
+                                            break;
+                                        case PaletteRelativeAlign.Center:
+                                            stringFormat.Alignment = StringAlignment.Center;
+                                            break;
+                                    }
 
                                     // Draw using a solid brush
+                                    Rectangle rectangle = new Rectangle(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top);
+                                    rectangle = CommonHelper.ApplyPadding(VisualOrientation.Top, rectangle,
+                                        states.Content.GetContentPadding(state));
+
                                     try
                                     {
-                                        using (SolidBrush foreBrush = new SolidBrush(ForeColor))
+                                        using (SolidBrush foreBrush = new SolidBrush(states.Content.GetContentShortTextColor1(state)))
                                         {
-                                            g.DrawString(Text, Font, foreBrush,
-                                                         new RectangleF(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top),
-                                                         stringFormat);
+                                            g.DrawString(Text, states.Content.GetContentShortTextFont(state), foreBrush, rectangle, stringFormat);
                                         }
                                     }
                                     catch (ArgumentException)
                                     {
                                         using (SolidBrush foreBrush = new SolidBrush(ForeColor))
                                         {
-                                            g.DrawString(Text, _kryptonComboBox.GetComboBoxTripleState().PaletteContent.GetContentShortTextFont(PaletteState.Disabled), foreBrush,
-                                                         new RectangleF(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top),
-                                                         stringFormat);
+                                            g.DrawString(Text, Font, foreBrush, rectangle, stringFormat);
                                         }
                                     }
                                 }
@@ -690,7 +713,6 @@ namespace ComponentFactory.Krypton.Toolkit
                         {
                             base.WndProc(ref m);
                         }
-
                         break;
                     case PI.WM_.MOUSELEAVE:
                         // Mouse is not over the control
@@ -1576,6 +1598,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [Description("Do not use this property, it is provided for backwards compatability only.")]
         [Localizable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [Browsable(false)]
         public int ItemHeight
         {
             get => _comboBox.ItemHeight;
@@ -2020,16 +2044,14 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     return _fixedActive.Value;
                 }
-                else
-                {
-                    return (DesignMode
-                            || AlwaysActive
-                            || ContainsFocus
-                            || _mouseOver
-                            || _comboBox.MouseOver
-                            || ((_subclassEdit != null) && _subclassEdit.MouseOver)
-                            );
-                }
+
+                return (DesignMode
+                        || AlwaysActive
+                        || ContainsFocus
+                        || _mouseOver
+                        || _comboBox.MouseOver
+                        || ((_subclassEdit != null) && _subclassEdit.MouseOver)
+                    );
             }
         }
 
@@ -2094,11 +2116,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 return retSize;
             }
-            else
-            {
-                // Fall back on default control processing
-                return base.GetPreferredSize(proposedSize);
-            }
+
+            // Fall back on default control processing
+            return base.GetPreferredSize(proposedSize);
         }
 
         /// <summary>
@@ -2698,7 +2718,8 @@ namespace ComponentFactory.Krypton.Toolkit
             // Only show the child edit control when we are enabled
             if (_subclassEdit != null)
             {
-                _subclassEdit.Visible = Enabled;
+                //_subclassEdit.Visible = Enabled; got to allow the formatting to be seen when not editing
+                _subclassEdit.Visible = false;
             }
         }
 
@@ -2717,16 +2738,14 @@ namespace ComponentFactory.Krypton.Toolkit
             _drawDockerOuter.ElementState = state;
         }
 
-        internal IPaletteTriple GetComboBoxTripleState()
+        internal PaletteInputControlTripleStates GetComboBoxTripleState()
         {
             if (Enabled)
             {
                 return IsActive ? StateActive.ComboBox : StateNormal.ComboBox;
             }
-            else
-            {
-                return StateDisabled.ComboBox;
-            }
+
+            return StateDisabled.ComboBox;
         }
 
         private int PreferredHeight
@@ -2898,7 +2917,6 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void UpdateContentFromItemIndex(int index)
         {
-
             // If the object exposes the rich interface then use is...
             if (Items[index] is IContentValues itemValues)
             {
@@ -2954,6 +2972,11 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void OnComboBoxGotFocus(object sender, EventArgs e)
         {
+            if (DropDownStyle == ComboBoxStyle.DropDown)
+            {
+                _subclassEdit.Visible = true;
+            }
+
             base.OnGotFocus(e);
             PerformNeedPaint(false);
             _comboBox.Invalidate();
@@ -2961,6 +2984,11 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void OnComboBoxLostFocus(object sender, EventArgs e)
         {
+            if (DropDownStyle == ComboBoxStyle.DropDown)
+            {
+                _subclassEdit.Visible = false;
+            }
+
             // ReSharper disable RedundantBaseQualifier
             base.OnLostFocus(e);
             // ReSharper restore RedundantBaseQualifier

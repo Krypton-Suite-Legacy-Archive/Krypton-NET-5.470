@@ -55,7 +55,7 @@ namespace TestTextClipping
             this.kryptonPanelMain = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonHeaderGroupDetails = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonComboBox1 = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonComboBoxA = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.kryptonListBox1 = new ComponentFactory.Krypton.Toolkit.KryptonListBox();
             this.kryptonButton3 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonTreeView2 = new ComponentFactory.Krypton.Toolkit.KryptonTreeView();
@@ -101,7 +101,7 @@ namespace TestTextClipping
             this.kryptonHeaderGroupDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBoxA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1.Panel)).BeginInit();
             this.kryptonGroup1.Panel.SuspendLayout();
@@ -142,7 +142,7 @@ namespace TestTextClipping
             // 
             // kryptonPanel1
             // 
-            this.kryptonPanel1.Controls.Add(this.kryptonComboBox1);
+            this.kryptonPanel1.Controls.Add(this.kryptonComboBoxA);
             this.kryptonPanel1.Controls.Add(this.kryptonListBox1);
             this.kryptonPanel1.Controls.Add(this.kryptonButton3);
             this.kryptonPanel1.Controls.Add(this.kryptonTreeView2);
@@ -167,14 +167,14 @@ namespace TestTextClipping
             this.kryptonPanel1.Size = new System.Drawing.Size(701, 339);
             this.kryptonPanel1.TabIndex = 0;
             // 
-            // kryptonComboBox1
+            // kryptonComboBoxA
             // 
-            this.kryptonComboBox1.DropDownWidth = 121;
-            this.kryptonComboBox1.Location = new System.Drawing.Point(5, 310);
-            this.kryptonComboBox1.Name = "kryptonComboBox1";
-            this.kryptonComboBox1.Size = new System.Drawing.Size(121, 21);
-            this.kryptonComboBox1.TabIndex = 25;
-            this.kryptonComboBox1.Text = "kryptonComboBox1";
+            this.kryptonComboBoxA.DropDownWidth = 121;
+            this.kryptonComboBoxA.Location = new System.Drawing.Point(5, 310);
+            this.kryptonComboBoxA.Name = "kryptonComboBoxA";
+            this.kryptonComboBoxA.Size = new System.Drawing.Size(121, 21);
+            this.kryptonComboBoxA.TabIndex = 25;
+            this.kryptonComboBoxA.Text = "kryptonComboBoxA";
             // 
             // kryptonListBox1
             // 
@@ -828,7 +828,7 @@ namespace TestTextClipping
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
             this.kryptonPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBoxA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1.Panel)).EndInit();
             this.kryptonGroup1.Panel.ResumeLayout(false);
             this.kryptonGroup1.Panel.PerformLayout();
@@ -879,7 +879,7 @@ namespace TestTextClipping
         private ComponentFactory.Krypton.Toolkit.KryptonRadioButton kryptonRadioButton2;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton3;
         private ComponentFactory.Krypton.Toolkit.KryptonListBox kryptonListBox1;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox kryptonComboBox1;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox kryptonComboBoxA;
     }
 }
 

@@ -83,7 +83,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public Size Size { get; }
 
         /// <summary>
-        /// Gets the pixel size of the text area.
+        /// Gets the StringFormat of the text area.
         /// </summary>
         public StringFormat Format { get; }
 
