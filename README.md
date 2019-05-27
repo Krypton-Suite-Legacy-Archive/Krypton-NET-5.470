@@ -27,11 +27,11 @@ You can check out the demos by clicking [here](https://www.somsubhra.com/github-
 * Fix [#173](https://github.com/Wagnerp/Krypton-NET-5.470/issues/173): Krypton ComboBox "Closed Content" should have Text Align like the Drop list does 
 * Fix [#172](https://github.com/Wagnerp/Krypton-NET-5.470/issues/172): Krypton ComboBox "Closed Content" Padding is not applied 
 * Fix [#171](https://github.com/Wagnerp/Krypton-NET-5.470/issues/171): Krypton Numeric "Up Downer" content padding is not applied 
-- Override the Drawing of the text
-- Fight the ComboBoxEdit Control
-- Fix some more spelling mistakes
-- Add a demo to Show the Formatting applied to these drop downs
-- Make sure backward compatibility is maintained for "TextAlign"
+	- Override the Drawing of the text
+	- Fight the ComboBoxEdit Control
+	- Fix some more spelling mistakes
+	- Add a demo to Show the Formatting applied to these drop downs
+	- Make sure backward compatibility is maintained for "TextAlign"
 * Build 1199 (build date Monday 27th May, 2019) is now available on NuGet
 
 =======
