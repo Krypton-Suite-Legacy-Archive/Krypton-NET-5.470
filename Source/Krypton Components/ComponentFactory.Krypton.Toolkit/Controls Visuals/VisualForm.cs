@@ -1141,8 +1141,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 mmi.ptMaxPosition.Y = Math.Abs(rcWorkArea.top - rcMonitorArea.top);
                 mmi.ptMaxSize.X = Math.Abs(rcWorkArea.right - rcWorkArea.left);
                 mmi.ptMaxSize.Y = Math.Abs(rcWorkArea.bottom - rcWorkArea.top);
-                mmi.ptMinTrackSize.X = Math.Max(mmi.ptMinTrackSize.X*2, this.MinimumSize.Width);
-                mmi.ptMinTrackSize.Y = Math.Max(mmi.ptMinTrackSize.Y*2, this.MinimumSize.Height);
+                mmi.ptMinTrackSize.X = Math.Max(mmi.ptMinTrackSize.X*2, MinimumSize.Width);
+                mmi.ptMinTrackSize.Y = Math.Max(mmi.ptMinTrackSize.Y*2, MinimumSize.Height);
             }
 
             Marshal.StructureToPtr(mmi, m.LParam, true);

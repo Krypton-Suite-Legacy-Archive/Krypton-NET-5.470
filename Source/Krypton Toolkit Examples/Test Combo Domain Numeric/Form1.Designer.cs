@@ -255,7 +255,7 @@
             this.kryptonComboBox1.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonComboBox1.StateCommon.ComboBox.Content.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.kryptonComboBox1.TabIndex = 11;
-            this.kryptonComboBox1.Text = "Drop Down Enable Center";
+            this.kryptonComboBox1.Text = "Drop Down Center";
             // 
             // buttonSpecAny1
             // 

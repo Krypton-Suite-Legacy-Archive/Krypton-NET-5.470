@@ -860,7 +860,7 @@ namespace ComponentFactory.Krypton.Toolkit
             public void ShowWithoutActivate()
             {
                 // Show the window without activating it (i.e. do not take focus)
-                PI.ShowWindow(this.Handle, PI.ShowWindowCommands.SW_SHOWNOACTIVATE);
+                PI.ShowWindow(Handle, PI.ShowWindowCommands.SW_SHOWNOACTIVATE);
             }
 
             /// <summary>
