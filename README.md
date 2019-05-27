@@ -22,11 +22,19 @@ You can check out the demos by clicking [here](https://www.somsubhra.com/github-
 
 =======
 
-## 2019-05-27 Build 1199 - Bugfixes
+## 2019-05-27 PM Build 1204 - Bugfixes
+* Fixed [#187](https://github.com/Wagnerp/Krypton-NET-5.470/issues/187): KryptonComboBox does not support "Simple Style" and throws exception in Designer 
+	- Add editor control over the Available options
+	- Remove some un-needed `this` style references
+* Build 1204 (build date Monday 27th May, 2019) is now available on NuGet
+
+=======
+
+## 2019-05-27 AM Build 1199 - Bugfixes
 * Fixed issue [#185](https://github.com/Wagnerp/Krypton-NET-5.470/issues/185): Adding/Removing Ribbon tabs can cause `NullReferenceException`. Thanks to [Julien Patte](https://github.com/jpatte) for the fix.
-* Fix [#173](https://github.com/Wagnerp/Krypton-NET-5.470/issues/173): Krypton ComboBox "Closed Content" should have Text Align like the Drop list does 
-* Fix [#172](https://github.com/Wagnerp/Krypton-NET-5.470/issues/172): Krypton ComboBox "Closed Content" Padding is not applied 
-* Fix [#171](https://github.com/Wagnerp/Krypton-NET-5.470/issues/171): Krypton Numeric "Up Downer" content padding is not applied 
+* Fixed issue [#173](https://github.com/Wagnerp/Krypton-NET-5.470/issues/173): Krypton ComboBox "Closed Content" should have Text Align like the Drop list does 
+* Fixed issue [#172](https://github.com/Wagnerp/Krypton-NET-5.470/issues/172): Krypton ComboBox "Closed Content" Padding is not applied 
+* Fixed issue [#171](https://github.com/Wagnerp/Krypton-NET-5.470/issues/171): Krypton Numeric "Up Downer" content padding is not applied 
 	- Override the Drawing of the text
 	- Fight the ComboBoxEdit Control
 	- Fix some more spelling mistakes
