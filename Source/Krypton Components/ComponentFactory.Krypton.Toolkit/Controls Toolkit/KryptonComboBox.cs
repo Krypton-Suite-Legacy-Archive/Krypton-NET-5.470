@@ -1543,6 +1543,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Category("Appearance")]
         [Description("Controls the appearance and functionality of the KryptonComboBox.")]
+        [Editor(typeof(OverrideComboBoxStyleDropDownStyle), typeof(UITypeEditor))]
         [DefaultValue(typeof(ComboBoxStyle), "DropDown")]
         [RefreshProperties(RefreshProperties.Repaint)]
         public ComboBoxStyle DropDownStyle

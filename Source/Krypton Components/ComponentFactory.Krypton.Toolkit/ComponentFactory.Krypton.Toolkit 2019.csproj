@@ -128,7 +128,20 @@
     <Compile Include="Controller\MenuItemController.cs" />
     <Compile Include="Controller\RadioButtonController.cs" />
     <Compile Include="Controls Visuals\VisualShadowBase.cs" />
+    <Compile Include="Designers\KryptonCheckButtonCollectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Designers\KryptonCheckButtonCollectionForm.Designer.cs">
+      <DependentUpon>KryptonCheckButtonCollectionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Designers\KryptonContextMenuCollectionForm.cs" />
+    <Compile Include="Designers\OverrideComboBoxStyleDropDownStyle.cs" />
+    <Compile Include="Designers\PaletteDrawBordersSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Designers\PaletteDrawBordersSelector.Designer.cs">
+      <DependentUpon>PaletteDrawBordersSelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="EventArgs\DataGridViewButtonSpecClickEventArgs.cs" />
     <Compile Include="Controls Toolkit\KryptonByteViewer.cs">
       <SubType>Component</SubType>
@@ -542,10 +555,6 @@
     <Compile Include="Designers\KryptonCheckBoxDesigner.cs" />
     <Compile Include="Designers\KryptonCheckButtonActionList.cs" />
     <Compile Include="Designers\KryptonCheckButtonCollectionEditor.cs" />
-    <Compile Include="Designers\KryptonCheckButtonCollectionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Designers\KryptonCheckButtonCollectionForm.Designer.cs" />
     <Compile Include="Designers\KryptonCheckButtonDesigner.cs" />
     <Compile Include="Designers\KryptonCheckedListBoxActionList.cs" />
     <Compile Include="Designers\KryptonCheckedListBoxDesigner.cs" />
@@ -624,13 +633,8 @@
     <Compile Include="Designers\KryptonWrapLabelActionList.cs" />
     <Compile Include="Designers\KryptonWrapLabelDesigner.cs" />
     <Compile Include="Designers\PaletteDrawBordersEditor.cs" />
-    <Compile Include="Designers\PaletteDrawBordersSelector.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Designers\PaletteDrawBordersSelector.Designer.cs" />
     <Compile Include="Utilities\PaletteImageScaler.cs" />
-    <Compile Include="Values\CheckBoxImages.cs">
-    </Compile>
+    <Compile Include="Values\CheckBoxImages.cs" />
     <Compile Include="Palette Controls\PaletteHeaderButtonRedirect.cs" />
     <Compile Include="Palette Controls\PaletteFormRedirect.cs" />
     <Compile Include="Palette Controls\PaletteForm.cs" />
@@ -929,13 +933,17 @@
     <EmbeddedResource Include="Controls Toolkit\KryptonMessageBox.resx">
       <DependentUpon>KryptonMessageBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Designers\KryptonCheckButtonCollectionForm.resx">
+      <DependentUpon>KryptonCheckButtonCollectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Designers\PaletteDrawBordersSelector.resx">
+      <DependentUpon>PaletteDrawBordersSelector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Designers\KryptonCheckButtonCollectionForm.resx" />
-    <EmbeddedResource Include="Designers\PaletteDrawBordersSelector.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.manifest" />
@@ -1390,7 +1398,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_StartDate="2000/1/1" DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" />
+      <UserProperties DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" BuildVersion_StartDate="2000/1/1" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

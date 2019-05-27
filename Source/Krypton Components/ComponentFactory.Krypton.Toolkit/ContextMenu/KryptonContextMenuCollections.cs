@@ -19,7 +19,7 @@ namespace ComponentFactory.Krypton.Toolkit
     /// <summary>
     /// Manage the items that can be added to a top level context menu collection.
     /// </summary>
-    [Editor(typeof(ComponentFactory.Krypton.Toolkit.KryptonContextMenuCollectionEditor), typeof(UITypeEditor))]
+    [Editor(typeof(KryptonContextMenuCollectionEditor), typeof(UITypeEditor))]
     public class KryptonContextMenuCollection : TypedRestrictCollection<KryptonContextMenuItemBase>
     {
         #region Static Fields
