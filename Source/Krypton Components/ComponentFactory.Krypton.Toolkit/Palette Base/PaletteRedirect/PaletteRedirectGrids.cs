@@ -1122,6 +1122,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         case PaletteContentStyle.GridDataCellCustom1:
                         case PaletteContentStyle.GridDataCellCustom2:
                         case PaletteContentStyle.GridDataCellCustom3:
+                            return _grid.StateNormal.DataCell.Content;
+                        case PaletteContentStyle.GridHeaderColumnList:
                         case PaletteContentStyle.GridHeaderColumnSheet:
                         case PaletteContentStyle.GridHeaderColumnCustom1:
                         case PaletteContentStyle.GridHeaderColumnCustom2:
@@ -1177,6 +1179,8 @@ namespace ComponentFactory.Krypton.Toolkit
                         case PaletteContentStyle.GridDataCellCustom1:
                         case PaletteContentStyle.GridDataCellCustom2:
                         case PaletteContentStyle.GridDataCellCustom3:
+                            return _grid.StateSelected.DataCell.Content;
+                        case PaletteContentStyle.GridHeaderColumnList:
                         case PaletteContentStyle.GridHeaderColumnSheet:
                         case PaletteContentStyle.GridHeaderColumnCustom1:
                         case PaletteContentStyle.GridHeaderColumnCustom2:
