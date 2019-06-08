@@ -13,6 +13,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 using ComponentFactory.Krypton.Toolkit;
+using RibbonControls.Properties;
 
 namespace RibbonControls
 {
@@ -140,6 +141,12 @@ namespace RibbonControls
         private void appMenu_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            bool defaultRibbonCheckBox = Settings.Default.RibbonCheckBox;
+            Settings.Default.Save();
         }
     }
 }

@@ -23,7 +23,8 @@ namespace ComponentFactory.Krypton.Ribbon
     [DesignerCategory("code")]
     [DesignTimeVisible(false)]
     public abstract class KryptonRibbonGroupItem : Component,
-                                                   IRibbonGroupItem
+                                                   IRibbonGroupItem,
+                                                   IBindableComponent
     {
         #region Instance Fields
         private object _tag;
@@ -192,5 +193,28 @@ namespace ComponentFactory.Krypton.Ribbon
         internal virtual string InternalToolTipBody => string.Empty;
 
         #endregion
+
+        #region IBindableComponent Members
+        private BindingContext bindingContext;
+        private ControlBindingsCollection dataBindings;
+
+        [Browsable(false)]
+        public BindingContext BindingContext
+        {
+            get => bindingContext ?? (bindingContext = new BindingContext());
+            set => bindingContext = value;
+        }
+
+        /// <summary>
+        ///     Retrieves the bindings for this control.
+        /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [Category(@"Data")]
+        [Description(@"ControlBindings")]
+        [RefreshProperties(RefreshProperties.All)]
+        [ParenthesizePropertyName(true)]
+        public ControlBindingsCollection DataBindings => dataBindings ?? (dataBindings = new ControlBindingsCollection(this));
+
+        #endregion
     }
-}
+    }

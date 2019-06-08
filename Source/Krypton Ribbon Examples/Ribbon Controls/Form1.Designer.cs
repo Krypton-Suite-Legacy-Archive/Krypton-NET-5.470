@@ -28,6 +28,7 @@ namespace RibbonControls
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.kryptonRibbon = new ComponentFactory.Krypton.Ribbon.KryptonRibbon();
             this.kryptonContextMenuItem1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
@@ -74,6 +75,11 @@ namespace RibbonControls
             this.custom9 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCustomControl();
             this.custom10 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCustomControl();
             this.custom11 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCustomControl();
+            this.kryptonRibbonGroup9 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple8 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.kryptonRibbonGroupButton1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroupCheckBox1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCheckBox();
+            this.kryptonRibbonGroupButton2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonHeaderGroup = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
             this.rbOffice2010Blue = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
@@ -85,7 +91,7 @@ namespace RibbonControls
             this.rbOffice2007Silver = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.rbOffice2003 = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.rbOffice2007Black = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager();
+            this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonRibbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
@@ -125,7 +131,8 @@ namespace RibbonControls
             this.kryptonRibbonGroup4,
             this.kryptonRibbonGroup6,
             this.kryptonRibbonGroup2,
-            this.kryptonRibbonGroup3});
+            this.kryptonRibbonGroup3,
+            this.kryptonRibbonGroup9});
             this.ribbonTab.Text = "Home";
             // 
             // kryptonRibbonGroup8
@@ -217,7 +224,7 @@ namespace RibbonControls
             // 
             this.maskedTextBox1.Mask = "00/00/0000";
             this.maskedTextBox1.PromptChar = '_';
-            this.maskedTextBox1.Text = "  /  /";
+            this.maskedTextBox1.Text = "00-00-0000";
             // 
             // maskedTextBox2
             // 
@@ -231,7 +238,7 @@ namespace RibbonControls
             this.buttonSpecAny3});
             this.maskedTextBox3.Mask = "00/00/0000";
             this.maskedTextBox3.PromptChar = '-';
-            this.maskedTextBox3.Text = "  /  /";
+            this.maskedTextBox3.Text = "  -  -";
             // 
             // buttonSpecAny3
             // 
@@ -256,9 +263,12 @@ namespace RibbonControls
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::RibbonControls.Properties.Settings.Default, "DateTimePicker1", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.MaximumSize = new System.Drawing.Size(110, 0);
             this.dateTimePicker1.MinimumSize = new System.Drawing.Size(110, 0);
+            this.dateTimePicker1.Value = global::RibbonControls.Properties.Settings.Default.DateTimePicker1;
+            this.dateTimePicker1.ValueNullable = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
             // 
             // dateTimePicker2
             // 
@@ -371,6 +381,7 @@ namespace RibbonControls
             // 
             // numericUpDown1
             // 
+            this.numericUpDown1.DecimalPlaces = 99;
             this.numericUpDown1.Increment = new decimal(new int[] {
             1250,
             0,
@@ -383,6 +394,7 @@ namespace RibbonControls
             0});
             this.numericUpDown1.MaximumSize = new System.Drawing.Size(80, 0);
             this.numericUpDown1.MinimumSize = new System.Drawing.Size(80, 0);
+            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown1.ThousandsSeparator = true;
             this.numericUpDown1.Value = new decimal(new int[] {
             2200,
@@ -467,6 +479,38 @@ namespace RibbonControls
             // 
             this.custom11.CustomControl = null;
             this.custom11.KeyTip = "X3";
+            // 
+            // kryptonRibbonGroup9
+            // 
+            this.kryptonRibbonGroup9.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.kryptonRibbonGroupTriple8});
+            this.kryptonRibbonGroup9.TextLine1 = "Misc";
+            // 
+            // kryptonRibbonGroupTriple8
+            // 
+            this.kryptonRibbonGroupTriple8.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupButton1,
+            this.kryptonRibbonGroupCheckBox1,
+            this.kryptonRibbonGroupButton2});
+            // 
+            // kryptonRibbonGroupButton1
+            // 
+            this.kryptonRibbonGroupButton1.ButtonType = ComponentFactory.Krypton.Ribbon.GroupButtonType.Check;
+            this.kryptonRibbonGroupButton1.TextLine1 = "Check";
+            this.kryptonRibbonGroupButton1.TextLine2 = "Button";
+            // 
+            // kryptonRibbonGroupCheckBox1
+            // 
+            this.kryptonRibbonGroupCheckBox1.Checked = global::RibbonControls.Properties.Settings.Default.RibbonCheckBox;
+            this.kryptonRibbonGroupCheckBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::RibbonControls.Properties.Settings.Default, "RibbonCheckBox", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.kryptonRibbonGroupCheckBox1.TextLine1 = "Check";
+            this.kryptonRibbonGroupCheckBox1.TextLine2 = "Box";
+            // 
+            // kryptonRibbonGroupButton2
+            // 
+            this.kryptonRibbonGroupButton2.Enabled = false;
+            this.kryptonRibbonGroupButton2.TextLine1 = "Disabled";
+            this.kryptonRibbonGroupButton2.TextLine2 = "Button";
             // 
             // kryptonPanel
             // 
@@ -601,6 +645,7 @@ namespace RibbonControls
             this.MinimumSize = new System.Drawing.Size(250, 232);
             this.Name = "Form1";
             this.Text = "Ribbon Controls";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonRibbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
@@ -674,6 +719,11 @@ namespace RibbonControls
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupLines kryptonRibbonGroupLines2;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTrackBar kryptonRibbonGroupTrackBar1;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTrackBar kryptonRibbonGroupTrackBar2;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup kryptonRibbonGroup9;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple8;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton1;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCheckBox kryptonRibbonGroupCheckBox1;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton2;
     }
 }
 

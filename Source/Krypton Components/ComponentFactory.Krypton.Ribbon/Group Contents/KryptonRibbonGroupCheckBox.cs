@@ -28,6 +28,7 @@ namespace ComponentFactory.Krypton.Ribbon
     [DesignTimeVisible(false)]
     [DefaultEvent("CheckedChanged")]
     [DefaultProperty("Checked")]
+    [DefaultBindingProperty("CheckState")]
     public class KryptonRibbonGroupCheckBox : KryptonRibbonGroupItem
     {
         #region Instance Fields
@@ -266,7 +267,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     bool newChecked = (_checkState != CheckState.Unchecked);
                     bool checkedChanged = (_checked != newChecked);
                     _checked = newChecked;
-                    OnPropertyChanged("Checked");
+                    OnPropertyChanged("CheckState");
 
                     // Generate events
                     if (checkedChanged)
@@ -285,6 +286,7 @@ namespace ComponentFactory.Krypton.Ribbon
         [Category("Behavior")]
         [Description("Indicates if the check box is in the checked state.")]
         [DefaultValue(false)]
+        [Bindable(true)]
         public bool Checked
         {
             get => _checked;
@@ -296,7 +298,7 @@ namespace ComponentFactory.Krypton.Ribbon
                     // Store new values
                     _checked = value;
                     _checkState = (_checked ? CheckState.Checked : CheckState.Unchecked);
-                    OnPropertyChanged("CheckState");
+                    OnPropertyChanged("Checked");
 
                     // Generate events
                     OnCheckedChanged(EventArgs.Empty);
