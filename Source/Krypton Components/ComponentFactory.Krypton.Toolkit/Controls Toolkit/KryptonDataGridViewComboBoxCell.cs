@@ -14,13 +14,14 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
+// ReSharper disable MemberCanBeInternal
 
 namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
     /// Defines a KryptonComboBox cell type for the KryptonDataGridView control
     /// </summary>
-    public class KryptonDataGridViewComboBoxCell : DataGridViewComboBoxCell
+    public class KryptonDataGridViewComboBoxCell : DataGridViewTextBoxCell
     {
         #region Static Fields
         [ThreadStatic]
@@ -39,6 +40,8 @@ namespace ComponentFactory.Krypton.Toolkit
         private AutoCompleteSource _autoCompleteSource;
         private string _displayMember;
         private string _valueMember;
+        private object _dataSource;
+
         #endregion
 
         #region Identity
@@ -119,7 +122,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 if (value == ComboBoxStyle.Simple)
                 {
-                    throw new ArgumentOutOfRangeException("The DropDownStyle property does not support the Simple style.");
+                    throw new ArgumentOutOfRangeException(@"DropDownStyle", ComboBoxStyle.Simple, @"The DropDownStyle property does not support the Simple style.");
                 }
 
                 if (_dropDownStyle != value)
@@ -134,7 +137,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// The MaxDropDownItems property replicates the one from the KryptonComboBox control
         /// </summary>
         [DefaultValue(8)]
-        public override int MaxDropDownItems
+        public int MaxDropDownItems
         {
             get => _maxDropDownItems;
 
@@ -170,7 +173,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// The DropDownWidth property replicates the one from the KryptonComboBox control
         /// </summary>
         [DefaultValue(121)]
-        public override int DropDownWidth
+        public int DropDownWidth
         {
             get => _dropDownWidth;
 
@@ -215,6 +218,63 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (AutoCompleteSource != value)
                 {
                     SetAutoCompleteSource(RowIndex, value);
+                    OnCommonChange();
+                }
+            }
+        }
+
+        /// <summary>
+        /// The DisplayMember property replicates the one from the KryptonComboBox control
+        /// </summary>
+        [DefaultValue("")]
+        public string DisplayMember
+        {
+            get => _displayMember;
+
+            set
+            {
+                if (_displayMember != value)
+                {
+                    SetDisplayMember(RowIndex, value);
+                    OnCommonChange();
+                }
+            }
+        }
+
+        /// <summary>
+        /// The ValueMember property replicates the one from the KryptonComboBox control
+        /// </summary>
+        [DefaultValue("")]
+        public string ValueMember
+        {
+            get => _valueMember;
+
+            set
+            {
+                if (_valueMember != value)
+                {
+                    SetValueMember(RowIndex, value);
+                    OnCommonChange();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets and sets the list that this control will use to gets its items.
+        /// </summary>
+        [Category("Data")]
+        [Description("Indicates the list that this control will use to gets its items.")]
+        [AttributeProvider(typeof(IListSource))]
+        [RefreshProperties(RefreshProperties.Repaint)]
+        [DefaultValue(null)]
+        public object DataSource
+        {
+            get => _dataSource;
+            set
+            {
+                if (_dataSource != value)
+                {
+                    SetDataSource(RowIndex, value);
                     OnCommonChange();
                 }
             }
@@ -285,7 +345,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         comboBox.AutoCompleteCustomSource.AddRange(autoAppend);
                     }
 
-                    // Set this cell as the owner of the buttonspecs
+                    // Set this cell as the owner of the button specs
                     comboBox.ButtonSpecs.Clear();
                     comboBox.ButtonSpecs.Owner = DataGridView.Rows[rowIndex].Cells[ColumnIndex];
                     foreach (ButtonSpec bs in comboColumn.ButtonSpecs)
@@ -348,16 +408,16 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected override Rectangle GetErrorIconBounds(Graphics graphics, DataGridViewCellStyle cellStyle, int rowIndex)
         {
-            const int ButtonsWidth = 16;
+            const int BUTTONS_WIDTH = 16;
 
             Rectangle errorIconBounds = base.GetErrorIconBounds(graphics, cellStyle, rowIndex);
             if (DataGridView.RightToLeft == RightToLeft.Yes)
             {
-                errorIconBounds.X = errorIconBounds.Left + ButtonsWidth;
+                errorIconBounds.X = errorIconBounds.Left + BUTTONS_WIDTH;
             }
             else
             {
-                errorIconBounds.X = errorIconBounds.Left - ButtonsWidth;
+                errorIconBounds.X = errorIconBounds.Left - BUTTONS_WIDTH;
             }
 
             return errorIconBounds;
@@ -376,9 +436,9 @@ namespace ComponentFactory.Krypton.Toolkit
             Size preferredSize = base.GetPreferredSize(graphics, cellStyle, rowIndex, constraintSize);
             if (constraintSize.Width == 0)
             {
-                const int ButtonsWidth = 16; // Account for the width of the up/down buttons.
-                const int ButtonMargin = 8;  // Account for some blank pixels between the text and buttons.
-                preferredSize.Width += ButtonsWidth + ButtonMargin;
+                const int BUTTONS_WIDTH = 16; // Account for the width of the up/down buttons.
+                const int BUTTON_MARGIN = 8;  // Account for some blank pixels between the text and buttons.
+                preferredSize.Width += BUTTONS_WIDTH + BUTTON_MARGIN;
             }
 
             return preferredSize;
@@ -390,12 +450,12 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             KryptonDataGridViewComboBoxColumn comboColumn = OwningColumn as KryptonDataGridViewComboBoxColumn;
             DataGridViewButtonSpecClickEventArgs args = new DataGridViewButtonSpecClickEventArgs(comboColumn, this, (ButtonSpecAny)sender);
-            comboColumn.PerfomButtonSpecClick(args);
+            comboColumn?.PerfomButtonSpecClick(args);
         }
 
         private KryptonDataGridViewComboBoxEditingControl EditingComboBox => DataGridView.EditingControl as KryptonDataGridViewComboBoxEditingControl;
 
-        private Rectangle GetAdjustedEditingControlBounds(Rectangle editingControlBounds,
+        private static Rectangle GetAdjustedEditingControlBounds(Rectangle editingControlBounds,
             DataGridViewCellStyle cellStyle)
         {
             // Adjust the vertical location of the editing control:
@@ -524,6 +584,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 EditingComboBox.ValueMember = value;
             }
         }
+
+        internal void SetDataSource(int rowIndex, object value)
+        {
+            _dataSource = value;
+            if (OwnsEditingComboBox(rowIndex))
+            {
+                EditingComboBox.DataSource = value;
+            }
+        }
         #endregion
     }
 }
+
