@@ -22,6 +22,17 @@ You can check out the demos by clicking [here](https://www.somsubhra.com/github-
 
 =======
 
+## 2019-06-10 Build 1222 - Bugfixes
+* Fixed issue [#177](https://github.com/Wagnerp/Krypton-NET-5.470/issues/177), Control in Krypton Ribbon Properties binding is not working
+* Fixed issue [#191](https://github.com/Wagnerp/Krypton-NET-5.470/issues/191), KryptonContextMenu for KryptonDataGridView
+    - Add ContextMenu Rendering
+    - Add KryptonContextMenu Property
+    - Fix PaletteRedirectGrid error
+* Fixed issue [#192](https://github.com/Wagnerp/Krypton-NET-5.470/issues/192), KryptonDataGridView ComboBox does not work anymore
+* Build 1222 (build date Monday 10th June, 2019) is now available on NuGet
+
+=======
+
 ## 2019-05-27 PM Build 1204 - Bugfixes
 * Fixed [#187](https://github.com/Wagnerp/Krypton-NET-5.470/issues/187): KryptonComboBox does not support "Simple Style" and throws exception in Designer 
 	- Add editor control over the Available options
