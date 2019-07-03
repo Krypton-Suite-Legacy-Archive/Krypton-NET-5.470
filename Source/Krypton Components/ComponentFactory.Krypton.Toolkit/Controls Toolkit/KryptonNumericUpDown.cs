@@ -71,7 +71,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // We provide the border manually
                 BorderStyle = BorderStyle.None;
                 AllowDecimals = true;
-                DecimalPlaces = 99;
+                DecimalPlaces = 0; //? 99;
             }
             #endregion
 
@@ -1133,7 +1133,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Data")]
         [Description("Indicates the number of decimal places to display.")]
         [DefaultValue(0)]
-        [Browsable(false)]
+        [Browsable(true)]
         public int DecimalPlaces
         {
             get => _numericUpDown.DecimalPlaces;
