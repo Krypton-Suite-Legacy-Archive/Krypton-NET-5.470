@@ -41,6 +41,26 @@ namespace ComponentFactory.Krypton.Toolkit
             #region Instance Fields
             private readonly KryptonMaskedTextBox _kryptonMaskedTextBox;
             private bool _mouseOver;
+            private string _hint;
+            #endregion
+
+            #region Property
+            public string Hint
+            {
+                get => _hint;
+
+                set
+                {
+                    _hint = value;
+
+                    if (string.IsNullOrEmpty(Text) && !string.IsNullOrWhiteSpace(Hint))
+                    {
+                        PI.SendMessage(Handle, PI.EM_SETCUEBANNER, (IntPtr)1, Hint);
+                    }
+
+                    Refresh();
+                }
+            }
             #endregion
 
             #region Events
@@ -544,6 +564,21 @@ namespace ComponentFactory.Krypton.Toolkit
         #endregion
 
         #region Public
+        public string Hint { get => _maskedTextBox.Hint; set => _maskedTextBox.Hint = value; }
+
+        private bool ShouldSerializeHint()
+        {
+            return !string.IsNullOrWhiteSpace(Hint);
+        }
+
+
+        /// <summary>
+        /// </summary>
+        public void ResetHint()
+        {
+            Hint = string.Empty;
+        }
+
         /// <summary>
         /// Overridden. Returns a string that represents the current masked text box. This method overrides ToString.
         /// </summary>

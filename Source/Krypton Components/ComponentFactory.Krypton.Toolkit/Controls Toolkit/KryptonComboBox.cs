@@ -1036,7 +1036,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Occurs when [draw item].
         /// </summary>
-        [Browsable(false)]
+        [Browsable(true)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public event DrawItemEventHandler DrawItem;
         #endregion

@@ -34,6 +34,7 @@
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonNumericUpDown1 = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
             this.kcbBracketType = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.dudThemes = new System.Windows.Forms.DomainUpDown();
             this.cmbThemes = new System.Windows.Forms.ComboBox();
@@ -55,7 +56,6 @@
             this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.kryptonNumericUpDown1 = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
@@ -111,6 +111,14 @@
             this.kryptonPanel2.Name = "kryptonPanel2";
             this.kryptonPanel2.Size = new System.Drawing.Size(800, 450);
             this.kryptonPanel2.TabIndex = 0;
+            // 
+            // kryptonNumericUpDown1
+            // 
+            this.kryptonNumericUpDown1.DecimalPlaces = 99;
+            this.kryptonNumericUpDown1.Location = new System.Drawing.Point(365, 197);
+            this.kryptonNumericUpDown1.Name = "kryptonNumericUpDown1";
+            this.kryptonNumericUpDown1.Size = new System.Drawing.Size(120, 22);
+            this.kryptonNumericUpDown1.TabIndex = 1;
             // 
             // kcbBracketType
             // 
@@ -344,14 +352,6 @@
             this.buttonSpecAny1.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.SuperTip;
             this.buttonSpecAny1.ToolTipTitle = "Title";
             this.buttonSpecAny1.UniqueName = "8D0C7B51F6A946484D932C2A06451172";
-            // 
-            // kryptonNumericUpDown1
-            // 
-            this.kryptonNumericUpDown1.DecimalPlaces = 99;
-            this.kryptonNumericUpDown1.Location = new System.Drawing.Point(365, 197);
-            this.kryptonNumericUpDown1.Name = "kryptonNumericUpDown1";
-            this.kryptonNumericUpDown1.Size = new System.Drawing.Size(120, 22);
-            this.kryptonNumericUpDown1.TabIndex = 1;
             // 
             // Form1
             // 
