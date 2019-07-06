@@ -12,7 +12,6 @@
 using System;
 using System.ComponentModel;
 using System.Drawing;
-using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 // ReSharper disable MemberCanBePrivate.Local
@@ -70,29 +69,16 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // We provide the border manually
                 BorderStyle = BorderStyle.None;
-                AllowDecimals = true;
-                DecimalPlaces = 0; //? 99;
             }
             #endregion
 
             #region Public
-            /// <summary>
-            /// Gets or sets whether the control accepts decimal values.
-            /// </summary>
-            [Category("Behavior")]
-            [Description("Indicates whether the control can accept decimal values, rather than integer values only.")]
-            [DefaultValue(true)]
-            public bool AllowDecimals
-            {
-                get;
-                set;
-            }
 
             /// <summary>
             /// Gets or sets whether the control displays trailing zeroes.
             /// </summary>
             [Category("Behavior")]
-            [Description("Indicates whether the control will display traling zeroes.")]
+            [Description("Indicates whether the control will display traling zeroes, When decimals are in play.")]
             [DefaultValue(false)]
             public bool TrailingZeroes
             {
@@ -131,31 +117,6 @@ namespace ComponentFactory.Krypton.Toolkit
             #endregion
 
             #region Protected
-            /// <summary>
-            /// This is a really ugly hack but it gets the job done.
-            /// </summary>
-            protected override void UpdateEditText()
-            {
-                if (!AllowDecimals && (long)Value != Value)
-                {
-                    Value = (long)Value;
-                }
-                if (!Hexadecimal && !TrailingZeroes)
-                {
-                    Text = Value.ToString("0.##############################");
-                }
-                else
-                {
-                    base.UpdateEditText();
-                }
-            }
-
-            protected override void OnKeyPress(KeyPressEventArgs e)
-            {
-                base.OnKeyPress(e);
-                e.Handled = !AllowDecimals && e.KeyChar.ToString() ==
-                            CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalSeparator;
-            }
 
             /// <summary>
             /// Process Windows-based messages.
@@ -485,11 +446,17 @@ namespace ComponentFactory.Krypton.Toolkit
                                         states.Content.GetContentPadding(state));
 
                                     // Draw using a solid brush
+                                    string text = _internalNumericUpDown.Text;
+                                    if (!NumericUpDown.TrailingZeroes && NumericUpDown.AllowDecimals)
+                                    {
+                                        text = text.TrimEnd('0');
+                                    }
+
                                     try
                                     {
                                         using (SolidBrush foreBrush = new SolidBrush(states.Content.GetContentShortTextColor1(state)))
                                         {
-                                            g.DrawString(_internalNumericUpDown.Text, states.Content.GetContentShortTextFont(state), foreBrush,
+                                            g.DrawString(text, states.Content.GetContentShortTextFont(state), foreBrush,
                                                 rectangle, stringFormat);
                                         }
                                     }
@@ -497,7 +464,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                     {
                                         using (SolidBrush foreBrush = new SolidBrush(_internalNumericUpDown.ForeColor))
                                         {
-                                            g.DrawString(_internalNumericUpDown.Text, _internalNumericUpDown.Font, foreBrush, rectangle, stringFormat);
+                                            g.DrawString(text, _internalNumericUpDown.Font, foreBrush, rectangle, stringFormat);
                                         }
                                     }
                                 }
@@ -1145,18 +1112,31 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         [Category("Behavior")]
         [Description("Indicates whether the control can accept decimal values, rather than integer values only.")]
-        [DefaultValue(true)]
+        [DefaultValue(false)] // because the default _numericUpDown.DecimalPlaces is zero.
         public bool AllowDecimals
         {
-            get => _numericUpDown.AllowDecimals;
-            set => _numericUpDown.AllowDecimals = value;
+            get => _numericUpDown.DecimalPlaces != 0;
+            set
+            {
+                if (value
+                    && _numericUpDown.DecimalPlaces == 0)
+                {
+                    // Only set something if the decimals have not already been set
+                    _numericUpDown.DecimalPlaces = 10;
+                }
+                else
+                {
+                    // This is forcing the places to zero
+                    _numericUpDown.DecimalPlaces = 0;
+                }
+            }
         }
 
         /// <summary>
         /// Gets or sets whether the control displays trailing zeroes.
         /// </summary>
         [Category("Behavior")]
-        [Description("Indicates whether the control will display traling zeroes.")]
+        [Description("Indicates whether the control will display traling zeroes, when decimals are in play")]
         [DefaultValue(false)]
         public bool TrailingZeroes
         {
