@@ -70,14 +70,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Occurs when the use of custom chrome changes.
         /// </summary>
-        [Browsable(false)]
+        [Browsable(false)]  // SKC: Probably a special case for not exposing this event in the designer....
         [EditorBrowsable(EditorBrowsableState.Never)]
         public event EventHandler ApplyCustomChromeChanged;
 
         /// <summary>
         /// Occurs when the active window setting changes.
         /// </summary>
-        [Browsable(false)]
+        [Browsable(false)]  // SKC: Probably a special case for not exposing this event in the designer....
         [EditorBrowsable(EditorBrowsableState.Never)]
         public event EventHandler WindowActiveChanged;
         #endregion

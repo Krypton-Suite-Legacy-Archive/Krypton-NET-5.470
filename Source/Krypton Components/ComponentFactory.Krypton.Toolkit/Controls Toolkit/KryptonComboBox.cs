@@ -857,6 +857,13 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Events
         /// <summary>
+        /// Occurs when [draw item].
+        /// </summary>
+        [Category("Behavior")]
+        [Description("Occurs when an item needs to be Drawn.")]
+        public event DrawItemEventHandler DrawItem;
+
+        /// <summary>
         /// Occurs when the control is initialized.
         /// </summary>
         [Category("Behavior")]
@@ -1032,13 +1039,6 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public new event EventHandler PaddingChanged;
-
-        /// <summary>
-        /// Occurs when [draw item].
-        /// </summary>
-        [Browsable(true)]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public event DrawItemEventHandler DrawItem;
         #endregion
 
         #region Identity
@@ -1563,6 +1563,16 @@ namespace ComponentFactory.Krypton.Toolkit
                     UpdateEditControl();
                 }
             }
+        }
+
+        /// <summary />
+        [Category("Behavior")]
+        [DefaultValue(true)]
+        [Description(@"Determines if the ComboBox Items are shown in full")]
+        public bool IntegralHeight
+        {
+            get => _comboBox.IntegralHeight;
+            set => _comboBox.IntegralHeight = value;
         }
 
         /// <summary>
