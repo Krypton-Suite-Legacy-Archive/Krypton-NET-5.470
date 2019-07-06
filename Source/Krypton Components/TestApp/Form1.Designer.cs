@@ -34,6 +34,8 @@
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonNumericUpDown1 = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
+            this.kcbBracketType = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.dudThemes = new System.Windows.Forms.DomainUpDown();
             this.cmbThemes = new System.Windows.Forms.ComboBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -54,18 +56,18 @@
             this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.kcbBracketType = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonMaskedTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             this.kryptonPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kcbBracketType)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator1)).BeginInit();
             this.kryptonNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPage1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPage2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kcmbThemeCollection)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kcbBracketType)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonManager1
@@ -87,6 +89,8 @@
             // 
             // kryptonPanel2
             // 
+            this.kryptonPanel2.Controls.Add(this.kryptonMaskedTextBox1);
+            this.kryptonPanel2.Controls.Add(this.kryptonNumericUpDown1);
             this.kryptonPanel2.Controls.Add(this.kcbBracketType);
             this.kryptonPanel2.Controls.Add(this.dudThemes);
             this.kryptonPanel2.Controls.Add(this.cmbThemes);
@@ -109,6 +113,25 @@
             this.kryptonPanel2.Name = "kryptonPanel2";
             this.kryptonPanel2.Size = new System.Drawing.Size(800, 450);
             this.kryptonPanel2.TabIndex = 0;
+            // 
+            // kryptonNumericUpDown1
+            // 
+            this.kryptonNumericUpDown1.DecimalPlaces = 99;
+            this.kryptonNumericUpDown1.Location = new System.Drawing.Point(365, 197);
+            this.kryptonNumericUpDown1.Name = "kryptonNumericUpDown1";
+            this.kryptonNumericUpDown1.Size = new System.Drawing.Size(120, 22);
+            this.kryptonNumericUpDown1.TabIndex = 1;
+            // 
+            // kcbBracketType
+            // 
+            this.kcbBracketType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.kcbBracketType.DropDownWidth = 121;
+            this.kcbBracketType.Location = new System.Drawing.Point(526, 253);
+            this.kcbBracketType.Name = "kcbBracketType";
+            this.kcbBracketType.Size = new System.Drawing.Size(121, 21);
+            this.kcbBracketType.StateCommon.ComboBox.Content.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.kcbBracketType.TabIndex = 25;
+            this.kcbBracketType.SelectedIndexChanged += new System.EventHandler(this.KcbBracketType_SelectedIndexChanged);
             // 
             // dudThemes
             // 
@@ -256,6 +279,7 @@
             this.kcmbThemeCollection.Location = new System.Drawing.Point(214, 21);
             this.kcmbThemeCollection.Name = "kcmbThemeCollection";
             this.kcmbThemeCollection.Size = new System.Drawing.Size(305, 21);
+            this.kcmbThemeCollection.StateCommon.ComboBox.Content.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.kcmbThemeCollection.TabIndex = 6;
             this.kcmbThemeCollection.ToolTipValues.EnableToolTips = true;
             this.kcmbThemeCollection.SelectedIndexChanged += new System.EventHandler(this.kcmbThemeCollection_SelectedIndexChanged);
@@ -331,15 +355,13 @@
             this.buttonSpecAny1.ToolTipTitle = "Title";
             this.buttonSpecAny1.UniqueName = "8D0C7B51F6A946484D932C2A06451172";
             // 
-            // kcbBracketType
+            // kryptonMaskedTextBox1
             // 
-            this.kcbBracketType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.kcbBracketType.DropDownWidth = 121;
-            this.kcbBracketType.Location = new System.Drawing.Point(526, 253);
-            this.kcbBracketType.Name = "kcbBracketType";
-            this.kcbBracketType.Size = new System.Drawing.Size(121, 21);
-            this.kcbBracketType.TabIndex = 25;
-            this.kcbBracketType.SelectedIndexChanged += new System.EventHandler(this.KcbBracketType_SelectedIndexChanged);
+            this.kryptonMaskedTextBox1.Hint = "Testing a masked textbox hint";
+            this.kryptonMaskedTextBox1.Location = new System.Drawing.Point(222, 107);
+            this.kryptonMaskedTextBox1.Name = "kryptonMaskedTextBox1";
+            this.kryptonMaskedTextBox1.Size = new System.Drawing.Size(297, 23);
+            this.kryptonMaskedTextBox1.TabIndex = 1;
             // 
             // Form1
             // 
@@ -368,6 +390,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
             this.kryptonPanel2.ResumeLayout(false);
             this.kryptonPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kcbBracketType)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator1)).EndInit();
@@ -375,7 +398,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPage1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPage2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kcmbThemeCollection)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kcbBracketType)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -406,6 +428,8 @@
         private System.Windows.Forms.DomainUpDown dudThemes;
         private System.Windows.Forms.ComboBox cmbThemes;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox kcbBracketType;
+        private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown kryptonNumericUpDown1;
+        private ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox kryptonMaskedTextBox1;
     }
 }
 

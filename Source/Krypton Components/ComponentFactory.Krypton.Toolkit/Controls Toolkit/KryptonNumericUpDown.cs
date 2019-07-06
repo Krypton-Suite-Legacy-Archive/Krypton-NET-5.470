@@ -12,7 +12,6 @@
 using System;
 using System.ComponentModel;
 using System.Drawing;
-using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 // ReSharper disable MemberCanBePrivate.Local
@@ -447,7 +446,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                         states.Content.GetContentPadding(state));
 
                                     // Draw using a solid brush
-                                    string text = /*_internalNumericUpDown.GetNumberText(*/_internalNumericUpDown.Text;
+                                    string text = _internalNumericUpDown.Text;
                                     if (!NumericUpDown.TrailingZeroes && NumericUpDown.AllowDecimals)
                                     {
                                         text = text.TrimEnd('0');
@@ -1101,7 +1100,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Data")]
         [Description("Indicates the number of decimal places to display.")]
         [DefaultValue(0)]
-        [Browsable(false)]
+        [Browsable(true)]
         public int DecimalPlaces
         {
             get => _numericUpDown.DecimalPlaces;
