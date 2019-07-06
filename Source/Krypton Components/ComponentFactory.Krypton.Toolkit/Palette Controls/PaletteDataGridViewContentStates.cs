@@ -77,7 +77,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Occurs when a property that needs syncing with the KryptonDataGridView is modified.
         /// </summary>
-        [Browsable(false)]
+        [Browsable(false)]  // SKC: Probably a special case for not exposing this event in the designer....
         [EditorBrowsable(EditorBrowsableState.Never)]
         public event EventHandler SyncPropertyChanged;
         #endregion
