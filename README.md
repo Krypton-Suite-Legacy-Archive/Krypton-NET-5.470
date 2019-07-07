@@ -26,7 +26,7 @@ You can check out the demos by clicking [here](https://www.somsubhra.com/github-
 * Fixed [#199](https://github.com/Wagnerp/Krypton-NET-5.470/issues/199), NumericUpDowner needs to have the "DecimalPlaces" visible in the designer
 * Fixed [#200](https://github.com/Wagnerp/Krypton-NET-5.470/issues/200), NumberUpDowner should respect the use of decimal places and TrailingZeroes
 * Fixed [#203](https://github.com/Wagnerp/Krypton-NET-5.470/issues/203), KryptonCombobox does not have DrawMode and IntegralHeight properties 
-* New feature, implemented [#204](https://github.com/Wagnerp/Krypton-NET-5.470/issues/203), **KryptonMaskedTextBox** needs a hint property
+* New feature, implemented [#204](https://github.com/Wagnerp/Krypton-NET-5.470/issues/204), **KryptonMaskedTextBox** needs a hint property
 * NuGet modularisation. Starting with build 123x, 6 new NuGet packages will be uploaded/updated in addition to the current NuGet package. The names and contents of these packages will be as follows:-
 - `KryptonToolkitSuite5470CoreModule` - Contains just the `Krypton Toolkit.dll` & `Krypton Toolkit.xml`
 - `KryptonToolkitSuite5470DockingModule` - Contains just the `Krypton Docking.dll` & `Krypton Docking.xml`
