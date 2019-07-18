@@ -29,11 +29,11 @@ You can check out the demos by clicking [here](https://www.somsubhra.com/github-
 * Fixed [#203](https://github.com/Wagnerp/Krypton-NET-5.470/issues/203), KryptonCombobox does not have DrawMode and IntegralHeight properties 
 * New feature, implemented [#204](https://github.com/Wagnerp/Krypton-NET-5.470/issues/204), **KryptonMaskedTextBox** needs a hint property
 * NuGet modularisation. Starting with build 1231, 6 new NuGet packages will be uploaded/updated in addition to the current NuGet package. The names and contents of these packages will be as follows:-
-- `KryptonToolkitSuite5470CoreModule` - Contains just the `Krypton Toolkit.dll` & `Krypton Toolkit.xml`
-- `KryptonToolkitSuite5470DockingModule` - Contains just the `Krypton Docking.dll` & `Krypton Docking.xml`
-- `KryptonToolkitSuite5470NavigatorModule` - Contains just the `Krypton Navigator.dll` & `Krypton Navigator.xml`
-- `KryptonToolkitSuite5470RibbonModule` - Contains just the `Krypton Ribbon.dll` & `Krypton Ribbon.xml`
-- `KryptonToolkitSuite5470WorkspaceModule` - Contains just the `Krypton Workspace.dll` & `Krypton Workspace.xml`
+	- `KryptonToolkitSuite5470CoreModule` - Contains just the `Krypton Toolkit.dll` & `Krypton Toolkit.xml`
+	- `KryptonToolkitSuite5470DockingModule` - Contains just the `Krypton Docking.dll` & `Krypton Docking.xml`
+	- `KryptonToolkitSuite5470NavigatorModule` - Contains just the `Krypton Navigator.dll` & `Krypton Navigator.xml`
+	- `KryptonToolkitSuite5470RibbonModule` - Contains just the `Krypton Ribbon.dll` & `Krypton Ribbon.xml`
+	- `KryptonToolkitSuite5470WorkspaceModule` - Contains just the `Krypton Workspace.dll` & `Krypton Workspace.xml`
 * Updated `KryptonToolkitSuite5470` NuGet package license
 * Build 1231 (build date Monday 8th July, 2019) is now available on NuGet
 
