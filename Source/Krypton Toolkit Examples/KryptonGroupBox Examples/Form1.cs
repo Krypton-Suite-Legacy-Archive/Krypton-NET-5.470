@@ -16,7 +16,7 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace KryptonGroupBoxExamples
 {
-    public partial class Form1 : Form
+    public partial class Form1 : KryptonForm
     {
         public Form1()
         {

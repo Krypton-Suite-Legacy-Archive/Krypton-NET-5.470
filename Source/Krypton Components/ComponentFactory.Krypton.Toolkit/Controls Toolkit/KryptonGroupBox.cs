@@ -70,7 +70,7 @@ namespace ComponentFactory.Krypton.Toolkit
             StateNormal = new PaletteGroupBox(StateCommon, NeedPaintDelegate);
 
             // Create the internal panel used for containing content
-            Panel = new KryptonGroupPanel(this, StateCommon, StateDisabled, StateNormal, OnGroupPanelPaint)
+            Panel = new KryptonGroupBoxPanel(this, StateCommon, StateDisabled, StateNormal, OnGroupPanelPaint)
             {
 
                 // Make sure the panel back style always mimics our back style
@@ -235,7 +235,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Appearance")]
         [Description("The internal panel that contains group content.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public KryptonGroupPanel Panel { get; }
+        public KryptonGroupBoxPanel Panel { get; }
 
         /// <summary>
         /// Gets and the sets the percentage of overlap for the caption and group area.
