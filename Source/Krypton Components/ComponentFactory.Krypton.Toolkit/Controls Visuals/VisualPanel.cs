@@ -48,6 +48,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private IPalette _palette;
         private PaletteMode _paletteMode;
         private readonly SimpleCall _refreshCall;
+        private KryptonContextMenu _kryptonContextMenu;
 
         #endregion
 
@@ -229,13 +230,15 @@ namespace ComponentFactory.Krypton.Toolkit
             private set;
         }
 
-        /// <summary>
-        /// Gets or sets the ContextMenuStrip associated with this control.
-        /// </summary>
+        /// <summary>Gets or sets the <see cref="T:System.Windows.Forms.ContextMenuStrip" /> associated with this control.</summary>
+        /// <returns>The <see cref="T:System.Windows.Forms.ContextMenuStrip" /> for this control, or <see langword="null" /> if there is no <see cref="T:System.Windows.Forms.ContextMenuStrip" />. The default is <see langword="null" />.</returns>
+        [Category("Behavior")]
+        [Description("Consider using KryptonContextMenu within the behaviors section.\nThe Winforms shortcut menu to show when the user right-clicks the page.\nNote: The ContextMenu will be rendered.")]
+        [DefaultValue(null)]
         public override ContextMenuStrip ContextMenuStrip
         {
             [DebuggerStepThrough]
-            get { return base.ContextMenuStrip; }
+            get => base.ContextMenuStrip;
 
             set
             {
@@ -254,6 +257,37 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     base.ContextMenuStrip.Opening += OnContextMenuStripOpening;
                     base.ContextMenuStrip.Closed += OnContextMenuClosed;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets and sets the KryptonContextMenu to show when right clicked.
+        /// </summary>
+        [Category("Behavior")]
+        [Description("The KryptonContextMenu to show when the user right-clicks the Control.")]
+        [DefaultValue(null)]
+        public virtual KryptonContextMenu KryptonContextMenu
+        {
+            get => _kryptonContextMenu;
+
+            set
+            {
+                if (_kryptonContextMenu != value)
+                {
+                    if (_kryptonContextMenu != null)
+                    {
+                        _kryptonContextMenu.Closed -= OnContextMenuClosed;
+                        _kryptonContextMenu.Disposed -= OnKryptonContextMenuDisposed;
+                    }
+
+                    _kryptonContextMenu = value;
+
+                    if (_kryptonContextMenu != null)
+                    {
+                        _kryptonContextMenu.Closed += OnContextMenuClosed;
+                        _kryptonContextMenu.Disposed += OnKryptonContextMenuDisposed;
+                    }
                 }
             }
         }
@@ -451,6 +485,51 @@ namespace ComponentFactory.Krypton.Toolkit
                 UpdateGlobalEvents(false);
                 _globalEvents = false;
             }
+        }
+
+        /// <summary>
+        /// Process Windows-based messages.
+        /// </summary>
+        /// <param name="m">A Windows-based message.</param>
+        protected override void WndProc(ref Message m)
+        {
+            // We need to snoop the need to show a context menu
+            if (m.Msg == PI.WM_.CONTEXTMENU)
+            {
+                // Only interested in overriding the behaviour when we have a krypton context menu...
+                if (KryptonContextMenu != null)
+                {
+                    // Extract the screen mouse position (if might not actually be provided)
+                    Point mousePt = new Point(PI.LOWORD(m.LParam), PI.HIWORD(m.LParam));
+
+                    // If keyboard activated, the menu position is centered
+                    if (((int)((long)m.LParam)) == -1)
+                    {
+                        mousePt = new Point(Width / 2, Height / 2);
+                    }
+                    else
+                    {
+                        mousePt = PointToClient(mousePt);
+
+                        // Mouse point up and left 1 pixel so that the mouse overlaps the top left corner
+                        // of the showing context menu just like it happens for a ContextMenuStrip.
+                        mousePt.X -= 1;
+                        mousePt.Y -= 1;
+                    }
+
+                    // If the mouse position is within our client area
+                    if (ClientRectangle.Contains(mousePt))
+                    {
+                        // Show the context menu
+                        KryptonContextMenu.Show(this, PointToScreen(mousePt));
+
+                        // We eat the message!
+                        return;
+                    }
+                }
+            }
+
+            base.WndProc(ref m);
         }
 
         /// <summary>
@@ -742,6 +821,26 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             OnNeedPaint(null, new NeedLayoutEventArgs(true));
             base.OnRightToLeftChanged(e);
+        }
+
+        /// <summary>
+        /// Processes a command key.
+        /// </summary>
+        /// <param name="msg">A Message, passed by reference, that represents the window message to process.</param>
+        /// <param name="keyData">One of the Keys values that represents the key to process.</param>
+        /// <returns>True is handled; otherwise false.</returns>
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            // If we have a defined context menu then need to check for matching shortcut
+            if (KryptonContextMenu != null)
+            {
+                if (KryptonContextMenu.ProcessShortcut(keyData))
+                {
+                    return true;
+                }
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
         }
 
         /// <summary>
@@ -1088,6 +1187,14 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Make sure it has the correct renderer
             cms.Renderer = CreateToolStripRenderer();
+        }
+
+        private void OnKryptonContextMenuDisposed(object sender, EventArgs e)
+        {
+            // When the current krypton context menu is disposed, we should remove 
+            // it to prevent it being used again, as that would just throw an exception 
+            // because it has been disposed.
+            KryptonContextMenu = null;
         }
 
         private void OnContextMenuClosed(object sender, ToolStripDropDownClosedEventArgs e)

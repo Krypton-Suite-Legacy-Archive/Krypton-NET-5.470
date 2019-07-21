@@ -35,12 +35,26 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.kryptonGroupBox4 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.kryptonGroupBox3 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.kryptonContextMenu1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.kryptonContextMenuHeading1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
+            this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.kryptonContextMenuItem1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuCheckBox1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox();
+            this.kryptonContextMenuCheckButton1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckButton();
+            this.kryptonContextMenuRadioButton1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuRadioButton();
+            this.kryptonContextMenu2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.kryptonContextMenuHeading2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
+            this.kryptonContextMenuItems2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.kryptonContextMenuItem3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.kryptonGroupBox2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.kryptonGroupBox5 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.kryptonGroupBox6 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonGroup1 = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
+            this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox4)).BeginInit();
@@ -63,6 +77,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox6.Panel)).BeginInit();
             this.kryptonGroupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
+            this.kryptonPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1.Panel)).BeginInit();
+            this.kryptonGroup1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -77,9 +97,9 @@
             // 
             // propertyGrid
             // 
-            this.propertyGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.propertyGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.propertyGrid.Location = new System.Drawing.Point(6, 19);
             this.propertyGrid.Name = "propertyGrid";
             this.propertyGrid.Size = new System.Drawing.Size(310, 533);
@@ -110,6 +130,7 @@
             // kryptonGroupBox4
             // 
             this.kryptonGroupBox4.CaptionEdge = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
+            this.kryptonGroupBox4.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel;
             this.kryptonGroupBox4.Location = new System.Drawing.Point(169, 32);
             this.kryptonGroupBox4.Name = "kryptonGroupBox4";
             this.kryptonGroupBox4.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
@@ -119,24 +140,81 @@
             this.kryptonGroupBox4.Panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             this.kryptonGroupBox4.Size = new System.Drawing.Size(133, 128);
             this.kryptonGroupBox4.TabIndex = 1;
-            this.kryptonGroupBox4.Text = "Caption";
             this.kryptonGroupBox4.Values.Image = global::KryptonGroupBoxExamples.Properties.Resources.angel1;
             this.kryptonGroupBox4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.groupBox_MouseDown);
             // 
             // kryptonGroupBox3
             // 
+            this.kryptonGroupBox3.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.kryptonGroupBox3.KryptonContextMenu = this.kryptonContextMenu1;
             this.kryptonGroupBox3.Location = new System.Drawing.Point(17, 32);
             this.kryptonGroupBox3.Name = "kryptonGroupBox3";
             this.kryptonGroupBox3.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // kryptonGroupBox3.Panel
             // 
+            this.kryptonGroupBox3.Panel.Enabled = false;
             this.kryptonGroupBox3.Panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             this.kryptonGroupBox3.Size = new System.Drawing.Size(132, 128);
             this.kryptonGroupBox3.TabIndex = 0;
-            this.kryptonGroupBox3.Text = "Caption";
             this.kryptonGroupBox3.Values.Description = "Extra";
             this.kryptonGroupBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.groupBox_MouseDown);
+            // 
+            // kryptonContextMenu1
+            // 
+            this.kryptonContextMenu1.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuHeading1,
+            this.kryptonContextMenuItems1});
+            // 
+            // kryptonContextMenuHeading1
+            // 
+            this.kryptonContextMenuHeading1.ExtraText = "Heading";
+            this.kryptonContextMenuHeading1.Text = "Test the ";
+            // 
+            // kryptonContextMenuItems1
+            // 
+            this.kryptonContextMenuItems1.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuItem1});
+            // 
+            // kryptonContextMenuItem1
+            // 
+            this.kryptonContextMenuItem1.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuCheckBox1,
+            this.kryptonContextMenuCheckButton1,
+            this.kryptonContextMenuRadioButton1});
+            this.kryptonContextMenuItem1.Text = "Menu Item";
+            // 
+            // kryptonContextMenuCheckBox1
+            // 
+            this.kryptonContextMenuCheckBox1.ExtraText = "";
+            // 
+            // kryptonContextMenuCheckButton1
+            // 
+            this.kryptonContextMenuCheckButton1.Text = "CheckButton";
+            // 
+            // kryptonContextMenuRadioButton1
+            // 
+            this.kryptonContextMenuRadioButton1.ExtraText = "";
+            // 
+            // kryptonContextMenu2
+            // 
+            this.kryptonContextMenu2.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuHeading2,
+            this.kryptonContextMenuItems2});
+            // 
+            // kryptonContextMenuHeading2
+            // 
+            this.kryptonContextMenuHeading2.ExtraText = "Panel";
+            this.kryptonContextMenuHeading2.Text = "Test the ";
+            // 
+            // kryptonContextMenuItems2
+            // 
+            this.kryptonContextMenuItems2.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuItem3});
+            // 
+            // kryptonContextMenuItem3
+            // 
+            this.kryptonContextMenuItem3.Text = "Panel Item";
             // 
             // groupBox2
             // 
@@ -151,7 +229,9 @@
             // 
             // kryptonGroupBox2
             // 
-            this.kryptonGroupBox2.CaptionOverlap = 0;
+            this.kryptonGroupBox2.CaptionEdge = ComponentFactory.Krypton.Toolkit.VisualOrientation.Bottom;
+            this.kryptonGroupBox2.CaptionOverlap = 0D;
+            this.kryptonGroupBox2.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
             this.kryptonGroupBox2.Location = new System.Drawing.Point(169, 30);
             this.kryptonGroupBox2.Name = "kryptonGroupBox2";
             // 
@@ -159,11 +239,10 @@
             // 
             this.kryptonGroupBox2.Panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             this.kryptonGroupBox2.Size = new System.Drawing.Size(133, 128);
-            this.kryptonGroupBox2.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonGroupBox2.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonGroupBox2.TabIndex = 1;
-            this.kryptonGroupBox2.Text = "Caption";
             this.kryptonGroupBox2.Values.Image = global::KryptonGroupBoxExamples.Properties.Resources.angel1;
             this.kryptonGroupBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.groupBox_MouseDown);
             // 
@@ -177,7 +256,6 @@
             this.kryptonGroupBox1.Panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             this.kryptonGroupBox1.Size = new System.Drawing.Size(132, 128);
             this.kryptonGroupBox1.TabIndex = 0;
-            this.kryptonGroupBox1.Text = "Caption";
             this.kryptonGroupBox1.Values.Image = global::KryptonGroupBoxExamples.Properties.Resources.angel1;
             this.kryptonGroupBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.groupBox_MouseDown);
             // 
@@ -194,7 +272,7 @@
             // 
             // kryptonGroupBox5
             // 
-            this.kryptonGroupBox5.CaptionOverlap = 1;
+            this.kryptonGroupBox5.CaptionOverlap = 1D;
             this.kryptonGroupBox5.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
             this.kryptonGroupBox5.Location = new System.Drawing.Point(169, 30);
             this.kryptonGroupBox5.Name = "kryptonGroupBox5";
@@ -205,14 +283,14 @@
             this.kryptonGroupBox5.Panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             this.kryptonGroupBox5.Size = new System.Drawing.Size(133, 128);
             this.kryptonGroupBox5.TabIndex = 1;
-            this.kryptonGroupBox5.Text = "Caption";
             this.kryptonGroupBox5.Values.Image = global::KryptonGroupBoxExamples.Properties.Resources.angel1;
             this.kryptonGroupBox5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.groupBox_MouseDown);
             // 
             // kryptonGroupBox6
             // 
             this.kryptonGroupBox6.CaptionEdge = ComponentFactory.Krypton.Toolkit.VisualOrientation.Right;
-            this.kryptonGroupBox6.CaptionOverlap = 0;
+            this.kryptonGroupBox6.CaptionOverlap = 0D;
+            this.kryptonGroupBox6.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitlePanel;
             this.kryptonGroupBox6.Location = new System.Drawing.Point(17, 30);
             this.kryptonGroupBox6.Name = "kryptonGroupBox6";
             this.kryptonGroupBox6.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
@@ -222,21 +300,58 @@
             this.kryptonGroupBox6.Panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             this.kryptonGroupBox6.Size = new System.Drawing.Size(132, 128);
             this.kryptonGroupBox6.TabIndex = 0;
-            this.kryptonGroupBox6.Text = "Caption";
             this.kryptonGroupBox6.Values.Description = "Extra";
             this.kryptonGroupBox6.Values.Image = global::KryptonGroupBoxExamples.Properties.Resources.angel1;
             this.kryptonGroupBox6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.groupBox_MouseDown);
+            // 
+            // kryptonPanel1
+            // 
+            this.kryptonPanel1.Controls.Add(this.kryptonPanel2);
+            this.kryptonPanel1.Controls.Add(this.kryptonGroup1);
+            this.kryptonPanel1.Controls.Add(this.buttonClose);
+            this.kryptonPanel1.Controls.Add(this.groupBox4);
+            this.kryptonPanel1.Controls.Add(this.groupBox1);
+            this.kryptonPanel1.Controls.Add(this.groupBox2);
+            this.kryptonPanel1.Controls.Add(this.groupBox3);
+            this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
+            this.kryptonPanel1.Name = "kryptonPanel1";
+            this.kryptonPanel1.Size = new System.Drawing.Size(679, 610);
+            this.kryptonPanel1.TabIndex = 5;
+            // 
+            // kryptonGroup1
+            // 
+            this.kryptonGroup1.KryptonContextMenu = this.kryptonContextMenu2;
+            this.kryptonGroup1.Location = new System.Drawing.Point(48, 576);
+            this.kryptonGroup1.Name = "kryptonGroup1";
+            this.kryptonGroup1.Size = new System.Drawing.Size(150, 31);
+            this.kryptonGroup1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonGroup1.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.kryptonGroup1.StateCommon.Border.Rounding = 2;
+            this.kryptonGroup1.StateCommon.Border.Width = 2;
+            this.kryptonGroup1.TabIndex = 5;
+            this.kryptonGroup1.ToolTipValues.Description = "Simple Group Panel";
+            this.kryptonGroup1.ToolTipValues.Image = null;
+            this.kryptonGroup1.ToolTipValues.ToolTipPosition.PlacementMode = ComponentFactory.Krypton.Toolkit.PlacementMode.Right;
+            this.kryptonGroup1.ToolTipValues.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
+            // 
+            // kryptonPanel2
+            // 
+            this.kryptonPanel2.KryptonContextMenu = this.kryptonContextMenu2;
+            this.kryptonPanel2.Location = new System.Drawing.Point(245, 576);
+            this.kryptonPanel2.Name = "kryptonPanel2";
+            this.kryptonPanel2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Black;
+            this.kryptonPanel2.Size = new System.Drawing.Size(100, 31);
+            this.kryptonPanel2.TabIndex = 6;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 610);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.buttonClose);
-            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.kryptonPanel1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -268,6 +383,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox6.Panel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox6)).EndInit();
             this.kryptonGroupBox6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
+            this.kryptonPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1.Panel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1)).EndInit();
+            this.kryptonGroup1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -286,6 +407,20 @@
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox3;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox5;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox6;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu kryptonContextMenu1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading kryptonContextMenuHeading1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox kryptonContextMenuCheckBox1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckButton kryptonContextMenuCheckButton1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuRadioButton kryptonContextMenuRadioButton1;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu kryptonContextMenu2;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading kryptonContextMenuHeading2;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems2;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem3;
+        private ComponentFactory.Krypton.Toolkit.KryptonGroup kryptonGroup1;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel2;
     }
 }
 

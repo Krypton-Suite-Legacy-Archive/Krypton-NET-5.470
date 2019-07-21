@@ -205,7 +205,6 @@ namespace ComponentFactory.Krypton.Toolkit
             }
         }
 
-
         /// <summary>
         /// Gets and sets the KryptonContextMenu to show when right clicked.
         /// </summary>

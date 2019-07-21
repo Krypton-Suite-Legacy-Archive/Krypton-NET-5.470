@@ -11,6 +11,7 @@
 
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -28,7 +29,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [Docking(DockingBehavior.Never)]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
-    public sealed class KryptonGroupPanel : KryptonPanel
+    public class KryptonGroupPanel : KryptonPanel
     {
         #region Instance Fields
         private readonly PaletteBackInheritForced _forcedDisabled;
@@ -130,7 +131,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override AnchorStyles Anchor
         {
-            get { return base.Anchor; }
+            get => base.Anchor;
             set { /* Ignore request */ }
         }
 
@@ -143,7 +144,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override bool AutoSize
         {
-            get { return base.AutoSize; }
+            get => base.AutoSize;
             set { /* Ignore request */ }
         }
 
@@ -155,10 +156,10 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override AutoSizeMode AutoSizeMode
         {
-            get { return base.AutoSizeMode; }
+            get => base.AutoSizeMode;
             set { /* Ignore request */ }
         }
-
+        
         /// <summary>
         /// Gets or sets the border style for the KryptonSplitterPanel. 
         /// </summary>
@@ -167,7 +168,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new BorderStyle BorderStyle
         {
-            get { return base.BorderStyle; }
+            get => base.BorderStyle;
             set { /* Ignore request */ }
         }
 
@@ -180,7 +181,7 @@ namespace ComponentFactory.Krypton.Toolkit
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override DockStyle Dock
         {
-            get { return base.Dock; }
+            get => base.Dock;
             set { /* Ignore request */ }
         }
 
