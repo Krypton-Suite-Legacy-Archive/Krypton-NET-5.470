@@ -389,20 +389,35 @@ namespace ComponentFactory.Krypton.Toolkit
                 throw new ArgumentException("Cannot use disposed form.");
             }
 
+            void OnHandleKnown()
+            {
+                // hold the handle here to unregister it without depending on the form
+                var handle = f.Handle;
+                _forms[handle] = f;
+                f.Closing += delegate { Unregister(handle); };
+            }
+
             if (f.Handle == IntPtr.Zero)
             {
-                f.HandleCreated += delegate { _forms[f.Handle] = f; };
+                f.HandleCreated += delegate { OnHandleKnown(); };
             }
             else
             {
-                _forms[f.Handle] = f;
+                OnHandleKnown();
             }
+        }
 
-            f.Closing += delegate { Unregister(f); };
+        internal static void Unregister(IntPtr handle)
+        {
+            if (handle != null)
+            {
+                _forms.Remove(handle);
+            }
         }
 
         internal static void Unregister(Form f)
         {
+            // This will crash if f has been disposed
             if (f.Handle != null)
             {
                 _forms.Remove(f.Handle);
