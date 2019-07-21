@@ -21,6 +21,9 @@ using System.Windows.Forms;
 namespace ComponentFactory.Krypton.Toolkit
 {
     #region Enumerations
+    /// <summary>
+    /// Used for wrapping the administrator title text
+    /// </summary>
     public enum BracketType
     {
         CURVEDBRACKET,
@@ -1748,16 +1751,16 @@ namespace ComponentFactory.Krypton.Toolkit
                 switch (bracketType)
                 {
                     case BracketType.CURVEDBRACKET:
-                        Text = $"{ Text } - ({ AdministratorText })";
+                        Text = $@"{ Text } - ({ AdministratorText })";
                         break;
                     case BracketType.CURLYBRACKET:
-                        Text = $"{ Text } - {{{ AdministratorText}}}";
+                        Text = $@"{ Text } - {{{ AdministratorText}}}";
                         break;
                     case BracketType.SQUAREBRACKET:
-                        Text = $"{ Text } - [{ AdministratorText }]";
+                        Text = $@"{ Text } - [{ AdministratorText }]";
                         break;
                     case BracketType.NOBRACKET:
-                        Text = $"{ Text } - { AdministratorText }";
+                        Text = $@"{ Text } - { AdministratorText }";
                         break;
                     default:
                         break;
