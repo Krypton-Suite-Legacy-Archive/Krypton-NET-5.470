@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -28,7 +28,6 @@ namespace ComponentFactory.Krypton.Toolkit
         private readonly ViewDrawTP _drawTB;
         private Timer _repeatTimer;
         private bool _captured;
-        private bool _targetHigher;
         private int _targetValue;
         private Point _lastMovePt;
         #endregion
@@ -70,29 +69,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     {
                         _lastMovePt = pt;
 
-                        // Restart the timer
-                        _repeatTimer.Stop();
-                        _repeatTimer.Start();
-
-                        // Only use newly calculated target value if in correct direction
-                        int newTargetValue = _drawTB.NearestValueFromPoint(pt);
-                        int currentValue = _drawTB.ViewDrawTrackBar.Value;
-                        if (_targetHigher)
-                        {
-                            if (newTargetValue > currentValue)
-                            {
-                                _targetValue = newTargetValue;
-                            }
-                        }
-                        else
-                        {
-                            if (newTargetValue < currentValue)
-                            {
-                                _targetValue = newTargetValue;
-                            }
-                        }
-
-                        OnRepeatTimer(_repeatTimer, EventArgs.Empty);
+                        _targetValue = _drawTB.NearestValueFromPoint(pt);
                     }
                 }
             }
@@ -114,9 +91,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 {
                     _captured = true;
 
-                    // Target value is nearest value to the mouse positon
+                    // Target value is nearest value to the mouse position
                     _targetValue = _drawTB.NearestValueFromPoint(pt);
-                    _targetHigher = (_targetValue > _drawTB.ViewDrawTrackBar.Value);
                     OnRepeatTimer(_repeatTimer, EventArgs.Empty);
 
                     // Use timer to keep moving towards the target value
@@ -176,7 +152,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="pt">Mouse position relative to control.</param>
         public virtual void DoubleClick(Point pt)
         {
-            // Do nothing
+            _drawTB.ViewDrawTrackBar.ScrollValue = _drawTB.NearestValueFromPoint(pt);
         }
 
         /// <summary>

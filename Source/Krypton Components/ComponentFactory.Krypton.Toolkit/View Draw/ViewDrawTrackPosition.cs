@@ -10,8 +10,8 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
 using System.Diagnostics;
+using System.Drawing;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -75,7 +75,7 @@ namespace ComponentFactory.Krypton.Toolkit
             ClientRectangle = context.DisplayRectangle;
         }
         #endregion
-        
+
         #region Paint
         /// <summary>
         /// Perform rendering before child elements are rendered.
@@ -100,7 +100,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteState.Pressed:
                     elementColors = _drawTrackBar.StatePressed.Position;
                     break;
-           }
+            }
 
             context.Renderer.RenderGlyph.DrawTrackPositionGlyph(context, State, elementColors, ClientRectangle,
                                                                 _drawTrackBar.Orientation,

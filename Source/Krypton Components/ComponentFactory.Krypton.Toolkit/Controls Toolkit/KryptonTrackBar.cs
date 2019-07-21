@@ -102,7 +102,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-        /// Determins the IME status of the object when selected.
+        /// Determines the IME status of the object when selected.
         /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -211,10 +211,10 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-        /// Gets access to the common trackbar appearance that other states can override.
+        /// Gets access to the common TrackBar appearance that other states can override.
         /// </summary>
         [Category("Visuals")]
-        [Description("Overrides for defining common trackbar appearance that other states can override.")]
+        [Description("Overrides for defining common TrackBar appearance that other states can override.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTrackBarRedirect StateCommon { get; }
 
@@ -224,10 +224,10 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-        /// Gets access to the disabled trackbar appearance.
+        /// Gets access to the disabled TrackBar appearance.
         /// </summary>
         [Category("Visuals")]
-        [Description("Overrides for defining disabled trackbar appearance.")]
+        [Description("Overrides for defining disabled TrackBar appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTrackBarStates StateDisabled { get; }
 
@@ -237,10 +237,10 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-        /// Gets access to the normal trackbar appearance.
+        /// Gets access to the normal TrackBar appearance.
         /// </summary>
         [Category("Visuals")]
-        [Description("Overrides for defining normal trackbar appearance.")]
+        [Description("Overrides for defining normal TrackBar appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTrackBarStates StateNormal { get; }
 
@@ -250,10 +250,10 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-        /// Gets access to the tracking trackbar appearance.
+        /// Gets access to the tracking TrackBar appearance.
         /// </summary>
         [Category("Visuals")]
-        [Description("Overrides for defining tracking trackbar appearance.")]
+        [Description("Overrides for defining tracking TrackBar appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTrackBarPositionStates StateTracking { get; }
 
@@ -263,10 +263,10 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-        /// Gets access to the pressed trackbar appearance.
+        /// Gets access to the pressed TrackBar appearance.
         /// </summary>
         [Category("Visuals")]
-        [Description("Overrides for defining pressed trackbar appearance.")]
+        [Description("Overrides for defining pressed TrackBar appearance.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public PaletteTrackBarPositionStates StatePressed { get; }
 
@@ -398,7 +398,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-        /// Gets or sets the upper limit of the range this trackbar is working with.
+        /// Gets or sets the upper limit of the range this TrackBar is working with.
         /// </summary>
         [Category("Behavior")]
         [Description("Upper limit of the trackbar range.")]
@@ -419,7 +419,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-        /// Gets or sets the lower limit of the range this trackbar is working with.
+        /// Gets or sets the lower limit of the range this TrackBar is working with.
         /// </summary>
         [Category("Behavior")]
         [Description("Lower limit of the trackbar range.")]

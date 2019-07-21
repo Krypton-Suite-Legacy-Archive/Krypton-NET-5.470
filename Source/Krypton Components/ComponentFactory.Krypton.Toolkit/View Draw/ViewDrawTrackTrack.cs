@@ -10,8 +10,8 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
 using System.Diagnostics;
+using System.Drawing;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -74,7 +74,7 @@ namespace ComponentFactory.Krypton.Toolkit
             ClientRectangle = context.DisplayRectangle;
         }
         #endregion
-        
+
         #region Paint
         /// <summary>
         /// Perform rendering before child elements are rendered.
