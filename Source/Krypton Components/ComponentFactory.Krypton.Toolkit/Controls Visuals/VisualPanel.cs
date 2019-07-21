@@ -11,11 +11,12 @@
 
 using System;
 using System.ComponentModel;
-using System.Drawing;
-using System.Windows.Forms;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
+using System.Drawing;
 using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
+
 using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -66,6 +67,13 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Property Changed")]
         [Description("Occurs when the value of the Palette property is changed.")]
         public event EventHandler PaletteChanged;
+
+        /// <summary>
+        /// Occurs when the Global palette changes.
+        /// </summary>
+        [Category("Property Changed")]
+        [Description("Occurs when the value of the GlobalPalette property is changed.")]
+        public event EventHandler GlobalPaletteChanged;
         #endregion
 
         #region Identity
@@ -101,7 +109,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // We need to allow a transparent background
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-            
+
             // We need to repaint entire control whenever resized
             SetStyle(ControlStyles.ResizeRedraw, true);
 
@@ -151,7 +159,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     base.ContextMenuStrip.Closed -= OnContextMenuClosed;
                     base.ContextMenuStrip = null;
                 }
-                
+
                 // Must unhook from the palette paint event
                 if (_palette != null)
                 {
@@ -205,7 +213,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Raise event to show control is now initialized
             OnInitialized(EventArgs.Empty);
         }
-        
+
         /// <summary>
         /// Gets a value indicating if the control is initialized.
         /// </summary>
@@ -309,13 +317,13 @@ namespace ComponentFactory.Krypton.Toolkit
         public PaletteMode PaletteMode
         {
             [DebuggerStepThrough]
-            get { return _paletteMode; }
+            get => _paletteMode;
 
             set
             {
                 if (_paletteMode != value)
                 {
-                    // Action despends on new value
+                    // Action depends on new value
                     switch (value)
                     {
                         case PaletteMode.Custom:
@@ -363,7 +371,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public IPalette Palette
         {
             [DebuggerStepThrough]
-            get { return _localPalette; }
+            get => _localPalette;
 
             set
             {
@@ -700,7 +708,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get
             {
-                // Do we need to evaluate the need for a tranparent paint
+                // Do we need to evaluate the need for a transparent paint
                 if (_evalTransparent)
                 {
                     _paintTransparent = EvalTransparentPaint();
@@ -863,7 +871,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Layout cannot now be dirty
                         _layoutDirty = false;
 
-                        // Ask the view to peform a layout
+                        // Ask the view to perform a layout
                         ViewManager.Layout(Renderer);
 
                     } while (_layoutDirty && (max-- > 0));
@@ -1172,6 +1180,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // A new palette source means we need to layout and redraw
                 OnNeedPaint(Palette, new NeedLayoutEventArgs(true));
+
+                GlobalPaletteChanged?.Invoke(sender, e);
             }
         }
 

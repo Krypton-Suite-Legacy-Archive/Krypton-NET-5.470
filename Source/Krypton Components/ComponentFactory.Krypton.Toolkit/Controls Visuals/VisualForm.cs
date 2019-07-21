@@ -30,7 +30,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [ToolboxItem(false)]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
-    public abstract class VisualForm : Form, 
+    public abstract class VisualForm : Form,
                                        IKryptonDebug
     {
         #region Static Fields
@@ -80,6 +80,13 @@ namespace ComponentFactory.Krypton.Toolkit
         [Browsable(false)]  // SKC: Probably a special case for not exposing this event in the designer....
         [EditorBrowsable(EditorBrowsableState.Never)]
         public event EventHandler WindowActiveChanged;
+
+        /// <summary>
+        /// Occurs when the Global palette changes.
+        /// </summary>
+        [Category("Property Changed")]
+        [Description("Occurs when the value of the GlobalPalette property is changed.")]
+        public event EventHandler GlobalPaletteChanged;
         #endregion
 
         #region Identity
@@ -92,6 +99,7 @@ namespace ComponentFactory.Krypton.Toolkit
             }
             catch
             {
+                //
             }
         }
 
@@ -243,7 +251,10 @@ namespace ComponentFactory.Krypton.Toolkit
                             // Call virtual method to reverse own chrome setup
                             WindowChromeEnd();
                         }
-                        catch { }
+                        catch
+                        {
+                            //
+                        }
                     }
 
                     // Raise event to notify a change in setting
@@ -756,7 +767,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 // if the application stops responding to windows messages
                 PI.DisableProcessWindowsGhosting();
             }
-            catch { }
+            catch
+            {
+                //
+            }
 
             base.OnHandleCreated(e);
         }
@@ -1141,8 +1155,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 mmi.ptMaxPosition.Y = Math.Abs(rcWorkArea.top - rcMonitorArea.top);
                 mmi.ptMaxSize.X = Math.Abs(rcWorkArea.right - rcWorkArea.left);
                 mmi.ptMaxSize.Y = Math.Abs(rcWorkArea.bottom - rcWorkArea.top);
-                mmi.ptMinTrackSize.X = Math.Max(mmi.ptMinTrackSize.X*2, MinimumSize.Width);
-                mmi.ptMinTrackSize.Y = Math.Max(mmi.ptMinTrackSize.Y*2, MinimumSize.Height);
+                mmi.ptMinTrackSize.X = Math.Max(mmi.ptMinTrackSize.X * 2, MinimumSize.Width);
+                mmi.ptMinTrackSize.Y = Math.Max(mmi.ptMinTrackSize.Y * 2, MinimumSize.Height);
             }
 
             Marshal.StructureToPtr(mmi, m.LParam, true);
@@ -1290,7 +1304,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     return true;
                 }
             }
-            
+
             return false;
         }
 
@@ -1713,7 +1727,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 bool applyComposition = !DesignMode &&
                                         TopLevel &&
                                         ApplyCustomChrome &&
-                                        AllowComposition && 
+                                        AllowComposition &&
                                         DWM.IsCompositionEnabled;
 
                 // Only need to process changes in value
@@ -1777,6 +1791,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // A new palette source means we need to layout and redraw
                 OnNeedPaint(Palette, new NeedLayoutEventArgs(true));
+
+                GlobalPaletteChanged?.Invoke(sender, e);
             }
         }
 

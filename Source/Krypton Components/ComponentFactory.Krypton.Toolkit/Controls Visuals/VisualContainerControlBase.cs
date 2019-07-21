@@ -10,12 +10,13 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
-using System.Windows.Forms;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
+using System.Drawing;
 using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
+
 using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -27,13 +28,13 @@ namespace ComponentFactory.Krypton.Toolkit
     [DesignerCategory("code")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
-    public abstract class VisualContainerControlBase : ContainerControl, 
+    public abstract class VisualContainerControlBase : ContainerControl,
                                                        IKryptonDebug
     {
         #region Static Field
         private static MethodInfo _miPTB;
         #endregion
-        
+
         #region Instance Fields
         private bool _layoutDirty;
         private bool _refresh;
@@ -55,6 +56,13 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Property Changed")]
         [Description("Occurs when the value of the Palette property is changed.")]
         public event EventHandler PaletteChanged;
+
+        /// <summary>
+        /// Occurs when the Global palette changes.
+        /// </summary>
+        [Category("Property Changed")]
+        [Description("Occurs when the value of the GlobalPalette property is changed.")]
+        public event EventHandler GlobalPaletteChanged;
         #endregion
 
         #region Identity
@@ -137,7 +145,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     base.ContextMenuStrip.Closed -= OnContextMenuClosed;
                     base.ContextMenuStrip = null;
                 }
-                
+
                 // Must unhook from the palette paint event
                 if (_palette != null)
                 {
@@ -173,8 +181,8 @@ namespace ComponentFactory.Krypton.Toolkit
             [DebuggerStepThrough]
             get { return base.ContextMenuStrip; }
 
-            set 
-            { 
+            set
+            {
                 // Unhook from any current menu strip
                 if (base.ContextMenuStrip != null)
                 {
@@ -239,7 +247,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// Check if the layout is dirty and if so perform the layout now.
         /// </summary>
-        /// <param name="viewLayout">Should the view be layed out as well.</param>
+        /// <param name="viewLayout">Should the view be laid out as well.</param>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public void CheckPerformLayout(bool viewLayout)
@@ -260,7 +268,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Layout cannot now be dirty
                         _layoutDirty = false;
 
-                        // Ask the view to peform a layout
+                        // Ask the view to perform a layout
                         ViewManager.Layout(Renderer);
 
                     } while (_layoutDirty && (max-- > 0));
@@ -282,7 +290,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 if (_paletteMode != value)
                 {
-                    // Action despends on new value
+                    // Action depends on new value
                     switch (value)
                     {
                         case PaletteMode.Custom:
@@ -483,7 +491,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public int KryptonPaintCounter => ViewManager.PaintCounter;
 
         #endregion
-        
+
         #region Protected
         /// <summary>
         /// Gets and sets the ViewManager instance.
@@ -526,7 +534,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Do we have a manager to use for laying out?
                 if (ViewManager != null)
                 {
-                    // Ask the view to peform a layout
+                    // Ask the view to perform a layout
                     ViewManager.Layout(Renderer);
 
                     return true;
@@ -566,7 +574,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             get
             {
-                // Do we need to evaluate the need for a tranparent paint
+                // Do we need to evaluate the need for a transparent paint
                 if (_evalTransparent)
                 {
                     _paintTransparent = EvalTransparentPaint();
@@ -666,7 +674,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Need to recalculate anything relying on the palette
             DirtyPaletteCounter++;
-            
+
             // A new palette source means we need to layout and redraw
             OnNeedPaint(Palette, new NeedLayoutEventArgs(true));
 
@@ -761,7 +769,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Need relayout to reflect change of layout
             OnNeedPaint(null, new NeedLayoutEventArgs(true));
-            
+
             base.OnRightToLeftChanged(e);
         }
 
@@ -785,7 +793,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Layout cannot now be dirty
                         _layoutDirty = false;
 
-                        // Ask the view to peform a layout
+                        // Ask the view to perform a layout
                         ViewManager.Layout(Renderer);
 
                     } while (_layoutDirty && (max-- > 0));
@@ -812,9 +820,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (_layoutDirty)
                     {
                         Size beforeSize = ClientSize;
-                        
+
                         PerformLayout();
-                        
+
                         // Did the layout cause a change in the size of the control?
                         if ((beforeSize.Width < ClientSize.Width) ||
                             (beforeSize.Height < ClientSize.Height))
@@ -1036,6 +1044,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Must raise event to change palette in redirector
                 OnPaletteChanged(EventArgs.Empty);
+
+                GlobalPaletteChanged?.Invoke(sender, e);
             }
         }
 
@@ -1081,7 +1091,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         mousePt.Y -= 1;
                     }
 
-                    // If the mouse posiiton is within our client area
+                    // If the mouse position is within our client area
                     if (ClientRectangle.Contains(mousePt))
                     {
                         // Show the context menu

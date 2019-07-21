@@ -30,7 +30,7 @@ namespace ComponentFactory.Krypton.Toolkit
     [DesignerCategory("code")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
-    public abstract class VisualControlBase : Control, 
+    public abstract class VisualControlBase : Control,
                                               IKryptonDebug
     {
         #region Static Field
@@ -61,6 +61,13 @@ namespace ComponentFactory.Krypton.Toolkit
         [Category("Property Changed")]
         [Description("Occurs when the value of the Palette property is changed.")]
         public event EventHandler PaletteChanged;
+
+        /// <summary>
+        /// Occurs when the Global palette changes.
+        /// </summary>
+        [Category("Property Changed")]
+        [Description("Occurs when the value of the GlobalPalette property is changed.")]
+        public event EventHandler GlobalPaletteChanged;
         #endregion
 
         #region Identity
@@ -184,8 +191,8 @@ namespace ComponentFactory.Krypton.Toolkit
             [DebuggerStepThrough]
             get => base.ContextMenuStrip;
 
-            set 
-            { 
+            set
+            {
                 // Unhook from any current menu strip
                 if (base.ContextMenuStrip != null)
                 {
@@ -559,8 +566,8 @@ namespace ComponentFactory.Krypton.Toolkit
         public ViewManager ViewManager
         {
             [DebuggerStepThrough]
-             get;
-             protected set;
+            get;
+            protected set;
         }
 
         /// <summary>
@@ -731,7 +738,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Need to recalculate anything relying on the palette
             DirtyPaletteCounter++;
-            
+
             // A new palette source means we need to layout and redraw
             OnNeedPaint(Palette, new NeedLayoutEventArgs(true));
 
@@ -844,7 +851,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Need relayout to reflect change of layout
             OnNeedPaint(null, new NeedLayoutEventArgs(true));
-            
+
             base.OnRightToLeftChanged(e);
         }
 
@@ -895,9 +902,9 @@ namespace ComponentFactory.Krypton.Toolkit
                     if (_layoutDirty)
                     {
                         Size beforeSize = ClientSize;
-                        
+
                         PerformLayout();
-                        
+
                         // Did the layout cause a change in the size of the control?
                         if ((beforeSize.Width < ClientSize.Width) ||
                             (beforeSize.Height < ClientSize.Height))
@@ -932,7 +939,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Cannot process a message for a disposed control
             if (!IsDisposed && !Disposing)
             {
-                _toolTipManager.MouseEnter(ViewManager?.ActiveView??ViewManager?.Root, this);
+                _toolTipManager.MouseEnter(ViewManager?.ActiveView ?? ViewManager?.Root, this);
             }
 
             // Let base class fire events
@@ -948,7 +955,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Cannot process a message for a disposed control
             if (!IsDisposed && !Disposing)
             {
-                _toolTipManager.MouseMove(ViewManager?.ActiveView??ViewManager?.Root, this, e.Location);
+                _toolTipManager.MouseMove(ViewManager?.ActiveView ?? ViewManager?.Root, this, e.Location);
                 // Do we have a manager for processing mouse messages?
                 ViewManager?.MouseMove(e, e.Location);
             }
@@ -966,7 +973,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Cannot process a message for a disposed control
             if (!IsDisposed && !Disposing)
             {
-                _toolTipManager.MouseDown(ViewManager?.ActiveView??ViewManager?.Root, this, e.Location, e.Button);
+                _toolTipManager.MouseDown(ViewManager?.ActiveView ?? ViewManager?.Root, this, e.Location, e.Button);
                 // Do we have a manager for processing mouse messages?
                 ViewManager?.MouseDown(e, e.Location);
             }
@@ -984,7 +991,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Cannot process a message for a disposed control
             if (!IsDisposed && !Disposing)
             {
-                _toolTipManager.MouseUp(ViewManager?.ActiveView??ViewManager?.Root, this, e.Location, e.Button);
+                _toolTipManager.MouseUp(ViewManager?.ActiveView ?? ViewManager?.Root, this, e.Location, e.Button);
                 // Do we have a manager for processing mouse messages?
                 ViewManager?.MouseUp(e, e.Location);
             }
@@ -1022,7 +1029,7 @@ namespace ComponentFactory.Krypton.Toolkit
             if (!IsDisposed && !Disposing)
             {
                 Point location = PointToClient(MousePosition);
-                _toolTipManager.DoubleClick(ViewManager?.ActiveView??ViewManager?.Root, location);
+                _toolTipManager.DoubleClick(ViewManager?.ActiveView ?? ViewManager?.Root, location);
                 // Do we have a manager for processing mouse messages?
                 ViewManager?.DoubleClick(location);
             }
@@ -1139,6 +1146,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 // Must raise event to change palette in redirector
                 OnPaletteChanged(EventArgs.Empty);
+
+                GlobalPaletteChanged?.Invoke(sender, e);
             }
         }
 

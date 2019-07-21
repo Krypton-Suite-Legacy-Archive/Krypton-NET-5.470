@@ -9,7 +9,6 @@
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
-using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +16,8 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+
+using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -239,12 +240,12 @@ namespace ComponentFactory.Krypton.Toolkit
                         InternalGlobalPaletteMode = tempMode;
                         InternalGlobalPalette = tempPalette;
 
-                        throw new ArgumentOutOfRangeException(nameof(value), "Cannot use palette that would create a circular reference");
+                        throw new ArgumentOutOfRangeException(nameof(value), @"Cannot use palette that would create a circular reference");
                     }
                     else
                     {
-                        // Restore the original global pallete as 'SetPalette' will not 
-                        // work correctly unles it still has the old value in place
+                        // Restore the original global palette as 'SetPalette' will not 
+                        // work correctly unless it still has the old value in place
                         InternalGlobalPalette = tempPalette;
                     }
 
@@ -278,7 +279,7 @@ namespace ComponentFactory.Krypton.Toolkit
         }
 
         /// <summary>
-        /// Gets or sets a value indicating if the palette colors are applied to the toolstrips.
+        /// Gets or sets a value indicating if the palette colors are applied to the tool-strips.
         /// </summary>
         [Category("Visuals")]
         [Description("Should the palette colors be applied to the toolstrips.")]
@@ -803,7 +804,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             _paletteOffice365White?.UserPreferenceChanged();
 
-            
+
 
             UpdateToolStripManager();
         }
