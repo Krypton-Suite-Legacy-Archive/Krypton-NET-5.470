@@ -9,9 +9,9 @@
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {

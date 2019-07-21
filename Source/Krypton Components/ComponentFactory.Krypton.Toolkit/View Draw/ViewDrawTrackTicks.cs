@@ -10,8 +10,8 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
 using System.Diagnostics;
+using System.Drawing;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -77,7 +77,7 @@ namespace ComponentFactory.Krypton.Toolkit
             ClientRectangle = context.DisplayRectangle;
         }
         #endregion
-        
+
         #region Paint
         /// <summary>
         /// Perform rendering before child elements are rendered.
@@ -88,15 +88,15 @@ namespace ComponentFactory.Krypton.Toolkit
             IPaletteElementColor elementColors;
             if (Enabled)
             {
-                elementColors =_drawTrackBar.StateNormal.Tick;
+                elementColors = _drawTrackBar.StateNormal.Tick;
             }
             else
             {
                 elementColors = _drawTrackBar.StateDisabled.Tick;
             }
 
-            context.Renderer.RenderGlyph.DrawTrackTicksGlyph(context, State, elementColors, ClientRectangle, 
-                                                             _drawTrackBar.Orientation, _topRight, 
+            context.Renderer.RenderGlyph.DrawTrackTicksGlyph(context, State, elementColors, ClientRectangle,
+                                                             _drawTrackBar.Orientation, _topRight,
                                                              _drawTrackBar.PositionSize,
                                                              _drawTrackBar.Minimum,
                                                              _drawTrackBar.Maximum,

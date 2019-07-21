@@ -10,9 +10,9 @@
 // *****************************************************************************
 
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -107,7 +107,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region Layout
         /// <summary>
-        /// Find nearest value given the mouse postion within track area.
+        /// Find nearest value given the mouse position within track area.
         /// </summary>
         /// <param name="pt">Mouse position,</param>
         /// <returns>Nearest value.</returns>
