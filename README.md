@@ -22,6 +22,23 @@ You can check out the demos by clicking [here](https://www.somsubhra.com/github-
 
 =======
 
+## 2019-07-08 Build 1231 - New Feature, NuGet Modules & Bugfixes
+* Fixed [#198](https://github.com/Wagnerp/Krypton-NET-5.470/issues/198), DrawItem event for KryptonComboBox
+* Fixed [#199](https://github.com/Wagnerp/Krypton-NET-5.470/issues/199), NumericUpDowner needs to have the "DecimalPlaces" visible in the designer
+* Fixed [#200](https://github.com/Wagnerp/Krypton-NET-5.470/issues/200), NumberUpDowner should respect the use of decimal places and TrailingZeroes
+* Fixed [#203](https://github.com/Wagnerp/Krypton-NET-5.470/issues/203), KryptonCombobox does not have DrawMode and IntegralHeight properties 
+* New feature, implemented [#204](https://github.com/Wagnerp/Krypton-NET-5.470/issues/204), **KryptonMaskedTextBox** needs a hint property
+* NuGet modularisation. Starting with build 1231, 6 new NuGet packages will be uploaded/updated in addition to the current NuGet package. The names and contents of these packages will be as follows:-
+	- `KryptonToolkitSuite5470CoreModule` - Contains just the `Krypton Toolkit.dll` & `Krypton Toolkit.xml`
+	- `KryptonToolkitSuite5470DockingModule` - Contains just the `Krypton Docking.dll` & `Krypton Docking.xml`
+	- `KryptonToolkitSuite5470NavigatorModule` - Contains just the `Krypton Navigator.dll` & `Krypton Navigator.xml`
+	- `KryptonToolkitSuite5470RibbonModule` - Contains just the `Krypton Ribbon.dll` & `Krypton Ribbon.xml`
+	- `KryptonToolkitSuite5470WorkspaceModule` - Contains just the `Krypton Workspace.dll` & `Krypton Workspace.xml`
+* Updated `KryptonToolkitSuite5470` NuGet package license
+* Build 1231 (build date Monday 8th July, 2019) is now available on NuGet
+
+=======
+
 ## 2019-06-10 Build 1222 - Bugfixes
 * Fixed issue [#177](https://github.com/Wagnerp/Krypton-NET-5.470/issues/177), Control in Krypton Ribbon Properties binding is not working
 * Fixed issue [#191](https://github.com/Wagnerp/Krypton-NET-5.470/issues/191), KryptonContextMenu for KryptonDataGridView
