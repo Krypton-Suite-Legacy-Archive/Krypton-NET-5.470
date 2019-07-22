@@ -22,6 +22,15 @@ You can check out the demos by clicking [here](https://www.somsubhra.com/github-
 
 =======
 
+## 2019-07-22 Build 1251 - Bugfixes
+* Fixed [#207](https://github.com/Wagnerp/Krypton-NET-5.470/issues/207), KryptonTrackBar throws an unhandled exception when double clicking on small bar
+* Fixed [#208](https://github.com/Wagnerp/Krypton-NET-5.470/issues/208), Some event from (Panel probably) that allows forms to know when the GlobalTheme has changed
+* Fixed [#212](https://github.com/Wagnerp/Krypton-NET-5.470/issues/212), `KryptonContextMenu` not visibile in designer for GroupBox panel
+* Prevent crash when a form is disposed immediately during closing fix courtesy of [Julien Patte](https://github.com/jpatte)
+* Build 1251 (build date Monday 22nd July, 2019) is now available on NuGet
+
+=======
+
 ## 2019-07-08 Build 1231 - New Feature, NuGet Modules & Bugfixes
 * Fixed [#198](https://github.com/Wagnerp/Krypton-NET-5.470/issues/198), DrawItem event for KryptonComboBox
 * Fixed [#199](https://github.com/Wagnerp/Krypton-NET-5.470/issues/199), NumericUpDowner needs to have the "DecimalPlaces" visible in the designer
