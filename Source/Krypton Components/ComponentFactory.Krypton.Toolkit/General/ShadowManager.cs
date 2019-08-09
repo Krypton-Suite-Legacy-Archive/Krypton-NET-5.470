@@ -50,8 +50,8 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PI.WM_.WINDOWPOSCHANGED:
                     {
                         PI.WINDOWPOS structure = (PI.WINDOWPOS)Marshal.PtrToStructure(m.LParam, typeof(PI.WINDOWPOS));
-                        bool move = !structure.flags.HasFlag(PI.SWP_.NOSIZE| PI.SWP_.NOMOVE);
-                        PositionShadowForms(move );
+                        bool move = !structure.flags.HasFlag(PI.SWP_.NOSIZE | PI.SWP_.NOMOVE);
+                        PositionShadowForms(move);
                         if (!move)
                         {
                             ReCalcBrushes();
@@ -91,10 +91,13 @@ namespace ComponentFactory.Krypton.Toolkit
             _allowDrawing = false;
             FlashWindowExListener.FlashEvent -= OnFlashWindowExListenerOnFlashEvent;
 
-            foreach (VisualShadowBase shadowForm in _shadowForms)
+            if (_shadowForms != null)
             {
-                shadowForm.Visible = false;
-                shadowForm.Dispose();
+                foreach (VisualShadowBase shadowForm in _shadowForms)
+                {
+                    shadowForm.Visible = false;
+                    shadowForm.Dispose();
+                }
             }
 
         }
@@ -121,7 +124,7 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             if (!flashing)
             {
-                _parentForm.BeginInvoke((MethodInvoker) (() => PositionShadowForms(false)));
+                _parentForm.BeginInvoke((MethodInvoker)(() => PositionShadowForms(false)));
             }
         }
 
@@ -196,8 +199,8 @@ namespace ComponentFactory.Krypton.Toolkit
             int h = clientRectangle.Height + extraWidth * 2;
 
             float blur = (float)(_shadowValues.BlurDistance / 100.0 * Math.Abs(_shadowValues.ExtraWidth));
-            float solidW = clientRectangle.Width + blur*2;
-            float solidH = clientRectangle.Height + blur*2;
+            float solidW = clientRectangle.Width + blur * 2;
+            float solidH = clientRectangle.Height + blur * 2;
             float blurOffset = _shadowValues.ExtraWidth - blur;
             Bitmap bitmap = new Bitmap(w, h);
             bitmap.MakeTransparent();
@@ -243,7 +246,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         using (PathGradientBrush pgb = new PathGradientBrush(gp)
                         {
                             CenterColor = _shadowValues.Colour,
-                            SurroundColors = new[] {Color.Transparent},
+                            SurroundColors = new[] { Color.Transparent },
                             CenterPoint = new PointF(blurOffset, blurOffset)
                         })
                         {
@@ -340,7 +343,7 @@ namespace ComponentFactory.Krypton.Toolkit
     /// <summary>
     /// https://stackoverflow.com/questions/25681443/how-to-detect-if-window-is-flashing
     /// </summary>
-    internal static  class FlashWindowExListener
+    internal static class FlashWindowExListener
     {
         private static readonly Dictionary<IntPtr, Form> _forms = new Dictionary<IntPtr, Form>();
         private static readonly IntPtr _hHook;
