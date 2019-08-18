@@ -2,9 +2,19 @@
 
 =======
 
+| Module Name | Current Version | Github License | 
+|---|---|---|
+| <img src="https://img.shields.io/badge/Module-Core-orange.svg" /> | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470CoreModule) | ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) 
+| <img src="https://img.shields.io/badge/Module-Docking-orange.svg" /> | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470DockingModule) | ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) |
+| <img src="https://img.shields.io/badge/Module-Navigator-orange.svg" /> | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470NavigatorModule) | ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) |
+| <img src="https://img.shields.io/badge/Module-Ribbon-orange.svg" /> | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470RibbonModule) | ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) |
+| <img src="https://img.shields.io/badge/Module-Workspace-orange.svg" /> | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470WorkspaceModule) | ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) |
+
+<!--
 | NuGet | Current NuGet Version | NuGet Downloads | Github License | CodeFactor | CodeBeat |
 |---|---|---|---|---|---|
 | [![NuGet](https://img.shields.io/badge/NuGet-Krypton%20.NET%205.470-green.svg)](https://www.nuget.org/packages/KryptonToolkitSuite5470/) | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470.svg) | ![Nuget](https://img.shields.io/nuget/dt/KryptonToolkitSuite5470.svg?color=blue&label=NuGet%20Downloads) | ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) | [![CodeFactor](https://www.codefactor.io/repository/github/wagnerp/krypton-net-5.470/badge)](https://www.codefactor.io/repository/github/wagnerp/krypton-net-5.470) | [![codebeat badge](https://codebeat.co/badges/be12e17a-9c47-49c1-ac09-bbb733968e66)](https://codebeat.co/projects/github-com-wagnerp-krypton-net-5-470-master) |
+-->
 
 =======
 

@@ -34,6 +34,7 @@
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonMaskedTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
             this.kryptonNumericUpDown1 = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
             this.kcbBracketType = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.dudThemes = new System.Windows.Forms.DomainUpDown();
@@ -56,7 +57,6 @@
             this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.kryptonMaskedTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
@@ -114,8 +114,17 @@
             this.kryptonPanel2.Size = new System.Drawing.Size(800, 450);
             this.kryptonPanel2.TabIndex = 0;
             // 
+            // kryptonMaskedTextBox1
+            // 
+            this.kryptonMaskedTextBox1.Hint = "Testing a masked textbox hint";
+            this.kryptonMaskedTextBox1.Location = new System.Drawing.Point(222, 107);
+            this.kryptonMaskedTextBox1.Name = "kryptonMaskedTextBox1";
+            this.kryptonMaskedTextBox1.Size = new System.Drawing.Size(297, 23);
+            this.kryptonMaskedTextBox1.TabIndex = 1;
+            // 
             // kryptonNumericUpDown1
             // 
+            this.kryptonNumericUpDown1.AllowDecimals = true;
             this.kryptonNumericUpDown1.DecimalPlaces = 99;
             this.kryptonNumericUpDown1.Location = new System.Drawing.Point(365, 197);
             this.kryptonNumericUpDown1.Name = "kryptonNumericUpDown1";
@@ -126,6 +135,7 @@
             // 
             this.kcbBracketType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.kcbBracketType.DropDownWidth = 121;
+            this.kcbBracketType.IntegralHeight = false;
             this.kcbBracketType.Location = new System.Drawing.Point(526, 253);
             this.kcbBracketType.Name = "kcbBracketType";
             this.kcbBracketType.Size = new System.Drawing.Size(121, 21);
@@ -276,6 +286,7 @@
             // 
             this.kcmbThemeCollection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.kcmbThemeCollection.DropDownWidth = 305;
+            this.kcmbThemeCollection.IntegralHeight = false;
             this.kcmbThemeCollection.Location = new System.Drawing.Point(214, 21);
             this.kcmbThemeCollection.Name = "kcmbThemeCollection";
             this.kcmbThemeCollection.Size = new System.Drawing.Size(305, 21);
@@ -354,14 +365,6 @@
             this.buttonSpecAny1.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.SuperTip;
             this.buttonSpecAny1.ToolTipTitle = "Title";
             this.buttonSpecAny1.UniqueName = "8D0C7B51F6A946484D932C2A06451172";
-            // 
-            // kryptonMaskedTextBox1
-            // 
-            this.kryptonMaskedTextBox1.Hint = "Testing a masked textbox hint";
-            this.kryptonMaskedTextBox1.Location = new System.Drawing.Point(222, 107);
-            this.kryptonMaskedTextBox1.Name = "kryptonMaskedTextBox1";
-            this.kryptonMaskedTextBox1.Size = new System.Drawing.Size(297, 23);
-            this.kryptonMaskedTextBox1.TabIndex = 1;
             // 
             // Form1
             // 
