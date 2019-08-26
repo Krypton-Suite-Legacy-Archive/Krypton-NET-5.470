@@ -32,6 +32,11 @@ You can check out the demos by clicking [here](https://www.somsubhra.com/github-
 
 =======
 
+## 2019-08-26 Build 1254 - Bugfix
+* Fix exception when saving workspace state and a page has no tag (fix courtesy of [Julien Patte](https://github.com/jpatte))
+
+=======
+
 ## 2019-08-14 Build 1252 - Bugfix
 * Fixed `NullReferenceException` in `ShadowManager.KryptonFormOnClosing` courtesy of [dave-w-au](https://github.com/dave-w-au)
 * New `VSIX` templates installer obtainable from [here](https://marketplace.visualstudio.com/items?itemName=KryptonToolkitSuiteTemplates5470.Krypton5470Templates). Project templates and other supported versions will be available in the future
