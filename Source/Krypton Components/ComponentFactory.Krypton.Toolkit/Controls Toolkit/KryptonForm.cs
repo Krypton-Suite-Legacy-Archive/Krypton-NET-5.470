@@ -85,6 +85,8 @@ namespace ComponentFactory.Krypton.Toolkit
         private const int HT_CORNER = 8;
         // Drop shadow
         private const int CS_DROPSHADOW = 0x00020000;
+
+        private const int CP_NOCLOSE_BUTTON = 0x200;
         #endregion
 
         #region Instance Fields
@@ -111,6 +113,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private bool _firstCheckView;
         private bool _lastNotNormal;
         private bool _useDropShadow;
+        private bool _disableCloseButton;
         private StatusStrip _statusStrip;
         private Bitmap _cacheBitmap;
         private Icon _cacheIcon;
@@ -209,6 +212,8 @@ namespace ComponentFactory.Krypton.Toolkit
             AdministratorText = "Administrator";
 
             BracketType = BracketType.CURVEDBRACKET;
+
+            DisableCloseButton = false;
         }
 
         /// <summary>
@@ -391,6 +396,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 UpdateDropShadowDraw(_useDropShadow);
             }
         }
+
+        /// <summary>Gets or sets a value indicating whether [disable close button].</summary>
+        /// <value>
+        ///   <c>true</c> if [disable close button]; otherwise, <c>false</c>.</value>
+        [Category("Appearance"), Description("Disables the close button."), DefaultValue(false)]
+        public bool DisableCloseButton { get => _disableCloseButton; set { _disableCloseButton = value; UpdateDisableCloseButton(_disableCloseButton); } }
 
         /// <summary>
         /// Gets or sets the administrator text.
@@ -1652,6 +1663,25 @@ namespace ComponentFactory.Krypton.Toolkit
         }
         #endregion
 
+        #region Disable Close Button
+        public void UpdateDisableCloseButton(bool value)
+        {
+            if (value)
+            {
+                DisableCloseButtonMethod();
+            }
+
+            Invalidate();
+        }
+
+        private void DisableCloseButtonMethod()
+        {
+            GetCreateParams();
+
+            Invalidate();
+        }
+        #endregion
+
         #region Drop Shadow Methods
         /// <summary>
         /// Calls the method that draws the drop shadow around the form.
@@ -1704,6 +1734,11 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (UseDropShadow)
                 {
                     cp.ClassStyle |= CS_DROPSHADOW;
+                }
+
+                if (DisableCloseButton)
+                {
+                    cp.ClassStyle = cp.ClassStyle | CP_NOCLOSE_BUTTON;
                 }
 
                 return cp;
