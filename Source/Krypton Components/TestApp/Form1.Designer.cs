@@ -57,6 +57,7 @@
             this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.knumWindowRounding = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
@@ -89,6 +90,7 @@
             // 
             // kryptonPanel2
             // 
+            this.kryptonPanel2.Controls.Add(this.knumWindowRounding);
             this.kryptonPanel2.Controls.Add(this.kryptonMaskedTextBox1);
             this.kryptonPanel2.Controls.Add(this.kryptonNumericUpDown1);
             this.kryptonPanel2.Controls.Add(this.kcbBracketType);
@@ -216,7 +218,7 @@
             // 
             // kryptonNavigator1
             // 
-            this.kryptonNavigator1.Location = new System.Drawing.Point(600, 372);
+            this.kryptonNavigator1.Location = new System.Drawing.Point(580, 338);
             this.kryptonNavigator1.Name = "kryptonNavigator1";
             this.kryptonNavigator1.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
             this.kryptonPage1,
@@ -366,6 +368,24 @@
             this.buttonSpecAny1.ToolTipTitle = "Title";
             this.buttonSpecAny1.UniqueName = "8D0C7B51F6A946484D932C2A06451172";
             // 
+            // knumWindowRounding
+            // 
+            this.knumWindowRounding.Location = new System.Drawing.Point(580, 297);
+            this.knumWindowRounding.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.knumWindowRounding.Name = "knumWindowRounding";
+            this.knumWindowRounding.Size = new System.Drawing.Size(120, 22);
+            this.knumWindowRounding.TabIndex = 27;
+            this.knumWindowRounding.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.knumWindowRounding.ValueChanged += new System.EventHandler(this.knumWindowRounding_ValueChanged);
+            // 
             // Form1
             // 
             this.AdministratorText = "Test";
@@ -386,6 +406,9 @@
             this.ShadowValues.EnableShadows = true;
             this.ShadowValues.ExtraWidth = ((sbyte)(-2));
             this.ShadowValues.Opacity = 40D;
+            this.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.Form1_HelpRequested);
@@ -434,6 +457,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox kcbBracketType;
         private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown kryptonNumericUpDown1;
         private ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox kryptonMaskedTextBox1;
+        private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown knumWindowRounding;
     }
 }
 

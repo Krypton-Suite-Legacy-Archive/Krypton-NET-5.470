@@ -133,5 +133,10 @@ namespace TestApp
                 UpdateTitle(GetHasCurrentInstanceGotAdministrativeRights(), BracketType.NOBRACKET);
             }
         }
+
+        private void knumWindowRounding_ValueChanged(object sender, EventArgs e)
+        {
+            CornerRoundingRadius = (int)knumWindowRounding.Value;
+        }
     }
 }
