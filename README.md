@@ -26,6 +26,10 @@
 
 =======
 
+<a href="https://discord.gg/CRjF6fY" alt=""><img src="https://img.shields.io/static/v1?label=Discord&message=Join our server&color=7289DA" /></a>
+
+=======
+
 ## Demo Releases
 
 You can check out the demos by clicking [here](https://www.somsubhra.com/github-release-stats/?username=Wagnerp&repository=Krypton-NET-5.470)
