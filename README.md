@@ -36,6 +36,11 @@ You can check out the demos by clicking [here](https://www.somsubhra.com/github-
 
 =======
 
+## 2019-09-09 Discord community server
+* A new Discord community server has been set-up to discuss bugs, issues, new features etc. You can join by clicking the button above.
+
+=======
+
 ## 2019-08-26 Build 1254 - Bugfix
 * Fix exception when saving workspace state and a page has no tag (fix courtesy of [Julien Patte](https://github.com/jpatte))
 
