@@ -26,7 +26,7 @@
 
 =======
 
-<a href="https://discord.gg/CRjF6fY" alt=""><img src="https://img.shields.io/static/v1?label=Discord&message=Join our server&color=7289DA" /></a>
+<a href="https://discord.gg/CRjF6fY" alt=""><img src="https://img.shields.io/badge/Discord-Join%20our%20server-7289DA" /></a>
 
 =======
 
