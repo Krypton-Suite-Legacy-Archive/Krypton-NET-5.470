@@ -63,14 +63,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Krypton Navigator, Version=5.470.673.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Bin\Krypton Navigator.dll</HintPath>
-    </Reference>
-    <Reference Include="Krypton Toolkit, Version=5.470.872.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Bin\Krypton Toolkit.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -117,6 +109,14 @@
     <None Include="Resources\KR 32 x 32 Orange.png" />
     <None Include="Resources\Square Design 32 x 32 New Green.png" />
     <None Include="Resources\Square Design 64 x 64 New Green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="KryptonToolkitSuite5470CoreModule">
+      <Version>5.470.1254</Version>
+    </PackageReference>
+    <PackageReference Include="KryptonToolkitSuite5470NavigatorModule">
+      <Version>5.470.761</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
