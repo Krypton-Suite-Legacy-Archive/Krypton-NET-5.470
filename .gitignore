@@ -318,3 +318,4 @@ Installer Project Files/NSIS/Setup.exe
 Installer Project Files/NSIS/Krypton Toolkit Suite Demos Setup.exe
 *.config
 Source/Demos/NuGet Enabled/Krypton Explorer/MigrationBackup/3c7f6239/Krypton Explorer 2019/NuGetUpgradeLog.html
+*.dll

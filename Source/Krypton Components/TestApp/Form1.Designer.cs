@@ -34,6 +34,7 @@
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.knumWindowRounding = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
             this.kryptonMaskedTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
             this.kryptonNumericUpDown1 = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
             this.kcbBracketType = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
@@ -57,7 +58,6 @@
             this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.knumWindowRounding = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
@@ -115,6 +115,24 @@
             this.kryptonPanel2.Name = "kryptonPanel2";
             this.kryptonPanel2.Size = new System.Drawing.Size(800, 450);
             this.kryptonPanel2.TabIndex = 0;
+            // 
+            // knumWindowRounding
+            // 
+            this.knumWindowRounding.Location = new System.Drawing.Point(580, 297);
+            this.knumWindowRounding.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.knumWindowRounding.Name = "knumWindowRounding";
+            this.knumWindowRounding.Size = new System.Drawing.Size(120, 22);
+            this.knumWindowRounding.TabIndex = 27;
+            this.knumWindowRounding.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.knumWindowRounding.ValueChanged += new System.EventHandler(this.knumWindowRounding_ValueChanged);
             // 
             // kryptonMaskedTextBox1
             // 
@@ -368,24 +386,6 @@
             this.buttonSpecAny1.ToolTipTitle = "Title";
             this.buttonSpecAny1.UniqueName = "8D0C7B51F6A946484D932C2A06451172";
             // 
-            // knumWindowRounding
-            // 
-            this.knumWindowRounding.Location = new System.Drawing.Point(580, 297);
-            this.knumWindowRounding.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
-            this.knumWindowRounding.Name = "knumWindowRounding";
-            this.knumWindowRounding.Size = new System.Drawing.Size(120, 22);
-            this.knumWindowRounding.TabIndex = 27;
-            this.knumWindowRounding.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
-            this.knumWindowRounding.ValueChanged += new System.EventHandler(this.knumWindowRounding_ValueChanged);
-            // 
             // Form1
             // 
             this.AdministratorText = "Test";
@@ -397,7 +397,6 @@
             this.buttonSpecAny1});
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.kryptonPanel1);
-            this.DisableCloseButton = true;
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";

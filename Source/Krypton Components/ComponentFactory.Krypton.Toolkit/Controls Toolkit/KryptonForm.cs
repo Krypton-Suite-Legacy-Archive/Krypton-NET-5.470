@@ -214,7 +214,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             BracketType = BracketType.CURVEDBRACKET;
 
-            DisableCloseButton = false;
+            //DisableCloseButton = false;
 
             // Set the CornerRoundingRadius to '-1', default value
             CornerRoundingRadius = -1;
@@ -404,8 +404,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>Gets or sets a value indicating whether [disable close button].</summary>
         /// <value>
         ///   <c>true</c> if [disable close button]; otherwise, <c>false</c>.</value>
-        [Category("Appearance"), Description("Disables the close button."), DefaultValue(false)]
-        public bool DisableCloseButton { get => _disableCloseButton; set { _disableCloseButton = value; UpdateDisableCloseButton(_disableCloseButton); } }
+        //[Category("Appearance"), Description("Disables the close button."), DefaultValue(false)]
+        //public bool DisableCloseButton { get => _disableCloseButton; set { _disableCloseButton = value; UpdateDisableCloseButton(_disableCloseButton); } }
 
         /// <summary>
         /// Gets or sets the administrator text.
@@ -1760,10 +1760,10 @@ namespace ComponentFactory.Krypton.Toolkit
                     cp.ClassStyle |= CS_DROPSHADOW;
                 }
 
-                if (DisableCloseButton)
-                {
-                    cp.ClassStyle = cp.ClassStyle | CP_NOCLOSE_BUTTON;
-                }
+                //if (DisableCloseButton)
+                //{
+                //    cp.ClassStyle = cp.ClassStyle | CP_NOCLOSE_BUTTON;
+                //}
 
                 return cp;
             }

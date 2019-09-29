@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Topics>
-  <Topic id="65a00871-d26d-41ea-a9bd-8b07c0c1f592" visible="True" isDefault="true" isSelected="true" title="Welcome to the [TODO: Add project name]">
+  <Topic id="65a00871-d26d-41ea-a9bd-8b07c0c1f592" visible="True" isDefault="true" isSelected="true" title="Welcome to the Krypton Toolkit Suite Documentation">
     <HelpKeywords>
       <HelpKeyword index="K" term="Welcome" />
     </HelpKeywords>
