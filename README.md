@@ -36,10 +36,10 @@ You can check out the demos by clicking [here](https://www.somsubhra.com/github-
 
 =======
 
-<!--## 2019-09-29 Build 1300 - `KryptonForm` Corner Rounding
+## 2019-09-29 Build 1300 - `KryptonForm` Corner Rounding
 * Define the `CornerRoundingRadius` for `KryptonForm`
 
-=======-->
+=======
 
 ## 2019-09-09 Discord community server
 * A new Discord community server has been set-up to discuss bugs, issues, new features etc. You can join by clicking the button above.
