@@ -36,6 +36,11 @@ You can check out the demos by clicking [here](https://www.somsubhra.com/github-
 
 =======
 
+## 2019-10-06 Demos
+* Refreshed and updated demo installer
+
+=======
+
 ## 2019-09-29 Build 1300 - `KryptonForm` Corner Rounding
 * Define the `CornerRoundingRadius` for `KryptonForm`
 

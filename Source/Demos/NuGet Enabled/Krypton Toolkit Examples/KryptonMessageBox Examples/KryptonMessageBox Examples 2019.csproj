@@ -80,14 +80,8 @@
     <Content Include="Krypton.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Krypton Components\ComponentFactory.Krypton.Toolkit\ComponentFactory.Krypton.Toolkit 2019.csproj">
-      <Project>{96ecaecc-54f8-4aa5-8591-b443c2d9565f}</Project>
-      <Name>ComponentFactory.Krypton.Toolkit 2019</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="KryptonToolkitSuite5470CoreModule">
-      <Version>5.470.1254</Version>
+      <Version>5.470.1300</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -126,10 +126,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="KryptonToolkitSuite5470CoreModule">
-      <Version>5.470.1254</Version>
+      <Version>5.470.1300</Version>
     </PackageReference>
     <PackageReference Include="KryptonToolkitSuite5470RibbonModule">
-      <Version>5.470.815</Version>
+      <Version>5.470.826</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

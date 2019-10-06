@@ -9,15 +9,13 @@
 //  Version 4.7.0.0  www.ComponentFactory.com
 // *************************************************************************
 
+using ComponentFactory.Krypton.Toolkit;
+using KryptonExplorer.Properties;
 using System;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
-
-using ComponentFactory.Krypton.Toolkit;
-
-using KryptonExplorer.Properties;
 
 namespace KryptonExplorer
 {
@@ -881,7 +879,7 @@ namespace KryptonExplorer
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo($"{ Path.GetDirectoryName(Application.ExecutablePath) }\\Krypton Toolkit.dll");
+            FileVersionInfo dfvi = FileVersionInfo.GetVersionInfo($"{ Path.GetDirectoryName(Application.ExecutablePath) }\\Krypton Docking.dll"), nfvi = FileVersionInfo.GetVersionInfo($"{ Path.GetDirectoryName(Application.ExecutablePath) }\\Krypton Navigator.dll"), rfvi = FileVersionInfo.GetVersionInfo($"{ Path.GetDirectoryName(Application.ExecutablePath) }\\Krypton Ribbon.dll"), tfvi = FileVersionInfo.GetVersionInfo($"{ Path.GetDirectoryName(Application.ExecutablePath) }\\Krypton Toolkit.dll"), wfvi = FileVersionInfo.GetVersionInfo($"{ Path.GetDirectoryName(Application.ExecutablePath) }\\Krypton Workspace.dll");
 
             Settings settings = new Settings();
 
@@ -889,7 +887,19 @@ namespace KryptonExplorer
 
             kcmbTheme.Text = ThemeManager.ReturnPaletteModeManagerAsString(settings.Theme);
 
-            tslVersion.Text = $"Krypton Explorer Version: { _currentVersion.ToString() } - Toolkit Version: { fvi.FileVersion }";
+            tslVersion.Text = $"Krypton Explorer Version: { _currentVersion.ToString() }";
+
+            tslToolkitVersion.Text = $"Toolkit Version: { tfvi.FileVersion }";
+
+            klblDockingVersion.Text = $"Docking Version: { dfvi.FileVersion }";
+
+            klblNavigatorVersion.Text = $"Navigator Version: { nfvi.FileVersion }";
+
+            klblRibbonVersion.Text = $"Ribbon Version: { rfvi.FileVersion }";
+
+            klblToolkitVersion.Text = $"Toolkit Version: { tfvi.FileVersion }";
+
+            klblWorkspaceVersion.Text = $"Workspace Version: { wfvi.FileVersion }";
 
             ThemeManager.PropagateThemeSelector(kcmbTheme);
         }
@@ -933,6 +943,26 @@ namespace KryptonExplorer
         private void KbtnKryptonDemoApplicationPackage_Click(object sender, EventArgs e)
         {
             Process.Start("https://www.nuget.org/packages/KryptonToolkitSuite5470Demos/");
+        }
+
+        private void kbtnDashboard_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://wagnerp.github.io/Krypton-NET-Version-Dashboard/");
+        }
+
+        private void kbtnLaunchOnlineHelp_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://wagnerp.github.io/Krypton-NET-5.470/Help/Output/index.html");
+        }
+
+        private void kbtnChangelog_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://wagnerp.github.io/Krypton-NET-5.470/");
+        }
+
+        private void kbtnDiscord_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://discord.gg/CRjF6fY");
         }
     }
 }

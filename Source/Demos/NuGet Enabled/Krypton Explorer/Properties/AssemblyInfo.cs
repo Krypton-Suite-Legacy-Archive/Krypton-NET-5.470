@@ -15,9 +15,9 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security;
 
-[assembly: AssemblyVersion("5.470.6015.16")]
-[assembly: AssemblyFileVersion("5.470.6015.16")]
-[assembly: AssemblyInformationalVersion("17.470.6015.15")]
+[assembly: AssemblyVersion("5.470.6019.0")]
+[assembly: AssemblyFileVersion("5.470.6019.0")]
+[assembly: AssemblyInformationalVersion("17.470.6019.15")]
 [assembly: AssemblyCopyright("© Component Factory Pty Ltd 2012 - 2019. All rights reserved.")]
 [assembly: AssemblyProduct("Krypton Explorer")]
 [assembly: AssemblyDefaultAlias("KryptonExplorer.dll")]

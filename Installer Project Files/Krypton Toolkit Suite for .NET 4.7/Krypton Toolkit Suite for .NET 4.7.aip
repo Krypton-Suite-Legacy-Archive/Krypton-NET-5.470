@@ -31,10 +31,10 @@
     <ROW Property="AppLogoIcon" Value="applogoicon" MultiBuildValue="DefaultBuild:SquareDesign48x48.jpg" Type="1" MsiKey="AppLogoIcon"/>
     <ROW Property="CTRLS" Value="2"/>
     <ROW Property="Manufacturer" Value="Krypton Toolkt Suite Contributors"/>
-    <ROW Property="ProductCode" Value="2057:{17A584D7-33A2-4AD0-BAE4-C47F97A9ADB2} " Type="16"/>
+    <ROW Property="ProductCode" Value="2057:{14E0B99C-0806-462A-AF89-A89C1C89A2A4} " Type="16"/>
     <ROW Property="ProductLanguage" Value="2057"/>
     <ROW Property="ProductName" Value="Krypton Toolkit Suite for .NET 4.7"/>
-    <ROW Property="ProductVersion" Value="5.470.1254.0" Type="32" TargetFile="KryptonToolkit.dll"/>
+    <ROW Property="ProductVersion" Value="5.470.1300.0" Type="32" TargetFile="KryptonToolkit.dll"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="UpgradeCode" Value="{55DFC2E9-18CA-4B6B-82A3-B04196B4AB90}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -65,7 +65,7 @@
     <ROW Directory="WebLinks_Dir" Directory_Parent="APPDIR" DefaultDir="WebLinks"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
-    <ROW Component="AI_CustomARPName" ComponentId="{2F5AA5BF-C351-4176-9C4F-927EDAE45123}" Directory_="APPDIR" Attributes="4" KeyPath="DisplayName" Options="1"/>
+    <ROW Component="AI_CustomARPName" ComponentId="{351EC4E2-7126-4631-A994-20469E1C9E9F}" Directory_="APPDIR" Attributes="4" KeyPath="DisplayName" Options="1"/>
     <ROW Component="AI_ExePath" ComponentId="{00F2F496-B420-4507-B50B-50ACF75F663F}" Directory_="APPDIR" Attributes="4" KeyPath="AI_ExePath"/>
     <ROW Component="APPDIR" ComponentId="{E82140A8-89B4-4000-9F2B-CF8770B96C1C}" Directory_="APPDIR" Attributes="0"/>
     <ROW Component="AdvancedPageDragandDrop.exe" ComponentId="{4B8204B2-17B0-4FE0-BF4E-573A22840481}" Directory_="Examples_Dir" Attributes="0" KeyPath="AdvancedPageDragandDrop.exe"/>
@@ -74,6 +74,7 @@
     <ROW Component="AutoShrinkingGroups.exe" ComponentId="{85E9CA62-FB80-426D-B775-A5E695E1F124}" Directory_="Examples_Dir" Attributes="0" KeyPath="AutoShrinkingGroups.exe"/>
     <ROW Component="BasicEvents.exe" ComponentId="{69CA525F-CC36-4445-B1C7-D91EE5C17D10}" Directory_="Examples_Dir" Attributes="0" KeyPath="BasicEvents.exe"/>
     <ROW Component="BasicPageDragandDrop.exe" ComponentId="{67CAC349-83F6-4A4D-ACFE-D62F138EBEEC}" Directory_="Examples_Dir" Attributes="0" KeyPath="BasicPageDragandDrop.exe"/>
+    <ROW Component="Buildingfor64bitAMD64x64architectures.pdf" ComponentId="{9D9D2070-3D60-4A6F-A99F-5FDF75EBD019}" Directory_="PDBs_Dir" Attributes="0" KeyPath="Buildingfor64bitAMD64x64architectures.pdf" Type="0"/>
     <ROW Component="ButtonSpecPlayground.exe" ComponentId="{62D06B78-99C4-4090-8D77-13E277DE1489}" Directory_="Examples_Dir" Attributes="0" KeyPath="ButtonSpecPlayground.exe"/>
     <ROW Component="CellMaximizeandRestore.exe" ComponentId="{A1A8E116-99B3-47C3-A083-54720D3B0172}" Directory_="Examples_Dir" Attributes="0" KeyPath="CellMaximizeandRestore.exe"/>
     <ROW Component="CheckVersion.url" ComponentId="{4C92A482-6AE2-4587-B472-40468B8EE957}" Directory_="WebLinks_Dir" Attributes="0" KeyPath="CheckVersion.url" Type="0"/>
@@ -175,7 +176,6 @@
     <ROW Component="StandardDocking.exe" ComponentId="{A780409C-2270-4EBA-8D39-943F5FD81FE9}" Directory_="Examples_Dir" Attributes="0" KeyPath="StandardDocking.exe"/>
     <ROW Component="SystemThemedForms.exe" ComponentId="{FED043F5-1021-4D98-A99A-4B1546C1688C}" Directory_="Examples_Dir" Attributes="0" KeyPath="SystemThemedForms.exe"/>
     <ROW Component="TabBorderStyles.exe" ComponentId="{D336E029-D0AB-4B64-8EBC-1C7C2AB21533}" Directory_="Examples_Dir" Attributes="0" KeyPath="TabBorderStyles.exe"/>
-    <ROW Component="TestApp.exe" ComponentId="{2D364B23-6A9D-4BFD-9999-2707F30B16FA}" Directory_="Examples_Dir" Attributes="0" KeyPath="TestApp.exe"/>
     <ROW Component="TestClipBase.exe" ComponentId="{938FDA88-3AB4-4599-99D2-819F62006231}" Directory_="Examples_Dir" Attributes="0" KeyPath="TestClipBase.exe"/>
     <ROW Component="TestMessageBoxClipping.exe" ComponentId="{06845B7A-580D-4B93-9CD3-EDDC96E48ABB}" Directory_="Examples_Dir" Attributes="0" KeyPath="TestMessageBoxClipping.exe"/>
     <ROW Component="TestTextClipping.exe" ComponentId="{0FBD4513-DCA3-4FD0-B5F8-65F88317750B}" Directory_="Examples_Dir" Attributes="0" KeyPath="TestTextClipping.exe"/>
@@ -297,7 +297,6 @@
     <ROW File="TestClipBase.exe" Component_="TestClipBase.exe" FileName="TESTCL~1.EXE|Test Clip Base.exe" Attributes="0" SourcePath="P:\Development\Krypton Releases\5.470\Binaries\Examples\Test Clip Base.exe" SelfReg="false" DigSign="true"/>
     <ROW File="TestMessageBoxClipping.exe" Component_="TestMessageBoxClipping.exe" FileName="TESTME~1.EXE|Test MessageBox Clipping.exe" Attributes="0" SourcePath="P:\Development\Krypton Releases\5.470\Binaries\Examples\Test MessageBox Clipping.exe" SelfReg="false" DigSign="true"/>
     <ROW File="TestTextClipping.exe" Component_="TestTextClipping.exe" FileName="TESTTE~1.EXE|Test Text Clipping.exe" Attributes="0" SourcePath="P:\Development\Krypton Releases\5.470\Binaries\Examples\Test Text Clipping.exe" SelfReg="false" DigSign="true"/>
-    <ROW File="TestApp.exe" Component_="TestApp.exe" FileName="TestApp.exe" Attributes="0" SourcePath="P:\Development\Krypton Releases\5.470\Binaries\Examples\TestApp.exe" SelfReg="false" DigSign="true"/>
     <ROW File="ThreePaneApplicationBasic.exe" Component_="ThreePaneApplicationBasic.exe" FileName="THREEP~1.EXE|Three Pane Application Basic.exe" Attributes="0" SourcePath="P:\Development\Krypton Releases\5.470\Binaries\Examples\Three Pane Application Basic.exe" SelfReg="false" DigSign="true"/>
     <ROW File="ThreePaneApplicationExtended.exe" Component_="ThreePaneApplicationExtended.exe" FileName="THREEP~2.EXE|Three Pane Application Extended.exe" Attributes="0" SourcePath="P:\Development\Krypton Releases\5.470\Binaries\Examples\Three Pane Application Extended.exe" SelfReg="false" DigSign="true"/>
     <ROW File="UserPageCreation.exe" Component_="UserPageCreation.exe" FileName="USERPA~1.EXE|User Page Creation.exe" Attributes="0" SourcePath="P:\Development\Krypton Releases\5.470\Binaries\Examples\User Page Creation.exe" SelfReg="false" DigSign="true"/>
@@ -422,6 +421,9 @@
     <ROW File="KryptonToolkitSuite5.470NavigatorModule.url" Component_="KryptonToolkitSuite5.470CoreModule.url" FileName="KRYPTO~3.URL|Krypton Toolkit Suite 5.470 - Navigator Module.url" Attributes="0" SourcePath="P:\Development\Krypton Releases\5.470\WebLinks\NuGet\Krypton Toolkit Suite 5.470 - Navigator Module.url" SelfReg="false"/>
     <ROW File="KryptonToolkitSuite5.470RibbonModule.url" Component_="KryptonToolkitSuite5.470CoreModule.url" FileName="KRYPTO~4.URL|Krypton Toolkit Suite 5.470 - Ribbon Module.url" Attributes="0" SourcePath="P:\Development\Krypton Releases\5.470\WebLinks\NuGet\Krypton Toolkit Suite 5.470 - Ribbon Module.url" SelfReg="false"/>
     <ROW File="KryptonToolkitSuite5.470WorkspaceModule.url" Component_="KryptonToolkitSuite5.470CoreModule.url" FileName="KRYPTO~5.URL|Krypton Toolkit Suite 5.470 - Workspace Module.url" Attributes="0" SourcePath="P:\Development\Krypton Releases\5.470\WebLinks\NuGet\Krypton Toolkit Suite 5.470 - Workspace Module.url" SelfReg="false"/>
+    <ROW File="Buildingfor64bitAMD64x64architectures.pdf" Component_="Buildingfor64bitAMD64x64architectures.pdf" FileName="BUILDI~1.PDF|Building for 64-bit AMD64 - x64 architectures.pdf" Attributes="0" SourcePath="P:\Development\Krypton Releases\5.470\Binaries\PDBs\Building for 64-bit AMD64 - x64 architectures.pdf" SelfReg="false"/>
+    <ROW File="KryptonToolkitItemTemplatesInstaller.pdb" Component_="AdvancedPageDragandDrop.pdb" FileName="KRYPT~47.PDB|Krypton Toolkit Item Templates Installer.pdb" Attributes="0" SourcePath="P:\Development\Krypton Releases\5.470\Binaries\PDBs\Krypton Toolkit Item Templates Installer.pdb" SelfReg="false"/>
+    <ROW File="TemplateInstaller.pdb" Component_="AdvancedPageDragandDrop.pdb" FileName="TEMPLA~1.PDB|Template Installer.pdb" Attributes="0" SourcePath="P:\Development\Krypton Releases\5.470\Binaries\PDBs\Template Installer.pdb" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -707,7 +709,6 @@
     <ROW Feature_="MainFeature" Component_="StandardDocking.exe"/>
     <ROW Feature_="MainFeature" Component_="SystemThemedForms.exe"/>
     <ROW Feature_="MainFeature" Component_="TabBorderStyles.exe"/>
-    <ROW Feature_="MainFeature" Component_="TestApp.exe"/>
     <ROW Feature_="MainFeature" Component_="TestClipBase.exe"/>
     <ROW Feature_="MainFeature" Component_="TestMessageBoxClipping.exe"/>
     <ROW Feature_="MainFeature" Component_="TestTextClipping.exe"/>
@@ -720,6 +721,7 @@
     <ROW Feature_="MainFeature" Component_="APPDIR"/>
     <ROW Feature_="MainFeature" Component_="CheckVersion.url"/>
     <ROW Feature_="MainFeature" Component_="KryptonToolkitSuite5.470CoreModule.url"/>
+    <ROW Feature_="MainFeature" Component_="Buildingfor64bitAMD64x64architectures.pdf"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="KryptonExplorer.exe" SourcePath="P:\Development\Krypton Releases\5.470\Binaries\Examples\Krypton Explorer.exe" Index="0"/>
@@ -814,7 +816,6 @@
     <ROW Shortcut="KryptonExplorer.exe" Directory_="SHORTCUTDIR" Name="KRYPTO~1.EXE|Krypton Explorer.exe" Component_="KryptonExplorer.exe" Target="[#KryptonExplorer.exe]" Description="Krypton Explorer.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Examples_Dir"/>
     <ROW Shortcut="KryptonExplorer.exe_1" Directory_="DesktopFolder" Name="KRYPTO~1.EXE|Krypton Explorer.exe" Component_="KryptonExplorer.exe" Target="[#KryptonExplorer.exe]" Description="Krypton Explorer.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Examples_Dir"/>
     <ROW Shortcut="KryptonToolkitHelp" Directory_="SHORTCUTDIR" Name="KRYPTO~1|Krypton Toolkit Help" Component_="KryptonToolkitHelp.chm" Target="[#KryptonToolkitHelp.chm]" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Help_Dir"/>
-    <ROW Shortcut="NuGet" Directory_="WebLinks_Dir" Name="NuGet" Component_="CheckVersion.url" Target="[NuGet_1_Dir]" Description="All the NuGet Modules" Hotkey="0" IconIndex="0" ShowCmd="1"/>
     <ROW Shortcut="PaletteDesigner.exe" Directory_="SHORTCUTDIR" Name="PALETT~1.EXE|Palette Designer.exe" Component_="PaletteDesigner.exe" Target="[#PaletteDesigner.exe]" Description="Palette Designer.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Examples_Dir"/>
     <ROW Shortcut="PaletteDesigner.exe_1" Directory_="DesktopFolder" Name="PALETT~1.EXE|Palette Designer.exe" Component_="PaletteDesigner.exe" Target="[#PaletteDesigner.exe]" Description="Palette Designer.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Examples_Dir"/>
     <ROW Shortcut="PaletteUpgradeTool.exe" Directory_="SHORTCUTDIR" Name="PALETT~2.EXE|Palette Upgrade Tool.exe" Component_="PaletteUpgradeTool.exe" Target="[#PaletteUpgradeTool.exe]" Description="Palette Upgrade Tool.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Examples_Dir"/>

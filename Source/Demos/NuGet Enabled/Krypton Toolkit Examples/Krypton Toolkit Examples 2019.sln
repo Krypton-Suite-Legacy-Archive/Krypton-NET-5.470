@@ -101,8 +101,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KryptonTaskDialog Examples 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KryptonInputBox Examples 2019", "KryptonInputBox Examples\KryptonInputBox Examples 2019.csproj", "{16DA7141-9737-4A0A-8A3D-F53775657C29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentFactory.Krypton.Toolkit 2019", "..\Krypton Components\ComponentFactory.Krypton.Toolkit\ComponentFactory.Krypton.Toolkit 2019.csproj", "{96ECAECC-54F8-4AA5-8591-B443C2D9565F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -305,10 +303,6 @@ Global
 		{16DA7141-9737-4A0A-8A3D-F53775657C29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16DA7141-9737-4A0A-8A3D-F53775657C29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16DA7141-9737-4A0A-8A3D-F53775657C29}.Release|Any CPU.Build.0 = Release|Any CPU
-		{96ECAECC-54F8-4AA5-8591-B443C2D9565F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{96ECAECC-54F8-4AA5-8591-B443C2D9565F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{96ECAECC-54F8-4AA5-8591-B443C2D9565F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{96ECAECC-54F8-4AA5-8591-B443C2D9565F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
