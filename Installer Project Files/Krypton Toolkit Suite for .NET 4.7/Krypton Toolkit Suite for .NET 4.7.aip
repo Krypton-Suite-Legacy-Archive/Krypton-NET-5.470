@@ -814,12 +814,12 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
     <ROW Shortcut="KryptonExplorer.exe" Directory_="SHORTCUTDIR" Name="KRYPTO~1.EXE|Krypton Explorer.exe" Component_="KryptonExplorer.exe" Target="[#KryptonExplorer.exe]" Description="Krypton Explorer.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Examples_Dir"/>
-    <ROW Shortcut="KryptonExplorer.exe_1" Directory_="DesktopFolder" Name="KRYPTO~1.EXE|Krypton Explorer.exe" Component_="KryptonExplorer.exe" Target="[#KryptonExplorer.exe]" Description="Krypton Explorer.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Examples_Dir"/>
+    <ROW Shortcut="KryptonExplorer.exe_1" Directory_="DesktopFolder" Name="KRYPTO~1|Krypton Explorer" Component_="KryptonExplorer.exe" Target="[#KryptonExplorer.exe]" Description="Krypton Explorer.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Examples_Dir"/>
     <ROW Shortcut="KryptonToolkitHelp" Directory_="SHORTCUTDIR" Name="KRYPTO~1|Krypton Toolkit Help" Component_="KryptonToolkitHelp.chm" Target="[#KryptonToolkitHelp.chm]" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Help_Dir"/>
     <ROW Shortcut="PaletteDesigner.exe" Directory_="SHORTCUTDIR" Name="PALETT~1.EXE|Palette Designer.exe" Component_="PaletteDesigner.exe" Target="[#PaletteDesigner.exe]" Description="Palette Designer.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Examples_Dir"/>
-    <ROW Shortcut="PaletteDesigner.exe_1" Directory_="DesktopFolder" Name="PALETT~1.EXE|Palette Designer.exe" Component_="PaletteDesigner.exe" Target="[#PaletteDesigner.exe]" Description="Palette Designer.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Examples_Dir"/>
+    <ROW Shortcut="PaletteDesigner.exe_1" Directory_="DesktopFolder" Name="PALETT~1|Palette Designer" Component_="PaletteDesigner.exe" Target="[#PaletteDesigner.exe]" Description="Palette Designer.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Examples_Dir"/>
     <ROW Shortcut="PaletteUpgradeTool.exe" Directory_="SHORTCUTDIR" Name="PALETT~2.EXE|Palette Upgrade Tool.exe" Component_="PaletteUpgradeTool.exe" Target="[#PaletteUpgradeTool.exe]" Description="Palette Upgrade Tool.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Examples_Dir"/>
-    <ROW Shortcut="PaletteUpgradeTool.exe_1" Directory_="DesktopFolder" Name="PALETT~2.EXE|Palette Upgrade Tool.exe" Component_="PaletteUpgradeTool.exe" Target="[#PaletteUpgradeTool.exe]" Description="Palette Upgrade Tool.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Examples_Dir"/>
+    <ROW Shortcut="PaletteUpgradeTool.exe_1" Directory_="DesktopFolder" Name="PALETT~2|Palette Upgrade Tool" Component_="PaletteUpgradeTool.exe" Target="[#PaletteUpgradeTool.exe]" Description="Palette Upgrade Tool.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Examples_Dir"/>
     <ROW Shortcut="Uninstall" Directory_="SHORTCUTDIR" Name="UNINST~1|Uninstall" Component_="License.rtf" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Hotkey="0" Icon_="SystemFoldermsiexec.exe" IconIndex="0" ShowCmd="1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
