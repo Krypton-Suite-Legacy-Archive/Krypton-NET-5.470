@@ -1,3 +1,5 @@
+using PaletteDesigner.UserControls;
+
 namespace PaletteDesigner
 {
     partial class MainForm
@@ -384,7 +386,7 @@ namespace PaletteDesigner
             this.kryptonLabel9 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel8 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonHeaderGroupProperties = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
-            this.labelGridNormal = new System.Windows.Forms.PropertyGrid();
+            this.labelGridNormal = new KryptonPropertyGrid();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -5412,7 +5414,7 @@ namespace PaletteDesigner
         private System.Windows.Forms.ToolStripMenuItem menuSaveAs;
         private System.Windows.Forms.ToolStripSeparator menuSep2;
         private System.Windows.Forms.ToolStripMenuItem menuExit;
-        private System.Windows.Forms.PropertyGrid labelGridNormal;
+        private KryptonPropertyGrid labelGridNormal;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel borderDesignControls;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel borderDesignButtons;
         private ComponentFactory.Krypton.Toolkit.KryptonCheckButton buttonCheckedPressed;

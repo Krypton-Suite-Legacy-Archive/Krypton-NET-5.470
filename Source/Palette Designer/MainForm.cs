@@ -1001,8 +1001,6 @@ namespace PaletteDesigner
             }
 
             _palette.Import(fileName);
-
-            //OpenFile(fileName);
         }
 
         private void MyOwnRecentPaletteFilesGotCleared_Handler(object sender, EventArgs e)
