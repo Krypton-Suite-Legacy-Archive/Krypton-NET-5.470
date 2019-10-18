@@ -86,6 +86,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\MostRecentlyUsedDocumentsManager.cs" />
     <Compile Include="Components\KryptonPropertyGrid.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -198,6 +199,7 @@
       <Version>5.470.826</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(TargetDir)*.*" "$(ProjectDir)..\..\Binaries\" /D /R /Y /S</PostBuildEvent>
