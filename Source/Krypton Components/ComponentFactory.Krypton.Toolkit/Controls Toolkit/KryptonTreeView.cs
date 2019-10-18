@@ -1762,6 +1762,13 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected override Size DefaultSize => new Size(120, 96);
 
+        protected override void CreateHandle()
+        {
+            base.CreateHandle();
+
+            SetWindowTheme(Handle, "DarkMode_Explorer", null);
+        }
+
         //protected override onh
         #endregion
 

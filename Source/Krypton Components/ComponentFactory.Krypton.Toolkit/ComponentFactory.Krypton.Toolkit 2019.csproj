@@ -380,6 +380,7 @@
     <Compile Include="Palette Builtin\PaletteVisualStudio2019Base.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Palette Component\KryptonPalettePropertyGrid.cs" />
     <Compile Include="Palette Controls\KryptonColorTable2013.cs" />
     <Compile Include="Palette Controls\KryptonColorTable365.cs" />
     <Compile Include="Palette Controls\KryptonColorTableOffice365.cs" />
@@ -1403,7 +1404,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_StartDate="2000/1/1" DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" />
+      <UserProperties DocumentXCommentEditorState="&lt;HtmlEditState&gt;&#xA;  &lt;Attributes /&gt;&#xA;&lt;/HtmlEditState&gt;" BuildVersion_StartDate="2000/1/1" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

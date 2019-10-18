@@ -29,11 +29,38 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node0");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node2");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node3");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Node4");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Node5");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Node1", new System.Windows.Forms.TreeNode[] {
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Node7");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Node8");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Node9");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Node6", new System.Windows.Forms.TreeNode[] {
+            treeNode7,
+            treeNode8,
+            treeNode9});
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Node11");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Node12");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Node13");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Node14");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Node10", new System.Windows.Forms.TreeNode[] {
+            treeNode11,
+            treeNode12,
+            treeNode13,
+            treeNode14});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonTreeView1 = new ComponentFactory.Krypton.Toolkit.KryptonTreeView();
             this.knumWindowRounding = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
             this.kryptonMaskedTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
             this.kryptonNumericUpDown1 = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
@@ -90,6 +117,7 @@
             // 
             // kryptonPanel2
             // 
+            this.kryptonPanel2.Controls.Add(this.kryptonTreeView1);
             this.kryptonPanel2.Controls.Add(this.knumWindowRounding);
             this.kryptonPanel2.Controls.Add(this.kryptonMaskedTextBox1);
             this.kryptonPanel2.Controls.Add(this.kryptonNumericUpDown1);
@@ -115,6 +143,48 @@
             this.kryptonPanel2.Name = "kryptonPanel2";
             this.kryptonPanel2.Size = new System.Drawing.Size(800, 450);
             this.kryptonPanel2.TabIndex = 0;
+            // 
+            // kryptonTreeView1
+            // 
+            this.kryptonTreeView1.Location = new System.Drawing.Point(365, 253);
+            this.kryptonTreeView1.Name = "kryptonTreeView1";
+            treeNode1.Name = "Node0";
+            treeNode1.Text = "Node0";
+            treeNode2.Name = "Node2";
+            treeNode2.Text = "Node2";
+            treeNode3.Name = "Node3";
+            treeNode3.Text = "Node3";
+            treeNode4.Name = "Node4";
+            treeNode4.Text = "Node4";
+            treeNode5.Name = "Node5";
+            treeNode5.Text = "Node5";
+            treeNode6.Name = "Node1";
+            treeNode6.Text = "Node1";
+            treeNode7.Name = "Node7";
+            treeNode7.Text = "Node7";
+            treeNode8.Name = "Node8";
+            treeNode8.Text = "Node8";
+            treeNode9.Name = "Node9";
+            treeNode9.Text = "Node9";
+            treeNode10.Name = "Node6";
+            treeNode10.Text = "Node6";
+            treeNode11.Name = "Node11";
+            treeNode11.Text = "Node11";
+            treeNode12.Name = "Node12";
+            treeNode12.Text = "Node12";
+            treeNode13.Name = "Node13";
+            treeNode13.Text = "Node13";
+            treeNode14.Name = "Node14";
+            treeNode14.Text = "Node14";
+            treeNode15.Name = "Node10";
+            treeNode15.Text = "Node10";
+            this.kryptonTreeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode6,
+            treeNode10,
+            treeNode15});
+            this.kryptonTreeView1.Size = new System.Drawing.Size(120, 119);
+            this.kryptonTreeView1.TabIndex = 29;
             // 
             // knumWindowRounding
             // 
@@ -457,6 +527,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown kryptonNumericUpDown1;
         private ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox kryptonMaskedTextBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown knumWindowRounding;
+        private ComponentFactory.Krypton.Toolkit.KryptonTreeView kryptonTreeView1;
     }
 }
 
