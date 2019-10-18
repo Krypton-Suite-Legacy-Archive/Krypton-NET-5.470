@@ -723,6 +723,9 @@
     <ROW Feature_="MainFeature" Component_="KryptonToolkitSuite5.470CoreModule.url"/>
     <ROW Feature_="MainFeature" Component_="Buildingfor64bitAMD64x64architectures.pdf"/>
   </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFileHashComponent">
+    <ATTRIBUTE name="HashFiles" value="1"/>
+  </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="KryptonExplorer.exe" SourcePath="P:\Development\Krypton Releases\5.470\Binaries\Examples\Krypton Explorer.exe" Index="0"/>
     <ROW Name="SystemFoldermsiexec.exe" SourcePath="&lt;AI_RES&gt;uninstall.ico" Index="0"/>

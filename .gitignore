@@ -321,3 +321,5 @@ Source/Demos/NuGet Enabled/Krypton Explorer/MigrationBackup/3c7f6239/Krypton Exp
 *.dll
 *.pdb
 *.exe
+Installer Project Files/Krypton Toolkit Suite for .NET 4.7/Krypton Toolkit Suite for .NET 4.7-cache/part2/Krypton Toolkit Suite for .NET 4.71.cab
+Installer Project Files/Krypton Toolkit Suite for .NET 4.7/Krypton Toolkit Suite for .NET 4.7-cache/part2/output-info.ini
