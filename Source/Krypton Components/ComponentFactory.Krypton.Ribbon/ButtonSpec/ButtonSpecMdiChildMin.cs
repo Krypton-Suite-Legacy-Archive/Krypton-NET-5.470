@@ -48,7 +48,7 @@ namespace ComponentFactory.Krypton.Ribbon
         {
             // Cannot be seen if not attached to an mdi child window and cannot be seen
             // if the window is not maximized and so needing the pendant buttons
-            if ((MdiChild == null) || !CommonHelper.IsFormMaximized(MdiChild))
+            if (MdiChild == null || MdiChild.IsDisposed || !MdiChild.IsHandleCreated || MdiChild.Disposing || !CommonHelper.IsFormMaximized(MdiChild))
             {
                 return false;
             }
@@ -79,7 +79,7 @@ namespace ComponentFactory.Krypton.Ribbon
         public override ButtonEnabled GetEnabled(IPalette palette)
         {
             // Cannot be enabled if not attached to an mdi child window
-            if (MdiChild == null)
+            if (MdiChild == null || MdiChild.IsDisposed || !MdiChild.IsHandleCreated || MdiChild.Disposing)
             {
                 return ButtonEnabled.False;
             }
