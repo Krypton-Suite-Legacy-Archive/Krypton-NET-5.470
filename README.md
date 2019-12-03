@@ -36,6 +36,11 @@ You can check out the demos by clicking [here](https://www.somsubhra.com/github-
 
 =======
 
+## 2019-12-03 Build 2000
+* Fix [#242](https://github.com/Wagnerp/Krypton-NET-5.470/issues/242) race condition. Fix courtesy of [tbolon](https://github.com/tbolon)
+
+=======
+
 ## 2019-10-06 Demos
 * Refreshed and updated demo installer
 
