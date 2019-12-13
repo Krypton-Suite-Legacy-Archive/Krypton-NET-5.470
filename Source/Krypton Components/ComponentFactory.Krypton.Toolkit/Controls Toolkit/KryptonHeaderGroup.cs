@@ -161,7 +161,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 RemoveChildBorders = true
             };
 
-            // Create the element that fills the remainder space and remembers fill rectange
+            // Create the element that fills the remainder space and remembers fill rectangle
             _layoutFill = new ViewLayoutFill(Panel);
 
             // Add headers into the docker with initial dock edges defined
@@ -685,7 +685,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Do we have a manager to ask for a preferred size?
             if (ViewManager != null)
             {
-                // Ask the view to peform a layout
+                // Ask the view to perform a layout
                 Size retSize = ViewManager.GetPreferredSize(Renderer, proposedSize);
 
                 // Apply the maximum sizing
@@ -804,7 +804,7 @@ namespace ComponentFactory.Krypton.Toolkit
         protected void ForceControlLayout()
         {
             // Usually the layout will not occur if currently initializing but
-            // we need to force the layout processing because overwise the size
+            // we need to force the layout processing because otherwise the size
             // of the panel controls will not have been calculated when controls
             // are added to the panels. That would then cause problems with
             // anchor controls as they would then resize incorrectly.
@@ -874,7 +874,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // are not added correctly when inside a TabControl. Bonkers but true.
             if (!_ignoreLayout)
             {
-                // Let base class calulcate fill rectangle
+                // Let base class calculate fill rectangle
                 base.OnLayout(levent);
 
                 // Only use layout logic if control is fully initialized or if being forced
@@ -897,7 +897,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Processes a mnemonic character.
         /// </summary>
         /// <param name="charCode">The mnemonic character entered.</param>
-        /// <returns>true if the mnemonic was processsed; otherwise, false.</returns>
+        /// <returns>true if the mnemonic was processed; otherwise, false.</returns>
         protected override bool ProcessMnemonic(char charCode)
         {
             // If the button manager wants to process mnemonic characters and
