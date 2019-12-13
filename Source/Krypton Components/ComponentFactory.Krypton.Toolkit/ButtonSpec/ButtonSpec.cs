@@ -10,22 +10,24 @@
 // *****************************************************************************
 
 using System;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Windows.Forms;
-using System.ComponentModel;
-using System.Diagnostics;
+// ReSharper disable MemberCanBeInternal
+// ReSharper disable MemberCanBeProtected.Global
 
 namespace ComponentFactory.Krypton.Toolkit
 {
     /// <summary>
-    /// Specifition for a button.
+    /// Specification for a button.
     /// </summary>
     [ToolboxItem(false)]
     [DesignTimeVisible(false)]
     [ToolboxBitmap(typeof(ButtonSpec), "ToolboxBitmaps.KryptonButtonSpec.bmp")]
-    [DefaultEvent("Click")]
-    [DefaultProperty("Style")]
+    [DefaultEvent(@"Click")]
+    [DefaultProperty(@"Style")]
     public abstract class ButtonSpec : Component,
                                        IButtonSpecValues,
                                        ICloneable
@@ -52,7 +54,7 @@ namespace ComponentFactory.Krypton.Toolkit
         private readonly CheckButtonImageStates _imageStates;
 
         #endregion
-        
+
         #region Events
         /// <summary>
         /// Occurs whenever a button specification property has changed.
@@ -188,7 +190,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_image != value)
                 {
                     _image = value;
-                    OnButtonSpecPropertyChanged("Image");
+                    OnButtonSpecPropertyChanged(@"Image");
                 }
             }
         }
@@ -224,7 +226,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_imageTransparentColor != value)
                 {
                     _imageTransparentColor = value;
-                    OnButtonSpecPropertyChanged("ImageTransparentColor");
+                    OnButtonSpecPropertyChanged(@"ImageTransparentColor");
                 }
             }
         }
@@ -275,7 +277,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_text != value)
                 {
                     _text = value;
-                    OnButtonSpecPropertyChanged("Text");
+                    OnButtonSpecPropertyChanged(@"Text");
                 }
             }
         }
@@ -311,7 +313,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_extraText != value)
                 {
                     _extraText = value;
-                    OnButtonSpecPropertyChanged("ExtraText");
+                    OnButtonSpecPropertyChanged(@"ExtraText");
                 }
             }
         }
@@ -347,7 +349,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_toolTipImage != value)
                 {
                     _toolTipImage = value;
-                    OnButtonSpecPropertyChanged("ToolTipImage");
+                    OnButtonSpecPropertyChanged(@"ToolTipImage");
                 }
             }
         }
@@ -383,7 +385,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_toolTipImageTransparentColor != value)
                 {
                     _toolTipImageTransparentColor = value;
-                    OnButtonSpecPropertyChanged("ToolTipImageTransparentColor");
+                    OnButtonSpecPropertyChanged(@"ToolTipImageTransparentColor");
                 }
             }
         }
@@ -420,7 +422,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_toolTipTitle != value)
                 {
                     _toolTipTitle = value;
-                    OnButtonSpecPropertyChanged("ToolTipTitle");
+                    OnButtonSpecPropertyChanged(@"ToolTipTitle");
                 }
             }
         }
@@ -457,7 +459,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_toolTipBody != value)
                 {
                     _toolTipBody = value;
-                    OnButtonSpecPropertyChanged("ToolTipBody");
+                    OnButtonSpecPropertyChanged(@"ToolTipBody");
                 }
             }
         }
@@ -533,7 +535,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_allowInheritImage != value)
                 {
                     _allowInheritImage = value;
-                    OnButtonSpecPropertyChanged("Image");
+                    OnButtonSpecPropertyChanged(@"Image");
                 }
             }
         }
@@ -564,7 +566,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_allowInheritText != value)
                 {
                     _allowInheritText = value;
-                    OnButtonSpecPropertyChanged("Text");
+                    OnButtonSpecPropertyChanged(@"Text");
                 }
             }
         }
@@ -595,7 +597,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_allowInheritExtraText != value)
                 {
                     _allowInheritExtraText = value;
-                    OnButtonSpecPropertyChanged("ExtraText");
+                    OnButtonSpecPropertyChanged(@"ExtraText");
                 }
             }
         }
@@ -626,7 +628,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_allowInheritToolTipTitle != value)
                 {
                     _allowInheritToolTipTitle = value;
-                    OnButtonSpecPropertyChanged("ToolTipTitle");
+                    OnButtonSpecPropertyChanged(@"ToolTipTitle");
                 }
             }
         }
@@ -667,7 +669,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_colorMap != value)
                 {
                     _colorMap = value;
-                    OnButtonSpecPropertyChanged("ColorMap");
+                    OnButtonSpecPropertyChanged(@"ColorMap");
                 }
             }
         }
@@ -703,7 +705,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_style != value)
                 {
                     _style = value;
-                    OnButtonSpecPropertyChanged("Style");
+                    OnButtonSpecPropertyChanged(@"Style");
                 }
             }
         }
@@ -739,7 +741,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_orientation != value)
                 {
                     _orientation = value;
-                    OnButtonSpecPropertyChanged("Orientation");
+                    OnButtonSpecPropertyChanged(@"Orientation");
                 }
             }
         }
@@ -775,7 +777,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_edge != value)
                 {
                     _edge = value;
-                    OnButtonSpecPropertyChanged("Edge");
+                    OnButtonSpecPropertyChanged(@"Edge");
                 }
             }
         }
@@ -874,7 +876,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region CopyFrom
         /// <summary>
-        /// Value copy from the provided source to ourself.
+        /// Value copy from the provided source to self.
         /// </summary>
         /// <param name="source">Source instance.</param>
         public virtual void CopyFrom(ButtonSpec source)
@@ -1072,7 +1074,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 Style != PaletteButtonStyle.Inherit ? Style : palette.GetButtonSpecStyle(ProtectedType));
 
         /// <summary>
-        /// Gets the button orienation.
+        /// Gets the button orientation.
         /// </summary>
         /// <param name="palette">Palette to use for inheriting values.</param>
         /// <returns>Button orientation.</returns>
@@ -1127,7 +1129,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets the button visible value.
         /// </summary>
         /// <param name="palette">Palette to use for inheriting values.</param>
-        /// <returns>Button visibiliy.</returns>
+        /// <returns>Button visibility.</returns>
         public abstract bool GetVisible(IPalette palette);
 
         /// <summary>
@@ -1185,17 +1187,11 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             switch (e.PropertyName)
             {
-                case "Text":
-                    OnButtonSpecPropertyChanged("Text");
-                    break;
-                case "ExtraText":
-                    OnButtonSpecPropertyChanged("ExtraText");
-                    break;
-                case "ImageSmall":
-                    OnButtonSpecPropertyChanged("Image");
-                    break;
-                case "ImageTransparentColor":
-                    OnButtonSpecPropertyChanged("ImageTransparentColor");
+                case @"Text":
+                case @"ExtraText":
+                case @"ImageSmall":
+                case @"ImageTransparentColor":
+                    OnButtonSpecPropertyChanged(e.PropertyName);
                     break;
             }
         }
@@ -1305,7 +1301,7 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Implementation
         private void OnImageStateChanged(object sender, NeedLayoutEventArgs e)
         {
-            OnButtonSpecPropertyChanged("Image");
+            OnButtonSpecPropertyChanged(@"Image");
         }
         #endregion
     }

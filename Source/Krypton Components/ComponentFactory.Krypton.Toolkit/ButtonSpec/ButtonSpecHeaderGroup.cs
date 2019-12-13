@@ -37,7 +37,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets a value indicating if all values are default.
         /// </summary>
         [Browsable(false)]
-        public override bool IsDefault => (base.IsDefault && 
+        public override bool IsDefault => (base.IsDefault &&
                                            (HeaderLocation == HeaderLocation.PrimaryHeader));
 
         #endregion
@@ -60,7 +60,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_location != value)
                 {
                     _location = value;
-                    OnButtonSpecPropertyChanged("Location");
+                    OnButtonSpecPropertyChanged(@"Location");
                 }
             }
         }
@@ -76,7 +76,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #region CopyFrom
         /// <summary>
-        /// Value copy form the provided source to ourself.
+        /// Value copy form the provided source to our self.
         /// </summary>
         /// <param name="source">Source instance.</param>
         public void CopyFrom(ButtonSpecHeaderGroup source)
