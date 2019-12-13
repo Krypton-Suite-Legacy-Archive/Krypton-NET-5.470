@@ -2,9 +2,19 @@
 
 =======
 
+| Module Name | Current Version | Github License | 
+|---|---|---|
+| <img src="https://img.shields.io/badge/Module-Core-orange.svg" /> | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470CoreModule) | ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) 
+| <img src="https://img.shields.io/badge/Module-Docking-orange.svg" /> | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470DockingModule) | ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) |
+| <img src="https://img.shields.io/badge/Module-Navigator-orange.svg" /> | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470NavigatorModule) | ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) |
+| <img src="https://img.shields.io/badge/Module-Ribbon-orange.svg" /> | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470RibbonModule) | ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) |
+| <img src="https://img.shields.io/badge/Module-Workspace-orange.svg" /> | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470WorkspaceModule) | ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) |
+
+<!--
 | NuGet | Current NuGet Version | NuGet Downloads | Github License | CodeFactor | CodeBeat |
 |---|---|---|---|---|---|
 | [![NuGet](https://img.shields.io/badge/NuGet-Krypton%20.NET%205.470-green.svg)](https://www.nuget.org/packages/KryptonToolkitSuite5470/) | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470.svg) | ![Nuget](https://img.shields.io/nuget/dt/KryptonToolkitSuite5470.svg?color=blue&label=NuGet%20Downloads) | ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) | [![CodeFactor](https://www.codefactor.io/repository/github/wagnerp/krypton-net-5.470/badge)](https://www.codefactor.io/repository/github/wagnerp/krypton-net-5.470) | [![codebeat badge](https://codebeat.co/badges/be12e17a-9c47-49c1-ac09-bbb733968e66)](https://codebeat.co/projects/github-com-wagnerp-krypton-net-5-470-master) |
+-->
 
 =======
 
@@ -16,9 +26,53 @@
 
 =======
 
+<a href="https://discord.gg/CRjF6fY" alt="Join our Krypton Toolkit community Discord server"><img src="https://img.shields.io/badge/Discord-Join%20our%20server-7289DA" /></a>
+
+=======
+
 ## Demo Releases
 
 You can check out the demos by clicking [here](https://www.somsubhra.com/github-release-stats/?username=Wagnerp&repository=Krypton-NET-5.470)
+
+=======
+
+## 2019-12-03 Build 2000
+* Fix [#242](https://github.com/Wagnerp/Krypton-NET-5.470/issues/242) race condition. Fix courtesy of [tbolon](https://github.com/tbolon)
+
+=======
+
+## 2019-10-06 Demos
+* Refreshed and updated demo installer
+
+=======
+
+## 2019-09-29 Build 1300 - `KryptonForm` Corner Rounding
+* Define the `CornerRoundingRadius` for `KryptonForm`
+
+=======
+
+## 2019-09-09 Discord community server
+* A new Discord community server has been set-up to discuss bugs, issues, new features etc. You can join by clicking the button above.
+
+=======
+
+## 2019-08-26 Build 1254 - Bugfix
+* Fix exception when saving workspace state and a page has no tag (fix courtesy of [Julien Patte](https://github.com/jpatte))
+
+=======
+
+## 2019-08-14 Build 1252 - Bugfix
+* Fixed `NullReferenceException` in `ShadowManager.KryptonFormOnClosing` courtesy of [dave-w-au](https://github.com/dave-w-au)
+* New `VSIX` templates installer obtainable from [here](https://marketplace.visualstudio.com/items?itemName=KryptonToolkitSuiteTemplates5470.Krypton5470Templates). Project templates and other supported versions will be available in the future
+
+=======
+
+## 2019-07-22 Build 1251 - Bugfixes
+* Fixed [#207](https://github.com/Wagnerp/Krypton-NET-5.470/issues/207), KryptonTrackBar throws an unhandled exception when double clicking on small bar
+* Fixed [#208](https://github.com/Wagnerp/Krypton-NET-5.470/issues/208), Some event from (Panel probably) that allows forms to know when the GlobalTheme has changed
+* Fixed [#212](https://github.com/Wagnerp/Krypton-NET-5.470/issues/212), `KryptonContextMenu` not visibile in designer for GroupBox panel
+* Prevent crash when a form is disposed immediately during closing fix courtesy of [Julien Patte](https://github.com/jpatte)
+* Build 1251 (build date Monday 22nd July, 2019) is now available on NuGet
 
 =======
 

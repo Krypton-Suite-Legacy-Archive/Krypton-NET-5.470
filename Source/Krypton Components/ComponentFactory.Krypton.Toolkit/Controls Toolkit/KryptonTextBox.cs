@@ -1606,7 +1606,7 @@ namespace ComponentFactory.Krypton.Toolkit
             // Ensure the height is correct
             AdjustHeight(false);
 
-            // Let base class calulcate fill rectangle
+            // Let base class calculate fill rectangle
             base.OnLayout(levent);
 
             // Only use layout logic if control is fully initialized or if being forced

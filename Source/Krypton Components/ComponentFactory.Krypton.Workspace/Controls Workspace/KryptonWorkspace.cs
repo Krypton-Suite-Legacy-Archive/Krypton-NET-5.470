@@ -2228,7 +2228,7 @@ namespace ComponentFactory.Krypton.Workspace
 
             //Seb
             //TODO store object instead of strings
-            CommonHelper.TextToXmlAttribute(xmlWriter, @"TAG", page.Tag.ToString());
+            CommonHelper.TextToXmlAttribute(xmlWriter, @"TAG", page.Tag?.ToString());
             //End Seb
 
             // Write out images as child elements
@@ -2291,7 +2291,7 @@ namespace ComponentFactory.Krypton.Workspace
                 page.Flags = int.Parse(CommonHelper.XmlAttributeToText(xmlReader, @"F", page.Flags.ToString()));
 
                 //Seb
-                page.Tag = CommonHelper.XmlAttributeToText(xmlReader, @"TAG");
+                page.Tag = CommonHelper.XmlAttributeToText(xmlReader, @"TAG", null);
                 //End Seb
             }
 

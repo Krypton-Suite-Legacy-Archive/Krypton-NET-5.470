@@ -6157,6 +6157,11 @@ namespace ComponentFactory.Krypton.Toolkit
         private NeedPaintHandler _needPaintDelegate;
         private NeedPaintHandler _needTMSPaintDelegate;
         private string _customisedKryptonPaletteFilePath;
+
+        #region Property Grid Variables
+       
+        #endregion
+
         #endregion
 
         #region Events

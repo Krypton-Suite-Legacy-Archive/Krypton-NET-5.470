@@ -1085,7 +1085,7 @@ namespace ComponentFactory.Krypton.Toolkit
             get => _treeView.RightToLeftLayout;
             set => _treeView.RightToLeftLayout = value;
         }
-       
+
         /// <summary>
         /// Gets the collection of tree nodes that are assigned to the tree view control.
         /// </summary>
@@ -1569,7 +1569,7 @@ namespace ComponentFactory.Krypton.Toolkit
             UpdateItemHeight();
             base.OnCreateControl();
         }
-        
+
         /// <summary>
         /// Raises the EnabledChanged event.
         /// </summary>
@@ -1762,6 +1762,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// </summary>
         protected override Size DefaultSize => new Size(120, 96);
 
+        protected override void CreateHandle()
+        {
+            base.CreateHandle();
+
+            SetWindowTheme(Handle, "DarkMode_Explorer", null);
+        }
+
+        //protected override onh
         #endregion
 
         #region Implementation
@@ -1936,8 +1944,8 @@ namespace ComponentFactory.Krypton.Toolkit
             _layoutImageCenterState.Visible = (drawStateImage != null);
 
             // Do we need the check box?
-            _layoutCheckBoxStack.Visible = (StateImageList == null) 
-                                      && CheckBoxes 
+            _layoutCheckBoxStack.Visible = (StateImageList == null)
+                                      && CheckBoxes
                                       && (kryptonNode?.IsCheckBoxVisible != false);
             if (_layoutCheckBoxStack.Visible)
             {
@@ -2277,6 +2285,11 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
             }
         }
+        #endregion
+
+        #region WIN32 Calls
+        [DllImport("uxtheme.dll", ExactSpelling = true, CharSet = CharSet.Unicode)]
+        private static extern int SetWindowTheme(IntPtr hWnd, string pszSubAppName, string pszSubIdList);
         #endregion
     }
 }

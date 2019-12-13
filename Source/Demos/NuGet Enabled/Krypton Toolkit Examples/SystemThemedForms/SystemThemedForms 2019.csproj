@@ -83,5 +83,10 @@
   <ItemGroup>
     <None Include="Resources\Krypton.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="KryptonToolkitSuite5470CoreModule">
+      <Version>5.470.1300</Version>
+    </PackageReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

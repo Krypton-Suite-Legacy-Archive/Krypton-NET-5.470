@@ -1,5 +1,6 @@
 ﻿using ComponentFactory.Krypton.Toolkit;
 using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace TestApp
@@ -132,6 +133,23 @@ namespace TestApp
             {
                 UpdateTitle(GetHasCurrentInstanceGotAdministrativeRights(), BracketType.NOBRACKET);
             }
+        }
+
+        private void knumWindowRounding_ValueChanged(object sender, EventArgs e)
+        {
+            CornerRoundingRadius = (int)knumWindowRounding.Value;
+        }
+
+        #region WIN32 Calls
+        [DllImport("uxtheme.dll", ExactSpelling = true, CharSet = CharSet.Unicode)]
+        private static extern int SetWindowTheme(IntPtr hWnd, string pszSubAppName, string pszSubIdList);
+        #endregion
+
+        protected override void OnHandleCreated(EventArgs e)
+        {
+            SetWindowTheme(Handle, "DarkMode_Explorer", null);
+
+            base.OnHandleCreated(e);
         }
     }
 }

@@ -108,6 +108,14 @@
     <None Include="Resources\document.png" />
     <None Include="Resources\document_plain_new.png" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="KryptonToolkitSuite5470CoreModule">
+      <Version>5.470.1300</Version>
+    </PackageReference>
+    <PackageReference Include="KryptonToolkitSuite5470NavigatorModule">
+      <Version>5.470.772</Version>
+    </PackageReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(TargetDir)*.*" "$(ProjectDir)..\..\..\Binaries\" /D /R /Y /S</PostBuildEvent>
