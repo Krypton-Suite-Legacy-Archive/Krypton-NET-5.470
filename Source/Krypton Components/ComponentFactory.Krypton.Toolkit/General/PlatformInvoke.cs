@@ -12,16 +12,20 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
+using System.Reflection;
 using System.Text;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-// ReSharper disable MemberCanBePrivate.Global
 
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable FieldCanBeMadeReadOnly.Global
 // ReSharper disable IdentifierTypo
 // ReSharper disable InconsistentNaming
 // ReSharper disable UnusedMember.Local
 // ReSharper disable ArrangeTypeMemberModifiers
 // ReSharper disable BuiltInTypeReferenceStyle
+// ReSharper disable ClassNeverInstantiated.Global
 #pragma warning disable 649
 
 
@@ -931,7 +935,7 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <summary>
         /// I needed some "Generic" magic to get from an enum to an int for switch and boolean operands
         /// </summary>
-        internal struct WM_ 
+        internal struct WM_
         {
             public const int
             // <summary>
@@ -956,7 +960,10 @@ namespace ComponentFactory.Krypton.Toolkit
             // </summary>
             SIZE = 0x0005,
             // <summary>
-            // The WM_ACTIVATE message is sent to both the window being activated and the window being deactivated. If the windows use the same input queue, the message is sent synchronously, first to the window procedure of the top-level window being deactivated, then to the window procedure of the top-level window being activated. If the windows use different input queues, the message is sent asynchronously, so the window is activated immediately.
+            // The WM_ACTIVATE message is sent to both the window being activated and the window being deactivated.
+            // If the windows use the same input queue, the message is sent synchronously, first to the window procedure of the top-level window being deactivated, 
+            // then to the window procedure of the top-level window being activated. If the windows use different input queues, the message is sent asynchronously,
+            // so the window is activated immediately.
             // </summary>
             ACTIVATE = 0x0006,
             // <summary>
@@ -1039,7 +1046,8 @@ namespace ComponentFactory.Krypton.Toolkit
             // </summary>
             DEVMODECHANGE = 0x001B,
             // <summary>
-            // The WM_ACTIVATEAPP message is sent when a window belonging to a different application than the active window is about to be activated. The message is sent to the application whose window is being activated and to the application whose window is being deactivated.
+            // The WM_ACTIVATEAPP message is sent when a window belonging to a different application than the active window is about to be activated.
+            // The message is sent to the application whose window is being activated and to the application whose window is being deactivated.
             // </summary>
             ACTIVATEAPP = 0x001C,
             // <summary>
@@ -1071,7 +1079,8 @@ namespace ComponentFactory.Krypton.Toolkit
             // </summary>
             QUEUESYNC = 0x0023,
             // <summary>
-            // The WM_GETMINMAXINFO message is sent to a window when the size or position of the window is about to change. An application can use this message to override the window's default maximized size and position, or its default minimum or maximum tracking size.
+            // The WM_GETMINMAXINFO message is sent to a window when the size or position of the window is about to change.
+            // An application can use this message to override the window's default maximized size and position, or its default minimum or maximum tracking size.
             // </summary>
             GETMINMAXINFO = 0x0024,
             // <summary>
@@ -1374,15 +1383,18 @@ namespace ComponentFactory.Krypton.Toolkit
             IME_COMPOSITION = 0x010F,
             IME_KEYLAST = 0x010F,
             // <summary>
-            // The WM_INITDIALOG message is sent to the dialog box procedure immediately before a dialog box is displayed. Dialog box procedures typically use this message to initialize controls and carry out any other initialization tasks that affect the appearance of the dialog box.
+            // The WM_INITDIALOG message is sent to the dialog box procedure immediately before a dialog box is displayed.
+            // Dialog box procedures typically use this message to initialize controls and carry out any other initialization tasks that affect the appearance of the dialog box.
             // </summary>
             INITDIALOG = 0x0110,
             // <summary>
-            // The WM_COMMAND message is sent when the user selects a command item from a menu, when a control sends a notification message to its parent window, or when an accelerator keystroke is translated.
+            // The WM_COMMAND message is sent when the user selects a command item from a menu, when a control sends a notification message to its parent window,
+            // or when an accelerator keystroke is translated.
             // </summary>
             COMMAND = 0x0111,
             // <summary>
-            // A window receives this message when the user chooses a command from the Window menu, clicks the maximize button, minimize button, restore button, close button, or moves the form. You can stop the form from moving by filtering this out.
+            // A window receives this message when the user chooses a command from the Window menu, clicks the maximize button, minimize button, restore button, 
+            // close button, or moves the form. You can stop the form from moving by filtering this out.
             // </summary>
             SYSCOMMAND = 0x0112,
             // <summary>
@@ -1439,10 +1451,12 @@ namespace ComponentFactory.Krypton.Toolkit
             MENUCOMMAND = 0x0126,
             // <summary>
             // An application sends the WM_CHANGEUISTATE message to indicate that the user interface (UI) state should be changed.
+            // https://devblogs.microsoft.com/oldnewthing/20130516-00/?p=4343
             // </summary>
             CHANGEUISTATE = 0x0127,
             // <summary>
             // An application sends the WM_UPDATEUISTATE message to change the user interface (UI) state for the specified window and all its child windows.
+            // https://devblogs.microsoft.com/oldnewthing/20130516-00/?p=4343
             // </summary>
             UPDATEUISTATE = 0x0128,
             // <summary>
@@ -1546,7 +1560,11 @@ namespace ComponentFactory.Krypton.Toolkit
             // </summary>
             MOUSELAST = 0x020E,
             // <summary>
-            // The WM_PARENTNOTIFY message is sent to the parent of a child window when the child window is created or destroyed, or when the user clicks a mouse button while the cursor is over the child window. When the child window is being created, the system sends WM_PARENTNOTIFY just before the CreateWindow or CreateWindowEx function that creates the window returns. When the child window is being destroyed, the system sends the message before any processing to destroy the window takes place.
+            // The WM_PARENTNOTIFY message is sent to the parent of a child window when the child window is created or destroyed,
+            // or when the user clicks a mouse button while the cursor is over the child window. When the child window is being created, 
+            // the system sends WM_PARENTNOTIFY just before the CreateWindow or CreateWindowEx function that creates the window returns. 
+            // When the child window is being destroyed, the system sends the message before any processing to destroy the window takes place.
+            // This message is now extended to include the WM_POINTERDOWN event. 
             // </summary>
             PARENTNOTIFY = 0x0210,
             // <summary>
@@ -1845,6 +1863,8 @@ namespace ComponentFactory.Krypton.Toolkit
             // </summary>
             SYSTIMER = 0x118,
 
+
+            // Following are the ShellProc messages via RegisterShellHookWindow 
             // <summary>
             // The accessibility state has changed.
             // </summary>
@@ -2289,8 +2309,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal static IntPtr GetWindowLongPtr(IntPtr hwnd, GWL_ nIndex)
         {
-            IntPtr ret = (8 == IntPtr.Size) 
-                ? GetWindowLongPtr64(hwnd, nIndex) 
+            IntPtr ret = (8 == IntPtr.Size)
+                ? GetWindowLongPtr64(hwnd, nIndex)
                 : new IntPtr(GetWindowLongPtr32(hwnd, nIndex));
             if (IntPtr.Zero == ret)
             {
@@ -2309,6 +2329,14 @@ namespace ComponentFactory.Krypton.Toolkit
         [DllImport("user32.dll", EntryPoint = "GetWindowLongPtr", SetLastError = true)]
         private static extern IntPtr GetWindowLongPtr64(IntPtr hWnd, GWL_ nIndex);
 
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool IntersectRect([Out] out RECT lprcDst, [In] ref RECT lprcSrc1, [In] ref RECT lprcSrc2);
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool IsWindowVisible(IntPtr hWnd);
+
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         internal static extern uint SetWindowLong(IntPtr hwnd, GWL_ nIndex, uint nLong);
 
@@ -2316,8 +2344,8 @@ namespace ComponentFactory.Krypton.Toolkit
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal static IntPtr SetWindowLongPtr(IntPtr hwnd, GWL_ nIndex, IntPtr dwNewLong)
         {
-            return (8 == IntPtr.Size) 
-                ? SetWindowLongPtr64(hwnd, nIndex, dwNewLong) 
+            return (8 == IntPtr.Size)
+                ? SetWindowLongPtr64(hwnd, nIndex, dwNewLong)
                 : new IntPtr(SetWindowLongPtr32(hwnd, nIndex, dwNewLong.ToInt32()));
         }
 
@@ -2387,7 +2415,12 @@ namespace ComponentFactory.Krypton.Toolkit
         internal static extern bool EndDeferWindowPos(IntPtr hWinPosInfo);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        internal static extern int SetWindowPos(IntPtr hWnd, IntPtr hWndAfter, int X, int Y, int Width, int Height, SWP_ flags);
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndAfter, int X, int Y, int Width, int Height, SWP_ flags);
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool SetForegroundWindow(IntPtr hWnd);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         internal static extern bool RedrawWindow(IntPtr hWnd, IntPtr rectUpdate, IntPtr hRgnUpdate, uint uFlags);
@@ -2506,6 +2539,56 @@ namespace ComponentFactory.Krypton.Toolkit
         [DllImport("user32.dll", ExactSpelling = true, CharSet = CharSet.Auto)]
         internal static extern IntPtr GetParent(IntPtr hWnd);
 
+        [DllImport("user32.dll")]
+        internal static extern int FillRect(IntPtr hDC, [In] ref RECT lprc, IntPtr hbr);
+
+        [DllImport("user32.dll")]
+        internal static extern int SetWindowCompositionAttribute(IntPtr hwnd, ref WindowCompositionAttribData data);
+
+        [StructLayout(LayoutKind.Sequential)]
+        internal struct WindowCompositionAttribData
+        {
+            public WindowCompositionAttribute Attribute;
+            public IntPtr Data;
+            public int SizeOfData;
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        internal struct AccentPolicy
+        {
+            public AccentState AccentState;
+            public AccentFlags AccentFlags;
+            public int GradientColor;
+            public int AnimationId;
+        }
+
+        [Flags]
+        internal enum AccentFlags
+        {
+            // ...
+            DrawLeftBorder = 0x20,
+            DrawTopBorder = 0x40,
+            DrawRightBorder = 0x80,
+            DrawBottomBorder = 0x100,
+            DrawAllBorders = (DrawLeftBorder | DrawTopBorder | DrawRightBorder | DrawBottomBorder)
+            // ...
+        }
+
+        internal enum WindowCompositionAttribute
+        {
+            // ...
+            WCA_ACCENT_POLICY = 19
+            // ...
+        }
+
+        internal enum AccentState
+        {
+            ACCENT_DISABLED = 0,
+            ACCENT_ENABLE_GRADIENT = 1,
+            ACCENT_ENABLE_TRANSPARENTGRADIENT = 2,
+            ACCENT_ENABLE_BLURBEHIND = 3,
+            ACCENT_INVALID_STATE = 4
+        }
         #endregion
 
         #region Static Gdi32
@@ -2614,10 +2697,117 @@ namespace ComponentFactory.Krypton.Toolkit
         [DllImport("gdi32.dll")]
         internal static extern bool Rectangle(IntPtr hdc, int nLeftRect, int nTopRect, int nRightRect, int nBottomRect);
 
-        [DllImport("user32.dll")]
-        internal static extern int FillRect(IntPtr hDC, [In] ref RECT lprc, IntPtr hbr);
-
         #endregion
+
+        #region dwmapi
+        // Applicable to Vista -> Win 8
+        // Warning API's appear deprecated on MSDN for Win 10
+
+        [DllImport("dwmapi.dll")]
+        internal static extern void DwmEnableBlurBehindWindow(IntPtr hwnd, ref DWM_BLURBEHIND blurBehind);
+
+        [Flags]
+        internal enum DWM_BB
+        {
+            Enable = 1,
+            BlurRegion = 2,
+            TransitionOnMaximized = 4
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        internal struct DWM_BLURBEHIND
+        {
+            public DWM_BB dwFlags;
+            public int fEnable;
+            public IntPtr hRgnBlur;
+            public int fTransitionOnMaximized;
+
+            public DWM_BLURBEHIND(bool enabled)
+            {
+                fEnable = enabled ? 1 : 0;
+                hRgnBlur = IntPtr.Zero;
+                fTransitionOnMaximized = 0;
+                dwFlags = DWM_BB.Enable;
+            }
+
+            public System.Drawing.Region Region => System.Drawing.Region.FromHrgn(hRgnBlur);
+
+            public bool TransitionOnMaximized
+            {
+                get => fTransitionOnMaximized > 0;
+                set
+                {
+                    fTransitionOnMaximized = value ? 1 : 0;
+                    dwFlags |= DWM_BB.TransitionOnMaximized;
+                }
+            }
+
+            public void SetRegion(System.Drawing.Graphics graphics, System.Drawing.Region region)
+            {
+                hRgnBlur = region.GetHrgn(graphics);
+                dwFlags |= DWM_BB.BlurRegion;
+            }
+        }
+        #endregion dwmapi
+
+
+        #region GDIPlus
+        // C# GDI Plus 1.1 provides access to the GDI+ 1.1 functions which are available from Vista onwards
+        // Warning: the entire API is deprecated and is listed under Legacy APIs in MSDN.
+
+        /// <summary>
+        /// Contains members that specify the nature of a Gaussian blur.
+        /// </summary>
+        /// <remarks>Cannot be pinned with GCHandle due to bool value.</remarks>
+        [StructLayout(LayoutKind.Sequential, Pack = 1)]
+        internal struct BlurParams
+        {
+            /// <summary>
+            /// Real number that specifies the blur radius (the radius of the Gaussian convolution kernel) in
+            /// pixels. The radius must be in the range 0 through 255. As the radius increases, the resulting
+            /// bitmap becomes more blurry.
+            /// </summary>
+            public float Radius;
+
+            /// <summary>
+            /// Boolean value that specifies whether the bitmap expands by an amount equal to the blur radius.
+            /// If TRUE, the bitmap expands by an amount equal to the radius so that it can have soft edges.
+            /// If FALSE, the bitmap remains the same size and the soft edges are clipped.
+            /// </summary>
+            public bool ExpandEdges;
+        }
+
+        // Constant "FieldInfo" for getting the nativeImage from the Bitmap
+        private static readonly FieldInfo FIELD_INFO_NATIVE_IMAGE = typeof(Bitmap).GetField("nativeImage", BindingFlags.GetField | BindingFlags.Instance | BindingFlags.NonPublic);
+        /// <summary>
+        /// Get the nativeImage field from the bitmap
+        /// </summary>
+        /// <param name="bitmap"></param>
+        /// <returns>IntPtr</returns>
+        internal static IntPtr GetNativeImage(Bitmap bitmap)
+        {
+            if (bitmap == null)
+            {
+                return IntPtr.Zero;
+            }
+            return (IntPtr)FIELD_INFO_NATIVE_IMAGE.GetValue(bitmap);
+        }
+
+        internal static Guid BlurEffectGuid = new Guid("{633C80A4-1843-482B-9EF2-BE2834C5FDD4}");
+
+        [DllImport("gdiplus.dll", SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
+        internal static extern int GdipCreateEffect(Guid guid, out IntPtr effect);
+
+        [DllImport("gdiplus.dll", SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
+        internal static extern int GdipSetEffectParameters(IntPtr effect, IntPtr parameters, uint size);
+
+        [DllImport("gdiplus.dll", SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
+        internal static extern int GdipBitmapApplyEffect(IntPtr bitmap, IntPtr effect, ref RECT rectOfInterest, bool useAuxData, IntPtr auxData, int auxDataSize);
+
+        [DllImport("gdiplus.dll", SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
+        internal static extern int GdipDeleteEffect(IntPtr effect);
+
+        #endregion GDIPlus
 
         #region Static DwmApi
         [DllImport("dwmapi.dll", CharSet = CharSet.Auto)]

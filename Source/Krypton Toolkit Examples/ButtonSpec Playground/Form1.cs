@@ -1,10 +1,11 @@
 ﻿// *****************************************************************************
 // 
 //  © Component Factory Pty Ltd 2012 - 2019. All rights reserved.
-//	The software and associated documentation supplied hereunder are the 
+//  The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, PO Box 1504, 
 //  Glen Waverley, Vic 3150, Australia and are supplied subject to licence terms.
 // 
+//  Modifications by Simon Coghlan(aka Smurf-IV) 2019 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
 //  Version 5.470.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
@@ -129,7 +130,6 @@ namespace ButtonSpecPlayground
             kryptonButtonClear.Enabled = (kryptonHeaderGroup1.ButtonSpecs.Count > 0);
         }
 
-
         private void kryptonCheckSet1_CheckedButtonChanged(object sender, EventArgs e)
         {
             switch (kryptonCheckSet1.CheckedButton.Name)
@@ -169,7 +169,7 @@ namespace ButtonSpecPlayground
                 {
                     Image buttonSpecImage = buttonSpec.GetImage( kryptonManager1.GlobalPalette, buttonSpec.GetView().State);
                     Bitmap invertingImage = InvertingImage(buttonSpecImage);
-                    // invertingImage.MakeTransparent(); // TODO: Decide where would be a good transparent colour
+                    // invertingImage.MakeTransparent(); // Note: Decide where would be a good transparent colour
                     buttonSpec.Image = invertingImage;
                 }
             }

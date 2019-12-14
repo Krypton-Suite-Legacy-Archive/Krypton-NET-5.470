@@ -7,63 +7,19 @@ namespace ComponentFactory.Krypton.Toolkit
     /// <summary>
     /// Manages the Windows blur
     /// </summary>
+    /// <remarks>
+    /// This has been left here in case someone is using it for blurring in Windows 10.
+    /// The BlurValues from within the form designer work on "All" windows
+    /// </remarks>
     public static class BlurWindowExtensions
     {
-        static class Interop
-        {
-            [DllImport("user32.dll")]
-            internal static extern int SetWindowCompositionAttribute(IntPtr hwnd, ref WindowCompositionAttribData data);
-
-            [StructLayout(LayoutKind.Sequential)]
-            internal struct WindowCompositionAttribData
-            {
-                public WindowCompositionAttribute Attribute;
-                public IntPtr Data;
-                public int SizeOfData;
-            }
-
-            [StructLayout(LayoutKind.Sequential)]
-            internal struct AccentPolicy
-            {
-                public AccentState AccentState;
-                public AccentFlags AccentFlags;
-                public int GradientColor;
-                public int AnimationId;
-            }
-
-            [Flags]
-            internal enum AccentFlags
-            {
-                // ...
-                DrawLeftBorder = 0x20,
-                DrawTopBorder = 0x40,
-                DrawRightBorder = 0x80,
-                DrawBottomBorder = 0x100,
-                DrawAllBorders = (DrawLeftBorder | DrawTopBorder | DrawRightBorder | DrawBottomBorder)
-                // ...
-            }
-
-            internal enum WindowCompositionAttribute
-            {
-                // ...
-                WCA_ACCENT_POLICY = 19
-                // ...
-            }
-
-            internal enum AccentState
-            {
-                ACCENT_DISABLED = 0,
-                ACCENT_ENABLE_GRADIENT = 1,
-                ACCENT_ENABLE_TRANSPARENTGRADIENT = 2,
-                ACCENT_ENABLE_BLURBEHIND = 3,
-                ACCENT_INVALID_STATE = 4
-            }
-        }
-
         /// <summary>
         /// 
         /// </summary>
         /// <param name="window"></param>
+        /// <remarks>
+        /// This appears to only "Blurs" normal controls, not the ones being themed by Krypton
+        /// </remarks>
         public static void EnableBlur(this Form window)
         {
             if (SystemInformation.HighContrast)
@@ -71,7 +27,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 return; // Blur is not useful in high contrast mode
             }
 
-            SetAccentPolicy(window, Interop.AccentState.ACCENT_ENABLE_BLURBEHIND);
+            SetAccentPolicy(window, PI.AccentState.ACCENT_ENABLE_BLURBEHIND);
         }
 
         /// <summary>
@@ -80,14 +36,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="window"></param>
         public static void DisableBlur(this Form window)
         {
-            SetAccentPolicy(window, Interop.AccentState.ACCENT_DISABLED);
+            SetAccentPolicy(window, PI.AccentState.ACCENT_DISABLED);
         }
 
-        private static void SetAccentPolicy(Form window, Interop.AccentState accentState)
+        private static void SetAccentPolicy(Form window, PI.AccentState accentState)
         {
-           // var windowHelper = new WindowInteropHelper(window);
+            // var windowHelper = new WindowInteropHelper(window);
 
-            Interop.AccentPolicy accent = new Interop.AccentPolicy
+            PI.AccentPolicy accent = new PI.AccentPolicy
             {
                 AccentState = accentState,
                 AccentFlags = GetAccentFlagsForTaskbarPosition()
@@ -98,21 +54,21 @@ namespace ComponentFactory.Krypton.Toolkit
             IntPtr accentPtr = Marshal.AllocHGlobal(accentStructSize);
             Marshal.StructureToPtr(accent, accentPtr, false);
 
-            Interop.WindowCompositionAttribData data = new Interop.WindowCompositionAttribData
+            PI.WindowCompositionAttribData data = new PI.WindowCompositionAttribData
             {
-                Attribute = Interop.WindowCompositionAttribute.WCA_ACCENT_POLICY,
+                Attribute = PI.WindowCompositionAttribute.WCA_ACCENT_POLICY,
                 SizeOfData = accentStructSize,
                 Data = accentPtr
             };
 
-            Interop.SetWindowCompositionAttribute(window.Handle, ref data);
+            PI.SetWindowCompositionAttribute(window.Handle, ref data);
 
             Marshal.FreeHGlobal(accentPtr);
         }
 
-        private static Interop.AccentFlags GetAccentFlagsForTaskbarPosition()
+        private static PI.AccentFlags GetAccentFlagsForTaskbarPosition()
         {
-            Interop.AccentFlags flags = Interop.AccentFlags.DrawAllBorders;
+            PI.AccentFlags flags = PI.AccentFlags.DrawAllBorders;
 
             //switch (TaskbarService.TaskbarPosition)
             //{
@@ -134,6 +90,23 @@ namespace ComponentFactory.Krypton.Toolkit
             //}
 
             return flags;
+        }
+
+        /// <summary>
+        /// Applies glass to the current window, API was for Vista, but should work for Win 7 upwards
+        /// </summary>
+        /// <remarks>
+        /// This appears to only "Blurs" normal controls, not the ones being themed by Krypton
+        /// </remarks>
+        public static void ApplyGlass(this Form window, bool apply)
+        {
+            PI.DWM_BLURBEHIND blurBehindParameters = new PI.DWM_BLURBEHIND(apply)
+            {
+                dwFlags = PI.DWM_BB.Enable,
+                hRgnBlur = IntPtr.Zero
+            };
+
+            PI.DwmEnableBlurBehindWindow(window.Handle, ref blurBehindParameters);
         }
     }
 }
