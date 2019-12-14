@@ -121,7 +121,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
         /// <summary>
         /// </summary>
-        [Description("Opacity Percentage to be appl;ied to the blur over source form. Tuning this allows for background updates to show through.")]
+        [Description("Opacity Percentage to be applied to the blur over source form. Tuning this allows for background updates to show through.")]
         [DefaultValue(_opacityDefault)]
         public double Opacity
         {

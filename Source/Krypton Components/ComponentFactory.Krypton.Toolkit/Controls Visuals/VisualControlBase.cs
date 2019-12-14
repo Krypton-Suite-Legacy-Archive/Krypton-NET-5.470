@@ -1407,6 +1407,18 @@ namespace ComponentFactory.Krypton.Toolkit
             // Not showing a popup page any more
             _visualPopupToolTip = null;
         }
+
+        protected override void OnHandleCreated(EventArgs e)
+        {
+            SetWindowTheme(Handle, "DarkMode_Explorer", null);
+
+            base.OnHandleCreated(e);
+        }
+        #endregion
+
+        #region Calls
+        [DllImport("uxtheme.dll", ExactSpelling = true, CharSet = CharSet.Unicode)]
+        public static extern int SetWindowTheme(IntPtr hwnd, string pszSubAppName, string pszSubIdList);
         #endregion
 
     }
