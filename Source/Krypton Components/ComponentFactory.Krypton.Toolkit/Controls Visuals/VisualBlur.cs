@@ -12,6 +12,9 @@ using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
+    /// <summary>Creates the blur effect for windows.</summary>
+    /// <seealso cref="System.Windows.Forms.NativeWindow" />
+    /// <seealso cref="System.IDisposable" />
     public class VisualBlur : NativeWindow, IDisposable
     {
         #region Instance Fields
@@ -88,7 +91,6 @@ namespace ComponentFactory.Krypton.Toolkit
         public Rectangle TargetRect { get; private set; }
 
         #endregion
-
 
         #region Implementation
         /// <summary>

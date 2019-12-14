@@ -15,10 +15,10 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyVersion("5.470.4.0")]
-[assembly: AssemblyFileVersion("5.470.4.0")]
+[assembly: AssemblyVersion("5.470.5.0")]
+[assembly: AssemblyFileVersion("5.470.5.0")]
 [assembly: AssemblyCopyright("© Component Factory Pty Ltd 2012 - 2019. All rights reserved.")]
-[assembly: AssemblyInformationalVersion("5.470.4.0")]
+[assembly: AssemblyInformationalVersion("5.470.5.0")]
 [assembly: AssemblyProduct("KryptonRadioButton Examples")]
 [assembly: AssemblyDefaultAlias("KryptonRadioButtonExamples.dll")]
 [assembly: AssemblyTitle("KryptonRadioButton Examples")]

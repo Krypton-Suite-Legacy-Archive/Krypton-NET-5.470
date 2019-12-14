@@ -37,11 +37,12 @@ You can check out the demos by clicking [here](https://www.somsubhra.com/github-
 =======
 
 <!--
-## 2019-12-15 Build 2074
+## 2019-12-15 Build 2086
 * Implement #240 blur form when inactive
 * Addition of VisualBlur Values to allow control of the bluring per form
 * Add Test App modifications
 * Tested on Win 8.1 and Win 10
+* Fix #211 ComboBox Design Time Spacing
 
 =======
 -->
