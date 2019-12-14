@@ -81,7 +81,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 // Get access to the actual control instance
                 KryptonTextBox textBox = (KryptonTextBox)Component;
 
-                // With multiline and autosize we prevent the user changing the height
+                // With multiline or autosize we prevent the user changing the height
                 if (!textBox.Multiline && textBox.AutoSize)
                 {
                     rules &= ~(SelectionRules.TopSizeable | SelectionRules.BottomSizeable);
