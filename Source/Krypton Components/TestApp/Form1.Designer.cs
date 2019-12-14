@@ -209,7 +209,7 @@
             this.kryptonMaskedTextBox1.Hint = "Testing a masked textbox hint";
             this.kryptonMaskedTextBox1.Location = new System.Drawing.Point(222, 107);
             this.kryptonMaskedTextBox1.Name = "kryptonMaskedTextBox1";
-            this.kryptonMaskedTextBox1.Size = new System.Drawing.Size(297, 23);
+            this.kryptonMaskedTextBox1.Size = new System.Drawing.Size(297, 20);
             this.kryptonMaskedTextBox1.TabIndex = 1;
             // 
             // kryptonNumericUpDown1
@@ -270,7 +270,7 @@
             this.kryptonTextBox2.Hint = "watermark / cue / hint";
             this.kryptonTextBox2.Location = new System.Drawing.Point(25, 107);
             this.kryptonTextBox2.Name = "kryptonTextBox2";
-            this.kryptonTextBox2.Size = new System.Drawing.Size(191, 23);
+            this.kryptonTextBox2.Size = new System.Drawing.Size(191, 20);
             this.kryptonTextBox2.TabIndex = 19;
             this.kryptonTextBox2.ToolTipValues.Description = "";
             this.kryptonTextBox2.ToolTipValues.EnableToolTips = true;
@@ -389,7 +389,7 @@
             // 
             this.kryptonTextBox1.Location = new System.Drawing.Point(25, 59);
             this.kryptonTextBox1.Name = "kryptonTextBox1";
-            this.kryptonTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.kryptonTextBox1.Size = new System.Drawing.Size(100, 20);
             this.kryptonTextBox1.TabIndex = 4;
             this.kryptonTextBox1.Text = "kryptonTextBox1";
             this.kryptonTextBox1.ToolTipValues.Description = "Please type carefully -> Right";
@@ -462,6 +462,7 @@
             this.AllowButtonSpecToolTips = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BlurValues.EnableBlur = true;
             this.BracketType = ComponentFactory.Krypton.Toolkit.BracketType.SQUAREBRACKET;
             this.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny1});
