@@ -36,15 +36,13 @@ You can check out the demos by clicking [here](https://www.somsubhra.com/github-
 
 =======
 
-<!--
-## 2019-12-13 Build 2007
+## 2019-12-14 Build 2007
 * Investigate & fix #233
 * Correct some spelling mistakes
 * Extend test to show different themes for the ButtonSpecs
 * Add a "simple" invert function for the buttons specs
 
 =======
--->
 
 ## 2019-12-03 Build 2000
 * Fix [#242](https://github.com/Wagnerp/Krypton-NET-5.470/issues/242) race condition. Fix courtesy of [tbolon](https://github.com/tbolon)
