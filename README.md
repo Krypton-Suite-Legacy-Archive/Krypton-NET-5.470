@@ -36,6 +36,16 @@ You can check out the demos by clicking [here](https://www.somsubhra.com/github-
 
 =======
 
+<!--
+## 2019-12-15 Build 2074
+* Implement #240 blur form when inactive
+* Addition of VisualBlur Values to allow control of the bluring per form
+* Add Test App modifications
+* Tested on Win 8.1 and Win 10
+
+=======
+-->
+
 ## 2019-12-14 Build 2007
 * Investigate & fix #233
 * Correct some spelling mistakes
