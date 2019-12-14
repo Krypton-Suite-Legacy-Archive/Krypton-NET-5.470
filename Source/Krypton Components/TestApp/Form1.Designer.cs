@@ -85,6 +85,7 @@
             this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.kbtnInputBox = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
@@ -117,6 +118,7 @@
             // 
             // kryptonPanel2
             // 
+            this.kryptonPanel2.Controls.Add(this.kbtnInputBox);
             this.kryptonPanel2.Controls.Add(this.kryptonTreeView1);
             this.kryptonPanel2.Controls.Add(this.knumWindowRounding);
             this.kryptonPanel2.Controls.Add(this.kryptonMaskedTextBox1);
@@ -209,7 +211,7 @@
             this.kryptonMaskedTextBox1.Hint = "Testing a masked textbox hint";
             this.kryptonMaskedTextBox1.Location = new System.Drawing.Point(222, 107);
             this.kryptonMaskedTextBox1.Name = "kryptonMaskedTextBox1";
-            this.kryptonMaskedTextBox1.Size = new System.Drawing.Size(297, 20);
+            this.kryptonMaskedTextBox1.Size = new System.Drawing.Size(297, 23);
             this.kryptonMaskedTextBox1.TabIndex = 1;
             // 
             // kryptonNumericUpDown1
@@ -270,7 +272,7 @@
             this.kryptonTextBox2.Hint = "watermark / cue / hint";
             this.kryptonTextBox2.Location = new System.Drawing.Point(25, 107);
             this.kryptonTextBox2.Name = "kryptonTextBox2";
-            this.kryptonTextBox2.Size = new System.Drawing.Size(191, 20);
+            this.kryptonTextBox2.Size = new System.Drawing.Size(191, 23);
             this.kryptonTextBox2.TabIndex = 19;
             this.kryptonTextBox2.ToolTipValues.Description = "";
             this.kryptonTextBox2.ToolTipValues.EnableToolTips = true;
@@ -389,7 +391,7 @@
             // 
             this.kryptonTextBox1.Location = new System.Drawing.Point(25, 59);
             this.kryptonTextBox1.Name = "kryptonTextBox1";
-            this.kryptonTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.kryptonTextBox1.Size = new System.Drawing.Size(100, 23);
             this.kryptonTextBox1.TabIndex = 4;
             this.kryptonTextBox1.Text = "kryptonTextBox1";
             this.kryptonTextBox1.ToolTipValues.Description = "Please type carefully -> Right";
@@ -455,6 +457,15 @@
             this.buttonSpecAny1.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.SuperTip;
             this.buttonSpecAny1.ToolTipTitle = "Title";
             this.buttonSpecAny1.UniqueName = "8D0C7B51F6A946484D932C2A06451172";
+            // 
+            // kbtnInputBox
+            // 
+            this.kbtnInputBox.Location = new System.Drawing.Point(365, 388);
+            this.kbtnInputBox.Name = "kbtnInputBox";
+            this.kbtnInputBox.Size = new System.Drawing.Size(90, 25);
+            this.kbtnInputBox.TabIndex = 31;
+            this.kbtnInputBox.Values.Text = "Input Box";
+            this.kbtnInputBox.Click += new System.EventHandler(this.kbtnInputBox_Click);
             // 
             // Form1
             // 
@@ -529,6 +540,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox kryptonMaskedTextBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown knumWindowRounding;
         private ComponentFactory.Krypton.Toolkit.KryptonTreeView kryptonTreeView1;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnInputBox;
     }
 }
 

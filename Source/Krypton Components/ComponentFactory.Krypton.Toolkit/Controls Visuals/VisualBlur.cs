@@ -177,18 +177,18 @@ namespace ComponentFactory.Krypton.Toolkit
 
         #endregion
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="bmp"></param>
+        /// <summary>Updates the blur.</summary>
+        /// <param name="bmp">The BMP.</param>
         public void UpdateBlur(Bitmap bmp)
         {
             _blurredForm = bmp;
             GaussianBlur();
-            _blurredForm.Save(@"Z:\_blurredForm.png");
+            // TODO: Fix this
+            _blurredForm.Save(@"T:\_blurredForm.png");
             UpdateShadowLayer();
         }
 
+        /// <summary>Gaussian blur.</summary>
         private void GaussianBlur()
         {
             PI.BlurParams blurParams = new PI.BlurParams
