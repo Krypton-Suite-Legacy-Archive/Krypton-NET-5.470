@@ -122,6 +122,7 @@ namespace ComponentFactory.Krypton.Toolkit
             this.Name = "KryptonInputBox";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.FormClosing += new FormClosingEventHandler(KryptonInputBox_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
@@ -167,7 +168,19 @@ namespace ComponentFactory.Krypton.Toolkit
 
         private void ktxtPrompt_TextChanged(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            EnableOkButton(string.IsNullOrEmpty(ktxtPrompt.Text));
+        }
+
+        private void KryptonInputBox_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (DialogResult != null)
+            {
+
+            }
+            else
+            {
+                DialogResult = DialogResult.None;
+            }
         }
 
         #region Methods
@@ -186,6 +199,18 @@ namespace ComponentFactory.Krypton.Toolkit
         private void SetTitle(string title) => Text = title;
 
         public string RetrieveUserResponse() => ktxtPrompt.Text;
+
+        private void EnableOkButton(bool value)
+        {
+            if (value)
+            {
+                kbtnOK.Enabled = true;
+            }
+            else
+            {
+                kbtnOK.Enabled = false;
+            }
+        }
         #endregion
     }
 }

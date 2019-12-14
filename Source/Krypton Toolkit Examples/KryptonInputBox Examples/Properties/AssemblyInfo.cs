@@ -15,9 +15,9 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyVersion("5.470.4.0")]
-[assembly: AssemblyFileVersion("5.470.4.0")]
-[assembly: AssemblyInformationalVersion("5.470.4.0")]
+[assembly: AssemblyVersion("5.470.6.0")]
+[assembly: AssemblyFileVersion("5.470.6.0")]
+[assembly: AssemblyInformationalVersion("5.470.6.0")]
 [assembly: AssemblyCopyright("© Component Factory Pty Ltd 2012 - 2019. All rights reserved.")]
 [assembly: AssemblyProduct("KryptonInputBox Examples")]
 [assembly: AssemblyDefaultAlias("KryptonInputBoxExamples.dll")]

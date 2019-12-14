@@ -23,7 +23,7 @@ namespace KryptonInputBoxExamples
 
         private void buttonShow_Click(object sender, EventArgs e)
         {
-            KryptonInputBox.Show(this, textBoxPrompt.Text, textBoxCaption.Text, textBoxDefaultResponse.Text);
+            //KryptonInputBoxOld.Show(this, textBoxPrompt.Text, textBoxCaption.Text, textBoxDefaultResponse.Text);
         }
     }
 }
