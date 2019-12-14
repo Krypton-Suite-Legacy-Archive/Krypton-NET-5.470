@@ -183,8 +183,6 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             _blurredForm = bmp;
             GaussianBlur();
-            // TODO: Fix this
-            _blurredForm.Save(@"T:\_blurredForm.png");
             UpdateShadowLayer();
         }
 
