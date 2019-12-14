@@ -2111,7 +2111,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
                 if (MaximumSize.Height > 0)
                 {
-                    retSize.Height = Math.Min(MaximumSize.Height, retSize.Width);
+                    retSize.Height = Math.Min(MaximumSize.Height, retSize.Height);
                 }
 
                 // Apply the minimum sizing
