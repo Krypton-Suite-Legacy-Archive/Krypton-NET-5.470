@@ -19,6 +19,8 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 
+using ComponentFactory.Krypton.Toolkit.General;
+
 using Microsoft.Win32;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -57,6 +59,8 @@ namespace ComponentFactory.Krypton.Toolkit
         private readonly IntPtr _screenDC;
         private ShadowValues _shadowValues;
         private ShadowManager _shadowManager;
+        private BlurValues _blurValues;
+        private BlurManager _blurManager;
         #endregion
 
         #region Events
@@ -136,6 +140,7 @@ namespace ComponentFactory.Krypton.Toolkit
             SystemEvents.UserPreferenceChanged += OnUserPreferenceChanged;
 
             ShadowValues = new ShadowValues();
+            BlurValues = new BlurValues();
 
         }
 
@@ -394,6 +399,30 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Resets the <see cref="KryptonForm"/> shadow values.
         /// </summary>
         public void ResetShadowValues() => _shadowValues.Reset();
+
+        /// <summary>
+        /// Gets access to the button content.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Form Blurring")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public BlurValues BlurValues
+        {
+            [DebuggerStepThrough]
+            get => _blurValues;
+            set
+            {
+                _blurValues = value;
+                _blurManager = new BlurManager(this, _blurValues);
+            }
+        }
+
+        private bool ShouldSerializeBlurValues() => !_blurValues.IsDefault;
+
+        /// <summary>
+        /// Resets the <see cref="KryptonForm"/> blur values.
+        /// </summary>
+        public void ResetBlurValues() => _blurValues.Reset();
 
         /// <summary>
         /// Gets and sets the custom palette implementation.
@@ -1126,6 +1155,7 @@ namespace ComponentFactory.Krypton.Toolkit
             {
                 base.WndProc(ref m);
                 _shadowManager.WndProc(ref m);
+                _blurManager.WndProc(ref m);
             }
         }
 

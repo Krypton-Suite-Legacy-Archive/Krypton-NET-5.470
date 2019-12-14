@@ -77,7 +77,7 @@ namespace ComponentFactory.Krypton.Toolkit
 
             for (int i = 0; i < 4; i++)
             {
-                _shadowForms[i] = new VisualShadowBase(_shadowValues, (VisualOrientation)i, _parentForm.Handle);
+                _shadowForms[i] = new VisualShadowBase(_shadowValues, (VisualOrientation)i);
             }
         }
 
@@ -99,7 +99,6 @@ namespace ComponentFactory.Krypton.Toolkit
                     shadowForm.Dispose();
                 }
             }
-
         }
 
         private void FormLoaded(object sender, EventArgs e)

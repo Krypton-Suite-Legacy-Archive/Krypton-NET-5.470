@@ -1,22 +1,24 @@
 ﻿// *****************************************************************************
 // 
 //  © Component Factory Pty Ltd 2012 - 2019. All rights reserved.
-//	The software and associated documentation supplied hereunder are the 
+//  The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, PO Box 1504, 
-//  Glen Waverley, Vic 3150, Australia and are supplied subject to licence terms.
+//  Glen Waverley, Vic 3150, Australia and are supplied subject to license terms.
 // 
+//  Modifications by Simon Coghlan(aka Smurf-IV) 2019 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
 //  Version 5.470.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using System.ComponentModel;
+
 using ComponentFactory.Krypton.Toolkit;
 
 namespace KryptonFormExamples
 {
-    public partial class Form1 : KryptonForm
+    internal partial class Form1 : KryptonForm
     {
         public Form1()
         {
@@ -104,6 +106,18 @@ namespace KryptonFormExamples
 
             // Setup the property grid to edit this form
             propertyGrid.SelectedObject = new KryptonFormProxy(this);
+        }
+
+        private void helpToolStripButton_Click(object sender, EventArgs e)
+        {
+            //KryptonMessageBox.Show(this, "Set the KryptonManager Blur values", "Did the Parent Form Blur?");
+            KryptonMessageBox.Show("Set the KryptonManager Blur values", "Did the Parent Form Blur?");
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime dateTime = DateTime.Now;
+            toolStripLabel1.Text = dateTime.ToString(@"u");
         }
     }
 
@@ -248,4 +262,5 @@ namespace KryptonFormExamples
             set { _form.ShowIcon = value; }
         }
     }
+
 }

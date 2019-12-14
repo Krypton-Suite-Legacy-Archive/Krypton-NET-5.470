@@ -1,6 +1,6 @@
 namespace KryptonFormExamples
 {
-    partial class Form1
+    internal partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -53,6 +53,7 @@ namespace KryptonFormExamples
             this.pasteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
@@ -80,6 +81,7 @@ namespace KryptonFormExamples
             this.kryptonCheckSetPalettes = new ComponentFactory.Krypton.Toolkit.KryptonCheckSet(this.components);
             this.kryptonCheckSetStyles = new ComponentFactory.Krypton.Toolkit.KryptonCheckSet(this.components);
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -206,10 +208,11 @@ namespace KryptonFormExamples
             this.copyToolStripButton,
             this.pasteToolStripButton,
             this.toolStripSeparator1,
-            this.helpToolStripButton});
+            this.helpToolStripButton,
+            this.toolStripLabel1});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(208, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(451, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -288,12 +291,19 @@ namespace KryptonFormExamples
             // 
             // helpToolStripButton
             // 
-            this.helpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.helpToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("helpToolStripButton.Image")));
             this.helpToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.helpToolStripButton.Name = "helpToolStripButton";
-            this.helpToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.helpToolStripButton.Text = "He&lp";
+            this.helpToolStripButton.Size = new System.Drawing.Size(180, 22);
+            this.helpToolStripButton.Text = "Display MessageBox and blur";
+            this.helpToolStripButton.ToolTipText = "blur";
+            this.helpToolStripButton.Click += new System.EventHandler(this.helpToolStripButton_Click);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(86, 22);
+            this.toolStripLabel1.Text = "toolStripLabel1";
             // 
             // statusStrip1
             // 
@@ -583,10 +593,22 @@ namespace KryptonFormExamples
             this.kryptonCheckSetStyles.CheckedButton = this.kryptonSizable;
             this.kryptonCheckSetStyles.CheckedButtonChanged += new System.EventHandler(this.kryptonCheckSetStyles_CheckedButtonChanged);
             // 
+            // kryptonManager
+            // 
+            this.kryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2007Blue;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BlurValues.BlurWhenFocusLost = true;
+            this.BlurValues.EnableBlur = true;
             this.ClientSize = new System.Drawing.Size(629, 489);
             this.Controls.Add(this.toolStripContainer1);
             this.Controls.Add(this.statusStrip1);
@@ -683,6 +705,8 @@ namespace KryptonFormExamples
         private ComponentFactory.Krypton.Toolkit.KryptonCheckButton kryptonOffice2010Black;
         private ComponentFactory.Krypton.Toolkit.KryptonCheckButton kryptonOffice2010Silver;
         private ComponentFactory.Krypton.Toolkit.KryptonCheckButton kryptonOffice2010Blue;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
