@@ -185,7 +185,6 @@ namespace ComponentFactory.Krypton.Toolkit
         {
             _blurredForm = bmp;
             GaussianBlur();
-            _blurredForm.Save(@"Z:\_blurredForm.png");
             UpdateShadowLayer();
         }
 
