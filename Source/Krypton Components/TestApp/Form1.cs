@@ -154,9 +154,10 @@ namespace TestApp
 
         private void kbtnInputBox_Click(object sender, EventArgs e)
         {
-            KryptonInputBoxNew inputBox = new KryptonInputBoxNew("Test", "Hello World!", "Your answer here...");
+ KryptonInputBox.Show(this, "Test", "Hello World!", "Your answer here...");
 
-            inputBox.Show();
+
+            //KryptonInputBox.Show(this, "Hello");
         }
     }
 }

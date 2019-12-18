@@ -16,9 +16,9 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security;
 
-[assembly: AssemblyVersion("5.470.2087.0")]
-[assembly: AssemblyFileVersion("5.470.2087.0")]
-[assembly: AssemblyInformationalVersion("5.470.1350.0")]
+[assembly: AssemblyVersion("5.470.2097.0")]
+[assembly: AssemblyFileVersion("5.470.2097.0")]
+[assembly: AssemblyInformationalVersion("5.470.1360.0")]
 [assembly: AssemblyCopyright("© Component Factory Pty Ltd, 2006-2019. Then modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017-2019. All rights reserved.")]
 [assembly: AssemblyProduct("Krypton Toolkit")]
 [assembly: AssemblyDefaultAlias("ComponentFactory.Krypton.Toolkit.dll")]

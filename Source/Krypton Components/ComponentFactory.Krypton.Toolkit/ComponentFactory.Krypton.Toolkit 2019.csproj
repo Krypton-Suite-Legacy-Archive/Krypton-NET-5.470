@@ -128,7 +128,9 @@
     <Compile Include="Controller\MenuItemController.cs" />
     <Compile Include="Controller\RadioButtonController.cs" />
     <Compile Include="Controls Toolkit\KryptonGroupBoxPanel.cs" />
-    <Compile Include="Controls Toolkit\KryptonInputBoxNew.cs" />
+    <Compile Include="Controls Toolkit\KryptonInputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Controls Visuals\VisualBlur.cs" />
     <Compile Include="Controls Visuals\VisualShadowBase.cs" />
     <Compile Include="Designers\KryptonCheckButtonCollectionForm.cs">
@@ -179,7 +181,7 @@
     <Compile Include="Controls Toolkit\KryptonDataGridViewTextBoxEditingControl.cs" />
     <Compile Include="Controls Toolkit\KryptonTreeNode.cs" />
     <Compile Include="Controls Toolkit\KryptonTreeView.cs" />
-    <Compile Include="Controls Toolkit\KryptonInputBox.cs" />
+    <Compile Include="Controls Toolkit\KryptonInputBoxOld.cs" />
     <Compile Include="Controls Toolkit\KryptonTaskDialogCommand.cs" />
     <Compile Include="Controls Toolkit\KryptonTaskDialog.cs" />
     <Compile Include="Controls Visuals\ByteViewerForm.cs">
@@ -934,8 +936,8 @@
     <Compile Include="View Draw\ViewDrawDocker.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controls Toolkit\KryptonInputBoxNew.resx">
-      <DependentUpon>KryptonInputBoxNew.cs</DependentUpon>
+    <EmbeddedResource Include="Controls Toolkit\KryptonInputBoxOld.resx">
+      <DependentUpon>KryptonInputBoxOld.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls Toolkit\KryptonInputBox.resx">
       <DependentUpon>KryptonInputBox.cs</DependentUpon>

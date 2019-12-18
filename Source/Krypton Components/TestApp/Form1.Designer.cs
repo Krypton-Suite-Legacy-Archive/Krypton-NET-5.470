@@ -60,6 +60,7 @@
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kbtnInputBox = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonTreeView1 = new ComponentFactory.Krypton.Toolkit.KryptonTreeView();
             this.knumWindowRounding = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
             this.kryptonMaskedTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
@@ -85,7 +86,6 @@
             this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.kbtnInputBox = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
@@ -145,6 +145,15 @@
             this.kryptonPanel2.Name = "kryptonPanel2";
             this.kryptonPanel2.Size = new System.Drawing.Size(800, 450);
             this.kryptonPanel2.TabIndex = 0;
+            // 
+            // kbtnInputBox
+            // 
+            this.kbtnInputBox.Location = new System.Drawing.Point(365, 388);
+            this.kbtnInputBox.Name = "kbtnInputBox";
+            this.kbtnInputBox.Size = new System.Drawing.Size(90, 25);
+            this.kbtnInputBox.TabIndex = 31;
+            this.kbtnInputBox.Values.Text = "Input Box";
+            this.kbtnInputBox.Click += new System.EventHandler(this.kbtnInputBox_Click);
             // 
             // kryptonTreeView1
             // 
@@ -458,21 +467,13 @@
             this.buttonSpecAny1.ToolTipTitle = "Title";
             this.buttonSpecAny1.UniqueName = "8D0C7B51F6A946484D932C2A06451172";
             // 
-            // kbtnInputBox
-            // 
-            this.kbtnInputBox.Location = new System.Drawing.Point(365, 388);
-            this.kbtnInputBox.Name = "kbtnInputBox";
-            this.kbtnInputBox.Size = new System.Drawing.Size(90, 25);
-            this.kbtnInputBox.TabIndex = 31;
-            this.kbtnInputBox.Values.Text = "Input Box";
-            this.kbtnInputBox.Click += new System.EventHandler(this.kbtnInputBox_Click);
-            // 
             // Form1
             // 
             this.AdministratorText = "Test";
             this.AllowButtonSpecToolTips = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BlurValues.BlurWhenFocusLost = true;
             this.BlurValues.EnableBlur = true;
             this.BracketType = ComponentFactory.Krypton.Toolkit.BracketType.SQUAREBRACKET;
             this.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {

@@ -43,6 +43,7 @@ You can check out the demos by clicking [here](https://www.somsubhra.com/github-
 * Add Test App modifications
 * Tested on Win 8.1 and Win 10
 * Fix #211 ComboBox Design Time Spacing
+* Fix [#239](https://github.com/Wagnerp/Krypton-NET-5.470/issues/239), `KryptonInputBox` faint text problem.
 
 =======
 -->
