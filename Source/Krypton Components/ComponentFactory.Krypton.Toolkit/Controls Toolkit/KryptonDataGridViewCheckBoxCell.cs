@@ -190,7 +190,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         {
                             checkBoxSize = renderContext.Renderer.RenderGlyph.GetCheckBoxPreferredSize(viewContent, 
                                 kDgv.Redirector,
-                                kDgv.Enabled,
+                                kDgv.Enabled && !base.ReadOnly,
                                 checkState,
                                 tracking,
                                 pressed);
@@ -247,7 +247,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         renderContext.Renderer.RenderGlyph.DrawCheckBox(renderContext,
                             cellBounds,
                             kDgv.Redirector,
-                            kDgv.Enabled,
+                            kDgv.Enabled && !base.ReadOnly,
                             checkState,
                             tracking,
                             pressed);
