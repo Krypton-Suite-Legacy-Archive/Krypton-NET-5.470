@@ -34,6 +34,13 @@
 
 You can check out the demos by clicking [here](https://www.somsubhra.com/github-release-stats/?username=Wagnerp&repository=Krypton-NET-5.470)
 
+<!--
+=======
+
+## 2019-12-xx Build 2105
+* ButtonCell and CheckboxCell: ReadOnly property is not respected from cell. Courtesy of [ricterAI](https://github.com/richterAl)
+-->
+
 =======
 
 ## 2019-12-18 Build 2098
