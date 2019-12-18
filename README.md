@@ -36,8 +36,7 @@ You can check out the demos by clicking [here](https://www.somsubhra.com/github-
 
 =======
 
-<!--
-## 2019-12-15 Build 2086
+## 2019-12-18 Build 2098
 * Implement #240 blur form when inactive
 * Addition of VisualBlur Values to allow control of the bluring per form
 * Add Test App modifications
@@ -46,7 +45,6 @@ You can check out the demos by clicking [here](https://www.somsubhra.com/github-
 * Fix [#239](https://github.com/Wagnerp/Krypton-NET-5.470/issues/239), `KryptonInputBox` faint text problem.
 
 =======
--->
 
 ## 2019-12-14 Build 2007
 * Investigate & fix #233
