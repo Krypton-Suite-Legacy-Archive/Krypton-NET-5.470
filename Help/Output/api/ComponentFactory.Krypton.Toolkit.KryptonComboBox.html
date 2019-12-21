@@ -14,7 +14,7 @@ BSD 3-Clause License
    | Krypton Component Suite 2019
 BSD 3-Clause License
 &#65533; Component Factory Pty Ltd, 2006-2019, All rights reserved. ">
-    <meta name="generator" content="docfx 2.41.0.0">
+    <meta name="generator" content="docfx 2.48.0.0">
     
     <link rel="shortcut icon" href="../Krypton.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -97,6 +97,9 @@ BSD 3-Clause License
       <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_PaletteChanged">VisualControlBase.PaletteChanged</a>
     </div>
     <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_GlobalPaletteChanged">VisualControlBase.GlobalPaletteChanged</a>
+    </div>
+    <div>
       <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_KryptonContextMenu">VisualControlBase.KryptonContextMenu</a>
     </div>
     <div>
@@ -131,6 +134,9 @@ BSD 3-Clause License
     </div>
     <div>
       <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ToolTipValues">VisualControlBase.ToolTipValues</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ResetToolTipValues">VisualControlBase.ResetToolTipValues()</a>
     </div>
     <div>
       <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ViewFromPoint_System_Drawing_Point_">VisualControlBase.ViewFromPoint(Point)</a>
@@ -218,6 +224,9 @@ BSD 3-Clause License
     </div>
     <div>
       <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ContextMenuClosed">VisualControlBase.ContextMenuClosed()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_SetWindowTheme_System_IntPtr_System_String_System_String_">VisualControlBase.SetWindowTheme(IntPtr, String, String)</a>
     </div>
     <div>
       <span class="xref">System.Windows.Forms.Control.GetAccessibilityObjectById(System.Int32)</span>
@@ -2315,6 +2324,42 @@ public IFormatProvider FormatInfo { get; set; }</code></pre>
   </div>
   
   
+  <a id="ComponentFactory_Krypton_Toolkit_KryptonComboBox_IntegralHeight_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonComboBox.IntegralHeight*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonComboBox_IntegralHeight" data-uid="ComponentFactory.Krypton.Toolkit.KryptonComboBox.IntegralHeight"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonComboBox_IntegralHeight" class="expander" data-toggle="collapse">IntegralHeight</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonComboBox_IntegralHeight" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IntegralHeight { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_KryptonComboBox_IsInitialized_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonComboBox.IsInitialized*"></a>
   
   <h4 id="ComponentFactory_Krypton_Toolkit_KryptonComboBox_IsInitialized" data-uid="ComponentFactory.Krypton.Toolkit.KryptonComboBox.IsInitialized"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonComboBox_IsInitialized" class="expander" data-toggle="collapse">IsInitialized</a></h4>
@@ -2379,43 +2424,6 @@ public bool IsInitializing { get; }</code></pre>
     <tr>
       <td>
         <span class="xref">System.Boolean</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="ComponentFactory_Krypton_Toolkit_KryptonComboBox_ItemHeight_" data-uid="ComponentFactory.Krypton.Toolkit.KryptonComboBox.ItemHeight*"></a>
-  
-  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonComboBox_ItemHeight" data-uid="ComponentFactory.Krypton.Toolkit.KryptonComboBox.ItemHeight"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonComboBox_ItemHeight" class="expander" data-toggle="collapse">ItemHeight</a></h4>
-  
-  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonComboBox_ItemHeight" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets and sets the height, in pixels, of items in an owner-draw KryptonComboBox.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int ItemHeight { get; set; }</code></pre>
-  </div>
-  
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Int32</span>
         <p>
       </td>
     </tr>
@@ -4143,7 +4151,7 @@ public ToolTipManager ToolTipManager { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void OnDataSourceChanged(EventArgs e)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void OnDataSourceChanged(EventArgs e)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -4182,7 +4190,7 @@ public ToolTipManager ToolTipManager { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void OnDisplayMemberChanged(EventArgs e)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void OnDisplayMemberChanged(EventArgs e)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -4221,7 +4229,7 @@ public ToolTipManager ToolTipManager { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void OnDrawItem(DrawItemEventArgs e)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void OnDrawItem(DrawItemEventArgs e)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -4260,7 +4268,7 @@ public ToolTipManager ToolTipManager { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void OnDropDown(EventArgs e)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void OnDropDown(EventArgs e)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -4299,7 +4307,7 @@ public ToolTipManager ToolTipManager { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void OnDropDownClosed(EventArgs e)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void OnDropDownClosed(EventArgs e)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -4338,7 +4346,7 @@ public ToolTipManager ToolTipManager { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void OnDropDownStyleChanged(EventArgs e)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void OnDropDownStyleChanged(EventArgs e)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -4459,7 +4467,7 @@ public ToolTipManager ToolTipManager { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void OnFormat(ListControlConvertEventArgs e)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void OnFormat(ListControlConvertEventArgs e)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -4498,7 +4506,7 @@ public ToolTipManager ToolTipManager { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void OnFormatInfoChanged(EventArgs e)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void OnFormatInfoChanged(EventArgs e)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -4537,7 +4545,7 @@ public ToolTipManager ToolTipManager { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void OnFormatStringChanged(EventArgs e)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void OnFormatStringChanged(EventArgs e)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -4576,7 +4584,7 @@ public ToolTipManager ToolTipManager { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void OnFormattingEnabledChanged(EventArgs e)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void OnFormattingEnabledChanged(EventArgs e)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -4677,7 +4685,7 @@ public ToolTipManager ToolTipManager { get; }</code></pre>
   
   
   <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">System.Windows.Forms.Control.OnHandleCreated(System.EventArgs)</span></div>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnHandleCreated_System_EventArgs_">VisualControlBase.OnHandleCreated(EventArgs)</a></div>
   
   
   
@@ -4697,7 +4705,7 @@ public ToolTipManager ToolTipManager { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void OnHoverSelectionChanged(HoveredSelectionChangedEventArgs e)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void OnHoverSelectionChanged(HoveredSelectionChangedEventArgs e)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -4736,7 +4744,7 @@ public ToolTipManager ToolTipManager { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void OnInitialized(EventArgs e)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void OnInitialized(EventArgs e)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -5199,7 +5207,7 @@ public ToolTipManager ToolTipManager { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void OnSelectedValueChanged(EventArgs e)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void OnSelectedValueChanged(EventArgs e)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -5238,7 +5246,7 @@ public ToolTipManager ToolTipManager { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void OnSelectionChangeCommitted(EventArgs e)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void OnSelectionChangeCommitted(EventArgs e)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -5318,7 +5326,7 @@ public ToolTipManager ToolTipManager { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void OnTextUpdate(EventArgs e)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void OnTextUpdate(EventArgs e)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -5357,7 +5365,7 @@ public ToolTipManager ToolTipManager { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void OnToolTipNeeded(ToolTipNeededEventArgs e)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void OnToolTipNeeded(ToolTipNeededEventArgs e)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -5395,7 +5403,7 @@ public ToolTipManager ToolTipManager { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void OnTrackMouseEnter(EventArgs e)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void OnTrackMouseEnter(EventArgs e)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -5434,7 +5442,7 @@ public ToolTipManager ToolTipManager { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void OnTrackMouseLeave(EventArgs e)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void OnTrackMouseLeave(EventArgs e)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -5522,7 +5530,7 @@ public ToolTipManager ToolTipManager { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void OnValueMemberChanged(EventArgs e)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void OnValueMemberChanged(EventArgs e)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -5906,6 +5914,42 @@ public ToolTipManager ToolTipManager { get; }</code></pre>
     <tr>
       <td>
         <span class="xref">System.EventHandler</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_KryptonComboBox_DrawItem" data-uid="ComponentFactory.Krypton.Toolkit.KryptonComboBox.DrawItem"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_KryptonComboBox_DrawItem" class="expander" data-toggle="collapse">DrawItem</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_KryptonComboBox_DrawItem" class="collapse in">
+  <div class="markdown level1 summary"><p>Occurs when [draw item].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event DrawItemEventHandler DrawItem</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Windows.Forms.DrawItemEventHandler</span>
         <p>
       </td>
     </tr>

@@ -14,7 +14,7 @@ BSD 3-Clause License
    | Krypton Component Suite 2019
 BSD 3-Clause License
 &#65533; Component Factory Pty Ltd, 2006-2019, All rights reserved. ">
-    <meta name="generator" content="docfx 2.41.0.0">
+    <meta name="generator" content="docfx 2.48.0.0">
     
     <link rel="shortcut icon" href="../Krypton.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -122,9 +122,61 @@ BSD 3-Clause License
   
   
   
+  <h5 id="ComponentFactory_Krypton_Toolkit_BlurWindowExtensions_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>This has been left here in case someone is using it for blurring in Windows 10.
+The BlurValues from within the form designer work on &quot;All&quot; windows</p>
+</div>
   
   <h3 id="methods">Methods
   </h3>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_BlurWindowExtensions_ApplyGlass_" data-uid="ComponentFactory.Krypton.Toolkit.BlurWindowExtensions.ApplyGlass*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_BlurWindowExtensions_ApplyGlass_System_Windows_Forms_Form_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.BlurWindowExtensions.ApplyGlass(System.Windows.Forms.Form,System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_BlurWindowExtensions_ApplyGlass_System_Windows_Forms_Form_System_Boolean_" class="expander" data-toggle="collapse">ApplyGlass(Form, Boolean)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_BlurWindowExtensions_ApplyGlass_System_Windows_Forms_Form_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Applies glass to the current window, API was for Vista, but should work for Win 7 upwards</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ApplyGlass(this Form window, bool apply)</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Form</span></span>
+        <span class="parametername">window</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">apply</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="ComponentFactory_Krypton_Toolkit_BlurWindowExtensions_ApplyGlass_System_Windows_Forms_Form_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This appears to only &quot;Blurs&quot; normal controls, not the ones being themed by Krypton</p>
+</div>
+  
+  
+  
+  </div>
   
   
   <a id="ComponentFactory_Krypton_Toolkit_BlurWindowExtensions_DisableBlur_" data-uid="ComponentFactory.Krypton.Toolkit.BlurWindowExtensions.DisableBlur*"></a>
@@ -195,6 +247,9 @@ BSD 3-Clause License
   
   
   
+  <h5 id="ComponentFactory_Krypton_Toolkit_BlurWindowExtensions_EnableBlur_System_Windows_Forms_Form__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This appears to only &quot;Blurs&quot; normal controls, not the ones being themed by Krypton</p>
+</div>
   
   
   

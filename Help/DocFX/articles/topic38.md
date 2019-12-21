@@ -113,3 +113,13 @@ this *ExtraText* property.
   
 * *  
 *   Figure 3 – ExtraText = "String"*
+
+**Blur Values**
+You can specify four values to blur the form when inactive. To enable this functionality,
+you will need to set both *BlurWhenFocusLost* & *EnableBlur* properties to *true* under
+*BlurValues*. The *Opacity* property allows you to set how much 'blur' is applied to the
+source form, and the *Radius* property allows you to set the gausian pixel radius used
+to blur each pixel.
+
+**
+*   Figure 4 – Example of blur in action*

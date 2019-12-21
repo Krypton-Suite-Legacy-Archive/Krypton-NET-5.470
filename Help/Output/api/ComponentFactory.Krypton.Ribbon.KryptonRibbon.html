@@ -14,7 +14,7 @@ BSD 3-Clause License
    | Krypton Component Suite 2019
 BSD 3-Clause License
 &#65533; Component Factory Pty Ltd, 2006-2019, All rights reserved. ">
-    <meta name="generator" content="docfx 2.41.0.0">
+    <meta name="generator" content="docfx 2.48.0.0">
     
     <link rel="shortcut icon" href="../Krypton.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -128,6 +128,9 @@ BSD 3-Clause License
       <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_PaletteChanged">VisualControlBase.PaletteChanged</a>
     </div>
     <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_GlobalPaletteChanged">VisualControlBase.GlobalPaletteChanged</a>
+    </div>
+    <div>
       <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ContextMenuStrip">VisualControlBase.ContextMenuStrip</a>
     </div>
     <div>
@@ -165,6 +168,9 @@ BSD 3-Clause License
     </div>
     <div>
       <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ToolTipValues">VisualControlBase.ToolTipValues</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ResetToolTipValues">VisualControlBase.ResetToolTipValues()</a>
     </div>
     <div>
       <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ViewFromPoint_System_Drawing_Point_">VisualControlBase.ViewFromPoint(Point)</a>
@@ -249,6 +255,9 @@ BSD 3-Clause License
     </div>
     <div>
       <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_ContextMenuClosed">VisualControlBase.ContextMenuClosed()</a>
+    </div>
+    <div>
+      <a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_SetWindowTheme_System_IntPtr_System_String_System_String_">VisualControlBase.SetWindowTheme(IntPtr, String, String)</a>
     </div>
     <div>
       <span class="xref">System.Windows.Forms.Control.GetAccessibilityObjectById(System.Int32)</span>
@@ -1391,8 +1400,7 @@ public class KryptonRibbon : VisualSimple, IDropTarget, ISynchronizeInvoke, IWin
   <h4 id="ComponentFactory_Krypton_Ribbon_KryptonRibbon_AllowFormIntegrate" data-uid="ComponentFactory.Krypton.Ribbon.KryptonRibbon.AllowFormIntegrate"><a href="#collapsible-ComponentFactory_Krypton_Ribbon_KryptonRibbon_AllowFormIntegrate" class="expander" data-toggle="collapse">AllowFormIntegrate</a></h4>
   
   <div id="collapsible-ComponentFactory_Krypton_Ribbon_KryptonRibbon_AllowFormIntegrate" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets if the ribbon is allowed to override form chrome by integrating instead with operating system chrome.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
@@ -2974,7 +2982,7 @@ public ToolTipManager ToolTipManager { get; }</code></pre>
   
   
   <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">System.Windows.Forms.Control.OnHandleCreated(System.EventArgs)</span></div>
+  <div><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualControlBase.html#ComponentFactory_Krypton_Toolkit_VisualControlBase_OnHandleCreated_System_EventArgs_">VisualControlBase.OnHandleCreated(EventArgs)</a></div>
   
   
   
@@ -3766,6 +3774,34 @@ public bool PreFilterMessage(ref Message m)</code></pre>
   
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.ProcessDialogKey(System.Windows.Forms.Keys)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Ribbon_KryptonRibbon_ResetAllowFormIntegrate_" data-uid="ComponentFactory.Krypton.Ribbon.KryptonRibbon.ResetAllowFormIntegrate*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Ribbon_KryptonRibbon_ResetAllowFormIntegrate" data-uid="ComponentFactory.Krypton.Ribbon.KryptonRibbon.ResetAllowFormIntegrate"><a href="#collapsible-ComponentFactory_Krypton_Ribbon_KryptonRibbon_ResetAllowFormIntegrate" class="expander" data-toggle="collapse">ResetAllowFormIntegrate()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Ribbon_KryptonRibbon_ResetAllowFormIntegrate" class="collapse in">
+  <div class="markdown level1 summary"><p>Resets the AllowFormIntegrate property to its default value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ResetAllowFormIntegrate()</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  
+  
   
   
   
