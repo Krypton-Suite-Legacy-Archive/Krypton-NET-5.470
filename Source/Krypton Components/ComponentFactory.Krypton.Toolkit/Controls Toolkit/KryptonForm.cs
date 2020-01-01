@@ -695,9 +695,9 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void OnPaint(PaintEventArgs e)
         {
             StateCommon.Border.Rounding = CornerRoundingRadius;
-			
-			// Assign GetHasCurrentInstanceGotAdministrativeRights() to IsInAdministratorMode value			
-			GetHasCurrentInstanceGotAdministrativeRights() = IsInAdministratorMode;
+
+            // Assign IsInAdministratorMode to GetHasCurrentInstanceGotAdministrativeRights() value.
+            IsInAdministratorMode = GetHasCurrentInstanceGotAdministrativeRights();
 
             base.OnPaint(e);
         }
