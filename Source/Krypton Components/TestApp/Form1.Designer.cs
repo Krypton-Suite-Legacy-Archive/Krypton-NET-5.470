@@ -86,6 +86,8 @@
             this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.kryptonButton4 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButton5 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
@@ -118,6 +120,8 @@
             // 
             // kryptonPanel2
             // 
+            this.kryptonPanel2.Controls.Add(this.kryptonButton5);
+            this.kryptonPanel2.Controls.Add(this.kryptonButton4);
             this.kryptonPanel2.Controls.Add(this.kbtnInputBox);
             this.kryptonPanel2.Controls.Add(this.kryptonTreeView1);
             this.kryptonPanel2.Controls.Add(this.knumWindowRounding);
@@ -196,6 +200,7 @@
             treeNode15});
             this.kryptonTreeView1.Size = new System.Drawing.Size(120, 119);
             this.kryptonTreeView1.TabIndex = 29;
+            this.kryptonTreeView1.TabStop = false;
             // 
             // knumWindowRounding
             // 
@@ -291,7 +296,7 @@
             // 
             // kryptonButton3
             // 
-            this.kryptonButton3.Location = new System.Drawing.Point(174, 338);
+            this.kryptonButton3.Location = new System.Drawing.Point(174, 294);
             this.kryptonButton3.Name = "kryptonButton3";
             this.kryptonButton3.Size = new System.Drawing.Size(143, 53);
             this.kryptonButton3.TabIndex = 17;
@@ -304,7 +309,7 @@
             // 
             // kbtnLoadTheme
             // 
-            this.kbtnLoadTheme.Location = new System.Drawing.Point(25, 338);
+            this.kbtnLoadTheme.Location = new System.Drawing.Point(25, 294);
             this.kbtnLoadTheme.Name = "kbtnLoadTheme";
             this.kbtnLoadTheme.Size = new System.Drawing.Size(143, 53);
             this.kbtnLoadTheme.TabIndex = 15;
@@ -317,13 +322,26 @@
             // 
             // kryptonNavigator1
             // 
+            this.kryptonNavigator1.Bar.BarMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.None;
+            this.kryptonNavigator1.Bar.ItemSizing = ComponentFactory.Krypton.Navigator.BarItemSizing.Individual;
+            this.kryptonNavigator1.Button.CloseButtonAction = ComponentFactory.Krypton.Navigator.CloseButtonAction.None;
+            this.kryptonNavigator1.Button.ContextButtonAction = ComponentFactory.Krypton.Navigator.ContextButtonAction.None;
+            this.kryptonNavigator1.Button.ContextMenuMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.None;
+            this.kryptonNavigator1.Button.NextButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.None;
+            this.kryptonNavigator1.Button.PreviousButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.None;
+            this.kryptonNavigator1.Header.HeaderValuesPrimary.MapHeading = ComponentFactory.Krypton.Navigator.MapKryptonPageText.None;
+            this.kryptonNavigator1.Header.HeaderValuesPrimary.MapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.None;
             this.kryptonNavigator1.Location = new System.Drawing.Point(580, 338);
             this.kryptonNavigator1.Name = "kryptonNavigator1";
+            this.kryptonNavigator1.Outlook.Full.StackMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.None;
+            this.kryptonNavigator1.Outlook.Mini.MiniMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.None;
             this.kryptonNavigator1.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
             this.kryptonPage1,
             this.kryptonPage2});
+            this.kryptonNavigator1.PopupPages.AllowPopupPages = ComponentFactory.Krypton.Navigator.PopupPageAllow.Never;
             this.kryptonNavigator1.SelectedIndex = 0;
             this.kryptonNavigator1.Size = new System.Drawing.Size(197, 78);
+            this.kryptonNavigator1.Stack.StackMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.None;
             this.kryptonNavigator1.TabIndex = 13;
             this.kryptonNavigator1.Text = "kryptonNavigator1";
             // 
@@ -334,7 +352,7 @@
             this.kryptonPage1.LastVisibleSet = true;
             this.kryptonPage1.MinimumSize = new System.Drawing.Size(50, 50);
             this.kryptonPage1.Name = "kryptonPage1";
-            this.kryptonPage1.Size = new System.Drawing.Size(195, 51);
+            this.kryptonPage1.Size = new System.Drawing.Size(195, 55);
             this.kryptonPage1.Text = "kryptonPage1";
             this.kryptonPage1.ToolTipTitle = "Page ToolTip";
             this.kryptonPage1.UniqueName = "93558f74a2b4488db9e44dc487858ad7";
@@ -432,7 +450,7 @@
             // 
             // kryptonButton2
             // 
-            this.kryptonButton2.Location = new System.Drawing.Point(174, 241);
+            this.kryptonButton2.Location = new System.Drawing.Point(174, 197);
             this.kryptonButton2.Name = "kryptonButton2";
             this.kryptonButton2.Size = new System.Drawing.Size(143, 91);
             this.kryptonButton2.StateCommon.Content.ShortText.MultiLine = ComponentFactory.Krypton.Toolkit.InheritBool.True;
@@ -448,7 +466,7 @@
             // 
             // kryptonButton1
             // 
-            this.kryptonButton1.Location = new System.Drawing.Point(25, 241);
+            this.kryptonButton1.Location = new System.Drawing.Point(25, 197);
             this.kryptonButton1.Name = "kryptonButton1";
             this.kryptonButton1.Size = new System.Drawing.Size(143, 91);
             this.kryptonButton1.TabIndex = 0;
@@ -466,6 +484,32 @@
             this.buttonSpecAny1.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.SuperTip;
             this.buttonSpecAny1.ToolTipTitle = "Title";
             this.buttonSpecAny1.UniqueName = "8D0C7B51F6A946484D932C2A06451172";
+            // 
+            // kryptonButton4
+            // 
+            this.kryptonButton4.Location = new System.Drawing.Point(25, 353);
+            this.kryptonButton4.Name = "kryptonButton4";
+            this.kryptonButton4.Size = new System.Drawing.Size(143, 53);
+            this.kryptonButton4.TabIndex = 33;
+            this.kryptonButton4.ToolTipValues.Description = "Applies the user selected theme";
+            this.kryptonButton4.ToolTipValues.EnableToolTips = true;
+            this.kryptonButton4.ToolTipValues.Heading = "Apply Theme";
+            this.kryptonButton4.ToolTipValues.Image = global::TestApp.Properties.Resources.Square_Design_32_x_32_New_Green;
+            this.kryptonButton4.Values.Text = "Enable Close Button";
+            this.kryptonButton4.Click += new System.EventHandler(this.kryptonButton4_Click);
+            // 
+            // kryptonButton5
+            // 
+            this.kryptonButton5.Location = new System.Drawing.Point(174, 353);
+            this.kryptonButton5.Name = "kryptonButton5";
+            this.kryptonButton5.Size = new System.Drawing.Size(143, 53);
+            this.kryptonButton5.TabIndex = 34;
+            this.kryptonButton5.ToolTipValues.Description = "Applies the user selected theme";
+            this.kryptonButton5.ToolTipValues.EnableToolTips = true;
+            this.kryptonButton5.ToolTipValues.Heading = "Apply Theme";
+            this.kryptonButton5.ToolTipValues.Image = global::TestApp.Properties.Resources.Square_Design_32_x_32_New_Green;
+            this.kryptonButton5.Values.Text = "Disable Close Button";
+            this.kryptonButton5.Click += new System.EventHandler(this.kryptonButton5_Click);
             // 
             // Form1
             // 
@@ -542,6 +586,8 @@
         private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown knumWindowRounding;
         private ComponentFactory.Krypton.Toolkit.KryptonTreeView kryptonTreeView1;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnInputBox;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton4;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton5;
     }
 }
 

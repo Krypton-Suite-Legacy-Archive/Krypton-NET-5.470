@@ -34,12 +34,12 @@
 
 You can check out the demos by clicking [here](https://www.somsubhra.com/github-release-stats/?username=Wagnerp&repository=Krypton-NET-5.470)
 
-<!--
 =======
 
-## 2019-12-xx Build 2105
+## 2020-01-10 Build 2111
+* Year change `2019` to `2020`
+* Fixed [#257](https://github.com/Wagnerp/Krypton-NET-5.470/issues/257), KyptonForm fails to invalidate rendering in some situations
 * ButtonCell and CheckboxCell: ReadOnly property is not respected from cell. Courtesy of [ricterAI](https://github.com/richterAl)
--->
 
 =======
 

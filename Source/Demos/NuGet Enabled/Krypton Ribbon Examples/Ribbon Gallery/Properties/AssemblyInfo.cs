@@ -1,6 +1,6 @@
 ﻿// *****************************************************************************
 // 
-//  © Component Factory Pty Ltd 2012 - 2019. All rights reserved.
+//  © Component Factory Pty Ltd, 2006 - 2016. All rights reserved.
 //	The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, PO Box 1504, 
 //  Glen Waverley, Vic 3150, Australia and are supplied subject to licence terms.
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("2019.10.5002.13")]
 [assembly: AssemblyFileVersion("18.10.5002.13")]
 [assembly: AssemblyInformationalVersion("2019.10.5002.13")]
-[assembly: AssemblyCopyright("© Component Factory Pty Ltd 2012 - 2019. All rights reserved.")]
+[assembly: AssemblyCopyright("© Component Factory Pty Ltd, 2006 - 2016. All rights reserved.")]
 [assembly: AssemblyProduct("Ribbon Gallery")]
 [assembly: AssemblyDefaultAlias("RibbonGallery.dll")]
 [assembly: AssemblyTitle("Ribbon Gallery")]
