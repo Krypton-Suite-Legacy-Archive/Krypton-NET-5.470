@@ -16,9 +16,9 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security;
 
-[assembly: AssemblyVersion("5.470.864.0")]
-[assembly: AssemblyFileVersion("5.470.864.0")]
-[assembly: AssemblyInformationalVersion("5.470.864.0")]
+[assembly: AssemblyVersion("5.470.870.0")]
+[assembly: AssemblyFileVersion("5.470.870.0")]
+[assembly: AssemblyInformationalVersion("5.470.870.0")]
 [assembly: AssemblyCopyright("© Component Factory Pty Ltd, 2006 - 2016. Then modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017 - 2020. All rights reserved.")]
 [assembly: AssemblyProduct("Krypton Ribbon")]
 [assembly: AssemblyDefaultAlias("ComponentFactory.Krypton.Ribbon.dll")]

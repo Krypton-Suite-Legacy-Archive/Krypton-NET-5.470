@@ -78,11 +78,16 @@ body text to be shown below. Alternatively you could change the style to
 of the tool tip area, the image in shown below with the title also below and to
 the right of the image.
 
-Note that by default the *Krypton* controls that allow the definition of button
+Notes: 
+- That by default the *Krypton* controls that allow the definition of button
 specification do not show tool tips for them. You must therefore find the
-appropriate property such as *AllowButtonSpecTooltips* and set it to *True*
+appropriate property such as `AllowButtonSpecToolTips` and set it to `true`
 before tool tips will be displayed.  
-  
+- Also, if the parent Item has tooltips, and the button spec has tooltips, then
+the default is show both when hovering over the buttonspec. This can be disabled 
+by setting `AllowButtonSpecTooltipPriority` to `true`, so that only 1 tooltip is
+displayed when hovering over any part of the control.
+
   
 ### Style
 By default the button will be displayed using the *ButtonSpec* button style

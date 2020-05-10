@@ -234,8 +234,8 @@ namespace ComponentFactory.Krypton.Ribbon
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override KryptonRibbon Ribbon
         {
-            set 
-            { 
+            set
+            {
                 base.Ribbon = value;
 
                 if (value != null)
@@ -361,7 +361,7 @@ namespace ComponentFactory.Krypton.Ribbon
                 }
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the minimum size of the control.
         /// </summary>
@@ -818,6 +818,19 @@ namespace ComponentFactory.Krypton.Ribbon
             set => MaskedTextBox.AllowButtonSpecToolTips = value;
         }
 
+
+        /// <summary>
+        /// Gets and sets a value indicating if button spec tooltips should remove the parent tooltip.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Should button spec tooltips should remove the parent tooltip")]
+        [DefaultValue(false)]
+        public bool AllowButtonSpecToolTipPriority
+        {
+            get => MaskedTextBox.AllowButtonSpecToolTipPriority;
+            set => MaskedTextBox.AllowButtonSpecToolTipPriority = value;
+        }
+
         /// <summary>
         /// Gets the collection of button specifications.
         /// </summary>
@@ -833,7 +846,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="needPaint">Delegate for notifying changes in display.</param>
         /// <returns>ViewBase derived instance.</returns>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override ViewBase CreateView(KryptonRibbon ribbon, 
+        public override ViewBase CreateView(KryptonRibbon ribbon,
                                             NeedPaintHandler needPaint)
         {
             return new ViewDrawRibbonGroupMaskedTextBox(ribbon, this, needPaint);

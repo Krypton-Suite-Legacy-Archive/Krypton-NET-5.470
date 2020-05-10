@@ -33,6 +33,7 @@
             this.kryptonButton3 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonNumericUpDown1 = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
+            this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
@@ -71,12 +72,23 @@
             // 
             // kryptonNumericUpDown1
             // 
+            this.kryptonNumericUpDown1.AllowDecimals = true;
+            this.kryptonNumericUpDown1.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny1});
             this.kryptonNumericUpDown1.DecimalPlaces = 99;
             this.kryptonNumericUpDown1.Location = new System.Drawing.Point(136, 9);
             this.kryptonNumericUpDown1.Name = "kryptonNumericUpDown1";
             this.kryptonNumericUpDown1.Size = new System.Drawing.Size(80, 22);
             this.kryptonNumericUpDown1.TabIndex = 4;
             this.kryptonNumericUpDown1.ToolTipValues.EnableToolTips = true;
+            // 
+            // buttonSpecAny1
+            // 
+            this.buttonSpecAny1.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Alternate;
+            this.buttonSpecAny1.ToolTipBody = "Seperate Tool Body";
+            this.buttonSpecAny1.ToolTipTitle = "Extra Button";
+            this.buttonSpecAny1.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Context;
+            this.buttonSpecAny1.UniqueName = "eefcb80fb7224f1f943dd0e6fcc9187f";
             // 
             // kryptonPanel1
             // 
@@ -107,7 +119,7 @@
             this.ShadowValues.Colour = System.Drawing.SystemColors.ActiveCaptionText;
             this.ShadowValues.EnableShadows = true;
             this.ShadowValues.Opacity = 40D;
-            this.Text = "SmallForm";
+            this.Text = "SmallForm - Moving shadow";
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
             this.kryptonPanel1.PerformLayout();
@@ -122,5 +134,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown kryptonNumericUpDown1;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
         private System.Windows.Forms.Timer timer1;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
     }
 }

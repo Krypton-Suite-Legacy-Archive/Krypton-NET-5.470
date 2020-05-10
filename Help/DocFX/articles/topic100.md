@@ -34,7 +34,7 @@ mouse hovers over a button specification. This allows the the pre-defined butto
 specifications such as the *Close/Context/Next/Previous* buttons as well as user
 defined specification via the *Button.ButtonSpecs* collection property.
 
-  
+
 **AllowPageTooltips**  
 Determines if tooltips are displayed when the mouse hovers over a *KryptonPage*
 header item. A header item can be a check button, tab header, tab ribbon header,

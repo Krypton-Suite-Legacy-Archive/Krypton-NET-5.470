@@ -504,6 +504,18 @@ namespace ComponentFactory.Krypton.Ribbon
         }
 
         /// <summary>
+        /// Gets and sets a value indicating if button spec tooltips should remove the parent tooltip.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Should button spec tooltips should remove the parent tooltip")]
+        [DefaultValue(false)]
+        public bool AllowButtonSpecToolTipPriority
+        {
+            get => NumericUpDown.AllowButtonSpecToolTipPriority;
+            set => NumericUpDown.AllowButtonSpecToolTipPriority = value;
+        }
+
+        /// <summary>
         /// Selects a range of text in the control.
         /// </summary>
         /// <param name="start">The position of the first character in the current text selection within the text box.</param>
