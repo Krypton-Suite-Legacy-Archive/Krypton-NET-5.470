@@ -2,6 +2,18 @@
 
 =======
 
+## Announcement - 1st May 2020
+
+As of November 2020, this repository **will** be archived. This means the NuGet packages associated with this **will** be removed and all new issues, suggestions etc. will likely to be ignored.
+
+# What do I do?
+
+The projects associated with Krypton have been under reconstruction to accommodate all frameworks in one unified codebase where possible. You can browse, post issues/suggestions and follow these projects [here](https://github.com/Krypton-Suite)
+
+Thank you for all your support!
+
+=======
+
 | Module Name | Current Version | Github License | 
 |---|---|---|
 | <img src="https://img.shields.io/badge/Module-Core-orange.svg" /> | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470CoreModule) | ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) 
@@ -15,6 +27,14 @@
 |---|---|---|---|---|---|
 | [![NuGet](https://img.shields.io/badge/NuGet-Krypton%20.NET%205.470-green.svg)](https://www.nuget.org/packages/KryptonToolkitSuite5470/) | ![Nuget](https://img.shields.io/nuget/v/KryptonToolkitSuite5470.svg) | ![Nuget](https://img.shields.io/nuget/dt/KryptonToolkitSuite5470.svg?color=blue&label=NuGet%20Downloads) | ![GitHub](https://img.shields.io/github/license/Wagnerp/Krypton-NET-5.470.svg) | [![CodeFactor](https://www.codefactor.io/repository/github/wagnerp/krypton-net-5.470/badge)](https://www.codefactor.io/repository/github/wagnerp/krypton-net-5.470) | [![codebeat badge](https://codebeat.co/badges/be12e17a-9c47-49c1-ac09-bbb733968e66)](https://codebeat.co/projects/github-com-wagnerp-krypton-net-5-470-master) |
 -->
+
+=======
+
+# Future support for versions `400` to `480`
+
+Later this year, the repositories for versions `400` to `480` **will** be archived. This will mean no new features, updates etc will be uploaded. We strongly suggest that you migrate to the packages as stated in [this repository](https://github.com/Wagnerp/Krypton-Toolkit-Suite-NET-Core) for future updates.
+
+Thank you for all your support!
 
 =======
 
@@ -36,15 +56,22 @@ You can check out the demos by clicking [here](https://www.somsubhra.com/github-
 
 =======
 
-<!--
-## 2019-12-15 Build 2074
+## 2020-01-10 Build 2111
+* Year change `2019` to `2020`
+* Fix [#257](https://github.com/Wagnerp/Krypton-NET-5.470/issues/257), KyptonForm fails to invalidate rendering in some situations
+* ButtonCell and CheckboxCell: ReadOnly property is not respected from cell. Courtesy of [ricterAI](https://github.com/richterAl)
+
+=======
+
+## 2019-12-18 Build 2098
 * Implement #240 blur form when inactive
 * Addition of VisualBlur Values to allow control of the bluring per form
 * Add Test App modifications
 * Tested on Win 8.1 and Win 10
+* Fix #211 ComboBox Design Time Spacing
+* Fix [#239](https://github.com/Wagnerp/Krypton-NET-5.470/issues/239), `KryptonInputBox` faint text problem.
 
 =======
--->
 
 ## 2019-12-14 Build 2007
 * Investigate & fix #233

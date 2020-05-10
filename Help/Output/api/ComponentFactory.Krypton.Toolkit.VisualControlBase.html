@@ -14,7 +14,7 @@ BSD 3-Clause License
    | Krypton Component Suite 2019
 BSD 3-Clause License
 &#65533; Component Factory Pty Ltd, 2006-2019, All rights reserved. ">
-    <meta name="generator" content="docfx 2.41.0.0">
+    <meta name="generator" content="docfx 2.48.0.0">
     
     <link rel="shortcut icon" href="../Krypton.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -364,9 +364,6 @@ BSD 3-Clause License
     </div>
     <div>
       <span class="xref">System.Windows.Forms.Control.OnCreateControl()</span>
-    </div>
-    <div>
-      <span class="xref">System.Windows.Forms.Control.OnHandleCreated(System.EventArgs)</span>
     </div>
     <div>
       <span class="xref">System.Windows.Forms.Control.OnLocationChanged(System.EventArgs)</span>
@@ -1321,7 +1318,7 @@ public override ImageLayout BackgroundImageLayout { get; set; }</code></pre>
   <h4 id="ComponentFactory_Krypton_Toolkit_VisualControlBase_ContextMenuStrip" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlBase.ContextMenuStrip"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualControlBase_ContextMenuStrip" class="expander" data-toggle="collapse">ContextMenuStrip</a></h4>
   
   <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualControlBase_ContextMenuStrip" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets the ContextMenuStrip associated with this control.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the <span class="xref">System.Windows.Forms.ContextMenuStrip</span> associated with this control.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1339,7 +1336,8 @@ public override ImageLayout BackgroundImageLayout { get; set; }</code></pre>
     <tr>
       <td>
         <span class="xref">System.Windows.Forms.ContextMenuStrip</span>
-        <p>
+        <p><p>The <span class="xref">System.Windows.Forms.ContextMenuStrip</span> for this control, or <span class="xref">null</span> if there is no <span class="xref">System.Windows.Forms.ContextMenuStrip</span>. The default is <span class="xref">null</span>.</p>
+</p>
       </td>
     </tr>
   </table>
@@ -1700,7 +1698,7 @@ public IRenderer Renderer { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ToolTipValues ToolTipValues { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public ToolTipValues ToolTipValues { get; set; }</code></pre>
   </div>
   
   
@@ -1774,7 +1772,7 @@ public IRenderer Renderer { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected ViewManager ViewManager { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public ViewManager ViewManager { get; protected set; }</code></pre>
   </div>
   
   
@@ -2323,6 +2321,45 @@ public ToolStripRenderer CreateToolStripRenderer()</code></pre>
   
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Windows.Forms.Control.OnGotFocus(System.EventArgs)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_VisualControlBase_OnHandleCreated_" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlBase.OnHandleCreated*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualControlBase_OnHandleCreated_System_EventArgs_" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlBase.OnHandleCreated(System.EventArgs)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualControlBase_OnHandleCreated_System_EventArgs_" class="expander" data-toggle="collapse">OnHandleCreated(EventArgs)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualControlBase_OnHandleCreated_System_EventArgs_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnHandleCreated(EventArgs e)</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.EventArgs</span></span>
+        <span class="parametername">e</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Windows.Forms.Control.OnHandleCreated(System.EventArgs)</span></div>
   
   
   
@@ -3220,6 +3257,94 @@ public virtual void PerformNeedPaint(bool needLayout)</code></pre>
   </div>
   
   
+  <a id="ComponentFactory_Krypton_Toolkit_VisualControlBase_ResetToolTipValues_" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlBase.ResetToolTipValues*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualControlBase_ResetToolTipValues" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlBase.ResetToolTipValues"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualControlBase_ResetToolTipValues" class="expander" data-toggle="collapse">ResetToolTipValues()</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualControlBase_ResetToolTipValues" class="collapse in">
+  <div class="markdown level1 summary"><p>Resets the ToolTipValues property to its default value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ResetToolTipValues()</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_VisualControlBase_SetWindowTheme_" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlBase.SetWindowTheme*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualControlBase_SetWindowTheme_System_IntPtr_System_String_System_String_" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlBase.SetWindowTheme(System.IntPtr,System.String,System.String)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualControlBase_SetWindowTheme_System_IntPtr_System_String_System_String_" class="expander" data-toggle="collapse">SetWindowTheme(IntPtr, String, String)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualControlBase_SetWindowTheme_System_IntPtr_System_String_System_String_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int SetWindowTheme(IntPtr hwnd, string pszSubAppName, string pszSubIdList)</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IntPtr</span></span>
+        <span class="parametername">hwnd</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">pszSubAppName</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">pszSubIdList</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="ComponentFactory_Krypton_Toolkit_VisualControlBase_UpdateGlobalEvents_" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlBase.UpdateGlobalEvents*"></a>
   
   <h4 id="ComponentFactory_Krypton_Toolkit_VisualControlBase_UpdateGlobalEvents_System_Boolean_" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlBase.UpdateGlobalEvents(System.Boolean)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualControlBase_UpdateGlobalEvents_System_Boolean_" class="expander" data-toggle="collapse">UpdateGlobalEvents(Boolean)</a></h4>
@@ -3349,6 +3474,42 @@ public virtual void PerformNeedPaint(bool needLayout)</code></pre>
   </div>
   <h3 id="events">Events
   </h3>
+  
+  
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_VisualControlBase_GlobalPaletteChanged" data-uid="ComponentFactory.Krypton.Toolkit.VisualControlBase.GlobalPaletteChanged"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_VisualControlBase_GlobalPaletteChanged" class="expander" data-toggle="collapse">GlobalPaletteChanged</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_VisualControlBase_GlobalPaletteChanged" class="collapse in">
+  <div class="markdown level1 summary"><p>Occurs when the Global palette changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler GlobalPaletteChanged</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.EventHandler</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
   
   
   

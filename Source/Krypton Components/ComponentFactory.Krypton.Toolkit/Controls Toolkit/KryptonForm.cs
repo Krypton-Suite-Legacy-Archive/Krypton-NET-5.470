@@ -1,11 +1,11 @@
 ﻿// *****************************************************************************
 // BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
-//  © Component Factory Pty Ltd, 2006-2019, All rights reserved.
+//  © Component Factory Pty Ltd, 2006 - 2016, All rights reserved.
 // The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to license terms.
 // 
-//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2019. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
+//  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2020. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-5.470)
 //  Version 5.470.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
@@ -14,6 +14,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Windows.Forms;
@@ -83,6 +84,12 @@ namespace ComponentFactory.Krypton.Toolkit
         #region Static Fields
         private static readonly Size CAPTION_ICON_SIZE = new Size(16, 16);
         private const int HT_CORNER = 8;
+
+        internal const int SC_CLOSE = 0xF060;           //close button's code in windows api
+        internal const int MF_GRAYED = 0x1;             //disabled button status (enabled = false)
+        internal const int MF_ENABLED = 0x00000000;     //enabled button status
+        internal const int MF_DISABLED = 0x00000002;    //disabled button status
+
         // Drop shadow
         private const int CS_DROPSHADOW = 0x00020000;
 
@@ -208,7 +215,17 @@ namespace ComponentFactory.Krypton.Toolkit
             ViewManager = new ViewManager(this, _drawDocker);
 
             // Set the UseDropShadow to true
-            UseDropShadow = true;
+            // Check OS version for compatibility (can be overriden if needed)
+            if (Environment.OSVersion.Version.Major == 10)
+            {
+                UseDropShadow = true;
+            }
+            else if (Environment.OSVersion.Version.Major <= 6)
+            {
+                UseDropShadow = false;
+            }
+
+            IsInAdministratorMode = false;
 
             AdministratorText = "Administrator";
 
@@ -432,11 +449,11 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <value>
         ///   <c>true</c> if this instance is in administrator mode; otherwise, <c>false</c>.
         /// </value>
-        [Category("Appearance"), Description("Is the user currently an administrator."), DefaultValue(false)]
+        [Browsable(false), Category("Code"), Description("Is the user currently an administrator."), DefaultValue(false)]
         public bool IsInAdministratorMode
         {
             get => _isInAdministratorMode;
-            set => _isInAdministratorMode = value;
+            set { _isInAdministratorMode = value; }
         }
 
         /// <summary>
@@ -695,6 +712,9 @@ namespace ComponentFactory.Krypton.Toolkit
         protected override void OnPaint(PaintEventArgs e)
         {
             StateCommon.Border.Rounding = CornerRoundingRadius;
+
+            // Assign IsInAdministratorMode to GetHasCurrentInstanceGotAdministrativeRights() value.
+            //!ElevateCurrentInstanceWithAdministrativeRights(IsInAdministratorMode);
 
             base.OnPaint(e);
         }
@@ -1704,6 +1724,23 @@ namespace ComponentFactory.Krypton.Toolkit
 
             Invalidate();
         }
+
+        /*
+         * Code from https://www.youtube.com/watch?v=fDdX4ttZuLk
+         */
+        [DllImport("user32.dll")] //Importing user32.dll for calling required function
+        private static extern IntPtr GetSystemMenu(IntPtr HWNDValue, bool Revert);
+
+        /// HWND: An IntPtr typed handler of the related form
+        /// It is used from the Win API "user32.dll"
+
+        [DllImport("user32.dll")] //Importing user32.dll for calling required function again
+        private static extern int EnableMenuItem(IntPtr tMenu, int targetItem, int targetStatus);
+
+
+        public void DisableCloseButton() => EnableMenuItem(GetSystemMenu(this.Handle, false), SC_CLOSE, MF_GRAYED);
+
+        public void EnableCloseButton() => EnableMenuItem(GetSystemMenu(this.Handle, false), SC_CLOSE, MF_ENABLED);
         #endregion
 
         #region Drop Shadow Methods
@@ -1777,23 +1814,33 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <returns></returns>
         public static bool GetHasCurrentInstanceGotAdministrativeRights()
         {
+            KryptonForm form = new KryptonForm();
+
             try
             {
                 WindowsPrincipal principal = new WindowsPrincipal(WindowsIdentity.GetCurrent());
 
                 bool hasAdministrativeRights = principal.IsInRole(WindowsBuiltInRole.Administrator);
 
+                //IsInAdministratorMode = hasAdministrativeRights;
+
                 if (hasAdministrativeRights)
                 {
+                    form.IsInAdministratorMode = true;
+
                     return true;
                 }
                 else
                 {
+                    form.IsInAdministratorMode = false;
+
                     return false;
                 }
             }
             catch
             {
+                form.IsInAdministratorMode = false;
+
                 return false;
             }
         }
@@ -1824,6 +1871,48 @@ namespace ComponentFactory.Krypton.Toolkit
                     default:
                         break;
                 }
+            }
+        }
+
+        /// <summary>Elevates the current instance with administrative rights.</summary>
+        /// <param name="isInAdministratorMode">if set to <c>true</c> [is in administrator mode].</param>
+        private void ElevateCurrentInstanceWithAdministrativeRights(bool isInAdministratorMode)
+        {
+            try
+            {
+                string processPath = Path.GetFullPath(Application.StartupPath);
+
+                if (isInAdministratorMode)
+                {
+                    WindowsPrincipal principal = new WindowsPrincipal(WindowsIdentity.GetCurrent());
+
+                    bool hasAdministrativeRights = principal.IsInRole(WindowsBuiltInRole.Administrator);
+
+                    if (!hasAdministrativeRights)
+                    {
+                        ProcessStartInfo process = new ProcessStartInfo();
+
+                        process.Verb = "runas";
+
+                        process.FileName = processPath;
+
+                        try
+                        {
+                            Process.Start(process);
+                        }
+                        catch (Win32Exception e)
+                        {
+                            KryptonMessageBox.Show($"Error: { e.Message }", "An Error has Occurred", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                        return;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw;
             }
         }
         #endregion

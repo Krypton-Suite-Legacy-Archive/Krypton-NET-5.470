@@ -1,6 +1,6 @@
 ﻿// *****************************************************************************
 // 
-//  © Component Factory Pty Ltd 2012 - 2019. All rights reserved.
+//  © Component Factory Pty Ltd, 2006 - 2016. All rights reserved.
 //    The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 17/267 Nepean Hwy, 
 //  Seaford, Vic 3198, Australia and are supplied subject to license terms.

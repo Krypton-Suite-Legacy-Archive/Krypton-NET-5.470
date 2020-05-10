@@ -154,9 +154,20 @@ namespace TestApp
 
         private void kbtnInputBox_Click(object sender, EventArgs e)
         {
-            KryptonInputBox inputBox = new KryptonInputBox("Test", "Hello World!", "Your answer here...");
+            KryptonInputBox.Show(this, "Test", "Hello World!", "Your answer here...");
 
-            inputBox.Show();
+
+            //KryptonInputBox.Show(this, "Hello");
+        }
+
+        private void kryptonButton4_Click(object sender, EventArgs e)
+        {
+            EnableCloseButton();
+        }
+
+        private void kryptonButton5_Click(object sender, EventArgs e)
+        {
+            DisableCloseButton();
         }
     }
 }

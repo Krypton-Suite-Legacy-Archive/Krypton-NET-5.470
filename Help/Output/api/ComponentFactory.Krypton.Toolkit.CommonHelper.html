@@ -14,7 +14,7 @@ BSD 3-Clause License
    | Krypton Component Suite 2019
 BSD 3-Clause License
 &#65533; Component Factory Pty Ltd, 2006-2019, All rights reserved. ">
-    <meta name="generator" content="docfx 2.41.0.0">
+    <meta name="generator" content="docfx 2.48.0.0">
     
     <link rel="shortcut icon" href="../Krypton.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -1019,12 +1019,13 @@ BSD 3-Clause License
   <h4 id="ComponentFactory_Krypton_Toolkit_CommonHelper_CaptureCursor" data-uid="ComponentFactory.Krypton.Toolkit.CommonHelper.CaptureCursor"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_CommonHelper_CaptureCursor" class="expander" data-toggle="collapse">CaptureCursor()</a></h4>
   
   <div id="collapsible-ComponentFactory_Krypton_Toolkit_CommonHelper_CaptureCursor" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the current active cursor, and if that is null use the current default cursor</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Icon CaptureCursor()</code></pre>
+    <pre><code class="lang-csharp hljs">public static Point CaptureCursor()</code></pre>
   </div>
   
   
@@ -1032,8 +1033,9 @@ BSD 3-Clause License
   <table>
     <tr>
       <td>
-        <span class="xref">System.Drawing.Icon</span>
-        <p>
+        <span class="xref">System.Drawing.Point</span>
+        <p><p>Cursor Hotspot</p>
+</p>
       </td>
     </tr>
   </table>
@@ -1393,6 +1395,50 @@ BSD 3-Clause License
       </td>
     </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="ComponentFactory_Krypton_Toolkit_CommonHelper_Deflate_" data-uid="ComponentFactory.Krypton.Toolkit.CommonHelper.Deflate*"></a>
+  
+  <h4 id="ComponentFactory_Krypton_Toolkit_CommonHelper_Deflate_System_Drawing_Rectangle_System_Windows_Forms_Padding_" data-uid="ComponentFactory.Krypton.Toolkit.CommonHelper.Deflate(System.Drawing.Rectangle,System.Windows.Forms.Padding)"><a href="#collapsible-ComponentFactory_Krypton_Toolkit_CommonHelper_Deflate_System_Drawing_Rectangle_System_Windows_Forms_Padding_" class="expander" data-toggle="collapse">Deflate(Rectangle, Padding)</a></h4>
+  
+  <div id="collapsible-ComponentFactory_Krypton_Toolkit_CommonHelper_Deflate_System_Drawing_Rectangle_System_Windows_Forms_Padding_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Deflate(this Rectangle rect, Padding margins)</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Drawing.Rectangle</span></span>
+        <span class="parametername">rect</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Windows.Forms.Padding</span></span>
+        <span class="parametername">margins</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
   
   
   
@@ -2627,7 +2673,7 @@ BSD 3-Clause License
       <td>
         <span class="pull-right"><a class="xref" href="ComponentFactory.Krypton.Toolkit.VisualOrientation.html">VisualOrientation</a></span>
         <span class="parametername">orientation</span>
-        <p><p>How to adjsut the border edges.</p>
+        <p><p>How to adjust the border edges.</p>
 </p>
       </td>
     </tr>
