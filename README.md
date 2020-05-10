@@ -1,4 +1,4 @@
-# <img src="https://github.com/Wagnerp/Krypton-NET-5.470/blob/master/Krypton.png"> .NET 5.470
+﻿# <img src="https://github.com/Wagnerp/Krypton-NET-5.470/blob/master/Krypton.png"> .NET 5.470
 
 =======
 
@@ -55,17 +55,25 @@ Thank you for all your support!
 You can check out the demos by clicking [here](https://www.somsubhra.com/github-release-stats/?username=Wagnerp&repository=Krypton-NET-5.470)
 
 =======
+## Code Changes in GitHub
+- 2020-05-10 Fix [#262](https://github.com/Krypton-Suite-Legacy/Krypton-NET-5.470/issues/262) - By adding new `AllowButtonSpecTooltipPriority`
+    - If the parent Item has tooltips, and the button spec has tooltips, then
+the default is show both when hovering over the button spec. This can be disabled 
+by setting `AllowButtonSpecTooltipPriority` to `true`, so that only 1 tooltip is
+displayed when hovering over any part of the control.
+
+=======
 
 ## 2020-01-10 Build 2111
 * Year change `2019` to `2020`
-* Fix [#257](https://github.com/Wagnerp/Krypton-NET-5.470/issues/257), KyptonForm fails to invalidate rendering in some situations
-* ButtonCell and CheckboxCell: ReadOnly property is not respected from cell. Courtesy of [ricterAI](https://github.com/richterAl)
+* Fix [#257](https://github.com/Wagnerp/Krypton-NET-5.470/issues/257), `KyptonForm` fails to invalidate rendering in some situations
+* `ButtonCell` and `CheckboxCell`: ReadOnly property is not respected from cell. Courtesy of [ricterAI](https://github.com/richterAl)
 
 =======
 
 ## 2019-12-18 Build 2098
 * Implement #240 blur form when inactive
-* Addition of VisualBlur Values to allow control of the bluring per form
+* Addition of `VisualBlur` Values to allow control of the blurring per form
 * Add Test App modifications
 * Tested on Win 8.1 and Win 10
 * Fix #211 ComboBox Design Time Spacing

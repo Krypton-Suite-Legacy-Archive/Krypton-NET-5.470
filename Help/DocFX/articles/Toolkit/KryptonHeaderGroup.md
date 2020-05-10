@@ -132,10 +132,13 @@ the user defined button specifications. If you set this boolean property to
 *ButtonSpec.TooltipText* property in order to define the string you would like
 to appear inside the displayed tool tip.
 
- 
+**AllowButtonSpecTooltipPriority**
+If the parent Item has tooltips, and the button spec has tooltips, then
+the default is show both when hovering over the buttonspec. This can be disabled 
+by setting `AllowButtonSpecTooltipPriority` to `true`, so that only 1 tooltip is
+displayed when hovering over any part of the control.
 
 **UseMnemonic**
-
 When this property is defined as *True* for the *KryptonHeaderGroup* it will
 check each of the *ButtonSpec* instances in the *ButtonSpecs* collection. If the
 *Text* or *ExtraText* in a *ButtonSpec* matches the incoming mnemonic then the

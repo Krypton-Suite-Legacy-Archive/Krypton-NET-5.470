@@ -101,7 +101,13 @@ the user defined button specifications that appear on the tabs line of the
 control. If you set this boolean property to *True* then it will turn on tool
 tips for those button specs. Use the *ButtonSpec.TooltipText* property in order
 to define the string you would like to appear inside the displayed tool tip.  
-  
+
+**AllowButtonSpecTooltipPriority**
+If the parent Item has tooltips, and the button spec has tooltips, then
+the default is show both when hovering over the buttonspec. This can be disabled 
+by setting `AllowButtonSpecTooltipPriority` to `true`, so that only 1 tooltip is
+displayed when hovering over any part of the control.
+
 **AllowFormIntegrate**  
 Under *Vista* with the *Aero* theme enabled there are two choices for how the
 ribbon integrates into the custom chrome of a *KryptonForm*. If you leave the

@@ -641,6 +641,18 @@ namespace ComponentFactory.Krypton.Ribbon
         }
 
         /// <summary>
+        /// Gets and sets a value indicating if button spec tooltips should remove the parent tooltip.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Should button spec tooltips should remove the parent tooltip")]
+        [DefaultValue(false)]
+        public bool AllowButtonSpecToolTipPriority
+        {
+            get => TextBox.AllowButtonSpecToolTipPriority;
+            set => TextBox.AllowButtonSpecToolTipPriority = value;
+        }
+
+        /// <summary>
         /// Gets the collection of button specifications.
         /// </summary>
         [Category("Visuals")]

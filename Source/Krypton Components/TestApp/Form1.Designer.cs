@@ -60,6 +60,8 @@
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonButton5 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButton4 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kbtnInputBox = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonTreeView1 = new ComponentFactory.Krypton.Toolkit.KryptonTreeView();
             this.knumWindowRounding = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
@@ -86,8 +88,8 @@
             this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.kryptonButton4 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonButton5 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.buttonSpecAny2 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny3 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
@@ -149,6 +151,32 @@
             this.kryptonPanel2.Name = "kryptonPanel2";
             this.kryptonPanel2.Size = new System.Drawing.Size(800, 450);
             this.kryptonPanel2.TabIndex = 0;
+            // 
+            // kryptonButton5
+            // 
+            this.kryptonButton5.Location = new System.Drawing.Point(174, 353);
+            this.kryptonButton5.Name = "kryptonButton5";
+            this.kryptonButton5.Size = new System.Drawing.Size(143, 53);
+            this.kryptonButton5.TabIndex = 34;
+            this.kryptonButton5.ToolTipValues.Description = "Applies the user selected theme";
+            this.kryptonButton5.ToolTipValues.EnableToolTips = true;
+            this.kryptonButton5.ToolTipValues.Heading = "Apply Theme";
+            this.kryptonButton5.ToolTipValues.Image = global::TestApp.Properties.Resources.Square_Design_32_x_32_New_Green;
+            this.kryptonButton5.Values.Text = "Disable Close Button";
+            this.kryptonButton5.Click += new System.EventHandler(this.kryptonButton5_Click);
+            // 
+            // kryptonButton4
+            // 
+            this.kryptonButton4.Location = new System.Drawing.Point(25, 353);
+            this.kryptonButton4.Name = "kryptonButton4";
+            this.kryptonButton4.Size = new System.Drawing.Size(143, 53);
+            this.kryptonButton4.TabIndex = 33;
+            this.kryptonButton4.ToolTipValues.Description = "Applies the user selected theme";
+            this.kryptonButton4.ToolTipValues.EnableToolTips = true;
+            this.kryptonButton4.ToolTipValues.Heading = "Apply Theme";
+            this.kryptonButton4.ToolTipValues.Image = global::TestApp.Properties.Resources.Square_Design_32_x_32_New_Green;
+            this.kryptonButton4.Values.Text = "Enable Close Button";
+            this.kryptonButton4.Click += new System.EventHandler(this.kryptonButton4_Click);
             // 
             // kbtnInputBox
             // 
@@ -283,15 +311,21 @@
             // 
             // kryptonTextBox2
             // 
+            this.kryptonTextBox2.AllowButtonSpecToolTips = true;
+            this.kryptonTextBox2.AllowButtonSpecToolTipPriority = true;
+            this.kryptonTextBox2.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny2,
+            this.buttonSpecAny3});
             this.kryptonTextBox2.Hint = "watermark / cue / hint";
-            this.kryptonTextBox2.Location = new System.Drawing.Point(25, 107);
+            this.kryptonTextBox2.Location = new System.Drawing.Point(25, 412);
             this.kryptonTextBox2.Name = "kryptonTextBox2";
-            this.kryptonTextBox2.Size = new System.Drawing.Size(191, 23);
+            this.kryptonTextBox2.Size = new System.Drawing.Size(292, 24);
             this.kryptonTextBox2.TabIndex = 19;
             this.kryptonTextBox2.ToolTipValues.Description = "";
             this.kryptonTextBox2.ToolTipValues.EnableToolTips = true;
-            this.kryptonTextBox2.ToolTipValues.Heading = "Water mark will dissapear once text is entered";
+            this.kryptonTextBox2.ToolTipValues.Heading = "Water mark will dissapear,\r\nonce text is entered";
             this.kryptonTextBox2.ToolTipValues.Image = null;
+            this.kryptonTextBox2.ToolTipValues.ToolTipPosition.PlacementMode = ComponentFactory.Krypton.Toolkit.PlacementMode.Top;
             this.kryptonTextBox2.ToolTipValues.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitlePanel;
             // 
             // kryptonButton3
@@ -485,31 +519,20 @@
             this.buttonSpecAny1.ToolTipTitle = "Title";
             this.buttonSpecAny1.UniqueName = "8D0C7B51F6A946484D932C2A06451172";
             // 
-            // kryptonButton4
+            // buttonSpecAny2
             // 
-            this.kryptonButton4.Location = new System.Drawing.Point(25, 353);
-            this.kryptonButton4.Name = "kryptonButton4";
-            this.kryptonButton4.Size = new System.Drawing.Size(143, 53);
-            this.kryptonButton4.TabIndex = 33;
-            this.kryptonButton4.ToolTipValues.Description = "Applies the user selected theme";
-            this.kryptonButton4.ToolTipValues.EnableToolTips = true;
-            this.kryptonButton4.ToolTipValues.Heading = "Apply Theme";
-            this.kryptonButton4.ToolTipValues.Image = global::TestApp.Properties.Resources.Square_Design_32_x_32_New_Green;
-            this.kryptonButton4.Values.Text = "Enable Close Button";
-            this.kryptonButton4.Click += new System.EventHandler(this.kryptonButton4_Click);
+            this.buttonSpecAny2.Text = "BtnText";
+            this.buttonSpecAny2.ToolTipBody = "Extra Button Tooltip";
+            this.buttonSpecAny2.ToolTipTitle = "Extra Button Tooltip";
+            this.buttonSpecAny2.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Context;
+            this.buttonSpecAny2.UniqueName = "b31e2fa168924503b9b699d451d9a967";
             // 
-            // kryptonButton5
+            // buttonSpecAny3
             // 
-            this.kryptonButton5.Location = new System.Drawing.Point(174, 353);
-            this.kryptonButton5.Name = "kryptonButton5";
-            this.kryptonButton5.Size = new System.Drawing.Size(143, 53);
-            this.kryptonButton5.TabIndex = 34;
-            this.kryptonButton5.ToolTipValues.Description = "Applies the user selected theme";
-            this.kryptonButton5.ToolTipValues.EnableToolTips = true;
-            this.kryptonButton5.ToolTipValues.Heading = "Apply Theme";
-            this.kryptonButton5.ToolTipValues.Image = global::TestApp.Properties.Resources.Square_Design_32_x_32_New_Green;
-            this.kryptonButton5.Values.Text = "Disable Close Button";
-            this.kryptonButton5.Click += new System.EventHandler(this.kryptonButton5_Click);
+            this.buttonSpecAny3.Text = "JustText";
+            this.buttonSpecAny3.ToolTipBody = "just Text";
+            this.buttonSpecAny3.ToolTipTitle = "Just Text";
+            this.buttonSpecAny3.UniqueName = "959de51c036547ccb905541d2a032b3a";
             // 
             // Form1
             // 
@@ -588,6 +611,8 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton kbtnInputBox;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton4;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton5;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny2;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny3;
     }
 }
 

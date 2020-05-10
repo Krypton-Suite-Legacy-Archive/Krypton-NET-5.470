@@ -119,7 +119,13 @@ the user defined button specifications. If you set this boolean property to
 *True* then it will turn on tool tips for those button specs. Use the
 *ButtonSpec.TooltipText* property in order to define the string you would like
 to appear inside the displayed tool tip.  
-  
+
+**AllowButtonSpecTooltipPriority**
+If the parent Item has tooltips, and the button spec has tooltips, then
+the default is show both when hovering over the buttonspec. This can be disabled 
+by setting `AllowButtonSpecTooltipPriority` to `true`, so that only 1 tooltip is
+displayed when hovering over any part of the control.
+
 **ButtonSpecs**  
 Use this collection property to define any number of extra buttons that you
 would like to appear at the near or far edges of the control.

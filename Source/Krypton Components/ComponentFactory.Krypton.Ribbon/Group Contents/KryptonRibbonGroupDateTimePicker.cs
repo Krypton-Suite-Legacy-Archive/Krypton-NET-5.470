@@ -387,6 +387,19 @@ namespace ComponentFactory.Krypton.Ribbon
             set => DateTimePicker.AllowButtonSpecToolTips = value;
         }
 
+
+        /// <summary>
+        /// Gets and sets a value indicating if button spec tooltips should remove the parent tooltip.
+        /// </summary>
+        [Category("Visuals")]
+        [Description("Should button spec tooltips should remove the parent tooltip")]
+        [DefaultValue(false)]
+        public bool AllowButtonSpecToolTipPriority
+        {
+            get => DateTimePicker.AllowButtonSpecToolTipPriority;
+            set => DateTimePicker.AllowButtonSpecToolTipPriority = value;
+        }
+
         /// <summary>
         /// Gets the collection of button specifications.
         /// </summary>
@@ -895,7 +908,7 @@ namespace ComponentFactory.Krypton.Ribbon
         /// <param name="needPaint">Delegate for notifying changes in display.</param>
         /// <returns>ViewBase derived instance.</returns>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override ViewBase CreateView(KryptonRibbon ribbon, 
+        public override ViewBase CreateView(KryptonRibbon ribbon,
                                             NeedPaintHandler needPaint)
         {
             return new ViewDrawRibbonGroupDateTimePicker(ribbon, this, needPaint);

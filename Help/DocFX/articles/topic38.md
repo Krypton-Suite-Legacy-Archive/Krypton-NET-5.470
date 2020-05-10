@@ -86,7 +86,8 @@ the user defined button specifications. If you set this boolean property to
 *True* then it will turn on tool tips for those button specs. Use the
 *ButtonSpec.TooltipText* property in order to define the string you would like
 to appear inside the displayed tool tip.  
-  
+
+
 **ButtonSpecs**  
 You can add buttons to the caption area by modifying the *ButtonSpecs*
 collection exposed by the *KryptonForm*. Each *ButtonSpec* entry in the
